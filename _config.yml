@@ -1,3 +1,13 @@
-name: Your New Jekyll Site
+name: GoCD
 markdown: redcarpet
 pygments: true
+navigation:
+- text: Contribute
+  url: /contribute/
+  layout: default
+- text: Features
+  url: /features/
+  layout: default
+- text: Contact Us
+  url: /contact-us/
+  layout: default

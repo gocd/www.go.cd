@@ -54,6 +54,33 @@ a:visited { color: #a0a; }
 /* Site
 /*
 /*****************************************************************************/
+.navigation{
+  float: right;
+}
+
+.navigation li{
+  float: left;
+  list-style: none;
+}
+
+.navigation a {
+  color: #aaa;
+  margin-left: 1em;
+}
+
+.navigation a:hover {
+  color: #000;
+}
+
+.navigation li.current a{
+    color: #000;
+}
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
 
 .site {
   font-size: 115%;
@@ -78,15 +105,6 @@ a:visited { color: #a0a; }
 }
 
 .title a:hover {
-  color: #000;
-}
-
-.header a.extra {
-  color: #aaa;
-  margin-left: 1em;
-}
-
-.header a.extra:hover {
   color: #000;
 }
 
