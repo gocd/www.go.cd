@@ -1,13 +1,23 @@
 name: GoCD
 markdown: redcarpet
+permalink: /documentation/:title.html
 pygments: true
 navigation:
-- text: Contribute
-  url: /contribute/
+# - text: About
+#   url: /about/
+#   layout: default
+# - text: Getting Started
+#   url: /getting-started/
+#   layout: default
+# - text: Why CD with Go?
+#   url: /why-go/
+#   layout: default
+- text: Download
+  url: /download/
   layout: default
-- text: Features
-  url: /features/
+- text: Community
+  url: /community/
   layout: default
-- text: Contact Us
-  url: /contact-us/
+- text: Documentation
+  url: http://www.thoughtworks.com/products/docs/go/13.4/help/
   layout: default
