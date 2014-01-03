@@ -1,0 +1,315 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 12px 'Open Sans', sans-serif;
+  border-top: 5px solid #2B9EA6;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-weight: 300;
+}
+h1 { 
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p { 
+  margin: 1em 0; 
+}
+
+a         { color: #000; }
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
+ul{
+  padding-left: 15px;
+}
+
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
+.posts {
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+
+.posts li {
+  line-height: 1.75em;
+}
+
+.posts span {
+  color: #aaa;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 80%;
+}
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
+.navigation{
+  float: right;
+  margin-bottom: 0;
+  margin-top: 35px;
+}
+
+.navigation li{
+  float: left;
+  list-style: none;
+}
+
+.navigation a {
+  color: #2B9EA6;
+  font-size: 1.2em;
+  margin-left: 1em;
+}
+
+.navigation a:hover {
+  color: #000;
+}
+
+.navigation li.current a{
+    color: #000;
+}
+
+.page-title{
+  margin-top: 0;
+}
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
+.full-width {
+    clear: both;
+    background: #FFF;
+    overflow: hidden;
+    width: 100%;
+    padding: 30px 0;
+    padding-top: 0;
+    border-right: 0px;
+    border-left: 0px;
+}
+
+.community {
+  color: #43413E;
+  font-size: 1.125em;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 1.5em 0;
+}
+
+.community h4 {
+  font-weight: 700;
+  display: inline-block; 
+}
+
+.community ul {
+  display: inline; 
+}
+
+.community li {
+  list-style: none;
+  display: inline-block; 
+}
+
+.community a {
+  margin: 0 1.5em;
+  color: #2B9EA6;
+  text-decoration: none; 
+}
+
+.community a:hover {
+  color: #000;
+  text-decoration: underline; 
+}
+
+.link-release, .link-ml, .link-bugs {
+  display: inline-block;
+  padding-left: 44px;
+  height: 36px;
+  line-height: 36px;
+  background: url(../img/icon-release.png) no-repeat 0 50%; }
+
+.link-ml {
+  background: url(../img/icon-ml.png) no-repeat 0 50%; }
+
+.link-bugs {
+  background: url(../img/icon-bugs.png) no-repeat 0 50%; }
+
+.btn-big {
+  color: white;
+  text-decoration: none;
+  height: 45px;
+  padding: 5px 30px;
+  cursor: pointer;
+  width: 150px;
+  border-radius: 4px;
+  font-size: 20px;
+  display: inline-block;
+  line-height: 40px;
+  background: #2B9EA6;
+  border: 2px solid #2B9EA6;
+}
+
+.btn-big:hover {
+  background: #333;
+  color: white;
+}
+
+.contribute{
+  border: 2px solid #2B9EA6;
+  background: #efefef;
+  color: #333
+}
+
+
+.header{
+  margin: 25px auto;
+  margin-top: 0;
+  padding: 0;
+}
+
+.header a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.header .container-12{
+  overflow: auto;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.sub-tagline{
+  color: #aaa;
+  font-weight: lighter;
+}
+
+.banner{
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
+.download-panel{
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.download-panel .or{
+  padding: 5px;
+  font-size: 1.2em;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.download-panel .btn-big{
+  vertical-align: top;
+}
+
+.download-panel .download div{
+  line-height: initial;
+}
+
+.smaller{
+  font-size: 0.5em;
+}
+
+
+.title {
+  float: left;
+  line-height: inherit;
+  font-size: 60px;
+  margin:0;
+  display: inline-block;
+}
+
+.go-users{
+  background: #eee;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.title .logo{
+  vertical-align: top;
+  margin-top: 20px;
+}
+
+.meta {
+  color: #aaa;
+}
+
+.features{
+  margin-top: 30px;
+}
+
+/*****************************************************************************/
+/*
+/* Footer
+/*
+/*****************************************************************************/
+
+footer {
+  font-size: 80%;
+  color: #666;
+  border-top: 4px solid #eee;
+  overflow: hidden;
+}
+
+footer .contact {
+  float: left;
+}
+
+footer .contact a {
+  color: #8085C1;
+}
