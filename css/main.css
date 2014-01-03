@@ -178,13 +178,16 @@ ul{
   padding-left: 44px;
   height: 36px;
   line-height: 36px;
-  background: url(../img/icon-release.png) no-repeat 0 50%; }
+  /*background: url(../img/icon-release.png) no-repeat 0 50%;*/
+   }
 
 .link-ml {
-  background: url(../img/icon-ml.png) no-repeat 0 50%; }
+  /*background: url(../img/icon-ml.png) no-repeat 0 50%; */
+  }
 
 .link-bugs {
-  background: url(../img/icon-bugs.png) no-repeat 0 50%; }
+  /*background: url(../img/icon-bugs.png) no-repeat 0 50%; */
+  }
 
 .btn-big {
   color: white;
