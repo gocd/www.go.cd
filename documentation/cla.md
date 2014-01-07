@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Contributor License Agreement
+date:   2014-01-07
+categories: documentation
 ---
 
 ## What's this all about then?
