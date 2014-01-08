@@ -8,10 +8,9 @@
 
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-        <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
 
         <!-- Custom CSS -->
-        
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
         <link rel="stylesheet" href="/css/rwdgrid.css">
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/markdown.css">  
@@ -34,7 +33,7 @@
         </a> -->
         <div class="full-width  header">
           <div class="container-12">
-            <h1 class="title"><a href="/"> <img class="logo" src="/images/logo.png" alt="Go Open Source - Continuous Delivery"> </a></h1>
+            <h1 class="title"><a href="/stage.html"> <img class="logo" src="/images/logo.png" alt="Go Open Source - Continuous Delivery"> </a></h1>
             <ul class="navigation">
                 {% for link in site.navigation %}
                   {% assign url = page.url|remove:'index.html' %}
@@ -50,8 +49,10 @@
             {{ page.title }}
         </h2>  
 
-        <div class="full-width">   
-          {{ content }}
+        <div class="full-width"> 
+          <div class="container-12">
+              {{ content }}    
+          </div>  
         </div>
 
         <footer class="container-12">
