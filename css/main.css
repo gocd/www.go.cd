@@ -320,17 +320,12 @@ ul{
 /*
 /*****************************************************************************/
 
-footer {
+.footer {
   font-size: 80%;
   color: #666;
+  padding-top: 10px;
+  margin-bottom: 40px;
+  margin-top: 40px;
   border-top: 4px solid #eee;
   overflow: hidden;
-}
-
-footer .contact {
-  float: left;
-}
-
-footer .contact a {
-  color: #8085C1;
 }
