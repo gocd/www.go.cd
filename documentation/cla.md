@@ -6,7 +6,7 @@ date:   2014-01-07
 
 ### What's this all about then?
 
-By agreeing to this Contributor License Agreement (CLA), you are saying that you give ThoughtWorks (a major sponsor of Frank development) permission to distribute your contributions (or the contributions of your organization's employees) under the terms of ThoughtWorks' choice.  You are also promising that you have the necessary rights to give ThoughtWorks this permission.  In return for this, ThoughtWorks is promising to you that if it distributes your contributions, ThoughtWorks will distribute them under an OSI-approved open source license.  The CLA also says that you do not make any warranties or have any support obligations regarding your contributions.
+By agreeing to this Contributor License Agreement (CLA), you are saying that you give ThoughtWorks (a major sponsor of Go development) permission to distribute your contributions (or the contributions of your organization's employees) under the terms of ThoughtWorks' choice.  You are also promising that you have the necessary rights to give ThoughtWorks this permission.  In return for this, ThoughtWorks is promising to you that if it distributes your contributions, ThoughtWorks will distribute them under an OSI-approved open source license.  The CLA also says that you do not make any warranties or have any support obligations regarding your contributions.
 
 ### The legal stuff
 
@@ -106,8 +106,6 @@ creation, You may submit it to ThoughtWorks separately from any Contribution, id
 complete details of its source and of any license or other restriction (including, but not limited
 to, related patents, trademarks, and license agreements) of which you are personally aware, and
 conspicuously marking the work as "Submitted on behalf of a third-party: [named here]".
-
-2
 
 8. ThoughtWorks’ Obligation. In return for the grants and representations You have made in
 this Agreement, ThoughtWorks agrees that if ThoughtWorks distributes your Contributions,
