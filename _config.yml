@@ -3,9 +3,6 @@ markdown: redcarpet
 permalink: /documentation/:title.html
 pygments: false
 navigation:
-- text: About Us
-  url: /about/
-  layout: default
 - text: Why OSS?
   url: /why-oss/
   layout: default
@@ -16,5 +13,8 @@ navigation:
   url: /community/
   layout: default
 - text: Documentation
-  url: http://www.thoughtworks.com/products/docs/go/13.4/help/
+  url: /documentation/
+  layout: default
+- text: About Us
+  url: /about/
   layout: default
