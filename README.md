@@ -1,4 +1,4 @@
-TempPage
+README for website
 ========
 
-Temporary repo for pages
+This repo controls the website at gocd.github.io
