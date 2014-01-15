@@ -3,6 +3,12 @@ markdown: redcarpet
 permalink: /documentation/:title.html
 pygments: false
 navigation:
+- text: About Us
+  url: /about/
+  layout: default
+- text: Why OSS?
+  url: /why-oss/
+  layout: default
 - text: Download
   url: /download/
   layout: default
