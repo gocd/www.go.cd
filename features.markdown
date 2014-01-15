@@ -1,40 +1,29 @@
 ---
-layout: home
-title: Go - Continuous Delivery software
+layout: default
+title: Go Features - Fail fast to learn fast
 ---
 
 <div class="fullwidth">
-<div class="container-12 features1" >
-	<div class="grid-4">
-  		<h3 class="features__title ">Build Pipelines</h3>
-		<h4 class="features__second_title">Get every team on one tool</h4>
-		<p>
-			laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<div class="container-12 features" >
+		<div class="grid-5">
+			<h3 class="features__title ">Build Pipelines</h3>
+			<p>A pipeline allows you to break down a complex build into a sequence of simple stages for fast feedback, exhaustive validation and continuous delivery.</p>
+			<a href="http://www.thoughtworks.com/products/docs/go/current/help/concepts_in_go.html" target="_blank">More information</a>
+		</div>
+		<div class="grid-4">
+			<img src="/images/pipeline.png">
+		</div>
 	</div>
-	<div class="grid-6">
-  		<img src="/images/go_slide_fail_01.jpg">
-	</div>
-</div>
 </div>
 
 <div class="full-width">
-	<div class="container-12 features2" >
-		<div class="grid-4">
-			<h3 class="features__title ">Dependency Graph</h3>
-			<h4 class="features__second_title"> Get every team on one tool</h4>
-			<p>
-				laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-			</p>
+	<div class="container-12 features" >
+		<div class="grid-5">
+			<h3 class="features__title ">Value Stream Map</h3>
+			<p>Go's Value Stream Map helps you visualize your CI/CD workflow. With a single click, it allows you to trace a commit from when it is checked in up to when it is deployed.</p>
+			<a href="http://www.thoughtworks.com/products/docs/go/current/help/value_stream_map.html" target="_blank">More information</a>
 		</div>
-	<div class="grid-6">
-  		<img src="/images/go_slide_fail_01.jpg">
-	</div>
+		<div class="grid-4">
+		</div>
 	</div>
 </div>
