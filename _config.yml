@@ -3,8 +3,8 @@ markdown: redcarpet
 permalink: /documentation/:title.html
 pygments: false
 navigation:
-- text: Why OSS?
-  url: /why-oss/
+- text: Go Features
+  url: /features.html
   layout: default
 - text: Download
   url: /download/
@@ -15,6 +15,6 @@ navigation:
 - text: Documentation
   url: /documentation/
   layout: default
-- text: About Us
-  url: /about/
+- text: Contribute
+  url: /contribute/
   layout: default
