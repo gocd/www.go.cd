@@ -8,7 +8,7 @@ you. We're currently working hard on making the source code available for Go, an
 
 If you would like read up in advance, get to know more about using the RESFful API or other features to extend Go without modifying the source code, please see our [documentation] (/documentation/).
 
-If you're planning to contribute any code or content, we will have to ask you to [sign our Contributor License Agreement] (../documentation/cla.html) before we can accept your pull request.
+If you're planning to contribute any code or content, we will have to ask you to [sign our Contributor License Agreement] (../contribute/cla.html) before we can accept your pull request.
 
 If you're new to contributing to open source software, please see [this excellent guide] (http://contribute.jquery.org/open-source/) by the jQuery foundation.
 
