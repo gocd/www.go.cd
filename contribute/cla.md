@@ -131,9 +131,11 @@ Signed: /Rebecca Parsons/
 
 </p>
 
+<p><a href="http://www.thoughtworks.com/privacy-policy">ThoughtWorks Privacy Policy</a></p>
+
 ## Let's do this!
 If you're OK with the above then fill in the form below. 
 
-<p><a href="http://www.thoughtworks.com/privacy-policy">ThoughtWorks Privacy Policy</a></p>
+
 
 <iframe src="https://docs.google.com/forms/d/1ihiF6cmzWYR5aFlAFC0VVM12kqFu92qQryluoT1VaZk/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
