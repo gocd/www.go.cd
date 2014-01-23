@@ -3,7 +3,7 @@ markdown: redcarpet
 permalink: /documentation/:title.html
 pygments: false
 navigation:
-- text: Go Features
+- text: Features
   url: /features.html
   layout: default
 - text: Download
