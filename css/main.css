@@ -259,7 +259,7 @@ ul{
   margin-left: auto;
   margin-right: auto;
   display: block;
-  padding: 25px;
+  padding-top: 30px;
 }
 
 #coming-soon-sticker{
@@ -271,7 +271,8 @@ ul{
   text-align: center;
   margin: 0 auto;
   position: relative;
-  margin-bottom: 60px;
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
 .download-panel .or{
   padding: 5px;
