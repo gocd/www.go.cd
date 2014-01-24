@@ -12,9 +12,8 @@ navigation:
 - text: Resources
   url: /community/
   layout: default
-- text: Documentation
-  url: /documentation/
-  layout: default
 - text: Contribute
   url: /contribute/
   layout: default
+  text: Issue Tracker
+  url: https://github.com/GoCD/GoCD/issues?state=open
