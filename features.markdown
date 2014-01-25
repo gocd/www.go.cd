@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Features
+title: Features & Benefits
 ---
 
 <div class="full-width">
 	<div class="container-12 features" >
 		<div class="grid-5">
-			<h3 class="features__title">Workflow modeling</h3>
-			<p>Go's tasks, stages, and pipelines are the building blocks with which you model your deployment pipeline. Fast feedback, self-service, and 1-click deployments are easily modeled. Parallel and sequential execution works exactly as you would expect. <a href="http://www.thoughtworks.com/insights/blog/model-everything-fail-fast">Here's a glimpse</a> at what's possible to model in Go.</p>
+			<h3 class="features__title">Model complex workflows</h3>
+			<p>Go's <span class="feature_word">pipelines</span> are the building blocks with which you model your deployment pipeline. With Go, you can easily configure dependencies, fast feedback and on-demand deployment. Parallel and sequential execution work exactly as you would expect. <a href="http://www.thoughtworks.com/insights/blog/model-everything-fail-fast">Here's a glimpse</a> at what's possible to model in Go.</p>
 		</div>
 		<div class="grid-4">
 			<img src="/images/pipeline_graphic.png">
@@ -18,8 +18,8 @@ title: Features
 <div class="full-width">
 	<div class="container-12 features" >
 		<div class="grid-5">
-			<h3 class="features__title">Artifact Promotion</h3>
-			<p>Any particular pipeline instance is anchored to a particular changeset. And Go makes it easy to pass once-built binaries between stages. With Go, you know exactly what's being deployed and that the binary has been tested.</p>
+			<h3 class="features__title">Promote trusted artifacts</h3>
+			<p>Any particular pipeline instance is anchored to a particular changeset. And Go makes it easy to <span class="feature_word">pass once-built binaries</span> between stages. You know exactly what's being deployed and that the binary has been tested.</p>
 		</div>
 		<div class="grid-4">
 			<img src="/images/pipeline_graphic.png">
@@ -30,8 +30,8 @@ title: Features
 <div class="full-width">
 	<div class="container-12 features" >
 		<div class="grid-5">
-			<h3 class="features__title">Value Stream Map</h3>
-			<p>It sounds cliche, but Go's real power is in the visibility it provides over your end-to-end workflow. The Value Stream Map allows you to follow a change from commit to deploy with a glance. And when things go wrong, it is easy to see both the upstream cause and the downstream effects.</p>
+			<h3 class="features__title">See how things <i>really</i> work</h3>
+			<p>It sounds cliche, but Go's real power is in the visibility it provides over your end-to-end workflow. The <span class="feature_word">Value Stream Map</span> allows you to follow a change from commit to deploy with a glance. And when things go wrong, it is easy to see both the upstream cause and the downstream effects.</p>
 		</div>
 		<div class="grid-4">
 			<img src="/images/pipeline_graphic.png">
@@ -42,8 +42,8 @@ title: Features
 <div class="full-width">
 	<div class="container-12 features" >
 		<div class="grid-5">
-			<h3 class="features__title">Self-Service</h3>
-			<p>Continuous Delivery empowers a QA team. With code always ready to deploy, testers can manage their own environments, deploying whatever version they like, whenever they like. Go's manual triggers enable this. And, if necessary, it's securable and auditable.</p>
+			<h3 class="features__title">Deploy any version, any time</h3>
+			<p>Go's <span class="feature_word">manual triggers</span> allow you to deploy any known good version of your application to wherever you like. Beyond reliable pushes to production, this empowers QA teams with self-service environments. And, if necessary, it's securable and auditable.</p>
 		</div>
 		<div class="grid-4">
 			<img src="/images/pipeline_graphic.png">
@@ -54,8 +54,8 @@ title: Features
 <div class="full-width">
 	<div class="container-12 features" >
 		<div class="grid-5">
-			<h3 class="features__title">Test Execution and Reporting</h3>
-			<p>Verification is a key piece of any deployment pipeline. Go will execute tests written in most any language or framework. Go's agent grid provides parallel and cross-platform execution. Go's test reporting will tell you in exactly which changeset and on which platform a test started breaking, which comes in extremely handy when fixing a fantastically broken build.</p>
+			<h3 class="features__title">Manage complex dependencies</h3>
+			<p>One of the trickier aspects of modeling workflows is dependency management in Go is when a pipeline has multiple upstream dependencies or has multiple downstream dependents. With it's <span class="feature_word">fan-in/fan-out dependency management</span>, Go always tries to do the "right thing," avoiding spurious builds and unverified configurations. Fan-in/fan-out is non-trivial and you should read more about it <a href="http://support.thoughtworks.com/entries/22229668-Go-s-Dependency-Management">here</a></p>
 		</div>
 		<div class="grid-4">
 			<img src="/images/pipeline_graphic.png">
@@ -66,8 +66,8 @@ title: Features
 <div class="full-width">
 	<div class="container-12 features" >
 		<div class="grid-5">
-			<h3 class="features__title">Compare Builds</h3>
-			<p>Go's compare feature can provide a simple bill of materials for any deployment. Perhaps more powerful is it's ability to compare the contents, both files and commit messages, across any two arbitrary builds. This is invaluable when troubleshooting a broken pipeline.</p>
+			<h3 class="features__title">Run and grok your tests</h3>
+			<p>Verification is a key piece of any deployment pipeline. Go will <span class="feature_word">execute tests</span> written in most any language or framework. Go's agent grid provides parallel and cross-platform execution. Go's <span class="feature_word">test reporting</span> will tell you in exactly which changeset and on which platform a test started breaking, which comes in extremely handy when fixing a fantastically broken build.</p>
 		</div>
 		<div class="grid-4">
 			<img src="/images/pipeline_graphic.png">
@@ -78,8 +78,22 @@ title: Features
 <div class="full-width">
 	<div class="container-12 features" >
 		<div class="grid-5">
-			<h3 class="features__title">Fan-in/Fan-out Pipeline Dependency Management</h3>
-			<p>One of the trickier aspects of dependency management in Go is when a pipeline has multiple upstream dependencies or has multiple downstream dependents. With it's fan-in/fan-out dependency management, Go always tries to do the "right thing," avoiding spurious builds and unverified configurations. Fan-in/fan-out is non-trivial and you should read more about it <a href="http://support.thoughtworks.com/entries/22229668-Go-s-Dependency-Management">here</a></p>
+			<h3 class="features__title">Compare builds</h3>
+			<p>Go's <span class="feature_word">compare builds</span> feature can provide a simple bill of materials for any deployment. Perhaps more powerful is it's ability to compare the contents, both files and commit messages, across any two arbitrary builds. This is invaluable when troubleshooting a broken pipeline.</p>
+		</div>
+		<div class="grid-4">
+			<img src="/images/pipeline_graphic.png">
+		</div>
+	</div>
+</div>
+
+
+
+<div class="full-width">
+	<div class="container-12 features" >
+		<div class="grid-5">
+			<h3 class="features__title">Eliminate bottlenecks</h3>
+			<p>Go's <span class="feature_word">agent grid</span> eliminates bottlenecks, providing trivial parallel execution across pipelines, platforms, versions, branches, etc.</p>
 		</div>
 		<div class="grid-4">
 			<img src="/images/pipeline_graphic.png">
@@ -90,8 +104,8 @@ title: Features
 <div class="full-width">
 	<div class="container-12 features" >
 		<div class="grid-5">
-			<h3 class="features__title">Agent Grid</h3>
-			<p>Go's agents run remotely and in a grid. This eliminates bottlenecks, providing trivial parallel execution across platforms, versions, branches, etc.</p>
+			<h3 class="features__title">Keep configuration tidy</h3>
+			<p>Easily re-use pipeline configurations via Go's <span class="feature_word">template system</span>. This makes managing pipelines for versions and branches easy as pie.</p>
 		</div>
 		<div class="grid-4">
 			<img src="/images/pipeline_graphic.png">
@@ -102,20 +116,8 @@ title: Features
 <div class="full-width">
 	<div class="container-12 features" >
 		<div class="grid-5">
-			<h3 class="features__title">Configuration Templates</h3>
-			<p>Easily re-use pipeline layouts via Go's configuration templates. This makes managing pipelines for versions and branches easy.</p>
-		</div>
-		<div class="grid-4">
-			<img src="/images/pipeline_graphic.png">
-		</div>
-	</div>
-</div>
-
-<div class="full-width">
-	<div class="container-12 features" >
-		<div class="grid-5">
-			<h3 class="features__title">Just Enough Permissions</h3>
-			<p>While most enterprise applications go overboard with their permission model, Go seeks to provide just enough. In particular, Go supports auditable stage triggering, i.e., deployment, and can delegate the configuration of pipelines to users without full-blown admin privileges.</p>
+			<h3 class="features__title">Trust your team; be responsible</h3>
+			<p>While most enterprise applications go overboard with their permission model, Go seeks to provide just enough. In particular, Go supports <span class="feature_word">auditable deployment</span> and Go can <span class="feature_word">delegate the configuration of pipelines</span> to users without full-blown admin privileges.</p>
 		</div>
 		<div class="grid-4">
 			<img src="/images/pipeline_graphic.png">
