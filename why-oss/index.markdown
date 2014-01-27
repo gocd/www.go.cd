@@ -5,7 +5,4 @@ date:   2013-12-16 11:23:13
 ---
 
 
-<div class="container-12">
-	Why OSS?
-
-</div>
+Why OSS?
