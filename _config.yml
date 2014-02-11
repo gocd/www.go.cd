@@ -1,6 +1,5 @@
 name: GoCD
 markdown: redcarpet
-permalink: /documentation/:title.html
 pygments: false
 navigation:
 - text: Features
@@ -17,3 +16,6 @@ navigation:
   layout: default
   text: Issue Tracker
   url: https://github.com/GoCD/GoCD/issues?state=open
+- text: Blog
+  layout: default
+  url: /blog.html
