@@ -22,7 +22,7 @@ We've had quite a few questions about the change. Here are a few of them...
 ###Is ThoughtWorks still working on Go?
 
 * **Yes!** The current Go development team at [ThoughtWorks](http://www.thoughtworks.com) is definitely still working to enhance the product as well as help others who may wish to particpate in the new open source program.
-* **ThoughtWorks still provides professional help** There's still a 20+ year old global company providing support to organizations who desire a commercial channel. You can learn more about their offerings at http://www.thoughtworks.com/
+* **ThoughtWorks still provides professional help** There's still a 20+ year old global company providing support to organizations who desire a commercial channel. You can learn more about their offerings on [http://www.thoughtworks.com/products/go-continuous-delivery/](ThoughtWorks' website)
 
 ###How will the project be run?
 
