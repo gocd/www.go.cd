@@ -1,0 +1,62 @@
+---
+layout: post
+title: Why we need to practice CD
+status: public
+type: post
+published: true
+author: Ken Mugrage
+---
+
+For many (perhaps most) people visiting this site, this may be obvious. If you're new to continuous delivery and want
+to know what all the hubbub is about, this post is for you.
+
+At my last job we did a pretty decent job at [continuous integration](http://martinfowler.com/articles/continuousIntegration.html). When a developer would make a change to the codebase,
+a build would run automatically and we would know if it had passed all of the [unit tests](http://en.wikipedia.org/wiki/Unit_testing). The problem was simple; the organization was chock
+full of functional silos. The automation didn't get beyond the development team.
+
+The process (which may look familiar to you) was something like this...
+
+1. Development team worked on code using their own automation until something was "ready" for QA. 
+2. The Development team would upload a file onto a file share where the QA team could download it.
+3. The QA team would download the file to install on their systems, and sometimes they would even get the right file.
+4. The file would fail to install about half the time. 
+5. Someone from the development team would go over to QA, make some changes on their box and the file would install. 
+6. The QA team would finish, put the file on a different fileshare and then IT Operations would download it.
+7. IT Operations wouldn't know about the local change made in QA, so their deployment would fail.
+8. IT Operations would say lots of bad things about Dev, Dev would call IT Ops all sorts of bad names.
+
+repeat.
+
+###Enter the [DevOps](http://en.wikipedia.org/wiki/DevOps) movement and continuous delivery.
+
+Now everything should be automated, all the way from first code commit to production deployment. 
+
+Application Changes...
+
+1. Someone commits code and causes CD system to automatically build and test the change.
+2. If those tests pass, the CD system automatically promotes the code and runs the automated functional tests.
+3. The QA department can look at any "green" build and deploy it to their environment automatically.
+4. The IT Operations department can look at any "green" QA tested build and deploy it to their environment automatically.
+
+Infrastructure Changes...
+
+1. Someone commits code and causes CD system to automatically build and test the change.
+2. If those tests pass, the CD system automatically promotes the code and runs the automated functional tests.
+3. The QA department can look at any "green" build and deploy it to their environment automatically.
+4. The IT Operations department can look at any "green" QA tested build and deploy it to their environment automatically.
+
+Database Changes...
+
+1. Someone commits code and causes CD system to automatically build and test the change.
+2. If those tests pass, the CD system automatically promotes the code and runs the automated functional tests.
+3. The QA department can look at any "green" build and deploy it to their environment automatically.
+4. The IT Operations department can look at any "green" QA tested build and deploy it to their environment automatically.
+
+_(you may notice a pattern here)_
+
+The core idea here is that everything is tested in every environment all the time. If we need to launch a new feature
+we can get it into our customers hands when it's the right time for the business, not when the deployment was finally
+figured out. 
+
+Releases become a non-event, maybe even boring, and that's a good thing.
+
