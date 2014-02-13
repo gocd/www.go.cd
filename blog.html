@@ -1,10 +1,16 @@
 ---
 layout: default
-title: Go Blogs
+title: Blog
 ---
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-	  <p>{{ post.excerpt }}</p>
-    {% endfor %}
-  </ul>
+
+<ul class="posts">
+	{% for post in site.posts %}
+	  <li>
+	  	  <a href="{{ post.url }}"  class="title">{{ post.title }}</a>&nbsp; &nbsp;<span>{{ post.date | date_to_string }}</span>
+	  	  {{ post.excerpt }}
+	  	  <a href="{{ post.url }}">Read more</a>
+	  </li>
+	{% endfor %}
+</ul>
+
+<link rel="stylesheet" type="text/css" href="/css/blog.css">

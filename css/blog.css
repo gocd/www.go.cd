@@ -1,0 +1,42 @@
+.posts{
+	padding-left: 0;
+}
+.posts {
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+
+.posts li {
+  line-height: 1.75em;
+}
+
+.posts span {
+  color: #aaa;
+  font-size: 80%;
+}
+.posts li .title{
+	color: black;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+.posts li{
+	overflow: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.posts li:first-of-type{
+	padding-top: 0;
+}
+.posts li p{
+	margin-bottom: 0;
+	color: #999;
+}
+.post-content .meta {
+	padding-bottom: 20px;
+	border-bottom:1px solid #eee;
+	color: #aaa;
+}
+.blog .page-title{
+	border-bottom: 0 none;
+	margin-bottom: 0;
+}
