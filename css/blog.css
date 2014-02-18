@@ -1,3 +1,15 @@
+.back-arrow{
+	background:url('/images/back-arrow.png') no-repeat 5px 0;
+	margin-left: -30px;
+	display: inline-block;
+	height: 20px;
+	vertical-align: 3px;
+	opacity: 0.5;
+	width: 20px;
+}
+.back-arrow:hover{
+	opacity: 1;
+}
 .posts{
 	padding-left: 0;
 }
