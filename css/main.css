@@ -122,6 +122,10 @@ ul{
   margin-top: 10px;
   border-bottom: 1px solid #EFEFEF;
   padding-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #aaa;
+
 }
 
 /*****************************************************************************/
