@@ -9,7 +9,7 @@ title:  "Go Community Resources"
 
 #### Developer Documentation
 
-- <a href="http://www.thoughtworks.com/products/docs/go/13.4/help/go_api.html" target="_blank">Go API</a> - Documentation on using the RESTful Go API
+- <a href="http://www.thoughtworks.com/products/docs/go/13.4/help/go_api.html" target="_blank">Go APIs</a> - Documentation on using the RESTful Go APIs
 - <a href="https://github.com/GoCD/design-documentation" target="_blank">Go Design Documentation</a> - Documentation describing the development environment, technology stack and architecture of Go. (In progress)
 - <a href="/contribute/cla.html">Contributor License Agreement</a> - If you would like to contribute back to Go you'll need to electronically sign this agreement
 
