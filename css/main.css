@@ -210,9 +210,13 @@ ul {
     font-size: 20px;
     display: inline-block;
     line-height: 40px;
+    height: 65px;
     background: #2B9EA6;
     border: 2px solid #2B9EA6;
     padding: 10px 50px;
+}
+.download.btn-big {
+    line-height: 20px;
 }
 .btn-big:hover {
     text-decoration: none;
@@ -304,7 +308,7 @@ ul {
     text-transform: uppercase;
     color: #999;
 }
-.feature .features__title .number{
+.feature .features__title .number {
     border-radius: 50%;
     font-style: normal;
     color: #FFF;
