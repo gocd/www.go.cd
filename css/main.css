@@ -16,19 +16,6 @@ body {
     line-height: 1.5;
     color: #333;
 }
-.highlight {
-    padding: 10px;
-    clear: both;
-    overflow: auto;
-    background: #FFEDC8;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-}
-p, li {
-    font-family:'Libre Baskerville', serif;
-    line-height: 1.8;
-}
 h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
@@ -315,24 +302,36 @@ ul {
 .feature .features__title {
     margin-top: 0;
     text-transform: uppercase;
-    color: #999;
 }
-.feature .features__title .number {
-    border-radius: 50%;
-    font-style: normal;
-    color: #FFF;
-    background: #999;
-    width: inherit;
-    height: inherit;
-    display: inline-block;
-    padding: 0 15px;
-    margin-right: 10px;
+.feature p{
+    color: #666;
 }
 .feature_word {
     font-weight: bold;
 }
-/*****************************************************************************/
+.highlight {
+    padding: 10px;
+    clear: both;
+    overflow: auto;
+    background: #FFEDC8;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.more-feature{
+    text-align: center;
+}
+.more-feature hr{
+    margin:0;
+    margin-top: -10px;
+}
+.more-feature a{
+    background: white;
+    display: inline-block;
+}
 
+
+/*****************************************************************************/
 /*
 /* Footer
 /*
