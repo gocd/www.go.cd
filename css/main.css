@@ -16,6 +16,15 @@ body {
     line-height: 1.5;
     color: #333;
 }
+.highlight {
+    padding: 10px;
+    clear: both;
+    overflow: auto;
+    background: #FFEDC8;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
 p, li {
     font-family:'Libre Baskerville', serif;
     line-height: 1.8;
