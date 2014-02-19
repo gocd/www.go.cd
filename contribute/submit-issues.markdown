@@ -1,6 +1,6 @@
 ---
 layout: default
-title: How to submit a bug to Go
+title: How to submit an issue to Go
 ---
 
 Bug reports, enhancement requests, constructive comments; these are all example of valuable
