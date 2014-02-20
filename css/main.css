@@ -12,7 +12,7 @@
 }
 body {
     font: 14px'Open Sans', sans-serif;
-    border-top: 5px solid #2B9EA6;
+    border-top: 5px solid #86569A;
     line-height: 1.5;
     color: #333;
 }
@@ -123,10 +123,10 @@ ul {
     color: #000;
 }
 .navigation li.current a {
-    background-color: #2B9EA6;
+    background-color: #86569A;
 }
 .navigation a:hover {
-    background-color: #2B9EA6;
+    background-color: #86569A;
 }
 .navigation li.current a, .navigation li:hover a {
     color: white;
@@ -146,7 +146,10 @@ ul {
 /* Site
 /*
 /*****************************************************************************/
- .full-width {
+ .app-mission {
+    text-align:center;
+}
+.full-width {
     clear: both;
     background: #FFF;
     overflow: hidden;
@@ -177,7 +180,7 @@ ul {
 }
 .community a {
     margin: 0 1.5em;
-    color: #2B9EA6;
+    color: #86569A;
     text-decoration: none;
 }
 .community a:hover {
@@ -207,8 +210,7 @@ ul {
     display: inline-block;
     line-height: 40px;
     height: 65px;
-    background: #2B9EA6;
-    border: 2px solid #2B9EA6;
+    background: #86569A;
     padding: 10px 50px;
 }
 .download.btn-big {
@@ -217,10 +219,9 @@ ul {
 .btn-big:hover {
     text-decoration: none;
     color: white;
-    background: #37B7C0;
+    background: #9662AC;
 }
 .secondary-button {
-    border: 2px solid #2B9EA6;
     background: #ddd;
     color: #333
 }
@@ -292,18 +293,16 @@ ul {
     padding-top: 10px;
     margin-bottom: 30px;
     padding-bottom: 10px;
+    text-align: center;
 }
-.feature div:first-child {
-    text-align: right;
-}
-.feature div:last-child {
-    text-align: left;
+.feature img {
+    max-width: 100%;
 }
 .feature .features__title {
     margin-top: 0;
     text-transform: uppercase;
 }
-.feature p{
+.feature p {
     color: #666;
 }
 .feature_word {
@@ -318,20 +317,72 @@ ul {
     margin-bottom: 10px;
     border-radius: 5px;
 }
-.more-feature{
+.more-feature {
     text-align: center;
 }
-.more-feature hr{
+.more-feature hr {
     margin:0;
     margin-top: -10px;
 }
-.more-feature a{
+.more-feature a {
     background: white;
     display: inline-block;
 }
 
+/*****************************************************************************/
+
+/*
+/* Download
+/*
+/*****************************************************************************/
+.os__logo {
+    background: url('/images/os.png');
+    height: 68px;
+    float: left;
+    width: 68px;
+    display: inline-block;
+    border-radius: 5px;
+}
+.os__logo.windows {
+    background-position: -10px -10px;
+}
+.os__logo.mac {
+    background-position: -10px -249px;
+}
+.os__logo.linux-deb {
+    background-position: -10px -90px;
+}
+.os__logo.linux-rpm {
+    background-position: -10px -90px;
+}
+.os__logo.solaris {
+    background-position: -10px -170px;
+}
+.os__logo.zip {
+    background-position: -10px -330px;
+}
+.os__text{
+    margin-left: 80px;
+}
+.os__text h5{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.os tr td{
+    vertical-align: middle;
+}
+.os tr:first-child td{
+    font-weight: bold;
+}
+.os tr:nth-child(odd) {
+    background: #eee;
+}
+.os tr:first-child td {
+    background: #ddd;
+}
 
 /*****************************************************************************/
+
 /*
 /* Footer
 /*
