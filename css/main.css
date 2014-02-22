@@ -295,6 +295,9 @@ ul {
     padding-bottom: 10px;
     text-align: center;
 }
+.feature:nth-child(odd) .grid-5{
+    float: right;
+}
 .feature img {
     max-width: 100%;
 }
@@ -396,13 +399,31 @@ ul {
     border-top: 4px solid #eee;
     overflow: hidden;
 }
+*, *:before, *:after {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}
+
+/*****************************************************************************/
+
+/*
+/* Media query
+/*
+/*****************************************************************************/
 @media(max-width: 950px) {
     .navigation {
         float: left;
     }
 }
-*, *:before, *:after {
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box
+@media only screen and (max-width: 719px){
+    .page-title{
+        text-align: center;
+        background: #f7f7f7;
+        margin:0;
+        width: 100%;
+        font-size: 30px;
+        padding-top:10px; 
+        margin-bottom: 20px;
+    }
 }
