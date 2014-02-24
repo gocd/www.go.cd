@@ -52,6 +52,9 @@ hr {
 p, pre, blockquote {
     margin:0 0 15px
 }
+blockquote{padding:10px 20px;margin:0 0 20px;border-left:5px solid rgba(102,128,153,0.075)}blockquote p{font-size:17.5px;font-weight:300;line-height:1.25}
+blockquote p:last-child{margin-bottom:0}
+blockquote small{display:block;line-height:1.428571429;color:#999}blockquote small:before{content:'\2014 \00A0'}
 a {
     font-family:'Open Sans', sans-serif;
     -webkit-transition:background-color ease-in-out .15s, color ease-in-out .15s, border-color ease-in-out .15s;
@@ -93,7 +96,7 @@ html[xmlns] .clearfix {
 * html .clearfix {
     height: 1%;
 }
-ul {
+ul,ol{
     padding-left: 15px;
 }
 /*****************************************************************************/
@@ -239,6 +242,7 @@ ul {
 .header a {
     font-weight: bold;
     text-decoration: none;
+    font-size: 14px;
 }
 .sub-tagline {
     color: #aaa;
@@ -353,7 +357,7 @@ ul {
     background-position: -10px -249px;
 }
 .os__logo.linux-deb {
-    background-position: -10px -90px;
+    background-position: -10px -411px;
 }
 .os__logo.linux-rpm {
     background-position: -10px -90px;
@@ -364,6 +368,7 @@ ul {
 .os__logo.zip {
     background-position: -10px -330px;
 }
+
 .os__text{
     margin-left: 80px;
 }

@@ -1,3 +1,17 @@
+.blog{
+	font-size: 16px;
+}
+
+.blog p, li{
+	font-weight: lighter;
+}
+ol{
+	margin-left: 30px;
+	margin-bottom: 15px;
+}
+ol li{
+    padding-left: 5px;
+}
 .back-arrow{
 	background:url('/images/back-arrow.png') no-repeat 5px 0;
 	margin-left: -30px;
@@ -28,7 +42,7 @@
 }
 .posts li .title{
 	color: black;
-	font-weight: bold;
+	font-weight: 400;
 	font-size: 1.5em;
 }
 .posts li{
@@ -51,4 +65,7 @@
 .blog .page-title{
 	border-bottom: 0 none;
 	margin-bottom: 0;
+}
+.blog .highlight{
+	margin-bottom: 20px;
 }

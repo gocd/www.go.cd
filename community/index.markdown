@@ -10,13 +10,13 @@ title:  "Go Community Resources"
 #### Developer Documentation
 
 - <a href="http://www.thoughtworks.com/products/docs/go/13.4/help/go_api.html">Go APIs</a> - Documentation on using the RESTful Go APIs
-- <a href="https://github.com/GoCD/design-documentation">Go Design Documentation</a> - Documentation describing the development environment, technology stack and architecture of Go. (In progress)
+- <a href="https://github.com/GoCD/design-documentation">Go Design Documentation</a> (In progress) - Documentation describing the development environment, technology stack and architecture of Go. 
 - <a href="/contribute/cla.html">Contributor License Agreement</a> - If you would like to contribute back to Go you'll need to electronically sign this agreement
 
 #### Mailing Lists
 
-- <a href="https://groups.google.com/forum/#!forum/go-continuousdelivery">Go Users Google Group</a> - This mailing list is a place for users of Go to discuss and help each other. Developers may participate in the list from time to time, but the primary interactions are between users. 
-- <a href="https://groups.google.com/forum/#!forum/go-continuousdelivery-development>Go Developers Google Group</a> - This mailing list is used for discussions about the development of Go. This list is only for discussion of changes to the source code and related issues. Configuration and support questions should be addressed to the <a href="https://groups.google.com/forum/#!forum/go-continuousdelivery">user group</a>
+- <a href="https://groups.google.com/forum/#!forum/go-cd">Go Users Google Group</a> - This mailing list is a place for users of Go to discuss and help each other. Developers may participate in the list from time to time, but the primary interactions are between users. 
+- <a href="https://groups.google.com/forum/#!forum/go-cd-dev">Go Developers Google Group</a> - This mailing list is used for discussions about the development of Go. This list is only for discussion of changes to the source code and related issues. Configuration and support questions should be addressed to the <a href="https://groups.google.com/forum/#!forum/go-continuousdelivery">user group</a>
 
 
 #### Other Resources
