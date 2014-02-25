@@ -8,16 +8,16 @@ There's a lot that can be done with Go, and a lot of people that want to do even
 we'd love to have you. We're currently working hard on making the source code available for Go, and will update 
 this site as soon as it is.
 
-If you'd like submit issues or enhancement requests, please see [this page](submit-issues.html) for information on how 
+* If you'd like submit issues or enhancement requests, please see [this page](submit-issues.html) for information on how 
 to do that.
 
-If you would like read up in advance, join our mailing lists or get to know more about using the RESFful APIs or other features 
+* If you would like read up in advance, join our mailing lists or get to know more about using the RESFful APIs or other features 
 to extend Go without modifying the source code, please see our [community resources](/community/) section.
 
-If you're planning to contribute any code or content, we will have to ask you to [sign our Contributor License Agreement](/contribute/cla.html) 
+* If you're planning to contribute any code or content, we will have to ask you to [sign our Contributor License Agreement](/contribute/cla.html) 
 before we can accept your pull request. 
 
-If you're new to contributing to open source software, please see [this excellent guide] (http://contribute.jquery.org/open-source/) 
+* If you're new to contributing to open source software, please see [this excellent guide] (http://contribute.jquery.org/open-source/) 
 by the jQuery foundation.
 
 <iframe src="https://docs.google.com/forms/d/11j84gdSHX2SFjVyqZsAh_BgyAuNSMjdMWOMWoWSy5dg/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
