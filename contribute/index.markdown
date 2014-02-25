@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Contributing to Go
+title: Contribute
+subtitle: Contributing to Go
 ---
 
 There's a lot that can be done with Go, and a lot of people that want to do even more. If you'd like to help, 

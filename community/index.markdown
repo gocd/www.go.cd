@@ -1,6 +1,7 @@
 ---
 layout: default
-title:  "Go Community Resources"
+title:  Resources
+subtitle:  "Go Community Resources"
 ---
 
 #### User Documentation

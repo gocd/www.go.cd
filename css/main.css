@@ -52,11 +52,28 @@ hr {
 p, pre, blockquote {
     margin:0 0 15px
 }
-blockquote{padding:10px 20px;margin:0 0 20px;border-left:5px solid rgba(102,128,153,0.075)}blockquote p{font-size:17.5px;font-weight:300;line-height:1.25}
-blockquote p:last-child{margin-bottom:0}
-blockquote small{display:block;line-height:1.428571429;color:#999}blockquote small:before{content:'\2014 \00A0'}
+blockquote {
+    padding:10px 20px;
+    margin:0 0 20px;
+    border-left:5px solid rgba(102, 128, 153, 0.075)
+}
+blockquote p {
+    font-size:17.5px;
+    font-weight:300;
+    line-height:1.25
+}
+blockquote p:last-child {
+    margin-bottom:0
+}
+blockquote small {
+    display:block;
+    line-height:1.428571429;
+    color:#999
+}
+blockquote small:before {
+    content:'\2014 \00A0'
+}
 a {
-    font-family:'Open Sans', sans-serif;
     -webkit-transition:background-color ease-in-out .15s, color ease-in-out .15s, border-color ease-in-out .15s;
     transition:background-color ease-in-out .15s, color ease-in-out .15s, border-color ease-in-out .15s;
     color:#2080df;
@@ -96,7 +113,7 @@ html[xmlns] .clearfix {
 * html .clearfix {
     height: 1%;
 }
-ul,ol{
+ul, ol {
     padding-left: 15px;
 }
 /*****************************************************************************/
@@ -136,12 +153,22 @@ ul,ol{
 }
 .page-title {
     clear: both;
-    margin-top: 10px;
+    margin-top: 10px;    
+    margin-bottom: 20px;
     border-bottom: 1px solid #EFEFEF;
     padding-bottom: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
     color: #aaa;
+}
+.page-title h2{
+    margin-top: 10px;    
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+.page-title h4{
+    margin-top: 0;
+    margin-bottom: 0;
 }
 /*****************************************************************************/
 
@@ -299,7 +326,7 @@ ul,ol{
     padding-bottom: 10px;
     text-align: center;
 }
-.feature:nth-child(odd) .grid-5{
+.feature:nth-child(odd) .grid-5 {
     float: right;
 }
 .feature img {
@@ -335,14 +362,13 @@ ul,ol{
     background: white;
     display: inline-block;
 }
-
 /*****************************************************************************/
 
 /*
 /* Download
 /*
 /*****************************************************************************/
-.os__logo {
+ .os__logo {
     background: url('/images/os.png');
     height: 68px;
     float: left;
@@ -368,18 +394,17 @@ ul,ol{
 .os__logo.zip {
     background-position: -10px -330px;
 }
-
-.os__text{
+.os__text {
     margin-left: 80px;
 }
-.os__text h5{
+.os__text h5 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.os tr td{
+.os tr td {
     vertical-align: middle;
 }
-.os tr:first-child td{
+.os tr:first-child td {
     font-weight: bold;
 }
 .os tr:nth-child(odd) {
@@ -388,7 +413,6 @@ ul,ol{
 .os tr:first-child td {
     background: #ddd;
 }
-
 /*****************************************************************************/
 
 /*
@@ -409,26 +433,25 @@ ul,ol{
     -moz-box-sizing:border-box;
     box-sizing:border-box
 }
-
 /*****************************************************************************/
 
 /*
 /* Media query
 /*
 /*****************************************************************************/
-@media(max-width: 950px) {
+ @media(max-width: 950px) {
     .navigation {
         float: left;
     }
 }
-@media only screen and (max-width: 719px){
-    .page-title{
+@media only screen and (max-width: 719px) {
+    .page-title {
         text-align: center;
         background: #f7f7f7;
         margin:0;
         width: 100%;
         font-size: 30px;
-        padding-top:10px; 
+        padding-top:10px;
         margin-bottom: 20px;
     }
 }

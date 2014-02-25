@@ -15,13 +15,12 @@
     <link rel="stylesheet" href="/css/rwdgrid.css">
     <link rel="stylesheet" href="/css/main.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700' rel='stylesheet' type='text/css'>
 
     <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       
           <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-        <![endif]-->
+     <![endif]-->
 
 </head>
 
@@ -33,9 +32,10 @@
         </div>
     </div>
 
-    <h2 class="container-12 page-title">
-        {{ page.title }}
-    </h2>
+    <hgroup class="container-12 page-title">
+          <h2>{{ page.title }}</h2>
+         <h4>{{ page.subtitle }}</h4>            
+    </hgroup>
 
     <div class="container-12">
         {{ content }}
