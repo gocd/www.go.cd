@@ -4,6 +4,10 @@ title: Contribute
 subtitle: Contributing to Go
 ---
 
+<div class=" highlight" style="margin-top:0;margin-bottom:30px;">
+    We are working on making the Go&trade; source code public. In the meantime, you can <a href="/download/">download</a> and use it for free. Do register with your email address here to get notified. 
+</div>
+
 There's a lot that can be done with Go, and a lot of people that want to do even more. If you'd like to help, 
 we'd love to have you. We're currently working hard on making the source code available for Go, and will update 
 this site as soon as it is.
