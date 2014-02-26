@@ -2,20 +2,20 @@ name: GoCD
 markdown: redcarpet
 pygments: false
 navigation:
-- text: Features
-  url: /features/
+- text: Blog
   layout: default
-- text: Download
-  url: /download/
+  url: /blog.html
+- text: Submit Issue
+  url: /contribute/submit-issues.html
+- text: Contribute
+  url: /contribute/
   layout: default
 - text: Resources
   url: /community/
   layout: default
-- text: Contribute
-  url: /contribute/
+- text: Download
+  url: /download/
   layout: default
-- text: Submit Issue
-  url: /contribute/submit-issues.html
-- text: Blog
+- text: Features
+  url: /features/
   layout: default
-  url: /blog.html

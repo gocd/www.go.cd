@@ -122,51 +122,22 @@ ul, ol {
 /* Site
 /*
 /*****************************************************************************/
- .navigation {
-    float: right;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-top: 40px;
-}
-.navigation li {
-    margin-left: 10px;
-    float: left;
-    list-style: none;
-}
-.navigation a {
-    color: #333;
-    border-radius: 5px;
-    padding: 8px 15px;
-    display: inline-block;
-}
-.navigation a:hover {
-    color: #000;
-}
-.navigation li.current a {
-    background-color: #86569A;
-}
-.navigation a:hover {
-    background-color: #86569A;
-}
-.navigation li.current a, .navigation li:hover a {
-    color: white;
-}
-.page-title {
+ .page-title {
     clear: both;
-    margin-top: 10px;    
+    margin-top: 10px;
     margin-bottom: 20px;
     border-bottom: 1px solid #EFEFEF;
     padding-bottom: 10px;
     color: #aaa;
 }
-.page-title h2{
-    margin-top: 10px;    
+.page-title h2 {
+    margin-top: 10px;
     color: #666;
     font-weight: bold;
     margin-bottom: 0;
     text-transform: uppercase;
 }
-.page-title h4{
+.page-title h4 {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -259,6 +230,15 @@ ul, ol {
     background: #eee;
     color: #333
 }
+/*****************************************************************************/
+
+/*
+/* Header
+/*
+/*****************************************************************************/
+ .logo {
+    margin-left: 0;
+}
 .header {
     margin-top: 0;
     overflow: auto;
@@ -266,10 +246,77 @@ ul, ol {
     border-bottom: 1px solid #EEE;
     padding-bottom: 20px;
 }
+.navigation {
+    overflow: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-top: 10px;
+}
+.navigation li {
+    margin-left: 10px;
+    float: right;
+    list-style: none;
+}
+.navigation a {
+    color: #333;
+    border-radius: 5px;
+    padding: 8px 15px;
+    display: inline-block;
+}
+.navigation a:hover {
+    color: #000;
+}
+.navigation li.current a {
+    background-color: #86569A;
+}
+.navigation a:hover {
+    background-color: #86569A;
+}
+.navigation li.current a, .navigation li:hover a {
+    color: white;
+}
 .header a {
     font-weight: bold;
     text-decoration: none;
     font-size: 14px;
+}
+.header .social-icons {
+    overflow: auto;
+    margin-top: 20px;
+}
+.social-icons-responsive {
+    display: none;
+    float: right;
+}
+.header .social-icons li {
+    list-style: none;
+    float: right;
+}
+.header .social-icons a {
+    background: url('/images/icons-social.png') no-repeat;
+    height: 27px;
+    width: 27px;
+    opacity: 0.6;
+    display: inline-block;
+    margin-left: 10px;
+}
+.header .social-icons a:hover {
+    opacity: 1;
+}
+.header .social-icons a.facebook {
+    background-position: -155px 0;
+}
+.header .social-icons a.twitter {
+    background-position: -115px 2px;
+}
+.header .social-icons a.googlegroup {
+    background-position:-39px 0;
+}
+.header .social-icons a.irc {
+    background-position:-78px 0;
+}
+.header .social-icons a.github {
+    background-position: -2px 0;
 }
 .sub-tagline {
     color: #aaa;
@@ -439,12 +486,20 @@ ul, ol {
 /* Media query
 /*
 /*****************************************************************************/
- @media(max-width: 950px) {
+ @media(max-width: 960px) {
     .navigation {
         float: left;
     }
+    .navigation li {
+        float: left;
+        margin-left: 5px;
+    }
+    .navigation li a {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
 }
-@media only screen and (max-width: 719px) {
+@media only screen and (max-width: 740px) {
     .page-title {
         text-align: center;
         background: #f7f7f7;
@@ -453,5 +508,31 @@ ul, ol {
         font-size: 30px;
         padding-top:10px;
         margin-bottom: 20px;
+    }
+    .social-icons {
+        display: none;
+    }
+    .social-icons-responsive {
+        display:block;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .logo {
+        text-align: center;
+    }
+    .logo h1 {
+        float: none;
+        margin: 0 auto;
+    }
+    .social-icons-responsive {
+        text-align: center;
+        float: none;
+    }
+    .social-icons-responsive li, .header .social-icons li {
+        float: none;
+        display: inline-block;
+    }
+    .download-panel .btn-big {
+        margin-top: 10px;
     }
 }

@@ -1,9 +1,28 @@
- <h1 class="title"><a href="/"> <img class="logo" src="/images/logo-go-home_2014.png" alt="Go Open Source - Continuous Delivery"> </a></h1>
-              <ul class="navigation">
-                  {% for link in site.navigation %}
-                    {% assign url = page.url|remove:'index.html' %}
-                    <li {% if url == link.url %} class="current"{% endif %}>
-                       <a class="extra" href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
-                    </li>
-                  {% endfor %}
-              </ul>
+<div class="container-12">
+	<div class="grid-3 logo">
+		<h1 class="title"><a href="/"> <img class="logo" src="/images/logo-go-home_2014.png" alt="Go Open Source - Continuous Delivery"> </a></h1>
+		<ul class="social-icons social-icons-responsive">
+			<li><a target="_blank" href="https://www.facebook.com/groups/609071602503950/" class="facebook"></a></li>
+			<li><a target="_blank" href="https://github.com/GoCD/GoCD" class="github"></a></li>
+			<li><a target="_blank" href="https://groups.google.com/forum/#!forum/go-cd" class="googlegroup"></a></li>
+			<li><a target="_blank" href="http://webchat.freenode.net/?channels=gocd" class="irc"></a></li>
+		</ul>
+	</div>
+	<div class="grid-9">	
+		<ul class="social-icons">
+			<li><a target="_blank" href="https://www.facebook.com/groups/609071602503950/" class="facebook"></a></li>
+			<li><a target="_blank" href="https://github.com/GoCD/GoCD" class="github"></a></li>
+			<li><a target="_blank" href="https://groups.google.com/forum/#!forum/go-cd" class="googlegroup"></a></li>
+			<li><a target="_blank" href="http://webchat.freenode.net/?channels=gocd" class="irc"></a></li>
+		</ul>
+
+		<ul class="navigation" style="clear:both;">
+		  {% for link in site.navigation %}
+		    {% assign url = page.url|remove:'index.html' %}
+		    <li {% if url == link.url %} class="current"{% endif %}>
+		       <a class="extra" href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
+		    </li>
+		  {% endfor %}
+		</ul>
+	</div>
+</div>
