@@ -1,0 +1,57 @@
+
+/*****************************************************************************/
+
+/*
+/* Media query
+/*
+/*****************************************************************************/
+ @media(max-width: 960px) {
+    .navigation {
+        float: left;
+    }
+    .navigation li {
+        float: left;
+        margin-left: 5px;
+    }
+    .navigation li a {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 715px) {
+    .page-title {
+        text-align: center;
+        background: #f7f7f7;
+        margin:0;
+        width: 100%;
+        font-size: 30px;
+        padding-top:10px;
+        margin-bottom: 20px;
+    }
+    .social-icons {
+        display: none;
+    }
+    .social-icons-responsive {
+        display:block;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .logo {
+        text-align: center;
+    }
+    .logo h1 {
+        float: none;
+        margin: 0 auto;
+    }
+    .social-icons-responsive {
+        text-align: center;
+        float: none;
+    }
+    .social-icons-responsive li, .header .social-icons li {
+        float: none;
+        display: inline-block;
+    }
+    .download-panel .btn-big {
+        margin-top: 10px;
+    }
+}
