@@ -1,13 +1,15 @@
 ---
 layout: post
-title: Go is now open source!
+title: Go is converting to open source!
 status: private
 type: post
 published: true
 author: Ken Mugrage
 ---
 
-On 25 Feb 2014 ThoughtWorks announced that Go is now available under the Apache 2.0 open source license. We're really excited for the next chapter!
+On 25 Feb 2014 ThoughtWorks announced that Go will soon be available under the Apache 2.0 open source license. We're really excited for the next chapter! We're working hard to get the source code updated with license information, public Go servers for building and testing and other things in place. It should be available in the next couple months.
+
+You can download Go and use it for free right now.
 
 We've had quite a few questions about the change. Here are a few of them...
 ###Why the change?
