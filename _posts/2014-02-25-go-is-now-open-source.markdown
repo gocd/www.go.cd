@@ -7,4 +7,4 @@ published: true
 ---
 
 
-<META http-equiv="refresh" content="0;URL=http://0.0.0.0:4000/2014/02/25/go-moving-to-open-source.html">
+<META http-equiv="refresh" content="0;URL=http://go.cd/2014/02/25/go-moving-to-open-source.html">
