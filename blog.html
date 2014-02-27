@@ -5,11 +5,17 @@ title: Blog
 
 <ul class="posts">
 	{% for post in site.posts %}
-	  <li>
-	  	  <a href="{{ post.url }}"  class="title">{{ post.title }}</a>&nbsp; &nbsp;<span>{{ post.date | date_to_string }}</span>
-	  	  {{ post.excerpt }}
-	  	  <a href="{{ post.url }}">Read more</a>
-	  </li>
+
+		 {% unless post.draft %}
+
+			  <li>
+			  	  <a href="{{ post.url }}"  class="title">{{ post.title }}</a>&nbsp; &nbsp;<span>{{ post.date | date_to_string }}</span>
+			  	  {{ post.excerpt | remove: '<meta>'}}
+			  	  <a href="{{ post.url }}">Read more</a>
+			  </li>
+
+		 {% endunless %}
+
 	{% endfor %}
 </ul>
 
