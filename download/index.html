@@ -100,6 +100,6 @@ subtitle: Download Go Server and Go Agent for Free
 </table>
 <script>
     function record_download( OS, Type) {
-        _gaq.push(['_trackEvent','Download', OS, Type]);
+        ga('send', 'event', 'Download', Type, OS);
     } 
 </script>
