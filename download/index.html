@@ -26,9 +26,9 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.exe</span>
             </div>
         </td>
-        <td> <a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342-setup.exe" onclick="record_download('Windows', 'Server')" >Download</a> 
+        <td> <a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342-setup.exe" onclick="record_download('Windows-Server')" >Download</a> 
         </td>
-        <td><a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342-setup.exe" onclick="record_download('Windows', 'Agent');"  >Download</a>	
+        <td><a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342-setup.exe" onclick="record_download('Windows-Agent');"  >Download</a>	
         </td>
     </tr>
     <tr>
@@ -40,9 +40,9 @@ subtitle: Download Go Server and Go Agent for Free
             </div>
 
         </td>
-        <td> <a   href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342-osx.zip" onclick="record_download('Mac', 'Server');" >Download</a> 
+        <td> <a   href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342-osx.zip" onclick="record_download('Mac-Server');" >Download</a> 
         </td>
-        <td><a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342-osx.zip"  onclick="record_download('Mac', 'Agent');"  >Download</a>
+        <td><a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342-osx.zip"  onclick="record_download('Mac-Agent');"  >Download</a>
         </td>
     </tr>
     <tr>
@@ -53,9 +53,9 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.deb</span>
             </div>
         </td>
-        <td> <a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342.deb" onclick="record_download('Linux-deb', 'Server');" >Download</a> 
+        <td> <a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342.deb" onclick="record_download('LinuxDeb-Server');" >Download</a> 
         </td>
-        <td> <a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342.deb" onclick="record_download('Linux-deb', 'Agent');" >Download</a> 
+        <td> <a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342.deb" onclick="record_download('LinuxDeb-Agent');" >Download</a> 
         </td>
     </tr>
     <tr>
@@ -66,9 +66,9 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.noarch.rpm</span>
             </div>
         </td>
-        <td> <a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342.noarch.rpm" onclick="record_download('Linux-rpm', 'Server');" > Download</a> 
+        <td> <a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342.noarch.rpm" onclick="record_download('LinuxRpm-Server');" > Download</a> 
         </td>
-        <td> <a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342.noarch.rpm" onclick="record_download('Linux-rpm', 'Agent');" >Download</a> 
+        <td> <a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342.noarch.rpm" onclick="record_download('LinuxRpm-Agent');" >Download</a> 
         </td>
     </tr>
     <tr>
@@ -79,9 +79,9 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.gz</span>
             </div>
         </td>
-        <td> <a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1.18342-solaris.gz" onclick="record_download('Linux-gz', 'Server');" >Download</a>
+        <td> <a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1.18342-solaris.gz" onclick="record_download('Solaris-Server');" >Download</a>
         </td>
-        <td> <a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1.18342-solaris.gz" onclick="record_download('Linux-gz', 'Agent');" > Download</a>
+        <td> <a href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1.18342-solaris.gz" onclick="record_download('Solaris-Agent');" > Download</a>
         </td>
     </tr>
     <tr>
@@ -92,14 +92,14 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.zip</span>
             </div>
         </td>
-        <td> <a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342.zip" onclick="record_download('Package', 'Server');">Download</a>
+        <td> <a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-server-13.4.1-18342.zip" onclick="record_download('Package-Server');">Download</a>
         </td>
-        <td><a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342.zip" onclick="record_download('Package', 'Agent');">Download</a> 
+        <td><a  href="http://download01.thoughtworks.com/go/13.4.1/ga/go-agent-13.4.1-18342.zip" onclick="record_download('Package-Agent');">Download</a> 
         </td>
     </tr>
 </table>
 <script>
-    function record_download( OS, Type) {
-        ga('send', 'event', 'Download', Type, OS);
+    function record_download( OS) {
+        ga('send', 'event', 'Download', os);
     } 
 </script>
