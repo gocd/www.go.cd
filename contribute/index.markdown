@@ -15,7 +15,7 @@ this site as soon as it is.
 * If you'd like submit issues or enhancement requests, please see [this page](submit-issues.html) for information on how 
 to do that.
 
-* If you would like read up in advance, join our mailing lists or get to know more about using the RESFful APIs or other features 
+* If you would like read up in advance, join our mailing lists or get to know more about using the RESTful APIs or other features 
 to extend Go without modifying the source code, please see our [community resources](/community/) section.
 
 * If you're planning to contribute any code or content, we will have to ask you to [sign our Contributor License Agreement](/contribute/cla.html) 
