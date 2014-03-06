@@ -3,7 +3,7 @@ layout: post
 title: Hello World with Go
 status: public
 type: post
-published: false
+published: true
 author: Ken Mugrage
 ---
 
