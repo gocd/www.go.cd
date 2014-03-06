@@ -7,7 +7,7 @@ published: false
 author: Ken Mugrage
 ---
 
-In a few steps you'll see an example of a simple one stage pipeline in Go. This is definitely not meant to be a definitive guide, just a basic introduction to how Go works. It's definitely a good idea to peruse [the concepts section](http://www.thoughtworks.com/products/docs/go/current/help/concepts_in_go.html) go Go's help to understand some of the terms you'll see.
+In a few steps you'll see an example of a simple one stage pipeline in Go. This is definitely not meant to be a definitive guide, just a basic introduction to how Go works. It's definitely a good idea to peruse [the concepts section](http://www.thoughtworks.com/products/docs/go/current/help/concepts_in_go.html) go Go's help to understand some of the terms you'll see (like pipeline and stage).
 
 *I am assuming you've installed Go Server AND a Go Agent. You need both!* I'm also assuming you have some source code in a version control system that you want to build.
 
