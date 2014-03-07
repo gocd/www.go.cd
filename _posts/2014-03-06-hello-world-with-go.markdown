@@ -29,7 +29,7 @@ Once you've entered your connection data, make sure to click the *Check Connecti
 
 ![](/images/blog/hello-world-with-go/media_1394063327989.png)
 
-Go uses *stages* and *jobs* to manage work. Make sure you check out the help doc linked above for definitions of both. Give your sample step a name, and then choose the *Task Type*. Go knows how to parse build files from Ant, nAnt and Rake, so you'll see those called out specifically in the drop down. If you choose *More* you can provide any command which can be executed from the command line. This could be a shell script, batch file, maven command, chef recipe etc.
+Go uses *stages* and *jobs* to manage work. Make sure you check out the help doc linked above for definitions of both. Give your sample step a name, and then choose the *Task Type*. Go knows how to execute Ant, nAnt and Rake, by default so you'll see those called out specifically in the drop down. If you choose *More* you can provide any command which can be executed from the command line. This could be a shell script, batch file, maven command, chef recipe etc.
 
 
 I have a very simple Java Hello World application that uses Ant. My build file is called *build.xml*, and I want to run the targets *clean* and *all*. You should enter whatever the valid targets are for your software. 
