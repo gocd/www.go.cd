@@ -415,6 +415,15 @@ ul, ol {
 /* Download
 /*
 /*****************************************************************************/
+ .os .download-plus{
+    margin-left: 10px;
+    margin-right: 10px;
+ }
+ .os a{
+    padding: 2px;
+    padding-left: 22px;
+    background: url('/images/download.png') no-repeat 0 2px;
+ }
  .os__logo {
     background: url('/images/os.png');
     height: 68px;
