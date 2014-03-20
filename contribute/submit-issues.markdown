@@ -24,7 +24,7 @@ your report is very important.
 
 + Describe what you were doing when you ran into the issue
 + Describe what you expected to happen
-+ Describe what actaully happened
++ Describe what actually happened
 + Let us know exactly which version of Go you're using (it's on the bottom of every page)
   + By the way, if you're using a very old version it's possible the bug has already been fixed.
   + Also by the way, if you're using a very recent build and not a supported release it's possible you're using some feature that's not done.
