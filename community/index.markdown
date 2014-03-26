@@ -20,6 +20,10 @@ subtitle:  "Go Community Resources"
 - <a href="https://groups.google.com/forum/#!forum/go-cd-dev">Go Developers Google Group</a> - This mailing list is used for discussions about the development of Go. This list is only for discussion of changes to the source code and related issues. Configuration and support questions should be addressed to the <a href="https://groups.google.com/forum/#!forum/go-cd">user group</a>.
 
 
+#### Events
+- <a href="https://skillsmatter.com/meetups/6303-introduction-to-developing-open-source-go">Introduction to developing Open Source Go</a> - Monday, 7th April in London. This meetup is run by <a href="https://skillsmatter.com/groups/500-in-the-brain">Skills Matter</a> In The Brain. Starts at 6:30 PM. <a href="https://skillsmatter.com/meetups/6303-introduction-to-developing-open-source-go">Register</a> for free.
+
+
 #### Other Resources
 - <a href="http://support.thoughtworks.com/categories/20002778-Go-Community-Support">Community page</a> - Hosted by ThoughtWorks. There is a lot of information available here, including tips and tricks, macros and more.
 - <a href="http://www.thoughtworks.com/products/go-continuous-delivery/resources">Webinars</a> - Learning sessions by ThoughtWorks.
