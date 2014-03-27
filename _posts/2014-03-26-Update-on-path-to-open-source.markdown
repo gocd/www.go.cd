@@ -3,7 +3,7 @@ layout: post
 title: Update - The path to open source
 status: public
 type: post
-published: false
+published: true
 author: Ken Mugrage
 ---
 
