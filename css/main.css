@@ -326,9 +326,6 @@ body.blog{
 .header .social-icons a:hover {
     opacity: 1;
 }
-.header .social-icons a.facebook {
-    background-position: -155px 0;
-}
 .header .social-icons a.twitter {
     background-position: -115px 2px;
 }
