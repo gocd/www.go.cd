@@ -116,6 +116,29 @@ html[xmlns] .clearfix {
 ul, ol {
     padding-left: 15px;
 }
+
+/*****************************************************************************/
+
+/*
+/* Annoucement
+/*
+/*****************************************************************************/
+body{
+    margin-top:40px;
+}
+body.blog{
+    margin: 0;
+}
+.announcements{
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    left: 0;   
+}
+.announcements.highlight{
+    background: #FFF6E4;    
+}
 /*****************************************************************************/
 
 /*
@@ -394,7 +417,6 @@ ul, ol {
     clear: both;
     overflow: auto;
     background: #FFEDC8;
-    margin-top: 40px;
     margin-bottom: 10px;
     border-radius: 5px;
 }
