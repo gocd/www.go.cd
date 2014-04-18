@@ -143,9 +143,14 @@ $ git push origin master
 #### Write Tests & Then Code
 
 Understand the feature by reading [user docs](http://www.thoughtworks.com/products/docs/go/current/help/) & [design docs](https://github.com/GoCD/design-documentation).
+
 Debug the flow to make sure you understand the code fully.
-If you are fixing a bug write a failing test first which reproduces the scenario.
-Write code.
+
+Follow [Test Driven Development](http://en.wikipedia.org/wiki/Test-driven_development) (TDD) while you write code. i.e. if you are:
+
+* fixing a bug write a failing test first which reproduces the scenario and then fix the bug.
+* writing a new feature write tests which assert the particular behavior you are expecting in the new feature & then implement it.
+
 
 #### Code conventions
 
@@ -158,14 +163,14 @@ Write code.
 * Each commit should have a commit message that explains very clearly what the commit sets out to achieve (unless this is abundantly clear from the code itself, which is basically only the case for trivial patches).
 Also, when you fix a bug then report which bug you fix. When there are deeper reasons for doing things the way the commit does, then explain these as well. This all is for the reviewers and yourself: the context of the commit is completely clear.
 * Do not mix concerns in commits: have a commit do a single thing. This makes them reviewable 'in isolation'. The purpose of the commit is clear and can be understood easily by the reviewers and yourself.
-* Do not break the build and write tests for any commit: this is very important for bug hunting.
+* Write new tests for any commit: this is very important for bug hunting.
 * Split your work into multiple smaller pieces of work (when possible) and implement each of these pieces in a series of commits.
 * A series of commits should work towards a 'feature' in a clear way and only 'enable' the feature in the last commit of the series.
 * In a series of commits first lay the groundwork and then build on that towards the feature.
 * Do not mix concerns in branches: when you encounter a bug while working on something then create a new branch to fix the bug. If your work depends on the bug being fixed then rebase your work on that new branch.
 
 #### Try not to break the build
-At ThoughtWorks we follow [Test Driven Development](http://en.wikipedia.org/wiki/Test-driven_development). Which means most of the code is covered with tests. When you make a change to the code expect tests to fail!
+On Go we follow TDD. Which means most of the code is covered with tests. When you make a change to the code expect tests to fail!
 
 You will need to make sure your code does not break anything, which means running tests that are around your code. We know this does not guarantee all tests will pass but we expect you to have done this before issuing a pull request.
 
@@ -185,13 +190,16 @@ Some contributors to Go have email notifications from GitHub turned on, but othe
 
 If it's been over a week, and you haven't heard anything, you might want to try and nudge things along. You can use the [developer's group](https://groups.google.com/forum/#!forum/go-cd-dev) mailing list for this. You can also leave another comment on the pull request.
 
-While you're waiting for feedback on your pull request, open up a few other pull requests and give someone else some! I'm sure they'll appreciate it in the same way that you appreciate feedback on your patches.
+While you're waiting for feedback on your pull request, open up a few other pull requests and give someone else some feedback! I'm sure they'll appreciate it in the same way that you appreciate feedback on your patches.
 
 #### Iterate as necessary
 It's entirely possible that the feedback you get will suggest changes. Don't get discouraged: the whole point of contributing to an active open source project is to tap into community knowledge.
 If people are encouraging you to tweak your code, then it's worth making the tweaks and resubmitting.
 
 ## <a name="after-commit-is-merged"></a> After Commit is merged
+
+#### Build
+We build Go using Go! So once your commit is merged relevant pipelines get triggered. You can track them [here](https://build.go.cd/).
 
 #### Spec, Unit test, Integration test failures
 After the commit is merged there might be Spec failures (rails) or Unit / Integration test failures (Java), in which case we will notify you about the failures & revert your commit so that you can fix them and issue a fresh pull request.
