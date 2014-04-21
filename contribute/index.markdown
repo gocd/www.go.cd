@@ -131,6 +131,15 @@ $ git push origin master
 
 #### [Setup Development Environment](https://github.com/GoCD/go-development-environment-setup)
 
+#### Tell us what you are trying to do!
+Before getting started on anything (bug/feature) please do talk to us on [developer's group](https://groups.google.com/forum/#!forum/go-cd-dev).
+This helps everybody to be on the same page, i.e. we know who is working on what allowing us manage the project efficiently.
+It will save you effort if you are trying to do something that is already fixed or cannot be fixed due to some limitation!
+It will also help us help you with the code. We will let you know about things that we think are important. Ex: We might want you to refactor some code as part of this.
+
+#### Make sure there is an [issue](https://github.com/GoCD/GoCD/issues) logged for it.
+When you talk to us about it we will make sure the issue is logged and assigned to you. You should use this issue number in your commit message & pull request comment.
+
 #### Write Tests & Then Code
 
 Understand the feature by reading [user docs](http://www.thoughtworks.com/products/docs/go/current/help/) & [design docs](https://github.com/GoCD/design-documentation).
@@ -142,6 +151,7 @@ Follow [Test Driven Development](http://en.wikipedia.org/wiki/Test-driven_develo
 * fixing a bug write a failing test first which reproduces the scenario and then fix the bug.
 * writing a new feature write tests which assert the particular behavior you are expecting in the new feature & then implement it.
 
+Please use UNIX line endings only.
 
 #### Code conventions
 
@@ -151,6 +161,7 @@ Follow [Test Driven Development](http://en.wikipedia.org/wiki/Test-driven_develo
 
 #### Granularity of change ([credits](http://wiki.eclipse.org/EGit/Contributor_Guide#Granularity_of_Changes))
 * Make small commits, as small as reasonable. This makes them easy to review.
+* Make sure you mention the issue number for the bug / feature that you are coding towards. Commit message format should be: #<issue number> - <short message>
 * Each commit should have a commit message that explains very clearly what the commit sets out to achieve (unless this is abundantly clear from the code itself, which is basically only the case for trivial patches).
 Also, when you fix a bug then report which bug you fix. When there are deeper reasons for doing things the way the commit does, then explain these as well. This all is for the reviewers and yourself: the context of the commit is completely clear.
 * Do not mix concerns in commits: have a commit do a single thing. This makes them reviewable 'in isolation'. The purpose of the commit is clear and can be understood easily by the reviewers and yourself.
@@ -196,7 +207,7 @@ We build Go using Go! So once your commit is merged relevant pipelines get trigg
 After the commit is merged there might be Spec failures (rails) or Unit / Integration test failures (Java), in which case we will notify you about the failures & revert your commit so that you can fix them and issue a fresh pull request.
 
 #### Acceptance test failures
-We have significant amount of acceptance tests that test features end-to-end. If there is acceptance failure which is genuine, again, we will notify you about it.
+We have significant amount of acceptance tests written in [Twist](http://www.thoughtworks.com/products/twist-agile-testing) that test features end-to-end. If there is acceptance failure which is genuine, again, we will notify you about it.
 If its a failure because of change of behavior & tests need to be changed then we will take care of doing that.
 
 #### Update User & Design docs if necessary
