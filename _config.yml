@@ -12,18 +12,15 @@ navigation:
   first-level:
     - text: Why Go
       url: /learn-more/why-go.html
-      icon: icon
     - text: Help Doc
       url: http://www.thoughtworks.com/products/docs/go/14.1/help/
       target: blank
-      icon: icon
 - root: Contribute
   url: #
   icon: icon-star-5
   first-level:
     - text: Guide
       url: /contribute/
-      icon: icon
       second-level:
         - text: Skills needed
           url: /contribute/#skills-needed
@@ -37,25 +34,20 @@ navigation:
           url: /contribute/#after-commit-is-merged
     - text: CLA
       url: /contribute/cla.html
-      icon: icon
     - text: Open Issues
       url: https://github.com/GoCD/GoCD/issues?page=1&state=open
-      icon: icon-github-6 
       target: blank
     - text: Contributors
       url: https://github.com/GoCD/GoCD/graphs/contributors
       target: blank
-      icon: icon
 - root: Community
   url: #
   icon: icon-group
   first-level:
     - text: Events
       url: /community/events.html
-      icon: icon
     - text: Resources
       url: /community/resources.html
-      icon: icon
 - root: Download
   url: /download/
   icon: icon-download
