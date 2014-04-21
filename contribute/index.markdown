@@ -1,19 +1,10 @@
 ---
 layout: default
-title: Contribute
-subtitle: Contributing to Go
+title: Contributor's Guide
+subtitle: All you need to know about contribution
 ---
 
-## Contents
-
-* [Quick Links](#quick-links)
-* [Skills needed](#skills-needed)
-* [Submit Bug](#submit-bug)
-* [Code Contribution Process](#code-contribution-process)
-* [Review Process](#review-process)
-* [After Code is Accepted](#after-commit-is-merged)
-
-### <a name="quick-links"></a> Quick Links
+#### <a name="quick-links"></a> Quick Links
 
 * [Go User Documentation](http://www.thoughtworks.com/products/docs/go/current/help/)
 * [Go User's Group](https://groups.google.com/forum/#!forum/go-cd)
@@ -25,7 +16,7 @@ subtitle: Contributing to Go
 * [Go Design Documentation](https://github.com/GoCD/design-documentation)
 * [www.go.cd website code](https://github.com/GoCD/GoCD.github.io)
 
-## <a name="skills-needed"></a> Skills needed
+### <a name="skills-needed"></a> Skills needed
 
 If you are a developer and know any of the following:
 
@@ -45,7 +36,7 @@ You can also contribute by:
 
 - Helping us improve [user docs](http://www.thoughtworks.com/products/docs/go/current/help/), [design docs](https://github.com/GoCD/design-documentation) etc.
 
-## <a name="submit-bug"></a> Submit Bug
+### <a name="submit-bug"></a> Submit Bug
 
 #### <a name="is-it-already-filed"></a> Check to see if it's already been filed
 We're using [GitHub Issues](https://github.com/GoCD/GoCD/issues) to track bugs and enhancements on this project. Please go there
@@ -89,7 +80,7 @@ As we said above, just finding and submitting issues is helpful. If you're so in
 
 ## <a name="submit-security-issue"></a> Submit Security Issue
 -->
-## <a name="code-contribution-process"></a> Code Contribution Process ([credits](http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#contributing-to-the-rails-code))
+### <a name="code-contribution-process"></a> Code Contribution Process ([credits](http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#contributing-to-the-rails-code))
 
 If you're new to contributing to open source software, please see [this excellent guide] (http://contribute.jquery.org/open-source/) by the jQuery foundation.
 
@@ -181,7 +172,7 @@ Click on "Edit", if you need to change the branches being compared (it compares 
 
 Ensure the changesets you introduced are included. Fill in some details about your potential patch including a meaningful title. When finished, press "Send pull request". The committers will be notified about your submission.
 
-## <a name="review-process"></a> Review Process
+### <a name="review-process"></a> Review Process
 
 #### Get Feedback
 Most pull requests will go through a few iterations before they get merged. Different contributors will sometimes have different opinions, and often patches will need to be revised before they can get merged.
@@ -196,7 +187,7 @@ While you're waiting for feedback on your pull request, open up a few other pull
 It's entirely possible that the feedback you get will suggest changes. Don't get discouraged: the whole point of contributing to an active open source project is to tap into community knowledge.
 If people are encouraging you to tweak your code, then it's worth making the tweaks and resubmitting.
 
-## <a name="after-commit-is-merged"></a> After Commit is merged
+### <a name="after-commit-is-merged"></a> After Commit is merged
 
 #### Build
 We build Go using Go! So once your commit is merged relevant pipelines get triggered. You can track them [here](https://build.go.cd/).

@@ -15,40 +15,35 @@
     <link rel="stylesheet" href="/css/rwdgrid.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/font/fontello/animation.css">
+    <!-- <link rel="stylesheet" href="/font/fontello/fontello-codes.css"> -->
+    <link rel="stylesheet" href="/font/fontello/fontello-embedded.css">
+    <!-- <link rel="stylesheet" href="/font/fontello/fontello.css"> -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
-
     <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       
           <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
      <![endif]-->
-
 </head>
 
 <body>
-
     {% include announcements.html %}
-    
     <div class="full-width header">
         <div class="container-12">
             {% include header.html %}
         </div>
     </div>
-
     <hgroup class="container-12 page-title">
           <h2>{{ page.title }}</h2>
          <h4>{{ page.subtitle }}</h4>            
     </hgroup>
-
     <div class="container-12">
         {{ content }}
     </div>
-
     <div class="container-12 footer">
         {% include footer.html %}
     </div>
     <script src="/js/google-analytics.js" async="" ></script>
-
 </body>
-
 </html>

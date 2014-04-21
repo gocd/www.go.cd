@@ -116,28 +116,27 @@ html[xmlns] .clearfix {
 ul, ol {
     padding-left: 15px;
 }
-
 /*****************************************************************************/
 
 /*
 /* Annoucement
 /*
 /*****************************************************************************/
-body{
+ body {
     margin-top:40px;
 }
-body.blog{
+body.blog {
     margin: 0;
 }
-.announcements{
+.announcements {
     position: absolute;
     right: 0;
     top: 0;
     text-align: center;
-    left: 0;   
+    left: 0;
 }
-.announcements.highlight{
-    background: #FFF6E4;    
+.announcements.highlight {
+    background: #FFF6E4;
 }
 /*****************************************************************************/
 
@@ -246,8 +245,9 @@ body.blog{
     background: #9662AC;
 }
 .secondary-button {
-    background: #ddd;
-    color: #333
+    border: 2px solid #666;
+    background:white;
+    color: #333;
 }
 .secondary-button:hover {
     background: #eee;
@@ -264,39 +264,96 @@ body.blog{
 }
 .header {
     margin-top: 0;
-    overflow: auto;
+    overflow: initial;
+    height: 120px;
     background: #efefef;
     border-bottom: 1px solid #EEE;
     padding-bottom: 20px;
 }
 .navigation {
-    overflow: auto;
     margin-bottom: 0;
     margin-left: 0;
-    margin-top: 10px;
+    margin-top: 20px;
+    list-style-type:none;
 }
 .navigation li {
-    margin-left: 10px;
     float: right;
+    position: relative;
     list-style: none;
 }
-.navigation a {
+.navigation li a {
     color: #333;
+    font-weight: normal;
+    font-size: 12px;
     border-radius: 5px;
-    padding: 8px 15px;
+    padding: 8px 10px;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height:25px;
+}
+.navigation ul li a {
+    border-radius: 0;
+    padding: 5px 10px;
+    margin:5px;
+    font-weight: normal;
+    text-transform: initial;
+}
+.navigation li > ul {
+    background:white;
+    position:absolute;
+    list-style-type: none;
+    top: 30px;
+    margin: 0;
+    padding: 0;
+    border:2px solid #666;
+    border-radius: 5px;
+    left:0;
+    display: none;
+    min-width: 100%;
+}
+.navigation li:hover > ul {
+    display: block;
+    list-style: none;
+}
+.navigation li ul li {
+    display: block;
+    float: none;
+    margin-left: 0;
+}
+.navigation li ul li a:hover {
+    border-radius: 0;
+    color: #444;
+    background: #eeeeee;
+}
+.navigation > li a:hover, 
+.navigation li > ul:hover + a, 
+.navigation li.current >  a {
+    color: #86569A;
+}
+.navigation li.current > a{
+    font-weight: bold
+}
+.navigation li a[href^=http]:after {
+    font-family:"fontello";
+    font-style: normal;
+    font-weight: normal;
+    content:'\e9c8';
+    speak: none;
     display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .3em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .3em;
 }
-.navigation a:hover {
-    color: #000;
-}
-.navigation li.current a {
-    background-color: #86569A;
-}
-.navigation a:hover {
-    background-color: #86569A;
-}
-.navigation li.current a, .navigation li:hover a {
-    color: white;
+.navigation .second-level {
+    left: 100%;
+    top: 0;
 }
 .header a {
     font-weight: bold;
@@ -413,9 +470,12 @@ body.blog{
     padding: 10px;
     clear: both;
     overflow: auto;
-    background: #FFEDC8;
+    background: #eee;
     margin-bottom: 10px;
     border-radius: 5px;
+}
+.highlight pre {
+    margin: 10px 0;
 }
 .more-feature {
     text-align: center;
@@ -434,16 +494,16 @@ body.blog{
 /* Download
 /*
 /*****************************************************************************/
- .os .download-plus{
+ .os .download-plus {
     margin-left: 10px;
     margin-right: 10px;
- }
- .os a{
+}
+.os a {
     padding: 2px;
     padding-left: 22px;
     background: url('/images/download.png') no-repeat 0 2px;
- }
- .os__logo {
+}
+.os__logo {
     background: url('/images/os.png');
     height: 68px;
     float: left;

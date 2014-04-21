@@ -13,12 +13,31 @@
 			<li><a target="_blank" href="https://groups.google.com/forum/#!forum/go-cd" class="googlegroup"></a></li>
 			<li><a target="_blank" href="http://webchat.freenode.net/?channels=gocd" class="irc"></a></li>
 		</ul>
-
 		<ul class="navigation" style="clear:both;">
 		  {% for link in site.navigation %}
 		    {% assign url = page.url|remove:'index.html' %}
-		    <li {% if url == link.url %} class="current"{% endif %}>
-		       <a class="extra" href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
+		    {% assign hasFirst = link.first-level != undefined %}		   
+		    <li {% if hasFirst %} class="nested" {% endif%} {% if url == link.url %} class="current"{% endif %}>
+				{% if hasFirst %} 
+					<ul class="first-level">
+				    	{% for firstlevel in link.first-level %}  
+				    		<li {% if url == firstlevel.url %} class="current" {% endif %} >
+				    			{% assign hasSecond = firstlevel.second-level != undefined %}
+			    				{% if hasSecond %} 
+				    				<ul class="second-level">
+				    					{% for secondlevel in firstlevel.second-level %}
+											<li>
+												<a href="{{ secondlevel.url }}">{{ secondlevel.text }}</a>
+											</li>
+				    					{% endfor %}
+				    				</ul>
+			    				{% endif %}
+				    			<a {% if firstlevel.target != undefined %} target="{{firstlevel.target}}" {% endif %} href="{{ firstlevel.url }}">{{ firstlevel.text }}{% if hasSecond %} <i class='icon-right-dir-2'></i>{% endif %}</a>
+			    			</li>
+				  		{% endfor %}
+			  		</ul>			    	
+				{% endif %}
+		  		<a href="{{link.url}}"  class="{{link.icon}}">{{link.root}} {% if hasFirst %} <i class='icon-down-dir-2'></i>{% endif %}</a>
 		    </li>
 		  {% endfor %}
 		</ul>
