@@ -1,0 +1,36 @@
+---
+layout: post
+title: Go 14.1 Released
+status: public
+type: post
+published: false
+author: Go Team
+---
+
+### New Feature
+
+#### Create your own task plugins for Go.
+
+Go supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you'll see something like this:
+
+![](/images/blog/go_14_1_announcement/1_Without_Curl.png)
+
+A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.
+
+For instance, you can find the source of a sample Curl plugin in Go's updated help documents. Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:
+
+![](/images/blog/go_14_1_announcement/2_With_Curl.png)
+
+### Source Code Updates
+
+The way that Go is built and tested has been updated to make it easier for people to contribute. 
+
+### Bug Fixes
+
+- Fixed a corner case issue around job reschedule. [(link)](https://github.com/GoCD/GoCD/issues/6)
+- Fixed issue where SVN post-commit hook was not passing along credentials. [(link)](https://github.com/GoCD/GoCD/issues/9)
+- Fixed issue with adding users via UI with a . (dot) in the username. [(link)](https://github.com/GoCD/GoCD/issues/17)
+- Go Agent handles UnknownHostException by substituting host name with a generated name. [(link)](https://github.com/GoCD/GoCD/issues/19)
+- Task running executables in the working directory should now be prefixed with ./ [(link)](https://github.com/GoCD/GoCD/issues/21)
+
+<br><br>
