@@ -5,7 +5,8 @@ subtitle:  Past and upcoming events
 ---
 
 #### Upcoming Events
-- <a href="http://info.thoughtworks.com/geeknight-bangalore-29apr14-registration.html">Geek Night : Introduction to developing Open Source Go</a> - On Tuesday, 29th April, starts at 5:30 PM to 7:30 PM, in Bangalore, India. This meetup is run by <a href="http://www.thoughtworks.com">ThoughtWorks Inc</a>.
+- <a href="http://info.thoughtworks.com/geeknight-bangalore-29apr14-registration.html">Geek Night : Introduction to developing Open Source Go</a> - On Tuesday, 29th April, starts at 5:30 PM to 7:30 PM, in Bangalore, India. This meetup is run by <a href="http://www.thoughtworks.com">ThoughtWorks Inc</a>. <a href="http://info.thoughtworks.com/geeknight-bangalore-29apr14-registration.html">Register</a> for free. 
+
 
 
 #### Past Events
