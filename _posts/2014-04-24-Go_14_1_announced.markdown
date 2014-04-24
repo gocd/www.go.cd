@@ -24,6 +24,11 @@ For instance, you can find the source of a sample Curl plugin in Go's updated he
 
 ![](/images/blog/go_14_1_announcement/2_With_Curl.png)
 
+
+<div class="highlight" style="background:#FFF6E4">
+	 To use the new features of 14.1, its necessary to upgrade your agent(s). See more details <a href="/2014/04/24/agent-bootstrapper-upgrade-for-plugins.html">here</a> about this.
+</div>
+
 ### Source Code Updates
 
 The way that Go is built and tested has been updated to make it easier for people to contribute. 
