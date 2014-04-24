@@ -11,7 +11,7 @@ subtitle: All you need to know about contribution
 * [Go Developer's Group](https://groups.google.com/forum/#!forum/go-cd-dev)
 * [Issue Tracker](https://github.com/gocd/gocd/issues)
 * [Main codebase](https://github.com/gocd/gocd)
-* [Plugins codebase]()
+* [Plugins codebase](https://github.com/gocd/go-plugins)
 * [Development Environment Setup](https://github.com/gocd/go-development-environment-setup)
 * [Go Documentation](https://github.com/gocd/documentation)
 
