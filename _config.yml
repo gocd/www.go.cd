@@ -10,7 +10,7 @@ navigation:
   url: #
   icon: icon-help-circled-1 
   first-level:
-    - text: Why Go
+    - text: Why Go?
       url: /learn-more/why-go.html
     - text: Help Doc
       url: http://www.thoughtworks.com/products/docs/go/14.1/help/
@@ -34,12 +34,12 @@ navigation:
           url: /contribute/#after-commit-is-merged
     - text: CLA
       url: /contribute/cla.html
-    - text: Open Issues
-      url: https://github.com/GoCD/GoCD/issues?page=1&state=open
-      target: blank
     - text: Contributors
-      url: https://github.com/GoCD/GoCD/graphs/contributors
+      url: /contribute/contributors.html
+    - text: Open Issues
+      url: https://github.com/gocd/gocd/issues?page=1&state=open
       target: blank
+
 - root: Community
   url: #
   icon: icon-group

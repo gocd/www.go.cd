@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
 h1 {
-    font-size: 50px;
+    font-size: 45px;
     margin:60px 0 40px
 }
 h2 {
@@ -29,10 +29,11 @@ h2 {
 }
 h3 {
     font-size: 30px;
-    margin:35px 0 20px
+    font-weight: normal;
+    margin:35px 0 20px;
 }
 h4 {
-    font-size: 24px;
+    font-size: 23px;
 }
 h5 {
     font-size: 20px;
@@ -119,11 +120,11 @@ ul, ol {
 /*****************************************************************************/
 
 /*
-/* Annoucement
+/* Announcements
 /*
 /*****************************************************************************/
  body {
-    margin-top:40px;
+    /*margin-top:40px;*/
 }
 body.blog {
     margin: 0;
@@ -134,6 +135,7 @@ body.blog {
     top: 0;
     text-align: center;
     left: 0;
+    display: none;
 }
 .announcements.highlight {
     background: #FFF6E4;
@@ -150,7 +152,7 @@ body.blog {
     margin-bottom: 20px;
     border-bottom: 1px solid #EFEFEF;
     padding-bottom: 10px;
-    color: #aaa;
+    /*color: #aaa;*/
 }
 .page-title h2 {
     margin-top: 10px;
@@ -171,6 +173,7 @@ body.blog {
 /*****************************************************************************/
  .app-mission {
     text-align:center;
+    margin-top: 20px 0;
 }
 .full-width {
     clear: both;
@@ -226,7 +229,6 @@ body.blog {
 .btn-big {
     color: white;
     text-decoration: none;
-    padding: 5px 30px;
     cursor: pointer;
     border-radius: 4px;
     font-size: 20px;
@@ -234,7 +236,7 @@ body.blog {
     line-height: 40px;
     height: 65px;
     background: #86569A;
-    padding: 10px 50px;
+    padding: 10px 30px;
 }
 .download.btn-big {
     line-height: 20px;
@@ -259,7 +261,21 @@ body.blog {
 /* Header
 /*
 /*****************************************************************************/
- .logo {
+ .oss-announcement {
+    background: url('/images/bg-announcement.png');
+    padding: 10px 20px;
+    text-align: center;
+    margin: 0;
+    color: #008515;
+    border-radius: 10px;
+}
+.oss-announcement h5 {
+    font-weight: normal;
+}
+.oss-announcement .oss-announcement__links {
+    margin-top: 20px;
+}
+.logo {
     margin-left: 0;
 }
 .header {
@@ -281,7 +297,7 @@ body.blog {
     position: relative;
     list-style: none;
 }
-.navigation li a {
+.navigation li a, .navigation li label {
     color: #333;
     font-weight: normal;
     font-size: 12px;
@@ -293,7 +309,7 @@ body.blog {
     white-space: nowrap;
     line-height:25px;
 }
-.navigation ul li a {
+.navigation ul li a, .navigation ul li label {
     border-radius: 0;
     padding: 5px 10px;
     margin:5px;
@@ -304,7 +320,7 @@ body.blog {
     background:white;
     position:absolute;
     list-style-type: none;
-    top: 30px;
+    top: 35px;
     margin: 0;
     padding: 0;
     border:2px solid #666;
@@ -327,12 +343,10 @@ body.blog {
     color: #444;
     background: #eeeeee;
 }
-.navigation > li a:hover, 
-.navigation li > ul:hover + a, 
-.navigation li.current >  a {
+.navigation > li a:hover, .navigation > li label:hover, .navigation li > ul:hover + label, .navigation li.current > a {
     color: #86569A;
 }
-.navigation li.current > a{
+.navigation li.current > a {
     font-weight: bold
 }
 .navigation li a[href^=http]:after {
@@ -406,10 +420,8 @@ body.blog {
 }
 .download-panel {
     text-align: center;
-    margin: 0 auto;
+    margin: 20px auto;
     position: relative;
-    margin-top: 60px;
-    margin-bottom: 40px;
 }
 .download-panel .or {
     padding: 5px;
@@ -423,6 +435,15 @@ body.blog {
 }
 .download-panel .btn-big div {
     line-height: initial;
+}
+.other-options {
+    display: table;
+    margin: 0 auto;
+}
+.other-options li {
+    list-style: none;
+    margin: 10px;
+    display: inline-block;
 }
 .smaller {
     font-size: 0.5em;
@@ -479,6 +500,7 @@ body.blog {
 }
 .more-feature {
     text-align: center;
+    height:25px;
 }
 .more-feature hr {
     margin:0;
@@ -551,14 +573,41 @@ body.blog {
 /*****************************************************************************/
 
 /*
+/* Contributors
+/*
+/*****************************************************************************/
+ .contributors-list span {
+    display: inline-block;
+    background: #eee;
+    margin: 5px;
+    padding: 0 5px;
+}
+/*****************************************************************************/
+
+/*
 /* Footer
 /*
 /*****************************************************************************/
- .footer {
+ .social-share-icons-title {
+    text-align: center;
+}
+.social-share-icons {
+    display: table;
+    margin: auto;
+    margin-top: 10px;
+}
+.social-share-icons li {
+    list-style: none;
+    margin: 10px;
+    vertical-align: top;
+    display: inline-block;
+}
+.footer {
     font-size: 80%;
     color: #666;
     padding-top: 10px;
     margin-bottom: 40px;
+    text-align: center;
     margin-top: 40px;
     border-top: 4px solid #eee;
     overflow: hidden;

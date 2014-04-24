@@ -9,12 +9,11 @@ subtitle: All you need to know about contribution
 * [Go User Documentation](http://www.thoughtworks.com/products/docs/go/current/help/)
 * [Go User's Group](https://groups.google.com/forum/#!forum/go-cd)
 * [Go Developer's Group](https://groups.google.com/forum/#!forum/go-cd-dev)
-* [Issue Tracker](https://github.com/GoCD/GoCD/issues)
-* [Main codebase](https://github.com/GoCD/GoCD)
+* [Issue Tracker](https://github.com/gocd/gocd/issues)
+* [Main codebase](https://github.com/gocd/gocd)
 * [Plugins codebase]()
-* [Development Environment Setup](https://github.com/GoCD/go-development-environment-setup)
-* [Go Design Documentation](https://github.com/GoCD/design-documentation)
-* [www.go.cd website code](https://github.com/GoCD/GoCD.github.io)
+* [Development Environment Setup](https://github.com/gocd/go-development-environment-setup)
+* [Go Documentation](https://github.com/gocd/documentation)
 
 ### <a name="skills-needed"></a> Skills needed
 
@@ -28,18 +27,18 @@ If you are a developer and know any of the following:
 
 You can also contribute by:
 
-- Submitting [issues](#submit-bug) & [feature requests](#submit-feature-request)
+- Submitting [issues](#submit-bug)
 
-- Participating on [user's group]((https://groups.google.com/forum/#!forum/go-cd) & [developer's group](https://groups.google.com/forum/#!forum/go-cd-dev)
+- Participating on [user's group](https://groups.google.com/forum/#!forum/go-cd) & [developer's group](https://groups.google.com/forum/#!forum/go-cd-dev)
 
 - Answering [stackoverflow](http://stackoverflow.com/questions/tagged/thoughtworks-go) questions
 
-- Helping us improve [user docs](http://www.thoughtworks.com/products/docs/go/current/help/), [design docs](https://github.com/GoCD/design-documentation) etc.
+- Helping us improve [user docs](http://www.thoughtworks.com/products/docs/go/current/help/), [design docs](https://github.com/gocd/documentation) etc.
 
 ### <a name="submit-bug"></a> Submit Bug
 
 #### <a name="is-it-already-filed"></a> Check to see if it's already been filed
-We're using [GitHub Issues](https://github.com/GoCD/GoCD/issues) to track bugs and enhancements on this project. Please go there
+We're using [GitHub Issues](https://github.com/gocd/gocd/issues) to track bugs and enhancements on this project. Please go there
 and check if someone has already reported the same issue or made the same enhancement request. There's a
 good chance that if they have, there may be information which will benefit you.
 
@@ -88,12 +87,12 @@ If you're new to contributing to open source software, please see [this excellen
 If you're planning to contribute any code or content, we will have to ask you to sign our [Contributor License Agreement](/contribute/cla.html) before we can accept your pull request.
 
 #### Fork
-Navigate to the [Go GitHub repository](https://github.com/GoCD/GoCD) and press "Fork" in the upper right hand corner.
+Navigate to the [Go GitHub repository](https://github.com/gocd/gocd) and press "Fork" in the upper right hand corner.
 
 Add the new remote to your local repository on your local machine:
 
 ```
-$ git remote add mine git@github.com:<your user name>/GoCD.git
+$ git remote add mine git@github.com:<your user name>/gocd.git
 ```
 
 Push to your remote:
@@ -107,7 +106,7 @@ You might have cloned your forked repository on your machine and might want to a
 In the directory you cloned your fork:
 
 ```
-$ git remote add go-cd git://github.com/GoCD/GoCD.git
+$ git remote add go-cd git://github.com/gocd/gocd.git
 ```
 
 Download new commits and branches from the official repository:
@@ -129,7 +128,7 @@ Update your fork:
 $ git push origin master
 ```
 
-#### [Setup Development Environment](https://github.com/GoCD/go-development-environment-setup)
+#### [Setup Development Environment](https://github.com/gocd/go-development-environment-setup)
 
 #### Tell us what you are trying to do!
 Before getting started on anything (bug/feature) please do talk to us on [developer's group](https://groups.google.com/forum/#!forum/go-cd-dev).
@@ -137,12 +136,12 @@ This helps everybody to be on the same page, i.e. we know who is working on what
 It will save you effort if you are trying to do something that is already fixed or cannot be fixed due to some limitation!
 It will also help us help you with the code. We will let you know about things that we think are important. Ex: We might want you to refactor some code as part of this.
 
-#### Make sure there is an [issue](https://github.com/GoCD/GoCD/issues) logged for it.
+#### Make sure there is an [issue](https://github.com/gocd/gocd/issues) logged for it.
 When you talk to us about it we will make sure the issue is logged and assigned to you. You should use this issue number in your commit message & pull request comment.
 
 #### Write Tests & Then Code
 
-Understand the feature by reading [user docs](http://www.thoughtworks.com/products/docs/go/current/help/) & [design docs](https://github.com/GoCD/design-documentation).
+Understand the feature by reading [user docs](http://www.thoughtworks.com/products/docs/go/current/help/) & [design docs](https://github.com/gocd/documentation).
 
 Debug the flow to make sure you understand the code fully.
 
@@ -151,6 +150,7 @@ Follow [Test Driven Development](http://en.wikipedia.org/wiki/Test-driven_develo
 * fixing a bug write a failing test first which reproduces the scenario and then fix the bug.
 * writing a new feature write tests which assert the particular behavior you are expecting in the new feature & then implement it.
 
+<br/>
 Please use UNIX line endings only.
 
 #### Code conventions
@@ -161,7 +161,7 @@ Please use UNIX line endings only.
 
 #### Granularity of change ([credits](http://wiki.eclipse.org/EGit/Contributor_Guide#Granularity_of_Changes))
 * Make small commits, as small as reasonable. This makes them easy to review.
-* Make sure you mention the issue number for the bug / feature that you are coding towards. Commit message format should be: #<issue number> - <short message>
+* Make sure you mention the issue number for the bug / feature that you are coding towards. Commit message format should be: # < issue number > - < short message >
 * Each commit should have a commit message that explains very clearly what the commit sets out to achieve (unless this is abundantly clear from the code itself, which is basically only the case for trivial patches).
 Also, when you fix a bug then report which bug you fix. When there are deeper reasons for doing things the way the commit does, then explain these as well. This all is for the reviewers and yourself: the context of the commit is completely clear.
 * Do not mix concerns in commits: have a commit do a single thing. This makes them reviewable 'in isolation'. The purpose of the commit is clear and can be understood easily by the reviewers and yourself.
@@ -177,7 +177,7 @@ On Go we follow TDD. Which means most of the code is covered with tests. When yo
 You will need to make sure your code does not break anything, which means running tests that are around your code. We know this does not guarantee all tests will pass but we expect you to have done this before issuing a pull request.
 
 #### Issue Pull Request
-Navigate to the Go repository you just pushed to (e.g. https://github.com/your-user-name/GoCD) and click on "Pull Requests" seen in the right panel. On the next page, press "New pull request" in the upper right hand corner.
+Navigate to the Go repository you just pushed to (e.g. https://github.com/your-user-name/gocd) and click on "Pull Requests" seen in the right panel. On the next page, press "New pull request" in the upper right hand corner.
 
 Click on "Edit", if you need to change the branches being compared (it compares "master" by default) and press "Click to create a pull request for this comparison".
 
@@ -201,7 +201,11 @@ If people are encouraging you to tweak your code, then it's worth making the twe
 ### <a name="after-commit-is-merged"></a> After Commit is merged
 
 #### Build
-We build Go using Go! So once your commit is merged relevant pipelines get triggered. You can track them [here](https://build.go.cd/).
+We build Go using Go! So once your commit is merged relevant pipelines get triggered. You can track them [here](https://build.go.cd/). 
+<br>Use following credentials to login:
+
+* username: view
+* password: password
 
 #### Spec, Unit test, Integration test failures
 After the commit is merged there might be Spec failures (rails) or Unit / Integration test failures (Java), in which case we will notify you about the failures & revert your commit so that you can fix them and issue a fresh pull request.
@@ -211,6 +215,3 @@ We have significant amount of acceptance tests written in [Twist](http://www.tho
 If its a failure because of change of behavior & tests need to be changed then we will take care of doing that.
 
 #### Update User & Design docs if necessary
-
-## Sign-up
-<iframe src="https://docs.google.com/forms/d/11j84gdSHX2SFjVyqZsAh_BgyAuNSMjdMWOMWoWSy5dg/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>

@@ -31,13 +31,37 @@
 
 <body>
 
+
+    <a href="https://github.com/gocd/gocd/">
+        <img style="position:absolute;top:0;left:0;border:0;" src="/images/fork-me-button.png" alt="Fork PhantomJS on GitHub">
+    </a>
+
     {% include announcements.html %}
 
-    <div class="full-width header">
+    <div class="header">
         <div class="container-12">
             {% include header.html %}
         </div>
     </div>
+
+    <div class="full-width oss-announcement">
+        <div class="container-12">
+            <h5>
+                <div><i style='font-size:75px; margin:0;' class="icon-github-circled-alt2"></i>
+                </div>
+                <div>
+                    We’re incredibly proud to announce that the source code for Go is now <a target="_blank" href="https://github.com/gocd/gocd">available</a>. It’s exciting to see what you, the community, will come up with to make Go even better.
+                </div>
+                <div class="oss-announcement__links">
+                    
+                    <small><a href="/2014/04/24/source-code-for-go-now-available.html">Read More</a>  <b>·</b>  <a href="/contribute/">Contributor's Guide</a>
+                    </small>
+                </div>
+            </h5>
+        </div>
+    </div>
+
+
     <div class="container-12">
         {{ content }}
     </div>

@@ -28,15 +28,20 @@
 </head>
 
 <body>
+    <a href="https://github.com/gocd/gocd/">
+        <img style="position:absolute;top:0;left:0;border:0;" src="/images/fork-me-button.png" alt="Fork PhantomJS on GitHub">
+    </a>
+
+
     {% include announcements.html %}
-    <div class="full-width header">
+    <div class="header">
         <div class="container-12">
             {% include header.html %}
         </div>
     </div>
     <hgroup class="container-12 page-title">
-          <h2>{{ page.title }}</h2>
-         <h4>{{ page.subtitle }}</h4>            
+        <h2>{{ page.title }}</h2>
+        <h4>{{ page.subtitle }}</h4>
     </hgroup>
     <div class="container-12">
         {{ content }}
@@ -44,6 +49,7 @@
     <div class="container-12 footer">
         {% include footer.html %}
     </div>
-    <script src="/js/google-analytics.js" async="" ></script>
+    <script src="/js/google-analytics.js" async=""></script>
 </body>
+
 </html>

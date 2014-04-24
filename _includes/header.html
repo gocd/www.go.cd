@@ -2,14 +2,14 @@
 	<div class="grid-3 logo">
 		<h1 class="title"><a href="/"> <img class="logo" src="/images/logo-go-home_2014.png" alt="Go Open Source - Continuous Delivery"> </a></h1>
 		<ul class="social-icons social-icons-responsive">
-			<li><a target="_blank" href="https://github.com/GoCD/GoCD" class="github"></a></li>
+			<li><a target="_blank" href="https://github.com/gocd/gocd" class="github"></a></li>
 			<li><a target="_blank" href="https://groups.google.com/forum/#!forum/go-cd" class="googlegroup"></a></li>
 			<li><a target="_blank" href="http://webchat.freenode.net/?channels=gocd" class="irc"></a></li>
 		</ul>
 	</div>
 	<div class="grid-9">	
 		<ul class="social-icons">
-			<li><a target="_blank" href="https://github.com/GoCD/GoCD" class="github"></a></li>
+			<li><a target="_blank" href="https://github.com/gocd/gocd" class="github"></a></li>
 			<li><a target="_blank" href="https://groups.google.com/forum/#!forum/go-cd" class="googlegroup"></a></li>
 			<li><a target="_blank" href="http://webchat.freenode.net/?channels=gocd" class="irc"></a></li>
 		</ul>
@@ -35,9 +35,11 @@
 				    			<a {% if firstlevel.target != undefined %} target="{{firstlevel.target}}" {% endif %} href="{{ firstlevel.url }}">{{ firstlevel.text }}{% if hasSecond %} <i class='icon-right-dir-2'></i>{% endif %}</a>
 			    			</li>
 				  		{% endfor %}
-			  		</ul>			    	
+			  		</ul>			
+					<label class="{{link.icon}}">{{link.root}}{% if hasFirst %} <i class='icon-down-dir-2'></i>{% endif %}</label>
+				{% else %}
+		  			<a href="{{link.url}}"  class="{{link.icon}}">{{link.root}}</a>
 				{% endif %}
-		  		<a href="{{link.url}}"  class="{{link.icon}}">{{link.root}} {% if hasFirst %} <i class='icon-down-dir-2'></i>{% endif %}</a>
 		    </li>
 		  {% endfor %}
 		</ul>
