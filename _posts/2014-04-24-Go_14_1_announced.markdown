@@ -26,7 +26,7 @@ For instance, you can find the source of a sample Curl plugin in Go's updated he
 
 
 <div class="highlight" style="background:#FFF6E4">
-	 To use the new features of 14.1, its necessary to upgrade your agent(s). See more details <a href="/2014/04/24/agent-bootstrapper-upgrade-for-plugins.html">here</a> about this.
+	To use the new plugin related features of Go, it is required that you upgrade the agent-bootstrapper with version < 12.3. Although agent-bootstrapper version >= 12.3 is capable of handling this feature, we recommend upgrading your go-server and go-agents to the latest release. You can read more about this <a href="/2014/04/24/agent-bootstrapper-upgrade-for-plugins.html">here</a>.
 </div>
 
 ### Source Code Updates
