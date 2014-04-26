@@ -54,7 +54,7 @@ Improve Agent Server communication to reduce the problem of too many agents ping
 
 ### Tech Debt
 
-#### Old version of JRuby and Rails in codebase
+#### Old version of JRuby and Rails in codebase ([#130](https://github.com/gocd/gocd/issues/130))
 Go uses a 2.3.x release of Rails, which recently got deprecated. It causes Go to not be able to take advantage of new improvements in Rails. Causes people to have to use antiquated Rails contsructs rather than the new ones. We haven't been able to upgrade till now since rails 3 is not backward compatible & it's a daunting task to migrate all views at once - because of API changes in Rails, dependency on JRuby, RSpec and other gems. It feels like one upgrade was missed a few years ago and then it was too late.
 
 Tasks:
