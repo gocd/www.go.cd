@@ -101,7 +101,17 @@ subtitle: Download Go Server and Go Agent for Free
        <a  href="http://download01.thoughtworks.com/go/14.1.0/ga/go-agent-14.1.0-18882.zip" onclick="record_download('Package-Agent');">Agent</a> 
         </td>
     </tr>
+    <tr>
+        <td colspan="2">
+            <div style="padding:10px;">
+                Verify your installers : 
+                <a onclick="record_download('Checksum');" href="http://download01.thoughtworks.com/go/14.1.0/ga/md5.checksum">Checksum</a>         
+            </div>
+        </td>
+
+    </tr>
 </table>
+
 <script>
     function record_download( OS) {
         ga('send', 'event', 'Download', OS);
