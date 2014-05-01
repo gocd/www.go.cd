@@ -570,6 +570,10 @@ body.blog {
 .os tr:first-child td {
     background: #ddd;
 }
+.tiny {
+    font-size: 0.7em;
+    font-weight:normal;
+}
 /*****************************************************************************/
 
 /*
