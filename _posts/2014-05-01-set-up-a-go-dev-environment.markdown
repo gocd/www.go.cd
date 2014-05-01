@@ -3,7 +3,7 @@ layout: post
 title: Introduction to setting up a Go development environment VM
 status: public
 type: post
-published: false
+published: true
 author: Ken Mugrage
 ---
 
