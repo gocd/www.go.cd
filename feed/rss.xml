@@ -1,0 +1,22 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Go Continuous Delivery - Blogs</title>
+        <link>http://www.go.cd</link>
+        <language>en-us</language>
+        <lastBuildDate>{{ site.time | date_to_xmlschema }}</lastBuildDate>
+        {% for post in site.posts limit:50 %}
+        <item>
+            <title>{{ post.title }}</title>
+            <link>http://www.go.cd{{ post.url }}</link>
+            <description>
+                {{ post.excerpt | remove: '<meta>' | xml_escape }}
+            </description>
+            <pubDate>{{ post.date }}</pubDate>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>
