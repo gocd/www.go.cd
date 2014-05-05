@@ -25,14 +25,14 @@
       
           <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
      <![endif]-->
+    <script type="text/javascript" src="/js/jqlite.1.1.1.min.js" async=""></script>
 </head>
 
 <body>
     <a href="https://github.com/gocd/gocd/">
         <img style="position:absolute;top:0;left:0;border:0;" src="/images/fork-me-button.png" alt="Fork PhantomJS on GitHub">
     </a>
-
-
+    
     {% include announcements.html %}
     <div class="header">
         <div class="container-12">
@@ -48,13 +48,17 @@
         </h2>
         <h4>{{ page.subtitle }}</h4>
     </hgroup>
-    <div class="container-12">
-        {{ content }}
+    <div class="full-width">
+        <div class="container-12">
+            {{ content }}
+        </div>
     </div>
     <div class="container-12 footer">
         {% include footer.html %}
     </div>
     <script src="/js/google-analytics.js" async=""></script>
+    {% include page-specific-scripts.html %}
+
 </body>
 
 </html>

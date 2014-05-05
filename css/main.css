@@ -30,7 +30,7 @@ h2 {
 h3 {
     font-size: 30px;
     font-weight: normal;
-    margin:35px 0 20px;
+    margin:25px 0 20px;
 }
 h4 {
     font-size: 23px;
@@ -124,7 +124,7 @@ ul, ol {
 /*
 /*****************************************************************************/
  body {
-    /*margin-top:40px;*/
+    /*margin-top:40px; uncomment if you have Announcements*/
 }
 body.blog {
     margin: 0;
@@ -143,16 +143,59 @@ body.blog {
 /*****************************************************************************/
 
 /*
-/* Site
+/* Developer Quick links
+/*
+/*****************************************************************************/
+ .quick-links {
+    padding: 0;
+    display: block;
+    margin-bottom: 10px;
+}
+.quick-links h4, .code-contribution-process h4, .get-started h4, .road-map h4, .open-issues h4, .contributors h4 {
+    margin-top: 0;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.quick-links li {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.quick-links a {
+    padding: 10px;
+    background: #555;
+    color: white;
+    border-radius: 3px;
+    font-size: 11px;
+    text-decoration: none;
+    width: 100px;
+    display: inline-block;
+    height: 80px;
+}
+.quick-links a:hover {
+    background: #666;
+}
+.quick-links a:before {
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    margin: 2px auto;
+}
+/*****************************************************************************/
+
+/*
+/* Page-title
 /*
 /*****************************************************************************/
  .page-title {
     clear: both;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border-bottom: 1px solid #EFEFEF;
     padding-bottom: 10px;
-    /*color: #aaa;*/
 }
 .page-title h2 {
     margin-top: 10px;
@@ -218,13 +261,6 @@ body.blog {
     padding-left: 44px;
     height: 36px;
     line-height: 36px;
-    /*background: url(../img/icon-release.png) no-repeat 0 50%;*/
-}
-.link-ml {
-    /*background: url(../img/icon-ml.png) no-repeat 0 50%; */
-}
-.link-bugs {
-    /*background: url(../img/icon-bugs.png) no-repeat 0 50%; */
 }
 .btn-big {
     color: white;
@@ -261,20 +297,6 @@ body.blog {
 /* Header
 /*
 /*****************************************************************************/
- .oss-announcement {
-    background: url('/images/bg-announcement.png');
-    padding: 10px 20px;
-    text-align: center;
-    margin: 0;
-    color: #008515;
-    border-radius: 10px;
-}
-.oss-announcement h5 {
-    font-weight: normal;
-}
-.oss-announcement .oss-announcement__links {
-    margin-top: 20px;
-}
 .logo {
     margin-left: 0;
 }
@@ -580,11 +602,57 @@ body.blog {
 /* Contributors
 /*
 /*****************************************************************************/
- .contributors-list span {
+
+.contributors-list span {
     display: inline-block;
     background: #eee;
     margin: 5px;
     padding: 0 5px;
+}
+.contributors ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+.contributors img {
+    height: 30px;
+    vertical-align: -10px;
+    width: 30px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.contributors li {
+    margin-bottom: 10px;
+    width: 50%;
+    display: inline-block;
+}
+.open-issues ul {
+    margin-left: 0;
+    padding-left: 0;
+    margin-right: 20px;
+}
+.open-issues li {
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+    list-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 0;
+    padding-left: 0;
+}
+.open-issues li small {
+    display: block;
+    color: #999;
+}
+.leftnav > li{
+    margin-bottom: 15px;
+}
+.fixedToTop{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    width: inherit;
 }
 /*****************************************************************************/
 
@@ -620,4 +688,7 @@ body.blog {
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box
+}
+.smaller-font{
+    font-size: 0.8em;
 }

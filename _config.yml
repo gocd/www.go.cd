@@ -19,19 +19,10 @@ navigation:
   url: #
   icon: icon-star-5
   first-level:
-    - text: Guide
+    - text: Get started
       url: /contribute/
-      second-level:
-        - text: Skills needed
-          url: /contribute/#skills-needed
-        - text: Submit Bug
-          url: /contribute/#submit-bug
-        - text: Code Contribution Process
-          url: /contribute/#code-contribution-process
-        - text: Review Process
-          url: /contribute/#review-process
-        - text: After Code is Accepted
-          url: /contribute/#after-commit-is-merged
+    - text: Contribution Guide
+      url: /contribute/contribution-guide.html
     - text: Roadmap
       url: /contribute/roadmap.html
     - text: CLA

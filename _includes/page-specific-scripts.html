@@ -1,0 +1,37 @@
+{% assign url = page.url | remove: 'index.html' %}
+    
+<script type="text/javascript">
+    
+        window.onload = function(){
+                //only execute this code if its contribute page
+                {% if url == '/contribute/' %}
+                    jQuery.ajax.send("https://api.github.com/repos/gocd/gocd/issues", function(issues_found, status) {
+                        issues_found = eval("(" + issues_found + ")");
+                        for (var i = 0; i < 5; i++) {
+                            $('.open-issues ul').append('<li>' + issues_found[i].title + ' (<a target="_blank" href="' + issues_found[i].html_url + '">link</a>)<small>by <a target="_blank" href=' + issues_found[i].user.html_url + '>' + issues_found[i].user.login + '</a></small></li>');
+                        };
+                    });
+                    jQuery.ajax.send("https://api.github.com/repos/gocd/gocd/contributors", function(contributors_found, status) {
+                        contributors_found = eval("(" + contributors_found + ")");
+                        for (var i = 0; i < contributors_found.length; i++) {
+                            $('.contributors ul').append('<li><img src=' + contributors_found[i].avatar_url + 's=60' + '></img><a href=' + contributors_found[i].html_url + '>' + contributors_found[i].login + '</a></li>');
+                        };
+                    });
+                {% endif %}
+
+                //only execute this code if its contribute/guide page
+                {% if url == '/contribute/contribution-guide.html' %}
+                    var doc = document.documentElement, body = document.body;
+                    var headerTop = document.getElementsByClassName('leftnav')[0].offsetTop;
+
+                    window.addEventListener('scroll',function(){
+                        var top = doc && doc.scrollTop  || body && body.scrollTop  || 0;
+                        if(top > headerTop)
+                            document.getElementsByClassName('leftnav')[0].classList.add('fixedToTop')
+                        else
+                            document.getElementsByClassName('leftnav')[0].classList.remove('fixedToTop')
+                    });
+                {% endif %}
+            }
+
+</script>
