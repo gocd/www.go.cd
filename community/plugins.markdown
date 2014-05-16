@@ -21,4 +21,5 @@ Please refer the <a href="http://www.thoughtworks.com/products/docs/go/current/h
 - <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Nuget repository poller</a>
 - <a href="https://github.com/ThoughtWorksInc/go-maven-poller">Maven (Nexus) repository poller</a>
 - <a href="https://github.com/ThoughtWorksInc/go-artifactory-poller">Maven (Artifactory Pro) repository poller</a>
+- <a href="https://github.com/drrb/go-puppet-forge-poller">Puppet Forge poller</a>
 
