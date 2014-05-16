@@ -15,11 +15,9 @@ subtitle:  Past and upcoming events
 
 	- <a href="http://info.thoughtworks.com/wb-go-us-06-26.html">Live product demo</a> - On Thursday, 26th June, starts at 1:00 PM to 2:00 PM CST.  <a href="http://info.thoughtworks.com/wb-go-us-06-26.html">Register</a> for free. 
 
-
+#### Past Events
 - <a href="https://rootconf.in/2014/workshops#1120-introduction-to-go-continuous-delivery-software">Introduction to Go Continuous Delivery Software</a> - On Wednesday, 14th May (10:00 AM to 1:00 PM) in Bangalore, India. This workshop is run by <a href="https://rootconf.in/2014/about">hasgeek</a>. <a href="https://rootconf.in/2014/#tickets">Tickets</a> can be purchased from their website. 
 
-
-#### Past Events
 - <a href="https://skillsmatter.com/meetups/6303-introduction-to-developing-open-source-go">Introduction to developing Open Source Go</a> - On Monday, 7th April, starts at 6:30 PM in London, UK. This meetup is run by <a href="https://skillsmatter.com/groups/500-in-the-brain">Skills Matter In The Brain</a>.  <a href="https://skillsmatter.com/meetups/6303-introduction-to-developing-open-source-go">Register</a> for free. 
 
 
