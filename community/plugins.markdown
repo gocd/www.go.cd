@@ -17,9 +17,15 @@ Please refer the <a href="http://www.thoughtworks.com/products/docs/go/current/h
 
 ### Plugins contributed by the community
 
+#### Package Repository Material plugin
+
 - <a href="https://github.com/srinivasupadhya/deb-repo-poller">Debian repository poller</a>
 - <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Nuget repository poller</a>
 - <a href="https://github.com/ThoughtWorksInc/go-maven-poller">Maven (Nexus) repository poller</a>
 - <a href="https://github.com/ThoughtWorksInc/go-artifactory-poller">Maven (Artifactory Pro) repository poller</a>
-- <a href="https://github.com/drrb/go-puppet-forge-poller">Puppet Forge poller</a>
+- <a href="https://github.com/drrb/go-puppet-forge-poller">Puppet Forge repository poller</a>
+- <a href="https://github.com/varchev/go-npm-poller">NPM repository poller</a>
 
+#### Task plugin
+
+- <a href="https://github.com/srinivasupadhya/xunit-converter-task">XUnit Converter</a>
