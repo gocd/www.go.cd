@@ -27,50 +27,50 @@ Please refer the <a href="http://www.thoughtworks.com/products/docs/go/current/h
 <tbody>
 <tr>
 <td align="left">Yum repository poller</td>
-<td align="center">-</td>
-<td align="center"><a href="https://github.com/gocd/go-plugins/tree/master/yum-plugin">Code</a></td>
+<td align="center">Bundled</td>
+<td align="center"><a href="https://github.com/gocd/go-plugins/tree/master/yum-plugin">Source</a></td>
 <td align="center"><a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a></td>
 <td align="center">Yes</td>
 </tr>
 <tr>
 <td align="left">Debian repository poller</td>
 <td align="center"><a href="https://github.com/srinivasupadhya/deb-repo-poller/releases">Download</a></td>
-<td align="center"><a href="https://github.com/srinivasupadhya/deb-repo-poller">Code</a></td>
+<td align="center"><a href="https://github.com/srinivasupadhya/deb-repo-poller">Source</a></td>
 <td align="center"><a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></td>
 <td align="center">No</td>
 </tr>
 <tr>
 <td align="left">Nuget repository poller</td>
 <td align="center"><a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/releases">Download</a></td>
-<td align="center"><a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Code</a></td>
+<td align="center"><a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Source</a></td>
 <td align="center"><a href="http://www.sriramnarayan.com/">Sriram Narayan</a></td>
 <td align="center">No</td>
 </tr>
 <tr>
 <td align="left">Maven (Nexus) repository poller</td>
 <td align="center"><a href="https://github.com/ThoughtWorksInc/go-maven-poller/releases">Download</a></td>
-<td align="center"><a href="https://github.com/ThoughtWorksInc/go-maven-poller">Code</a></td>
+<td align="center"><a href="https://github.com/ThoughtWorksInc/go-maven-poller">Source</a></td>
 <td align="center"><a href="http://www.sriramnarayan.com/">Sriram Narayan</a></td>
 <td align="center">No</td>
 </tr>
 <tr>
 <td align="left">Maven (Artifactory Pro) repository poller</td>
 <td align="center"><a href="https://github.com/ThoughtWorksInc/go-artifactory-poller/releases">Download</a></td>
-<td align="center"><a href="https://github.com/ThoughtWorksInc/go-artifactory-poller">Code</a></td>
+<td align="center"><a href="https://github.com/ThoughtWorksInc/go-artifactory-poller">Source</a></td>
 <td align="center"><a href="http://www.sriramnarayan.com/">Sriram Narayan</a></td>
 <td align="center">No</td>
 </tr>
 <tr>
 <td align="left">Puppet Forge repository poller</td>
 <td align="center"><a href="https://github.com/drrb/go-puppet-forge-poller/releases">Download</a></td>
-<td align="center"><a href="https://github.com/drrb/go-puppet-forge-poller">Code</a></td>
-<td align="center">-</td>
+<td align="center"><a href="https://github.com/drrb/go-puppet-forge-poller">Source</a></td>
+<td align="center"><a href="https://github.com/drrb">drrb</a></td>
 <td align="center">No</td>
 </tr>
 <tr>
 <td align="left">NPM repository poller</td>
 <td align="center"><a href="https://github.com/varchev/go-npm-poller/releases">Download</a></td>
-<td align="center"><a href="https://github.com/varchev/go-npm-poller">Code</a></td>
+<td align="center"><a href="https://github.com/varchev/go-npm-poller">Source</a></td>
 <td align="center"><a href="https://github.com/varchev">Deyan Varchev</a></td>
 <td align="center">No</td>
 </tr>
@@ -90,7 +90,7 @@ Please refer the <a href="http://www.thoughtworks.com/products/docs/go/current/h
 <tbody><tr>
 <td align="left">XUnit Converter</td>
 <td align="center"><a href="https://github.com/srinivasupadhya/xunit-converter-task/releases">Download</a></td>
-<td align="center"><a href="https://github.com/srinivasupadhya/xunit-converter-task">Code</a></td>
+<td align="center"><a href="https://github.com/srinivasupadhya/xunit-converter-task">Source</a></td>
 <td align="center"><a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></td>
 <td align="center">No</td>
 </tr></tbody>
