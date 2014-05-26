@@ -12,20 +12,22 @@ Details about available extension points and their lifecycle can be obtained fro
 Below is the listing of bundled as well as other available plugins contributed by the community (that are not bundled with the Go Server as yet). 
 Please refer the <a href="http://www.thoughtworks.com/products/docs/go/current/help/plugin_user_guide.html">plugin user guide</a> to know more about plugin installation etc. 
 
-### Bundled Plugins
-- <a href="https://github.com/gocd/go-plugins/tree/master/yum-plugin">Yum repository poller</a>
+### Available Plugins
 
-### Plugins contributed by the community
+#### Package Repository plugin
 
-#### Package Repository Material plugin
-
-- <a href="https://github.com/srinivasupadhya/deb-repo-poller">Debian repository poller</a>
-- <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Nuget repository poller</a>
-- <a href="https://github.com/ThoughtWorksInc/go-maven-poller">Maven (Nexus) repository poller</a>
-- <a href="https://github.com/ThoughtWorksInc/go-artifactory-poller">Maven (Artifactory Pro) repository poller</a>
-- <a href="https://github.com/drrb/go-puppet-forge-poller">Puppet Forge repository poller</a>
-- <a href="https://github.com/varchev/go-npm-poller">NPM repository poller</a>
+| Name |  |  | Author | Bundled |
+|:---|:---:|:---:|:---:|:---:|
+| Yum repository poller | - | [Code](https://github.com/gocd/go-plugins/tree/master/yum-plugin) | [ThoughtWorks Inc.](http://www.thoughtworks.com/products/) | Yes |
+| Debian repository poller | [Download](https://github.com/srinivasupadhya/deb-repo-poller/releases) | [Code](https://github.com/srinivasupadhya/deb-repo-poller) | [Srinivas Upadhya](https://github.com/srinivasupadhya) | No |
+| Nuget repository poller | [Download](https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/releases) | [Code](https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/) | [Sriram Narayan](http://www.sriramnarayan.com/) | No |
+| Maven (Nexus) repository poller | [Download](https://github.com/ThoughtWorksInc/go-maven-poller/releases) | [Code](https://github.com/ThoughtWorksInc/go-maven-poller) | [Sriram Narayan](http://www.sriramnarayan.com/) | No |
+| Maven (Artifactory Pro) repository poller | [Download](https://github.com/ThoughtWorksInc/go-artifactory-poller/releases) | [Code](https://github.com/ThoughtWorksInc/go-artifactory-poller) | [Sriram Narayan](http://www.sriramnarayan.com/) | No |
+| Puppet Forge repository poller | [Download](https://github.com/drrb/go-puppet-forge-poller/releases) | [Code](https://github.com/drrb/go-puppet-forge-poller) | - | No |
+| NPM repository poller | [Download](https://github.com/varchev/go-npm-poller/releases) | [Code](https://github.com/varchev/go-npm-poller) | [Deyan Varchev](https://github.com/varchev) | No |
 
 #### Task plugin
 
-- <a href="https://github.com/srinivasupadhya/xunit-converter-task">XUnit Converter</a>
+| Name |  |  | Author | Bundled |
+|:---|:---:|:---:|:---:|:---:|
+| XUnit Converter | [Download](https://github.com/srinivasupadhya/xunit-converter-task/releases) | [Code](https://github.com/srinivasupadhya/xunit-converter-task) | [Srinivas Upadhya](https://github.com/srinivasupadhya) | No |
