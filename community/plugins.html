@@ -1,0 +1,145 @@
+--- 
+layout: default 
+title: Plugins 
+subtitle: "Bundled and community contributed plugins" 
+--- 
+
+
+<p>	
+Go publishes a list of extension points for which plugins can be provided. An extension point defines the interface and the lifecycle that governs the respective plugin. At present only java based extension points and plugins are supported by Go. Details about available extension points and their lifecycle can be obtained from <a href="http://www.thoughtworks.com/products/docs/go/current/help/go_plugins_basics.html">plugins documentation</a> along with the <a href="http://www.thoughtworks.com/products/docs/go/current/help/resources/javadoc/index.html">Go plugin API reference</a>. 
+</p>
+
+<p>
+Below is the listing of bundled as well as other available plugins contributed by the community (that are not bundled with the Go Server as yet).  Please refer the <a href="http://www.thoughtworks.com/products/docs/go/current/help/plugin_user_guide.html">plugin user guide</a> to know more about plugin installation etc.
+</p>
+
+<h4>Package Repository plugins(7)</h4>
+
+
+<ul class="plugins">
+	<li class="grid-3">
+	    <h5 class="name">Yum repository poller</h5>
+	    <div class="more_details">
+	    	An Yum respository poller is a bundled package material plugin...
+	    	<a href="http://www.thoughtworks.com/products/docs/go/current/help/yum_repository_poller.html">Read more</a>
+	    </div>
+	    <div>by <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+	    </div>
+	    <div class="actions">
+	    	<span>Bundled with Go</span> -
+	    	<a href="https://github.com/gocd/go-plugins/tree/master/yum-plugin"><i class='icon-code'></i>Source</a>
+	    </div>
+	</li>
+
+	<li class="grid-3">
+	    <h5>Debian repository poller</h5>
+	    <div class="more_details">
+		    Thoughtworks Go plugin to poll debain repository.
+	    </div>
+
+	    <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+	    </div>
+	    <div class="actions">
+	    	<a href="https://github.com/srinivasupadhya/deb-repo-poller/releases"><i class='icon-download'></i>Download</a> -
+	    	<a href="https://github.com/srinivasupadhya/deb-repo-poller"><i class='icon-code'></i>Source</a>
+	    </div>
+	</li>
+
+	<li class="grid-3">
+	    <h5>Nuget repository poller</h5>
+	    <div class="more_details">
+	    	A package material plugin for Go. It is currently capable... <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Read more</a>
+
+	    </div>
+	    <div>by <a href="http://www.sriramnarayan.com/">Sriram Narayan</a>
+	    </div>
+	    <div class="actions">
+	    	<a  href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/releases"><i class='icon-download'></i>Download</a> -
+	    	<a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/"><i class='icon-code'></i>Source</a>
+	    </div>
+	</li>
+
+	<li class="grid-3">
+	    <h5>Maven (Nexus) repository poller</h5>
+	    <div class="more_details">
+	    	 A plugin for polling Nexus repositories... <a href="https://github.com/ThoughtWorksInc/go-maven-poller">Read more</a>
+	    </div>
+	    <div>by <a href="http://www.sriramnarayan.com/">Sriram Narayan</a>
+	    </div>
+	    <div class="actions">
+	    	<a  href="https://github.com/ThoughtWorksInc/go-maven-poller/releases"><i class='icon-download'></i>Download</a> -
+	    	<a href="https://github.com/ThoughtWorksInc/go-maven-poller"><i class='icon-code'></i>Source</a>
+	    </div>
+	</li>
+
+	<li class="grid-3">
+	    <h5>Maven (Artifactory Pro) repository poller</h5>
+	    <div class="more_details">
+	    	A plugin for polling Artifactory Pro repositories... <a href="https://github.com/ThoughtWorksInc/go-artifactory-poller">Read more</a>
+	    </div>
+	    <div>by <a href="http://www.sriramnarayan.com/">Sriram Narayan</a>
+	    </div>
+	    <div class="actions">
+	    	<a  href="https://github.com/ThoughtWorksInc/go-artifactory-poller/releases"><i class='icon-download'></i>Download</a> -
+	    	<a href="https://github.com/ThoughtWorksInc/go-artifactory-poller"><i class='icon-code'></i>Source</a>
+	    </div>
+	</li>
+
+
+	<li class="grid-3">
+	    <h5>Puppet Forge repository poller</h5>
+	    <div class="more_details">
+	    	A plugin for polling a Puppet forge... <a href="https://github.com/drrb/go-puppet-forge-poller">Read more</a>
+	    </div>
+	    <div>by <a href="https://github.com/drrb">drrb</a>
+	    </div>
+	    <div class="actions">
+	    	<a  href="https://github.com/drrb/go-puppet-forge-poller/releases"><i class='icon-download'></i>Download</a> -
+	    	<a href="https://github.com/drrb/go-puppet-forge-poller"><i class='icon-code'></i>Source</a>
+	    </div>
+	</li>
+
+	<li class="grid-3">
+	    <h5>NPM repository poller</h5>
+	    <div class="more_details">
+	    	A plugin for polling Npm registries. <a href="https://github.com/varchev/go-npm-poller">Read more</a>
+	    </div>
+	    <div>by <a href="https://github.com/varchev">Deyan Varchev</a>
+	    </div>
+	    <div class="actions">
+	    	<a  href="https://github.com/varchev/go-npm-poller/releases"><i class='icon-download'></i>Download</a> -
+	    	<a href="https://github.com/varchev/go-npm-poller"><i class='icon-code'></i>Source</a>
+	    </div>
+	</li>
+
+	<li class="grid-3 contribute_tile">	
+		<h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
+		<div><a href="http://www.thoughtworks.com/products/docs/go/current/help/writing_go_package_material_plugin.html"><i class='icon-code-1'></i>Write a plugin</a></div>
+		<div><a href="http://www.thoughtworks.com/products/docs/go/current/help/resources/javadoc/index.html"><i class='icon-book-1'></i>Go plugin API reference</a></div>
+	</li>
+</ul>
+
+
+<h4>Task plugins(1)</h4>
+
+<ul class="plugins">
+	<li class="grid-3">
+	    <h5>XUnit Converter</h5>
+	    <div class="more_details">
+	    	A ThoughtWorks Go plugin to convert test reports to XUnit format. <a href="https://github.com/varchev/go-npm-poller">Read more</a>
+	    </div>
+	    <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+	    </div>
+
+	    <div class="actions">
+	    	<a  href="https://github.com/srinivasupadhya/xunit-converter-task/releases"><i class='icon-download'></i>Download</a> -
+	    	<a href="https://github.com/srinivasupadhya/xunit-converter-task"><i class='icon-code'></i>Source</a>
+	    </div>
+	</li>
+	<li class="grid-3 contribute_tile">	
+		<h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
+		<div><a href="http://www.thoughtworks.com/products/docs/go/current/help/writing_go_task_plugins.html"><i class="icon-code-1"></i>Write a plugin</a></div>
+		<div><a href="http://www.thoughtworks.com/products/docs/go/current/help/resources/javadoc/index.html"><i class='icon-book-1'></i>Go plugin API reference</a></div>
+	</li>
+</ul>
+
