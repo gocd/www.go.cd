@@ -29,6 +29,8 @@
 </head>
 
 <body>
+    {% include analytics.html %}
+    
     <a href="https://github.com/gocd/gocd/">
         <img style="position:absolute;top:0;left:0;border:0;" src="/images/fork-me-button.png" alt="Fork gocd on GitHub">
     </a>
@@ -56,9 +58,8 @@
     <div class="container-12 footer">
         {% include footer.html %}
     </div>
-    <script src="/js/google-analytics.js" async=""></script>
-    {% include page-specific-scripts.html %}
 
+    {% include page-specific-scripts.html %}
 </body>
 
 </html>
