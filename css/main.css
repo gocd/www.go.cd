@@ -584,7 +584,7 @@ body.blog {
     margin-left: 10px;
     margin-right: 10px;
 }
-.os a, .download {
+.os a {
     padding: 2px;
     padding-left: 22px;
     background: url('/images/download.png') no-repeat 0 2px;
