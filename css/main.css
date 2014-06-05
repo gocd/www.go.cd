@@ -440,7 +440,7 @@ body.blog {
 }
 .header .social-icons {
     overflow: auto;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .social-icons-responsive {
     display: none;
@@ -451,27 +451,14 @@ body.blog {
     float: right;
 }
 .header .social-icons a {
-    background: url('/images/icons-social.png') no-repeat;
-    height: 27px;
-    width: 27px;
+    font-size: 25px;
+    color: #333;
     opacity: 0.6;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 .header .social-icons a:hover {
     opacity: 1;
-}
-.header .social-icons a.twitter {
-    background-position: -115px 2px;
-}
-.header .social-icons a.googlegroup {
-    background-position:-39px 0;
-}
-.header .social-icons a.irc {
-    background-position:-78px 0;
-}
-.header .social-icons a.github {
-    background-position: -2px 0;
 }
 .sub-tagline {
     color: #aaa;
