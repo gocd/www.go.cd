@@ -7,8 +7,6 @@ subtitle:  Past and upcoming events
 #### Upcoming Events
 - __Go Learning Session__ - The learning sessions are designed to help you get an overall view of the capabilities of Go and to answer your specific questions around how to configure your Go instance to conform to your build and release process. All sessions will have similar content, you don't have to attend all. These live product demos are hosted by <a href="http://thoughtworks.com">ThoughtWorks</a>.
 
-	- <a href="info.thoughtworks.com/wb-go-us-05-29.html">Live product demo</a> - On Thursday, 29th May, starts at 1:00 PM to 2:00 PM CST.  <a href="http://info.thoughtworks.com/wb-go-us-05-29.html">Register</a> for free. 
-
 	- <a href="http://info.thoughtworks.com/wb-go-us-06-26.html">Live product demo</a> - On Thursday, 26th June, starts at 1:00 PM to 2:00 PM CST.  <a href="http://info.thoughtworks.com/wb-go-us-06-26.html">Register</a> for free.  
 
 - __Pipeline Workshop__ - <a href="http://devopsdays.org/events/2014-amsterdam/">Devopsdays Amsterdam</a> - On Thursday, 19th June Devopsdays Amsterdam will be running workshops in advance of the main event. Ken Mugrage from the Go team will be running a hands on workshop on setting up pipelines. This will focus on creating pipelines which do as much in possible in parallel, and avoiding the anti-pattern of linear pipelines.
@@ -21,6 +19,8 @@ subtitle:  Past and upcoming events
 	- <a href="http://info.thoughtworks.com/wb-go-us-05-08.html">Live product demo</a> - On Thursday, 8th May, starts at 1:00 PM to 2:00 PM CST. <a href="http://info.thoughtworks.com/wb-go-us-05-08.html">Register</a> for free.
 
 	- <a href="http://info.thoughtworks.com/wb-go-us-05-15.html">Live product demo</a> - On Thursday, 15th May, starts at 1:00 PM to 2:00 PM CST.  <a href="http://info.thoughtworks.com/wb-go-us-05-15.html">Register</a> for free.
+
+	- <a href="info.thoughtworks.com/wb-go-us-05-29.html">Live product demo</a> - On Thursday, 29th May, starts at 1:00 PM to 2:00 PM CST.  <a href="http://info.thoughtworks.com/wb-go-us-05-29.html">Register</a> for free.
 
 - <a href="https://rootconf.in/2014/workshops#1120-introduction-to-go-continuous-delivery-software">Introduction to Go Continuous Delivery Software</a> - On Wednesday, 14th May (10:00 AM to 1:00 PM) in Bangalore, India. This workshop is run by <a href="https://rootconf.in/2014/about">hasgeek</a>. <a href="https://rootconf.in/2014/#tickets">Tickets</a> can be purchased from their website. 
 
