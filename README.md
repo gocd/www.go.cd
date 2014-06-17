@@ -13,7 +13,7 @@ _For Windows, you have to set `pygments` to `false` in the `_config.yml` file_
 ## Launching website locally
     jekyll serve --watch 
     
-_You can access the local website at http://localhost:4000_
+_Local website can be accessed at http://localhost:4000_
 
 ## Configuration
 `_config.yml` takes care of general configuration and navigation part.
