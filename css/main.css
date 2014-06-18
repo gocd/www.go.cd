@@ -235,37 +235,37 @@ body.blog {
     margin:0;
     clear: both;
 }
-.plugins .actions{
+.plugins .actions {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding:10px;
     border-top: 1px solid #ccc;
-}   
-.plugins .more_details{
+}
+.plugins .more_details {
     font-size: 10px;
 }
-.plugins .more_details{
+.plugins .more_details {
     margin-bottom: 10px;
 }
-.plugins h5{
+.plugins h5 {
     margin-top: 0;
     padding-top: 0;
     margin-bottom: 0px;
     padding-bottom: 10px;
 }
-.plugins li{
+.plugins li {
     display: inline-block;
     list-style: none;
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
     min-height: 190px;
     padding: 10px;
     box-sizing:border-box;
     border: 1px solid #ddd;
     position: relative;
 }
-.plugins .contribute_tile{
+.plugins .contribute_tile {
     text-align: center;
     background: #efefef;
     border: 1px dashed #ccc;
@@ -339,8 +339,14 @@ body.blog {
 /* Header
 /*
 /*****************************************************************************/
-.logo {
+ .logo {
     margin-left: 0;
+}
+.fork-me-button {
+    position:absolute;
+    top:0;
+    right:0;
+    border:0;
 }
 .header {
     margin-top: 0;
@@ -631,8 +637,7 @@ body.blog {
 /* Contributors
 /*
 /*****************************************************************************/
-
-.contributors-list span {
+ .contributors-list span {
     display: inline-block;
     background: #eee;
     margin: 5px;
@@ -673,10 +678,10 @@ body.blog {
     display: block;
     color: #999;
 }
-.leftnav > li{
+.leftnav > li {
     margin-bottom: 15px;
 }
-.fixedToTop{
+.fixedToTop {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -718,6 +723,6 @@ body.blog {
     -moz-box-sizing:border-box;
     box-sizing:border-box
 }
-.smaller-font{
+.smaller-font {
     font-size: 0.8em;
 }
