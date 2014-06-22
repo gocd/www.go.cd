@@ -42,10 +42,11 @@ Please feel free to clone / fork / send pull requests.
 This is the file that defines how the docker image will be created. Normally you would run the docker build
 program against this file, but I used a shell script so that I could call it from Go easier later.
 
-- __go-agent-14.1.0-18882.deb__
+- __go-agent-14.1.0-18882.deb__ (no longer included)
 
-This is the debian installer for a Go agent. If you're not using debian, you'll need to download the correct package
-from www.go.cd and update the Dockerfile above to use it. 
+Update on 22 June - The Dockerfile has been updated to use wget to download
+the Go 14.1 agent debian installer. If you need the RPM version visit 
+www.go.cd/download and change the Dockerfile to match your system.
 
 - __go-agent__
 
