@@ -7,6 +7,7 @@
 /*****************************************************************************/
  @media(max-width: 960px) {
     .navigation {
+        margin-top: 0;
         float: left;
     }
     .navigation li {
@@ -14,8 +15,16 @@
         margin-left: 5px;
     }
     .navigation li a {
-        padding: 8px 10px;
+        padding: 8px 5px;
         font-size: 12px;
+    }
+    .title .logo{
+        width: 120px;
+    }
+    .logo{
+        width: 120px;
+        padding-right: 0;
+        margin-right: 0;
     }
 }
 @media only screen and (max-width: 715px) {
