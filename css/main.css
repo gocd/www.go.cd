@@ -398,8 +398,9 @@ body.blog {
     left:0;
     display: none;
     min-width: 100%;
+    z-index: 1;
 }
-.navigation li:hover > ul {
+.navigation li.selected > ul, .first-level li:hover > ul {
     display: block;
     list-style: none;
 }
@@ -413,7 +414,7 @@ body.blog {
     color: #444;
     background: #eeeeee;
 }
-.navigation > li a:hover, .navigation > li label:hover, .navigation li > ul:hover + label, .navigation li.current > a {
+.navigation > li a:hover, .navigation li.selected label, .navigation > li label:hover, .navigation li.current > a {
     color: #86569A;
 }
 .navigation li.current > a {
