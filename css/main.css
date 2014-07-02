@@ -117,6 +117,9 @@ html[xmlns] .clearfix {
 ul, ol {
     padding-left: 15px;
 }
+li ul{
+    margin-bottom: 10px;
+}
 /*****************************************************************************/
 
 /*
