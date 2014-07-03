@@ -722,6 +722,10 @@ body.blog {
     border-top: 4px solid #eee;
     overflow: hidden;
 }
+.help-us-improve{
+    font-size: 1.1em;
+    padding-bottom: 10px;
+}
 *, *:before, *:after {
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
