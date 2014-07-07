@@ -685,6 +685,9 @@ body.blog {
 .leftnav > li {
     margin-bottom: 15px;
 }
+.leftnav > li a{
+    display: block;
+}
 .fixedToTop {
     position: fixed;
     top: 0;

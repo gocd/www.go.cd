@@ -12,5 +12,20 @@ jQuery(document).ready(function() {
 
     $(document).click(function() {
         navLIs.removeClass('selected');
-    })
+    });
+
+    ///side-panel
+
+    var doc = document.documentElement,
+        body = document.body;
+
+    var headerTop = document.getElementsByClassName('leftnav')[0].offsetTop;
+    window.addEventListener('scroll', function() {
+        var top = doc && doc.scrollTop || body && body.scrollTop || 0;
+        if (top > headerTop)
+            document.getElementsByClassName('leftnav')[0].classList.add('fixedToTop')
+        else
+            document.getElementsByClassName('leftnav')[0].classList.remove('fixedToTop')
+    });
+
 });
