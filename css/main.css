@@ -695,6 +695,17 @@ body.blog {
     overflow: auto;
     width: inherit;
 }
+.release-announce-holder{
+    overflow: auto;
+    text-align:center;
+    color: #217845; 
+    padding: 30px;
+    background: url('/images/bg-announcement.png') 0 0;
+}
+.release-announce-holder h2{
+    margin:0;
+    margin-bottom: 10px;
+}
 /*****************************************************************************/
 
 /*
