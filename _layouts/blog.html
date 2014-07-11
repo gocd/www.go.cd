@@ -31,12 +31,14 @@
 </head>
 
 <body class="blog">
-    {% include analytics.html %}
+
+    {% include google-tag-manager.html %}
 
     <a href="https://github.com/gocd/gocd/">
         <img class="fork-me-button" src="/images/fork-me-button.png" alt="Fork gocd on GitHub">
     </a>
 
+    
     <div class="header">
         <div class="container-12 ">
             {% include header.html %}
@@ -54,8 +56,12 @@
     <div class="container-12 footer">
         {% include footer.html %}
     </div>
+
     <script type="text/javascript" src="/js/jqlite.1.1.1.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+        
+    {% include analytics.html %}
+
 </body>
 
 </html>
