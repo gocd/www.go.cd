@@ -29,8 +29,7 @@
 </head>
 
 <body>
-    {% include analytics.html %}
-    
+    {% include google-tag-manager.html %}
     <a href="https://github.com/gocd/gocd/">
         <img class="fork-me-button" src="/images/fork-me-button.png" alt="Fork gocd on GitHub">
     </a>
@@ -60,7 +59,11 @@
     </div>
     <script type="text/javascript" src="/js/jqlite.1.1.1.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+    
     {% include page-specific-scripts.html %}
+    
+    {% include analytics.html %}
+
 </body>
 
 </html>
