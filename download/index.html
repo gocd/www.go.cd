@@ -22,7 +22,7 @@ subtitle: Download Go Server and Go Agent for Free
             <div class="tiny">You need to download both.</div>
         </td>
         <td width="400px">
-            <a onclick="record_download('Checksum');" href=" http://download.go.cd/local/14.2.0-377/sha1.checksum">SHA1 Checksum</a>
+            <a id = "Checksum" onclick="record_download('Checksum');" href=" http://download.go.cd/local/14.2.0-377/sha1.checksum">SHA1 Checksum</a>
         </td>
     </tr>
     <tr>
@@ -35,9 +35,9 @@ subtitle: Download Go Server and Go Agent for Free
             </div>
         </td>
         <td> 
-        <a href="http://download.go.cd/gocd/go-server-14.2.0-377-setup.exe" onclick="record_download('Windows-Server')" >Server</a>  
+        <a href="http://download.go.cd/gocd/go-server-14.2.0-377-setup.exe" id = "Windows-Server" onclick="record_download('Windows-Server')" >Server</a>  
         <span class='download-plus'>+</span> 
-       <a href="http://download.go.cd/gocd/go-agent-14.2.0-377-setup.exe" onclick="record_download('Windows-Agent');"  >Agent</a>
+       <a href="http://download.go.cd/gocd/go-agent-14.2.0-377-setup.exe" id = "Windows-Agent" onclick="record_download('Windows-Agent');"  >Agent</a>
         </td>
         <td>
             <div class='tiny'>Server SHA1: 49b3be2d94c2169dd255a85495fd4a434a988b51</div>
@@ -53,10 +53,10 @@ subtitle: Download Go Server and Go Agent for Free
             </div>
 
         </td>
-        <td> <a   href="http://download.go.cd/gocd/go-server-14.2.0-377-osx.zip" onclick="record_download('Mac-Server');" >Server</a>  
+        <td> <a   href="http://download.go.cd/gocd/go-server-14.2.0-377-osx.zip" id = "Mac-Server" onclick="record_download('Mac-Server');" >Server</a>  
                 <span class='download-plus'>+</span> 
         
-        <a  href="http://download.go.cd/gocd/go-agent-14.2.0-377-osx.zip"  onclick="record_download('Mac-Agent');"  >Agent</a>
+        <a  href="http://download.go.cd/gocd/go-agent-14.2.0-377-osx.zip"  id = "Mac-Agent" onclick="record_download('Mac-Agent');"  >Agent</a>
         </td>
         <td>
             <div class='tiny'>Server SHA1: 51307f62ff7a42ddf4a26c5fc642108d3760365b</div>
@@ -71,9 +71,9 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.deb</span>
             </div>
         </td>
-        <td> <a  href="http://download.go.cd/gocd-deb/go-server-14.2.0-377.deb" onclick="record_download('LinuxDeb-Server');" >Server</a>  
+        <td> <a  href="http://download.go.cd/gocd-deb/go-server-14.2.0-377.deb" id = "LinuxDeb-Server" onclick="record_download('LinuxDeb-Server');" >Server</a>  
                 <span class='download-plus'>+</span> 
-        <a  href="http://download.go.cd/gocd-deb/go-agent-14.2.0-377.deb" onclick="record_download('LinuxDeb-Agent');" >Agent</a> 
+        <a  href="http://download.go.cd/gocd-deb/go-agent-14.2.0-377.deb" id = "LinuxDeb-Agent" onclick="record_download('LinuxDeb-Agent');" >Agent</a> 
         </td>
         <td>
             <div class='tiny'>Server SHA1: 5f66e4effde11695f606270ea0eb27eb36226033</div>
@@ -89,10 +89,10 @@ subtitle: Download Go Server and Go Agent for Free
             </div>
         </td>
         <td> 
-        <a  href="http://download.go.cd/gocd-rpm/go-server-14.2.0-377.noarch.rpm" onclick="record_download('LinuxRpm-Server');" > Server</a> 
+        <a  href="http://download.go.cd/gocd-rpm/go-server-14.2.0-377.noarch.rpm" id = "LinuxRpm-Server" onclick="record_download('LinuxRpm-Server');" > Server</a> 
                 <span class='download-plus'>+</span>
         
-        <a href="http://download.go.cd/gocd-rpm/go-agent-14.2.0-377.noarch.rpm" onclick="record_download('LinuxRpm-Agent');" >Agent</a> 
+        <a href="http://download.go.cd/gocd-rpm/go-agent-14.2.0-377.noarch.rpm" id = "LinuxRpm-Agent" onclick="record_download('LinuxRpm-Agent');" >Agent</a> 
         </td>
         <td>
             <div class='tiny'>Server SHA1: cbc19b8da7989e830ee73abd100fd3e6</div>
@@ -107,9 +107,9 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.gz</span>
             </div>
         </td>
-        <td> <a href="http://download.go.cd/gocd/go-server-14.2.0.377-solaris.gz" onclick="record_download('Solaris-Server');" >Server</a>
+        <td> <a href="http://download.go.cd/gocd/go-server-14.2.0.377-solaris.gz" id = "Solaris-Server" onclick="record_download('Solaris-Server');" >Server</a>
          <span class='download-plus'>+</span>        
-       <a href="http://download.go.cd/gocd/go-agent-14.2.0.377-solaris.gz" onclick="record_download('Solaris-Agent');" > Agent</a>
+       <a href="http://download.go.cd/gocd/go-agent-14.2.0.377-solaris.gz" id = "Solaris-Agent" onclick="record_download('Solaris-Agent');" > Agent</a>
         </td>
         <td>
             <div class='tiny'>Server SHA1: 6a0e15e0e42fa9335bd0e684bae39c6e2e7a722c</div>
@@ -124,9 +124,9 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.zip</span>
             </div>
         </td>
-        <td> <a  href="http://download.go.cd/gocd/go-server-14.2.0-377.zip" onclick="record_download('Package-Server');">Server</a>
+        <td> <a  href="http://download.go.cd/gocd/go-server-14.2.0-377.zip" id = "Package-Server" onclick="record_download('Package-Server');">Server</a>
          <span class='download-plus'>+</span>       
-       <a  href="http://download.go.cd/gocd/go-agent-14.2.0-377.zip" onclick="record_download('Package-Agent');">Agent</a> 
+       <a  href="http://download.go.cd/gocd/go-agent-14.2.0-377.zip" id = "Package-Agent" onclick="record_download('Package-Agent');">Agent</a> 
         </td>
         <td>
             <div class='tiny'>Server SHA1: bc8d09556d8c6f160ea74d6b8e44c9d63bb23b78</div>
