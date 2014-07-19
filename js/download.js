@@ -70,7 +70,7 @@ $(document).ready(function() {
             var splitArtifactType = artifactType.split("-");
             var GTMID = splitArtifactType[0].charAt(0).toUpperCase() + splitArtifactType[0].slice(1) + '-' + splitArtifactType[1].charAt(0).toUpperCase() + splitArtifactType[1].slice(1);
             //ends : for GTM analytics
-            jQuery('.download-links .' + artifactType).html('<a class="download" id=' + GTMID + ' onclick="record_download('+"'"+'' + GTMID + ''+"'"+');"   href=' + masterURL + fileName + ">" + agentOrServer + "</a>");
+            jQuery('.download-links .' + artifactType).html('<a class="download" id=' + GTMID + ' href=' + masterURL + fileName + ">" + agentOrServer + "</a>");
             jQuery('.checksum .sha1 .' + artifactType).html(artifact.sha1sum);
             jQuery('.checksum .md5 .' + artifactType).html(artifact.md5sum);
 
