@@ -4,25 +4,28 @@ title:  Download
 subtitle: Download Go Server and Go Agent for Free
 ---
 
-<p> <b>You need to download both the <a href="http://www.thoughtworks.com/products/docs/go/current/help/installing_go_server.html">server</a> and the <a href="http://www.thoughtworks.com/products/docs/go/current/help/installing_go_agent.html">agent</a> in order to use Go.</b></p>
+<p> <b>You need to download both the <a href="http://www.thoughtworks.com/products/docs/go/current/help/installing_go_server.html">server</a> and the <a href="http://www.thoughtworks.com/products/docs/go/current/help/installing_go_agent.html">agent</a> in order to use Go.</b>
+</p>
 
 <p>If you need help downloading, installing or using Go please join the <a href="https://groups.google.com/forum/#!forum/go-cd">Go Users Google Group</a>. ThoughtWorks also provides commercial help for Go. They can be reached at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 
 <h4>
-    Latest supported release (v14.2) 
+    Latest supported release (v <span id="latestVersion"></span> )
     <small>
-        (<a  href="/releases/#latest">What's new</a>)
+        (<a href="/releases/#latest">What's new</a>)
     </small>
 </h4>
-
-<table class="os" border="0" cellspacing="0">
+<div id='revisions-holder'>
+    Available revisions <select id='revisions'></select>
+</div>
+<table class="os" width="100%" border="0" cellspacing="0">
     <tr>
-        <td width="400px">Operating System</td>
-        <td width="250px">Download
+        <td width="40%">Operating System</td>
+        <td width="30%">Download
             <div class="tiny">You need to download both.</div>
         </td>
-        <td width="400px">
-            <a id = "Checksum" onclick="record_download('Checksum');" href=" http://download.go.cd/local/14.2.0-377/sha1.checksum">SHA1 Checksum</a>
+        <td width="30%">
+            Checksum
         </td>
     </tr>
     <tr>
@@ -34,14 +37,25 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.exe</span>
             </div>
         </td>
-        <td> 
-        <a href="http://download.go.cd/gocd/go-server-14.2.0-377-setup.exe" id = "Windows-Server" onclick="record_download('Windows-Server')" >Server</a>  
-        <span class='download-plus'>+</span> 
-       <a href="http://download.go.cd/gocd/go-agent-14.2.0-377-setup.exe" id = "Windows-Agent" onclick="record_download('Windows-Agent');"  >Agent</a>
+        <td class="download-links">
+            <span class="windows-server">Loading...</span> 
+            <span class='separator'>+</span> 
+            <span class="windows-agent">Loading...</span>
+            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i></span>  
         </td>
-        <td>
-            <div class='tiny'>Server SHA1: 49b3be2d94c2169dd255a85495fd4a434a988b51</div>
-            <div class='tiny'>Agent SHA1: 5cdee114e0e39b90bca129739d25717b8fc7ac89</div>
+        <td class='tiny checksum'>
+            <a class="show-sha1"  href="#">Show SHA1</a>
+            <div class="sha1">
+                <b>SHA1</b>
+                <div>Server: <span class="windows-server">Loading...</span></div>
+                <div>Agent: <span class="windows-agent">Loading...</span></div>    
+            </div>
+            <a class="show-md5"  href="#">Show MD5</a>
+            <div class="md5">
+                <b>MD5</b>
+                <div>Server: <span class="windows-server">Loading...</span></div>
+                <div>Agent: <span class="windows-agent">Loading...</span></div>    
+            </div>
         </td>
     </tr>
     <tr>
@@ -53,14 +67,25 @@ subtitle: Download Go Server and Go Agent for Free
             </div>
 
         </td>
-        <td> <a   href="http://download.go.cd/gocd/go-server-14.2.0-377-osx.zip" id = "Mac-Server" onclick="record_download('Mac-Server');" >Server</a>  
-                <span class='download-plus'>+</span> 
-        
-        <a  href="http://download.go.cd/gocd/go-agent-14.2.0-377-osx.zip"  id = "Mac-Agent" onclick="record_download('Mac-Agent');"  >Agent</a>
+        <td class="download-links">
+            <span class="mac-server">Loading...</span> 
+            <span class='separator'>+</span> 
+            <span class="mac-agent">Loading...</span>
+            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i></span>  
         </td>
-        <td>
-            <div class='tiny'>Server SHA1: 51307f62ff7a42ddf4a26c5fc642108d3760365b</div>
-            <div class='tiny'>Agent SHA1: 429e70fb8b4c87afcf74119da5b855905d0a840a</div>
+        <td class='tiny checksum'>
+            <a class="show-sha1"  href="#">Show SHA1</a>
+            <div class="sha1">
+                <b>SHA1</b>
+                <div>Server: <span class="mac-server">Loading...</span></div>
+                <div>Agent: <span class="mac-agent">Loading...</span></div>    
+            </div>
+            <a class="show-md5"  href="#">Show MD5</a>
+            <div class="md5">
+                <b>MD5</b>
+                <div>Server: <span class="mac-server">Loading...</span></div>
+                <div>Agent: <span class="mac-agent">Loading...</span></div>    
+            </div>
         </td>
     </tr>
     <tr>
@@ -71,13 +96,25 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.deb</span>
             </div>
         </td>
-        <td> <a  href="http://download.go.cd/gocd-deb/go-server-14.2.0-377.deb" id = "LinuxDeb-Server" onclick="record_download('LinuxDeb-Server');" >Server</a>  
-                <span class='download-plus'>+</span> 
-        <a  href="http://download.go.cd/gocd-deb/go-agent-14.2.0-377.deb" id = "LinuxDeb-Agent" onclick="record_download('LinuxDeb-Agent');" >Agent</a> 
+        <td class="download-links">
+            <span class="linuxDeb-server">Loading...</span> 
+            <span class='separator'>+</span> 
+            <span class="linuxDeb-agent">Loading...</span>
+            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i></span>  
         </td>
-        <td>
-            <div class='tiny'>Server SHA1: 5f66e4effde11695f606270ea0eb27eb36226033</div>
-            <div class='tiny'>Agent SHA1: 365388d36f84e7a47177217f372ae128380e04f1</div>
+        <td class='tiny checksum'>
+            <a class="show-sha1"  href="#">Show SHA1</a>
+            <div class="sha1">
+                <b>SHA1</b>
+                <div>Server: <span class="linuxDeb-server">Loading...</span></div>
+                <div>Agent: <span class="linuxDeb-agent">Loading...</span></div>    
+            </div>
+            <a class="show-md5"  href="#">Show MD5</a>
+            <div class="md5">
+                <b>MD5</b>
+                <div>Server: <span class="linuxDeb-server">Loading...</span></div>
+                <div>Agent: <span class="linuxDeb-agent">Loading...</span></div>    
+            </div>
         </td>
     </tr>
     <tr>
@@ -88,15 +125,25 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.noarch.rpm</span>
             </div>
         </td>
-        <td> 
-        <a  href="http://download.go.cd/gocd-rpm/go-server-14.2.0-377.noarch.rpm" id = "LinuxRpm-Server" onclick="record_download('LinuxRpm-Server');" > Server</a> 
-                <span class='download-plus'>+</span>
-        
-        <a href="http://download.go.cd/gocd-rpm/go-agent-14.2.0-377.noarch.rpm" id = "LinuxRpm-Agent" onclick="record_download('LinuxRpm-Agent');" >Agent</a> 
+        <td class="download-links">
+            <span class="linuxRpm-server">Loading...</span> 
+            <span class='separator'>+</span> 
+            <span class="linuxRpm-agent">Loading...</span>
+            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i></span>  
         </td>
-        <td>
-            <div class='tiny'>Server SHA1: cbc19b8da7989e830ee73abd100fd3e6</div>
-            <div class='tiny'>Agent SHA1: 9c980c18a86ba59161a3ef1b2a7e8a2e</div>
+        <td class='tiny checksum'>
+            <a class="show-sha1" href="#">Show SHA1</a>
+            <div class="sha1">
+                <b>SHA1</b>
+                <div>Server: <span class="linuxRpm-server">Loading...</span></div>
+                <div>Agent: <span class="linuxRpm-agent">Loading...</span></div>    
+            </div>
+            <a class="show-md5" href="#">Show MD5</a>
+            <div class="md5">
+                <b>MD5</b>
+                <div>Server: <span class="linuxRpm-server">Loading...</span></div>
+                <div>Agent: <span class="linuxRpm-agent">Loading...</span></div>    
+            </div>
         </td>
     </tr>
     <tr>
@@ -107,13 +154,25 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.gz</span>
             </div>
         </td>
-        <td> <a href="http://download.go.cd/gocd/go-server-14.2.0.377-solaris.gz" id = "Solaris-Server" onclick="record_download('Solaris-Server');" >Server</a>
-         <span class='download-plus'>+</span>        
-       <a href="http://download.go.cd/gocd/go-agent-14.2.0.377-solaris.gz" id = "Solaris-Agent" onclick="record_download('Solaris-Agent');" > Agent</a>
+        <td id="solaris" class="download-links">
+            <span class="solaris-server">Loading...</span>
+            <span class='separator'>+</span>  
+            <span class="solaris-agent">Loading...</span>
+            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i></span> 
         </td>
-        <td>
-            <div class='tiny'>Server SHA1: 6a0e15e0e42fa9335bd0e684bae39c6e2e7a722c</div>
-            <div class='tiny'>Agent SHA1: dc0ff825ac38c7cf8f59c3d802a6aa4a6053f7a1</div>
+        <td class='tiny checksum'>
+            <a class="show-sha1"  href="#">Show SHA1</a>
+            <div class="sha1">
+                <b>SHA1</b>
+                <div>Server: <span class="solaris-server">Loading...</span></div>
+                <div>Agent: <span class="solaris-agent">Loading...</span></div>    
+            </div>
+            <a class="show-md5"  href="#">Show MD5</a>
+            <div class="md5">
+                <b>MD5</b>
+                <div>Server: <span class="solaris-server">Loading...</span></div>
+                <div>Agent: <span class="solaris-agent">Loading...</span></div>    
+            </div>
         </td>
     </tr>
     <tr>
@@ -124,19 +183,31 @@ subtitle: Download Go Server and Go Agent for Free
                 <span>.zip</span>
             </div>
         </td>
-        <td> <a  href="http://download.go.cd/gocd/go-server-14.2.0-377.zip" id = "Package-Server" onclick="record_download('Package-Server');">Server</a>
-         <span class='download-plus'>+</span>       
-       <a  href="http://download.go.cd/gocd/go-agent-14.2.0-377.zip" id = "Package-Agent" onclick="record_download('Package-Agent');">Agent</a> 
+        <td class="download-links">
+            <span class="package-server">Loading...</span> 
+            <span class='separator'>+</span> 
+            <span class="package-agent">Loading...</span>
+            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i></span>  
         </td>
-        <td>
-            <div class='tiny'>Server SHA1: bc8d09556d8c6f160ea74d6b8e44c9d63bb23b78</div>
-            <div class='tiny'>Agent SHA1: 8ab128c9aae4ad1c8b61b5dcb66c5c3d19d5fbd7</div>
+        <td class='tiny checksum'>
+            <a class="show-sha1" href="#">Show SHA1</a>
+            <div class="sha1">
+                <b>SHA1</b>
+                <div>Server: <span class="package-server">Loading...</span></div>
+                <div>Agent: <span class="package-agent">Loading...</span></div>    
+            </div>
+            <a class="show-md5" href="#">Show MD5</a>
+            <div class="md5">
+                <b>MD5</b>
+                <div>Server: <span class="package-server">Loading...</span></div>
+                <div>Agent: <span class="package-agent">Loading...</span></div>    
+            </div>
         </td>
     </tr>
 </table>
-
 <script>
     function record_download( OS) {
         ga('send', 'event', 'Download', OS);
     } 
 </script>
+<script type="text/javascript" src="/js/download.js"></script>

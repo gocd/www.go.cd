@@ -577,14 +577,22 @@ body.blog {
 /* Download
 /*
 /*****************************************************************************/
- .os .download-plus {
-    margin-left: 10px;
-    margin-right: 10px;
+#revisions-holder{
+    margin: 20px 0;
 }
-.os a {
+ .os .separator {
+    margin: 0 5px;
+}
+.os .download {
     padding: 2px;
     padding-left: 22px;
     background: url('/images/download.png') no-repeat 0 2px;
+}
+.os .checksum a{
+    display: block;
+}
+.os .sha1, .os .md5{
+    display: none;
 }
 .os__logo {
     background: url('/images/os.png');
