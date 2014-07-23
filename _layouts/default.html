@@ -20,12 +20,13 @@
     <link rel="stylesheet" href="/font/fontello/fontello-embedded.css">
     <!-- <link rel="stylesheet" href="/font/fontello/fontello.css"> -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="/js/jqlite.1.1.1.min.js" async=""></script>
+
     <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       
           <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
      <![endif]-->
-    <script type="text/javascript" src="/js/jqlite.1.1.1.min.js" async=""></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
     <a href="https://github.com/gocd/gocd/">
         <img class="fork-me-button" src="/images/fork-me-button.png" alt="Fork gocd on GitHub">
     </a>
-    
+
     {% include announcements.html %}
     <div class="header">
         <div class="container-12">
@@ -59,10 +60,8 @@
     </div>
     <script type="text/javascript" src="/js/jqlite.1.1.1.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-    
-    {% include page-specific-scripts.html %}
-    
-    {% include analytics.html %}
+
+    {% include page-specific-scripts.html %} {% include analytics.html %}
 
 </body>
 
