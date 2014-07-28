@@ -63,7 +63,13 @@ function renderArtifact(artifactList, artifactType, agentOrServer, downloadSubDi
         var GTMID = splitArtifactType[0].charAt(0).toUpperCase() + splitArtifactType[0].slice(1) + '-' + splitArtifactType[1].charAt(0).toUpperCase() + splitArtifactType[1].slice(1);
         //ends : for GTM analytics
 
-        $('.download-links .' + artifactType).html('<a class="icon-download" id="' + GTMID + '" href="'  + masterURL + "/" + downloadSubDir + "/" + fileName + '">' + agentOrServer + '</a>');
+        //check for not-supported revisions. change sub-dir if true
+        var subDirectory = downloadSubDir;
+        if (artifactList.release_type != "supported") {
+            subDirectory = 'local/' + artifactList.version;
+        }
+
+        $('.download-links .' + artifactType).html('<a class="icon-download" id="' + GTMID + '" href="' + masterURL + "/" + subDirectory + "/" + fileName + '">' + agentOrServer + '</a>');
 
         $('.checksum .sha1 .' + artifactType).html(artifact.sha1sum);
         $('.checksum .md5 .' + artifactType).html(artifact.md5sum);
