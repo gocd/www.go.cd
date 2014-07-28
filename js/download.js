@@ -51,7 +51,7 @@ function getArtifactByType(artifactsForVersion, type) {
     }
 }
 
-function renderArtifact(artifactList, artifactType, agentOrServer, downloadSubDir) {
+function renderArtifact(artifactList, artifactType, agentOrServer) {
     var artifact = getArtifactByType(artifactList, artifactType);
 
     if (typeof artifact !== "undefined" || artifact != null) {
@@ -63,8 +63,20 @@ function renderArtifact(artifactList, artifactType, agentOrServer, downloadSubDi
         var GTMID = splitArtifactType[0].charAt(0).toUpperCase() + splitArtifactType[0].slice(1) + '-' + splitArtifactType[1].charAt(0).toUpperCase() + splitArtifactType[1].slice(1);
         //ends : for GTM analytics
 
-        $('.download-links .' + artifactType).html('<a class="icon-download" id="' + GTMID + '" href="'  + masterURL + "/" + downloadSubDir + "/" + fileName + '">' + agentOrServer + '</a>');
+        var downloadSubDir;
+        if (artifactList.release_type == "supported") {
+            if(artifact.type == "linuxDeb-server" || artifact.type == "linuxDeb-agent")
+                downloadSubDir = 'gocd-deb';
+            else if(artifact.type == "linuxRpm-server" || artifact.type == "linuxRpm-agent")
+                downloadSubDir = 'gocd-rpm';
+            else
+                downloadSubDir = 'gocd';
+        }
+        else
+            downloadSubDir = 'local/' + artifactList.version;
+        
 
+        $('.download-links .' + artifactType).html('<a class="icon-download" id="' + GTMID + '" href="'  + masterURL + "/" + downloadSubDir + "/" + fileName + '">' + agentOrServer + '</a>');
         $('.checksum .sha1 .' + artifactType).html(artifact.sha1sum);
         $('.checksum .md5 .' + artifactType).html(artifact.md5sum);
 
@@ -84,23 +96,23 @@ function renderArtifacts(ArtifactList, versionIndex) {
 
     $('.windows-server, .windows-agent, .mac-server, .mac-agent, .linuxdeb-server, .linuxdeb-agent, .linuxrpm-server, .linuxrpm-agent, .solaris-server, .solaris-agent, .package-server, .package-agent').children().remove();
 
-    renderArtifact(artifactList, "windows-server", "Server", "gocd");
-    renderArtifact(artifactList, "windows-agent", "Agent", "gocd");
+    renderArtifact(artifactList, "windows-server", "Server");
+    renderArtifact(artifactList, "windows-agent", "Agent");
 
-    renderArtifact(artifactList, "mac-server", "Server", "gocd");
-    renderArtifact(artifactList, "mac-agent", "Agent", "gocd");
+    renderArtifact(artifactList, "mac-server", "Server");
+    renderArtifact(artifactList, "mac-agent", "Agent");
 
-    renderArtifact(artifactList, "linuxDeb-server", "Server", "gocd-deb");
-    renderArtifact(artifactList, "linuxDeb-agent", "Agent", "gocd-deb");
+    renderArtifact(artifactList, "linuxDeb-server", "Server");
+    renderArtifact(artifactList, "linuxDeb-agent", "Agent");
 
-    renderArtifact(artifactList, "linuxRpm-server", "Server", "gocd-rpm");
-    renderArtifact(artifactList, "linuxRpm-agent", "Agent", "gocd-rpm");
+    renderArtifact(artifactList, "linuxRpm-server", "Server");
+    renderArtifact(artifactList, "linuxRpm-agent", "Agent");
 
-    renderArtifact(artifactList, "solaris-server", "Server", "gocd");
-    renderArtifact(artifactList, "solaris-agent", "Agent", "gocd");
+    renderArtifact(artifactList, "solaris-server", "Server");
+    renderArtifact(artifactList, "solaris-agent", "Agent");
 
-    renderArtifact(artifactList, "package-server", "Server", "gocd");
-    renderArtifact(artifactList, "package-agent", "Agent", "gocd");
+    renderArtifact(artifactList, "package-server", "Server");
+    renderArtifact(artifactList, "package-agent", "Agent");
 
 
     renderCheckSum(artifactList);
