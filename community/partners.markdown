@@ -14,4 +14,6 @@ subtitle:  "Go Partners"
 
 ### Technology Partners
 
-- <a href="http://www.midvision.com/">MidVision</a> - 
+- <a href="http://www.jfrog.com/">JFrog</a> - Creators of Artifactory binary repository manager and Bintray the social cloud platform for software distribution. JFrog remedies the issues faced by software developers and DevOps teams, allowing them to manage, host and control the flow of binary artifacts from development to production.
+
+- <a href="http://www.midvision.com/">MidVision</a> - MidVision RapidDeploy™ is an Application Release Automation tool used to orchestrate manual processes in the software continuous delivery life cycle. 
