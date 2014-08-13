@@ -10,7 +10,7 @@ subtitle:  "Go Partners"
 
 ### Consulting Partners
 
-- <a href="http://highops.com/">HighOps</a> - HighOps is the first Operability-minded blend of Developers and Operations professionals in the market, uniquely positioned to provide both Professional and Managed Services for the full tech stack.
+- <a href="http://highops.com/continuous-delivery/">HighOps</a> - help introduce, sustain and benefit from Continuous Delivery and DevOps. All the while increasing Software Operability.
 
 ### Technology Partners
 
