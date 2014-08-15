@@ -5,7 +5,7 @@ date:   2014-01-07
 ---
 
 ```
-Last Updated: 31-Jul-2014
+Last Updated: 15-Aug-2014
 ```
 
 The following are proposed features for Go. While this doesn't mean we will not pick up things that are not in the list, this is what we would like to focus most of our energy on.
@@ -27,13 +27,20 @@ The design of APIs would be such that the same could be used by any 3rd party to
 
 #### Old version of JRuby and Rails in codebase - [#130](https://github.com/gocd/gocd/issues/130) ongoing
 #### Migrate from iBatis to Hibernate [#401](https://github.com/gocd/gocd/issues/401) ongoing
+#### Migrate job details from velocity to rails - [#434](https://github.com/gocd/gocd/issues/434) ongoing
 
 ### Features
+
+#### Enhance config xml editor - [#439](https://github.com/gocd/gocd/issues/439) ongoing
+
+#### VSM for a commit - [#435](https://github.com/gocd/gocd/issues/435) ongoing
+
+#### UI for Config repository management - ongoing
 
 #### Better support for Tests
 The biggest time consumer in any CI/CD setup is running tests. It has become fundamental practice to write tests and every new framework supports writing & running tests first. Which means there are more tests to run & make sense of the results. We want to provide features to ease the pain.
 
-* Parallelization - spawn 'x' instances of job [#396](https://github.com/gocd/gocd/issues/396), out of box support for TLB? custom runner for each type (junit, rspec etc.) which contacts Go server asking for next test to run? 
+* Parallelization - spawn 'x' instances of job [#396](https://github.com/gocd/gocd/issues/396) ongoing, out of box support for TLB? custom runner for each type (junit, rspec etc.) which contacts Go server asking for next test to run? 
 * Real time reports - how many ran, how many failed & which ones failed - while the job is running
 * Parse test reports - provide pluggability for all kinds of test reports/migrators for other test report formats. Currently only XUnit format is supported. Something on [these](https://github.com/srinivasupadhya/xunit-converter-task) lines?
 * Test metrics - make sense of test failures, possibly list flaky tests. Run tests in failed first order etc.
@@ -57,7 +64,7 @@ In a CI/CD setup agent management is the hardest part. Remembering what is insta
 * Console - to make changes on agent without having to ssh to the agent
 
 ### Plugins
-Go currently supports 2 extension points. Package Repository Poller & Task. We want to support more extension points the order of which is being dicussed.
+* Delete artifact extension point [#410](https://github.com/gocd/gocd/issues/410) ongoing
 
 ### Performance
 
