@@ -31,8 +31,8 @@ I will not go into detail on how to achieve this, but you can read more on how t
 ####Create a new pipeline within this group
 1. You will need to [create new pipeline](http://www.thoughtworks.com/products/docs/go/current/help/quick_pipeline_setup.html) within this group. 
 1. You will need to use Git as Material Type and under the URL, use the location of the cloning script (https://github.com/oanastoia/go-config-management.git if you have access to it, or the location where you cloned it). Use "Check Connection" to test it out.
-1. You will need to add two Environment Variables: SOURCE_TEMPLATE and DESTINATION_TEMPLATE that have some default values
-1. You will need to add two Secure Environment Variables: API_USER and API_PASS that contain credentials for a user that has correct permissions to use the [Configuration API](http://www.thoughtworks.com/products/docs/go/current/help/Configuration_API.html)
+1. You will need to add two Environment Variables: SOURCE\_TEMPLATE and DESTINATION\_TEMPLATE that have some default values
+1. You will need to add two Secure Environment Variables: API\_USER and API\_PASS that contain credentials for a user that has correct permissions to use the [Configuration API](http://www.thoughtworks.com/products/docs/go/current/help/Configuration_API.html)
 
 ![](/images/blog/cloning-templates/environment-variable-view.png)
 
@@ -68,7 +68,7 @@ Alternative you can use the Config XML to inject your template in the group usin
 </pipeline>
 ```
 
-After adding the code, please add the API_USER and API_PASS Secure Environment Variables to reflect the correct user and password as seen in the above screenshot. 
+After adding the code, please add the API\_USER and API\_PASS Secure Environment Variables to reflect the correct user and password as seen in the above screenshot. 
 
 ####Trigger the pipeline with options
 Now you can just trigger your pipeline with options and go to the Environment Variables tab to put in the right details for cloning. 
