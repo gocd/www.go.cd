@@ -7,7 +7,7 @@ published: true
 author: Marius-Stefan Ciotlos
 ---
 
-When using GO for Continuous Delivery with multiple teams where you have various security groups, you usually end up with multiple template types. Depending on your application ecosystem you might ave different deployment methods depending on the application type, that have some overlapping. At the moment we don't have the ability to have Stage templates, so you need a completely new template when you have differences.
+When using GO for Continuous Delivery with multiple teams where you have various security groups, you usually end up with multiple template types. Depending on your application ecosystem you might have different deployment methods depending on the application type, that have some overlapping. At the moment we don't have the ability to have Stage templates, so you need a completely new template when you have differences.
 
 We have decided to have one deployment template separate per application / security group (Pipeline group) so we distribute maintenance, but also reduce the risk of breaking Pipelines of other teams when we change a base template. Having different templates also allows us to allocate [Template Admins](http://www.go.cd/2014/02/24/go-template-permissions.html) specific for the application / team / security group that now can manage most of the needs of a team without requiring Go System Admin rights. 
 
