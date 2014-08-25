@@ -11,7 +11,7 @@ The following post will help you setting up [Go](http://www.go.cd) to use your c
 
 Note: This post is a copy of the one available [here](http://sachinsudheendra.github.io/2014/03/08/using-go-cd-with-custom-certificates.html)
 
-> Assumption: You have the certificate key (*.key) and an X509 certificate (*.crt)
+> Assumption: You have the certificate key (\*.key) and an X509 certificate (\*.crt)
 
 ## Step 1: Changing passphrase of certificate key
 
