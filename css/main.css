@@ -234,9 +234,16 @@ body.blog {
 .plugins {
     list-style: none;
     padding:0;
-    overflow: auto;
+    /*overflow: auto;*/
     margin:0;
     clear: both;
+    position: relative;
+}
+.plugin-icon{
+    height: 25px;
+    position: absolute;
+    background: white;
+    left: -10px;
 }
 .plugins .actions {
     position: absolute;
@@ -267,6 +274,10 @@ body.blog {
     box-sizing:border-box;
     border: 1px solid #ddd;
     position: relative;
+    padding-left: 15px;
+}
+.plugins li.go{
+    border:1px solid #86569A;
 }
 .plugins .contribute_tile {
     text-align: center;
