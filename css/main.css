@@ -240,10 +240,17 @@ body.blog {
     position: relative;
 }
 .plugin-icon{
-    height: 25px;
+    height: 35px;
     position: absolute;
     background: white;
-    left: -10px;
+    right: 5px;
+    top: 0px;
+}
+
+.plugin-icon-in-notice{
+    height: 15px;
+    border: 0px solid black; 
+    display:inline-block;
 }
 .plugins .actions {
     position: absolute;
@@ -277,7 +284,7 @@ body.blog {
     padding-left: 15px;
 }
 .plugins li.go{
-    border:1px solid #86569A;
+    border:1px solid #EBB325;
 }
 .plugins .contribute_tile {
     text-align: center;
