@@ -143,6 +143,15 @@ body.blog {
 .announcements.highlight {
     background: #FFF6E4;
 }
+
+/*Tab*/
+.tab-content .tab-pane{
+    display: none;
+}
+.tab-content .active.tab-pane{
+    display: block;
+}
+
 /*****************************************************************************/
 
 /*
@@ -337,6 +346,12 @@ body.blog {
     height: 65px;
     background: #86569A;
     padding: 10px 30px;
+}
+#download-loader{
+    text-align: center;
+}
+#solaris-revisions .experimental{
+    display: none;
 }
 .download.btn-big {
     line-height: 20px;
@@ -610,9 +625,6 @@ body.blog {
 .os .checksum a{
     display: block;
 }
-.os .sha1, .os .md5{
-    display: none;
-}
 .os__logo {
     background: url('/images/os.png');
     height: 68px;
@@ -643,7 +655,7 @@ body.blog {
     margin-left: 80px;
 }
 .os__text h5 {
-    margin-top: 10px;
+    margin-top: 0;
     margin-bottom: 10px;
 }
 .os tr td {
@@ -732,6 +744,90 @@ body.blog {
 .release-announce-holder h2{
     margin:0;
     margin-bottom: 10px;
+}
+.os-select-holder{
+    float: left;
+    overflow: hidden;
+    width: 25%;
+    padding-left: 0;
+    list-style: none;
+    white-space: nowrap;
+}
+.os-select-holder li{
+    padding: 10px;
+    height: 90px;
+    border-bottom: 1px solid #ddd;
+    background:#eee;
+}
+.os-select-holder li.active{
+    background: white;
+    position: relative;
+    z-index: 1;
+    box-shadow:1px 0px 13px #cdcdcd;
+}
+.download-list li{    
+    overflow: auto;
+    padding: 20px 25px;
+    border-bottom: 1px solid #efefef;
+}
+
+.download-list .sha1, .download-list .md5{
+    display: none;
+    margin-top: 10px;
+    font-size: 0.7em;
+}
+
+.download-list li .links{
+    text-align: right;
+}
+
+.download-list li .time-stamp, .download-list li .link-holder{
+    float: right;
+}
+.download-list li .time-stamp{
+    display: block;
+    float: none;
+    color: #888;
+    padding-top: 10px;
+    font-size: 0.8em;
+}
+.download-list li .link-holder span{
+    width: 75px;
+    display: inline-block;
+}
+.os-select-holder li .os__text{
+    color: #aaa;
+}
+.os-select-holder a:hover{
+    text-decoration: none;
+}
+.os-select-holder li.active .os__text{
+    color: #333;
+}
+.download-list{
+    margin-left: 25%;
+    position: relative;
+    box-shadow: -3px 0 2px #cdcdcd;
+}
+.download-list ul{
+    list-style: none;
+}
+
+.download-list .revision-link{
+    font-size: 0.7em;
+}
+.download-list .supported{
+    background: url('/images/verified.png') no-repeat 0 25px;
+}
+.download-list .supported .version{
+    font-weight: bold;
+    vertical-align: middle;
+    font-size: 1em;
+}
+.bintray{
+    text-align:center; 
+    padding-top:20px;    
+    clear: both;
 }
 /*****************************************************************************/
 
