@@ -57,7 +57,7 @@ $(function() {
                 if (!artifact.files[j].type.indexOf(os)) {
                     var fileName = artifact.files[j].name;
                     var splitArtifactType = artifact.files[j].type.split("-");
-                    var GTMID = splitArtifactType[0].charAt(0).toUpperCase() + splitArtifactType[0].slice(1) + '-' + splitArtifactType[1].charAt(0).toUpperCase() + splitArtifactType[1].slice(1) + "-" + artifact.version;
+                    var GTMID = splitArtifactType[0].charAt(0).toUpperCase() + splitArtifactType[0].slice(1) + '-' + splitArtifactType[1].charAt(0).toUpperCase() + splitArtifactType[1].slice(1) + "_" + artifact.version;
 
                     if (artifact.files[j].name.indexOf("server") > 0) {
                         revisionsString += "<span><a id=" + GTMID + " class='icon-download' href=" + masterURL + subDirectory + '/' + fileName + ">Server</a></span> + ";
