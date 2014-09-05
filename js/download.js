@@ -19,7 +19,9 @@ $(function() {
 
     function fetchArtifacts(callbackFn) {
         $.getJSON("http://download.go.cd/local/releases.json", function(ArtifactList, status) {
-            callbackFn(ArtifactList);
+            var supported = _.where(ArtifactList, {release_type: "supported"});
+            var unsupported = _.reject(ArtifactList, {release_type: "supported"}).reverse();
+            callbackFn(supported.concat(unsupported));
             hideLoader();
         });
 
@@ -39,27 +41,27 @@ $(function() {
                 subDirectory = 'local/' + artifact.version;
             }
 
-            var releasedTime = new Date(artifact.release_time * 1000);
             revisionsString += "<li class=" + artifact.release_type + ">";
             revisionsString += "<div style='float:left;'>"
             revisionsString += "<span class='version'>" + artifact.version + "</span>" + "<span class='revision-link'> (<a target='_blank' href=http://www.github.com/gocd/gocd/commit/" + artifact.git_revision + ">" + artifact.git_revision + "</a>)</span>";
-            revisionsString += "<span class='time-stamp'>" + $.timeago(releasedTime.getFullYear() + '-' + (releasedTime.getMonth() + 1) + '-' + releasedTime.getDate()) + "</span>";
+            
+            var releasedTime = new Date(artifact.release_time * 1000);
+            revisionsString += "<span class='time-stamp' title='" + releasedTime + "'>" + $.timeago(releasedTime.getFullYear() + '-' + (releasedTime.getMonth() + 1) + '-' + releasedTime.getDate()) + "</span>";
+            
             revisionsString += "</div>"
 
-
             revisionsString += "<div class='link-holder'>";
-
             revisionsString += "<div class='links'>";
             var j = 0;
             while (j < artifact.files.length) {
                 if (!artifact.files[j].type.indexOf(os)) {
                     var fileName = artifact.files[j].name;
                     var splitArtifactType = artifact.files[j].type.split("-");
-                    var GTMID = splitArtifactType[0].charAt(0).toUpperCase() + splitArtifactType[0].slice(1) + '-' + splitArtifactType[1].charAt(0).toUpperCase() + splitArtifactType[1].slice(1);
+                    var GTMID = splitArtifactType[0].charAt(0).toUpperCase() + splitArtifactType[0].slice(1) + '-' + splitArtifactType[1].charAt(0).toUpperCase() + splitArtifactType[1].slice(1) + "-" + artifact.version;
 
                     if (artifact.files[j].name.indexOf("server") > 0) {
-                        revisionsString += "<span><a id=" + GTMID + " class='icon-download' href=" + masterURL + subDirectory + '/' + fileName + ">Server</a></span>";
-
+                        revisionsString += "<span><a id=" + GTMID + " class='icon-download' href=" + masterURL + subDirectory + '/' + fileName + ">Server</a></span> + ";
+                    
                     } else if (artifact.files[j].name.indexOf("agent") > 0) {
                         revisionsString += "<span><a id=" + GTMID + " class='icon-download' href=" + masterURL + subDirectory + '/' + fileName + ">Agent</a></span>";
                     }
@@ -69,26 +71,26 @@ $(function() {
             revisionsString += "</div>";
 
             revisionsString += '<div>'
-                var j = 0;
-                    while (j < artifact.files.length) {
-                        if (!artifact.files[j].type.indexOf(os)) {
-                            var file = artifact.files[j];
-                            
-                            if (artifact.files[j].name.indexOf("server") > 0) {
-                                revisionsString += '<div class="sha1">';
-                                revisionsString += "<div> <b>Server MD5</b> "+file.md5sum+" </div>";
-                                revisionsString += "<div> <b>Server SHA1</b> "+file.sha1sum+"</div>";
-                                revisionsString += '</div>';
+            var j = 0;
+            while (j < artifact.files.length) {
+                if (!artifact.files[j].type.indexOf(os)) {
+                    var file = artifact.files[j];
 
-                            } else if (artifact.files[j].name.indexOf("agent") > 0) {
-                                revisionsString += '<div class="md5">';
-                                revisionsString += "<div> <b>Agent MD5</b> "+file.md5sum+" </div>";
-                                revisionsString += "<div> <b>Agent SHA1</b> "+file.sha1sum+" </div>";
-                                revisionsString += '</div>';
-                            }
-                        }
-                        j++;
+                    if (artifact.files[j].name.indexOf("server") > 0) {
+                        revisionsString += '<div class="sha1">';
+                        revisionsString += "<div> <b>Server MD5</b> " + file.md5sum + " </div>";
+                        revisionsString += "<div> <b>Server SHA1</b> " + file.sha1sum + "</div>";
+                        revisionsString += '</div>';
+
+                    } else if (artifact.files[j].name.indexOf("agent") > 0) {
+                        revisionsString += '<div class="md5">';
+                        revisionsString += "<div> <b>Agent MD5</b> " + file.md5sum + " </div>";
+                        revisionsString += "<div> <b>Agent SHA1</b> " + file.sha1sum + " </div>";
+                        revisionsString += '</div>';
                     }
+                }
+                j++;
+            }
             revisionsString += '</div>';
 
 

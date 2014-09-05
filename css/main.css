@@ -792,8 +792,8 @@ body.blog {
     font-size: 0.8em;
 }
 .download-list li .link-holder span{
-    width: 75px;
     display: inline-block;
+    margin: 0 4px;
 }
 .os-select-holder li .os__text{
     color: #aaa;
