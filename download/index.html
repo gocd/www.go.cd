@@ -4,6 +4,7 @@ title:  Download
 subtitle: Download Go Server and Go Agent for Free
 ---
 
+
 <p> <b>You need to download both the <a href="http://www.thoughtworks.com/products/docs/go/current/help/installing_go_server.html">server</a> and the <a href="http://www.thoughtworks.com/products/docs/go/current/help/installing_go_agent.html">agent</a> in order to use Go.</b>
 </p>
 
@@ -16,263 +17,109 @@ subtitle: Download Go Server and Go Agent for Free
         (<a href="/releases/#latest">What's new</a>)
     </small>
 </h4>
-<div id='revisions-holder'>
-    Available revisions
-    <select id='revisions'></select>
-</div>
+
+
+<!-- Nav tabs -->
 <table class="os" width="100%" border="0" cellspacing="0">
     <tr>
-        <td width="40%">
+        <th width="25%">
             Operating System
-            <div class="tiny">
-                Go supports following OS
-            </div>
-        </td>
-        <td width="30%">Download
-            <div class="tiny">You need to download both.</div>
-        </td>
-        <td width="30%">
-            Checksums
-            <div class="tiny">
-                <span id="sha1-download">Loading...</span>
-                <span id="md5-download">Loading...</span>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <i class='os__logo windows'></i>
+            <div class="tiny">Go supports following OS</div>
+        </th>
 
-            <div class="os__text">
-                <h5>Windows</h5>
-                <span>.exe</span>
+        <th width="75%">
+            <div style="padding:10px;">
+                <span>
+                    Revisions        
+                </span>
+                <span style='float:right; width:150px;'>
+                    Links 
+                    <div><input id='show-checksum' onclick="toggle('.sha1, .md5', this)" type="checkbox" /> <label class="tiny" for='show-checksum'>Show Checksum</label></div>
+                </span>
             </div>
-        </td>
-        <td class="download-links">
-            <span class="windows-server">Loading...</span>
-            <span class='separator'>+</span>
-            <span class="windows-agent">Loading...</span>
-            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i>
-            </span>
-        </td>
-        <td class='tiny checksum'>
-            <a class="show-sha1" href="#">Show SHA1</a>
-            <div class="sha1">
-                <b>SHA1</b>
-                <div>Server:
-                    <span class="windows-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="windows-agent">Loading...</span>
-                </div>
-            </div>
-            <a class="show-md5" href="#">Show MD5</a>
-            <div class="md5">
-                <b>MD5</b>
-                <div>Server:
-                    <span class="windows-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="windows-agent">Loading...</span>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <i class='os__logo mac'></i>
-            <div class="os__text">
-                <h5>Mac OS X</h5>
-                <span>.osx.zip</span>
-            </div>
-
-        </td>
-        <td class="download-links">
-            <span class="mac-server">Loading...</span>
-            <span class='separator'>+</span>
-            <span class="mac-agent">Loading...</span>
-            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i>
-            </span>
-        </td>
-        <td class='tiny checksum'>
-            <a class="show-sha1" href="#">Show SHA1</a>
-            <div class="sha1">
-                <b>SHA1</b>
-                <div>Server:
-                    <span class="mac-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="mac-agent">Loading...</span>
-                </div>
-            </div>
-            <a class="show-md5" href="#">Show MD5</a>
-            <div class="md5">
-                <b>MD5</b>
-                <div>Server:
-                    <span class="mac-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="mac-agent">Loading...</span>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <i class='os__logo linux-deb'></i>
-            <div class="os__text">
-                <h5>Linux (Debian, Ubuntu, ...)</h5>
-                <span>.deb</span>
-            </div>
-        </td>
-        <td class="download-links">
-            <span class="linuxDeb-server">Loading...</span>
-            <span class='separator'>+</span>
-            <span class="linuxDeb-agent">Loading...</span>
-            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i>
-            </span>
-        </td>
-        <td class='tiny checksum'>
-            <a class="show-sha1" href="#">Show SHA1</a>
-            <div class="sha1">
-                <b>SHA1</b>
-                <div>Server:
-                    <span class="linuxDeb-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="linuxDeb-agent">Loading...</span>
-                </div>
-            </div>
-            <a class="show-md5" href="#">Show MD5</a>
-            <div class="md5">
-                <b>MD5</b>
-                <div>Server:
-                    <span class="linuxDeb-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="linuxDeb-agent">Loading...</span>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <i class='os__logo linux-rpm'></i>
-            <div class="os__text">
-                <h5>Linux (Redhat, CentOS, ...)</h5>
-                <span>.noarch.rpm</span>
-            </div>
-        </td>
-        <td class="download-links">
-            <span class="linuxRpm-server">Loading...</span>
-            <span class='separator'>+</span>
-            <span class="linuxRpm-agent">Loading...</span>
-            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i>
-            </span>
-        </td>
-        <td class='tiny checksum'>
-            <a class="show-sha1" href="#">Show SHA1</a>
-            <div class="sha1">
-                <b>SHA1</b>
-                <div>Server:
-                    <span class="linuxRpm-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="linuxRpm-agent">Loading...</span>
-                </div>
-            </div>
-            <a class="show-md5" href="#">Show MD5</a>
-            <div class="md5">
-                <b>MD5</b>
-                <div>Server:
-                    <span class="linuxRpm-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="linuxRpm-agent">Loading...</span>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <i class='os__logo solaris'></i>
-            <div class="os__text">
-                <h5>Solaris</h5>
-                <span>.gz</span>
-            </div>
-        </td>
-        <td id="solaris" class="download-links">
-            <span class="solaris-server">Loading...</span>
-            <span class='separator'>+</span>
-            <span class="solaris-agent">Loading...</span>
-            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i>
-            </span>
-        </td>
-        <td class='tiny checksum'>
-            <a class="show-sha1" href="#">Show SHA1</a>
-            <div class="sha1">
-                <b>SHA1</b>
-                <div>Server:
-                    <span class="solaris-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="solaris-agent">Loading...</span>
-                </div>
-            </div>
-            <a class="show-md5" href="#">Show MD5</a>
-            <div class="md5">
-                <b>MD5</b>
-                <div>Server:
-                    <span class="solaris-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="solaris-agent">Loading...</span>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <i class='os__logo zip'></i>
-            <div class="os__text">
-                <h5>Package</h5>
-                <span>.zip</span>
-            </div>
-        </td>
-        <td class="download-links">
-            <span class="package-server">Loading...</span>
-            <span class='separator'>+</span>
-            <span class="package-agent">Loading...</span>
-            <span class="intallers-not-available" style='display:none;'><i>These installers are not available for this revision.</i>
-            </span>
-        </td>
-        <td class='tiny checksum'>
-            <a class="show-sha1" href="#">Show SHA1</a>
-            <div class="sha1">
-                <b>SHA1</b>
-                <div>Server:
-                    <span class="package-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="package-agent">Loading...</span>
-                </div>
-            </div>
-            <a class="show-md5" href="#">Show MD5</a>
-            <div class="md5">
-                <b>MD5</b>
-                <div>Server:
-                    <span class="package-server">Loading...</span>
-                </div>
-                <div>Agent:
-                    <span class="package-agent">Loading...</span>
-                </div>
-            </div>
-        </td>
+        </th>
     </tr>
 </table>
-<div style="text-align:center; padding-top:20px;"> 
-    <a href="//www.bintray.com"> <img width="150px;" src="//www.bintray.com/docs/images/poweredByBintray_ColorTransparent.png"> </a> 
-</div>
-<script type="text/javascript" src="/js/jqlite.1.1.1.min.js"></script>
+<ul class="nav nav-tabs os-select-holder" role="tablist">
+    <li class="active"><a href="#windows" role="tab" data-toggle="tab"><i class='os__logo windows'></i>
+        <div class="os__text">
+            <h5>Windows</h5>
+            <span>.exe</span>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="#mac" role="tab" data-toggle="tab"><i class='os__logo mac'></i>
+        <div class="os__text">
+            <h5>Mac OS X</h5>
+            <span>.osx.zip</span>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="#linux-deb" role="tab" data-toggle="tab"><i class='os__logo linux-deb'></i>
+        <div class="os__text">
+            <h5>Linux <small style='font-size:0.6em'>(Debian, Ubuntu, ...)</small></h5>
+            <span>.deb</span>
+        </div>
+        </a>
+    </li>
+    <li><a href="#linux-rpm" role="tab" data-toggle="tab"><i class='os__logo linux-rpm'></i><div class="os__text">
+    <h5>Linux <small style='font-size:0.6em'>(Redhat, CentOS, ...)</small></h5>
+    <span>.noarch.rpm</span>
+</div></a>
+    </li>
+    <li><a href="#solaris" role="tab" data-toggle="tab"><i class='os__logo solaris'></i><div class="os__text">
+    <h5>Solaris</h5>
+    <span>.gz</span>
+</div></a>
+    </li>
+    <li><a href="#zip" role="tab" data-toggle="tab"><i class='os__logo zip'></i><div class="os__text">
+    <h5>Package</h5>
+    <span>.zip</span>
+</div></a>
+    </li>
+</ul>
 
+<!-- Tab panes -->
+<div class="tab-content download-list">
+    <div id='download-loader'><img height="300px;" alt="Loading..." src="/images/loading1.gif"/></div>
+    <div class="tab-pane" id="windows">
+        <ul id='windows-revisions'></ul>
+    </div>
+    <div class="tab-pane" id="mac">
+        <ul id='mac-revisions'></ul>
+    </div>
+    <div class="tab-pane" id="linux-deb">
+        <ul id='linuxDeb-revisions'></ul>
+    </div>
+    <div class="tab-pane" id="linux-rpm">
+        <ul id='linuxRpm-revisions'></ul>
+    </div>
+    <div class="tab-pane" id="solaris">
+        <ul id='solaris-revisions'></ul>
+    </div>
+    <div class="tab-pane" id="zip">
+        <ul id='package-revisions'></ul>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="bintray">
+    <a href="//www.bintray.com">
+        <img width="150px;" src="//www.bintray.com/docs/images/poweredByBintray_ColorTransparent.png">
+    </a>
+</div>
+
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="/js/download.js"></script>
+<script type="text/javascript" src="/js/jquery.timeago.js"></script>
+<script type="text/javascript" src="/js/underscore-min.js"></script>
+<script type="text/javascript"> 
+    function toggle(className, obj) {
+        var $input = $(obj);
+        if ($input.prop('checked')) $(className).show();
+        else $(className).hide();
+    }
+</script>
