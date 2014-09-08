@@ -4,14 +4,12 @@
 window.onload = function() {
     //only execute this code if its contribute page
     {% if url == '/contribute/' %}
-    jQuery.ajax.send("https://api.github.com/repos/gocd/gocd/issues", function(issues_found, status) {
-        issues_found = eval("(" + issues_found + ")");
+    $.getJSON("https://api.github.com/repos/gocd/gocd/issues", function(issues_found, status) {
         for (var i = 0; i < 5; i++) {
             $('.open-issues ul').append('<li>' + issues_found[i].title + ' (<a target="_blank" href="' + issues_found[i].html_url + '">link</a>)<small>by <a target="_blank" href=' + issues_found[i].user.html_url + '>' + issues_found[i].user.login + '</a></small></li>');
         };
     });
-    jQuery.ajax.send("https://api.github.com/repos/gocd/gocd/contributors", function(contributors_found, status) {
-        contributors_found = eval("(" + contributors_found + ")");
+    $.getJSON("https://api.github.com/repos/gocd/gocd/contributors", function(contributors_found, status) {
         for (var i = 0; i < contributors_found.length; i++) {
             $('.contributors ul').append('<li><img src=' + contributors_found[i].avatar_url + 's=60' + '></img><a href=' + contributors_found[i].html_url + '>' + contributors_found[i].login + '</a></li>');
         };

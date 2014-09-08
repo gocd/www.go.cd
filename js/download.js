@@ -104,11 +104,6 @@ $(function() {
 
 
 $(window).load(function() {
-    var userOnOS = detectOS();
-    if (userOnOS == "NotDetected")
-        userOnOS = "windows";
-    $('a[href="#' + userOnOS + '"]').tab('show');
-
     function detectOS() {
         if (navigator.appVersion.indexOf("Win") != -1)
             return "windows";
@@ -118,6 +113,7 @@ $(window).load(function() {
             return "linux-deb";
         else if (navigator.appVersion.indexOf("Solaris") != -1)
             return "solaris";
-        else "NotDetected"
+        else "windows"
     }
+    $('a[href="#' + detectOS() + '"]').tab('show');
 });
