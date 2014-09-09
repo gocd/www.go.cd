@@ -28,7 +28,16 @@ The biggest time consumer in any CI/CD setup is running tests. It has become fun
 * Parse test reports - provide pluggability for all kinds of test reports/migrators for other test report formats. Currently only XUnit format is supported. Something on [these](https://github.com/srinivasupadhya/xunit-converter-task) lines?
 * Test metrics - make sense of test failures, possibly list flaky tests. Run tests in failed first order etc.
 
-### Small Features
+#### APIs
+The design of APIs would be such that the same could be used by any 3rd party to interact with Go Server. This would basically mean Go Server can run in head less mode allowing developers to write their own UI. The order in which we would like to go about doing this:
+
+* API for pipeline creation - CRUD for group, pipeline / template, stage, job, task (along with env. var & parameters), material config
+* API for agents - add resource, environments [#264](https://github.com/gocd/gocd/issues/264)
+* API for environment dashboard
+* API for search of pipeline based on parameters (checkin - SHA, message, author / pipeline - counter, label)
+* API for compare pipeline
+
+### Features
 
 ##### Enhance config xml editor - [#439](https://github.com/gocd/gocd/issues/439) ongoing
 
@@ -47,15 +56,6 @@ We want to make the Go Server UI interact with the backend through APIs, even mo
 ### Plugins
 
 #### Delete artifact extension point [#410](https://github.com/gocd/gocd/issues/410) ongoing
-
-### APIs
-The design of APIs would be such that the same could be used by any 3rd party to interact with Go Server. This would basically mean Go Server can run in head less mode allowing developers to write their own UI. The order in which we would like to go about doing this:
-
-* API for agents - add resource, environments [#264](https://github.com/gocd/gocd/issues/264)
-* API for pipeline creation - CRUD for group, pipeline / template, stage, job, task (along with env. var & parameters), material config
-* API for environment dashboard
-* API for search of pipeline based on parameters (checkin - SHA, message, author / pipeline - counter, label)
-* API for compare pipeline
 
 ### Performance
 
