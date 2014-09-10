@@ -23,7 +23,7 @@ systems.
 To get started, open a command prompt in an empty directory and type...
 
 <blockquote>
-vagrant init vagrant init gocd/gocd-demo
+vagrant init gocd/gocd-demo
 </blockquote>
 
 This will create a file called Vagrantfile in your current directory. 
