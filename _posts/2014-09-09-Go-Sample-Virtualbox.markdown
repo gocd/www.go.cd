@@ -66,10 +66,14 @@ The box will be updated as new things come out, but as of this writing...
 * A couple simple phpunit tests
 * A couple simple watir scripts
 
+All of the code is on the Virtualbox machine at /home/vagrant/projects. The easiest way
+to access this is to type 'vagrant ssh' at the command prompt in the same place you 
+started the machine.
+
 The hope is that using this box you can see how real applications (even if they are small)
 are built, tested and deployed with Go. 
 
-As always, Go questions can be asked at https://groups.google.com/forum/#!forum/go-cd
+As always, Go questions can be asked at [https://groups.google.com/forum/#!forum/go-cd](https://groups.google.com/forum/#!forum/go-cd)
 
 
 
