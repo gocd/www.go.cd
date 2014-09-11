@@ -9,7 +9,7 @@ $(function() {
             renderInstallersByOS(artifactList, "linuxDeb", 'linuxDeb-revisions', 'gocd-deb');
             renderInstallersByOS(artifactList, "linuxRpm", 'linuxRpm-revisions', 'gocd-rpm');
             renderInstallersByOS(artifactList, "package", 'package-revisions', 'gocd');
-            renderInstallersByOS(artifactList, "windows", 'windows-revisions', 'gocd');
+            renderInstallersByOS(artifactList, "win", 'windows-revisions', 'gocd');
         });
     }
 
@@ -105,15 +105,11 @@ $(function() {
 
 $(window).load(function() {
     function detectOS() {
-        if (navigator.appVersion.indexOf("Win") != -1)
-            return "windows";
-        else if (navigator.appVersion.indexOf("Mac") != -1)
-            return "mac";
-        else if (navigator.appVersion.indexOf("Linux") != -1)
+        if($.os.name == "linux")
             return "linux-deb";
-        else if (navigator.appVersion.indexOf("Solaris") != -1)
-            return "solaris";
-        else "windows"
+        if($.os.name == "unknown")
+            return "win";
+        return $.os.name;
     }
     $('a[href="#' + detectOS() + '"]').tab('show');
 });
