@@ -19,14 +19,15 @@ jQuery(document).ready(function() {
     var doc = document.documentElement,
         body = document.body;
 
-    if (document.getElementsByClassName('leftnav')[0] != undefined){
-        var headerTop = document.getElementsByClassName('leftnav')[0].offsetTop;
-        window.addEventListener('scroll', function() {
+    if ($('.leftnav').length > 0) {
+        var leftNav = $('.leftnav')[0],
+            headerTop = $(leftNav).offset().top;
+        $(window).scroll(function() {
             var top = doc && doc.scrollTop || body && body.scrollTop || 0;
             if (top > headerTop)
-                document.getElementsByClassName('leftnav')[0].classList.add('fixedToTop')
+                $(leftNav).addClass('fixedToTop')
             else
-                document.getElementsByClassName('leftnav')[0].classList.remove('fixedToTop')
+                $(leftNav).removeClass('fixedToTop')
         });
     }
 
