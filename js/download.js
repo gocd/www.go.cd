@@ -42,7 +42,8 @@ $(function() {
             }
 
             revisionsString += "<li class=" + artifact.release_type + ">";
-            revisionsString += "<div style='float:left;'>"
+            revisionsString += "<div style='float:left; font-weight: bold;'>" + artifact.release_type + " release</div>"
+            revisionsString += "<div style='clear: left; float:left;'>"
             revisionsString += "<span class='version'>" + artifact.version + "</span>" + "<span class='revision-link'> (<a target='_blank' href=http://www.github.com/gocd/gocd/commit/" + artifact.git_revision + ">" + artifact.git_revision + "</a>)</span>";
             
             var releasedTime = new Date(artifact.release_time * 1000);
