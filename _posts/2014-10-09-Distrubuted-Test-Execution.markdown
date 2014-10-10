@@ -7,17 +7,17 @@ published: true
 author: Go Team
 ---
 
-Writing tests has become the norm. Consequently, running tests for every commit is central & most time consuming activity in any CI/CD setup. In a decent sized production quality project you tend to have thousands of tests. That means the cycle time, i.e. the time it takes for a commit to reach deployable state (after running all unit, integration & functional tests), keeps growing.
+Writing tests has become the norm. Consequently, running tests for every commit is central & the most time consuming activity in any CI/CD setup. In a decent-sized production quality project you tend to have thousands of tests. That means the cycle time, i.e. the time it takes for a commit to reach deployable state (after running all unit, integration & functional tests), keeps growing.
 
 It gets harder when teams follow XP related practices like "small commits, frequent commits" since it causes parallel builds & resource starvation.
 
-One such example is Go's codebase. Just the "Common" & "Server" components of Go which comprises of unit & integration tests, together has ~6000 tests which will take about ~5hrs if run serially! The function test suite is about 260+ tests with combined runtime of ~15 hrs. Thats close to a day & we haven't even run everything for a single commit!
+One such example is Go's codebase. Just the "Common" & "Server" components of Go which comprises of unit & integration tests, together has ~6000 tests which will take about *~5 hours* if run serially! The functional test suite is about 260+ tests with combined runtime of *~15 hours*. That's close to a day & we haven't even run everything for a single commit!
 
-Note that the number of tests is soo huge just putting in a powerful box & running test in parellel will not bring it down to acceptable limits.
+Note that the number of tests is soo huge that just putting in a powerful box & running test in parellel will not bring it down to acceptable limits.
 
 ## Solution [Go + TLB]
 
-Go is trying to improve cycle-time by making test execution faster, distributing it across many agents (machines). After this "Common" + "Server" takes 20 minutes. All functional tests run in 45 minutes. Thats close to an hour! Still not ideal (a few minutes), but better. :)
+Go improves the cycle time of its own build by making test execution faster, distributing it across many agents (machines). After this "Common" + "Server" takes *20 minutes*. All functional tests run in *45 minutes*. Thats close to an hour! Still not ideal (a few minutes), but better. :)
 
 ### Test Load Balancer (TLB)
 
@@ -47,11 +47,11 @@ This should start server at `http://host-ip-address:7019`
 
 ### Go
 
-While TLB is doing all the distribution & execution, Go does what it does best - orchestrate. 
+While TLB is doing all the distribution, Go does what it does best - orchestrate the parallel execution. 
 
 #### 'run-x-instance'
 
-Starting release 14.3 you can spwan 'x' instances of a job. So if you want to distribute your tests across 10 machines you just need to set `run instance count` to 10 & Go will spawn 10 instances of the job when scheduling.
+Starting release 14.3 you can spawn 'x' instances of a job. So if you want to distribute your tests across 10 machines you just need to set `run instance count` to 10 & Go will spawn 10 instances of the job when scheduling.
 
 *Sample Configuration*
 
@@ -113,7 +113,7 @@ Go's modelling capability gives it the ability to run jobs in parallel but wait 
 
 #### Stop the downstream flow
 
-If any of the test (and as a result the Job running the test) fails, the Stage is considered as failed. This causes the flow to stop as expected.
+If any of the tests (and as a result the Job running the test) fails, the Stage is considered as failed. This causes the flow to stop as expected.
 
 <img src="/images/blog/run-x-instance/5.png" style="width: 100%">
 
@@ -128,8 +128,8 @@ Once all the Jobs are done running, Go consolidates test reports & shows the res
 You can drill down at job level to know more information like 'test count', 'console output' for the Job (test) etc.
 
 <img src="/images/blog/run-x-instance/8.png" style="width: 100%">
-<img src="/images/blog/run-x-instance/9.png" style="width: 100%">
 <img src="/images/blog/run-x-instance/10.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/9.png" style="width: 100%">
 
 #### Partition re-run
 
@@ -141,4 +141,4 @@ Go also provides ability to re-run a Job of a stage. This provides ability to ru
 
 Go's one knob control to amount of parallelization means that when the number of tests increase/decrease all you will need to do is change the `run instance count` based on number of tests & resource availability & you are done!
 
-As always, Go questions can be asked at [go-cd](https://groups.google.com/forum/#!forum/go-cd)
+As always, Go questions can be asked at [go-cd](https://groups.google.com/forum/#!forum/go-cd).
