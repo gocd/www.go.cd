@@ -11,19 +11,21 @@ Writing tests has finally become the norm. Consequently, running tests for every
 
 It gets harder when teams follow XP related practices like "small commits, frequent commits" since it causes parallel builds & resource starvation.
 
-One such example is Go's codebase. Just the "Common" & "Server" components of Go which comprises of unit & integration tests, together has ~6000 tests which will take about *~5 hours* if run serially! The functional test suite is about 260+ tests with combined runtime of *~15 hours*. That's close to a day & we haven't even run everything for a single commit!
+One such example is Go's codebase. Just the "Common" & "Server" components of Go which comprises of unit & integration tests, together has ~6000 tests which will take about *~5 hours* if run serially! The functional test suite is about 260+ tests with combined runtime of *~15 hours*. That's close to **a day** & we haven't even run everything for a single commit!
 
-Note that the number of tests is soo huge that just putting in a powerful box & running test in parellel will not bring it down to acceptable limits.
+Note that the number of tests is so huge that just putting in a powerful box & running test in parellel will not bring it down to acceptable limits.
 
 ## Solution [Go + TLB]
 
-Go improves the cycle time of its own build by making test execution faster, distributing it across many agents (machines). After this "Common" + "Server" takes *20 minutes*. All functional tests run in *45 minutes*. Thats close to an hour! Still not ideal (a few minutes), but better. :)
+Go improves the cycle time of its own build by making test execution faster, distributing it across many agents (machines). After this "Common" + "Server" takes *20 minutes*. All functional tests run in *45 minutes*. Thats close to **an hour**! Still not ideal (a few minutes), but better. :)
 
 ### Test Load Balancer (TLB)
 
-[TLB](http://test-load-balancer.github.io) is a library which provides the ability to break up a test suite into pieces and run a part. It garantees 'Mutual Exclusion' & 'Collective Exhaustion' properties that are essential to reliably running tests in distributed fashion.
+[TLB](http://test-load-balancer.github.io) is an open-source library which provides the ability to break up a test suite into pieces and run a part. It guarantees 'Mutual Exclusion' & 'Collective Exhaustion' properties that are essential to reliably running tests in distributed fashion.
 
-Note: As of this writing, TLB integrates with JUnit (through Ant, Maven & Buildr), RSpec (through Rake), Cucumber (through Rake), Twist (through Ant & Buildr).
+TLB's strength lies in intelligent test distribution which is based on time, i.e. the tests will be distributed based on time they take to execute, making the jobs close to equal runs which leads to better resource utilization. It falls back on count based splitting if test times are not available. It also runs tests in 'Failed First' order, so if a test has failed in previous run it will be run before other tests which means faster feedback.
+
+*Note:* As of this writing, TLB integrates with JUnit (through Ant, Maven & Buildr), RSpec (through Rake), Cucumber (through Rake), Twist (through Ant & Buildr).
 
 #### Quick Setup
 
@@ -47,31 +49,37 @@ This should start server at `http://host-ip-address:7019`
 
 ### Go
 
+[Go](http://www.go.cd/) is an open-source CI/CD tool. Its well known for its powerful modelling, tracing & visualization capabilities.
+
 While TLB is doing all the distribution, Go does what it does best - orchestrate the parallel execution. 
 
-#### 'run-x-instance'
+#### Run 'X' instances
 
 Starting release 14.3 you can spawn 'x' instances of a job. So if you want to distribute your tests across 10 machines you just need to set `run instance count` to 10 & Go will spawn 10 instances of the job when scheduling.
 
-*Sample Configuration*
+**Sample Configuration**
 
 Setup a pipeline with material (SCM) that contains your tests.
 
-<img src="/images/blog/run-x-instance/1.png" style="width: 100%">
-
-Setup TLB related environment variables at Environment / Pipeline / Stage / Job level.
-
-<img src="/images/blog/run-x-instance/2.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/1.png" style="width: 100%; border: 1px solid;">
 
 Setup Job to spawn required number of instances (run instance count).
 
-<img src="/images/blog/run-x-instance/3.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/3.png" style="width: 100%; border: 1px solid;">
+
+Setup TLB related environment variables at Environment / Pipeline / Stage / Job level.
+
+<img src="/images/blog/run-x-instance/2.png" style="width: 100%; border: 1px solid;">
 
 Setup the task to consume `GO_PIPELINE_NAME`, `GO_STAGE_NAME`, `GO_PIPELINE_COUNTER`, `GO_STAGE_COUNTER`, `GO_JOB_RUN_INDEX` & `GO_JOB_RUN_COUNT` environment variables that Go exposes.
 
-<img src="/images/blog/run-x-instance/4.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/4.png" style="width: 100%; border: 1px solid;">
 
 Upload junit xmls as test artifacts.
+
+<img src="/images/blog/run-x-instance/4-2.png" style="width: 100%; border: 1px solid;">
+
+**Sample Pipeline Configuration**
 
 ```xml
 <pipeline name="maven-project">
@@ -79,16 +87,16 @@ Upload junit xmls as test artifacts.
         <git url="https://github.com/test-load-balancer/sample_projects.git" dest="sample_projects"/>
     </materials>
     <stage name="unit-tests">
-        <environmentvariables>
-            <variable name="TLB_BASE_URL">
-                <value>http://192.168.68.8:7019</value>
-            </variable>
-            <variable name="TLB_TMP_DIR">
-                <value>/tmp</value>
-            </variable>
-        </environmentvariables>
         <jobs>
             <job name="test-split" runInstanceCount="3">
+                <environmentvariables>
+                    <variable name="TLB_BASE_URL">
+                        <value>http://192.168.68.8:7019</value>
+                    </variable>
+                    <variable name="TLB_TMP_DIR">
+                        <value>/tmp</value>
+                    </variable>
+                </environmentvariables>
                 <tasks>
                     <exec command="/bin/sh" workingdir="sample_projects/maven_junit">
                         <arg>-c</arg>
@@ -109,36 +117,39 @@ Upload junit xmls as test artifacts.
 
 Go's modelling capability gives it the ability to run jobs in parallel but wait for all of them to finish before the next Stage / downstream Pipelines are triggered.
 
-<img src="/images/blog/run-x-instance/6.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/6.png" style="width: 100%; border: 1px solid;">
 
 #### Stop the downstream flow
 
 If any of the tests (and as a result the Job running the test) fails, the Stage is considered as failed. This causes the flow to stop as expected.
 
-<img src="/images/blog/run-x-instance/5.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/5.png" style="width: 100%; border: 1px solid;">
 
 #### Consolidated Test Report
 
 Once all the Jobs are done running, Go consolidates test reports & shows the result at stage level for easy consumption.
 
-<img src="/images/blog/run-x-instance/7.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/7.png" style="width: 100%; border: 1px solid;">
 
 #### Drill down
 
 You can drill down at job level to know more information like 'test count', 'console output' for the Job (test) etc.
 
-<img src="/images/blog/run-x-instance/8.png" style="width: 100%">
-<img src="/images/blog/run-x-instance/10.png" style="width: 100%">
-<img src="/images/blog/run-x-instance/9.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/8.png" style="width: 100%; border: 1px solid;">
+<img src="/images/blog/run-x-instance/10.png" style="width: 100%; border: 1px solid;">
+<img src="/images/blog/run-x-instance/9.png" style="width: 100%; border: 1px solid;">
 
 #### Partition re-run
 
 Go also provides ability to re-run a Job of a stage. This provides ability to run the partition that could have failed due to flaky test etc.
 
-<img src="/images/blog/run-x-instance/11.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/11-1.png" style="width: 100%; border: 1px solid;">
+<img src="/images/blog/run-x-instance/11-2.png" style="width: 100%; border: 1px solid;">
 
 ### Power of dynamic splitting
 
 Go's one knob control to amount of parallelization means that when the number of tests increase/decrease all you will need to do is change the `run instance count` based on number of tests & resource availability & you are done!
+
+--
 
 As always, Go questions can be asked at [go-cd](https://groups.google.com/forum/#!forum/go-cd).
