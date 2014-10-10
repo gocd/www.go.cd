@@ -7,8 +7,6 @@ published: true
 author: Go Team
 ---
 
-## Problem
-
 Writing tests has become the norm. Consequently, running tests for every commit is central & most time consuming activity in any CI/CD setup. In a decent sized production quality project you tend to have thousands of tests. That means the cycle time, i.e. the time it takes for a commit to reach deployable state (after running all unit, integration & functional tests), keeps growing.
 
 It gets harder when teams follow XP related practices like "small commits, frequent commits" since it causes parallel builds & resource starvation.
@@ -59,19 +57,19 @@ Starting release 14.3 you can spwan 'x' instances of a job. So if you want to di
 
 Setup a pipeline with material (SCM) that contains your tests.
 
-[](/images/blog/run-x-instance/1.png)
+<img src="/images/blog/run-x-instance/1.png" style="width: 100%">
 
 Setup TLB related environment variables at Environment / Pipeline / Stage / Job level.
 
-[](/images/blog/run-x-instance/2.png)
+<img src="/images/blog/run-x-instance/2.png" style="width: 100%">
 
 Setup Job to spawn required number of instances (run instance count).
 
-[](/images/blog/run-x-instance/3.png)
+<img src="/images/blog/run-x-instance/3.png" style="width: 100%">
 
 Setup the task to consume `GO_PIPELINE_NAME`, `GO_STAGE_NAME`, `GO_PIPELINE_COUNTER`, `GO_STAGE_COUNTER`, `GO_JOB_RUN_INDEX` & `GO_JOB_RUN_COUNT` environment variables that Go exposes.
 
-[](/images/blog/run-x-instance/4.png)
+<img src="/images/blog/run-x-instance/4.png" style="width: 100%">
 
 Upload junit xmls as test artifacts.
 
@@ -111,33 +109,33 @@ Upload junit xmls as test artifacts.
 
 Go's modelling capability gives it the ability to run jobs in parallel but wait for all of them to finish before the next Stage / downstream Pipelines are triggered.
 
-[](/images/blog/run-x-instance/6.png)
+<img src="/images/blog/run-x-instance/6.png" style="width: 100%">
 
 #### Stop the downstream flow
 
 If any of the test (and as a result the Job running the test) fails, the Stage is considered as failed. This causes the flow to stop as expected.
 
-[](/images/blog/run-x-instance/5.png)
+<img src="/images/blog/run-x-instance/5.png" style="width: 100%">
 
 #### Consolidated Test Report
 
 Once all the Jobs are done running, Go consolidates test reports & shows the result at stage level for easy consumption.
 
-[](/images/blog/run-x-instance/7.png)
+<img src="/images/blog/run-x-instance/7.png" style="width: 100%">
 
 #### Drill down
 
 You can drill down at job level to know more information like 'test count', 'console output' for the Job (test) etc.
 
-[](/images/blog/run-x-instance/8.png)
-[](/images/blog/run-x-instance/9.png)
-[](/images/blog/run-x-instance/10.png)
+<img src="/images/blog/run-x-instance/8.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/9.png" style="width: 100%">
+<img src="/images/blog/run-x-instance/10.png" style="width: 100%">
 
 #### Partition re-run
 
 Go also provides ability to re-run a Job of a stage. This provides ability to run the partition that could have failed due to flaky test etc.
 
-[](/images/blog/run-x-instance/11.png)
+<img src="/images/blog/run-x-instance/11.png" style="width: 100%">
 
 ### Power of dynamic splitting
 
