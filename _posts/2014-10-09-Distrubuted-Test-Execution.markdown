@@ -11,19 +11,19 @@ author: Go Team
 
 Writing tests has become the norm. Consequently, running tests for every commit is central & most time consuming activity in any CI/CD setup. In a decent sized production quality project you tend to have thousands of tests. That means the cycle time, i.e. the time it takes for a commit to reach deployable state (after running all unit, integration & functional tests), keeps growing.
 
-It gets worse if teams follow agile practices like "small commits, frequent commits" since it causes parallel builds & resource starvation.
+It gets harder when teams follow XP related practices like "small commits, frequent commits" since it causes parallel builds & resource starvation.
 
-One such example is Go's codebase. Just the "Common" & "Server" components of Go which comprises of unit & integration tests, together has ~6000 tests which will take about ~5hrs if run serially! The function test sweet is about 260+ tests with combined runtime of ~15 hrs. Thats close to a day & we haven't even run everything for a single commit!
+One such example is Go's codebase. Just the "Common" & "Server" components of Go which comprises of unit & integration tests, together has ~6000 tests which will take about ~5hrs if run serially! The function test suite is about 260+ tests with combined runtime of ~15 hrs. Thats close to a day & we haven't even run everything for a single commit!
 
 Note that the number of tests is soo huge just putting in a powerful box & running test in parellel will not bring it down to acceptable limits.
 
 ## Solution [Go + TLB]
 
-Go is trying to improve cycle-time by making test execution faster, distributing it across many agents (machines). After this "Common" + "Server" takes 20 minutes. All functional tests run in 45 minutes. Thats close to an hour! :)
+Go is trying to improve cycle-time by making test execution faster, distributing it across many agents (machines). After this "Common" + "Server" takes 20 minutes. All functional tests run in 45 minutes. Thats close to an hour! Still not ideal (a few minutes), but better. :)
 
-### TLB
+### Test Load Balancer (TLB)
 
-TLB is a library which provides the ablility to run part of tests. It garantees 'Mutual Exclusion' & 'Collective Exhaustion' properties that are essential to reliably running tests in distributed fashion.
+[TLB](http://test-load-balancer.github.io) is a library which provides the ability to break up a test suite into pieces and run a part. It garantees 'Mutual Exclusion' & 'Collective Exhaustion' properties that are essential to reliably running tests in distributed fashion.
 
 Note: As of this writing, TLB integrates with JUnit (through Ant, Maven & Buildr), RSpec (through Rake), Cucumber (through Rake), Twist (through Ant & Buildr).
 
@@ -115,13 +115,13 @@ Go's modelling capability gives it the ability to run jobs in parallel but wait 
 
 #### Stop the downstream flow
 
-If any of the test (and as a result the Job running the test) fails the Stage is considered as failed. This causes the flow to stop as expected.
+If any of the test (and as a result the Job running the test) fails, the Stage is considered as failed. This causes the flow to stop as expected.
 
 [](/images/blog/run-x-instance/5.png)
 
 #### Consolidated Test Report
 
-Once all the Jobs are done running Go consolidates test reports & shows the result at stage level for easy consumption.
+Once all the Jobs are done running, Go consolidates test reports & shows the result at stage level for easy consumption.
 
 [](/images/blog/run-x-instance/7.png)
 
