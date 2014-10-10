@@ -61,7 +61,7 @@ Setup a pipeline with material (SCM) that contains your tests.
 
 [](/images/blog/run-x-instance/1.png)
 
-Setup TLB related environment variables at Stage / Job level.
+Setup TLB related environment variables at Environment / Pipeline / Stage / Job level.
 
 [](/images/blog/run-x-instance/2.png)
 
@@ -69,7 +69,7 @@ Setup Job to spawn required number of instances (run instance count).
 
 [](/images/blog/run-x-instance/3.png)
 
-Setup the task to consume `GO_PIPELINE_NAME` & `$GO_STAGE_NAME`, `$GO_PIPELINE_COUNTER` &`$GO_STAGE_COUNTER`, `GO_JOB_RUN_INDEX` & `GO_JOB_RUN_COUNT` environment variables that Go exposes.
+Setup the task to consume `GO_PIPELINE_NAME`, `GO_STAGE_NAME`, `GO_PIPELINE_COUNTER`, `GO_STAGE_COUNTER`, `GO_JOB_RUN_INDEX` & `GO_JOB_RUN_COUNT` environment variables that Go exposes.
 
 [](/images/blog/run-x-instance/4.png)
 
@@ -141,6 +141,6 @@ Go also provides ability to re-run a Job of a stage. This provides ability to ru
 
 ### Power of dynamic splitting
 
-Go's one knob control to amount of parallelization means that when the number of tests increase/decrease all you will need to do is change the `run instance count` based on number of tests & resource availability.
+Go's one knob control to amount of parallelization means that when the number of tests increase/decrease all you will need to do is change the `run instance count` based on number of tests & resource availability & you are done!
 
 As always, Go questions can be asked at [go-cd](https://groups.google.com/forum/#!forum/go-cd)
