@@ -7,7 +7,7 @@ published: true
 author: Go Team
 ---
 
-Writing tests has become the norm. Consequently, running tests for every commit is central & the most time consuming activity in any CI/CD setup. In a decent-sized production quality project you tend to have thousands of tests. That means the cycle time, i.e. the time it takes for a commit to reach deployable state (after running all unit, integration & functional tests), keeps growing.
+Writing tests has finally become the norm. Consequently, running tests for every commit is central to & the most time consuming activity in any CI/CD setup. In a decent-sized production quality project you tend to have thousands of tests. That means the cycle time, i.e. the time it takes for a commit to reach deployable state (after running all unit, integration & functional tests), keeps growing.
 
 It gets harder when teams follow XP related practices like "small commits, frequent commits" since it causes parallel builds & resource starvation.
 
