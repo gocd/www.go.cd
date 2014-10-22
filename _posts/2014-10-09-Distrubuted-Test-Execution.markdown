@@ -13,7 +13,7 @@ It gets harder when teams follow XP related practices like "small commits, frequ
 
 One such example is Go's codebase. Just the "Common" & "Server" components of Go which comprises of unit & integration tests, together has ~6000 tests which will take about *~5 hours* if run serially! The functional test suite is about 260+ tests with combined runtime of *~15 hours*. That's close to **a day** & we haven't even run everything for a single commit!
 
-Note that the number of tests is so huge that just putting in a powerful box & running test in parellel will not bring it down to acceptable limits.
+Note that the number of tests is so huge that just putting in a powerful box & running test in parallel will not bring it down to acceptable limits. Also, a large number of other problems surface if you start running tests in parallel on same box (without sandboxed environment) like concurrency issues etc.
 
 ## Solution [Go + TLB]
 
@@ -53,11 +53,7 @@ This should start server at `http://host-ip-address:7019`
 
 While TLB is doing all the distribution, Go does what it does best - orchestrate the parallel execution. 
 
-#### Run 'X' instances
-
-Starting release 14.3 you can spawn 'x' instances of a job. So if you want to distribute your tests across 10 machines you just need to set `run instance count` to 10 & Go will spawn 10 instances of the job when scheduling.
-
-**Sample Configuration**
+#### Sample Configuration
 
 Setup a pipeline with material (SCM) that contains your tests.
 
@@ -82,36 +78,62 @@ Upload junit xmls as test artifacts.
 **Sample Pipeline Configuration**
 
 ```xml
-<pipeline name="maven-project">
-    <materials>
-        <git url="https://github.com/test-load-balancer/sample_projects.git" dest="sample_projects"/>
-    </materials>
-    <stage name="unit-tests">
+    <pipeline name="maven-project">
+      <materials>
+        <git url="https://github.com/test-load-balancer/sample_projects.git" dest="sample_projects" />
+      </materials>
+      <stage name="unit-tests">
         <jobs>
-            <job name="test-split" runInstanceCount="3">
-                <environmentvariables>
-                    <variable name="TLB_BASE_URL">
-                        <value>http://192.168.68.8:7019</value>
-                    </variable>
-                    <variable name="TLB_TMP_DIR">
-                        <value>/tmp</value>
-                    </variable>
-                </environmentvariables>
-                <tasks>
-                    <exec command="/bin/sh" workingdir="sample_projects/maven_junit">
-                        <arg>-c</arg>
-                        <arg>TLB_JOB_NAME=$GO_PIPELINE_NAME-$GO_STAGE_NAME TLB_JOB_VERSION=$GO_PIPELINE_COUNTER-$GO_STAGE_COUNTER TLB_PARTITION_NUMBER=$GO_JOB_RUN_INDEX TLB_TOTAL_PARTITIONS=$GO_JOB_RUN_COUNT mvn clean test -DskipTests -Drun.tests.using.tlb=true</arg>
-                        <runif status="passed"/>
-                    </exec>
-                </tasks>
-                <artifacts>
-                    <test src="sample_projects/maven_junit/target/reports/*.xml" dest="test-reports"/>
-                </artifacts>
-            </job>
+          <job name="test-split" runInstanceCount="3">
+            <environmentvariables>
+              <variable name="TLB_BASE_URL">
+                <value>http://localhost:7019</value>
+              </variable>
+              <variable name="TLB_TMP_DIR">
+                <value>/tmp</value>
+              </variable>
+              <variable name="TLB_JOB_NAME">
+                <value>${GO_PIPELINE_NAME}-${GO_STAGE_NAME}-test-split</value>
+              </variable>
+              <variable name="TLB_JOB_VERSION">
+                <value>${GO_PIPELINE_COUNTER}-${GO_STAGE_COUNTER}</value>
+              </variable>
+              <variable name="TLB_PARTITION_NUMBER">
+                <value>${GO_JOB_RUN_INDEX}</value>
+              </variable>
+              <variable name="TLB_TOTAL_PARTITIONS">
+                <value>${GO_JOB_RUN_COUNT}</value>
+              </variable>
+            </environmentvariables>
+            <tasks>
+              <exec command="mvn" workingdir="sample_projects/maven_junit">
+                <arg>clean</arg>
+                <arg>install</arg>
+                <arg>-DskipTests</arg>
+                <runif status="passed" />
+              </exec>
+              <exec command="mvn" workingdir="sample_projects/maven_junit">
+                <arg>clean</arg>
+                <arg>test</arg>
+                <arg>-DskipTests</arg>
+                <arg>-Drun.tests.using.tlb=true</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+            <artifacts>
+              <test src="sample_projects/maven_junit/target/reports/*.xml" dest="test-reports" />
+            </artifacts>
+          </job>
         </jobs>
-    </stage>
-</pipeline>
+      </stage>
+    </pipeline>
 ```
+
+### Features in Go
+
+#### Run 'X' instances
+
+Starting release 14.3 you can spawn 'x' instances of a job. So if you want to distribute your tests across 10 machines you just need to set `run instance count` to 10 & Go will spawn 10 instances of the job when scheduling.
 
 #### Wait for all jobs to finish
 
@@ -141,10 +163,14 @@ You can drill down at job level to know more information like 'test count', 'con
 
 #### Partition re-run
 
-Go also provides ability to re-run a Job of a stage. This provides ability to run the partition that could have failed due to flaky test etc.
+Go also provides ability to re-run a Job of a stage. This provides ability to run the partition that could have failed due to flaky test etc. The best part is, TLB runs the exact tests that it ran the last time making sure no test is missed out!
 
 <img src="/images/blog/run-x-instance/11-1.png" style="width: 100%; border: 1px solid;">
 <img src="/images/blog/run-x-instance/11-2.png" style="width: 100%; border: 1px solid;">
+
+#### TLB Correctness Check
+
+TLB provides an ability to check correctness, i.e. it will make sure all tests were run. You can configure to run this correctness check once all partitions are done executing, may be in next stage / pipeline.
 
 ### Power of dynamic splitting
 
