@@ -28,14 +28,14 @@ On the face of it, it may appear that Go cannot support pegging. But that is not
 ![](/images/blog/sriram-peg2.png)
 
 
-“manual-gate” is a simple pipeline with one stage having a single no-op job, one upstream dependency C1, and [auto-scheduling turned off](http://www.thoughtworks-studios.com/docs/go/current/help/configuration_reference.html#approval) (this makes d3 static rather than fluid). The manual gate doesn’t trigger for every successful run of C1, it can only be manually triggered. C2 has a regular fluid dependency (d4) with manual-gate. The overall setup pegs C2 to a chosen good version of C1 while C1 is free to keep building new versions.
+“manual-gate” is a simple pipeline with one stage having a single no-op job, one upstream dependency C1, and [auto-scheduling turned off](http://www.go.cd/documentation/user/current/configuration/configuration_reference.html#approval) (this makes d3 static rather than fluid). The manual gate doesn’t trigger for every successful run of C1, it can only be manually triggered. C2 has a regular fluid dependency (d4) with manual-gate. The overall setup pegs C2 to a chosen good version of C1 while C1 is free to keep building new versions.
 
 
 ###Rolling back
 
-Say C2 is pegged to version 100 of C1. A week passes and C1 has progressed to 110. To get in sync with latest again, we simply trigger the manual-gate. The manual-gate itself is a no-op so it turns green and triggers C2. C2 does a [fetch-ancestor-artifact](http://www.thoughtworks-studios.com/docs/go/current/help/managing_dependencies.html#fetch_artifact_section) to get C1 binary version 110 and proceeds to build. If the build turns green, it means we have successfully pegged C2 to version 110 of C1. What if the build fails?
+Say C2 is pegged to version 100 of C1. A week passes and C1 has progressed to 110. To get in sync with latest again, we simply trigger the manual-gate. The manual-gate itself is a no-op so it turns green and triggers C2. C2 does a [fetch-ancestor-artifact](http://www.go.cd/documentation/user/current/configuration/managing_dependencies.html#fetching-artifacts-from-an-upstream-pipeline) to get C1 binary version 110 and proceeds to build. If the build turns green, it means we have successfully pegged C2 to version 110 of C1. What if the build fails?
 
-We have two options. We could revert to last known good version by [retriggering manual gate with version](http://www.thoughtworks-studios.com/docs/go/current/help/trigger_with_options.html) 100 of C1. Or we could keep bisecting the range between 100 and 110 to find the most recent version of C1 that works for C2.
+We have two options. We could revert to last known good version by [retriggering manual gate with version](http://www.go.cd/documentation/user/current/advanced_usage/trigger_with_options.html) 100 of C1. Or we could keep bisecting the range between 100 and 110 to find the most recent version of C1 that works for C2.
 
 
 <div class="highlight">This post is also cross-posted <a href="http://www.thoughtworks.com/insights/blog/how-peg-your-pipeline-dependency-version">here</a>.</div>
