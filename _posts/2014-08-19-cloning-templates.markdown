@@ -12,7 +12,7 @@ When using GO for Continuous Delivery with multiple teams where you have various
 We have decided to have one deployment template separate per application / security group (Pipeline group) so we distribute maintenance, but also reduce the risk of breaking Pipelines of other teams when we change a base template. Having different templates also allows us to allocate [Template Admins](http://www.go.cd/2014/02/24/go-template-permissions.html) specific for the application / team / security group that now can manage most of the needs of a team without requiring Go System Admin rights. 
 
 As you don't want team to get Admin access across multiple applications but you still want them to have something to start with (a base template), we have created two Basic templates that cover basic needs for an application deployment that we "Clone" for each team. After cloning we assign an Admin from their team so they can start modifying it according to their own flavour. Cloning templates is not available in GO at the moment, so we had to find a way around it. 
-One [contributor](https://github.com/oanastoia) created a script that interacts with GO's own [Configuration API](http://www.thoughtworks.com/products/docs/go/current/help/Configuration_API.html]) to allow template cloning. 
+One [contributor](https://github.com/oanastoia) created a script that interacts with GO's own [Configuration API](http://www.go.cd/documentation/user/current/api/configuration_api.html) to allow template cloning. 
 
 ###How to setup cloning in your GO server instance
 1. Make sure you have access to [https://github.com/oanastoia/go-config-management.git](https://github.com/oanastoia/go-config-management.git), otherwise you will need to clone this repository inside your infrastructure
@@ -26,13 +26,13 @@ In this section I will try to cover with screenshots the steps you need to achie
 ####Create a new template group 
 Create a new template group for your "Administrative" tasks that you give permissions only to the persons you want to use the cloning. This will be useful if you decide to have more "configuration" type of pipelines. 
 In our organisation we have a "tooling" repository we use to wrap complex scripts to use in our tasks.
-I will not go into detail on how to achieve this, but you can read more on how to [specify permissions for pipeline groups](http://www.thoughtworks.com/products/docs/go/current/help/dev_authorization.html#pipeline-groups).
+I will not go into detail on how to achieve this, but you can read more on how to [specify permissions for pipeline groups](http://www.go.cd/documentation/user/current/configuration/dev_authorization.html#specifying-permissions-for-pipeline-groups).
 
 ####Create a new pipeline within this group
-1. You will need to [create new pipeline](http://www.thoughtworks.com/products/docs/go/current/help/quick_pipeline_setup.html) within this group. 
+1. You will need to [create new pipeline](http://www.go.cd/documentation/user/current/configuration/quick_pipeline_setup.html) within this group. 
 1. You will need to use Git as Material Type and under the URL, use the location of the cloning script (https://github.com/oanastoia/go-config-management.git if you have access to it, or the location where you cloned it). Use "Check Connection" to test it out.
 1. You will need to add two Environment Variables: SOURCE\_TEMPLATE and DESTINATION\_TEMPLATE that have some default values
-1. You will need to add two Secure Environment Variables: API\_USER and API\_PASS that contain credentials for a user that has correct permissions to use the [Configuration API](http://www.thoughtworks.com/products/docs/go/current/help/Configuration_API.html)
+1. You will need to add two Secure Environment Variables: API\_USER and API\_PASS that contain credentials for a user that has correct permissions to use the [Configuration API](http://www.go.cd/documentation/user/current/api/configuration_api.html)
 
 ![](/images/blog/cloning-templates/environment-variable-view.png)
 

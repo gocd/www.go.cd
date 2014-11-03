@@ -22,7 +22,7 @@ Then, click the "Permissions" link for the template, you want to manage permissi
 
 ![](/images/blog/Permissions1.png)
 
-More information on this is available in the [13.4 help documentation](http://www.thoughtworks.com/products/docs/go/13.4/help/pipeline_templates.html#edit_template).
+More information on this is available in the [13.4 help documentation](http://www.go.cd/documentation/user/current/configuration/pipeline_templates.html#editing-pipeline-templates).
 
 
 <div class="highlight">This post is also cross-posted <a href="http://www.thoughtworks.com/insights/blog/go-template-permissions">here</a>.</div>

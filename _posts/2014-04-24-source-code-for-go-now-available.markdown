@@ -17,7 +17,7 @@ If you’d like to contribute to Go, please check out the guide which can be fou
 
 ### New plugin end-point available
 
-We’re also releasing Go 14.1, which now includes the ability to write your own custom task plugins. Is there a system you want to manage with Go but you’d prefer not to create command line scripts? Creating a plug-in could be a great way to extend Go without the need to modify the core source code. Check out [http://www.thoughtworks.com/products/docs/go/14.1.0/help/whats_new_in_go.html](http://www.thoughtworks.com/products/docs/go/14.1.0/help/whats_new_in_go.html) for more information.
+We’re also releasing Go 14.1, which now includes the ability to write your own custom task plugins. Is there a system you want to manage with Go but you’d prefer not to create command line scripts? Creating a plug-in could be a great way to extend Go without the need to modify the core source code. Check out [Whats_new_in_Go](http://www.go.cd/documentation/user/current/release_history/whats_new_in_go.html) for more information.
 
 ### Current post-merge process
 
