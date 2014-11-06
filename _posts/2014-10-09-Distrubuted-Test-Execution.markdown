@@ -11,13 +11,13 @@ Writing tests has finally become the norm. Consequently, running tests for every
 
 It gets harder when teams follow XP related practices like "small commits, frequent commits" since it causes parallel builds & resource starvation.
 
-One such example is Go's codebase. Just the "Common" & "Server" components of Go which comprises of unit & integration tests, together has ~6000 tests which will take about *~5 hours* if run serially! The functional test suite is about 260+ tests with combined runtime of *~15 hours*. That's close to **a day** & we haven't even run everything for a single commit!
+One such example is Go's codebase. Just the "Common" & "Server" components of Go which comprises of unit & integration tests, together has ~6000 tests which will take about ~5 hours *if run serially*! The functional test suite is about 260+ tests with combined runtime of ~15 hours. That's close to a day & we haven't even run everything for a single commit!
 
 Note that the number of tests is so huge that just putting in a powerful box & running test in parallel will not bring it down to acceptable limits. Also, a large number of other problems surface if you start running tests in parallel on same box (without sandboxed environment) like concurrency issues etc.
 
 ## Solution [Go + TLB]
 
-Go improves the cycle time of its own build by making test execution faster, distributing it across many agents (machines). After this "Common" + "Server" takes *20 minutes*. All functional tests run in *45 minutes*. Thats close to **an hour**! Still not ideal (a few minutes), but better. :)
+Go improves the cycle time of its own build by making test execution faster, distributing it across many agents (machines). After this "Common" + "Server" takes *20 minutes*. All functional tests run in *45 minutes*. Thats close to *an hour*! Still not ideal (a few minutes - constrained by resource availability), but better. :)
 
 ### Test Load Balancer (TLB)
 
@@ -33,7 +33,7 @@ TLB's strength lies in intelligent test distribution which is based on time, i.e
 
 Unzip `tlb-complete-0.3.2.tar.gz` to `tlb-complete-0.3.2`
 
-```
+```sh
 $ cd tlb-complete-0.3.2/server
 $ chmod +x server.sh
 $ ./server.sh start
@@ -52,6 +52,10 @@ This should start server at `http://host-ip-address:7019`
 [Go](http://www.go.cd/) is an open-source CI/CD tool. Its well known for its powerful modelling, tracing & visualization capabilities.
 
 While TLB is doing all the distribution, Go does what it does best - orchestrate the parallel execution. 
+
+#### Run 'X' instances
+
+Starting release 14.3 you can spawn 'x' instances of a job. So if you want to distribute your tests across 10 machines you just need to set `run instance count` to 10 & Go will spawn 10 instances of the job when scheduling.
 
 #### Sample Configuration
 
@@ -129,11 +133,7 @@ Upload junit xmls as test artifacts.
     </pipeline>
 ```
 
-### Features in Go
-
-#### Run 'X' instances
-
-Starting release 14.3 you can spawn 'x' instances of a job. So if you want to distribute your tests across 10 machines you just need to set `run instance count` to 10 & Go will spawn 10 instances of the job when scheduling.
+### Other features that helps with Test Parallelization
 
 #### Wait for all jobs to finish
 
