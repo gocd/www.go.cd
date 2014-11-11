@@ -29,7 +29,7 @@ $(function() {
 
     function renderInstallersByOS(artifactList, os, revisionHolder, subDirectory) {
         var revisionsString = '';
-
+	var latestReleaseTime = 0;
         _.each(artifactList, function(artifact, index, allArtifacts) {
             var fileName = artifact.release_type;
 
@@ -38,8 +38,9 @@ $(function() {
               return;
             }
 
-            if (artifact.release_type == "supported") {
+            if (artifact.release_type == "supported" && artifact.release_time > latestReleaseTime) {
                 $('#latestVersion').html(artifact.version);
+		latestReleaseTime = artifact.release_time;
             }
             if (artifact.release_type != "supported") {
                 subDirectory = 'local/' + artifact.version;
