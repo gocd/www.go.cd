@@ -10,6 +10,9 @@ author: Ken Mugrage
 If you're interested in checking out Go but don't want to spend the time automating your
 own system, this might be a great option for you.
 
+__Edit on 11 November, 2014__ - This box has been updated to Go version 14.3. For information about
+what's new in this release please see [http://www.go.cd/releases/](http://www.go.cd/releases/)
+
 We've created an environment using Vagrant and Virtualbox. Once it's up, you'll have a full
 Go installation including several example pipleines. 
 
@@ -58,8 +61,8 @@ reset the box to it's orginal state if you need to!
 
 The box will be updated as new things come out, but as of this writing...
 
-* Go 14.2 Server
-* Go 14.2 Agent
+* Go 14.3 Server
+* Go 14.3 Agent
 * 3 very small PHP applications
 * Basic Capistrano deployment scripts
 * Local Git repo using Gitolite to manage permissions
