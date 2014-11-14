@@ -22,7 +22,7 @@ You are *unaffected* by this defect if:
 
 - you have SunEC extension installed for your OpenJDK
 
-- Both your server and agent processes run using OpenJDK.
+- Both your server and agent processes run using OpenJDK (not necessarily the same version).
 
 In any case, you should run one such pipeline which uploads a compressed file as an artifact to ensure you are not affected by this defect.
 
