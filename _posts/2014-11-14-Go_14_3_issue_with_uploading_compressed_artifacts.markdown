@@ -3,7 +3,7 @@ layout: post
 title: Issue with uploading compressed artifacts in Go 14.3.0
 status: public
 type: post
-published: false
+published: true
 author: Go Team
 ---
 
