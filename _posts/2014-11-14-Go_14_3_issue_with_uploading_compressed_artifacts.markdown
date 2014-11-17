@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Issue with uploading compressed artifacts in Go 14.3.0
+title: UPDATE&#58; Issue with uploading compressed artifacts in Go 14.3.0
 status: public
 type: post
 published: true
@@ -20,11 +20,14 @@ You are *unaffected* by this defect if:
 
 - you use Sun/Oracle java to run Go Server
 
-- you have SunEC extension installed for your OpenJDK
+- you have SunEC extension installed for your OpenJDK [*EDIT*: on your Go server]
 
-- Both your server and agent processes run using OpenJDK (not necessarily the same version).
+- Both your server and agent processes run using OpenJDK (not necessarily the same version) [*EDIT*: without <a href="http://en.wikipedia.org/wiki/Elliptic_curve_cryptography">ECC cipher suites</a>.
+As explained in "What caused this?" section, this issue occurs when java on agent supports ECC cipher suites but java on server doesnot. You should definitely run the litmus test to be sure.]
 
-In any case, you should run one such pipeline which uploads a compressed file as an artifact to ensure you are not affected by this defect.
+#### Litmus test
+
+You should run a pipeline which uploads a compressed file as an artifact to ensure you are not affected by this defect. If the artifact shows up on the artifacts tab of the job and can be successfully downloaded, you are safe from the defect.
 
 ### Workaround
 We are aware that you have been waiting to try your hands on the new APIs and several bug fixes that came out in 14.3.0. 
