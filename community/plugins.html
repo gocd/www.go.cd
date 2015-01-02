@@ -22,10 +22,9 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <em>Officially maintained ThoughtWorks plugins are tagged with a <span><img class="plugin-icon-in-notice" src="/images/thoughtworks_supported_plugin.png"/></span> icon.</em>
 
-<h4>Package Repository plugins (11)</h4>
+<h4>Package Repository plugins (<span id="package-repository-plugins-count"></span>)</h4>
 
-
-<ul class="plugins">
+<ul id="package-repository-plugins" class="plugins">
   <li class="grid-3 go">
     <img class="plugin-icon" src="/images/thoughtworks_supported_plugin.png"/>
       <h5 class="name">Yum repository poller</h5>
@@ -183,9 +182,9 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>Task plugins (7)</h4>
+<h4>Task plugins (<span id="task-plugins-count"></span>)</h4>
 
-<ul class="plugins">
+<ul id="task-plugins" class="plugins">
   <li class="grid-3">
       <h5>XUnit Converter</h5>
       <div class="more_details">
@@ -300,3 +299,15 @@ Below is the listing of bundled as well as other available plugins contributed b
       </div>
   </li>
 </ul>
+
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    var updateCount = function(pluginsListElementId, pluginsCountElementId) {
+      var numberOfPlugins = jQuery(pluginsListElementId).find("li").length - 1;
+      jQuery(pluginsCountElementId).text(numberOfPlugins);
+    };
+
+    updateCount("#package-repository-plugins", "#package-repository-plugins-count");
+    updateCount("#task-plugins", "#task-plugins-count");
+  });
+</script>
