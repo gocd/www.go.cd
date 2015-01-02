@@ -1,12 +1,12 @@
 ---
-layout: default 
-title: Plugins 
-subtitle: "Bundled and community contributed plugins" 
+layout: default
+title: Plugins
+subtitle: "Bundled and community contributed plugins"
 ---
 
 
-<p>	
-Go publishes a list of extension points for which plugins can be provided. An extension point defines the interface and the lifecycle that governs the respective plugin. At present only java based extension points and plugins are supported by Go. Details about available extension points and their lifecycle can be obtained from <a href="http://www.go.cd/documentation/developer/writing_go_plugins/go_plugins_basics.html">plugins documentation</a> along with the <a href="http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html">Go plugin API reference</a>. 
+<p>
+Go publishes a list of extension points for which plugins can be provided. An extension point defines the interface and the lifecycle that governs the respective plugin. At present only java based extension points and plugins are supported by Go. Details about available extension points and their lifecycle can be obtained from <a href="http://www.go.cd/documentation/developer/writing_go_plugins/go_plugins_basics.html">plugins documentation</a> along with the <a href="http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html">Go plugin API reference</a>.
 </p>
 
 <p>
@@ -23,48 +23,48 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 
 <ul class="plugins">
-	<li class="grid-3 go">
-		<img class="plugin-icon" src="/images/thoughtworks_supported_plugin.png"/>
-	    <h5 class="name">Yum repository poller</h5>
-	    <div class="more_details">
-	    	An Yum respository poller is a bundled package material plugin...
-	    	<a href="http://www.go.cd/documentation/user/current/extension_points/yum_repository_poller.html">Read more</a>
-	    </div>
-	    <div>by <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
-	    </div>
-	    <div class="actions">
-	    	<span>Bundled with Go</span> -
-	    	<a href="https://github.com/gocd/go-plugins/tree/master/yum-plugin"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3 go">
+    <img class="plugin-icon" src="/images/thoughtworks_supported_plugin.png"/>
+      <h5 class="name">Yum repository poller</h5>
+      <div class="more_details">
+        An Yum respository poller is a bundled package material plugin...
+        <a href="http://www.go.cd/documentation/user/current/extension_points/yum_repository_poller.html">Read more</a>
+      </div>
+      <div>by <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+      </div>
+      <div class="actions">
+        <span>Bundled with Go</span> -
+        <a href="https://github.com/gocd/go-plugins/tree/master/yum-plugin"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>Debian repository poller</h5>
-	    <div class="more_details">
-		 Plugin to poll Debian repository. <a href="https://github.com/srinivasupadhya/deb-repo-poller">Read more</a>
-	    </div>
+  <li class="grid-3">
+      <h5>Debian repository poller</h5>
+      <div class="more_details">
+     Plugin to poll Debian repository. <a href="https://github.com/srinivasupadhya/deb-repo-poller">Read more</a>
+      </div>
 
-	    <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-	    </div>
-	    <div class="actions">
-	    	<a href="https://github.com/srinivasupadhya/deb-repo-poller/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/srinivasupadhya/deb-repo-poller"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+      </div>
+      <div class="actions">
+        <a href="https://github.com/srinivasupadhya/deb-repo-poller/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/srinivasupadhya/deb-repo-poller"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>Nuget repository poller</h5>
-	    <div class="more_details">
-	    	A package material plugin for Go. It is currently capable... <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Read more</a>
+  <li class="grid-3">
+      <h5>Nuget repository poller</h5>
+      <div class="more_details">
+        A package material plugin for Go. It is currently capable... <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Read more</a>
 
-	    </div>
-	    <div>by <a href="http://www.sriramnarayan.com/">Sriram Narayan</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+      </div>
+      <div>by <a href="http://www.sriramnarayan.com/">Sriram Narayan</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
   <li class="grid-3">
       <h5>Maven (Nexus) repository poller</h5>
@@ -79,103 +79,103 @@ Below is the listing of bundled as well as other available plugins contributed b
       </div>
   </li>
 
-	<li class="grid-3">
-	    <h5>Maven (Artifactory Pro) repository poller</h5>
-	    <div class="more_details">
-	    	A plugin for polling Artifactory Pro repositories... <a href="https://github.com/ThoughtWorksInc/go-artifactory-poller">Read more</a>
-	    </div>
-	    <div>by <a href="http://www.sriramnarayan.com/">Sriram Narayan</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/ThoughtWorksInc/go-artifactory-poller/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/ThoughtWorksInc/go-artifactory-poller"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>Maven (Artifactory Pro) repository poller</h5>
+      <div class="more_details">
+        A plugin for polling Artifactory Pro repositories... <a href="https://github.com/ThoughtWorksInc/go-artifactory-poller">Read more</a>
+      </div>
+      <div>by <a href="http://www.sriramnarayan.com/">Sriram Narayan</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/ThoughtWorksInc/go-artifactory-poller/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/ThoughtWorksInc/go-artifactory-poller"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
 
-	<li class="grid-3">
-	    <h5>Puppet Forge repository poller</h5>
-	    <div class="more_details">
-	    	A plugin for polling a Puppet forge... <a href="https://github.com/drrb/go-puppet-forge-poller">Read more</a>
-	    </div>
-	    <div>by <a href="https://github.com/drrb">drrb</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/drrb/go-puppet-forge-poller/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/drrb/go-puppet-forge-poller"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>Puppet Forge repository poller</h5>
+      <div class="more_details">
+        A plugin for polling a Puppet forge... <a href="https://github.com/drrb/go-puppet-forge-poller">Read more</a>
+      </div>
+      <div>by <a href="https://github.com/drrb">drrb</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/drrb/go-puppet-forge-poller/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/drrb/go-puppet-forge-poller"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>NPM repository poller</h5>
-	    <div class="more_details">
-	    	A plugin for polling Npm registries. <a href="https://github.com/varchev/go-npm-poller">Read more</a>
-	    </div>
-	    <div>by <a href="https://github.com/varchev">Deyan Varchev</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/varchev/go-npm-poller/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/varchev/go-npm-poller"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>NPM repository poller</h5>
+      <div class="more_details">
+        A plugin for polling Npm registries. <a href="https://github.com/varchev/go-npm-poller">Read more</a>
+      </div>
+      <div>by <a href="https://github.com/varchev">Deyan Varchev</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/varchev/go-npm-poller/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/varchev/go-npm-poller"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>RapidDeploy Package Repository</h5>
-	    <div class="more_details">
-	    	Plugin to poll RapidDeploy artifact repository. <a href="://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">Read more</a>
-	    </div>
-	    <div>by <a href="http://www.midvision.com/">MidVision</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/MidVision/go-rapiddeploy"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>RapidDeploy Package Repository</h5>
+      <div class="more_details">
+        Plugin to poll RapidDeploy artifact repository. <a href="://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">Read more</a>
+      </div>
+      <div>by <a href="http://www.midvision.com/">MidVision</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/MidVision/go-rapiddeploy"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>Docker Registry Poller - 1</h5>
-	    <div class="more_details">
-	    	Plugin to poll Docker Registry. <a href="https://github.com/hammerdr/go-docker-registry-poller">Read more</a>
-	    </div>
-	    <div>by <a href="https://github.com/hammerdr">Derek Hammer</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/hammerdr/go-docker-registry-poller/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/hammerdr/go-docker-registry-poller"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>Docker Registry Poller - 1</h5>
+      <div class="more_details">
+        Plugin to poll Docker Registry. <a href="https://github.com/hammerdr/go-docker-registry-poller">Read more</a>
+      </div>
+      <div>by <a href="https://github.com/hammerdr">Derek Hammer</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/hammerdr/go-docker-registry-poller/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/hammerdr/go-docker-registry-poller"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>Docker Registry Poller - 2</h5>
-	    <div class="more_details">
-	    	Plugin to poll Docker Registry. <a href="https://github.com/decoomanj/gocd-docker-material-poller">Read more</a>
-	    </div>
-	    <div>by <a href="https://github.com/decoomanj">Jan De Cooman</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/decoomanj/gocd-docker-material-poller/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/decoomanj/gocd-docker-material-poller"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>Docker Registry Poller - 2</h5>
+      <div class="more_details">
+        Plugin to poll Docker Registry. <a href="https://github.com/decoomanj/gocd-docker-material-poller">Read more</a>
+      </div>
+      <div>by <a href="https://github.com/decoomanj">Jan De Cooman</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/decoomanj/gocd-docker-material-poller/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/decoomanj/gocd-docker-material-poller"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>Gem repository poller</h5>
-	    <div class="more_details">
-	    	Plugin to poll Ruby Gem repository. <a href="https://github.com/srinivasupadhya/gem-repo-poller">Read more</a>
-	    </div>
-	    <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/srinivasupadhya/gem-repo-poller/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/srinivasupadhya/gem-repo-poller"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>Gem repository poller</h5>
+      <div class="more_details">
+        Plugin to poll Ruby Gem repository. <a href="https://github.com/srinivasupadhya/gem-repo-poller">Read more</a>
+      </div>
+      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/srinivasupadhya/gem-repo-poller/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/srinivasupadhya/gem-repo-poller"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3 contribute_tile">	
-		<h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
-		<div><a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html"><i class='icon-code-1'></i>Write a plugin</a></div>
-		<div><a href="http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html"><i class='icon-book-1'></i>Go plugin API reference</a></div>
-	</li>
+  <li class="grid-3 contribute_tile">
+    <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
+    <div><a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html"><i class='icon-code-1'></i>Write a plugin</a></div>
+    <div><a href="http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html"><i class='icon-book-1'></i>Go plugin API reference</a></div>
+  </li>
 </ul>
 
 <div style="clear:both"></div>
@@ -183,102 +183,101 @@ Below is the listing of bundled as well as other available plugins contributed b
 <h4>Task plugins (7)</h4>
 
 <ul class="plugins">
-	<li class="grid-3">
-	    <h5>XUnit Converter</h5>
-	    <div class="more_details">
-	    	A plugin to convert test reports to XUnit format. <a href="https://github.com/srinivasupadhya/xunit-converter-task">Read more</a>
-	    </div>
-	    <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-	    </div>
+  <li class="grid-3">
+      <h5>XUnit Converter</h5>
+      <div class="more_details">
+        A plugin to convert test reports to XUnit format. <a href="https://github.com/srinivasupadhya/xunit-converter-task">Read more</a>
+      </div>
+      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+      </div>
 
-	    <div class="actions">
-	    	<a  href="https://github.com/srinivasupadhya/xunit-converter-task/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/srinivasupadhya/xunit-converter-task"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+      <div class="actions">
+        <a  href="https://github.com/srinivasupadhya/xunit-converter-task/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/srinivasupadhya/xunit-converter-task"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>Powershell Task</h5>
-	    <div class="more_details">
-	    	Task to run Powershell based builds. <a href="https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md">Read more</a>
-	    </div>
-	    <div>by <a href="https://github.com/manojlds">Manoj Mahalingam</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/manojlds/gocd-powershell-runner/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/manojlds/gocd-powershell-runner"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>Powershell Task</h5>
+      <div class="more_details">
+        Task to run Powershell based builds. <a href="https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md">Read more</a>
+      </div>
+      <div>by <a href="https://github.com/manojlds">Manoj Mahalingam</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/manojlds/gocd-powershell-runner/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/manojlds/gocd-powershell-runner"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>RapidDeploy Package Builder</h5>
-	    <div class="more_details">
-	    	Plugin to build a deployment package on a remote RapidDeploy server. <a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">Read more</a>
-	    </div>
-	    <div>by <a href="http://www.midvision.com/">MidVision</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/MidVision/go-rapiddeploy"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>RapidDeploy Package Builder</h5>
+      <div class="more_details">
+        Plugin to build a deployment package on a remote RapidDeploy server. <a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">Read more</a>
+      </div>
+      <div>by <a href="http://www.midvision.com/">MidVision</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/MidVision/go-rapiddeploy"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>RapidDeploy Job Runner</h5>
-	    <div class="more_details">
-	    	Plugin to invoke a job on a remote RapidDeploy server. <a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin">Read more</a>
-	    </div>
-	    <div>by <a href="http://www.midvision.com/">MidVision</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/MidVision/go-rapiddeploy"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>RapidDeploy Job Runner</h5>
+      <div class="more_details">
+        Plugin to invoke a job on a remote RapidDeploy server. <a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin">Read more</a>
+      </div>
+      <div>by <a href="http://www.midvision.com/">MidVision</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/MidVision/go-rapiddeploy"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>Groovy Task Plugin</h5>
-	    <div class="more_details">
-	    	Plugin to allow writing tasks in go.cd as Groovy scripts <a href="https://github.com/4finance/go-plugin-groovy">Read more</a>
-	    </div>
-	    <div>by <a href="http://www.4finance.com/">4Finance</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/4finance/go-plugin-groovy/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/4finance/go-plugin-groovy"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
-	
-	<li class="grid-3">
-	    <h5>Maven Task Plugin</h5>
-	    <div class="more_details">
-	    	Plugin to allow running maven tasks in go.cd <a href="https://github.com/ruckc/gocd-maven-plugin">Read more</a>
-	    </div>
-	    <div>by <a href="http://github.com/ruckc">ruckc</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/ruckc/gocd-maven-plugin/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/ruckc/gocd-maven-plugin"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>Groovy Task Plugin</h5>
+      <div class="more_details">
+        Plugin to allow writing tasks in go.cd as Groovy scripts <a href="https://github.com/4finance/go-plugin-groovy">Read more</a>
+      </div>
+      <div>by <a href="http://www.4finance.com/">4Finance</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/4finance/go-plugin-groovy/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/4finance/go-plugin-groovy"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3">
-	    <h5>Script Executor Task Plugin</h5>
-	    <div class="more_details">
-	    	Plugin to allow running Script in Go <a href="https://github.com/srinivasupadhya/script-executor-task">Read more</a>
-	    </div>
-	    <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-	    </div>
-	    <div class="actions">
-	    	<a  href="https://github.com/srinivasupadhya/script-executor-task/releases"><i class='icon-download'></i>Download</a> -
-	    	<a href="https://github.com/srinivasupadhya/script-executor-task"><i class='icon-code'></i>Source</a>
-	    </div>
-	</li>
+  <li class="grid-3">
+      <h5>Maven Task Plugin</h5>
+      <div class="more_details">
+        Plugin to allow running maven tasks in go.cd <a href="https://github.com/ruckc/gocd-maven-plugin">Read more</a>
+      </div>
+      <div>by <a href="http://github.com/ruckc">ruckc</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/ruckc/gocd-maven-plugin/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/ruckc/gocd-maven-plugin"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
 
-	<li class="grid-3 contribute_tile">	
-		<h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
-		<div><a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html"><i class="icon-code-1"></i>Write a plugin</a></div>
-		<div><a href="http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html"><i class='icon-book-1'></i>Go plugin API reference</a></div>
-	</li>
+  <li class="grid-3">
+      <h5>Script Executor Task Plugin</h5>
+      <div class="more_details">
+        Plugin to allow running Script in Go <a href="https://github.com/srinivasupadhya/script-executor-task">Read more</a>
+      </div>
+      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+      </div>
+      <div class="actions">
+        <a  href="https://github.com/srinivasupadhya/script-executor-task/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/srinivasupadhya/script-executor-task"><i class='icon-code'></i>Source</a>
+      </div>
+  </li>
+
+  <li class="grid-3 contribute_tile">
+    <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
+    <div><a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html"><i class="icon-code-1"></i>Write a plugin</a></div>
+    <div><a href="http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html"><i class='icon-book-1'></i>Go plugin API reference</a></div>
+  </li>
 </ul>
-
