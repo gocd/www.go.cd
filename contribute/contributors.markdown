@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contributors
+title: Community Contributor | Open Source Contributor | GO CD
 subtitle: People who helped taking Go forward
 ---
 
