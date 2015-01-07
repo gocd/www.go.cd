@@ -2,6 +2,9 @@
 layout: default
 title:  Resources
 subtitle:  "Go Community Resources"
+title_tag: Open Source Document Repository | Community Resources | GO CD
+meta_tag_description: GO community resources provide information on set up, software documentation, mailing list and other resources
+meta_tag_keywords: open source document, community resources, document repository, continuous delivery, go
 ---
 
 ### User Documentation

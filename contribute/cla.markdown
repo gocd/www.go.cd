@@ -2,6 +2,9 @@
 layout: default
 title: Contributor License Agreement
 date:   2014-01-07
+title_tag: Contributor License Agreement – CLA | GO CD
+meta_tag_description: By agreeing to this Contributor License Agreement (CLA), you are saying that you give ThoughtWorks permission to distribute your contributions under the terms of ThoughtWorks choice
+meta_tag_keywords: contributor license agreement, cla, thoughtworks, contributors, go, continuous delivery
 ---
 
 ### What's this all about then?

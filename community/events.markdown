@@ -2,6 +2,9 @@
 layout: default
 title:  Events
 subtitle:  Past and upcoming events
+title_tag: GO Events & Learning Session | Pipeline Workshop |GO CD
+meta_tag_description: GO events, learning session & pipeline workshop are designed to help contributors get an overall view of the capabilities of Go and release process
+meta_tag_keywords: go events, learning session, pipeline workshop, continuous delivery, open source, go
 ---
 
 #### Upcoming Events

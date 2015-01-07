@@ -2,6 +2,9 @@
 layout: default
 title: Roadmap
 date:   2014-01-07
+title_tag: Roadmap | Configuration Management Repository | Go CD
+meta_tag_description: Go Continuous Delivery roadmap with proposed timeline and resources provides platform that helps us release software to production on demand
+meta_tag_keywords: continuous delivery roadmap, continuous delivery roadmap, configuration management repository, go
 ---
 
 ```
