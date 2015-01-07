@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Resources
+title:  Open Source Document Repository | Community Resources | GO CD
 subtitle:  "Go Community Resources"
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Events
+title:  GO Events & Learning Session | Pipeline Workshop |GO CD
 subtitle:  Past and upcoming events
 ---
 

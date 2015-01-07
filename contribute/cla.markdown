@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contributor License Agreement
+title: Contributor License Agreement – CLA | GO CD
 date:   2014-01-07
 ---
 

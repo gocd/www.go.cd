@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Partners
+title:  GO Technology Partners | Consulting Partners |GO CD
 subtitle:  "Go Partners"
 ---
 
