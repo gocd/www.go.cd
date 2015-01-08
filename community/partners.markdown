@@ -2,6 +2,9 @@
 layout: default
 title:  Partners
 subtitle:  "Go Partners"
+title_tag: GO Technology Partners | Consulting Partners |GO CD
+meta_tag_description: GO partners network provides extensive resources, training and professional support to differentiate your business and increase profitability with our Software delivery automation solution
+meta_tag_keywords: go partners, technology partners, consulting partners, professional support, continuous delivery, go
 ---
 
 ### Professional Support
