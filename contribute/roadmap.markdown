@@ -8,7 +8,7 @@ meta_tag_keywords: continuous delivery roadmap, continuous delivery roadmap, con
 ---
 
 ```
-Last Updated: 3-Feb-2014
+Last Updated: 3-Feb-2015
 ```
 
 The following are proposed features for Go. While this doesn't mean we will not pick up things that are not in the list, this is what we would like to focus most of our energy on.
