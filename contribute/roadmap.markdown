@@ -32,6 +32,13 @@ The biggest time consumer in any CI/CD setup is running tests. It has become fun
 * Parse test reports - provide pluggability for all kinds of test reports/migrators for other test report formats. Currently only XUnit format is supported. - Something on the lines of [xunit-converter](https://github.com/srinivasupadhya/xunit-converter-task)?
 * Test metrics - possibly list flaky tests, show time consuming tests etc.
 
+### Plugins
+Go supports `Package Repository` & `Task` extension points. These are the next:
+
+* Notificaiton extension point [#867](https://github.com/gocd/gocd/issues/867) - done. going in 15.1.0.
+* Delete artifact extension point [#410](https://github.com/gocd/gocd/issues/410) - ongoing
+* SCM extension point [#818](https://github.com/gocd/gocd/issues/818) - ongoing
+
 #### APIs
 The design of APIs would be such that the same could be used by any 3rd party to interact with Go Server. This would basically mean Go Server can run in head less mode allowing developers to write their own UI. The order in which we would like to go about doing this:
 
@@ -53,14 +60,6 @@ People spend most of their time on Go on dashboard page. With the number of pipe
 #### API first design
 We want to make the Go Server UI interact with the backend through APIs, even more than it does now. This should provide some performance benefits & better user experience.
 
-### Plugins
-
-#### Notificaiton extension point [#867](https://github.com/gocd/gocd/issues/867) - done. going in 15.1.0.
-
-#### Delete artifact extension point [#410](https://github.com/gocd/gocd/issues/410) - ongoing
-
-#### SCM extension point [#818](https://github.com/gocd/gocd/issues/818) - ongoing
-
 ### Performance
 
 #### Agent improvements
@@ -69,10 +68,14 @@ Improve Agent Server communication to reduce the problem of too many agents ping
 * Thundering herd - implement exponential backoff while registering so that Server is not swamped with requests.
 * Websocket - move from polling to server push model
 
+#### CCTray performance improvements [#795](https://github.com/gocd/gocd/issues/795)
+
+#### Go Config read-write performance improvements [#838](https://github.com/gocd/gocd/issues/838)
+
 ### Tech Debt
 
 #### Jetty upgrade [#400](https://github.com/gocd/gocd/issues/400) - ongoing
 
 #### Migrate from iBatis to Hibernate [#401](https://github.com/gocd/gocd/issues/401)
 
-#### Migrate UI from velocity to rails - [#434](https://github.com/gocd/gocd/issues/434)
+#### Migrate UI from velocity to rails [#434](https://github.com/gocd/gocd/issues/434)
