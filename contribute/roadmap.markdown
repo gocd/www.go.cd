@@ -32,8 +32,8 @@ The biggest time consumer in any CI/CD setup is running tests. It has become fun
 * Parse test reports - provide pluggability for all kinds of test reports/migrators for other test report formats. Currently only XUnit format is supported. - Something on the lines of [xunit-converter](https://github.com/srinivasupadhya/xunit-converter-task)?
 * Test metrics - possibly list flaky tests, show time consuming tests etc.
 
-### Plugins
-Go supports `Package Repository` & `Task` extension points. These are the next:
+#### Plugins
+Go supports 'Package Repository' & 'Task' extension points. These are the next:
 
 * Notificaiton extension point [#867](https://github.com/gocd/gocd/issues/867) - done. going in 15.1.0.
 * Delete artifact extension point [#410](https://github.com/gocd/gocd/issues/410) - ongoing
