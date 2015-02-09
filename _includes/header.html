@@ -34,7 +34,7 @@
             </ul>
           <label class="{{link.icon}}">{{link.root}}{% if hasFirst %} <i class='icon-down-dir-2'></i>{% endif %}</label>
         {% else %}
-            <a href="{{link.url}}"  class="{{link.icon}}">{{link.root}}</a>
+            <a href="{{link.url}}" {% if link.target != undefined %} target="{{link.target}}" {% endif %} class="{{link.icon}}">{{link.root}}</a>
         {% endif %}
         </li>
       {% endfor %}
