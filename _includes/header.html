@@ -1,43 +1,43 @@
 <div class="container-12">
-	<div class="grid-3 logo">
-		<h1 class="title"><a href="/"> <img class="logo" src="/images/logo-go-home_2014.png" alt="Go Open Source - Continuous Delivery"> </a></h1>
-		<ul class="social-icons social-icons-responsive">
-			{% include social-icons.html %}
-		</ul>
-	</div>
-	<div class="grid-9">	
-		<ul class="social-icons">
-			{% include social-icons.html %}
-		</ul>
-		<ul class="navigation" style="clear:both;">
-		  {% for link in site.navigation %}
-		    {% assign url = page.url|remove:'index.html' %}
-		    {% assign hasFirst = link.first-level != undefined %}		   
-		    <li {% if hasFirst %} class="nested" {% endif%} {% if url == link.url %} class="current"{% endif %}>
-				{% if hasFirst %} 
-					<ul class="first-level">
-				    	{% for firstlevel in link.first-level %}  
-				    		<li {% if url == firstlevel.url %} class="current" {% endif %} >
-				    			{% assign hasSecond = firstlevel.second-level != undefined %}
-			    				{% if hasSecond %} 
-				    				<ul class="second-level">
-				    					{% for secondlevel in firstlevel.second-level %}
-											<li>
-												<a href="{{ secondlevel.url }}">{{ secondlevel.text }}</a>
-											</li>
-				    					{% endfor %}
-				    				</ul>
-			    				{% endif %}
-				    			<a {% if firstlevel.target != undefined %} target="{{firstlevel.target}}" {% endif %} href="{{ firstlevel.url }}">{{ firstlevel.text }}{% if hasSecond %} <i class='icon-right-dir-2'></i>{% endif %}</a>
-			    			</li>
-				  		{% endfor %}
-			  		</ul>			
-					<label class="{{link.icon}}">{{link.root}}{% if hasFirst %} <i class='icon-down-dir-2'></i>{% endif %}</label>
-				{% else %}
-		  			<a href="{{link.url}}"  class="{{link.icon}}">{{link.root}}</a>
-				{% endif %}
-		    </li>
-		  {% endfor %}
-		</ul>
-	</div>
+  <div class="grid-3 logo">
+    <h1 class="title"><a href="/"> <img class="logo" src="/images/logo-go-home_2014.png" alt="Go Open Source - Continuous Delivery"> </a></h1>
+    <ul class="social-icons social-icons-responsive">
+      {% include social-icons.html %}
+    </ul>
+  </div>
+  <div class="grid-9">
+    <ul class="social-icons">
+      {% include social-icons.html %}
+    </ul>
+    <ul class="navigation" style="clear:both;">
+      {% for link in site.navigation %}
+        {% assign url = page.url|remove:'index.html' %}
+        {% assign hasFirst = link.first-level != undefined %}
+        <li {% if hasFirst %} class="nested" {% endif%} {% if url == link.url %} class="current"{% endif %}>
+        {% if hasFirst %}
+          <ul class="first-level">
+              {% for firstlevel in link.first-level %}
+                <li {% if url == firstlevel.url %} class="current" {% endif %} >
+                  {% assign hasSecond = firstlevel.second-level != undefined %}
+                  {% if hasSecond %}
+                    <ul class="second-level">
+                      {% for secondlevel in firstlevel.second-level %}
+                      <li>
+                        <a href="{{ secondlevel.url }}">{{ secondlevel.text }}</a>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                  <a {% if firstlevel.target != undefined %} target="{{firstlevel.target}}" {% endif %} href="{{ firstlevel.url }}">{{ firstlevel.text }}{% if hasSecond %} <i class='icon-right-dir-2'></i>{% endif %}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          <label class="{{link.icon}}">{{link.root}}{% if hasFirst %} <i class='icon-down-dir-2'></i>{% endif %}</label>
+        {% else %}
+            <a href="{{link.url}}" {% if link.target != undefined %} target="{{link.target}}" {% endif %} class="{{link.icon}}">{{link.root}}</a>
+        {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
