@@ -5,7 +5,7 @@ future: false
 navigation:
 - root: Get Support
   url: http://www.thoughtworks.com/go/
-  target: blank
+  target: _blank
 - root: Blog
   url: /blog.html
   icon: icon-comment
@@ -17,7 +17,7 @@ navigation:
       url: /learn-more/why-go.html
     - text: Help Doc
       url: http://www.go.cd/documentation/user/current/
-      target: blank
+      target: _blank
 - root: Contribute
   url: #
   icon: icon-star-5
@@ -34,7 +34,7 @@ navigation:
       url: /contribute/contributors.html
     - text: Open Issues
       url: https://github.com/gocd/gocd/issues?page=1&state=open
-      target: blank
+      target: _blank
 
 - root: Community
   url: #
