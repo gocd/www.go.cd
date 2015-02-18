@@ -393,8 +393,9 @@ body.blog {
 .navigation {
     margin-bottom: 0;
     margin-left: 0;
-    margin-top: 20px;
+    margin-top: 10px;
     list-style-type:none;
+    float: left;
 }
 .navigation li {
     float: right;
@@ -406,7 +407,7 @@ body.blog {
     font-weight: normal;
     font-size: 12px;
     border-radius: 5px;
-    padding: 8px 10px;
+    padding: 8px 5px;
     display: block;
     font-weight: bold;
     text-transform: uppercase;
@@ -482,6 +483,7 @@ body.blog {
 .header .social-icons {
     overflow: auto;
     margin-top: 10px;
+    float: right;
 }
 .social-icons-responsive {
     display: none;

@@ -9,7 +9,7 @@
     <ul class="social-icons">
       {% include social-icons.html %}
     </ul>
-    <ul class="navigation" style="clear:both;">
+    <ul class="navigation">
       {% for link in site.navigation %}
         {% assign url = page.url|remove:'index.html' %}
         {% assign hasFirst = link.first-level != undefined %}

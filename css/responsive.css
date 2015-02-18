@@ -40,8 +40,9 @@
     .social-icons {
         display: none;
     }
-    .social-icons-responsive {
+    .header .social-icons-responsive {
         display:block;
+        float: none;
     }
 }
 @media only screen and (max-width: 500px) {
