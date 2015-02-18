@@ -393,7 +393,6 @@ body.blog {
 .navigation {
     margin-bottom: 0;
     margin-left: 0;
-    margin-top: 10px;
     list-style-type:none;
     float: left;
 }
@@ -482,7 +481,7 @@ body.blog {
 }
 .header .support-header {
   padding-top: 0px;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   text-align: center;
 }
 .header .support-header a {
@@ -492,6 +491,7 @@ body.blog {
   font-weight: 500;
   text-transform: uppercase;
   color: #333;
+  display: inline-block;
 }
 .header .social-icons {
     overflow: auto;
