@@ -5,6 +5,12 @@
 /* Media query
 /*
 /*****************************************************************************/
+ @media(max-width: 1200px) {
+   .header .social-icons {
+     margin-top: 10px;
+   }
+ }
+
  @media(max-width: 960px) {
     .navigation {
         margin-top: 0;
