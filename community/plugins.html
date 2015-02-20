@@ -286,9 +286,9 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>Notification plugins (1)</h4>
+<h4>Notification plugins (<span id="notification-plugins-count"></span>)<span class="plugin-warning">Upcoming - Supported by Go 15.1</span></h4>
 
-<ul class="plugins">
+<ul id="notification-plugins" class="plugins">
   <li class="grid-3">
       <h5>Slack Build Notifier</h5>
       <div class="more_details">
@@ -297,18 +297,23 @@ Below is the listing of bundled as well as other available plugins contributed b
       <div>by <a href="https://github.com/ashwanthkumar">Ashwanth Kumar</a>
       </div>
       <div class="actions">
-        <a  href="https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases"><i class='icon-download'></i>Download</a> -
+        <a href="https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases"><i class='icon-download'></i>Download</a> -
         <a href="https://github.com/ashwanthkumar/gocd-slack-build-notifier"><i class='icon-code'></i>Source</a>
       </div>
   </li>
 
+  <li class="grid-3 contribute_tile">
+    <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
+    <div><a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html"><i class="icon-code-1"></i>Write a plugin</a></div>
+    <div><a href="http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html"><i class='icon-book-1'></i>Go plugin API reference</a></div>
+  </li>
 </ul>
 
 <div style="clear:both"></div>
 
-<h4>Enterprise extensions (1)</h4>
+<h4>Enterprise plugins (<span id="enterprise-plugins-count"></span>)</h4>
 
-<ul class="plugins">
+<ul id="enterprise-plugins" class="plugins">
   <li class="grid-3 go">
     <img class="plugin-icon" src="/images/thoughtworks_supported_plugin.png"/>
       <h5>PostgreSQL Connector</h5>
@@ -322,12 +327,15 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <script type="text/javascript">
   jQuery(document).ready(function() {
-    var updateCount = function(pluginsListElementId, pluginsCountElementId) {
-      var numberOfPlugins = jQuery(pluginsListElementId).find("li").length - 1;
+    var updateCount = function(pluginsListElementId, pluginsCountElementId, hasContributeTile) {
+      var numberOfContributePluginTiles = hasContributeTile == true ? 1 : 0;
+      var numberOfPlugins = jQuery(pluginsListElementId).find("li").length - numberOfContributePluginTiles;
       jQuery(pluginsCountElementId).text(numberOfPlugins);
     };
 
-    updateCount("#package-repository-plugins", "#package-repository-plugins-count");
-    updateCount("#task-plugins", "#task-plugins-count");
+    updateCount("#package-repository-plugins", "#package-repository-plugins-count", true);
+    updateCount("#task-plugins", "#task-plugins-count", true);
+    updateCount("#notification-plugins", "#notification-plugins-count", true);
+    updateCount("#enterprise-plugins", "#enterprise-plugins-count", false);
   });
 </script>
