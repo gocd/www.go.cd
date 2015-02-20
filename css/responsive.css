@@ -5,6 +5,13 @@
 /* Media query
 /*
 /*****************************************************************************/
+ @media(max-width: 1200px) {
+   .header .social-icons {
+     margin-top: 10px;
+     margin-bottom: 10px;
+   }
+ }
+
  @media(max-width: 960px) {
     .navigation {
         margin-top: 0;
@@ -40,8 +47,9 @@
     .social-icons {
         display: none;
     }
-    .social-icons-responsive {
+    .header .social-icons-responsive {
         display:block;
+        float: none;
     }
 }
 @media only screen and (max-width: 500px) {
