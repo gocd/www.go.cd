@@ -22,6 +22,8 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <em>Officially maintained ThoughtWorks plugins are tagged with a <span><img class="plugin-icon-in-notice" src="/images/thoughtworks_supported_plugin.png"/></span> icon.</em>
 
+<h4>Total plugins (<span id="total-plugins-count"></span>)</h4>
+
 <h4>Package Repository plugins (<span id="package-repository-plugins-count"></span>)</h4>
 
 <ul id="package-repository-plugins" class="plugins">
@@ -460,9 +462,11 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <script type="text/javascript">
   jQuery(document).ready(function() {
+    var totalNumberOfPlugins = 0;
     var updateCount = function(pluginsListElementId, pluginsCountElementId, hasContributeTile) {
       var numberOfContributePluginTiles = hasContributeTile == true ? 1 : 0;
       var numberOfPlugins = jQuery(pluginsListElementId).find("li").length - numberOfContributePluginTiles;
+      totalNumberOfPlugins += numberOfPlugins;
       jQuery(pluginsCountElementId).text(numberOfPlugins);
     };
 
@@ -471,5 +475,6 @@ Below is the listing of bundled as well as other available plugins contributed b
     updateCount("#notification-plugins", "#notification-plugins-count", true);
     updateCount("#scm-plugins", "#scm-plugins-count", true);
     updateCount("#enterprise-plugins", "#enterprise-plugins-count", false);
+    jQuery("#total-plugins-count").text(totalNumberOfPlugins);
   });
 </script>
