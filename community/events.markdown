@@ -9,7 +9,11 @@ meta_tag_keywords: go events, learning session, pipeline workshop, continuous de
 
 #### Upcoming Events
 
-_No event scheduled for now._
+- <a href="http://www.devopsdays.org/events/2015-denver/">DevOpsDays Rockies (Denver)</a> April 23rd - 24th. We&#39;re excited to sponsor the debut DevOpsDays event in the Denver area. Come say hello!
+
+- <a href="http://www.devopsdays.org/events/2015-austin/">DevOpsDays Austin</a> May 4th - 5th. We&#39;ll be at our third DevOpsDays Austin this year.
+
+- <a href="http://devopswest.techwell.com/">DevOps Conference West</a> June 7th - 12th. The DevOps event is new this year, added to the always good Agile Development Conference and Better Software Conference.
 
 #### Past Events
 
