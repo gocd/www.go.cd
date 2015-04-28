@@ -19,7 +19,7 @@ As codebases grow and teams start writing more tests, they often hit upon a chal
 their build, test and deploy pipelines as a normal team or teams working with trunk-based development would have, then
 increasing the number of tests they have results in a longer time to certify a build and deploy to production.
 
-Here is an example of a Value Stream Map from [GoCD](https://build.go.cd) (Username: view, Password: password) itself,
+Here is an example of a Value Stream Map from [Go CD](https://build.go.cd) (Username: view, Password: password) itself,
 where running all the tests and generating installers can take hours:
 
 <figure>
@@ -325,4 +325,4 @@ img.has_border {
 
 ---
 
-As always, Go questions can be asked at [go-cd](https://groups.google.com/forum/#!forum/go-cd).
+As always, Go questions can be asked on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).
