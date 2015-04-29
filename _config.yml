@@ -7,7 +7,7 @@ navigation:
   icon: icon-comment
 - root: Learn more
   url: #
-  icon: icon-help-circled-1 
+  icon: icon-help-circled-1
   first-level:
     - text: Why Go?
       url: /learn-more/why-go.html
@@ -28,6 +28,8 @@ navigation:
       url: /contribute/cla.html
     - text: Contributors
       url: /contribute/contributors.html
+    - text: Developer Guide
+      url: http://www.go.cd/documentation/developer
     - text: Open Issues
       url: https://github.com/gocd/gocd/issues?page=1&state=open
       target: _blank
