@@ -301,6 +301,13 @@ body.blog {
     background: #efefef;
     border: 1px dashed #ccc;
 }
+.plugin-info {
+  font-size: 10pt;
+  background-color: rgb(240, 230, 140);
+  margin-left: 10px;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
+}
 .plugin-warning {
   font-size: 10pt;
   background-color: rgba(232, 37, 37, 0.5);

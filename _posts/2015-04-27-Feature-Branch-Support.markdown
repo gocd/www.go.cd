@@ -1,0 +1,328 @@
+---
+layout: post
+title: Feature Branch Support
+status: public
+type: post
+published: true
+author: Go Team
+---
+
+Go 15.1 introduced support for writing material repository plugins, to extend the kind of source code material
+repositories that Go works with. This resulted in community-driven plugins developed for Go, to implement support for
+feature branches, with help from members of Go's core contributors. This blog posts has information specifically about
+GitHub Pull Request support.
+
+**Note:** In this post, the terms *Branch* and *Pull Request* are used interchangeably, since a *Pull Request* is
+essentially just a branch.
+
+As codebases grow and teams start writing more tests, they often hit upon a challenging problem. If they have setup
+their build, test and deploy pipelines as a normal team or teams working with trunk-based development would have, then
+increasing the number of tests they have results in a longer time to certify a build and deploy to production.
+
+Here is an example of a Value Stream Map from [Go CD](https://build.go.cd) (Username: view, Password: password) itself,
+where running all the tests and generating installers can take hours:
+
+<figure>
+  <img src="/images/blog/feature-branch/mature-ci-cd-setup.png" class="has_border full_size"
+    alt="Figure 1: GoCD - Value Stream Map" id="mature_ci_cd_setup" title="GoCD - Value Stream Map" />
+  <figcaption>Figure 1: GoCD - Value Stream Map <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+</figure>
+
+Due to this, it becomes critical to keep the main Value Stream green all the time. A failed build would mean all other
+commits ready to go in have to wait until the failed build is fixed:
+
+<figure>
+  <img src="/images/blog/feature-branch/failed-build.png" class="has_border full_size"
+    alt="Figure 2: Failed build stops everything" id="failed_build" title="Failed build stops everything" />
+  <figcaption>Figure 2: Failed build stops everything <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+</figure>
+
+---
+
+The root of this problem is a slow build, and sometimes that can be tackled directly. However, with the advent of
+short-lived feature branches (aka, *Pull Requests* in GitHub land), this problem can become worse. Since feature
+branches are not regularly verified before merging, merging them could itself be a little risky, and could cause the
+build to fail un-necessarily.
+
+In general, development workflows in organizations has moved to something which looks like:
+
+```
+Pull Request (GitHub, Gerrit etc.) / Feature Branch => Code Review => Merge => Build
+```
+
+
+Now, whether a feature branch based workflow is the best approach or not is hotly debated (see Martin Fowler's
+[article](http://martinfowler.com/bliki/FeatureBranch.html) on this). Organizations who follow a feature branch based
+workflow have been wanting support for it in Go.  Historically, [Go has advocated against feature
+branches](http://support.thoughtworks.com/entries/22037619-Support-for-feature-branches#view-post-21612654) and support
+for it has been limited. Go users have come up with some innovative work arounds, like this one from [Vision
+Critical](https://groups.google.com/d/topic/go-cd/veZ5QyySR8k/discussion).
+
+Though the Go core contribution team continues to be wary of long-lived feature branches, short-lived feature branches
+create a window for validating changes before they are merged into the main branch. Since the majority of time spent in
+a CI/CD setup tends to be in running tests, and failed builds are typically due to test failures, you could run tests on
+a proposed change in a feature branch, get feedback about it and fix tests if needed, before merging it into the trunk.
+Though this does not always catch integration issues (that depends on what else was merged before this one was), it
+allows you to increase the chances of your main Value Stream staying green and in a deployable state for longer.
+
+A problem with this approach though, is that every change will be tested twice (once on the feature branch and once on
+the main branch after the merge) which means the effective time for a commit to reach production could be more, unless
+you have more hardware (agents) to run branch builds.
+
+### The way forward
+
+Assuming you have chosen the approach mentioned above, you can now use Go 15.1, with its two new extension points - [SCM
+end-point](http://www.go.cd/documentation/user/15.1.0/extension_points/scm_extension.html) and the [Notification
+end-point](http://www.go.cd/documentation/user/15.1.0/extension_points/notification_extension.html), to test feature
+branches before they are merged.
+
+To use this with GitHub requires the use of two community-driven and community-supported plugins: [Git Branch Poller
+Plugin](https://github.com/ashwanthkumar/gocd-build-github-pull-requests) and the [Build Status Notification
+Plugin](https://github.com/srinivasupadhya/gocd-build-status-notifier). The first one is an SCM Material plugin, and is
+responsible for polling a configured repository for changes, while the second one is a Notification plugin, which is
+responsible for notifying GitHub about the suitability of a Pull Request for merging.
+
+**Note**: Even though this post specifically mentions GitHub only, plugins have been written to work with plain Git,
+Atlassian Stash, Gerrit and more! See the [Go community plugins
+page](http://www.go.cd/community/plugins.html#notification-plugins) for more information.
+
+
+### Quick Setup
+
+* Download the [Git Branch Poller Plugin](https://github.com/ashwanthkumar/gocd-build-github-pull-requests#user-content-get-started) and the [Build Status Notification Plugin](https://github.com/srinivasupadhya/gocd-build-status-notifier#user-content-get-started). Place them under `<go-server>/plugins/external`. Restart the Go Server.
+
+* Verify that the plugins are loaded correctly.
+
+<figure>
+  <img src="/images/blog/feature-branch/plugins-loaded.png" class="has_border full_size"
+    alt="Figure 3: Verify Plugins" id="verify_plugins" title="Verify Plugins" />
+  <figcaption>Figure 3: Verify Plugins <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+</figure>
+
+
+* Decide which parts of the value stream you want the Pull Requests to run till, and extract a template for those
+  pipelines, so that you can have a parallel set of pipelines to run against Pull Requests. The need to create a
+  separate set of pipelines is to make sure that the main build and the branch build never get interleaved, and a branch
+  build never gets deployed into production, by mistake.
+
+    Your decision should be based on how much of your tests can reasonably be run for every Pull Request, and how far down
+    the Value Stream can a build containing those changes Go. For some, every test in the system needs to run before it is
+    deemed merge-able and for some, only unit and integration tests might be enough. It depends.
+
+    Suppose you have a setup of three pipelines like this:
+
+    <figure>
+      <img src="/images/blog/feature-branch/setup.png" class="full_size"
+        alt="Figure 4: Example setup" id="example_setup" title="Example setup" />
+      <figcaption>Figure 4: Example setup <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    </figure>
+
+
+    and you decide that you want the first two pipelines to run for every Pull Request, you need to change your pipelines
+    to look like this:
+
+    <figure>
+      <img src="/images/blog/feature-branch/with_prs.png" class="full_size"
+        alt="Figure 5: Extract templates, create pipelines for PR" id="create_pipelines" title="Extract templates, create pipelines for PR" />
+      <figcaption>Figure 5: Extract templates, create pipelines for PR <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    </figure>
+
+
+    Based on your decision, extract templates and create the new pipelines:
+
+    <figure>
+      <img src="/images/blog/feature-branch/extract-template.png" class="has_border full_size"
+        alt="Figure 6: Extract template" id="extract_template" title="Extract template" />
+      <figcaption>Figure 6: Extract template <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    </figure>
+
+
+* In the new pipeline or pipelines that have been setup to run for every Pull Request, change the Git material to use
+  the GitHub material (this material is provided by the GitHub poller plugin installed earlier):
+
+    <figure>
+      <img src="/images/blog/feature-branch/replace-material-1.png" class="has_border full_size"
+        alt="Figure 7: Add GitHub material" id="add_github_material" title="Add GitHub material" />
+      <figcaption>Figure 7: Add GitHub material <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    </figure>
+
+    <figure>
+      <img src="/images/blog/feature-branch/replace-material-2.png" class="has_border full_size"
+        alt="Figure 8: Add GitHub material - Details" id="add_github_material_details" title="Add GitHub material - Details" />
+      <figcaption>Figure 8: Add GitHub material - Details <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    </figure>
+
+
+    Once you have setup the GitHub material for the pipeline, you can remove the Git material from that pipeline.
+
+That's it.
+
+
+### Results
+
+* Go will trigger builds for every new Pull Request and for new commits to existing Pull Requests:
+
+    <figure>
+      <img src="/images/blog/feature-branch/trigger-build.png" class="has_border full_size"
+        alt="Figure 9: PR triggers build" id="pr_triggers_build" title="PR triggers build" />
+      <figcaption>Figure 9: PR triggers build <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    </figure>
+
+
+* Go will update Pull Request in GitHub with the build status:
+
+    <figure>
+      <img src="/images/blog/feature-branch/update-status-1.png" class="has_border full_size"
+        alt="Figure 10: GitHub PR page gets updated" id="github_pr_update" title="GitHub PR page gets updated" />
+      <figcaption>Figure 10: GitHub PR page gets updated <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    </figure>
+
+    <figure>
+      <img src="/images/blog/feature-branch/update-status-2.png" class="has_border full_size"
+        alt="Figure 11: GitHub PR listing page gets updated" id="github_pr_update" title="GitHub PR listing page gets updated" />
+      <figcaption>Figure 11: GitHub PR listing page gets updated <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    </figure>
+
+* Fan-in and Value Stream Map work as expected:
+
+    <figure>
+      <img src="/images/blog/feature-branch/vsm.png" class="has_border full_size"
+        alt="Figure 12: Fan-in and VSM work" id="vsm_works" title="Fan-in and VSM work" />
+      <figcaption>Figure 12: Fan-in and VSM work <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    </figure>
+
+
+### Shortcomings and known issues:
+
+* If multiple branches are updated at once, the plugin provides all of them as changes and Go will not run the pipeline
+  for every change separately. Go currently combines multiple changes into a single pipeline run (to save time). A
+  feature allowing ["force trigger pipeline for each change"](https://github.com/gocd/gocd/pull/939) should be able to
+  overcome this. This has not yet been accepted into the main GoCD codebase.
+
+* If there are multiple commits in a branch, the plugin only returns the top commit as a change. Hence only one change
+  shows up in the dashboard, value stream, etc. Also, since Go does not know about the other changes you will not be
+  able to manually trigger a pipeline with the other commits.
+
+* The UI is lacking in certain areas: For instance, it is not possible to add an SCM plugin material during pipeline
+  creation, to associate an existing SCM to a pipeline you will need to edit Config XML etc. These 
+  will be fixed in upcoming releases.
+
+### References
+
+Some discussions on the GoCD mailing lists and on GitHub about this:
+
+* [Potential feature request for enhanced materials API (beware, branch talk)](https://groups.google.com/d/topic/go-cd-dev/e0dbLDUsMK8/discussion)
+* [Pre-Commit validation for git master branch](https://groups.google.com/d/topic/go-cd/BwnJYhPZQPk/discussion)
+* [Go Material: Git-Pull-Request](https://groups.google.com/d/topic/go-cd/i0ZXbBL48Vk/discussion)
+* [#298 - Support for building from multiple branches in GIT](https://github.com/gocd/gocd/issues/298)
+* [RFC - GoCD - Github PR Integration](https://groups.google.com/d/topic/go-cd-dev/Rt_Y5G2VkOc/discussion)
+* [A request for feature branch support on the old Go community lists](http://support.thoughtworks.com/entries/22037619-Support-for-feature-branches)
+
+### Sample Configuration
+
+Here is a part of the configuration used to create the images shown above:
+
+```xml
+  <scms>
+    <scm id="b7386c23-71d5-4581-8129-bba5b67638e4" name="sample-repo">
+      <pluginConfiguration id="github.pr" version="1" />
+      <configuration>
+        <property>
+          <key>url</key>
+          <value>https://github.com/srinivasupadhya/sample-repo.git</value>
+        </property>
+      </configuration>
+    </scm>
+  </scms>
+  <pipelines group="sample-group-master">
+    <pipeline name="sample-pipeline-master" template="sample-pipeline">
+      <materials>
+        <git url="https://github.com/srinivasupadhya/sample-repo.git" dest="sample-repo" materialName="sample-repo" />
+      </materials>
+    </pipeline>
+    <pipeline name="sample-downstream-pipeline-master" template="sample-downstream-pipeline">
+      <materials>
+        <pipeline pipelineName="sample-pipeline-master" stageName="sample-stage-2" />
+      </materials>
+    </pipeline>
+  </pipelines>
+  <pipelines group="sample-group-PR">
+    <pipeline name="sample-pipeline-PR" template="sample-pipeline">
+      <materials>
+        <scm ref="b7386c23-71d5-4581-8129-bba5b67638e4" dest="sample-repo" />
+      </materials>
+    </pipeline>
+    <pipeline name="sample-downstream-pipeline-PR" template="sample-downstream-pipeline">
+      <materials>
+        <pipeline pipelineName="sample-pipeline-PR" stageName="sample-stage-2" />
+      </materials>
+    </pipeline>
+  </pipelines>
+  <templates>
+    <pipeline name="sample-pipeline">
+      <stage name="sample-stage-1">
+        <jobs>
+          <job name="sample-job-1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="sample-stage-2">
+        <jobs>
+          <job name="sample-job-2">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="sample-downstream-pipeline">
+      <stage name="sample-stage-3">
+        <jobs>
+          <job name="sample-job-3">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </templates>
+```
+
+<style type="text/css">
+figure {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+figcaption {
+  color: #575757;
+  font-weight: normal;
+}
+
+img.full_size {
+  width: 82%;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+img.has_border {
+  border: 1px solid;
+}
+</style>
+
+<script type="text/javascript">
+  $("figure").on('click', 'img', function() {
+    $(this).width("100%").css('margin-left', 0).css('margin-right', 0);
+    $(this).parent("figure").find("span.click_to_enlarge").hide();
+  });
+</script>
+
+---
+
+As always, Go questions can be asked on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).
