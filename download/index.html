@@ -37,11 +37,11 @@ meta_tag_keywords: continuous deployment software, continuous integration tools,
         <th width="75%">
             <div style="padding:10px;">
                 <span>
-                    Revisions        
+                    Revisions
                 </span>
                 <span style='float:right; width:150px;'>
-                    Links 
-                    <div><input id='show-checksum' onclick="toggle('.sha1, .md5', this)" type="checkbox" /> <label class="tiny" for='show-checksum'>Show Checksum</label></div>
+                    Links
+                    <div><input id='show-checksum' type="checkbox" /> <label class="tiny" for='show-checksum'>Show Checksum</label></div>
                 </span>
             </div>
         </th>
@@ -118,13 +118,3 @@ meta_tag_keywords: continuous deployment software, continuous integration tools,
         <img width="150px;" src="//www.bintray.com/docs/images/poweredByBintray_ColorTransparent.png">
     </a>
 </div>
-
-
-
-<script type="text/javascript"> 
-    function toggle(className, obj) {
-        var $input = $(obj);
-        if ($input.prop('checked')) $(className).show();
-        else $(className).hide();
-    }
-</script>

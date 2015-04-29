@@ -1,5 +1,20 @@
 $(function() {
     var masterURL = "http://download.go.cd/";
+
+    if($('#show-checksum').length === 0) {
+        return;
+    }
+
+    $('#show-checksum').change(function(evt) {
+        var input = $(evt.target);
+
+        if (input.is(':checked')) {
+            $('.sha1, .md5').show();
+        } else {
+            $('.sha1, .md5').hide();
+        }
+    });
+
     init();
 
     function init() {
@@ -10,6 +25,7 @@ $(function() {
             renderInstallersByOS(artifactList, "linuxRpm", 'linuxRpm-revisions', 'gocd-rpm');
             renderInstallersByOS(artifactList, "package", 'package-revisions', 'gocd');
             renderInstallersByOS(artifactList, "win", 'windows-revisions', 'gocd');
+            $('#show-checksum').click();
         });
     }
 
