@@ -23,7 +23,8 @@ navigation:
     - text: Contribution Guide
       url: /contribute/contribution-guide.html
     - text: Roadmap
-      url: /contribute/roadmap.html
+      url: https://github.com/gocd/gocd/issues/1076
+      target: _blank
     - text: CLA
       url: /contribute/cla.html
     - text: Contributors
