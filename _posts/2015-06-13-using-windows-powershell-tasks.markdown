@@ -118,7 +118,7 @@ catch
 
 
 ### See also
-[Execution policy](https://technet.microsoft.com/en-us/library/hh849812.aspx)  
+[PowerShell execution policy](https://technet.microsoft.com/en-us/library/hh849812.aspx)  
 [Bypassing PowerShell execution policy](https://blog.netspi.com/15-ways-to-bypass-the-powershell-execution-policy/)  
 [Setting execution policy directly in the registry](https://codelucidate.wordpress.com/powershell/change-execution-policy-in-the-registry/)  
-[Go PowerShell runner](https://github.com/manojlds/gocd-powershell-runner) - I believe it can only be configured on Windows based Go servers
+[Go PowerShell runner plugin](https://github.com/manojlds/gocd-powershell-runner) - I believe it can only be configured on Windows based Go servers
