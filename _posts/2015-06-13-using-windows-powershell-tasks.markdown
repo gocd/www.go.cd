@@ -10,8 +10,13 @@ author: Pat Mc Grath
 Some things to be aware of when using Windows PowerShell tasks.
 
 ###Go agent default installation
-The [default](http://www.go.cd/documentation/user/current/installation/installing_go_agent.html) of a Go agent will use a 32-bit JRE unless you indicate otherwise, this JRE is embedded in the Go agent installer  
-If you want to use an alternative JRE (Must satisfy Go's JRE requirements) after the initial installation, you can alter the "wrapper.java.command" key's value in the [InstallDirectory]\config\wrapper-agent.conf file to point to a diffeerent JRE, you will need to restart the Go agent service to start using the alternative JRE  
+The [default](http://www.go.cd/documentation/user/current/installation/installing_go_agent.html) installation of a Go agent will use a 32-bit JRE unless you indicate otherwise, this JRE is embedded in the Go agent installer  
+
+If you want to use an alternative JRE (Must satisfy Go's JRE requirements) after the initial installation, you can alter the  
+"wrapper.java.command" key's value in the  
+[InstallDirectory]\config\wrapper-agent.conf file  
+to point to a different JRE, you will need to restart the Go agent service to start using the alternative JRE  
+
 The [InstallDirectory] refers to the Go agents installation directory which by default is "c:\program files (x86)\go-agent"  
 
 
@@ -88,7 +93,8 @@ try
 	write-host "Host.Version:      " $host.version
 	write-host "Execution policy:  " $(get-executionpolicy)
 
-	execute-externaltool "Query a non existent service, will return with exit code != 0" { C:\Windows\System32\sc.exe query service_does_not_exist } 
+	# Query a service that does not exist, sc.exe will return with a non 0 exit code
+	execute-externaltool "Query a non existent service, will return with exit code != 0" { c:\windows\system32\sc.exe query service_does_not_exist } 
 }
 catch
 {
