@@ -28,15 +28,19 @@ You probably want to ensure your agents all have the same version of PowerShell
 If you are running a default Go agent installation then you will be running a 32-bit JRE  
 The 32-bit JRE will try to run PowerShell tasks in the 32-bit version of PowerShell, even if you give the full path to the 64-bit PowerShell executable in the task  
 If you need to execute a PowerShell script then you will need to alter the execution policy as follows  
-- Open 32-bit version of PowerShell as an administrator - start -> all programs -> accessories -> windows powershell -> windows powerShell (x86)  
-- set-executionpolicy remotesigned -force  
+- Open 32-bit version of PowerShell as an administrator - start -> all programs -> accessories -> windows powershell -> windows powershell (x86)  
+```powershell
+set-executionpolicy remotesigned -force  
+```  
 This will allow you to run local scripts on the Windows Go agent box  
 
 ####64-bit Go agent
 If you are running a Go agent using a 64-bit JRE, it will run PowerShell tasks in the 64-bit version of PowerShell
 If you need to execute a PowerShell script then you will need to alter the execution policy as follows  
-- Open 64-bit version of PowerShell as an administrator - start -> all programs -> accessories -> windows powershell -> windows powerShell  
-- set-executionpolicy remotesigned -force  
+- Open 64-bit version of PowerShell as an administrator - start -> all programs -> accessories -> windows powershell -> windows powershell
+```powershell
+set-executionpolicy remotesigned -force  
+```  
 This will allow you to run local scripts on the Windows Go agent box  
 
 
