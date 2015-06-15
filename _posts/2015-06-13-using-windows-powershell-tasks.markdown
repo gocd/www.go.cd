@@ -30,6 +30,7 @@ The 32-bit JRE will try to run PowerShell tasks in the 32-bit version of PowerSh
 If you need to execute a PowerShell script then you will need to alter the execution policy as follows  
 - Open 32-bit version of PowerShell as an administrator - start -> all programs -> accessories -> windows powershell -> windows powershell (x86)  
 ```powershell
+# Alter execution policy
 set-executionpolicy remotesigned -force  
 ```  
 This will allow you to run local scripts on the Windows Go agent box  
@@ -39,6 +40,7 @@ If you are running a Go agent using a 64-bit JRE, it will run PowerShell tasks i
 If you need to execute a PowerShell script then you will need to alter the execution policy as follows  
 - Open 64-bit version of PowerShell as an administrator - start -> all programs -> accessories -> windows powershell -> windows powershell
 ```powershell
+# Alter execution policy
 set-executionpolicy remotesigned -force  
 ```  
 This will allow you to run local scripts on the Windows Go agent box  
