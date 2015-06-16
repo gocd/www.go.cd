@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using Windows PowerShell tasks
+title: "Guest post: Using Windows PowerShell tasks"
 status: public
 type: post
 published: true
@@ -9,50 +9,70 @@ author: Pat Mc Grath
 
 Some things to be aware of when using Windows PowerShell tasks.
 
-###Go agent default installation
-The [default](http://www.go.cd/documentation/user/current/installation/installing_go_agent.html) installation of a Go agent will use a 32-bit JRE unless you indicate otherwise, this JRE is embedded in the Go agent installer  
+### Go Agent default installation
 
-If you want to use an alternative JRE (Must satisfy Go's JRE requirements) after the initial installation, you can alter the  
-"wrapper.java.command" key's value in the  
-[InstallDirectory]\config\wrapper-agent.conf file  
-to point to a different JRE, you will need to restart the Go agent service to start using the alternative JRE  
+The [default](http://www.go.cd/documentation/user/current/installation/installing_go_agent.html) installation of a Go
+agent will use a 32-bit JRE unless you indicate otherwise. This JRE is embedded in the Go agent installer.
 
-The [InstallDirectory] refers to the Go agents installation directory which by default is "c:\program files (x86)\go-agent"  
+If you want to use an alternative JRE (must satisfy Go's JRE requirements) after the initial installation, you can alter
+the "wrapper.java.command" key's value in the ```[InstallDirectory]\config\wrapper-agent.conf``` file  to point to a
+different JRE. You will then need to restart the Go agent service to start using the alternative JRE.
+
+The ```[InstallDirectory]``` refers to the Go agents installation directory which by default is ```"C:\Program Files (x86)\Go Agent"```.
 
 
-###PowerShell task commands pre-requisite
-You can only run on Windows based agents  - You should tag the agents if your are also using linux agents  
-You probably want to ensure your agents all have the same version of PowerShell  
+### Pre-requisites for running PowerShell task commands
 
-####32-bit Go agent
-If you are running a default Go agent installation then you will be running a 32-bit JRE  
-The 32-bit JRE will try to run PowerShell tasks in the 32-bit version of PowerShell, even if you give the full path to the 64-bit PowerShell executable in the task  
-If you need to execute a PowerShell script then you will need to alter the execution policy as follows  
-- Open 32-bit version of PowerShell as an administrator - start -> all programs -> accessories -> windows powershell -> windows powershell (x86)  
+- You can only run on Windows based agents
+- You should tag the agents if your are also using linux agents  
+- You probably want to ensure your agents all have the same version of PowerShell  
+
+#### 32-bit Go agent
+
+If you are running a default Go agent installation then you will be running a 32-bit JRE.
+
+The 32-bit JRE will try to run PowerShell tasks in the 32-bit version of PowerShell, even if you give the full path to
+the 64-bit PowerShell executable in the task. If you need to execute a PowerShell script then you will need to alter the
+execution policy as follows:
+
+- Open 32-bit version of PowerShell as an administrator: Start -> All Programs -> Accessories -> Windows Powershell -> Windows Powershell (x86) and type:
+
 ```powershell
 # Alter execution policy
 set-executionpolicy remotesigned -force  
-```  
-This will allow you to run local scripts on the Windows Go agent box  
+```
 
-####64-bit Go agent
-If you are running a Go agent using a 64-bit JRE, it will run PowerShell tasks in the 64-bit version of PowerShell
-If you need to execute a PowerShell script then you will need to alter the execution policy as follows  
-- Open 64-bit version of PowerShell as an administrator - start -> all programs -> accessories -> windows powershell -> windows powershell
+This will allow you to run local scripts on the Windows Go agent box.
+
+#### 64-bit Go agent
+
+If you are running a Go agent using a 64-bit JRE, it will run PowerShell tasks in the 64-bit version of PowerShell.
+
+If you need to execute a PowerShell script, then you will need to alter the execution policy as follows:
+
+- Open 64-bit version of PowerShell as an administrator: Start -> All Programs -> Accessories -> Windows Powershell ->
+  Windows Powershell and type:
+
 ```powershell
 # Alter execution policy
 set-executionpolicy remotesigned -force  
-```  
-This will allow you to run local scripts on the Windows Go agent box  
+```
+
+This will allow you to run local scripts on the Windows Go agent box.
 
 
-###PowerShell task commands
-You can configure the task as follows  
-  command: powershell  
-  arg:  -noprofile .\run.ps1 arg1value  
+### PowerShell task commands
 
-This assumes that the run.ps1 script is in the task's working directory  
-If you create the run.ps1 file with the following content you can see details of the execution context in the console log for the pipeline  
+You can configure the task as follows:
+
+```
+command: powershell  
+arg:  -noprofile .\run.ps1 arg1value  
+```
+
+This assumes that the ```run.ps1``` script is in the task's working directory.
+
+If you create the ```run.ps1``` file with the following content you can see details of the execution context in the console log for the pipeline:
 
 ```powershell
 param
@@ -68,13 +88,19 @@ write-host "Arg1:              " $arg1
 ```
 
 
-###Propogating failures
-You need to ensure that PowerShell exits with an exit code that is not 0 in the event of a failure, this needs to cater for
-- Script errors
-- External process calls that indicate failure
-You will need to decide how to handle these failures and if they should indicate the PowerShell task has been successful or not, this may mean that some script errors and external process calls failing is okay in your context  
+### Propogating failures
 
-The following script demonstrates a strategy I use where I exit with a non zero code if any script error encountered or an external process call fails  
+You need to ensure that PowerShell exits with an exit code that is not 0 in the event of a failure, this needs to cater to:
+
+  - Script errors
+  - External process calls that indicate failure
+
+<p>
+You will need to decide how to handle these failures and if they should indicate the PowerShell task has been successful
+or not. This may mean that some script errors and external process calls failing is okay in your context.
+
+The following script demonstrates a strategy I use where I exit with a non zero code if any script error was encountered
+or an external process call fails:
 
 ```powershell
 set-strictmode -version latest
@@ -110,15 +136,16 @@ catch
 }
 ```
 - This script uses a try catch block to handle all errors
-	- The $? and $LastExitCode cater for both script and external process calls
-	- We fall back on a exit code of 1 if we do not have an external process exit code
+	- The $? and $LastExitCode caters to both script and external process calls
+	- We fall back on an exit code of 1 if we do not have an external process exit code
 - This script uses an execute-externaltool function which takes a script block argument
 	- The script will invoke the script block
-	- It will then check for a non zero exit code (Assumes the script block just calls an external process), if so it will throw an exception
+	- It will then check for a non zero exit code (Assumes the script block just calls an external process), if so it will throw an exception.
 
 
 ### See also
+
 [PowerShell execution policy](https://technet.microsoft.com/en-us/library/hh849812.aspx)  
 [Bypassing PowerShell execution policy](https://blog.netspi.com/15-ways-to-bypass-the-powershell-execution-policy/)  
 [Setting execution policy directly in the registry](https://codelucidate.wordpress.com/powershell/change-execution-policy-in-the-registry/)  
-[Go PowerShell runner plugin](https://github.com/manojlds/gocd-powershell-runner) - I believe it can only be configured on Windows based Go servers
+[Go PowerShell runner plugin](https://github.com/manojlds/gocd-powershell-runner) - I believe it can only be configured on Windows based Go servers  
