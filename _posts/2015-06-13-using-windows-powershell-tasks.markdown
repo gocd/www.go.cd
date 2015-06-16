@@ -67,7 +67,7 @@ You can configure the task as follows:
 
 ```
 command: powershell  
-arg:  -noprofile .\run.ps1 arg1value  
+arg: .\run.ps1 arg1value  
 ```
 
 This assumes that the ```run.ps1``` script is in the task's working directory.
@@ -95,7 +95,6 @@ You need to ensure that PowerShell exits with an exit code that is not 0 in the 
   - Script errors
   - External process calls that indicate failure
 
-<p>
 You will need to decide how to handle these failures and if they should indicate the PowerShell task has been successful
 or not. This may mean that some script errors and external process calls failing is okay in your context.
 
