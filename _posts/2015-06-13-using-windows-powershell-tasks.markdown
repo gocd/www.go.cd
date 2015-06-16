@@ -88,7 +88,7 @@ write-host "Arg1:              " $arg1
 ```
 
 
-### Propogating failures
+### Propagating failures
 
 You need to ensure that PowerShell exits with an exit code that is not 0 in the event of a failure, this needs to cater to:
 
