@@ -7,8 +7,6 @@ published: true
 author: Pat Mc Grath
 ---
 
-<small>*This is a guest post by Pat Mc Grath. You can find Pat [on GitHub](https://github.com/pmcgrath).*</small>
-
 Some things to be aware of when using Windows PowerShell tasks.
 
 ### Go Agent default installation
@@ -143,10 +141,14 @@ catch
 	- The script will invoke the script block
 	- It will then check for a non zero exit code (Assumes the script block just calls an external process), if so it will throw an exception.
 
-
 ### See also
 
 [PowerShell execution policy](https://technet.microsoft.com/en-us/library/hh849812.aspx)  
 [Bypassing PowerShell execution policy](https://blog.netspi.com/15-ways-to-bypass-the-powershell-execution-policy/)  
 [Setting execution policy directly in the registry](https://codelucidate.wordpress.com/powershell/change-execution-policy-in-the-registry/)  
 [Go PowerShell runner plugin](https://github.com/manojlds/gocd-powershell-runner) - I believe it can only be configured on Windows based Go servers  
+
+### About the author
+
+*This is a guest post by Pat Mc Grath. You can find Pat [on GitHub](https://github.com/pmcgrath).*
+
