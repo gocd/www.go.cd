@@ -7,6 +7,8 @@ published: true
 author: Pat Mc Grath
 ---
 
+<small>*This is a guest post by Pat Mc Grath. You can find Pat [on GitHub](https://github.com/pmcgrath).*</small>
+
 Some things to be aware of when using Windows PowerShell tasks.
 
 ### Go Agent default installation
