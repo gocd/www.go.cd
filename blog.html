@@ -14,7 +14,7 @@ header_follow: <a href="/feed/rss.xml"><img src="/images/feed-icon-28x28.png"/><
 
 			  <li>
 			  	  <a href="{{ post.url }}"  class="title">{{ post.title }}</a>&nbsp; &nbsp;<span>{{ post.date | date_to_string }}</span>
-			  	  {{ post.excerpt | remove: '<meta>'}}
+            {{ post.content | truncatewords:75 }}
 			  	  <a href="{{ post.url }}">Read more</a>
 			  </li>
 
