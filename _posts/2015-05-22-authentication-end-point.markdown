@@ -4,7 +4,7 @@ title: Authentication end-point
 status: public
 type: post
 published: true
-author: Ken Mugrage
+author: Go Team
 ---
 
 Starting 15.2.0 Go Server will expose authentication end-point. What this means is Go users can add "custom" authentication schemes through plugins. With [plugin settings](http://www.go.cd/documentation/developer/writing_go_plugins/plugin_settings/plugin_settings_overview.html) & [web request handling ability](http://www.go.cd/documentation/developer/writing_go_plugins/handling_web_requests.html) plugin developers get enough flexibility to write any authentication plugin they intend to write.
@@ -44,7 +44,15 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
   <figcaption>Figure 2: Configure plugin pop-up <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
-* Access `<go-server>/go/plugin/interact/github.oauth.login/index`
+* Login Page
+
+<figure>
+  <img src="/images/blog/authentication-plugins/login-page.png" class="has_border full_size"
+    alt="Figure 2: GoCD - Login Page" id="mature_ci_cd_setup" title="GoCD - Login Page" />
+  <figcaption>Figure 3: Login Page with GitHub icon <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+</figure>
+
+* Click on GitHub icon
 
 <figure>
   <img src="/images/blog/authentication-plugins/github-login.png" class="has_border full_size"
@@ -60,7 +68,15 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
   <figcaption>Figure 3: On successful login <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
-We hope plugin developers are able to use this feature to provide a better experience to their users.
+* Ability to Search & Add users
+
+<figure>
+  <img src="/images/blog/authentication-plugins/search-user.png" class="has_border full_size"
+    alt="Figure 2: GoCD - Search User" id="mature_ci_cd_setup" title="GoCD - Search User" />
+  <figcaption>Figure 3: Search User <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+</figure>
+
+We hope plugin developers are able to use this feature to support their organizations authentication mechanism.
 
 #### References:
 

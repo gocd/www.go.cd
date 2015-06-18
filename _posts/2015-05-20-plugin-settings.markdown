@@ -7,9 +7,7 @@ published: true
 author: Go Team
 ---
 
-Go is continously improving its plugin infrastructure. Last year the Plugin API change from JAVA interface based approach to JSON message based one to support multiple versions of same end-point for backward compatibility is working out quiet well.
-
-Starting 15.2.0 Go will support "Plugin Settings" that will allow plugins to accept global settings from Admins. Currently these configurations had to be supported via system properties or a file that is in specified format in a specified location, which makes it a little hapazard. With this feature "all" plugins will have one approach to accept plugins settings from user & access plugin settings from Go Server.
+Go is continously improving its plugin infrastructure. Starting 15.2.0 Go will support "Plugin Settings" that will allow plugins developers to accept global settings. Currently these configurations had to be supported via system properties or a file that is in specified format in a specified location, which makes it a little haphazard. With this feature "all" plugins will have one approach to accept plugins settings from user & access plugin settings from Go Server.
 
 ### How does it work?
 
@@ -41,7 +39,7 @@ We hope plugin developers are able to use this feature to provide a better exper
 
 #### References:
 
-* [Developer Docs](http://www.go.cd/documentation/developer/writing_go_plugins/plugin_settings/plugin_settings_overview.html)
+* Dev Docs - [Plugin Settings](http://www.go.cd/documentation/developer/writing_go_plugins/plugin_settings/plugin_settings_overview.html), [Application Accessor](http://www.go.cd/documentation/developer/writing_go_plugins/go_application_accessor/plugin_settings/version_1_0/get_plugin_settings.html)
 * [GitHub Issue](https://github.com/gocd/gocd/issues/1121)
 * [Sample Plugin - Email Notifier](https://github.com/srinivasupadhya/email-notifier)
 
