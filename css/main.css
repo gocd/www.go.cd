@@ -258,7 +258,7 @@ body.blog {
 
 .plugin-icon-in-notice{
     height: 15px;
-    border: 0px solid black; 
+    border: 0px solid black;
     display:inline-block;
 }
 .plugins .actions {
@@ -763,7 +763,7 @@ body.blog {
 .release-announce-holder{
     overflow: auto;
     text-align:center;
-    color: #217845; 
+    color: #217845;
     padding: 30px;
     background: url('/images/bg-announcement.png') 0 0;
 }
@@ -791,7 +791,7 @@ body.blog {
     z-index: 1;
     box-shadow:1px 0px 13px #cdcdcd;
 }
-.download-list li{    
+.download-list li{
     overflow: auto;
     padding: 20px 25px;
     border-bottom: 1px solid #efefef;
@@ -851,8 +851,8 @@ body.blog {
     font-size: 1em;
 }
 .bintray{
-    text-align:center; 
-    padding-top:20px;    
+    text-align:center;
+    padding-top:20px;
     clear: both;
 }
 /*****************************************************************************/
@@ -897,6 +897,28 @@ body.blog {
 .smaller-font {
     font-size: 0.8em;
 }
+
 .github-star-button {
     float: right;
+}
+
+/* for release notes */
+.version {
+    padding-bottom: 30px;
+}
+
+.version h4 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+.version ul {
+    margin-left: 20px;
+}
+
+.version figure.small_image img {
+    width: 80%; margin-left: 10%;
+}
+
+.version figure.extra_small_image img {
+    width: 50%; margin-left: 10%;
 }
