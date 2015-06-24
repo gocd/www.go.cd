@@ -13,7 +13,7 @@ I work for ThoughtWorks, a company that implements processes and technologies we
 
 I was wrong.
 
-I just got back from a pretty big software conference that was a bit off my normal track. They had a few DevOps sessions this year, but historically this particular conference has been more about agile methodologies. As a sponsor of the event, I spent most of my time standing in the booth talking to people.
+I just got back from a pretty big software conference that was a bit off my normal track. They had a few DevOps sessions this year, but historically this particular conference has been more about agile methodologies. As one of the sponsors, I spent a lot of time at the booth talking to people.
 
 The conversations in a trade show booth generally start with the visitor asking what we do (gotta work more on that so they don’t have to) and me telling them that Go is a continuous delivery server. From there we go on to talk about what makes Go unique and why they should use it.
 
