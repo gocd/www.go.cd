@@ -7,7 +7,7 @@ published: true
 author: Ken Mugrage
 ---
 
-####Those of us who work in or around teams doing continuous delivery often think it’s a mainstream thing. This couldn’t be further from the truth.
+Those of us who work in or around teams doing continuous delivery often think it’s a mainstream thing. This couldn’t be further from the truth.
 
 I work for ThoughtWorks, a company that implements processes and technologies we think are good long before most. We built the first CI server with Cruise Control, and Go was the first purpose built Continuous Delivery server. I go to a lot of conferences and events, read a lot of blogs, talk to a lot of peers, work with a lot of partners, etc. I thought most people involved with the creation of software had a pretty good idea what CD is.
 
