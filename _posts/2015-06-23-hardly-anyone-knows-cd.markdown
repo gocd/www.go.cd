@@ -37,4 +37,4 @@ Feel free to comment with your own resource, this isn't even close to a definite
 
 ####One last thing...
 
-Stop telling people that the phrases DevOps and Continuos Delivery are overused. They aren’t. Hardly anyone knows what Continuous Delivery is.
+Stop telling people that the phrases DevOps and Continuous Delivery are overused. They aren’t. Hardly anyone knows what Continuous Delivery is.
