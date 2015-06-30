@@ -922,3 +922,15 @@ body.blog {
 .version figure.extra_small_image img {
     width: 50%; margin-left: 10%;
 }
+
+/**********************************/
+/*  Subscribe                     */
+/**********************************/
+
+.subscribe {
+    border-bottom: 1px solid #efefef;
+    padding-top: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    text-align: left;
+}
