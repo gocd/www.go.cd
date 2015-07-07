@@ -53,10 +53,18 @@ meta_tag_keywords:
         Go's APIs are fairly old, have inconsistent and unpredictable content types (csv, xml, json, plain text).
       </p>
       <p>
-        Going forward, we would like to announce an ongoing effort to improve and migrate these APIs to use something that is more modern, easy to discover, learn and build API clients for.
+        We have now migrated the
+        <a href="http://api.go.cd/#agents">Agents API</a>,
+        <a href="http://api.go.cd/#users">Users API</a>,
+        <a href="http://api.go.cd/#backups">Backups API</a>
+        to use JSON hypermedia API (using JSON+HAL).
       </p>
       <p>
-        Learn more about the new API on our <a href='https://api.go.cd'>api documentation</a> site.
+        Going forward, we would like to announce an ongoing effort to improve and migrate existing APIs to
+        use something that is more modern, easy to discover, learn and build API clients for.
+      </p>
+      <p>
+        Learn more about the new API on our new <a href='https://api.go.cd'>api documentation</a> site.
       </p>
     </div>
 
@@ -69,6 +77,8 @@ meta_tag_keywords:
         <li><a href="https://github.com/gocd/gocd/issues/124">#124</a> - Allow setting the hostname when <a href="http://www.go.cd/documentation/user/current/advanced_usage/agent_auto_register.html">auto-registering</a> an agent.</li>
         <li><a href="https://github.com/gocd/gocd/issues/958">#958</a> - API method for renaming agent.</li>
         <li><a href="https://github.com/gocd/gocd/issues/264">#264</a> - Agent API to assign resource.</li>
+        <li><a href="https://github.com/gocd/gocd/pull/1261">#1261</a> - Port over Users API.</li>
+        <li><a href="https://github.com/gocd/gocd/pull/1292">#1292</a> - Port over Backup API.</li>
       </ul>
 
       <h5>Bug fixes:</h5>
