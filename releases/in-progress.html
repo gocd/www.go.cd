@@ -27,6 +27,18 @@ meta_tag_keywords:
     </div>
 
     <div class="section">
+      <h5><a href="http://www.go.cd/2015/06/18/authentication-end-point.html">Authentication end-point</a></h5>
+
+      <p>
+        Starting v15.2 Go Server will expose authentication end-point. What this means is Go users can add "custom" authentication schemes through plugins.
+      </p>
+
+      <figure class="small_image">
+        <img src="/images/blog/authentication-plugins/login-page.png" alt="GitHub Login" title="GitHub Login"/>
+      </figure>
+    </div>
+
+    <div class="section">
       <h5>Setup hostname when auto-registering agents</h5>
 
       <p>
@@ -49,17 +61,20 @@ meta_tag_keywords:
     </div>
 
     <div class="section">
-      <h5>More changes...</h5>
-
-      <p>
-        This release is filled with many other notable features, changes and fixes, such as:
-      </p>
+      <h5>Other notable features:</h5>
 
       <ul>
         <li><a href="https://github.com/gocd/gocd/issues/194">#194</a> - Allow secure variables (environment) on environments, stages and jobs.</li>
+        <li><a href="https://github.com/gocd/gocd/issues/1121">#1121</a> - Ability for plugins to <a href="http://www.go.cd/2015/06/18/plugin-settings.html">CRUD global configuration</a>.</li>
         <li><a href="https://github.com/gocd/gocd/issues/124">#124</a> - Allow setting the hostname when <a href="http://www.go.cd/documentation/user/current/advanced_usage/agent_auto_register.html">auto-registering</a> an agent.</li>
         <li><a href="https://github.com/gocd/gocd/issues/958">#958</a> - API method for renaming agent.</li>
         <li><a href="https://github.com/gocd/gocd/issues/264">#264</a> - Agent API to assign resource.</li>
+      </ul>
+
+      <h5>Bug fixes:</h5>
+
+      <ul>
+        <li><a href="https://github.com/gocd/gocd/issues/1291">#1291</a> and <a href="https://github.com/gocd/gocd/issues/1249">#1249</a> - Fan-in performance improvements.</li>
         <li><a href="https://github.com/gocd/gocd/issues/1039">#1039</a> - Fix for relative root paths in SVN 1.5+ externals.</li>
         <li><a href="https://github.com/gocd/gocd/issues/1109">#1109</a> - XSS vulnerability on user settings page.</li>
         <li><a href="https://github.com/gocd/gocd/issues/1219">#1219</a> - XSS vulnerability via SCM commit messages.</li>
