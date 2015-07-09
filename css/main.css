@@ -938,3 +938,15 @@ figure.small_image figcaption {
 img.has_border {
   border: 1px solid;
 }
+
+/**********************************/
+/*  Subscribe                     */
+/**********************************/
+
+.subscribe {
+    border-bottom: 1px solid #efefef;
+    padding-top: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    text-align: left;
+}
