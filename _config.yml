@@ -13,6 +13,8 @@ navigation:
       url: /learn-more/why-go.html
     - text: Subscribe to Updates
       url: /subscribe.html
+    - text: Resources
+      url: /community/resources.html
     - text: Help Doc
       url: http://www.go.cd/documentation/user/current/
       target: _blank
@@ -43,8 +45,6 @@ navigation:
   first-level:
     - text: Events
       url: /community/events.html
-    - text: Resources
-      url: /community/resources.html
     - text: Partners
       url: /community/partners.html
     - text: Plugins
