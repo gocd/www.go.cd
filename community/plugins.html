@@ -154,29 +154,25 @@ Below is the listing of bundled as well as other available plugins contributed b
 <h4>Authentication plugins <span class="plugin-info">&gt;= Go v15.2</span></h4>
 
 <ul id="authentication-plugins" class="plugins">
-  <li class="grid-3">
-      <h5>Google OAuth Login</h5>
-      <div class="more_details">
-        Plugin to support login through Google OAuth. <a href="https://github.com/srinivasupadhya/gocd-oauth-login">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/srinivasupadhya/gocd-oauth-login/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gocd-oauth-login&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
 
-  <li class="grid-3">
-      <h5>GitHub OAuth Login</h5>
-      <div class="more_details">
-        Plugin to support login through GitHub OAuth. <a href="https://github.com/srinivasupadhya/gocd-oauth-login">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/srinivasupadhya/gocd-oauth-login/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gocd-oauth-login&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% for plugin in site.data.auth_plugins %}
+
+    <li class="grid-3">
+        <h5>{{ plugin.name }}</h5>
+        <div class="more_details">
+            {{ plugin.description }} <a href="{{ plugin.readmore_url }}">Read more</a>
+        </div>
+        <div>by <a href="{{ plugin.author_url }}">{{ plugin.author_name }}</a>
+        </div>
+        <div class="actions">
+            <a href="{{ plugin.releases_url }}"><i class='icon-download'></i>Download</a>
+            <iframe src="{{ plugin.github_stars }}" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
+        </div>
+    </li>
+
+    {% endfor %}
+
+
 
   <li class="grid-3 contribute_tile">
     <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
