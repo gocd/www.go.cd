@@ -1,0 +1,103 @@
+- name: XUnit Converter
+  description: A plugin to convert test reports to XUnit format
+  readmore_url: https://github.com/srinivasupadhya/xunit-converter-task
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhya
+  releases_url: https://github.com/srinivasupadhya/xunit-converter-task/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=xunit-converter-task&type=watch&count=true
+
+- name: Powershell Task
+  description: Task to run Powershell based builds.
+  readmore_url: https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md
+  author_url: https://github.com/manojlds
+  author_name: Manoj Mahalingam
+  releases_url: https://github.com/manojlds/gocd-powershell-runner/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=manojlds&repo=gocd-powershell-runner&type=watch&count=true
+
+- name: RapidDeploy Package Builder
+  description: Plugin to build a deployment package on a remote RapidDeploy server.
+  readmore_url: https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin
+  author_url: http://www.midvision.com/
+  author_name: MidVision
+  releases_url: https://github.com/MidVision/go-rapiddeploy/releases/
+  github_stars: http://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true
+
+- name: RapidDeploy Job Runner
+  description: Plugin to invoke a job on a remote RapidDeploy server.
+  readmore_url: https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin
+  author_url: http://www.midvision.com/
+  author_name: MidVision
+  releases_url: https://github.com/MidVision/go-rapiddeploy/releases/
+  github_stars: http://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true
+
+- name: Groovy Task Plugin
+  description: Plugin to allow writing tasks in go.cd as Groovy scripts
+  readmore_url: https://github.com/4finance/go-plugin-groovy
+  author_url: http://www.4finance.com/
+  author_name: 4Finance
+  releases_url: https://github.com/4finance/go-plugin-groovy/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=4finance&repo=go-plugin-groovy&type=watch&count=true
+
+- name: Maven Task Plugin
+  description: Plugin to allow running maven tasks in go.cd
+  readmore_url: https://github.com/ruckc/gocd-maven-plugin
+  author_url: http://github.com/ruckc
+  author_name: ruckc
+  releases_url: https://github.com/ruckc/gocd-maven-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=ruckc&repo=gocd-maven-plugin&type=watch&count=true
+
+- name: Script Executor Task Plugin
+  description: Plugin to allow running Script in Go
+  readmore_url: https://github.com/srinivasupadhya/script-executor-task
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhya
+  releases_url: https://github.com/srinivasupadhya/script-executor-task/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=script-executor-task&type=watch&count=true
+
+- name: Publish to S3
+  description: Task plugin to publish artifacts to Amazon S3
+  readmore_url: http://ind9.github.io/gocd-s3-artifacts
+  author_url: https://github.com/ind9/
+  author_name: Indix
+  releases_url: https://github.com/ind9/gocd-s3-artifacts/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=ind9&repo=gocd-s3-artifacts&type=watch&count=true
+
+- name: Fetch from S3
+  description: Task plugin to fetch artifacts from Amazon S3
+  readmore_url: http://ind9.github.io/gocd-s3-artifacts
+  author_url: https://github.com/ind9/
+  author_name: Indix
+  releases_url: https://github.com/ind9/gocd-s3-artifacts/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=ind9&repo=gocd-s3-artifacts&type=watch&count=true
+
+- name: Docker task
+  description: Task plugin to build an image, run commands against it, and push to a registry. Each step is optional.
+  readmore_url: https://github.com/manojlds/gocd-docker
+  author_url: https://github.com/manojlds
+  author_name: Manoj Mahalingam
+  releases_url: https://snap-ci.com/manojlds/gocd-docker/branch/master
+  github_stars: http://ghbtns.com/github-btn.html?user=manojlds&repo=gocd-docker&type=watch&count=true
+
+- name: Publish to Artifactory
+  description: Uploads artifact(s) to Artifactory with build detail...
+  readmore_url: https://github.com/tusharm/go-artifactory-plugin
+  author_url: https://github.com/tusharm
+  author_name: Tushar Madhukar
+  releases_url: https://github.com/tusharm/go-artifactory-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=tusharm&repo=go-artifactory-plugin&type=watch&count=true
+
+- name: MSBuild Task
+  description: Task plugin to build projects using MSBuild.
+  readmore_url: https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md
+  author_url: https://github.com/akanyer/
+  author_name: Andrew Kanyer
+  releases_url: https://github.com/akanyer/gocd-msbuild-taskplugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=akanyer&repo=gocd-msbuild-taskplugin&type=watch&count=true
+
+- name: Apache Brooklyn Task
+  description: Task plugin to invoke actions on an Apache Brooklyn server.
+  readmore_url: https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/blob/master/README.md
+  author_url: https://github.com/rjgarciap/
+  author_name: Ricardo J Garcia
+  releases_url: https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=rjgarciap&repo=ApacheBrooklyn-Task-Plugin&type=watch&count=true

@@ -9,7 +9,7 @@ meta_tag_keywords: repository plugins, task plugins, repository poller, packaged
 
 
 <p>
-Go publishes a list of extension points for which plugins can be provided. An extension point defines the interface and the lifecycle that governs the respective plugin. At present only java based extension points and plugins are supported by Go. Details about available extension points and their lifecycle can be obtained from the <a href="http://www.go.cd/documentation/developer/writing_go_plugins/go_plugins_basics.html">plugins documentation</a>.
+Go publishes a list of extension points for which plugins can be provided. An extension point defines the interface and the lifecycle that governs the respective plugin. At present only java based extension points and plugins are supported by Go. Details about available extension points and their lifecycle can be obtained from <a href="http://www.go.cd/documentation/developer/writing_go_plugins/go_plugins_basics.html">plugins documentation</a> along with the <a href="http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html">Go plugin API reference</a>.
 </p>
 
 <p>
@@ -22,9 +22,7 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <em>Officially maintained ThoughtWorks plugins are tagged with a <span><img class="plugin-icon-in-notice" src="/images/thoughtworks_supported_plugin.png"/></span> icon.</em>
 
-<h4>Total plugins (<span id="total-plugins-count"></span>)</h4>
-
-<h4>Package Repository plugins (<span id="package-repository-plugins-count"></span>)<span class="plugin-info">&gt;= Go v13.3</span></h4>
+<h4>Package Repository plugins <span class="plugin-info">&gt;= Go v13.3</span></h4>
 
 <ul id="package-repository-plugins" class="plugins">
   <li class="grid-3 go">
@@ -42,176 +40,22 @@ Below is the listing of bundled as well as other available plugins contributed b
       </div>
   </li>
 
-  <li class="grid-3">
-      <h5>Debian repository poller</h5>
-      <div class="more_details">
-     Plugin to poll Debian repository. <a href="https://github.com/srinivasupadhya/deb-repo-poller">Read more</a>
-      </div>
+    {% for plugin in site.data.repo_plugins %}
 
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+  <li class="grid-3">
+      <h5>{{ plugin.name }}</h5>
+      <div class="more_details">
+        {{ plugin.description }} <a href="{{ plugin.readmore_url }}">Read more</a>
+      </div>
+      <div>by <a href="{{ plugin.author_url }}">{{ plugin.author_name }}</a>
       </div>
       <div class="actions">
-        <a href="https://github.com/srinivasupadhya/deb-repo-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=deb-repo-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
+        <a href="{{ plugin.releases_url }}"><i class='icon-download'></i>Download</a>
+        <iframe src="{{ plugin.github_stars }}" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
       </div>
   </li>
 
-  <li class="grid-3">
-      <h5>Nuget repository poller</h5>
-      <div class="more_details">
-        A package material plugin for Go. It is currently capable... <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Read more</a>
-
-      </div>
-      <div>by <a href="http://www.sriramnarayan.com/">Sriram Narayan</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ThoughtWorksInc&repo=go-nuget-poller-plugin&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Maven (Nexus) repository poller</h5>
-      <div class="more_details">
-         A plugin for polling Nexus repositories... <a href="https://github.com/aresok/go-maven-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/aresok">Arkadiusz Sokołowski</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/aresok/go-maven-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=aresok&repo=go-maven-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Generic Artifactory poller</h5>
-      <div class="more_details">
-        A plugin for polling Artifactory repositories... <a href="https://github.com/varchev/go-generic-artifactory-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/dvarchev">Deyan Varchev</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/varchev/go-generic-artifactory-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=varchev&repo=go-generic-artifactory-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Puppet Forge repository poller</h5>
-      <div class="more_details">
-        A plugin for polling a Puppet forge... <a href="https://github.com/drrb/go-puppet-forge-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/drrb">drrb</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/drrb/go-puppet-forge-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=drrb&repo=go-puppet-forge-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>NPM repository poller</h5>
-      <div class="more_details">
-        A plugin for polling Npm registries. <a href="https://github.com/varchev/go-npm-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/varchev">Deyan Varchev</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/varchev/go-npm-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=varchev&repo=go-npm-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>RapidDeploy Package Repository</h5>
-      <div class="more_details">
-        Plugin to poll RapidDeploy artifact repository. <a href="://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">Read more</a>
-      </div>
-      <div>by <a href="http://www.midvision.com/">MidVision</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Docker Registry Poller - 1</h5>
-      <div class="more_details">
-        Plugin to poll Docker Registry. <a href="https://github.com/hammerdr/go-docker-registry-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/hammerdr">Derek Hammer</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/hammerdr/go-docker-registry-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=hammerdr&repo=go-docker-registry-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Docker Registry Poller - 2</h5>
-      <div class="more_details">
-        Plugin to poll Docker Registry. <a href="https://github.com/decoomanj/gocd-docker-material-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/decoomanj">Jan De Cooman</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/decoomanj/gocd-docker-material-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=decoomanj&repo=gocd-docker-material-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Gem repository poller</h5>
-      <div class="more_details">
-        Plugin to poll Ruby Gem repository. <a href="https://github.com/srinivasupadhya/gem-repo-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/srinivasupadhya/gem-repo-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gem-repo-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>S3 artifacts poller - 1</h5>
-      <div class="more_details">
-        Plugin to poll Amazon S3 for artifacts <a href="http://ind9.github.io/gocd-s3-artifacts">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/ind9/">Indix</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/ind9/gocd-s3-artifacts/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ind9&repo=gocd-s3-artifacts&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-    <h5>S3 poller - 2</h5>
-    <div class="more_details">
-      Plugin to poll Amazon S3 for artifacts <a href="https://github.com/schibsted/gocd-s3-poller">Read more</a>
-    </div>
-    <div>by <a href="https://github.com/schibsted/">Schibsted Products and Technology</a>
-    </div>
-    <div class="actions">
-      <a href="https://github.com/schibsted/gocd-s3-poller/releases"><i class='icon-download'></i>Download</a>
-      <iframe src="http://ghbtns.com/github-btn.html?user=schibsted&repo=gocd-s3-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-    </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Cloud Foundry poller</h5>
-      <div class="more_details">
-        Material plugin to poll Cloud Foundry space for updates to an app. <a href="https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/Sounie">Stephen Souness</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/releases/"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=Sounie&repo=springer-gocd-cloudfoundry-plugin&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% endfor %}
 
   <li class="grid-3 contribute_tile">
     <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
@@ -221,308 +65,26 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>Task plugins (<span id="task-plugins-count"></span>)<span class="plugin-info">&gt;= Go v14.1</span></h4>
+<h4>Task plugins <span class="plugin-info">&gt;= Go v14.1</span></h4></h4>
 
 <ul id="task-plugins" class="plugins">
-  <li class="grid-3">
-      <h5>XUnit Converter</h5>
-      <div class="more_details">
-        A plugin to convert test reports to XUnit format. <a href="https://github.com/srinivasupadhya/xunit-converter-task">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-      </div>
-
-      <div class="actions">
-        <a href="https://github.com/srinivasupadhya/xunit-converter-task/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=xunit-converter-task&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Powershell Task</h5>
-      <div class="more_details">
-        Task to run Powershell based builds. <a href="https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/manojlds">Manoj Mahalingam</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/manojlds/gocd-powershell-runner/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=manojlds&repo=gocd-powershell-runner&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>RapidDeploy Package Builder</h5>
-      <div class="more_details">
-        Plugin to build a deployment package on a remote RapidDeploy server. <a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">Read more</a>
-      </div>
-      <div>by <a href="http://www.midvision.com/">MidVision</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>RapidDeploy Job Runner</h5>
-      <div class="more_details">
-        Plugin to invoke a job on a remote RapidDeploy server. <a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin">Read more</a>
-      </div>
-      <div>by <a href="http://www.midvision.com/">MidVision</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Groovy Task Plugin</h5>
-      <div class="more_details">
-        Plugin to allow writing tasks in go.cd as Groovy scripts <a href="https://github.com/4finance/go-plugin-groovy">Read more</a>
-      </div>
-      <div>by <a href="http://www.4finance.com/">4Finance</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/4finance/go-plugin-groovy/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=4finance&repo=go-plugin-groovy&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Maven Task Plugin</h5>
-      <div class="more_details">
-        Plugin to allow running maven tasks in go.cd <a href="https://github.com/ruckc/gocd-maven-plugin">Read more</a>
-      </div>
-      <div>by <a href="http://github.com/ruckc">ruckc</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/ruckc/gocd-maven-plugin/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ruckc&repo=gocd-maven-plugin&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Script Executor Task Plugin</h5>
-      <div class="more_details">
-        Plugin to allow running Script in Go <a href="https://github.com/srinivasupadhya/script-executor-task">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/srinivasupadhya/script-executor-task/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=script-executor-task&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Publish to S3</h5>
-      <div class="more_details">
-        Task plugin to publish artifacts to Amazon S3 <a href="http://ind9.github.io/gocd-s3-artifacts">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/ind9/">Indix</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/ind9/gocd-s3-artifacts/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ind9&repo=gocd-s3-artifacts&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Fetch from S3</h5>
-      <div class="more_details">
-        Task plugin to fetch artifacts from Amazon S3 <a href="http://ind9.github.io/gocd-s3-artifacts">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/ind9/">Indix</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/ind9/gocd-s3-artifacts/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ind9&repo=gocd-s3-artifacts&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% for plugin in site.data.task_plugins %}
 
     <li class="grid-3">
-      <h5>Docker task</h5>
-      <div class="more_details">
-        Task plugin to build an image, run commands against it, and push to a registry. Each step is optional. <a href="https://github.com/manojlds/gocd-docker">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/manojlds">Manoj Mahalingam</a>
-      </div>
-      <div class="actions">
-        <a href="https://snap-ci.com/manojlds/gocd-docker/branch/master"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=manojlds&repo=gocd-docker&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Publish to Artifactory</h5>
-      <div class="more_details">
-        Uploads artifact(s) to Artifactory with build detail... <a href="https://github.com/tusharm/go-artifactory-plugin">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/tusharm">Tushar Madhukar</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/tusharm/go-artifactory-plugin/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=tusharm&repo=go-artifactory-plugin&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>MSBuild Task</h5>
-      <div class="more_details">
-        Task plugin to build projects using MSBuild. <a href="https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/akanyer/">Andrew Kanyer</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/akanyer/gocd-msbuild-taskplugin/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=akanyer&repo=gocd-msbuild-taskplugin&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Apache Brooklyn Task</h5>
-      <div class="more_details">
-        Task plugin to invoke actions on an Apache Brooklyn server. <a href="https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/blob/master/README.md">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/rjgarciap/">Ricardo J Garcia</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=rjgarciap&repo=ApacheBrooklyn-Task-Plugin&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-
-  <li class="grid-3 contribute_tile">
-    <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
-    <div><a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html">Write a plugin</a></div>
-  </li>
-</ul>
-
-<div style="clear:both"></div>
-
-<h4>Notification plugins (<span id="notification-plugins-count"></span>)<span class="plugin-info">&gt;= Go v15.1</span></h4>
-
-<ul id="notification-plugins" class="plugins">
-    <li class="grid-3">
-        <h5>Email Notifier</h5>
+        <h5>{{ plugin.name }}</h5>
         <div class="more_details">
-            A plugin to send email notifications. <a href="https://github.com/srinivasupadhya/email-notifier">Read more</a>
+            {{ plugin.description }} <a href="{{ plugin.readmore_url }}">Read more</a>
         </div>
-        <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+        <div>by <a href="{{ plugin.author_url }}">{{ plugin.author_name }}</a>
         </div>
-
         <div class="actions">
-            <a href="https://github.com/srinivasupadhya/email-notifier/releases"><i class='icon-download'></i>Download</a>
-            <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=email-notifier&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
+            <a href="{{ plugin.releases_url }}"><i class='icon-download'></i>Download</a>
+            <iframe src="{{ plugin.github_stars }}" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
         </div>
     </li>
 
-  <li class="grid-3">
-      <h5>Slack Build Notifier</h5>
-      <div class="more_details">
-        Plugin to get build notifications on Slack. <a href="https://github.com/ashwanthkumar/gocd-slack-build-notifier">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/ashwanthkumar">Ashwanth Kumar</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-slack-build-notifier&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% endfor %}
 
-  <li class="grid-3">
-      <h5>WebSockets Build Notifier</h5>
-      <div class="more_details">
-        Plugin to publish stage status change notifications via WebSockets. <a href="https://github.com/matt-richardson/gocd-websocket-notifier">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/matt-richardson">Matt Richardson</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/matt-richardson/gocd-websocket-notifier/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=matt-richardson&repo=gocd-websocket-notifier&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>GitHub Pull Request Status Notifier</h5>
-      <div class="more_details">
-          A plugin to update GitHub Pull Requests with build status. <a href="https://github.com/srinivasupadhya/gocd-build-status-notifier">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-      </div>
-
-      <div class="actions">
-          <a href="https://github.com/srinivasupadhya/gocd-build-status-notifier/releases"><i class='icon-download'></i>Download</a>
-          <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gocd-build-status-notifier&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Stash Pull Request Status Notifier</h5>
-      <div class="more_details">
-          A plugin to update Stash Pull Requests with build status. <a href="https://github.com/srinivasupadhya/gocd-build-status-notifier">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-      </div>
-
-      <div class="actions">
-          <a href="https://github.com/srinivasupadhya/gocd-build-status-notifier/releases"><i class='icon-download'></i>Download</a>
-          <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gocd-build-status-notifier&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Gerrit Change Set Status Notifier</h5>
-      <div class="more_details">
-          A plugin to update Gerrit Change Sets with build status. <a href="https://github.com/srinivasupadhya/gocd-build-status-notifier">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-      </div>
-
-      <div class="actions">
-          <a href="https://github.com/srinivasupadhya/gocd-build-status-notifier/releases"><i class='icon-download'></i>Download</a>
-          <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gocd-build-status-notifier&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>HipChat Notification</h5>
-      <div class="more_details">
-        Plugin that sends HipChat notifications on build status <a href="https://github.com/PagerDuty/gocd-hipchat-plugin">Read more</a>
-      </div>
-      <div>by <a href="http://www.pagerduty.com">PagerDuty</a></div>
-      <div class="actions">
-        <a href="https://github.com/PagerDuty/gocd-hipchat-plugin/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=PagerDuty&repo=gocd-hipchat-plugin&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Gitter Notification</h5>
-      <div class="more_details">
-        Plugin that sends Gitter notifications on build status <a href="https://github.com/srinivasupadhya/gitter-notifier">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/srinivasupadhya/gitter-notifier/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gitter-notifier&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Riemann Notification</h5>
-      <div class="more_details">
-        Plugin that sends Riemann notifications on build status <a href="https://github.com/rsr5/gocd-riemann-notifier">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/rsr5">Robin Ridler</a></div>
-      <div class="actions">
-        <a href="https://github.com/rsr5/gocd-riemann-notifier/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=rsr5&repo=gocd-riemann-notifier&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
 
   <li class="grid-3 contribute_tile">
     <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
@@ -532,56 +94,54 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>SCM plugins (<span id="scm-plugins-count"></span>)<span class="plugin-info">&gt;= Go v15.1</span></h4>
+<h4>Notification plugins <span class="plugin-info">&gt;= Go v15.1</span></h4>
+
+<ul id="notification-plugins" class="plugins">
+
+    {% for plugin in site.data.notification_plugins %}
+
+    <li class="grid-3">
+        <h5>{{ plugin.name }}</h5>
+        <div class="more_details">
+            {{ plugin.description }} <a href="{{ plugin.readmore_url }}">Read more</a>
+        </div>
+        <div>by <a href="{{ plugin.author_url }}">{{ plugin.author_name }}</a>
+        </div>
+        <div class="actions">
+            <a href="{{ plugin.releases_url }}"><i class='icon-download'></i>Download</a>
+            <iframe src="{{ plugin.github_stars }}" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
+        </div>
+    </li>
+
+    {% endfor %}
+  <li class="grid-3 contribute_tile">
+    <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
+    <div><a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html">Write a plugin</a></div>
+  </li>
+</ul>
+
+<div style="clear:both"></div>
+
+<h4>SCM plugins <span class="plugin-info">&gt;= Go v15.1</span></h4>
 
 <ul id="scm-plugins" class="plugins">
-  <li class="grid-3">
-      <h5>Build Git Feature Branch</h5>
-      <div class="more_details">
-        Plugin to poll Git repository. <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
 
-  <li class="grid-3">
-      <h5>Build Github Pull Requests</h5>
-      <div class="more_details">
-        Plugin that builds Pull Requests for project from Github. <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/ashwanthkumar">Ashwanth Kumar</a></div>
-      <div class="actions">
-        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% for plugin in site.data.scm_plugins %}
 
-  <li class="grid-3">
-      <h5>Build Stash Pull Requests</h5>
-      <div class="more_details">
-        Plugin that builds Pull Requests for project from Stash. <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    <li class="grid-3">
+        <h5>{{ plugin.name }}</h5>
+        <div class="more_details">
+            {{ plugin.description }} <a href="{{ plugin.readmore_url }}">Read more</a>
+        </div>
+        <div>by <a href="{{ plugin.author_url }}">{{ plugin.author_name }}</a>
+        </div>
+        <div class="actions">
+            <a href="{{ plugin.releases_url }}"><i class='icon-download'></i>Download</a>
+            <iframe src="{{ plugin.github_stars }}" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
+        </div>
+    </li>
 
-  <li class="grid-3">
-      <h5>Build Gerrit Change Set</h5>
-      <div class="more_details">
-        Plugin that builds Change Sets for project from Gerrit. <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% endfor %}
 
   <li class="grid-3 contribute_tile">
     <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
@@ -591,32 +151,28 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>Authentication plugins (<span id="authentication-plugins-count"></span>)<span class="plugin-info">&gt;= Go v15.2</span></h4>
+<h4>Authentication plugins <span class="plugin-info">&gt;= Go v15.2</span></h4>
 
 <ul id="authentication-plugins" class="plugins">
-  <li class="grid-3">
-      <h5>Google OAuth Login</h5>
-      <div class="more_details">
-        Plugin to support login through Google OAuth. <a href="https://github.com/srinivasupadhya/gocd-oauth-login">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/srinivasupadhya/gocd-oauth-login/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gocd-oauth-login&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
 
-  <li class="grid-3">
-      <h5>GitHub OAuth Login</h5>
-      <div class="more_details">
-        Plugin to support login through GitHub OAuth. <a href="https://github.com/srinivasupadhya/gocd-oauth-login">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/srinivasupadhya/gocd-oauth-login/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gocd-oauth-login&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% for plugin in site.data.auth_plugins %}
+
+    <li class="grid-3">
+        <h5>{{ plugin.name }}</h5>
+        <div class="more_details">
+            {{ plugin.description }} <a href="{{ plugin.readmore_url }}">Read more</a>
+        </div>
+        <div>by <a href="{{ plugin.author_url }}">{{ plugin.author_name }}</a>
+        </div>
+        <div class="actions">
+            <a href="{{ plugin.releases_url }}"><i class='icon-download'></i>Download</a>
+            <iframe src="{{ plugin.github_stars }}" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
+        </div>
+    </li>
+
+    {% endfor %}
+
+
 
   <li class="grid-3 contribute_tile">
     <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
@@ -626,7 +182,7 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>Enterprise plugins (<span id="enterprise-plugins-count"></span>)</h4>
+<h4>Enterprise plugins</h4>
 
 <ul id="enterprise-plugins" class="plugins">
   <li class="grid-3 go">
@@ -651,22 +207,3 @@ With the business continuity add-on you'll be able to set up secondary Go and Po
   </li>
 </ul>
 
-<script type="text/javascript">
-  jQuery(document).ready(function() {
-    var totalNumberOfPlugins = 0;
-    var updateCount = function(pluginsListElementId, pluginsCountElementId, hasContributeTile) {
-      var numberOfContributePluginTiles = hasContributeTile == true ? 1 : 0;
-      var numberOfPlugins = jQuery(pluginsListElementId).find("li").length - numberOfContributePluginTiles;
-      totalNumberOfPlugins += numberOfPlugins;
-      jQuery(pluginsCountElementId).text(numberOfPlugins);
-    };
-
-    updateCount("#package-repository-plugins", "#package-repository-plugins-count", true);
-    updateCount("#task-plugins", "#task-plugins-count", true);
-    updateCount("#notification-plugins", "#notification-plugins-count", true);
-    updateCount("#scm-plugins", "#scm-plugins-count", true);
-    updateCount("#authentication-plugins", "#authentication-plugins-count", true);
-    updateCount("#enterprise-plugins", "#enterprise-plugins-count", false);
-    jQuery("#total-plugins-count").text(totalNumberOfPlugins);
-  });
-</script>
