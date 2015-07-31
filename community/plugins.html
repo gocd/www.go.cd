@@ -125,53 +125,23 @@ Below is the listing of bundled as well as other available plugins contributed b
 <h4>SCM plugins <span class="plugin-info">&gt;= Go v15.1</span></h4>
 
 <ul id="scm-plugins" class="plugins">
-  <li class="grid-3">
-      <h5>Build Git Feature Branch</h5>
-      <div class="more_details">
-        Plugin to poll Git repository. <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
 
-  <li class="grid-3">
-      <h5>Build Github Pull Requests</h5>
-      <div class="more_details">
-        Plugin that builds Pull Requests for project from Github. <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/ashwanthkumar">Ashwanth Kumar</a></div>
-      <div class="actions">
-        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% for plugin in site.data.scm_plugins %}
 
-  <li class="grid-3">
-      <h5>Build Stash Pull Requests</h5>
-      <div class="more_details">
-        Plugin that builds Pull Requests for project from Stash. <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    <li class="grid-3">
+        <h5>{{ plugin.name }}</h5>
+        <div class="more_details">
+            {{ plugin.description }} <a href="{{ plugin.readmore_url }}">Read more</a>
+        </div>
+        <div>by <a href="{{ plugin.author_url }}">{{ plugin.author_name }}</a>
+        </div>
+        <div class="actions">
+            <a href="{{ plugin.releases_url }}"><i class='icon-download'></i>Download</a>
+            <iframe src="{{ plugin.github_stars }}" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
+        </div>
+    </li>
 
-  <li class="grid-3">
-      <h5>Build Gerrit Change Set</h5>
-      <div class="more_details">
-        Plugin that builds Change Sets for project from Gerrit. <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a></div>
-      <div class="actions">
-        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% endfor %}
 
   <li class="grid-3 contribute_tile">
     <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
