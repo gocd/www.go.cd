@@ -9,7 +9,7 @@ meta_tag_keywords: repository plugins, task plugins, repository poller, packaged
 
 
 <p>
-Go publishes a list of extension points for which plugins can be provided. An extension point defines the interface and the lifecycle that governs the respective plugin. At present only java based extension points and plugins are supported by Go. Details about available extension points and their lifecycle can be obtained from the <a href="http://www.go.cd/documentation/developer/writing_go_plugins/go_plugins_basics.html">plugins documentation</a>.
+Go publishes a list of extension points for which plugins can be provided. An extension point defines the interface and the lifecycle that governs the respective plugin. At present only java based extension points and plugins are supported by Go. Details about available extension points and their lifecycle can be obtained from <a href="http://www.go.cd/documentation/developer/writing_go_plugins/go_plugins_basics.html">plugins documentation</a> along with the <a href="http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html">Go plugin API reference</a>.
 </p>
 
 <p>
@@ -22,9 +22,9 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <em>Officially maintained ThoughtWorks plugins are tagged with a <span><img class="plugin-icon-in-notice" src="/images/thoughtworks_supported_plugin.png"/></span> icon.</em>
 
-<h4>Total plugins (<span id="total-plugins-count"></span>)</h4>
+<!--<h4>Total plugins (<span id="total-plugins-count"></span>)</h4>-->
 
-<h4>Package Repository plugins (<span id="package-repository-plugins-count"></span>)<span class="plugin-info">&gt;= Go v13.3</span></h4>
+<h4>Package Repository plugins <span class="plugin-info">&gt;= Go v13.3</span></h4>
 
 <ul id="package-repository-plugins" class="plugins">
   <li class="grid-3 go">
@@ -42,176 +42,22 @@ Below is the listing of bundled as well as other available plugins contributed b
       </div>
   </li>
 
-  <li class="grid-3">
-      <h5>Debian repository poller</h5>
-      <div class="more_details">
-     Plugin to poll Debian repository. <a href="https://github.com/srinivasupadhya/deb-repo-poller">Read more</a>
-      </div>
+    {% for plugin in site.data.repo_plugins %}
 
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+  <li class="grid-3">
+      <h5>{{ plugin.name }}</h5>
+      <div class="more_details">
+        {{ plugin.description }} <a href="{{ plugin.readmore_url }}">Read more</a>
+      </div>
+      <div>by <a href="{{ plugin.author_url }}">{{ plugin.author_name }}</a>
       </div>
       <div class="actions">
-        <a href="https://github.com/srinivasupadhya/deb-repo-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=deb-repo-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
+        <a href="{{ plugin.releases_url }}"><i class='icon-download'></i>Download</a>
+        <iframe src="{{ plugin.github_stars }}" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
       </div>
   </li>
 
-  <li class="grid-3">
-      <h5>Nuget repository poller</h5>
-      <div class="more_details">
-        A package material plugin for Go. It is currently capable... <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Read more</a>
-
-      </div>
-      <div>by <a href="http://www.sriramnarayan.com/">Sriram Narayan</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ThoughtWorksInc&repo=go-nuget-poller-plugin&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Maven (Nexus) repository poller</h5>
-      <div class="more_details">
-         A plugin for polling Nexus repositories... <a href="https://github.com/aresok/go-maven-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/aresok">Arkadiusz Sokołowski</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/aresok/go-maven-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=aresok&repo=go-maven-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Generic Artifactory poller</h5>
-      <div class="more_details">
-        A plugin for polling Artifactory repositories... <a href="https://github.com/varchev/go-generic-artifactory-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/dvarchev">Deyan Varchev</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/varchev/go-generic-artifactory-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=varchev&repo=go-generic-artifactory-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Puppet Forge repository poller</h5>
-      <div class="more_details">
-        A plugin for polling a Puppet forge... <a href="https://github.com/drrb/go-puppet-forge-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/drrb">drrb</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/drrb/go-puppet-forge-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=drrb&repo=go-puppet-forge-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>NPM repository poller</h5>
-      <div class="more_details">
-        A plugin for polling Npm registries. <a href="https://github.com/varchev/go-npm-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/varchev">Deyan Varchev</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/varchev/go-npm-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=varchev&repo=go-npm-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>RapidDeploy Package Repository</h5>
-      <div class="more_details">
-        Plugin to poll RapidDeploy artifact repository. <a href="://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">Read more</a>
-      </div>
-      <div>by <a href="http://www.midvision.com/">MidVision</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/MidVision/go-rapiddeploy/releases/"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Docker Registry Poller - 1</h5>
-      <div class="more_details">
-        Plugin to poll Docker Registry. <a href="https://github.com/hammerdr/go-docker-registry-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/hammerdr">Derek Hammer</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/hammerdr/go-docker-registry-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=hammerdr&repo=go-docker-registry-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Docker Registry Poller - 2</h5>
-      <div class="more_details">
-        Plugin to poll Docker Registry. <a href="https://github.com/decoomanj/gocd-docker-material-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/decoomanj">Jan De Cooman</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/decoomanj/gocd-docker-material-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=decoomanj&repo=gocd-docker-material-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Gem repository poller</h5>
-      <div class="more_details">
-        Plugin to poll Ruby Gem repository. <a href="https://github.com/srinivasupadhya/gem-repo-poller">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/srinivasupadhya/gem-repo-poller/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gem-repo-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>S3 artifacts poller - 1</h5>
-      <div class="more_details">
-        Plugin to poll Amazon S3 for artifacts <a href="http://ind9.github.io/gocd-s3-artifacts">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/ind9/">Indix</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/ind9/gocd-s3-artifacts/releases"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=ind9&repo=gocd-s3-artifacts&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
-
-  <li class="grid-3">
-    <h5>S3 poller - 2</h5>
-    <div class="more_details">
-      Plugin to poll Amazon S3 for artifacts <a href="https://github.com/schibsted/gocd-s3-poller">Read more</a>
-    </div>
-    <div>by <a href="https://github.com/schibsted/">Schibsted Products and Technology</a>
-    </div>
-    <div class="actions">
-      <a href="https://github.com/schibsted/gocd-s3-poller/releases"><i class='icon-download'></i>Download</a>
-      <iframe src="http://ghbtns.com/github-btn.html?user=schibsted&repo=gocd-s3-poller&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-    </div>
-  </li>
-
-  <li class="grid-3">
-      <h5>Cloud Foundry poller</h5>
-      <div class="more_details">
-        Material plugin to poll Cloud Foundry space for updates to an app. <a href="https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md">Read more</a>
-      </div>
-      <div>by <a href="https://github.com/Sounie">Stephen Souness</a>
-      </div>
-      <div class="actions">
-        <a href="https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/releases/"><i class='icon-download'></i>Download</a>
-        <iframe src="http://ghbtns.com/github-btn.html?user=Sounie&repo=springer-gocd-cloudfoundry-plugin&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-      </div>
-  </li>
+    {% endfor %}
 
   <li class="grid-3 contribute_tile">
     <h5 style='text-align:center; margin-top:20px;'><i class='icon-star-1'></i> <br/>Want to contribute?</h5>
@@ -221,7 +67,7 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>Task plugins (<span id="task-plugins-count"></span>)<span class="plugin-info">&gt;= Go v14.1</span></h4>
+<h4>Task plugins <span class="plugin-info">&gt;= Go v14.1</span></h4></h4>
 
 <ul id="task-plugins" class="plugins">
   <li class="grid-3">
@@ -403,7 +249,7 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>Notification plugins (<span id="notification-plugins-count"></span>)<span class="plugin-info">&gt;= Go v15.1</span></h4>
+<h4>Notification plugins <span class="plugin-info">&gt;= Go v15.1</span></h4>
 
 <ul id="notification-plugins" class="plugins">
     <li class="grid-3">
@@ -532,7 +378,7 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>SCM plugins (<span id="scm-plugins-count"></span>)<span class="plugin-info">&gt;= Go v15.1</span></h4>
+<h4>SCM plugins <span class="plugin-info">&gt;= Go v15.1</span></h4>
 
 <ul id="scm-plugins" class="plugins">
   <li class="grid-3">
@@ -591,7 +437,7 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>Authentication plugins (<span id="authentication-plugins-count"></span>)<span class="plugin-info">&gt;= Go v15.2</span></h4>
+<h4>Authentication plugins <span class="plugin-info">&gt;= Go v15.2</span></h4>
 
 <ul id="authentication-plugins" class="plugins">
   <li class="grid-3">
@@ -626,7 +472,7 @@ Below is the listing of bundled as well as other available plugins contributed b
 
 <div style="clear:both"></div>
 
-<h4>Enterprise plugins (<span id="enterprise-plugins-count"></span>)</h4>
+<h4>Enterprise plugins</h4>
 
 <ul id="enterprise-plugins" class="plugins">
   <li class="grid-3 go">
@@ -651,22 +497,3 @@ With the business continuity add-on you'll be able to set up secondary Go and Po
   </li>
 </ul>
 
-<script type="text/javascript">
-  jQuery(document).ready(function() {
-    var totalNumberOfPlugins = 0;
-    var updateCount = function(pluginsListElementId, pluginsCountElementId, hasContributeTile) {
-      var numberOfContributePluginTiles = hasContributeTile == true ? 1 : 0;
-      var numberOfPlugins = jQuery(pluginsListElementId).find("li").length - numberOfContributePluginTiles;
-      totalNumberOfPlugins += numberOfPlugins;
-      jQuery(pluginsCountElementId).text(numberOfPlugins);
-    };
-
-    updateCount("#package-repository-plugins", "#package-repository-plugins-count", true);
-    updateCount("#task-plugins", "#task-plugins-count", true);
-    updateCount("#notification-plugins", "#notification-plugins-count", true);
-    updateCount("#scm-plugins", "#scm-plugins-count", true);
-    updateCount("#authentication-plugins", "#authentication-plugins-count", true);
-    updateCount("#enterprise-plugins", "#enterprise-plugins-count", false);
-    jQuery("#total-plugins-count").text(totalNumberOfPlugins);
-  });
-</script>
