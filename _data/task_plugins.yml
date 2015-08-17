@@ -114,3 +114,12 @@
   releases_url: https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=rjgarciap&repo=ApacheBrooklyn-Task-Plugin&type=watch&count=true
   first_available_date: 05/2015
+
+- name: Deploy to AWS OpsWorks
+  description: Task plugin to manage AWS OpsWorks deployment
+  readmore_url: https://github.com/tispr/gocd-opsworks-plugin
+  author_url: https://github.com/tispr
+  author_name: tispr
+  releases_url: https://github.com/tispr/gocd-opsworks-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=tispr&repo=gocd-opsworks-plugin&type=watch&count=true
+  first_available_date: 08/2015
