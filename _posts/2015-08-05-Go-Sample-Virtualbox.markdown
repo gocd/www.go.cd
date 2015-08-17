@@ -47,7 +47,7 @@ while you wait.
 __Note:__ If you have an existing Go installation on the same machine as this virtual machine
 you may get a port conflict.
 
-After a few minutes, you should be able to navigate to http://localhost:8153/ on your local
+After a few minutes, you should be able to navigate to http://localhost:8153/go/pipelines on your local
 machine and see the following...
 
 ![](/images/blog/sample-virtualbox/pipelines-v2.png)
