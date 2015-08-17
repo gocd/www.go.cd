@@ -5,6 +5,7 @@
   author_name: Srinivas Upadhya
   releases_url: https://github.com/srinivasupadhya/deb-repo-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=deb-repo-poller&type=watch&count=true
+  first_available_date: 02/2014
 
 - name: Nuget repository poller
   description: A package material plugin for Go. It is currently capable...
@@ -13,6 +14,7 @@
   author_name: Sriram Narayan
   releases_url: https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=ThoughtWorksInc&repo=go-nuget-poller-plugin&type=watch&count=true
+  first_available_date: 10/2013
 
 - name: Maven (Nexus) repository poller
   description: A plugin for polling Nexus repositories...
@@ -21,6 +23,7 @@
   author_name: Arkadiusz Sokołowski
   releases_url: https://github.com/aresok/go-maven-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=aresok&repo=go-maven-poller&type=watch&count=true
+  first_available_date: 10/2013
   
 - name: Generic Artifactory poller
   description: A plugin for polling Artifactory repositories... 
@@ -29,6 +32,7 @@
   author_name: Deyan Varchev
   releases_url: https://github.com/varchev/go-generic-artifactory-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=varchev&repo=go-generic-artifactory-poller&type=watch&count=true
+  first_available_date: 10/2014
 
 - name: Puppet Forge repository poller
   description: A plugin for polling a Puppet forge...
@@ -37,6 +41,7 @@
   author_name: drrb
   releases_url: https://github.com/drrb/go-puppet-forge-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=drrb&repo=go-puppet-forge-poller&type=watch&count=true
+  first_available_date: 05/2014
 
 - name: NPM repository poller
   description: A plugin for polling Npm registries.
@@ -45,6 +50,7 @@
   author_name: Deyan Varchev
   releases_url: https://github.com/varchev/go-npm-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=varchev&repo=go-npm-poller&type=watch&count=true
+  first_available_date: 05/2014
 
 - name: RapidDeploy Package Repository
   description: Plugin to poll RapidDeploy artifact repository.
@@ -53,6 +59,7 @@
   author_name: MidVision
   releases_url: https://github.com/MidVision/go-rapiddeploy/releases/
   github_stars: http://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true
+  first_available_date: 07/2014
 
 - name: Docker Registry Poller - 1
   description: Plugin to poll Docker Registry.
@@ -61,6 +68,7 @@
   author_name: Derek Hammer
   releases_url: https://github.com/hammerdr/go-docker-registry-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=hammerdr&repo=go-docker-registry-poller&type=watch&count=true
+  first_available_date: 11/2014
 
 - name: Docker Registry Poller - 2
   description: Plugin to poll Docker Registry.
@@ -69,6 +77,7 @@
   author_name: Jan De Cooman
   releases_url: https://github.com/decoomanj/gocd-docker-material-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=decoomanj&repo=gocd-docker-material-poller&type=watch&count=true
+  first_available_date: 12/2014
 
 - name: Gem repository poller
   description: Plugin to poll Ruby Gem repository.
@@ -77,6 +86,7 @@
   author_name: Srinivas Upadhya
   releases_url: https://github.com/srinivasupadhya/gem-repo-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gem-repo-poller&type=watch&count=true
+  first_available_date: 12/2014
 
 - name: S3 artifacts poller - 1
   description: Plugin to poll Amazon S3 for artifacts
@@ -85,6 +95,7 @@
   author_name: Indix
   releases_url: https://github.com/ind9/gocd-s3-artifacts/releases
   github_stars: http://ghbtns.com/github-btn.html?user=ind9&repo=gocd-s3-artifacts&type=watch&count=true
+  first_available_date: 02/2015
 
 - name: S3 poller - 2
   description: Plugin to poll Amazon S3 for artifacts
@@ -93,6 +104,7 @@
   author_name: Schibsted Products and Technology
   releases_url: https://github.com/schibsted/gocd-s3-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=schibsted&repo=gocd-s3-poller&type=watch&count=true
+  first_available_date: 07/2015
 
 - name: Cloud Foundry poller
   description: Material plugin to poll Cloud Foundry space for updates to an app.
@@ -101,3 +113,4 @@
   author_name: Stephen Souness
   releases_url: https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/releases/
   github_stars: http://ghbtns.com/github-btn.html?user=Sounie&repo=springer-gocd-cloudfoundry-plugin&type=watch&count=true
+  first_available_date: 02/2015
