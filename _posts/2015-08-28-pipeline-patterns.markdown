@@ -16,12 +16,12 @@ that you deploy the exact same thing you've tested.
 
 Once you've built a binary, you should upload that back to your CD server or artifact repository for later use.
 
-![](/images/blog/pipeline-patterns/upload-artifact.png)
+![Upload Artifacts](/images/blog/pipeline-patterns/upload-artifact.png)
 
 When you're ready to deploy to a downstream system, you should fetch and install that build artifact. This way you make
 sure that you're running your functional tests.
 
-![](/images/blog/pipeline-patterns/fetch-artifact.png)
+![Fetch Artifacts](/images/blog/pipeline-patterns/fetch-artifact.png)
 
 ##Do as much as possible in parallel
 
@@ -38,7 +38,7 @@ user acceptance. We want to make it easy for the team responsible to do a one cl
 they may not look at it immediately. There's really no reason we can't run the automated acceptance tests while that is
 going on.
 
-![](/images/blog/pipeline-patterns/parallel-pipelines.png)
+![Parallel Pipelines](/images/blog/pipeline-patterns/parallel-pipelines.png)
 
 Hopefully you noticed one other really important thing about the image above. The production pipelines have _not_ run. If
 you're doing things in parallel it's incredible important that your Continuous Delivery system is smart about handling
@@ -57,12 +57,12 @@ Too often this leads to teams only running part of their tests.
 What you should do is split those tests up into manageable size chunks and run them in parallel. In the case of the Mingle
 team those tests run on 65 Go CD agents at the same time.
 
-![](/images/blog/pipeline-patterns/testing-jobs.png)
+![Jobs Screenshot](/images/blog/pipeline-patterns/testing-jobs.png)
 
 Of course it's also vitally important that you're able to quickly determine what went wrong if something fails, so you
 should make sure the tests results from all of the jobs can be viewed in one consolidated place.
 
-![](/images/blog/pipeline-patterns/testing-failures.png)
+![Failures Screenshot](/images/blog/pipeline-patterns/testing-failures.png)
 
 
 
