@@ -8,7 +8,7 @@ author: Ken Mugrage
 ---
 
 Teams have been automating the build, test and deploy processes of their software for many years, but usually in a very
-specific "one off" manner. In 2007 Go CD introduced build pipelines to the masses. Shortly after, Jez Humble (Go CD's original
+specific "one off" manner. In 2007 Go CD (then called "Cruise") introduced build pipelines to the masses. Shortly after, Jez Humble (Go CD's original
 product manager) and David Farley published [Continuous Delivery](http://www.amazon.com/gp/product/0321601912).
 
 With these concepts becoming more mainstream, some patterns have emerged. There are certainly more, but these are some that
@@ -24,7 +24,7 @@ Once you've built a binary, you should upload that back to your CD server or art
 ![Upload Artifacts](/images/blog/pipeline-patterns/upload-artifact.png)
 
 When you're ready to deploy to a downstream system, you should fetch and install that build artifact. This way you make
-sure that you're running your functional tests.
+sure that you're running your functional tests on the exact thing you built and that you're going to deploy.
 
 ![Fetch Artifacts](/images/blog/pipeline-patterns/fetch-artifact.png)
 
@@ -78,7 +78,7 @@ Solaris. The short version of the story; it didn't work.
 
 Ideally you should be staging and testing on the same set up. If your staging and production environments are exactly the same,
 you can even use them interchangeably in a [blue / green deployment pattern](http://martinfowler.com/bliki/BlueGreenDeployment.html).
-It's hard to imagine a better way to be sure your software will work when you turn users lose on it.
+It's hard to imagine a better way to be sure your software will work when you turn users loose on it.
 
 If you're deploying to very large environments where it's just not practical to have an exact duplicate, you should still
 duplicate the technology. In other words, if you your web application runs on a cluster of 1,000 machines in production, you
