@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pipeline Patterns
+title: 5 Key Deployment Pipeline Patterns
 status: public
 type: post
 published: true
@@ -14,7 +14,7 @@ product manager) and David Farley published [Continuous Delivery](http://www.ama
 With these concepts becoming more mainstream, some patterns have emerged. There are certainly more, but these are some that
 stick out.
 
-##Build things once
+##1. Build things once
 
 When you're taking software from initial code change to production in an automated fashion, it's incredibly important
 that you deploy the exact same thing you've tested.
@@ -28,7 +28,26 @@ sure that you're running your functional tests.
 
 ![Fetch Artifacts](/images/blog/pipeline-patterns/fetch-artifact.png)
 
-##Do as much as possible in parallel
+##2. Run tests in parallel
+
+Any moderately complicated application is likely to have a very large number of of automated tests. Every time someone on the
+[Mingle](http://www.thoughtworks.com/mingle/) team at ThoughtWorks commits some code, the application is subjected to well
+over 11,000 automated tests. If the team ran those tests back to back, they would take a couple days. Of course you can't
+wait a couple days before you know the state of your software.
+
+Too often this leads to teams only running part of their tests.
+
+What you should do is split those tests up into manageable size chunks and run them in parallel. In the case of the Mingle
+team those tests run on 65 Go CD agents at the same time.
+
+![Jobs Screenshot](/images/blog/pipeline-patterns/testing-jobs.png)
+
+Of course it's also vitally important that you're able to quickly determine what went wrong if something fails, so you
+should make sure the tests results from all of the jobs can be viewed in one consolidated place.
+
+![Failures Screenshot](/images/blog/pipeline-patterns/testing-failures.png)
+
+##3. Run pipelines in parallel
 
 It's not uncommon for teams to practice Continuous Integration on small parts of code before "throwing it over the wall"
 to someone else to put that together with other parts of the application. In these cases, it's usually OK to set up a
@@ -50,26 +69,9 @@ you're doing things in parallel it's incredible important that your Continuous D
 dependencies. This is a screenshot from Go CD, which uses fan in/fan out dependency management to make sure the project
 doesn't get deployed until both of the upstream pipelines have gone green.
 
-##You can run the same kinds of things in parallel too
 
-Any moderately complicated application is likely to have a very large number of of automated tests. Every time someone on the
-[Mingle](http://www.thoughtworks.com/mingle/) team at ThoughtWorks commits some code, the application is subjected to well
-over 11,000 automated tests. If the team ran those tests back to back, they would take a couple days. Of course you can't
-wait a couple days before you know the state of your software.
 
-Too often this leads to teams only running part of their tests.
-
-What you should do is split those tests up into manageable size chunks and run them in parallel. In the case of the Mingle
-team those tests run on 65 Go CD agents at the same time.
-
-![Jobs Screenshot](/images/blog/pipeline-patterns/testing-jobs.png)
-
-Of course it's also vitally important that you're able to quickly determine what went wrong if something fails, so you
-should make sure the tests results from all of the jobs can be viewed in one consolidated place.
-
-![Failures Screenshot](/images/blog/pipeline-patterns/testing-failures.png)
-
-##Verify on a production-like environment
+##4. Verify on a production-like environment
 
 Jez Humble tells a story about developing and testing a Java application on Windows machines and then deploying it on
 Solaris. The short version of the story; it didn't work.
@@ -86,7 +88,7 @@ One of the  reasons people are so excited about advancements in container techno
 If you use something like Docker to develop, test and deploy your applications you have a quite a bit more control over making
 sure things always work the same way.
 
-##Manage your environments in a pipeline too
+##5. Manage your environments in a pipeline too
 
 In many cases it's easier to break an application with a configuration change than with a bug introduced in the source code.
 We've all heard the comment "it works on my machine".
