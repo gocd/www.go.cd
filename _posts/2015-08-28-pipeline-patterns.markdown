@@ -7,7 +7,12 @@ published: true
 author: Ken Mugrage
 ---
 
-Intro
+Teams have been automating the building, testing and deployment of their software for many years, but usually in a very
+specific "one off" manner. In 2007 Go CD introduced build pipelines to the masses. Shortly after, Jez Humble (Go CD's original
+product manager) and David Farley published [Continuous Delivery](http://www.amazon.com/gp/product/0321601912).
+
+With these concepts becoming more mainstream, some patterns have emerged. There are certainly more, but these are some that
+stick out.
 
 ##Build things once
 
@@ -63,6 +68,38 @@ Of course it's also vitally important that you're able to quickly determine what
 should make sure the tests results from all of the jobs can be viewed in one consolidated place.
 
 ![Failures Screenshot](/images/blog/pipeline-patterns/testing-failures.png)
+
+##Verify on a production-like environment
+
+Jez Humble tells a story about developing and testing a Java application on Windows machines and then deploying it on
+Solaris. The short version of the story; it didn't work.
+
+Ideally you should be staging and testing on the same set up. If your staging and production environments are exactly the same,
+you can even use them interchangeably in a [http://martinfowler.com/bliki/BlueGreenDeployment.html](blue / green deployment pattern).
+It's hard to imagine a better way to be sure your software will work when you turn users lose on it.
+
+If you're deploying to very large environments where it's just not practical to have an exact duplicate, you should still
+duplicate the technology. In other words, if you your web application runs on a cluster of 1,000 machines in production, you
+should verify that application on a cluster, even if it's only 2 machines.
+
+One of the  reasons people are so excited about advancements in container technology is the help they provide in this area.
+If you use something like Docker to develop, test and deploy your applications you have a quite a bit more control over making
+sure things always work the same way.
+
+##Manage your environments in a pipeline too
+
+In many cases it's easier to break an application with a configuration change than with a bug introduced in the source code.
+We've all heard the comment "it works on my machine".
+
+All of your environments must be managed using an automated system and then verified with the same rigor you use on your
+software.
+
+In the value stream map below you'll see that changes to our environments are submitted as code to Git. From there the
+Application_Environments pipeline builds our container, verifies is and then stores it on our registry. That change kicks
+off the rest of our build / test / deploy pipelines in exactly the same way an application code change would.
+
+![Infrastructure as Code](/images/blog/pipeline-patterns/infrastructure-as-code.png)
+
 
 
 
