@@ -16,7 +16,7 @@ stick out.
 
 ##1. Build things once
 
-When you're taking software from initial code change to production in an automated fashion, it's incredibly important
+When you're taking software from initial code change to production in an automated fashion, it's important
 that you deploy the exact same thing you've tested.
 
 Once you've built a binary, you should upload that back to your CD server or artifact repository for later use.
@@ -65,7 +65,7 @@ going on.
 ![Parallel Pipelines](/images/blog/pipeline-patterns/parallel-pipelines.png)
 
 Hopefully you noticed one other really important thing about the image above. The production pipelines have _not_ run. If
-you're doing things in parallel it's incredible important that your Continuous Delivery system is smart about handling
+you're doing things in parallel it's important that your Continuous Delivery system is smart about handling
 dependencies. This is a screenshot from Go CD, which uses fan in/fan out dependency management to make sure the project
 doesn't get deployed until both of the upstream pipelines have gone green.
 
