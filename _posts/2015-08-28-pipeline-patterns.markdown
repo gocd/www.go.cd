@@ -7,7 +7,7 @@ published: true
 author: Ken Mugrage
 ---
 
-Teams have been automating the building, testing and deployment of their software for many years, but usually in a very
+Teams have been automating the build, test and deploy processes of their software for many years, but usually in a very
 specific "one off" manner. In 2007 Go CD introduced build pipelines to the masses. Shortly after, Jez Humble (Go CD's original
 product manager) and David Farley published [Continuous Delivery](http://www.amazon.com/gp/product/0321601912).
 
