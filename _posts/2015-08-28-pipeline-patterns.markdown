@@ -100,6 +100,11 @@ off the rest of our build / test / deploy pipelines in exactly the same way an a
 
 ![Infrastructure as Code](/images/blog/pipeline-patterns/infrastructure-as-code.png)
 
+##Conclusion
+
+These are just a few keys to setting up a successful deployment pipeline. Do you have others you believe are key? Feel
+free to comment below.
+
 
 
 
