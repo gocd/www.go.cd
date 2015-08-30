@@ -77,7 +77,7 @@ Jez Humble tells a story about developing and testing a Java application on Wind
 Solaris. The short version of the story; it didn't work.
 
 Ideally you should be staging and testing on the same set up. If your staging and production environments are exactly the same,
-you can even use them interchangeably in a [http://martinfowler.com/bliki/BlueGreenDeployment.html](blue / green deployment pattern).
+you can even use them interchangeably in a [blue / green deployment pattern](http://martinfowler.com/bliki/BlueGreenDeployment.html).
 It's hard to imagine a better way to be sure your software will work when you turn users lose on it.
 
 If you're deploying to very large environments where it's just not practical to have an exact duplicate, you should still
