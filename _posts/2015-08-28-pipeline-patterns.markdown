@@ -47,7 +47,7 @@ should make sure the tests results from all of the jobs can be viewed in one con
 
 ![Failures Screenshot](/images/blog/pipeline-patterns/testing-failures.png)
 
-##3. Run pipelines in parallel
+##3. Design parallel workflows
 
 It's not uncommon for teams to practice Continuous Integration on small parts of code before "throwing it over the wall"
 to someone else to put that together with other parts of the application. In these cases, it's usually OK to set up a
