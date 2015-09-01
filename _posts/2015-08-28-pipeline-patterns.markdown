@@ -8,10 +8,12 @@ author: Ken Mugrage
 ---
 
 Teams have been automating the build, test and deploy processes of their software for many years, but usually in a very
-specific "one off" manner. In 2007 Go CD (then called "Cruise") introduced build pipelines to the masses. Shortly after, Jez Humble (Go CD's original
-product manager) and David Farley published [Continuous Delivery](http://www.amazon.com/gp/product/0321601912).
+specific "one off" manner. This article walks through 5 key patterns to setting up a successful deployment pipeline, 
+including designing parallel workflows, running tests in parallel, and more.
 
-With these concepts becoming more mainstream, some patterns have emerged. There are certainly more, but these are some that
+In 2007 Go CD (then called "Cruise") introduced build pipelines to the masses. Shortly after, Jez Humble (Go CD's original
+product manager) and David Farley published [Continuous Delivery](http://www.amazon.com/gp/product/0321601912). With these
+concepts becoming more mainstream, some patterns have emerged. There are certainly more, but these are some that
 stick out.
 
 ##1. Build things once
