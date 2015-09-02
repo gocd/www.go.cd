@@ -27,7 +27,7 @@ navigation:
     - text: Contribution Guide
       url: /contribute/contribution-guide.html
     - text: Roadmap
-      url: https://github.com/gocd/gocd/issues/1076
+      url: https://github.com/gocd/gocd/milestones?direction=desc&sort=completeness&state=open
       target: _blank
     - text: CLA
       url: /contribute/cla.html
