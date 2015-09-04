@@ -763,13 +763,26 @@ body.blog {
 .release-announce-holder{
     overflow: auto;
     text-align:center;
-    color: #217845;
+    color: white;
     padding: 30px;
-    background: url('/images/bg-announcement.png') 0 0;
+    background: url('/images/bg-announcement.png');
+    background-size: 100%;
+    background-position-y: 23%;
 }
 .release-announce-holder h2{
     margin:0;
     margin-bottom: 10px;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.release-announce-holder a {
+    font-weight: bold;
+    font-size: larger;
+    color: #413245;
+}
+.release-announce-holder a:hover {
+    text-decoration: underline;
+    color: #714983;
 }
 .os-select-holder{
     float: left;
