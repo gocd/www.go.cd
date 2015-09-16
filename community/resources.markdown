@@ -26,5 +26,5 @@ meta_tag_keywords: open source document, community resources, document repositor
 ### Other Resources
 - <a href="http://support.thoughtworks.com/categories/20002778-Go-Community-Support">Community page</a> - Hosted by ThoughtWorks. There is a lot of information available here, including tips and tricks, macros and more.
 - <a href="http://www.thoughtworks.com/products/go-continuous-delivery/resources">Webinars</a> - Learning sessions by ThoughtWorks.
-- <a href="/videos">How-To Videos</a>
+- <a href="/videos">How-To Videos</a> - Short videos on key features of GoCD.
 - <a href="http://continuousdelivery.com/">continuousdelivery.com</a> - Jez Humble's blog on all things CD.
