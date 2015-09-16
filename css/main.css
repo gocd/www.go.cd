@@ -220,6 +220,9 @@ body.blog {
     margin-top: 0;
     margin-bottom: 0;
 }
+.notransform {
+  text-transform: none;
+}
 /*****************************************************************************/
 
 /*
