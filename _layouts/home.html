@@ -1,67 +1,62 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Continuous Delivery Software | Continuous Integration | Go CD</title>
+        <meta name="description" content="Go continuous delivery software helps in continuous deployment and software release automation to help enterprises deliver higher quality software" />
+        <meta name="keywords" content="continuous delivery, continuous delivery software, continuous integration, continuous integration software, go" />
+        <meta name="viewport" content="width=device-width">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Continuous Delivery Software | Continuous Integration | Go CD</title>
-    <meta name="description" content="Go continuous delivery software helps in continuous deployment and software release automation to help enterprises deliver higher quality software" />
-    <meta name="keywords" content="continuous delivery, continuous delivery software, continuous integration, continuous integration software, go" />
-    <meta name="viewport" content="width=device-width">
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
 
-    <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
+        <!-- Custom CSS -->
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
+        <link rel="stylesheet" href="/css/rwdgrid.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/responsive.css">
+        <link rel="stylesheet" href="/font/fontello/animation.css">
+        <!-- <link rel="stylesheet" href="/font/fontello/fontello-codes.css"> -->
+        <link rel="stylesheet" href="/font/fontello/fontello-embedded.css">
+        <!-- <link rel="stylesheet" href="/font/fontello/fontello.css"> -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
 
-    <!-- Custom CSS -->
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
-    <link rel="stylesheet" href="/css/rwdgrid.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="/font/fontello/animation.css">
-    <!-- <link rel="stylesheet" href="/font/fontello/fontello-codes.css"> -->
-    <link rel="stylesheet" href="/font/fontello/fontello-embedded.css">
-    <!-- <link rel="stylesheet" href="/font/fontello/fontello.css"> -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
-
-    <!--[if lt IE 9]>
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      
-          <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <!--[if lt IE 9]>
+              <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+              <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
         <![endif]-->
+    </head>
+    <body>
 
-</head>
+        {% include google-tag-manager.html %}
 
-<body>
+        <a href="https://github.com/gocd/gocd/">
+            <img class="fork-me-button" src="/images/fork-me-button.png" alt="Fork gocd on GitHub">
+        </a>
 
-    {% include google-tag-manager.html %}
+        {% include announcements.html %}
 
-    <a href="https://github.com/gocd/gocd/">
-        <img class="fork-me-button" src="/images/fork-me-button.png" alt="Fork gocd on GitHub">
-    </a>
-
-    {% include announcements.html %}
-
-    <div class="header">
-        <div class="container-12">
-            {% include header.html %}
+        <div class="header">
+            <div class="container-12">
+                {% include header.html %}
+            </div>
         </div>
-    </div>
 
-    {% include releaseAnnouncement.html %}
+        {% include releaseAnnouncement.html %}
 
-    <div class="container-12">
-        {{ content }}
-    </div>
+        <div class="container-12">
+            {{ content }}
+        </div>
 
-    <div class="container-12 footer">
-        {% include footer.html %}
-    </div>
+        <div class="container-12 footer">
+            {% include footer.html %}
+        </div>
 
-    <script type="text/javascript" src="/js/main.js"></script>
-    
-    {% include analytics.html %}
+        <script type="text/javascript" src="/js/main.js"></script>
+        
+        {% include analytics.html %}
 
-</body>
-
+    </body>
 </html>
