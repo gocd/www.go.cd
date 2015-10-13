@@ -1,5 +1,5 @@
 $(function() {
-    var masterURL = "http://download.go.cd/";
+    var masterURL = "https://download.go.cd/";
 
     if($('#show-checksum').length === 0) {
         return;
@@ -34,7 +34,7 @@ $(function() {
     }
 
     function fetchArtifacts(callbackFn) {
-        $.getJSON("http://download.go.cd/local/releases.json", function(ArtifactList, status) {
+        $.getJSON(masterURL + "local/releases.json", function(ArtifactList, status) {
             var supported = _.where(ArtifactList, {release_type: "supported"});
             var unsupported = _.reject(ArtifactList, {release_type: "supported"}).reverse();
             callbackFn(supported.concat(unsupported));
