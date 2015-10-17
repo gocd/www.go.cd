@@ -133,6 +133,15 @@
   github_stars: http://ghbtns.com/github-btn.html?user=jmnarloch&repo=gocd-gradle-plugin&type=watch&count=true
   first_available_date: 09/2015
 
+- name: Health Check Task plugin
+  description: Task plugin for delaying the build till the application becomes healthy
+  readmore_url: https://github.com/jmnarloch/gocd-health-check-plugin
+  author_url: https://github.com/jmnarloch
+  author_name: jmnarloch
+  releases_url: https://github.com/jmnarloch/gocd-health-check-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=jmnarloch&repo=gocd-health-check-plugin&type=watch&count=true
+  first_available_date: 09/2015
+  
 - name: SBT Task plugin
   description: Task plugin for running SBT builds
   readmore_url: https://github.com/jmnarloch/gocd-sbt-plugin
