@@ -127,7 +127,7 @@ li ul{
 /*
 /*****************************************************************************/
  body {
-    /*margin-top:40px; uncomment if you have Announcements*/
+    margin-top:40px;
 }
 body.blog {
     margin: 0;
@@ -138,10 +138,10 @@ body.blog {
     top: 0;
     text-align: center;
     left: 0;
-    display: none;
+    font-weight: bold;
 }
 .announcements.highlight {
-    background: #FFF6E4;
+    background: rgba(200, 104, 104, 0.5);
 }
 
 /*Tab*/
@@ -398,6 +398,7 @@ body.blog {
     top:0;
     right:0;
     border:0;
+    z-index: 10;
 }
 .header {
     margin-top: 0;
