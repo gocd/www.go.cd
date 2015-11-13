@@ -1,5 +1,5 @@
 - name: GoCD Janitor
-  description: A plugin to convert test reports to XUnit format
+  description: Tool to cleanup old artifacts on GoCD
   readmore_url: https://github.com/ashwanthkumar/gocd-janitor
   author_url: https://github.com/ashwanthkumar
   author_name: Ashwanth Kumar
