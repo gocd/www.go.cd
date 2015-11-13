@@ -180,6 +180,27 @@ Below is the listing of bundled as well as other available plugins contributed b
   </li>
 </ul>
 
+<h4>Tools </h4>
+
+<ul id="tools" class="plugins">
+
+    {% for tool in site.data.tools %}
+
+    <li class="grid-3">
+        <h5>{{ tool.name }}</h5>
+        <div class="more_details">
+            {{ tool.description }} <a href="{{ tool.readmore_url }}">Read more</a>
+        </div>
+        <div>by <a href="{{ tool.author_url }}">{{ tool.author_name }}</a>
+        </div>
+        <div class="actions">
+            <iframe src="{{ tool.github_stars }}" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
+        </div>
+    </li>
+
+    {% endfor %}
+</ul>
+
 <div style="clear:both"></div>
 
 <h4>Enterprise plugins</h4>
