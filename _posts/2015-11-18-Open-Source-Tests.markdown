@@ -22,7 +22,7 @@ However to be confident about a release we need end to end tests. To maintain th
 How GoCD is continuously tested
 ==================
 
-Let’s take a brief tour of how GoCD does continuous testing. GO is built, tested and deployed using GO. Here’s a snapshot of the GO CD build pipeline.
+Let’s take a brief tour of how GoCD does continuous testing. GoCD is built, tested and deployed using GoCD itself. Here’s a snapshot of the GoCD build pipeline.
 
 <img src="/images/go-cd-QA-pipeline.png" alt="GoCD VSM" style="width: 1000px"/>
 
@@ -39,7 +39,7 @@ Below are the set of functional test types modeled into the GoCD pipelines.
 Each of them are run on single or multiple agents as per the size of the tests.
 Every agent will be cleaned of any previous versions of the build when a new build is started.
 
-* *Smoke*: As per the classic definition “smoke tests” validates the basic functionality of the system under test. It runs on 2 GO server agent - one on windows and one on linux
+* *Smoke*: As per the classic definition “smoke tests” validates the basic functionality of the system under test. It runs on 2 GoCD server agents - one on windows and one on linux
 
 * *Acceptance*: These tests validates the necessary set of tests for each functionality or use case flow. It does not execute every scenario in the flow, but validates all possible flows. These tests are run on a total of 17 agents. Smoke and Acceptance are triggered by the upstream pipeline ‘qa packages”.
 
@@ -61,8 +61,8 @@ Further enhancements and optimizations are on the way.
 Twist to Gauge Migration
 ======================
 
-GO functional tests were initially developed using ThoughtWorks Twist automation tool.
-Since Twist has hit end of life as a product and is being replaced by Gauge, we’ve migrated our tests to [Gauge](http://getgauge.io/).
+GoCD functional tests were initially developed using ThoughtWorks Twist automation tool.
+Since Twist has hit end-of-life as a product and is being replaced by Gauge, we’ve migrated our tests to [Gauge](http://getgauge.io/).
 Moving to Gauge now helps us open source these tests (Twist was a commercial product).
 
 Twist to Gauge migration is handled by the migration plugin bundled in Twist.
