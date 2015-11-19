@@ -150,3 +150,12 @@
   releases_url: https://github.com/jmnarloch/gocd-sbt-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=jmnarloch&repo=gocd-sbt-plugin&type=watch&count=true
   first_available_date: 11/2015
+
+- name: Nessus Scan Task plugin
+  description: Task plugin for running Nessus Scans
+  readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Nessus-Scan-Task-Plugin
+  author_url: https://github.com/markus2810
+  author_name: Markus Wehrle
+  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
+  first_available_date: 11/2015
