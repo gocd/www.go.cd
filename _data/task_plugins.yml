@@ -1,10 +1,10 @@
 - name: XUnit Converter
   description: A plugin to convert test reports to XUnit format
-  readmore_url: https://github.com/srinivasupadhya/xunit-converter-task
+  readmore_url: https://github.com/gocd-contrib/xunit-converter-task
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/srinivasupadhya/xunit-converter-task/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=xunit-converter-task&type=watch&count=true
+  releases_url: https://github.com/gocd-contrib/xunit-converter-task/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=xunit-converter-task&type=watch&count=true
   first_available_date: 05/2014
 
 - name: Powershell Task
@@ -54,11 +54,11 @@
 
 - name: Script Executor Task Plugin
   description: Plugin to allow running Script in Go
-  readmore_url: https://github.com/srinivasupadhya/script-executor-task
+  readmore_url: https://github.com/gocd-contrib/script-executor-task
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/srinivasupadhya/script-executor-task/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=script-executor-task&type=watch&count=true
+  releases_url: https://github.com/gocd-contrib/script-executor-task/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=script-executor-task&type=watch&count=true
   first_available_date: 12/2014
 
 - name: Publish to S3
