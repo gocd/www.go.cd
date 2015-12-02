@@ -1,10 +1,10 @@
 - name: Debian repository poller
   description: Plugin to poll Debian repository.
-  readmore_url: https://github.com/srinivasupadhya/deb-repo-poller
+  readmore_url: https://github.com/gocd-contrib/deb-repo-poller
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/srinivasupadhya/deb-repo-poller/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=deb-repo-poller&type=watch&count=true
+  releases_url: https://github.com/gocd-contrib/deb-repo-poller/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=deb-repo-poller&type=watch&count=true
   first_available_date: 02/2014
 
 - name: Nuget repository poller
@@ -24,9 +24,9 @@
   releases_url: https://github.com/aresok/go-maven-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=aresok&repo=go-maven-poller&type=watch&count=true
   first_available_date: 10/2013
-  
+
 - name: Generic Artifactory poller
-  description: A plugin for polling Artifactory repositories... 
+  description: A plugin for polling Artifactory repositories...
   readmore_url: https://github.com/varchev/go-generic-artifactory-poller
   author_url: https://github.com/dvarchev
   author_name: Deyan Varchev
@@ -81,11 +81,11 @@
 
 - name: Gem repository poller
   description: Plugin to poll Ruby Gem repository.
-  readmore_url: https://github.com/srinivasupadhya/gem-repo-poller
+  readmore_url: https://github.com/gocd-contrib/gem-repo-poller
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/srinivasupadhya/gem-repo-poller/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=gem-repo-poller&type=watch&count=true
+  releases_url: https://github.com/gocd-contrib/gem-repo-poller/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gem-repo-poller&type=watch&count=true
   first_available_date: 12/2014
 
 - name: S3 artifacts poller - 1
