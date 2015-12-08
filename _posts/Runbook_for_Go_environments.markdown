@@ -13,7 +13,12 @@ One of our users was nice enough to document the steps they took to create a run
    1. Download GO Server setup from http://www.go.cd/download/   
    2. Accept default destination setting but choose your own Java and browse to where 64-bit Java is installed (ex: C:\Program Files\Java\jre7).   
    3. Upon completion of install, GO server service will automatically start. Open services and stop it.   
-   4. Open text editor program and place the following two lines in the document: `wrapper.java.additional.1=-Xms4g wrapper.java.additional.2=-Xmx6g`   
+   4. Open text editor program and place the following two lines in the document: 
+      ```
+      wrapper.java.additional.1=-Xms4g
+      wrapper.java.additional.2=-Xmx6g
+      ```   
+     
      * Note: Xms4g specifies that the minimum memory allocated to Java is 4GBs. 
      * Xmx6g specifies that the maximum memory allocated to Java is 6GBs.     
    5. Save the file as wrapper-properties.conf in the GO Server config folder. 
@@ -85,7 +90,7 @@ One of our users was nice enough to document the steps they took to create a run
    5. Open Services and change the Log On account to Domain\GoServerSrvcAccount. 
    
 ####2.3 GIT CREDENTIAL MANAGER FOR WINDOWS SETUP 
-  Note: The GoAgent and the GoServer BOTH have to be configured to use Git Credential Manager for Windows. 
+    * Note: The GoAgent and the GoServer BOTH have to be configured to use Git Credential Manager for Windows. 
    1. RDP into GO Server box as Domain\GoAgentSrvcAccount account. 
    2. Open Control Panel > User Accounts > Credential Manager. 
    3. Add the following to Windows Credential Store- ex: git://https://bitbucket.org, username and password 
@@ -109,7 +114,6 @@ One of our users was nice enough to document the steps they took to create a run
    6. This cacerts file can be copied to all other GO agent build boxes. Copy should be placed into source control as well. 
   
 ####2.6 UPGRADE STEPS 
-  Important note: If you upgrade the GO Agents to a new version, the GO Server needs to be updated to new version as well. 
    1. Login as administration to GO portal and select Backup from Admin menu. 
    2. Click the Perform Backup button. Backup folder with today’s date will be created in C:\Program Files (x86)\Go Server\artifacts\serverBackups. 
      * Copy folder to safe location. 
@@ -120,7 +124,7 @@ One of our users was nice enough to document the steps they took to create a run
    7. Scroll all the way to the bottom of the page and verify the Go Version matches the version installed.
 
 ####2.7 REFERENCES 
-   ThoughtWorks documentation 
+   * ThoughtWorks documentation 
      * http://www.go.cd/2014/06/05/using-go-cd-with-custom-certificates.html 
      * http://www.go.cd/documentation/user/current/advanced_usage/admin_install_multiple_agents.html
 
@@ -158,9 +162,16 @@ One of our users was nice enough to document the steps they took to create a run
      * (ex: C:\migration\config) 
    12. Create file titled "postgresqldb.properties". 
      * In this file, place connection details. 
-    * Example configuration follows: `db.host=hostname db.port=5432 db.name=cruise db.user=postgres db.password=[retracted]`
-   13. Navigate to the migration folder and execute the following from administrator command prompt: `java -jar go-postgresql-VERSION.jar` 
-     * (ex: `java -jar go-postgresql-15.2.0-978.jar`) 
+     * Example configuration follows: 
+      ```
+      db.host=hostname   
+      db.port=5432   
+      db.name=cruise   
+      db.user=postgres   
+      db.password=[retracted]  
+      ```
+   13. Navigate to the migration folder and execute the following from administrator command prompt: java -jar go-postgresql-VERSION.jar
+     * (ex: java -jar go-postgresql-15.2.0-978.jar) 
    14. If this succeeded, you will the following message in the command window: Migration finished successfully 
      * Complete the next step on the PostgreSQL server 
    15. Verify data was imported into system by opening SQL Editor and run following query: `select * from pipelines`. 
