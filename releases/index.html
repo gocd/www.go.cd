@@ -13,7 +13,8 @@ meta_tag_keywords:
 <span>Thanks to everyone for contributing patches, feature requests, reporting issues and participating in various discussions.</span></p>
 
 <p> <strong>Releases:</strong>
-  <a href="#15.3">15.3 (latest)</a>
+  <a href="#15.3.1">15.3.1 (latest)</a>
+  | <a href="#15.3">15.3</a>
   | <a href="#15.2">15.2</a>
   | <a href="#15.1">15.1</a>
   | <a href="#14.4">14.4</a>
@@ -26,8 +27,42 @@ meta_tag_keywords:
   <div class="version">
     <a name="latest"></a>
 
+    <a name="15.3.1"></a>
+    <h4>15.3.1 (latest)</h4>
+    <div class="section">
+      <h5>What's new in GoCD 15.3.1</h5>
+      <p>
+        Release 15.3.1 is purely a bug fix release. We highly recommend that users upgrade from <a href="https://github.com/gocd/gocd/releases/tag/15.3.0">version 15.3.0</a> due to the nature of the bug.
+      </p>
+    </div>
+    <div class="section">
+      <h5>Important bug fixes in this release -</h5>
+      <ul>
+        <li>
+          <a href="https://github.com/gocd/gocd/issues/1743" class="issue-title-link js-navigation-open">
+            File handle leak that causes windows agents to not cleanup properly
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd/pull/1747" class="issue-title-link js-navigation-open">
+            Fix OOM on agents when parsing large xml test artefacts
+          </a>
+        </li>
+      </ul>
+      <div class="section">
+        <h5>Note</h5>
+        <p>
+          The comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+15.3.1%22+is%3Aclosed">here.</a>
+        </p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-10">
+  <div class="version">
     <a name="15.3"></a>
-    <h4>15.3 (latest)</h4>
+    <h4>15.3</h4>
     <div class="section">
       <h5>New API for editing pipelines</h5>
       <p>
