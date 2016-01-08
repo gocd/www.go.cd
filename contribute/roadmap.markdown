@@ -65,7 +65,7 @@ done, at the level of a week and will attempt to keep it as updated and approach
     </div>
 
     <div class="update">
-      <span class="title">Other</span>
+      <span class="title">Other (subset of changes)</span>
 
       <div class="content">
         <div class="issue state_closed">
@@ -98,8 +98,9 @@ done, at the level of a week and will attempt to keep it as updated and approach
     <div class="note">
       <span class="note_title">Note</span>: If you're doing some work outside of the gocd GitHub organization and would
       like it to be mentioned here (maybe you'll get some help!), please let me know, by sending a mail to
-      arvind@thoughtworks.com or finding me on <a href="https://gitter.im/gocd/gocd">the Gitter developer channel</a> or
-      on the <a href="https://groups.google.com/forum/#!forum/go-cd">mailing list</a>.
+      <a href="mailto:arvind@thoughtworks.com">me</a> or finding me (username: arvindsv) on
+      <a href="https://gitter.im/gocd/gocd">the Gitter developer channel</a> or on the
+      <a href="https://groups.google.com/forum/#!forum/go-cd">mailing list</a>.
     </div>
 
   </div>
