@@ -30,8 +30,8 @@ done, at the level of a week and will attempt to keep it as updated and approach
     <div class="update">
       <span class="title">Pipeline config UI rewrite</span>
       <div class="content">
-        A part of the work carried over from 2015 is the UI for the new pipeline config page. This is
-        the <a href="https://github.com/gocd/gocd/issues/1404">single-page application</a>, which should make pipeline
+        A part of the work carried over from 2015 is the UI for the new pipeline config page. This is going to be a
+        <a href="https://github.com/gocd/gocd/issues/1404">single-page application</a>, which should make pipeline
         configuration less clicky.
 
         The parts of it that are being worked on currently are <a href="https://github.com/gocd/gocd/issues/1493">this
