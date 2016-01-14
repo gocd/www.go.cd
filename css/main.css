@@ -274,11 +274,11 @@ body.blog {
 }
 .plugins .more_details {
     font-size: 10px;
-}
-.plugins .more_details {
     margin-bottom: 10px;
+    height: 30px;
 }
 .plugins h5 {
+    height: 70px;
     margin-top: 0;
     padding-right: 15px;
     padding-top: 0;
