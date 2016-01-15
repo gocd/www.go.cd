@@ -1,8 +1,18 @@
+.work_update {
+    padding-top: 16px;
+}
+.work_update.old {
+    padding-top: 0px;
+}
+
 .work_update .heading .title {
   font-size: 2em;
   float: none;
   display: block;
   padding-bottom: 10px;
+}
+.work_update.old .heading .title {
+  font-size: 1.5em;
 }
 
 .work_update > ul li {
@@ -18,6 +28,21 @@
   float: none;
   display: block;
   padding-bottom: 10px;
+}
+
+.update span.attention {
+  color: rgba(215, 73, 73, 0.73);
+  font-weight: 600;
+}
+
+figure {
+  padding: 12px 0;
+  text-align: center;
+}
+
+figure img.small-image {
+  height: 300px;
+  width: auto;
 }
 
 .note {
