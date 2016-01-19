@@ -15,7 +15,7 @@ changes will lead to an update there.
 Since GoCD uses GitHub issues to manage issues and pull requests, there will be an attempt to mark all issues against a
 relevant milestone, with upcoming milestones named as "Release xy.z", where "xy" is the current year and "z" is the
 release number. The page which shows these milestones can be found [here on
-GitHub](https://github.com/gocd/gocd/milestones?direction=desc&sort=completeness&state=open), and you can drill down to
+GitHub](https://github.com/gocd/gocd/milestones?direction=asc&sort=due_date&state=open), and you can drill down to
 the issues under those milestones there.
 
 Since that is not always easy for everyone to follow (without context), I'll make an attempt to distill the work being
