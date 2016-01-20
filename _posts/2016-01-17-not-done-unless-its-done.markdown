@@ -27,7 +27,7 @@ Over the next several weeks I'll be writing more about each of these types of pi
 
 All too often this is the primary category of tasks that don’t get run until everything else is “done”. This often results in issues that are very hard to track down since the time between tests has been very long. By writing these tests all the time you’ll have a much easier time tracking down issues before they become too hard to fix.
 
-It’s probably not the greatest idea to have the same person writing the security tests who is writing the code. There’s also the question of skillset; great security people are not common. It’s important that you use a Continuous Delivery server that is capable of using more than one build material for a single pipeline. That way these tests will run whenever the code or the tests are updated.
+Many people feel it's not the greatest idea to have the same person writing the security tests who is writing the code. There’s also the question of skillset; great security people are not common. It’s important that you use a Continuous Delivery server that is capable of using more than one build material for a single pipeline. That way these tests will run whenever the code or the tests are updated.
 
 ###Performance testing
 
