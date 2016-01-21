@@ -15,6 +15,7 @@
  @media(max-width: 960px) {
     .navigation {
         margin-top: 0;
+        padding-left: 0;
         float: left;
     }
     .navigation li {
