@@ -63,6 +63,9 @@ done, at the level of a week and will attempt to keep it as updated and approach
             <figcaption>Fig 2: New config UI page - In progress - Test connection to materials</figcaption>
           </figure>
         </p>
+
+        There's work to be done towards making these look like the design vision mentioned earlier. There's also work
+        to be done to enable on-cancel tasks and run-if options.
       </div>
     </div>
 
