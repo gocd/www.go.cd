@@ -23,6 +23,132 @@ done, at the level of a week and will attempt to keep it as updated and approach
 
 <div class="work_update">
   <div class="heading">
+    <span class="title">Week of Jan 22, 2016</span>
+  </div>
+
+  <div class="updates">
+    <div class="update">
+      <span class="title">Pipeline config UI rewrite</span>
+      <div class="content">
+        <p>
+          Tracked as <a href="https://github.com/gocd/gocd/issues/1404">#1404 (re-design)</a>, <a
+          href="https://github.com/gocd/gocd/issues/1724">#1724 (materials)</a> and <a
+          href="https://github.com/gocd/gocd/issues/1727">#1727 (tasks)</a>, work on the single-page application to reduce
+          clickiness and performace of the configuration UI continues.
+        </p>
+
+        <p>
+          Last week, I mentioned the <a href="https://thoughtworks.box.com/s/vhqd1gvakqepu0ntfjr81gxjhju28">design
+          vision</a> of this (feedback in <a href="https://github.com/gocd/gocd/issues/1404">#1404</a> please). This
+          week, work has gone towards the command repository lookup in this <a
+          href="https://github.com/gocd/gocd/pull/1823">pull request</a>. You can see how it looks below:
+        </p>
+
+        <p>
+          <figure>
+            <a href="/images/contribute/roadmap/2016_01_22_command-repo.gif">
+              <img src="/images/contribute/roadmap/2016_01_22_command-repo.gif" class="small-image"></img>
+            </a>
+            <figcaption>Fig 1: New config UI page - In progress - Command repo lookup</figcaption>
+          </figure>
+        </p>
+
+        Probably the week before this, work was done on the check connection bit of materials. It looks like this:
+
+        <p>
+          <figure>
+            <a href="/images/contribute/roadmap/2016_01_22_test-connection.gif">
+              <img src="/images/contribute/roadmap/2016_01_22_test-connection.gif" class="small-image"></img>
+            </a>
+            <figcaption>Fig 2: New config UI page - In progress - Test connection to materials</figcaption>
+          </figure>
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">Elastic agents</span>
+
+      <div class="content">
+        <p>
+          You can see some commits going on towards this in <a href="https://github.com/gocd/gocd/issues/1082">#1082</a>.
+          Groundwork for this, along with an example docker plugin is in progress. Not much to showcase at this point. Maybe soon.
+          The <a href="https://github.com/gocd/gocd/pull/1793">websocket communication work</a> by @xli will be merged soon.
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">More releases</span>
+      <div class="content">
+        <p>
+          The roadmap for 2016 mentioned more releases this year: On 18th Jan, 2016, GoCD 16.1.0 was released. Next
+          supported release is scheduled for mid February. Installer testing across platforms is continuing. The <a
+          href="https://github.com/gocd/installer-testing/pull/1">pull request</a> mentioned earlier is going to be
+          merged soon. Some more changes in process and automation should allow quicker releases!
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">More content around CD and GoCD</span>
+      <div class="content">
+        [Same update as last week] There is some work going on around content. Watch out for a getting started guide to
+        GoCD and a blog post or article about moving towards CD and blockers you might encounter.
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">Other (subset of changes)</span>
+
+      <div class="content">
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1820">#1820</a> - By <a href="https://github.com/wpc">@wpc</a>
+          - Output environment variables once per job, instead of per task.
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1810">#1810</a> - By <a href="https://github.com/tomzo">@tomzo</a>
+          - Config repository - Disable parts of UI for config repo pipelines.
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1822">#1822</a> - By <a href="https://github.com/xli">@xli</a>
+          - Performace: Remove jruby invokedynamic.
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1808">#1808</a> - By <a href="https://github.com/grahamc">
+            @grahamc</a> - Select multiple agents using shift-click.
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1797">#1797</a> - By <a
+        href="https://github.com/mrmanc">@mrmanc</a> - Improves the Material API notification error message.
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1812">#1812</a> - Fix issue of flyweight getting cloned repeatedly
+          (when branch is null for git material).
+        </div>
+
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="note_title">Note</span>: If you're doing some work outside of the gocd GitHub organization and would
+      like it to be mentioned here (maybe you'll get some help!), please let me know, by sending a mail to
+      <a href="mailto:arvind@thoughtworks.com">me</a> or finding me (username: arvindsv) on
+      <a href="https://gitter.im/gocd/gocd">the Gitter developer channel</a> or on the
+      <a href="https://groups.google.com/forum/#!forum/go-cd">mailing list</a>.
+    </div>
+  </div>
+</div>
+
+<h3>Previous weeks:</h3>
+
+<div class="work_update old">
+  <div class="heading">
     <span class="title">Week of Jan 15, 2016</span>
   </div>
 
@@ -136,19 +262,8 @@ done, at the level of a week and will attempt to keep it as updated and approach
         </div>
       </div>
     </div>
-
-    <div class="note">
-      <span class="note_title">Note</span>: If you're doing some work outside of the gocd GitHub organization and would
-      like it to be mentioned here (maybe you'll get some help!), please let me know, by sending a mail to
-      <a href="mailto:arvind@thoughtworks.com">me</a> or finding me (username: arvindsv) on
-      <a href="https://gitter.im/gocd/gocd">the Gitter developer channel</a> or on the
-      <a href="https://groups.google.com/forum/#!forum/go-cd">mailing list</a>.
-    </div>
-
   </div>
 </div>
-
-<h3>Previous weeks:</h3>
 
 <div class="work_update old">
   <div class="heading">

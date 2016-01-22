@@ -1,8 +1,6 @@
 .work_update {
-    padding-top: 16px;
-}
-.work_update.old {
-    padding-top: 0px;
+    padding: 8px 0;
+    margin: 16px 0;
 }
 
 .work_update .heading .title {
@@ -11,6 +9,7 @@
   display: block;
   padding-bottom: 10px;
 }
+
 .work_update.old .heading .title {
   font-size: 1.5em;
 }
