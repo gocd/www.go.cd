@@ -38,7 +38,7 @@ done, at the level of a week and will attempt to keep it as updated and approach
         </p>
 
         <p>
-          Last week, I mentioned the <a href="https://thoughtworks.box.com/s/vhqd1gvakqepu0ntfjr81gxjhju28">design
+          Last week, I mentioned the <a href="https://thoughtworks.box.com/s/vhqd1gvakqepu0ntfjr81gxjhju28idx">design
           vision</a> of this (feedback in <a href="https://github.com/gocd/gocd/issues/1404">#1404</a> please). This
           week, work has gone towards the command repository lookup in this <a
           href="https://github.com/gocd/gocd/pull/1823">pull request</a>. You can see how it looks below:
