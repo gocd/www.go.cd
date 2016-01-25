@@ -115,10 +115,6 @@ In coming posts we will present similar sets of questions for you to consider in
 application design, process, and culture.
 
 <style>
-  .blog .post-content p, .blog .post-content li {
-    font-weight: inherit;
-  }
-  
   .blog .post-content ul {
     margin: -5px 0 20px 0;
     padding-left: 3em;
