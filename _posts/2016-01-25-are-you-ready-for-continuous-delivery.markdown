@@ -51,7 +51,7 @@ version control.
 Even if you aren’t planning to do CD, start putting everything into version control now. And we mean everything. Not
 just your source code. Everything can include images, database scripts, tests, configuration, libraries, documentation,
 and more. Source code won’t be enough if you need to get back to a specific version of your application, infrastructure,
-etc. Also, this encourages your entire team-—not just the developers—-to collaborate.
+etc. Also, this encourages your entire team—not just the developers—to collaborate.
 
 ### Do your developers practice Continuous Integration (CI)?
 
