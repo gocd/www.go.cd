@@ -1,11 +1,16 @@
 ---
 layout: post
-title: Are you ready for Continuous Delivery?
+title: "Are you ready for Continuous Delivery?"
 status: public
 type: post
-author: David Rice and Aravind SV
-excerpt: <p>This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this first post, we’ll present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for Continuous Delivery.</p>
+author: "David Rice and Aravind SV"
+excerpt: "<p>This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this first post, we’ll present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for Continuous Delivery.</p>"
 ---
+
+<div class="header-img">
+  <img src="/images/blog/are-you-ready-for-continuous-delivery/woodline.jpeg" alt="Ready for Continuous Delivery?"></img>
+  <span class="attribution"><a target="_blank" href="https://commons.wikimedia.org/wiki/File:Wood-snake(byJamesForbes).JPG">Attribution</a></span>
+</div>
 
 During the 10 plus years ThoughtWorks has been in the Continuous Delivery ecosystem, we've regularly come across people
 wanting to try our tools GoCD and Snap CI and as they start their journey toward Continuous Delivery (CD). Very often,
@@ -110,11 +115,11 @@ In coming posts we will present similar sets of questions for you to consider in
 application design, process, and culture.
 
 <style>
-  .blog p, li {
+  .blog .post-content p, .blog .post-content li {
     font-weight: inherit;
   }
   
-  ul {
+  .blog .post-content ul {
     margin: -5px 0 20px 0;
     padding-left: 3em;
   }
