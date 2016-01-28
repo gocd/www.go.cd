@@ -120,14 +120,17 @@ ul, ol {
 li ul{
     margin-bottom: 10px;
 }
-/*****************************************************************************/
+
+.text-important {
+    font-weight: bold;
+}
 
 /*
 /* Announcements
 /*
 /*****************************************************************************/
  body {
-    margin-top:40px;
+    /*margin-top:40px; uncomment if you have Announcements*/
 }
 body.blog {
     margin: 0;
@@ -138,10 +141,10 @@ body.blog {
     top: 0;
     text-align: center;
     left: 0;
-    font-weight: bold;
+    display: none;
 }
 .announcements.highlight {
-    background: rgba(200, 104, 104, 0.5);
+    background: #FFF6E4;
 }
 
 /*Tab*/
@@ -274,11 +277,11 @@ body.blog {
 }
 .plugins .more_details {
     font-size: 10px;
-}
-.plugins .more_details {
     margin-bottom: 10px;
+    height: 30px;
 }
 .plugins h5 {
+    height: 70px;
     margin-top: 0;
     padding-right: 15px;
     padding-top: 0;
@@ -398,7 +401,6 @@ body.blog {
     top:0;
     right:0;
     border:0;
-    z-index: 10;
 }
 .header {
     margin-top: 0;

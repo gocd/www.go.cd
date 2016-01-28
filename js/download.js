@@ -35,8 +35,8 @@ $(function() {
 
     function fetchArtifacts(callbackFn) {
         $.getJSON(masterURL + "local/releases.json", function(ArtifactList, status) {
-            var supported = _.where(ArtifactList, {release_type: "supported"});
-            var unsupported = _.reject(ArtifactList, {release_type: "supported"}).reverse();
+            var supported = _.chain(ArtifactList).where({release_type: "supported"}).reject(function(artifact) { return artifact.hidden == true }).value();
+            var unsupported = _.chain(ArtifactList).reject({release_type: "supported"}).reject(function(artifact) { return artifact.hidden == true }).value().reverse();
             callbackFn(supported.concat(unsupported));
             hideLoader();
         });
@@ -45,7 +45,7 @@ $(function() {
 
     function renderInstallersByOS(artifactList, os, revisionHolder, subDirectory) {
         var revisionsString = '';
-	var latestReleaseTime = 0;
+        var latestReleaseTime = 0;
         _.each(artifactList, function(artifact, index, allArtifacts) {
             var fileName = artifact.release_type;
 

@@ -1,11 +1,8 @@
-.blog{
+.blog {
 	font-size: 16px;
 }
 
-.blog p, li{
-	font-weight: lighter;
-}
-ol{
+ol {
 	margin-left: 30px;
 	margin-bottom: 15px;
 }
@@ -89,4 +86,23 @@ ol li{
 
 .post-content h4 {
 	font-size: 20px;
+}
+
+.post-content .header-img {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.post-content .header-img img {
+  width: 100%;
+}
+
+.post-content .header-img .attribution {
+    font-size: 8px;
+    float: right;
+    margin-top: -4px;
+}
+
+.post-content .header-img .attribution a {
+    color: black;
 }

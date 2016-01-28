@@ -13,7 +13,8 @@ meta_tag_keywords:
 <span>Thanks to everyone for contributing patches, feature requests, reporting issues and participating in various discussions.</span></p>
 
 <p> <strong>Releases:</strong>
-  <a href="#15.3.1">15.3.1 (latest)</a>
+  <a href="#16.1">16.1 (latest)</a>
+  | <a href="#15.3.1">15.3.1</a>
   | <a href="#15.3">15.3</a>
   | <a href="#15.2">15.2</a>
   | <a href="#15.1">15.1</a>
@@ -27,13 +28,70 @@ meta_tag_keywords:
   <div class="version">
     <a name="latest"></a>
 
+    <a name="16.1"></a>
+    <h4>16.1 (latest)</h4>
+    <div class="section">
+      <h5>What's new in GoCD 16.1</h5>
+
+      <p>
+        We are moving to a more regular release schedule, and so you might see releases with mostly issues fixed, while
+        bigger level features are in progress across releases.
+      </p>
+
+    </div>
+    <div class="section">
+      <h5>Important features and bug fixes in this release -</h5>
+      <ul>
+        <li>
+          <a href="https://github.com/gocd/gocd/pull/1739">Don't send 'Server:' header from Jetty</a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd/pull/1489">GoCD 15.2's config schema (cruise-config.xsd) causes validation errors</a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd/pull/1740">Throwing BadCredentialsException when user is not found in configured…</a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd/pull/1741">Pipeline Config validation fixes</a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd/issues/1753">Pipeline API: updating a lot of pipelines stops working </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd/pull/1779">Check approvers properly against allowed roles</a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd/pull/1786">Fix some compatibility when installing RPM packages on RHEL5 and derivatives (#1766) </a>
+        </li>
+      </ul>
+      <div class="section">
+        <h5>Note</h5>
+        <p>
+          The comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.1%22+is%3Aclosed">here.</a>
+        </p>
+      </div>
+      <div class="section">
+        <h5>Thanks!</h5>
+        <p>Tomasz Setkowski, Sean Escriva for making this release of GoCD better!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-10">
+  <div class="version">
     <a name="15.3.1"></a>
-    <h4>15.3.1 (latest)</h4>
+
+    <a name="15.3.1"></a>
+    <h4>15.3.1</h4>
     <div class="section">
       <h5>What's new in GoCD 15.3.1</h5>
-      <p>
-        Release 15.3.1 is purely a bug fix release. We highly recommend that users upgrade from <a href="https://github.com/gocd/gocd/releases/tag/15.3.0">version 15.3.0</a> due to the nature of the bug.
-      </p>
+
+      <p><span class="text-important">Important</span>: 15.3.1 has been removed from the downloads page because it had
+      an <a href="https://github.com/gocd/gocd/issues/1753">issue</a> which could have caused problems during
+      configuration save. The issue mentioned is fixed in 16.1.0. The rest of the issues mentioned below are a part of
+      16.1.0 as well. We highly recommend upgrading to 16.1.0.</p>
+
     </div>
     <div class="section">
       <h5>Important bug fixes in this release -</h5>
@@ -54,7 +112,7 @@ meta_tag_keywords:
         <p>
           The comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+15.3.1%22+is%3Aclosed">here.</a>
         </p>
-        </div>
+      </div>
     </div>
   </div>
 </div>
