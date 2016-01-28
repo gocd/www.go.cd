@@ -5,4 +5,7 @@ _site
 .DS_Store
 .rbenv-gemsets
 
-gocd.github.io.iml
+*.iml
+*.ipr
+bin/
+.bundle
