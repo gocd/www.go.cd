@@ -21,6 +21,159 @@ the issues under those milestones there.
 Since that is not always easy for everyone to follow (without context), I'll make an attempt to distill the work being
 done, at the level of a week and will attempt to keep it as updated and approachable as possible:
 
+<div class="work_update">
+  <div class="heading">
+    <span class="title">Week of Jan 29, 2016</span>
+  </div>
+
+  <div class="updates">
+    <div class="update">
+      <span class="title">Pipeline config UI rewrite</span>
+      <div class="content">
+        <p>
+          Tracked as <a href="https://github.com/gocd/gocd/issues/1404">#1404 (re-design)</a>, <a
+          href="https://github.com/gocd/gocd/issues/1724">#1724 (materials)</a>, <a
+          href="https://github.com/gocd/gocd/issues/1727">#1727 (tasks)</a> and <a
+          href="https://thoughtworks.box.com/s/vhqd1gvakqepu0ntfjr81gxjhju28id">design vision (PDF)</a>, work on the
+          single-page application to reduce clickiness and performace of the configuration UI continues. In next week's
+          update, I'll try and give you all a sense of of how much work is left (what features need more work).
+        </p>
+
+        <p>
+          This week, there was a lot of discussion (on <a href="https://github.com/gocd/gocd/issues/1596">#1596</a>)
+          about the exec task and how it should work. <a
+          href="https://github.com/gocd/gocd/pull/1823">Pull request #1823</a>, which was mentioned last week, was
+          extended to try and support both multi-line exec-like arguments (which GoCD had as default) and single-line
+          arguments (which will be the new default with the new config UI). This should make it easier for new users to
+          use, while allowing more advanced users to specify exactly what they want. You can see how it looks below:
+        </p>
+
+        <p>
+          <figure>
+            <a href="/images/contribute/roadmap/2016_01_29_exec_command_single_to_multi.gif">
+              <img src="/images/contribute/roadmap/2016_01_29_exec_command_single_to_multi.gif" class="small-image"></img>
+            </a>
+            <figcaption>Fig 1: New config UI page - In progress - Exec task single-line and multi-line</figcaption>
+          </figure>
+        </p>
+
+        The UI is not finalized. The link with the text "Multi" and "Single" will probably be replaced by an icon or
+        something nicer, soon. :) There might be changes to reduce some of those boxes and generally make it very easy
+        to add simple custom commands.
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">Elastic agents</span>
+
+      <div class="content">
+        <p>
+          The <a href="https://github.com/gocd/gocd/pull/1793">websocket communication work</a> by @xli was merged and
+          is behind a feature toggle. This is very exciting! This means that communication between GoCD agents and
+          server happens using websockets when the feature is on. Also, messages are sent using JSON rather than Java
+          RMI. Using websockets rather than the old-way of polling, should make the communication much faster and jobs
+          should be picked up with very little to no delay, once the GoCD server assigns a job to an agent. Thanks, @xli!
+        </p>
+
+        <p>
+          Showcase of docker elastic agents! - Work on <a href="https://github.com/gocd/gocd/issues/1082">
+          elastic agent endpoint (#1082)</a> continues. The API of that endpoint is being decided by using it with a
+          plugin which spaws a docker container per job. The API will probably change based on feedback. If
+          you're really curious, you can see the code of the plugin (work-in-progress) <a
+          href="https://github.com/ketan/docker-elastic-agents/">here</a> and the extension point code <a
+          href="https://github.com/ketan/gocd/tree/elastic-agent-extension-point">here</a>. Click on the image below to
+          download an early-days, work-in-progress, you-have-been-warned kind of showcase video (70MB). Enjoy!
+        </p>
+
+        <p>
+          <figure>
+            <a href="https://thoughtworks.box.com/shared/static/oingqgjhlcvugyg8iq53l8pw9a41uizr.mov">
+              <img src="/images/contribute/roadmap/2016_01_29_docker-elastic-agent-showcase.png" class="small-image"></img>
+            </a>
+            <figcaption>Fig 2: Elastic agents - Docker - Showcase - Work in progress - You have been warned!</figcaption>
+          </figure>
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">More releases</span>
+      <div class="content">
+        <p>
+          The roadmap for 2016 mentioned more releases this year: On 18th Jan, 2016, GoCD 16.1.0 was released. Next
+          supported release is scheduled for mid February. Installer testing across platforms is continuing. The <a
+          href="https://github.com/gocd/installer-testing/pull/1">pull request</a> mentioned earlier was merged. It's
+          still early days though and more work needs to go in to enable all platforms to have installer tests.
+        </p>
+
+        <p>
+          There is an idea to include everyone in the community to come up with parameters for the new performance
+          tests. Currently, the performance tests are more soak tests, and don't really feel like they're simulating
+          anything real. The idea is to give everyone in the community a say in defining what they think the setup of
+          the functional tests should look like. The focus will be on response times (to begin with) and how it is
+          improving or degrading. Watch out for more on this soon!
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">More content around CD and GoCD</span>
+      <div class="content">
+        <p>
+          There were a couple of blog posts posted last week. One is called <a
+          href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html">It’s not Continuous Delivery if you can’t
+          deploy right now</a>. It talks about different kinds of pipelines you should be having as a part of your CD
+          pipeline, but probably don't. The other is called <a
+          href="https://www.go.cd/2016/01/25/are-you-ready-for-continuous-delivery.html">Are you ready for Continuous
+          Delivery?</a>. It suggests taking small steps towards CD before blindly choosing a CD tool (even GoCD!) and
+          hoping that it will improve effectiveness. Take a look, if you haven't.
+        </p>
+
+        <p>
+          Upcoming content: Both the blog posts mentioned above are first part of a mini-series. So, there will be more
+          parts to them. There is some "Getting Started with GoCD" content which is being worked on too.
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">Other notable work (subset of changes)</span>
+      <div class="content">
+        <p>
+          There is a bit of a backlog of pull requests which needs to be handled next week (such a nice problem to
+          have!). Some interesting pull requests from this week are:
+        </p>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1842">#1842</a>
+          - By <a href="https://github.com/xli">@xli</a>
+          - Make pipeline errors more visible on the dashboard. This one was overdue.
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1825">#1825</a>
+          - By <a href="https://github.com/tomzo">@tomzo</a>
+          - Config repository extension point! This is getting closer. Need a bit more of a push to review and merge.
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1846">#1846</a>
+          - By <a href="https://github.com/wpc">@wpc</a>
+          - Shallow cloning for git material. Many users will be very happy when this is merged.
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="note_title">Note</span>: If you're doing some work outside of the gocd GitHub organization and would
+      like it to be mentioned here (maybe you'll get some help!), please let me know, by sending a mail to
+      <a href="mailto:arvind@thoughtworks.com">me</a> or finding me (username: arvindsv) on
+      <a href="https://gitter.im/gocd/gocd">the Gitter developer channel</a> or on the
+      <a href="https://groups.google.com/forum/#!forum/go-cd">mailing list</a>.
+    </div>
+  </div>
+</div>
+
 <h3>Previous weeks:</h3>
 
 <div class="work_update old">
@@ -138,14 +291,6 @@ done, at the level of a week and will attempt to keep it as updated and approach
         </div>
 
       </div>
-    </div>
-
-    <div class="note">
-      <span class="note_title">Note</span>: If you're doing some work outside of the gocd GitHub organization and would
-      like it to be mentioned here (maybe you'll get some help!), please let me know, by sending a mail to
-      <a href="mailto:arvind@thoughtworks.com">me</a> or finding me (username: arvindsv) on
-      <a href="https://gitter.im/gocd/gocd">the Gitter developer channel</a> or on the
-      <a href="https://groups.google.com/forum/#!forum/go-cd">mailing list</a>.
     </div>
   </div>
 </div>

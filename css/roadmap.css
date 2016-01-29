@@ -44,6 +44,10 @@ figure img.small-image {
   width: auto;
 }
 
+figure figcaption {
+  margin-top: 8px;
+}
+
 .note {
   padding-top: 30px;
 }
