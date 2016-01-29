@@ -1,0 +1,167 @@
+.help-title {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 30px 0;
+	background: #333;
+	background: url('/images/help-banner.jpg') no-repeat 0 0;
+}
+
+.help-title h1 {
+	margin: 0;
+	text-transform: uppercase;
+	font-weight: 700;
+	text-align: center;
+	color: #fff;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.row {
+	position: relative;
+	padding: 50px 50px 50px 200px;
+
+}
+
+.row h2 {
+	text-transform: uppercase;
+	font-size: 36px;
+	color: #4A4A4A;
+	margin-top: 0;
+}
+
+.numbering {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.numbering:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 180px 180px 0 0;
+	border-color: #86569A transparent transparent transparent;
+}
+
+.numbering span {
+	font-size: 76px;
+	color: #fff;
+	position: relative;
+	display: inline-block;
+	z-index: 1;
+	margin-left: 25px;
+}
+
+
+
+.cta {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  margin: 30px 0;
+  padding: 0;
+}
+.cta a {
+  width: 330px;
+  height: 200px;
+  padding: 20px;
+  margin-right: 40px;
+  border: 2px solid #333;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #333;
+  text-decoration: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+.cta a:hover {
+  color: #fff;
+  background: #444;
+  text-decoration: none;
+}
+.cta h3 {
+  font-weight: 300;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+
+
+.support{
+	background:#eeeeee;
+	  float: left;
+  width: 100%;
+}
+
+.support .left, .support .right {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.support .left {
+  margin-right: 30px;
+}
+
+.points {
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.btn-cta {
+  clear: both;
+  display: block;
+  border: 1px solid #ccc;
+  background: #fff;
+  width: 200px;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  margin: 30px auto 0px 220px;
+}
+
+.signup{
+	clear:both;
+	border:1px solid #ccc;
+	padding:30px;
+	display:none;
+	position: relative;
+}
+.signup .close {
+    position: absolute;
+    right: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    top: 20px;
+}
+.signup h3 , .signup p{
+	text-align: center;
+}
+.signup h3{
+	margin: 0 0 10px 0;
+}
+
+.row.community{
+	clear:both;
+	border:0;
+}
