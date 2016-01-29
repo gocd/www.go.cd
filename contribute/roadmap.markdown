@@ -21,7 +21,9 @@ the issues under those milestones there.
 Since that is not always easy for everyone to follow (without context), I'll make an attempt to distill the work being
 done, at the level of a week and will attempt to keep it as updated and approachable as possible:
 
-<div class="work_update">
+<h3>Previous weeks:</h3>
+
+<div class="work_update old">
   <div class="heading">
     <span class="title">Week of Jan 22, 2016</span>
   </div>
@@ -147,8 +149,6 @@ done, at the level of a week and will attempt to keep it as updated and approach
     </div>
   </div>
 </div>
-
-<h3>Previous weeks:</h3>
 
 <div class="work_update old">
   <div class="heading">
