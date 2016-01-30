@@ -82,14 +82,16 @@ done, at the level of a week and will attempt to keep it as updated and approach
           you're really curious, you can see the code of the plugin (work-in-progress) <a
           href="https://github.com/ketan/docker-elastic-agents/">here</a> and the extension point code <a
           href="https://github.com/ketan/gocd/tree/elastic-agent-extension-point">here</a>. Click on the image below to
-          download an early-days, work-in-progress, you-have-been-warned kind of showcase video (70MB). Enjoy!
+          download an early-days, work-in-progress, you-have-been-warned kind of showcase video. Enjoy!
         </p>
 
         <p>
           <figure>
-            <a href="https://thoughtworks.box.com/shared/static/oingqgjhlcvugyg8iq53l8pw9a41uizr.mov">
-              <img src="/images/contribute/roadmap/2016_01_29_docker-elastic-agent-showcase.png" class="small-image"></img>
-            </a>
+            <video src="https://thoughtworks.box.com/shared/static/oingqgjhlcvugyg8iq53l8pw9a41uizr.mov"
+                   controls width="100%" poster="/images/contribute/roadmap/2016_01_29_docker-elastic-agent-showcase.png">
+              Your browser does not support the <code>video</code> element. You can download the video from
+              <a href="https://thoughtworks.box.com/shared/static/oingqgjhlcvugyg8iq53l8pw9a41uizr.mov">here</a>.
+            </video>
             <figcaption>Fig 2: Elastic agents - Docker - Showcase - Work in progress - You have been warned!</figcaption>
           </figure>
         </p>
