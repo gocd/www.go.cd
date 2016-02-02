@@ -1,12 +1,43 @@
-.plugins-community{
-	background:#f5f5f5;
-	padding:40px 0;
-figure{
-	margin-top: 20px;
-}
+.plugins-community {
+	background: #f5f5f5;
+	padding: 40px 0;
+
+	figure {
+		margin-top: 20px;
+	}
 
 }
 
-.plugins-cont{
+.plugins-cont {
 	margin-bottom: 30px;
+}
+
+.support {
+	padding: 40px 0;
+}
+
+.go-support {
+	padding: 30px;
+	color: #fff;
+	background: $green;
+	overflow: hidden;
+	width:100%;
+	margin:0 auto;
+		@media (min-width:$screen-desktop) {
+	width:90%;
+
+		}
+	p{
+		font-weight:400;
+		font-size:18px;
+		margin-bottom: 0;
+	}
+	a{
+		@media (min-width:$screen-tablet) {
+		margin-top: 16px;
+		}
+		@media (min-width:$screen-desktop) {
+		margin-top: 4px;
+		}
+	}
 }
