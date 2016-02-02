@@ -17,12 +17,12 @@
 }
 
 .go-support {
-	padding: 30px;
 	color: #fff;
 	background: $green;
 	overflow: hidden;
 	width:100%;
 	margin:0 auto;
+	padding: 20px;
 		@media (min-width:$screen-desktop) {
 	width:90%;
 
@@ -33,6 +33,8 @@
 		margin-bottom: 0;
 	}
 	a{
+		margin-top: 20px;
+
 		@media (min-width:$screen-tablet) {
 		margin-top: 16px;
 		}
