@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+@import "bootstrap.min.css";
+
+@import "scss/variables";
+@import "scss/mixins";
+@import "scss/flexbox";
+
+
+//components
+@import "scss/tabs";
+
+
+
+@import "scss/general";
+@import "scss/navigation";
+@import "scss/header";
+@import "scss/homepage";
+@import "scss/innerpages";
+@import "scss/plugins";
+

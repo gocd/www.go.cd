@@ -1,0 +1,80 @@
+- name: Email Notifier
+  description: A plugin to send email notifications.
+  readmore_url: https://github.com/gocd-contrib/email-notifier
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhy
+  releases_url: https://github.com/gocd-contrib/email-notifier/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=email-notifier&type=watch&count=true
+  first_available_date: 05/2014
+
+- name: Slack Build Notifier
+  description: Plugin to get build notifications on Slack.
+  readmore_url: https://github.com/ashwanthkumar/gocd-slack-build-notifier
+  author_url: https://github.com/ashwanthkumar
+  author_name: Ashwanth Kumar
+  releases_url: https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-slack-build-notifier&type=watch&count=true
+  first_available_date: 02/2015
+
+- name: WebSockets Build Notifier
+  description: Plugin to publish stage status change notifications via WebSockets.
+  readmore_url: https://github.com/matt-richardson/gocd-websocket-notifier
+  author_url: https://github.com/matt-richardson
+  author_name: Matt Richardson
+  releases_url: https://github.com/matt-richardson/gocd-websocket-notifier/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=matt-richardson&repo=gocd-websocket-notifier&type=watch&count=true
+  first_available_date: 02/2015
+
+- name: GitHub Pull Request Status Notifier
+  description: A plugin to update GitHub Pull Requests with build status.
+  readmore_url: https://github.com/gocd-contrib/gocd-build-status-notifier
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhya
+  releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-build-status-notifier&type=watch&count=true
+  first_available_date: 03/2015
+
+- name: Stash Pull Request Status Notifier
+  description: A plugin to update Stash Pull Requests with build status.
+  readmore_url: https://github.com/gocd-contrib/gocd-build-status-notifier
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhya
+  releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-build-status-notifier&type=watch&count=true
+  first_available_date: 03/2015
+
+- name: Gerrit Change Set Status Notifier
+  description: A plugin to update Gerrit Change Sets with build status.
+  readmore_url: https://github.com/gocd-contrib/gocd-build-status-notifier
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhya
+  releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-build-status-notifier&type=watch&count=true
+  first_available_date: 03/2015
+
+- name: HipChat Notification
+  description: Plugin that sends HipChat notifications on build status
+  readmore_url: https://github.com/PagerDuty/gocd-hipchat-plugin
+  author_url: http://www.pagerduty.com
+  author_name: PagerDuty
+  releases_url: https://github.com/PagerDuty/gocd-hipchat-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=PagerDuty&repo=gocd-hipchat-plugin&type=watch&count=true
+  first_available_date: 12/2014
+
+- name: Gitter Notification
+  description: Plugin that sends Gitter notifications on build status
+  readmore_url: https://github.com/gocd-contrib/gitter-notifier
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhya
+  releases_url: https://github.com/gocd-contrib/gitter-notifier/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gitter-notifier&type=watch&count=true
+  first_available_date: 04/2015
+
+- name: Riemann Notification
+  description: Plugin that sends Riemann notifications on build status
+  readmore_url: https://github.com/rsr5/gocd-riemann-notifier
+  author_url: https://github.com/rsr5
+  author_name: Robin Ridler
+  releases_url: https://github.com/rsr5/gocd-riemann-notifier/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=rsr5&repo=gocd-riemann-notifier&type=watch&count=true
+  first_available_date: 06/2015

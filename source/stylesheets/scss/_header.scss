@@ -1,0 +1,226 @@
+//header
+header.top {
+	background: $header-bg;
+	@include clearfix;
+	position: fixed;
+	z-index: $header-top;
+	width: 100%;
+	top: 0;
+	transition: all 0.5s ease;
+
+	&.scroll-on {
+		background: rgba(134, 86, 154, 0.95);
+		transition: all 0.5s ease;
+		-webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.48);
+		-moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.48);
+		box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.48);
+	}
+	&:hover {
+		background: $header-bg;
+		transition: all 0.5s ease;
+	}
+}
+.logo {
+	margin: 10px 0;
+	float: left;
+}
+//banner
+.banner {
+	background-image: url("../images/go-banner-phone.jpg");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	// background-size: cover;
+	height: 250px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+
+	@media (min-width:$screen-tablet) {
+		height: 500px;
+		background-image: url('../images/go-banner-tablet.jpg');
+		background-size: initial;
+	}
+	@media (min-width:1025px) {
+		background-image: url('../images/go-banner-desktop.jpg');
+		height: 700px;
+	}
+	.caption {
+		span {
+			margin: 0 50px;
+			color: #fff;
+			font-size: 25px;
+			text-transform: uppercase;
+			font-weight: 700;
+			background: #000;
+			display: inline-block;
+			padding: 5px 10px;
+
+			@media (min-width:$screen-tablet) {
+				font-size: 50px;
+				margin: 0 10px;
+			}
+			@media (min-width:$screen-desktop) {
+				font-size: 50px;
+				margin: 0 10px;
+			}
+		}
+	}
+	.subcaption {
+		color: #fff;
+		font-size: 18px;
+		font-weight: 400;
+		display: inline-block;
+
+		@media (min-width:$screen-tablet) {
+			font-size: 30px;
+		}
+	}
+}
+.btn-download {
+	color: #fff;
+	@include button-bg($primary-color);
+	width: 150px;
+	margin: 20px auto 0;
+	padding: 10px;
+	font-size: 18px;
+
+	&:hover, &:active, &:focus, &:visited {
+		color: #fff;
+	}
+	@media (min-width:$screen-tablet) {
+		width: 200px;
+		font-size: 25px;
+	}
+}
+.btn-readmore {
+	border: 1px solid #ccc;
+	padding: 5px 15px;
+	border-radius: 3px;
+}
+.get-support {
+	position: absolute;
+	right: 0;
+	padding: 10PX 20PX;
+	bottom: 0;
+
+	&:after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-bottom: 300px solid #5FBD92;
+		border-left: 300px solid transparent;
+		bottom: 0;
+		right: 0;
+	}
+	a {
+		font-size: 30px;
+		color: #FFF;
+		position: relative;
+		z-index: 1;
+		width: 155px;
+		display: block;
+		font-weight: 700;
+		text-transform: uppercase;
+		line-height: 30px;
+		text-align: right;
+	}
+}
+//go features
+.go-features {
+	margin-bottom: 50px;
+
+	.btn {
+		margin-bottom: 30px;
+	}
+	.readmore {
+		background: #86569a;
+		color: #fff;
+	}
+}
+.bigtxt {
+	font-size: 20px;
+	width: 100%;
+	margin: 0 auto 30px auto;
+	text-align: center;
+	background: #f5f5f5;
+	color: #333333;
+	padding: 20px 10%;
+	color: $heading;
+
+	@media (min-width:$screen-tablet) {
+		margin: 0 auto 30px auto;
+		padding: 30px 5%;
+		font-size: 25px;
+		max-width: 100%;
+	}
+	@media (min-width:$screen-lg-desktop) {
+		margin: 0 auto 30px auto;
+		padding: 50px 15%;
+		font-size: 35px;
+		max-width: 90%;
+		background: transparent;
+	}
+}
+.main-features {
+	figure {
+		margin-bottom: 30px;
+
+		@media (min-width:$screen-tablet) {
+			float:left;
+		}
+
+		@media (min-width:$screen-desktop) {
+			margin-bottom: 50px;
+		}
+		img {
+			max-width: 80%;
+		}
+	}
+	h3 {
+		font-size: 18px;
+		margin: 20px 0;
+		@media (min-width:$screen-tablet) {
+			text-align: left;
+		}
+	}
+	.features {
+		text-align: center;
+		.feature-box{
+			@media (min-width:$screen-tablet) and (max-width:$screen-md-min) {
+				border-bottom: 1px dashed $border;
+				width:100%;
+				float:left;
+			}
+		}
+		p {
+			border-bottom: 1px dashed $border;
+			padding-bottom: 20px;
+			@media (min-width:$screen-tablet) {
+				text-align:left;
+				border:0;
+			}
+		}
+	}
+	.see-all-features {
+		width: 260px;
+		padding: 10px 20px;
+		border: 1px solid #ccc;
+		margin: 30px auto 50px;
+		display: block;
+		background: $primary-color;
+		color: #fff;
+	}
+}

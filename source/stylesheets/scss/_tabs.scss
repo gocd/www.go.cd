@@ -1,0 +1,145 @@
+//customise here
+$border-color: #ccc;
+$tab-hover-bg: #e5e5e5;
+$tab-head-color: #999;
+$accorion-header-bg: #fff;
+$accorion-header-bg-active: #e5e5e5;
+
+ul.tabs {
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style: none;
+  
+  
+  width: 100%;
+    @media (min-width:$screen-tablet) {
+  width: 180px;
+  border:1px solid $border;
+  border-right:0;
+  border-bottom:0;
+    }
+
+  li {
+    
+    margin: 0;
+    cursor: pointer;
+    padding: 10px 20px;
+  
+    color: $tab-head-color;
+    overflow: hidden;
+    position: relative;
+    font-size: 16px;
+    border-bottom: 1px solid $border;
+    
+    
+
+
+    strong {
+      display: block;
+      font-weight: 400;
+    }
+
+    &:hover {
+      background-color: $tab-hover-bg;
+      color: #000;
+    }
+
+    &.active {
+     
+      background-color: #fff;
+      color: #333;
+      border-right: 1px solid #fff;
+      display: block;
+      width:180px;
+    }
+
+  }
+
+}
+
+.tab_container {
+  border-top: 0px;
+  clear: both;
+  float: left;
+  width: 100%;
+    @media (min-width:$screen-tablet) {
+      width: 540px;
+      clear:none;
+      border:1px solid $border;
+
+    }
+    @media (min-width:$screen-desktop) {
+      width: 760px;
+    }
+    @media (min-width:$screen-lg-desktop) {
+      width: 960px;
+    }
+
+    
+}
+
+
+
+//accordion styles
+
+.tab-accordion_heading {
+  display: none;
+}
+
+//mediaquery for screens smaller than ipad
+@media screen and (max-width:$screen-xs-max) {
+  .tabs {
+    display: none;
+  }
+
+  .tab-accordion_heading {
+    background-color: $accorion-header-bg;
+    border: 1px solid $border-color;
+    border-top: 0;
+    margin: 0;
+    padding: 10px 20px;
+    display: block;
+    cursor: pointer;
+    font-weight: normal;
+    color: #666;
+    font-size: 16px;
+
+    @media (min-width:$screen-tablet) {
+    font-size: 20px;
+    }
+  }
+
+  .tab_container{
+    .tab-accordion_heading {
+      &:first-child{
+        border-top: 1px solid $border;
+      }
+    }
+  }
+
+  .d_active {
+    background-color: $gray-dark;
+    color: #fff;
+    border-color:#333;
+
+    .plugin-info {
+      // background: #fff;
+      // margin-top: 10px;
+      // color: #333;
+    }
+
+  }
+
+
+
+}
+
+.tab_content {
+
+   @media (max-width:$screen-xs-max) {
+ border:1px solid $border;
+   }
+}
+
+ 

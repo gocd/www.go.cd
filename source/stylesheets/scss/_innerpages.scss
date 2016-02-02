@@ -1,0 +1,103 @@
+// variables
+
+$inner-banner-bg: #333;
+$grey-bg: #e5e5e5;
+$border :#cccccc;
+
+.inner-banner {
+	background: $inner-banner-bg;
+	color: #fff;
+	padding: 0 0 20px 0;
+
+	h1 {
+		font-size: 40px;
+		color: #fff;
+	}
+}
+.page-headings {
+	border-bottom: 1px solid $border;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+}
+
+
+//download
+
+.warning {
+	padding: 10px;
+	margin: 10px 0 0 0;
+	background: rgba(235, 33, 33, 0.15);
+	position: relative;
+	@extend %flexbox;
+	@include justify-content(flex-start);
+	@include align-items(center);
+
+	.fa {
+		font-size: 20px;
+		margin: 0 10px;
+		color: rgba(255, 0, 0, 0.62);
+	}
+}
+.event-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		@include clearfix;
+		@extend %flexbox;
+		@include justify-content(flex-start);
+		margin-bottom: 20px;
+		padding:10px 0;
+		border-bottom: 1px dashed $border;
+
+		.title {
+			font-size: 18px;
+			display: block;
+		}
+		.time {
+			display: block;
+			color: $gray-light;
+		}
+	}
+}
+.details {
+}
+.datebox {
+	background: $gray-lighter;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-right: 20px;
+	text-align: center;
+
+	.month {
+		display: block;
+		font-size: 16px;
+	}
+	.date {
+		display: block;
+		font-size: 25px;
+		font-weight: 700;
+	}
+}
+
+//features
+
+.go-features{
+	.row{
+		padding:50px 0;
+	}
+figure{
+text-align: center;
+	img{
+		width:120px;
+	}
+}
+.features__title{
+	// text-align: center;
+	margin-bottom: 20px;
+}
+.row{
+	// margin-bottom: 50px;
+}
+}
