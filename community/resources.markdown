@@ -9,7 +9,7 @@ meta_tag_keywords: open source document, community resources, document repositor
 
 ### User Documentation
 
-- <a href=http://www.go.cd/documentation/user/current/>Welcome to Go</a> - Information on how to set up, use and administer Go can be found here
+- <a href="http://www.go.cd/documentation/user/current/">Welcome to Go</a> - Information on how to set up, use and administer Go can be found here
 
 ### Developer Documentation
 
