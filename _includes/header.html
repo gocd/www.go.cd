@@ -15,7 +15,7 @@
         <a target="_blank" class="icon-lifebuoy" href="https://www.thoughtworks.com/go/">Need Professional Support?</a>
       </div>
 
-      {% for link in site.navigation %}
+      {% for link in site.data.navigation %}
         {% assign url = page.url|remove:'index.html' %}
         {% assign hasFirst = link.first-level != undefined %}
         <li {% if hasFirst %} class="nested" {% endif%} {% if url == link.url %} class="current"{% endif %}>
