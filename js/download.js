@@ -15,7 +15,7 @@ $(function() {
         }
     });
 
-    init();
+    $(document).ready(init);
 
     function init() {
         fetchArtifacts(function(artifactList) {
@@ -25,12 +25,49 @@ $(function() {
             renderInstallersByOS(artifactList, "linuxRpm", 'linuxRpm-revisions', 'gocd-rpm');
             renderInstallersByOS(artifactList, "package", 'package-revisions', 'gocd');
             renderInstallersByOS(artifactList, "win", 'windows-revisions', 'gocd');
-            $('#show-checksum').click();
+            setupJourneyTracker(artifactList);
         });
     }
 
     function hideLoader() {
         $('#download-loader').remove();
+    }
+
+    function GTMID(artifact, file) {
+        var splitArtifactType = file.type.split("-");
+        return splitArtifactType[0].charAt(0).toUpperCase() + splitArtifactType[0].slice(1) + '-' + splitArtifactType[1].charAt(0).toUpperCase() + splitArtifactType[1].slice(1) + "_" + artifact.version;
+    }
+
+    function downloadType(file) {
+        if (file.name.indexOf("server") > 0) {
+            return  "Server";
+        } else if (file.name.indexOf("agent") > 0) {
+            return  "Agent";
+        }
+    }
+
+
+    function setupJourneyTracker(artifactList) {
+        if(typeof jtr === "undefined") { return; }
+        _.each(artifactList, function(artifact) {
+            _.each(artifact.files, function(file) {
+                var type = downloadType(file);
+                if(!type) { return; }
+                var linkSelector = '#' + GTMID(artifact, file).replace(/\./g, "\\.");
+                $(linkSelector).click(function() {
+                    try {
+                        jtr.track(type + " download", {
+                            download_release_type: artifact.release_type,
+                            download_version: artifact.version,
+                            download_file_type: file.type,
+                            download_file_name: file.name
+                        });
+                    } catch (e) {
+                        //ignore
+                    }
+                });
+            });
+        });
     }
 
     function fetchArtifacts(callbackFn) {
@@ -40,7 +77,6 @@ $(function() {
             callbackFn(supported.concat(unsupported));
             hideLoader();
         });
-
     }
 
     function renderInstallersByOS(artifactList, os, revisionHolder, subDirectory) {
@@ -76,33 +112,24 @@ $(function() {
             revisionsString += "<div class='links'>";
 
             _.each(filesWhichMatch, function(file, index, list) {
-                var fileName = file.name;
-                var splitArtifactType = file.type.split("-");
-                var GTMID = splitArtifactType[0].charAt(0).toUpperCase() + splitArtifactType[0].slice(1) + '-' + splitArtifactType[1].charAt(0).toUpperCase() + splitArtifactType[1].slice(1) + "_" + artifact.version;
-
-                if (file.name.indexOf("server") > 0) {
-                    revisionsString += "<span><a id=" + GTMID + " class='icon-download' href=" + masterURL + subDirectory + '/' + fileName + ">Server</a></span> + ";
-
-                } else if (file.name.indexOf("agent") > 0) {
-                    revisionsString += "<span><a id=" + GTMID + " class='icon-download' href=" + masterURL + subDirectory + '/' + fileName + ">Agent</a></span>";
+                var type = downloadType(file);
+                if (!type) { return; }
+                revisionsString += '<span><a id="' + GTMID(artifact, file) + '" class="icon-download" href="' + masterURL + subDirectory + '/' + file.name + '">' + type + '</a></span>';
+                if (type === "Server") {
+                    revisionsString += " + ";
                 }
             });
             revisionsString += "</div>";
 
             revisionsString += '<div>'
             _.each(filesWhichMatch, function(file, index, list) {
-                if (file.name.indexOf("server") > 0) {
-                    revisionsString += '<div class="sha1">';
-                    revisionsString += "<div> <b>Server MD5</b> " + file.md5sum + " </div>";
-                    revisionsString += "<div> <b>Server SHA1</b> " + file.sha1sum + "</div>";
-                    revisionsString += '</div>';
+                var type = downloadType(file);
+                if (!type) { return; }
+                revisionsString += '<div class="sha1">';
+                revisionsString += "<div> <b>" + type + " MD5</b> " + file.md5sum + " </div>";
+                revisionsString += "<div> <b>" + type + " SHA1</b> " + file.sha1sum + "</div>";
+                revisionsString += '</div>';
 
-                } else if (file.name.indexOf("agent") > 0) {
-                    revisionsString += '<div class="md5">';
-                    revisionsString += "<div> <b>Agent MD5</b> " + file.md5sum + " </div>";
-                    revisionsString += "<div> <b>Agent SHA1</b> " + file.sha1sum + " </div>";
-                    revisionsString += '</div>';
-                }
             });
             revisionsString += '</div>';
 

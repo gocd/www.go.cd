@@ -819,7 +819,6 @@ body.blog {
 }
 
 .download-list .sha1, .download-list .md5{
-    display: none;
     margin-top: 10px;
     font-size: 0.7em;
 }
