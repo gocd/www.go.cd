@@ -22,6 +22,10 @@ body.getting_started figure.screenshot figcaption {
   font-size: small;
 }
 
+body.getting_started div.concept figure.screenshot figcaption {
+  margin-top: -3vw;
+}
+
 body.getting_started div.concept {
   background-color: rgba(69, 126, 199, 0.21);
   padding: 0px 20px 10px 20px;

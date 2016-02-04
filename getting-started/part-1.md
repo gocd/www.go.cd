@@ -287,7 +287,7 @@ This is just the tip of the iceberg in terms of GoCD's features and capabilities
 you will learn more about some more of GoCD's core features, such as fan-in, fan-out, artifact promotion, pipeline
 dependencies, value stream maps and more.
 
-[TODO: Link to Part 2] You can start that journey in [Part 2]() of this guide, where you can learn about pipeline dependencies and artifacts.
+Let's start, in [Part 2](/getting-started/part-2.html) of this guide, where you can learn about pipeline dependencies and artifacts.
 
 #### Notes:
 
