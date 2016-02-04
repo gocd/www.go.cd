@@ -27,6 +27,9 @@ h2 {
     font-size: 40px;
     margin:50px 0 30px
 }
+h2.small_margins {
+    margin: 30px 0 10px;
+}
 h3 {
     font-size: 30px;
     font-weight: normal;
@@ -967,4 +970,20 @@ img.has_border {
     margin-bottom: 30px;
     padding-bottom: 10px;
     text-align: left;
+}
+
+span.nobreak {
+    white-space: nowrap;
+}
+
+dl {
+    margin: 0 0 20px 0;
+}
+
+dl dt {
+    font-weight: bold;
+}
+
+dl dd {
+    margin-left: 1.5em;
 }

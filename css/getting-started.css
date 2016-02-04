@@ -1,0 +1,29 @@
+body.getting_started figure.screenshot img {
+  width: 100%;
+}
+
+body.getting_started figure.concept img {
+  width: 70%;
+  margin: 20px auto;
+  display: block;
+}
+
+body.getting_started figure figcaption {
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-size: small;
+}
+
+body.getting_started figure.screenshot figcaption {
+  text-align: center;
+  margin-top: -4vw;
+  margin-bottom: 20px;
+  font-size: small;
+}
+
+body.getting_started div.concept {
+  background-color: rgba(69, 126, 199, 0.21);
+  padding: 0px 20px 10px 20px;
+  margin-bottom: 20px;
+}
