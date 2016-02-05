@@ -90,14 +90,21 @@ $border :#cccccc;
 figure{
 text-align: center;
 	img{
-		width:120px;
+		
 	}
 }
 .features__title{
-	// text-align: center;
+	font-weight: 300;
+	font-size:30px;
 	margin-bottom: 20px;
 }
 .row{
 	// margin-bottom: 50px;
+}
+hr{
+border-top:1px dashed #ccc;
+    position: relative;
+    top:48px;
+    clear:both;
 }
 }
