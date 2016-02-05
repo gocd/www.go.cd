@@ -56,7 +56,7 @@ $(function() {
                 var linkSelector = '#' + GTMID(artifact, file).replace(/\./g, "\\.");
                 $(linkSelector).click(function() {
                     try {
-                        jtr.track(type + " download", {
+                        jtr.track(type.toLowerCase() + " download", {
                             download_release_type: artifact.release_type,
                             download_version: artifact.version,
                             download_file_type: file.type,
