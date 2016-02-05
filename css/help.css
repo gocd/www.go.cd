@@ -1,60 +1,57 @@
 .help-title {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	padding: 30px 0;
-	background: #333;
-	background: url('/images/help-banner.jpg') no-repeat 0 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 30px 0;
+  background: #4a4a4a;
+  background: url(https://www.go.cd/images/help-banner.jpg) no-repeat 0 0;
 }
-
 .help-title h1 {
-	margin: 0;
-	text-transform: uppercase;
-	font-weight: 700;
-	text-align: center;
-	color: #fff;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 2px black;
 }
 
-.row {
-	position: relative;
-	padding: 50px 50px 50px 200px;
-
+.help-row {
+  position: relative;
+  padding: 30px 50px 30px 200px;
 }
-
-.row h2 {
-	text-transform: uppercase;
-	font-size: 36px;
-	color: #4A4A4A;
-	margin-top: 0;
+.help-row h2 {
+  text-transform: uppercase;
+  font-size: 34px;
+  color: #4a4a4a;
+  margin: 0 0 10px 0;
+}
+.help-row.gocd-community {
+  clear: both;
+  border: 0;
 }
 
 .numbering {
-	position: absolute;
-	left: 0;
-	top: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
-
 .numbering:before {
-	content: "";
-	position: absolute;
-	left: 0;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 180px 180px 0 0;
-	border-color: #86569A transparent transparent transparent;
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 180px 180px 0 0;
+  border-color: #86569a transparent transparent transparent;
 }
-
 .numbering span {
-	font-size: 76px;
-	color: #fff;
-	position: relative;
-	display: inline-block;
-	z-index: 1;
-	margin-left: 25px;
+  font-size: 76px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  margin-left: 25px;
 }
-
-
 
 .cta {
   display: -webkit-box;
@@ -62,15 +59,15 @@
   display: -ms-flexbox;
   display: flex;
   list-style-type: none;
-  margin: 30px 0;
+  margin: 30px 0 0px;
   padding: 0;
 }
 .cta a {
   width: 330px;
-  height: 200px;
+  height: 230px;
   padding: 20px;
   margin-right: 40px;
-  border: 2px solid #333;
+  border: 2px solid #4a4a4a;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -80,45 +77,78 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  color: #333;
+  color: #4a4a4a;
   text-decoration: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background: #fff;
+}
+.cta a p {
+  margin: 0;
+  font-weight: 300;
+  font-size: 14px;
+}
+.cta a h3 {
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  margin: 0;
 }
 .cta a:hover {
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   color: #fff;
-  background: #444;
   text-decoration: none;
+  background: #6c6b6c;
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #6c6b6c), color-stop(80%, #1b1b1b));
+  background: -webkit-linear-gradient(top, #6c6b6c 0%, #1b1b1b 80%);
+  background: linear-gradient(to bottom, #6c6b6c 0%, #1b1b1b 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c6b6c', endColorstr='#1b1b1b', GradientType=0 );
 }
-.cta h3 {
-  font-weight: 300;
+.cta a.padded {
+  padding: 40px 20px;
+}
+
+.graphics .fa {
   font-size: 22px;
-  text-transform: uppercase;
-  margin-bottom: 0px;
+}
+.padded .graphics .fa {
+  font-size: 40px;
 }
 
-
-.support{
-	background:#eeeeee;
-	  float: left;
+.support {
+  background: #d8d8d8;
+  float: left;
   width: 100%;
 }
-
-.support .left, .support .right {
-  float: left;
-  margin: 0;
-  padding: 0;
+.support ul {
+  list-style-type: circle;
+  font-weight: 300;
+}
+.support a {
+  color: #86569a;
+}
+.support a:hover, .support a:visited {
+  color: #86569a;
 }
 .support .left {
-  margin-right: 30px;
+  float: left;
+  padding-right: 30px;
+  width: 50%;
+}
+.support .right {
+  width: 50%;
+  float: left;
 }
 
 .points {
@@ -127,41 +157,117 @@
   margin-bottom: 30px;
 }
 
+.actions {
+  clear: both;
+  text-align: center;
+  margin: 20px 0 0;
+  float: left;
+  width: 100%;
+}
+.actions a {
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
 .btn-cta {
   clear: both;
   display: block;
-  border: 1px solid #ccc;
+  border: 2px solid #4a4a4a;
   background: #fff;
-  width: 200px;
-  color: #333;
+  width: 240px;
+  height: 54px;
+  line-height: 54px;
+  color: #4a4a4a;
   text-align: center;
   text-decoration: none;
-  padding: 10px;
-  margin: 30px auto 0px 220px;
+  margin: 0px auto 10px;
+  font-weight: 300;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
-.signup{
-	clear:both;
-	border:1px solid #ccc;
-	padding:30px;
-	display:none;
-	position: relative;
+.signup {
+  clear: both;
+  border: 1px solid #ccc;
+  padding: 30px;
+  display: none;
+  position: relative;
 }
 .signup .close {
-    position: absolute;
-    right: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    top: 20px;
+  position: absolute;
+  right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  top: 20px;
 }
-.signup h3 , .signup p{
-	text-align: center;
+.signup h3 {
+  text-align: center;
+  margin: 0 0 10px 0;
 }
-.signup h3{
-	margin: 0 0 10px 0;
+.signup p {
+  text-align: center;
 }
 
-.row.community{
-	clear:both;
-	border:0;
+.sub-title {
+  text-align: center;
+}
+
+.go {
+  text-transform: none;
+}
+
+.subsection {
+  clear: both;
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.subsection h3 {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #4a4a4a;
+  font-weight: 300;
+}
+.subsection p {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.desc {
+  font-size: 15px;
+  font-weight: 300;
+  text-align: left;
+}
+
+.foo-links {
+  margin-top: 30px;
+}
+.foo-links h5 {
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.foo-links .footer-links a {
+  text-decoration: underline;
+  font-size: 14px;
+}
+.foo-links .footer-links a {
+  color: #86569a;
+}
+.foo-links .footer-links a:hover, .foo-links .footer-links a:visited {
+  color: #86569a;
+}
+.foo-links .footer-links ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
