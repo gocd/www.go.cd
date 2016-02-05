@@ -9,9 +9,9 @@ $(function() {
         var input = $(evt.target);
 
         if (input.is(':checked')) {
-            $('.sha1, .md5').show();
+            $('.checksums').show();
         } else {
-            $('.sha1, .md5').hide();
+            $('.checksums').hide();
         }
     });
 
@@ -125,7 +125,7 @@ $(function() {
             _.each(filesWhichMatch, function(file, index, list) {
                 var type = downloadType(file);
                 if (!type) { return; }
-                revisionsString += '<div class="sha1">';
+                revisionsString += '<div class="checksums">';
                 revisionsString += "<div> <b>" + type + " MD5</b> " + file.md5sum + " </div>";
                 revisionsString += "<div> <b>" + type + " SHA1</b> " + file.sha1sum + "</div>";
                 revisionsString += '</div>';

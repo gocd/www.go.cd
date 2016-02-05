@@ -818,7 +818,7 @@ body.blog {
     border-bottom: 1px solid #efefef;
 }
 
-.download-list .sha1, .download-list .md5{
+.download-list .checksums{
     margin-top: 10px;
     font-size: 0.7em;
 }
