@@ -72,11 +72,29 @@ meta_tag_keywords: continuous deployment software, continuous integration tools,
     <span class="close">X</span>
     <h3>Sign up now</h3>
     <p>Fill out the form below for a free 30 day trial of <span class="go">Go</span>CD</p>
-    <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
-    <form id="mktoForm_2357"></form>
-    <script>
-     MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 2357);
-    </script>
+
+    <div id="support_form">
+      <div class="form">
+        <input type="text" name="support_user_name" id="support_user_name" placeholder="Name">
+        <br>
+
+        <input type="text" name="support_email_address" id="support_email_address" placeholder="Email address">
+        <br>
+
+        <input type="textarea" name="support_query" id="support_query" placeholder="What can we help you with?">
+        <br>
+
+        <button id="support_form_submit">Submit</button>
+      </div>
+    </div>
+
+    <div class="hide-by-default" id="support_form_submit_success">
+      Success! Someone will contact you soon.
+    </div>
+
+    <div class="hide-by-default" id="support_form_submit_failure">
+      Oops. Something went wrong. :( Please send an email to support@thoughtworks.com
+    </div>
   </div>
 
   <div class="help-row gocd-community">

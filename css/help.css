@@ -271,3 +271,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
+.hide-by-default {
+    display: none;
+}
