@@ -15,7 +15,6 @@ jQuery(document).ready(function() {
     });
 
     ///side-panel
-
     var doc = document.documentElement,
         body = document.body;
 
@@ -32,21 +31,3 @@ jQuery(document).ready(function() {
     }
 
 });
-
-
-// help landing page
-
-jQuery(document).ready(function($) {
-    
-$(".signupnow").click(function(event) {
-    $(".signup").slideDown();
-    $(this).hide();
-});
-
-$(".signup .close").click(function(event) {
-    $(".signup").hide();
-    $(".signupnow").show();
-});
-
-
-    })
