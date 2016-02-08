@@ -5,25 +5,50 @@
   background: #4a4a4a;
   background: url(https://www.go.cd/images/help-banner.jpg) no-repeat 0 0;
 }
+
 .help-title h1 {
   margin: 0;
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
   color: #fff;
+  font-size: 30px;
   text-shadow: 1px 1px 2px black;
+}
+
+@media only screen and (min-width:715px) {
+  .help-title h1 {
+    font-size: 45px;
+  }
+
 }
 
 .help-row {
   position: relative;
-  padding: 30px 50px 30px 200px;
+  padding: 20px 0px 20px 0px;
 }
+
+@media only screen and (min-width:715px) {
+  .help-row {
+    padding: 30px 50px 30px 200px;
+  }
+
+}
+
 .help-row h2 {
   text-transform: uppercase;
-  font-size: 34px;
+  font-size: 20px;
   color: #4a4a4a;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px 40px;
+  text-align: left;
 }
+  @media only screen and (min-width:715px) {
+    .help-row h2 {
+    font-size: 34px;
+    margin: 0 0 10px 0px;
+    }
+  }
+
 .help-row.gocd-community {
   clear: both;
   border: 0;
@@ -34,6 +59,7 @@
   left: 0;
   top: 0;
 }
+
 .numbering:before {
   content: "";
   position: absolute;
@@ -41,32 +67,58 @@
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 180px 180px 0 0;
+  border-width: 60px 60px 0 0;
   border-color: #86569a transparent transparent transparent;
 }
+  @media only screen and (min-width:715px) {
+    .numbering:before {
+
+    border-width: 180px 180px 0 0;
+    }
+  }
+
 .numbering span {
-  font-size: 76px;
+  font-size: 20px;
   color: #fff;
   position: relative;
   display: inline-block;
   z-index: 1;
-  margin-left: 25px;
+  margin-left: 12px;
+  margin-top: 4px;
+
 }
+  @media only screen and (min-width:715px) {
+    .numbering span {
+    font-size: 76px;
+    margin-left: 25px;
+
+    }
+  }
 
 .cta {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   list-style-type: none;
   margin: 30px 0 0px;
   padding: 0;
 }
+@media only screen and (min-width:715px) {
+  .cta{
+      -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  }
+}
+
 .cta a {
   width: 330px;
   height: 230px;
   padding: 20px;
-  margin-right: 40px;
   border: 2px solid #4a4a4a;
   display: -webkit-box;
   display: -webkit-flex;
@@ -74,36 +126,53 @@
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   text-align: center;
   color: #4a4a4a;
   text-decoration: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   cursor: pointer;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   background: #fff;
+  margin-bottom: 30px;
+
 }
+  @media only screen and (min-width:715px) {
+    .cta a {
+    margin-right: 40px;
+    margin-bottom: 0;
+      
+    }
+  }
+
 .cta a p {
   margin: 0;
   font-weight: 300;
   font-size: 14px;
 }
+
 .cta a h3 {
-  font-size: 24px;
+  font-size: 18px;
   line-height: 28px;
   text-transform: uppercase;
   margin: 0;
+
+  @media only screen and (min-width:715px) {
+    font-size: 24px;
+  }
+
 }
+
 .cta a:hover {
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
@@ -113,8 +182,9 @@
   background: -webkit-gradient(left top, left bottom, color-stop(0%, #6c6b6c), color-stop(80%, #1b1b1b));
   background: -webkit-linear-gradient(top, #6c6b6c 0%, #1b1b1b 80%);
   background: linear-gradient(to bottom, #6c6b6c 0%, #1b1b1b 80%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c6b6c', endColorstr='#1b1b1b', GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c6b6c', endColorstr='#1b1b1b', GradientType=0);
 }
+
 .cta a.padded {
   padding: 40px 20px;
 }
@@ -122,6 +192,7 @@
 .graphics .fa {
   font-size: 22px;
 }
+
 .padded .graphics .fa {
   font-size: 40px;
 }
@@ -130,25 +201,44 @@
   background: #d8d8d8;
   float: left;
   width: 100%;
+  padding: 20px;
 }
+  @media only screen and (min-width:715px) {
+.support {
+    padding: 30px 30px 30px 200px;
+  }
+
+}
+
 .support ul {
   list-style-type: circle;
   font-weight: 300;
 }
+
 .support a {
   color: #86569a;
 }
-.support a:hover, .support a:visited {
+
+.support a:hover,
+.support a:visited {
   color: #86569a;
 }
+
+  @media only screen and (min-width:715px) {
 .support .left {
-  float: left;
-  padding-right: 30px;
-  width: 50%;
+    padding-right: 30px;
+    float: left;
+    width: 50%;
+  }
+
 }
+
+  @media only screen and (min-width:715px) {
 .support .right {
-  width: 50%;
-  float: left;
+    width: 50%;
+    float: left;
+  }
+
 }
 
 .points {
@@ -164,9 +254,16 @@
   float: left;
   width: 100%;
 }
+
 .actions a {
   text-transform: uppercase;
   text-decoration: underline;
+  font-size: 12px;
+
+  @media only screen and (min-width:715px) {
+    font-size: 15px;
+  }
+
 }
 
 .btn-cta {
@@ -174,7 +271,7 @@
   display: block;
   border: 2px solid #4a4a4a;
   background: #fff;
-  width: 240px;
+  width: 215px;
   height: 54px;
   line-height: 54px;
   color: #4a4a4a;
@@ -184,7 +281,14 @@
   font-weight: 300;
   font-size: 18px;
   text-transform: uppercase;
+
 }
+  @media only screen and (min-width:715px) {
+    .btn-cta {
+    width: 240px;
+  }
+  }
+
 
 .signup {
   clear: both;
@@ -192,7 +296,9 @@
   padding: 30px;
   display: none;
   position: relative;
+  text-align: center;
 }
+
 .signup .close {
   position: absolute;
   right: 20px;
@@ -200,10 +306,18 @@
   cursor: pointer;
   top: 20px;
 }
+
 .signup h3 {
   text-align: center;
   margin: 0 0 10px 0;
+  font-size:22px;
 }
+  @media only screen and (min-width:715px) {
+ .signup h3 {
+ 
+  font-size:30px;
+}
+  }
 .signup p {
   text-align: center;
 }
@@ -222,13 +336,20 @@
   width: 100%;
   text-align: center;
 }
+
 .subsection h3 {
-  font-size: 20px;
+  font-size: 15px;
   text-transform: uppercase;
-  margin: 0;
+  margin: 0 0 10px 0;
   color: #4a4a4a;
   font-weight: 300;
+
+  @media only screen and (min-width:715px) {
+    font-size: 20px;
+  }
+
 }
+
 .subsection p {
   font-size: 15px;
   font-weight: 300;
@@ -243,21 +364,28 @@
 .foo-links {
   margin-top: 30px;
 }
+
 .foo-links h5 {
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
 }
+
 .foo-links .footer-links a {
   text-decoration: underline;
   font-size: 14px;
 }
+
 .foo-links .footer-links a {
   color: #86569a;
+  margin-right:20px;
 }
-.foo-links .footer-links a:hover, .foo-links .footer-links a:visited {
+
+.foo-links .footer-links a:hover,
+.foo-links .footer-links a:visited {
   color: #86569a;
 }
+
 .foo-links .footer-links ul {
   display: -webkit-box;
   display: -webkit-flex;
@@ -268,10 +396,81 @@
   list-style-type: none;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  @media only screen and (min-width:715px) {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+
 }
 
+.foo-links .footer-links ul li {
+  /*width: 100%;*/
+}
+  @media only screen and (min-width:715px) {
+  
+  }
+
+ .signup #support_form input[type="text"]{
+      border: 1px solid #4a4a4a;
+    height: 30px;
+    width: 200px;
+    margin-bottom: 10px;
+    padding:5px 10px;
+
+ } 
+   @media only screen and (min-width:715px) {
+   .signup #support_form input[type="text"]{
+    width: 250px;
+    margin-bottom: 15px;
+    }
+  }
+
+  .signup #support_form textarea{
+      border: 1px solid #4a4a4a;
+    height: 70px;
+    width: 200px;
+    margin-bottom: 20px;
+    padding:5px 10px;
+
+ } 
+   @media only screen and (min-width:715px) {
+    .signup #support_form textarea{
+    width: 250px;
+    margin-bottom: 30px;
+    
+
+ }
+  }
+
+.signup #support_form button {
+  
+    display: block;
+    border: 2px solid #4a4a4a;
+    background: #fff;
+    width: 180px;
+    height: 40px;
+    line-height: 38px;
+    color: #4a4a4a;
+    text-align: center;
+    text-decoration: none;
+    margin: 30px auto 10px;
+    font-weight: 300;
+    font-size: 18px;
+    text-transform: uppercase;
+
+}
+  @media only screen and (min-width:715px) {
+    .signup #support_form button  {
+    width: 240px;
+  }
+  }
 .hide-by-default {
-    display: none;
+  display: none;
 }
