@@ -1,13 +1,39 @@
 // help landing page
 jQuery(document).ready(function($) {
-    $(".signupnow").click(function(event) {
+    var showForm = function() {
+        $("#signup_header").show();
+        $("#support_form").show();
+
+        $(".signupnow").hide();
+        $("#support_form_submit_success").hide();
+        $("#support_form_submit_failure").hide();
+
         $(".signup").slideDown();
-        $(this).hide();
+    };
+
+    var hideForm = function() {
+        $(".signup").hide();
+        $(".signupnow").show();
+    };
+
+    var showSuccessMessage = function() {
+        $("#signup_header").hide();
+        $("#support_form").hide();
+        $("#support_form_submit_success").show();
+    };
+
+    var showFailureMessage = function() {
+        $("#signup_header").hide();
+        $("#support_form").hide();
+        $("#support_form_submit_failure").show();
+    };
+
+    $(".signupnow").click(function(event) {
+        showForm();
     });
 
     $(".signup .close").click(function(event) {
-        $(".signup").hide();
-        $(".signupnow").show();
+        hideForm();
     });
 
     $("#support_form_submit").click(function() {
@@ -29,11 +55,9 @@ jQuery(document).ready(function($) {
                 description: query
             })
         }).done(function() {
-            $("#support_form").hide();
-            $("#support_form_submit_success").show();
+            showSuccessMessage();
         }).error(function() {
-            $("#support_form").hide();
-            $("#support_form_submit_failure").show();
+            showFailureMessage();
         });
     });
 })
