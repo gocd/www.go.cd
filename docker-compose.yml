@@ -1,0 +1,6 @@
+site:
+  build: .
+  volumes:
+    - .:/site
+  ports:
+    - "4000:4000"
