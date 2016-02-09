@@ -97,3 +97,51 @@ The other objection I hear the most is that people simply lack the automation ar
 ###What are the other big ones? 
 
 I'm very interested in hearing other types of pipelines that you find useful. 
+
+<style type="text/css">
+.float-image {
+  max-width: 25%;
+}
+
+.float-image img {
+  max-width: 100%;
+}
+
+.float-image img.pad-right {
+  padding-right: 10px;
+}
+
+.float-image img.pad-left {
+  padding-left: 10px;
+}
+
+.float-article {
+  max-width: 75%;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+@media (max-width: 699px) {
+  .float-left, .float-right {
+    float: none;
+  }
+
+  .float-image {
+    max-width: 100%;
+  }
+
+  .float-article {
+    max-width: 100%;
+  }
+}
+</style>

@@ -7,16 +7,17 @@ author: Ken Mugrage
 excerpt: <p>Releasing with confidence means including things like security tests in your deployment pipeline</p>
 ---
 
+
 <div>
-  <div class="float-image medium-image float-right">
+  <div class="float-image float-right">
     <img src="/images/blog/deploy-now/security-badge.png" class="pad-left">
   </div>
 
-  <div class="float-article medium-image float-left">
-    <p>This is the second part of a series called <a href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html">It’s not Continuous Delivery</a>  if you can’t deploy right now. In this part, I’m going to cover some more common tools in security testing pipelines.</p>
-    <p>In my experience, automated security testing is pretty rare in CD pipelines. If the job of a pipeline is to make you confident in your release, confidence in your security is a must have. While it’s not practical to try to list them all, I’ll give a few examples of tools used for this automation. You can find more <a href="https://www.owasp.org/index.php/Appendix_A:_Testing_Tools">here</a>.</p>
+  <div class="float-article float-left">
+<p>This is the second part of a series called <a href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html">It’s not Continuous Delivery</a>  if you can’t deploy right now. In this part, I’m going to cover some more common tools in security testing pipelines.</p>
+<p>In my experience, automated security testing is pretty rare in CD pipelines. If the job of a pipeline is to make you confident in your release, confidence in your security is a must have. While it’s not practical to try to list them all, I’ll give a few examples of tools used for this automation. You can find more <a href="https://www.owasp.org/index.php/Appendix_A:_Testing_Tools">here</a>.</p>
 
-    <p>Tests created by your team and run by tools like the ones in this article should be a key part of any deployment pipeline.</p>
+<p>Tests created by your team and run by tools like the ones in this article should be a key part of any deployment pipeline.</p>
 
   </div>
   <div class="clear"/>
@@ -88,3 +89,55 @@ By starting. Pick an area, automate it. Pick another area, automate it. It will 
 ##What are some others?
 
 What are some other tools you like? Add them to the comments.
+
+
+
+
+
+<style type="text/css">
+.float-image {
+  max-width: 40%;
+}
+
+.float-image img {
+  max-width: 100%;
+}
+
+.float-image img.pad-right {
+  padding-right: 10px;
+}
+
+.float-image img.pad-left {
+  padding-left: 10px;
+}
+
+.float-article {
+  max-width: 60%;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+@media (max-width: 699px) {
+  .float-left, .float-right {
+    float: none;
+  }
+
+  .float-image {
+    max-width: 100%;
+  }
+
+  .float-article {
+    max-width: 100%;
+  }
+}
+</style>
