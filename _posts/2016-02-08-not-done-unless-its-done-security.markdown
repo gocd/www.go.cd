@@ -74,7 +74,7 @@ When people ask this question, they are usually trying to decide if security pip
 
 If your continuous delivery server supports [fan-in / fan-out](https://www.go.cd/documentation/user/current/introduction/concepts_in_go.html#fan_in_out), you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we’ve decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won’t get deployed to our staging environment unless they both pass.
 
-<img src="/images/blog/deploy-now/security-pipeline.png">
+<img src="/images/blog/deploy-now/continuous_delivery_security_testing_pipeline.png">
 
 ##Reminder: tools don’t solve problems
 
