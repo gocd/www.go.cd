@@ -10,7 +10,7 @@ excerpt: <p>Releasing with confidence means including things like security tests
 
 <div>
   <div class="float-image float-right">
-    <img src="/images/blog/deploy-now/security-badge.png" class="pad-left">
+    <img src="/images/blog/deploy-now/security-badge.png" alt="Continuous Delivery Security Testing" class="pad-left">
   </div>
 
   <div class="float-article float-left">
