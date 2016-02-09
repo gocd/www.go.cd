@@ -1,33 +1,42 @@
-body.getting_started figure.screenshot img {
-  width: 100%;
+body.getting-started .page-content figure.screenshot img {
+  max-width: 100%;
 }
 
-body.getting_started figure.concept img {
-  width: 70%;
+body.getting-started .page-content figure.concept img {
+  max-width: 70%;
   margin: 20px auto;
   display: block;
 }
 
-body.getting_started figure figcaption {
+body.getting-started .page-content figure figcaption {
   text-align: center;
   margin-top: -10px;
   margin-bottom: 20px;
   font-size: small;
 }
 
-body.getting_started figure.screenshot figcaption {
+body.getting-started .page-content figure.screenshot figcaption {
   text-align: center;
   margin-top: -4vw;
   margin-bottom: 20px;
   font-size: small;
 }
 
-body.getting_started div.concept figure.screenshot figcaption {
+body.getting-started .page-content div.concept figure.screenshot figcaption {
   margin-top: -3vw;
 }
 
-body.getting_started div.concept {
+body.getting-started div.concept {
   background-color: rgba(69, 126, 199, 0.21);
   padding: 0px 20px 10px 20px;
   margin-bottom: 20px;
+}
+
+body.getting-started .page-content ol, body.getting-started .page-content ul {
+  margin: -5px 0 20px 0;
+  padding-left: 3em;
+}
+
+body.getting-started .page-content ol li, body.getting-started .page-content ul li {
+  margin-bottom: 10px;
 }

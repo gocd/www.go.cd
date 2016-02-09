@@ -4,7 +4,7 @@ title:  Getting Started with <span class="notransform">GoCD</span> - Part 2
 title_tag: Getting Started | GoCD
 meta_tag_description: New to GoCD? Start here.
 meta_tag_keywords: getting started, documentation, gocd, continuous delivery, go
-page_name: getting_started page_2
+page_name: getting-started page-2
 extra_headers: "<link rel='stylesheet' href='/css/getting-started.css'>"
 ---
 
