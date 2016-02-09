@@ -88,10 +88,8 @@ That's it! You'll now have a pipeline which will run when un-pause. Un-pause it 
   </figure>
 
 That doesn't look very different. But, this allows for some powerful features such as fan-in, fan-out and the Value
-Stream Map (VSM), which we will learn about in Part 3. Click on the label of the "MyFirstPipeline" (the part highlighted
+Stream Map (VSM), which we will learn about in [Part 3](/getting-started/part-3.html). Click on the label of the "MyFirstPipeline" (the part highlighted
 in the image above) for a sneak peek at a small Value Stream Map.
-
-  <p>[TODO: Link to Part 3 above]</p>
 
 <figure class="screenshot">
     <img src="/images/getting-started/part-2/image07.png">
@@ -296,11 +294,6 @@ That's it! If you now go to the pipeline, and navigate to the job "defaultJob", 
 
 This can be used to integrate with coverage tools, unit test reports and anything else which creates an artifact. 
 
-In this part of the guide, you learnt about pipeline dependencies, artifacts and custom tabs. [TODO: Link to Part 3] In
-[Part 3]() of this guide, we dive deeper into the Value Stream Map and into the powerful fan-in and fan-out concepts.
-
-<script>
-  jQuery(document).ready(function($) {
-    $("p:contains('TODO')").each(function() { this.innerHTML = this.innerHTML.replace(new RegExp("TODO"), '<span style="background-color: red">TODO</span>'); })
-  });
-</script>
+In this part of the guide, you learnt about pipeline dependencies, artifacts and custom tabs. In
+[Part 3](/getting-started/part-3.html) of this guide, we dive deeper into the Value Stream Map and into the powerful
+fan-in and fan-out concepts.
