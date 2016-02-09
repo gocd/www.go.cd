@@ -14,7 +14,7 @@ excerpt: <p>Releasing with confidence means including things like security tests
   </div>
 
   <div class="float-article float-left">
-<p>This is the second part of a series called <a href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html">It’s not Continuous Delivery</a>  if you can’t deploy right now. In this part, I’m going to cover some more common tools in security testing pipelines.</p>
+<p>This is the second part of a series called <a href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html">It’s not Continuous Delivery if you can’t deploy right now.</a> In this part, I’m going to cover some more common tools in security testing pipelines.</p>
 <p>In my experience, automated security testing is pretty rare in CD pipelines. If the job of a pipeline is to make you confident in your release, confidence in your security is a must have. While it’s not practical to try to list them all, I’ll give a few examples of tools used for this automation. You can find more <a href="https://www.owasp.org/index.php/Appendix_A:_Testing_Tools">here</a>.</p>
 
 <p>Tests created by your team and run by tools like the ones in this article should be a key part of any deployment pipeline.</p>
@@ -74,7 +74,7 @@ When people ask this question, they are usually trying to decide if security pip
 
 If your continuous delivery server supports [fan-in / fan-out](https://www.go.cd/documentation/user/current/introduction/concepts_in_go.html#fan_in_out), you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we’ve decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won’t get deployed to our staging environment unless they both pass.
 
-<img src="/images/blog/deploy-now/continuous_delivery_security_testing_pipeline.png">
+<img src="/images/blog/deploy-now/continuous_delivery_security_testing_pipeline.png" alt="continuous delivery security testing pipeline"> 
 
 ##Reminder: tools don’t solve problems
 
