@@ -541,12 +541,12 @@
   display: none;
 }
 
-.need_help .header .social-icons {
-  margin-top: 0px;
+.need_help .header .social-icons, .need_help .header .navigation {
+  margin-top: 20px;
 }
 
 .need_help .header .title .logo {
-  margin-top: 0px;
+  margin-top: 6px;
 }
 
 .need_help .page-title {
