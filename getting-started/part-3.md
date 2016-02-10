@@ -21,7 +21,7 @@ Let us continue, in this part, by learning about the Value Stream Map (VSM) and 
 <h2 class="small_margins">Value Stream Map (VSM)</h2>
 
 <div class="concept">
-  <h3>Concept 8: Value Stream Map (VSM)</h3>
+  <h3>Concept 9: Value Stream Map (VSM)</h3>
 
   <p>
     The Value Stream Map is the full end-to-end (from commits to production) view across pipelines, and maps to the
@@ -131,7 +131,7 @@ VSM visualizes.
 Let's start with the basic concepts and then use an example to understand this further.
 
 <div class="concept">
-  <h3>Concept 9: Fan-Out and Fan-In</h3>
+  <h3>Concept 10: Fan-Out and Fan-In</h3>
 
   <h4>Fan-Out</h4>
 
