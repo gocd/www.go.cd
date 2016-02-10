@@ -1,6 +1,6 @@
 <div class="container-12">
   <div class="grid-3 logo">
-    <h1 class="title"><a href="/"> <img class="logo" src="/images/logo-go-home_2014.png" alt="Go Open Source - Continuous Delivery"> </a></h1>
+    <h1 class="title"><a href="/" analytics-label="logo"> <img class="logo" src="/images/logo-go-home_2014.png" alt="Go Open Source - Continuous Delivery"> </a></h1>
     <ul class="social-icons social-icons-responsive">
       {% include social-icons.html %}
     </ul>
@@ -12,7 +12,7 @@
 
     <ul class="navigation">
       <div class="support-header">
-        <a target="_blank" class="icon-lifebuoy" href="https://www.thoughtworks.com/go/">Need Professional Support?</a>
+        <a target="_blank" class="icon-lifebuoy" href="https://www.thoughtworks.com/go/" analytics-label="professional-support">Need Professional Support?</a>
       </div>
 
       {% for link in site.data.navigation %}
@@ -28,18 +28,18 @@
                     <ul class="second-level">
                       {% for secondlevel in firstlevel.second-level %}
                       <li>
-                        <a href="{{ secondlevel.url }}">{{ secondlevel.text }}</a>
+                        <a href="{{ secondlevel.url }}" analytics-label="{{ link.root }}>{{ firstlevel.text }}>{{ secondlevel.text }}" role="menuitem">{{ secondlevel.text }}</a>
                       </li>
                       {% endfor %}
                     </ul>
                   {% endif %}
-                  <a {% if firstlevel.target != undefined %} target="{{firstlevel.target}}" {% endif %} href="{{ firstlevel.url }}">{{ firstlevel.text }}{% if hasSecond %} <i class='icon-right-dir-2'></i>{% endif %}</a>
+                  <a {% if firstlevel.target != undefined %} target="{{firstlevel.target}}" {% endif %} href="{{ firstlevel.url }}" analytics-label="{{ link.root }}>{{ firstlevel.text }}" role="menuitem">{{ firstlevel.text }}{% if hasSecond %} <i class='icon-right-dir-2'></i>{% endif %}</a>
                 </li>
               {% endfor %}
             </ul>
-          <label class="{{link.icon}}">{{link.root}}{% if hasFirst %} <i class='icon-down-dir-2'></i>{% endif %}</label>
+          <label class="{{link.icon}}" analytics-label="{{ link.root }}" role="menuitem">{{link.root}}{% if hasFirst %} <i class='icon-down-dir-2'></i>{% endif %}</label>
         {% else %}
-            <a href="{{link.url}}" {% if link.target != undefined %} target="{{link.target}}" {% endif %} class="{{link.icon}}">{{link.root}}</a>
+            <a href="{{link.url}}" {% if link.target != undefined %} target="{{link.target}}" {% endif %} class="{{link.icon}}" analytics-label="{{link.root}}" role="menuitem">{{link.root}}</a>
         {% endif %}
         </li>
       {% endfor %}
