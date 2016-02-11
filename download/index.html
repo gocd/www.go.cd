@@ -17,7 +17,7 @@ meta_tag_keywords: continuous deployment software, continuous integration tools,
 
 <p>
   Scripting GoCD installations gets easier now. Both GoCD server and agent are now available on public
-  <a href="https://dl.go.cd/">YUM</a> and <a href="https://dl.go.cd/">APT</a> repositories!
+  <a href="https://download.go.cd/">YUM</a> and <a href="https://download.go.cd/">APT</a> repositories!
 </p>
 
 <p>
@@ -28,10 +28,10 @@ meta_tag_keywords: continuous deployment software, continuous integration tools,
 echo "
 [gocd]
 name     = GoCD YUM Repository
-baseurl  = https://dl.go.cd
+baseurl  = https://download.go.cd
 enabled  = 1
 gpgcheck = 1
-gpgkey   = https://dl.go.cd/GOCD-GPG-KEY.asc
+gpgkey   = https://download.go.cd/GOCD-GPG-KEY.asc
 " | sudo tee /etc/yum.repos.d/gocd.repo
 </pre>
 </p>
@@ -41,8 +41,8 @@ gpgkey   = https://dl.go.cd/GOCD-GPG-KEY.asc
     <strong>Instructions on using the APT repository</strong>
   </a>
 <pre id='apt-instructions' style='padding: 10px; background: #eee; border-radius: 5px; display: none'>
-echo "deb https://dl.go.cd /" | sudo tee /etc/apt/sources.list.d/gocd.list
-curl https://dl.go.cd/GOCD-GPG-KEY.asc | sudo apt-key add -
+echo "deb https://download.go.cd /" | sudo tee /etc/apt/sources.list.d/gocd.list
+curl https://download.go.cd/GOCD-GPG-KEY.asc | sudo apt-key add -
 sudo apt-get update
 </pre>
 </p>
