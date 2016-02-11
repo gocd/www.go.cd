@@ -8,12 +8,50 @@ meta_tag_keywords: continuous deployment software, continuous integration tools,
 ---
 
 
-<p> <b>You need to download both the <a href="http://www.go.cd/documentation/user/current/installation/installing_go_server.html">server</a> and the <a href="http://www.go.cd/documentation/user/current/installation/installing_go_agent.html">agent</a> in order to use Go.</b>
+<p>
+  <b>You need to download both the
+    <a href="http://www.go.cd/documentation/user/current/installation/installing_go_server.html">server</a>
+    and the <a href="http://www.go.cd/documentation/user/current/installation/installing_go_agent.html">agent</a>
+    in order to use GoCD.</b>
 </p>
 
-<p>Scripting Go installations gets easier now. Both Go server and agent are now available on public <a href="http://dl.bintray.com/gocd/gocd-rpm/">YUM</a> and <a href="http://dl.bintray.com/gocd/gocd-deb/">APT</a> repositories!</p>
+<p>
+  Scripting GoCD installations gets easier now. Both GoCD server and agent are now available on public
+  <a href="https://dl.go.cd/">YUM</a> and <a href="https://dl.go.cd/">APT</a> repositories!
+</p>
 
-<p>If you need help downloading, installing or using Go please join the <a href="https://groups.google.com/forum/#!forum/go-cd">Go Users Google Group</a>. ThoughtWorks also provides commercial help for Go. They can be reached at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+<p>
+  <a href='#' onclick="$('#yum-instructions').toggle(); return false;">
+    <strong>Instructions on using the YUM repository</strong>
+  </a>
+<pre id='yum-instructions' style='padding: 10px; background: #eee; border-radius: 5px; display: none'>
+echo "
+[gocd]
+name     = GoCD YUM Repository
+baseurl  = https://dl.go.cd
+enabled  = 1
+gpgcheck = 1
+gpgkey   = https://dl.go.cd/GOCD-GPG-KEY.asc
+" | sudo tee /etc/yum.repos.d/gocd.repo
+</pre>
+</p>
+
+<p>
+  <a href='#' onclick="$('#apt-instructions').toggle(); return false;">
+    <strong>Instructions on using the APT repository</strong>
+  </a>
+<pre id='apt-instructions' style='padding: 10px; background: #eee; border-radius: 5px; display: none'>
+echo "deb https://dl.go.cd /" | sudo tee /etc/apt/sources.list.d/gocd.list
+curl https://dl.go.cd/GOCD-GPG-KEY.asc | sudo apt-key add -
+sudo apt-get update
+</pre>
+</p>
+
+<p>
+  If you need help downloading, installing or using Go please join
+  the <a href="https://groups.google.com/forum/#!forum/go-cd">Go Users Google Group</a>. ThoughtWorks also provides
+  commercial help for Go. They can be reached at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.
+</p>
 
 <p class="highlight">New! <a href="/subscribe.html">Subscribe to updates</a> on new Go CD releases and more.</p>
 
