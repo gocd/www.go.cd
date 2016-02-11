@@ -33,7 +33,7 @@ Let us continue, in this part, by learning about the Value Stream Map (VSM) and 
     <img src="/images/getting-started/part-3/image01.png">
     <figcaption>
       The idea is that, as you go closer to production, the confidence of the build's production readiness
-      increases. (&copy; Humble, Farley)
+      increases. (Image &copy; Humble, Farley)
     </figcaption>
   </figure>
 
@@ -41,7 +41,7 @@ Let us continue, in this part, by learning about the Value Stream Map (VSM) and 
     <img src="/images/getting-started/part-3/image02.png">
     <figcaption>
       This depicts the interactions between source code repositories, artifact repositories and different
-      stages of the Deployment Pipeline. (&copy; Humble, Farley)
+      stages of the Deployment Pipeline. (Image &copy; Humble, Farley)
     </figcaption>
   </figure>
 
