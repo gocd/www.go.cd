@@ -18,7 +18,7 @@
 
 @media only screen and (min-width: 715px) {
   .help-title h1 {
-    font-size: 45px;
+    font-size: 70px;
   }
 }
 .help-row {
@@ -400,6 +400,9 @@
   margin: 0 0 10px 0;
   color: #4a4a4a;
   font-weight: 300;
+}
+.subsection h3.more-emphasis {
+    font-weight: 400;
 }
 @media only screen and (min-width: 715px) {
   .subsection h3 {
