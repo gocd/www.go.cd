@@ -75,17 +75,24 @@ $(function() {
   }
 
   function fetchArtifacts(callbackFn) {
-    var originalRender = function(ArtifactList) {
-      var supported = _.chain(ArtifactList).where({
+    var originalRender = function(releases) {
+
+      var supported = _.chain(releases).where({
         release_type: "supported"
-      }).reject(function(artifact) {
-        return artifact.hidden == true;
-      }).value();
-      var unsupported = _.chain(ArtifactList).reject({
+      }).reject(function(release) {
+        return release.hidden == true;
+      }).sortBy(function(release){
+        return release.version;
+      }).reverse().value();
+
+      var unsupported = _.chain(releases).reject({
         release_type: "supported"
-      }).reject(function(artifact) {
-        return artifact.hidden == true;
-      }).value().reverse();
+      }).reject(function(release) {
+        return release.hidden == true;
+      }).sortBy(function(release){
+        return release.version;
+      }).reverse().value();
+
       callbackFn(supported.concat(unsupported));
       hideLoader();
     };
@@ -95,11 +102,6 @@ $(function() {
 
       var render = _.after(2, function() {
         releases = _.compact(releases);
-
-        releases = _.chain(releases).sortBy(function(release) {
-          return (release.release_type + "_" + release.version);
-        }).reverse().value();
-
 
         originalRender(releases);
       });
