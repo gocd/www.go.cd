@@ -1,6 +1,6 @@
 $(function() {
-  var oldDownloadServer = "https://download.go.cd";
-  var newDownloadServer = "https://dl.go.cd";
+  var oldDownloadServer = "https://old-download.go.cd";
+  var newDownloadServer = "https://download.go.cd";
 
   if ($('#show-checksum').length === 0) {
     return;
