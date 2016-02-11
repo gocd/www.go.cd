@@ -1,5 +1,6 @@
 $(function() {
-  var masterURL = "https://download.go.cd/";
+  var oldDownloadServer = "https://download.go.cd";
+  var newDownloadServer = "https://dl.go.cd";
 
   if ($('#show-checksum').length === 0) {
     return;
@@ -97,7 +98,7 @@ $(function() {
       hideLoader();
     };
 
-    if (document.location.search === '?new') {
+    if (document.location.search !== '?old') {
       var releases = [];
 
       var render = _.after(2, function() {
@@ -108,7 +109,7 @@ $(function() {
 
 
       var extract_files = function(release, release_type, src_name, dest_prefix) {
-        var baseurl = 'https://dl.go.cd';
+        var baseurl = newDownloadServer;
         if (release_type == 'experimental') {
           baseurl += '/experimental';
         }
@@ -156,11 +157,11 @@ $(function() {
         };
       };
 
-      $.getJSON('https://dl.go.cd/releases.json', xhrDone('supported'));
-      $.getJSON('https://dl.go.cd/experimental/releases.json', xhrDone('experimental'));
+      $.getJSON(newDownloadServer + '/releases.json', xhrDone('supported'));
+      $.getJSON(newDownloadServer + '/experimental/releases.json', xhrDone('experimental'));
 
     } else {
-      $.getJSON(masterURL + "local/releases.json", function(releases) {
+      $.getJSON(oldDownloadServer + "/local/releases.json", function(releases) {
         releases = _.map(releases, function(release) {
           release.files = _.map(release.files, function(file) {
             if (release.release_type == 'supported') {
@@ -171,9 +172,9 @@ $(function() {
               if (file.name.match(/\.rpm$/)) {
                 basedir = 'gocd-rpm';
               }
-              file.url = 'https://download.go.cd/' + basedir + '/' + file.name;
+              file.url = oldDownloadServer + '/' + basedir + '/' + file.name;
             } else {
-              file.url = 'https://download.go.cd/local/' + release.version + '/' + file.name;
+              file.url = oldDownloadServer + '/local/' + release.version + '/' + file.name;
             }
 
             return file;
