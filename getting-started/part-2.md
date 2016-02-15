@@ -8,13 +8,26 @@ page_name: getting-started page-2
 extra_headers: "<link rel='stylesheet' href='/css/getting-started.css'>"
 ---
 
+##### Table of contents:
+
+- [Using a pipeline as a material](#pipeline_as_material)
+  - [Concept 5: Pipeline Dependency Material](#concept_pipeline_dependency_material)
+- [Publishing, fetching and using artifacts](#using_artifacts)
+   - [Concept 6: Artifact](#concept_artifact)
+   - [Fetching and using artifacts](#fetching_using_artifacts)
+   - [Concept 7: Ancestor artifacts and building artifacts only once](#concept_ancestor_artifacts)
+- [Custom tabs](#custom_tabs)
+   - [Concept 8: Custom tab](#concept_custom_tab)
+- [Previous part of guide (different page): Part 1](/getting-started/part-1.html)
+- [Next part of guide (different page): Part 3](/getting-started/part-3.html)
+
 In <a href="/getting-started/part-1.html">Part 1</a> of this guide, the concepts of GoCD Server, GoCD Agents,
 pipelines, materials, stages, jobs and tasks were introduced. You were also able to get a simple pipeline with a single
 stage, job and task each working.
 
 Let us continue, in this part, by learning about pipelines as materials, about artifacts and about custom tabs.
 
-<h2 class="small_margins">Using a pipeline as a material</h2>
+<h2 class="small_margins"><a name="pipeline_as_material"></a>Using a pipeline as a material</h2>
 
 Instead of using a source code repository on GitHub as a material, it is possible to use a stage of any pipeline as a
 material for another pipeline. This seemingly simple feature provides a lot of power. This allows pipelines to be
@@ -22,7 +35,7 @@ chained together, allowing very complex workflows to be modeled well and is a ba
 GoCD, such as Value Stream Map (VSM) and fan-in/fan-out.
 
 <div class="concept">
-  <h3>Concept 5: Pipeline Dependency Material</h3>
+  <h3><a name="concept_pipeline_dependency_material"></a>Concept 5: Pipeline Dependency Material</h3>
 
   <figure class="concept">
     <img src="/images/getting-started/part-2/image01.png">
@@ -98,12 +111,12 @@ in the image above) for a sneak peek at a small Value Stream Map.
 
 You now know how to chain pipelines together. Let's now learn about artifacts, which are very useful when used with pipeline dependencies.
 
-<h2 class="small_margins">Publishing, fetching and using artifacts</h2>
+<h2 class="small_margins"><a name="using_artifacts"></a>Publishing, fetching and using artifacts</h2>
 
 A very important aspect of GoCD is the way it handles artifacts.
 
 <div class="concept">
-  <h3>Concept 6: Artifact</h3>
+  <h3><a name="concept_artifact"></a>Concept 6: Artifact</h3>
 
   <p>
     An artifact in GoCD is a file or directory which is most often produced during the run of a pipeline. Every job in a
@@ -165,7 +178,7 @@ Clicking on it will show you its contents:
   <figcaption>The contents of the artifact - It is stored on the GoCD Server</figcaption>
 </figure>
 
-<h4>Fetching and using artifacts</h4>
+<h4><a name="fetching_using_artifacts"></a>Fetching and using artifacts</h4>
 
 We can now use this artifact in any downstream pipeline, or any subsequent stage of the same pipeline. Let's fetch this
 artifact in the pipeline "MySecondPipeline" and display it as a part of the output. To do this, we go to the task
@@ -218,7 +231,7 @@ used. When you now check the output of the pipeline, you should see something li
 <br>
 
 <div class="concept">
-  <h3>Concept 7: Ancestor artifacts and building artifacts only once</h3>
+  <h3><a name="concept_ancestor_artifacts"></a>Concept 7: Ancestor artifacts and building artifacts only once</h3>
 
   <p>
     In GoCD, you can even fetch artifacts from pipelines which are not immediately downstream of the pipeline which produces
@@ -260,14 +273,14 @@ used. When you now check the output of the pipeline, you should see something li
   </p>
 </div>
 
-<h2 class="small_margins">Custom tabs</h2>
+<h2 class="small_margins"><a name="custom_tabs"></a>Custom tabs</h2>
 
 The final part of this guide introduces the concept of a custom tab. A question that gets asked all the time is: "Does
 GoCD integrate with &lt;application-x&gt; and show its output?". The answer is usually: "Yes, as long as that
 application can generate a report or output that needs to be shown". Here is the concept:
 
 <div class="concept">
-  <h3>Concept 8: Custom tab</h3>
+  <h3><a name="concept_custom_tab"></a>Concept 8: Custom tab</h3>
 
   <p>
     A custom tab in GoCD is a way of showing an artifact as a user-defined tab at the job level. Any file which is published

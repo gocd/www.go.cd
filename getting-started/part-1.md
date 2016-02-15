@@ -10,7 +10,18 @@ extra_headers: "<link rel='stylesheet' href='/css/getting-started.css'>"
 
 Welcome to GoCD! In this guide, you'll learn about some of GoCD's concepts and features, and get the chance to try them out on a real server.
 
-<h2 class="small_margins">Installation</h2>
+##### Table of contents:
+
+- [Installation](#installation)
+  - [Concept 1: Server and agents](#concept_server_and_agents)
+- [Creating a pipeline](#creating_pipeline)
+   - [Concept 2: Pipelines and materials](#concept_pipelines_and_materials)
+   - [Concept 3: Agent prepares to do some work](#concept_agent_does_work)
+   - [Concept 4: Stages, jobs and tasks](#concept_stages_jobs_tasks)
+- [Next part of guide (different page): Part 2](/getting-started/part-2.html)
+- [Next part of guide (different page): Part 3](/getting-started/part-3.html)
+
+<h2 class="small_margins"><a name="installation"></a>Installation</h2>
 
 If you haven't installed GoCD yet, you can follow the installation guides to install both the [GoCD
 Server](https://www.go.cd/documentation/user/current/installation/installing_go_server.html) and at least one [GoCD
@@ -18,7 +29,7 @@ Agent](https://www.go.cd/documentation/user/current/installation/installing_go_a
 and learn about the first concept in GoCD.
 
 <div class="concept">
-  <h3>Concept 1: Server and agents</h3>
+  <h3><a name="concept_server_and_agents"></a>Concept 1: Server and agents</h3>
 
   <figure class="concept">
     <img src="/images/getting-started/part-1/image01.png">
@@ -56,12 +67,12 @@ see an idle GoCD agent waiting (as shown below). If you do not, head over to the
 Congratulations! You're on your way to using GoCD. If you now click "Pipelines", you'll get back
 to the "Add pipeline" screen you saw earlier.
 
-<h2 class="small_margins">Creating a pipeline</h2>
+<h2 class="small_margins"><a name="creating_pipeline"></a>Creating a pipeline</h2>
 
 Before creating a pipeline, it might help to know what it is and concepts around it.
 
 <div class="concept">
-  <h3>Concept 2: Pipeline and material</h3>
+  <h3><a name="concept_pipelines_and_materials"></a>Concept 2: Pipelines and materials</h3>
 
   <figure class="concept">
     <img src="/images/getting-started/part-1/image04.png">
@@ -200,7 +211,7 @@ task ran on (remember "Concept 1"?).
 </figure>
 
 <div class="concept">
-  <h3>Concept 3: Agent prepares to do some work</h3>
+  <h3><a name="concept_agent_does_work"></a>Concept 3: Agent prepares to do some work</h3>
 
   <p>
     Did you notice the lines at the top of the build which said: "Start updating files at revision ..."? This is the agent
@@ -232,7 +243,7 @@ task ran on (remember "Concept 1"?).
 Now that you have a basic idea of a pipeline and what it does, let's understand more about its components.
 
 <div class="concept">
-  <h3>Concept 4: Stages, jobs and tasks</h3>
+  <h3><a name="concept_stages_jobs_tasks"></a>Concept 4: Stages, jobs and tasks</h3>
 
   <figure class="concept">
     <img src="/images/getting-started/part-1/image18.png">

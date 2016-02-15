@@ -40,3 +40,7 @@ body.getting-started .page-content ol, body.getting-started .page-content ul {
 body.getting-started .page-content ol li, body.getting-started .page-content ul li {
   margin-bottom: 10px;
 }
+
+body.getting-started .page-content ol li:first-child, body.getting-started .page-content ul li:first-child {
+  margin-top: 10px;
+}

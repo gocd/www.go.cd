@@ -13,15 +13,24 @@ pipelines, materials, stages, jobs and tasks were introduced. You were also able
 stage, job and task each working.
 
 
-In <a href="https://go.cd/getting-started/part-2.html">Part 2</a>, you learnt about using pipelines as materials
+In <a href="/getting-started/part-2.html">Part 2</a>, you learnt about using pipelines as materials
 (dependency materials), artifacts and custom tabs.
 
 Let us continue, in this part, by learning about the Value Stream Map (VSM) and about fan-in and fan-out.
 
-<h2 class="small_margins">Value Stream Map (VSM)</h2>
+##### Table of contents:
+
+- [Value Stream Map (VSM)](#value_stream_map)
+  - [Concept 9: Value Stream Map](#concept_vsm)
+- [Fan-Out and Fan-In](#fan_out_fan_in)
+   - [Concept 10: Fan-Out and Fan-In](#concept_fan_out_fan_in)
+- [Previous part of guide (different page): Part 1](/getting-started/part-1.html)
+- [Previous part of guide (different page): Part 2](/getting-started/part-2.html)
+
+<h2 class="small_margins"><a name="value_stream_map"></a>Value Stream Map (VSM)</h2>
 
 <div class="concept">
-  <h3>Concept 9: Value Stream Map (VSM)</h3>
+  <h3><a name="concept_vsm"></a>Concept 9: Value Stream Map (VSM)</h3>
 
   <p>
     The Value Stream Map is the full end-to-end (from commits to production) view across pipelines, and maps to the
@@ -126,12 +135,12 @@ Now, that we know about the VSM, let's delve a little deeper into powerful conce
 VSM visualizes.
 
 
-<h2 class="small_margins">Fan-Out and Fan-In</h2>
+<h2 class="small_margins"><a name="fan_out_fan_in"></a>Fan-Out and Fan-In</h2>
 
 Let's start with the basic concepts and then use an example to understand this further.
 
 <div class="concept">
-  <h3>Concept 10: Fan-Out and Fan-In</h3>
+  <h3><a name="concept_fan_out_fan_in"></a>Concept 10: Fan-Out and Fan-In</h3>
 
   <h4>Fan-Out</h4>
 
