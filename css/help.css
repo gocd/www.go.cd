@@ -57,13 +57,8 @@
   top: 19px;
 }
 
-@media only screen and (min-width: 715px) {
-.numbering {
- 
-  
-  top: 52px;
-}
-}
+
+
 
 .numbering:before {
   content: "";
@@ -355,11 +350,16 @@
   }
 
 .signup .close {
-  position: absolute;
-  right: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  top: 20px;
+    position: absolute;
+    right: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #ccc;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 31px;
 }
 
 .signup h3 {
@@ -426,7 +426,12 @@
 .foo-links {
   margin-top: 30px;
 }
-
+@media only screen and (min-width: 960px) {
+  .foo-links {
+  margin: 30px auto;
+  width:70%;
+}
+}
 .foo-links h5 {
   font-size: 15px;
   text-transform: uppercase;
@@ -440,7 +445,7 @@
 
 .foo-links .footer-links a {
   color: #86569a;
-  margin-right: 20px;
+  /*margin-right: 20px;*/
 }
 
 .foo-links .footer-links a:hover,
@@ -470,6 +475,7 @@
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
   }
+
 }
 
 .foo-links .footer-links ul li {
@@ -557,3 +563,40 @@
     border: none;
 }
 /* END Don't show "Need Professional Support?" header on this page. */
+
+
+
+/*style override for help page*/
+@media only screen and (min-width: 768px){
+
+.numbering{
+  left:10px;
+  top:53px;
+}
+.support .numbering , .gocd-community .numbering{
+    top: 50px;
+    
+}
+}
+@media only screen and (min-width: 1200px){
+.need_help .container-12{
+  width:auto;
+}
+.need_help .container_12{
+      margin-left: auto;
+    margin-right: auto;
+    width: 1020px;
+    position: relative;
+}
+.need_help .container_12:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.support .numbering , .gocd-community .numbering{
+    top: 3px;
+    
+}
+}
