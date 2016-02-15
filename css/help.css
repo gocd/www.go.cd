@@ -566,37 +566,35 @@
 
 
 
-/*style override for help page*/
+/* START Style override for help page */
 @media only screen and (min-width: 768px){
+    .numbering {
+        left:10px;
+        top:53px;
+    }
 
-.numbering{
-  left:10px;
-  top:53px;
+    .support .numbering , .gocd-community .numbering {
+        top: 50px;
+    }
 }
-.support .numbering , .gocd-community .numbering{
-    top: 50px;
-    
-}
-}
-@media only screen and (min-width: 1200px){
-.need_help .container-12{
-  width:auto;
-}
-.need_help .container_12{
-      margin-left: auto;
-    margin-right: auto;
-    width: 1020px;
-    position: relative;
-}
-.need_help .container_12:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+@media only screen and (min-width: 1200px) {
+    .need_help .container-12 {
+        width:auto;
+    }
+    .need_help .container_12 {
+        margin-left: auto;
+        margin-right: auto;
+        width: 1020px;
+        position: relative;
+    }
+    .need_help .container_12:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 
-
-.support .numbering , .gocd-community .numbering{
-    top: 3px;
-    
+    .support .numbering , .gocd-community .numbering {
+        top: 3px;
+    }
 }
-}
+/* END Style override for help page */
