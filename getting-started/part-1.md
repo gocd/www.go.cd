@@ -45,8 +45,8 @@ a web browser (defaults to: [http://localhost:8153](http://localhost:8153)):
 </figure>
 
 If you have installed the Go Agent properly and click on the "Agents" link in the header, you should
-see an idle GoCD agent waiting (as shown below). If you do not, head over to the <b>TODO: DO THIS: troubleshooting
-page</b> to figure out why.
+see an idle GoCD agent waiting (as shown below). If you do not, head over to the
+[troubleshooting page](/documentation/user/current/installation/troubleshoot_installer.html) to figure out why.
 
 <figure class="screenshot">
   <img src="/images/getting-started/part-1/image03.png">
@@ -121,8 +121,9 @@ button, it should tell you everything is OK.
 This step assumes that you have git installed on the GoCD Server and Agent. Like git, any other commands you need for
 running your scripts need to be installed on the Go Agent nodes.
 
-If you had trouble with this step, and it failed, take a look at the [TODO: Do this] troubleshooting page in the
-documentation. If everything went well, press "Next" to be taken to step 3, which deals with stages, jobs and tasks.
+If you had trouble with this step, and it failed, take a look at the
+[troubleshooting page](/documentation/user/current/installation/troubleshoot_installer.html) in the documentation. If
+everything went well, press "Next" to be taken to step 3, which deals with stages, jobs and tasks.
 
 <figure class="screenshot">
   <img src="/images/getting-started/part-1/image08.png">
@@ -299,9 +300,3 @@ Let's start, in [Part 2](/getting-started/part-2.html) of this guide, where you 
     your repository and see pipelines triggering because of them.
   </p>
 </section>
-
-<script>
-  jQuery(document).ready(function($) {
-    $("p:contains('TODO')").each(function() { this.innerHTML = this.innerHTML.replace(new RegExp("TODO"), '<span style="background-color: red">TODO</span>'); })
-  });
-</script>
