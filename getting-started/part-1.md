@@ -44,7 +44,7 @@ a web browser (defaults to: [http://localhost:8153](http://localhost:8153)):
   <figcaption>GoCD's new pipeline page</figcaption>
 </figure>
 
-If you have installed the Go Agent properly and click on the "Agents" link in the header, you should
+If you have installed the GoCD Agent properly and click on the "Agents" link in the header, you should
 see an idle GoCD agent waiting (as shown below). If you do not, head over to the
 [troubleshooting page](/documentation/user/current/installation/troubleshoot_installer.html) to figure out why.
 
@@ -119,7 +119,7 @@ button, it should tell you everything is OK.
 </figure>
 
 This step assumes that you have git installed on the GoCD Server and Agent. Like git, any other commands you need for
-running your scripts need to be installed on the Go Agent nodes.
+running your scripts need to be installed on the GoCD Agent nodes.
 
 If you had trouble with this step, and it failed, take a look at the
 [troubleshooting page](/documentation/user/current/installation/troubleshoot_installer.html) in the documentation. If
@@ -223,8 +223,8 @@ task ran on (remember "Concept 1"?).
   </p>
 
   <p>
-    Notice that the Go Agent independently checks out the repository, meaning that the version control systems of your
-    materials (Git, SVN, etc) need to be available on the Go Agent as well.
+    Notice that the GoCD Agent independently checks out the repository, meaning that the version control systems of your
+    materials (Git, SVN, etc) need to be available on the GoCD Agent as well.
   </p>
 </div>
 
@@ -248,7 +248,7 @@ Now that you have a basic idea of a pipeline and what it does, let's understand 
     <dt>Task</dt>
     <dd>
       A task is typically a command which is configured to run as a part of the job it is in. Not every task needs to be
-      a simple command, since tasks can be plugins. In this guide, the "./build" that was configured to run was a task. Go has
+      a simple command, since tasks can be plugins. In this guide, the "./build" that was configured to run was a task. GoCD has
       Ant, NAnt and Rake tasks as built-in tasks, but has many more optional plugins which can be installed. The most
       versatile built-in task is the one that was used in this guide, which is the "Custom Command". Whenever anyone asks the
       question, "Can GoCD run &lt;application-x&gt;?, the answer is always "Yes", because it can always be executed as a custom

@@ -8,7 +8,7 @@ page_name: getting-started page3
 extra_headers: "<link rel='stylesheet' href='/css/getting-started.css'>"
 ---
 
-In <a href="https://go.cd/getting-started/part-1.html">Part 1</a> of this guide, the concepts of Go Server, Go Agents,
+In <a href="https://go.cd/getting-started/part-1.html">Part 1</a> of this guide, the concepts of GoCD Server, GoCD Agents,
 pipelines, materials, stages, jobs and tasks were introduced. You were also able to get a simple pipeline with a single
 stage, job and task each working.
 
