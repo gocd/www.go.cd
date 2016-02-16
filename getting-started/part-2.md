@@ -8,6 +8,12 @@ page_name: getting-started page-2
 extra_headers: "<link rel='stylesheet' href='/css/getting-started.css'>"
 ---
 
+In <a href="/getting-started/part-1.html">Part 1</a> of this guide, the concepts of GoCD Server, GoCD Agents,
+pipelines, materials, stages, jobs and tasks were introduced. You were also able to get a simple pipeline with a single
+stage, job and task each working.
+
+Let us continue, in this part, by learning about pipelines as materials, about artifacts and about custom tabs.
+
 ##### Table of contents:
 
 - [Using a pipeline as a material](#pipeline_as_material)
@@ -20,12 +26,6 @@ extra_headers: "<link rel='stylesheet' href='/css/getting-started.css'>"
    - [Concept 8: Custom tab](#concept_custom_tab)
 - [Previous part of guide (different page): Part 1](/getting-started/part-1.html)
 - [Next part of guide (different page): Part 3](/getting-started/part-3.html)
-
-In <a href="/getting-started/part-1.html">Part 1</a> of this guide, the concepts of GoCD Server, GoCD Agents,
-pipelines, materials, stages, jobs and tasks were introduced. You were also able to get a simple pipeline with a single
-stage, job and task each working.
-
-Let us continue, in this part, by learning about pipelines as materials, about artifacts and about custom tabs.
 
 <h2 class="small_margins"><a name="pipeline_as_material"></a>Using a pipeline as a material</h2>
 
