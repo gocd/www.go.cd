@@ -2,6 +2,16 @@ $(function() {
   var oldDownloadServer = "https://old-download.go.cd";
   var newDownloadServer = "https://download.go.cd";
 
+  /* Ideally comes from somewhere else. Here will do, for now. */
+  var warningsToShowOnDownloadList = [
+    {
+      release_type: 'supported',
+      version: '16.2.0-3024',
+      operating_system: 'win'
+    }
+  ];
+
+
   if ($('#show-checksum').length === 0) {
     return;
   }
@@ -77,7 +87,6 @@ $(function() {
 
   function fetchArtifacts(callbackFn) {
     var originalRender = function(releases) {
-
       var supported = _.chain(releases).where({
         release_type: "supported"
       }).reject(function(release) {
@@ -108,7 +117,9 @@ $(function() {
       });
 
 
-      var extract_files = function(release, release_type, src_name, dest_prefix) {
+      var extract_files = function(release, release_type, src_name, dest_prefix, knownWarnings) {
+        var warning = _.findWhere(knownWarnings, {release_type: release_type, version: release.go_full_version, operating_system: src_name});
+
         var baseurl = newDownloadServer;
         if (release_type == 'experimental') {
           baseurl += '/experimental';
@@ -121,12 +132,13 @@ $(function() {
             sha256sum: release[src_name][component].sha256sum,
             sha512sum: release[src_name][component].sha512sum,
             type: dest_prefix + '-' + component,
+            hasWarning: typeof warning !== "undefined",
             url: baseurl + '/binaries/' + release.go_full_version + '/' + release[src_name][component].file
           };
         });
       };
 
-      var xhrDone = function(release_type) {
+      var xhrDone = function(release_type, knownWarnings) {
         return function(xhr_data) {
           releases = _.union(releases, _.map(xhr_data, function(release) {
             var release_time = new Date(release.release_time * 1000);
@@ -137,12 +149,12 @@ $(function() {
 
             var files = [];
 
-            files = files.concat(extract_files(release, release_type, 'osx', 'mac'));
-            files = files.concat(extract_files(release, release_type, 'rpm', 'linuxRpm'));
-            files = files.concat(extract_files(release, release_type, 'deb', 'linuxDeb'));
-            files = files.concat(extract_files(release, release_type, 'solaris', 'solaris'));
-            files = files.concat(extract_files(release, release_type, 'win', 'windows'));
-            files = files.concat(extract_files(release, release_type, 'generic', 'package'));
+            files = files.concat(extract_files(release, release_type, 'osx', 'mac', knownWarnings));
+            files = files.concat(extract_files(release, release_type, 'rpm', 'linuxRpm', knownWarnings));
+            files = files.concat(extract_files(release, release_type, 'deb', 'linuxDeb', knownWarnings));
+            files = files.concat(extract_files(release, release_type, 'solaris', 'solaris', knownWarnings));
+            files = files.concat(extract_files(release, release_type, 'win', 'windows', knownWarnings));
+            files = files.concat(extract_files(release, release_type, 'generic', 'package', knownWarnings));
 
             return {
               release_type: release_type,
@@ -157,8 +169,8 @@ $(function() {
         };
       };
 
-      $.getJSON(newDownloadServer + '/releases.json', xhrDone('supported'));
-      $.getJSON(newDownloadServer + '/experimental/releases.json', xhrDone('experimental'));
+      $.getJSON(newDownloadServer + '/releases.json', xhrDone('supported', warningsToShowOnDownloadList));
+      $.getJSON(newDownloadServer + '/experimental/releases.json', xhrDone('experimental', warningsToShowOnDownloadList));
 
     } else {
       $.getJSON(oldDownloadServer + "/local/releases.json", function(releases) {
@@ -200,13 +212,20 @@ $(function() {
         return;
       }
 
+      var hasAWarning = _.any(filesWhichMatch, function(fileInformation) { return fileInformation.hasWarning; });
+      var cssClassForWarning = hasAWarning ? " has-warning" : "";
+
       if (artifact.release_type == "supported" && artifact.release_time > latestReleaseTime) {
         $('#latestVersion').html(artifact.version);
         latestReleaseTime = artifact.release_time;
       }
 
-      revisionsString += "<li class=" + artifact.release_type + ">";
-      revisionsString += "<div style='float:left; font-weight: bold;'>" + artifact.release_type + " release</div>"
+      revisionsString += "<li class='" + artifact.release_type + cssClassForWarning + "'>";
+      revisionsString += "<div style='float:left; font-weight: bold;'>"
+        + artifact.release_type
+        + " release"
+        + "<span class='show-if-has-warning" + cssClassForWarning + "'> (Warning: See <a href='/releases#" + artifact.version + "'>release notes</a>)</span>"
+        + "</div>"
       revisionsString += "<div style='clear: left; float:left;'>"
       revisionsString += "<span class='version'>" + artifact.version + "</span>" + "<span class='revision-link'> (<a target='_blank' href=http://www.github.com/gocd/gocd/commit/" + artifact.git_revision + ">" + artifact.git_revision + "</a>)</span>";
 

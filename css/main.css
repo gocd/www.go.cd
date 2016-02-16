@@ -841,6 +841,16 @@ body.blog {
     display: inline-block;
     margin: 0 4px;
 }
+
+.download-list .show-if-has-warning {
+  display: none;
+}
+.download-list .show-if-has-warning.has-warning {
+  display: initial;
+  color: orange;
+}
+
+
 .os-select-holder li .os__text{
     color: #aaa;
 }
@@ -862,8 +872,11 @@ body.blog {
 .download-list .revision-link{
     font-size: 0.7em;
 }
-.download-list .supported{
+.download-list .supported {
     background: url('/images/verified.png') no-repeat 0 25px;
+}
+.download-list .supported.has-warning {
+    background: url('/images/warning.png') no-repeat 0 25px;
 }
 .download-list .supported .version{
     font-weight: bold;
