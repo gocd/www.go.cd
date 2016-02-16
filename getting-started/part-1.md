@@ -23,10 +23,9 @@ Welcome to GoCD! In this guide, you'll learn about some of GoCD's concepts and f
 
 <h2 class="small_margins"><a name="installation"></a>Installation</h2>
 
-If you haven't installed GoCD yet, you can follow the installation guides to install both the [GoCD
-Server](https://www.go.cd/documentation/user/current/installation/installing_go_server.html) and at least one [GoCD
-Agent](https://www.go.cd/documentation/user/current/installation/installing_go_agent.html). This is a good point to stop
-and learn about the first concept in GoCD.
+If you haven't installed GoCD yet, you can follow the
+[GoCD Installation Guide](https://www.go.cd/documentation/user/current/installation/index.html) to install the GoCD
+Server at least one GoCD Agent. This is a good point to stop and learn about the first concept in GoCD.
 
 <div class="concept">
   <h3><a name="concept_server_and_agents"></a>Concept 1: Server and agents</h3>
