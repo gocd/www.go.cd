@@ -14,6 +14,7 @@ meta_tag_keywords: go partners, technology partners, consulting partners, profes
 ### Consulting Partners
 
 - <a href="http://highops.com/continuous-delivery/">HighOps</a> - help introduce, sustain and benefit from Continuous Delivery and DevOps. All the while increasing Software Operability.
+- <a href="http://skeltonthatcher.com/">Skelton Thatcher Consulting</a> - tailored help with technology and teams for organisations moving their software to the cloud. We have strong experience with Continuous Delivery, DevOps, Agile IT Operations, and software operability, and we are cross-platform and multi-vendor.
 
 ### Technology Partners
 
