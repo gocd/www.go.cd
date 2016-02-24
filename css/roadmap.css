@@ -59,6 +59,7 @@ figure figcaption {
 
 .issue {
   margin-top: 12px;
+  line-height: 1.75em;
 }
 
 .issue::before {

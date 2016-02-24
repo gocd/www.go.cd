@@ -23,6 +23,131 @@ done, at the level of a week and will attempt to keep it as updated and approach
 
 <div class="work_update">
   <div class="heading">
+    <span class="title">Week of Feb 19, 2016</span>
+  </div>
+
+  <div class="updates">
+    <div class="update">
+      <span class="title">Pipeline config UI rewrite</span>
+      <div class="content">
+        <p>
+          Tracked as <a href="https://github.com/gocd/gocd/issues/1404">#1404 (re-design)</a>, <a
+          href="https://github.com/gocd/gocd/issues/1724">#1724 (materials)</a>, <a
+          href="https://github.com/gocd/gocd/issues/1727">#1727 (tasks)</a> and <a
+          href="https://github.com/gocd/gocd/issues/1404#issuecomment-186051049">design vision</a>, work on the
+          single-page application to reduce clickiness and performace of the configuration UI continues.
+        </p>
+
+        <p>
+          Over the last couple of weeks, there has been a <a href="https://github.com/gocd/gocd/pull/1956">lot of work
+          (#1956)</a> which has happened towards improving the UI/UX of this page. <b>TODO for Feb 24, 2016</b>: I am going to
+          upload an image here to show this.
+
+        <!--
+        <p>
+          <figure>
+            <a href="">
+              <img src="" class="small-image"></img>
+            </a>
+            <figcaption>Fig 1: New config UI page - In progress - Better UI/UX</figcaption>
+          </figure>
+        </p>
+        -->
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">Elastic agents</span>
+
+      <div class="content">
+        <p>
+          There hasn't been much work done towards this in the last couple of weeks. Most of the work has been around
+          some bug fixes around the websocket communication work. Some work mentioned under the "Other notable work"
+          section below ended up reducing some of this capacity. Need to get back to this soon.
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">More releases</span>
+      <div class="content">
+        <p>
+          The roadmap for 2016 mentioned more releases this year: On 16th Feb, 2016, GoCD 16.2.1 was released. Because
+          there has been an increased reliance on a new (and growing) suite of automated installer tests, there might be some
+          hiccups around the installers. This will be ironed out as more installers are tested, and releases are done.
+        </p>
+
+        <p>
+          The <a href="https://github.com/gocd/installer-testing">installer tests</a> are used for fresh-install testing
+          on CentOS and Debian based systems. This is being enhanced to do upgrade testing. Soon, we will move on to
+          Windows installer testing. There has been <a href="https://github.com/gocd/gocd/pull/1943">work done
+          (#1943)</a> to make Windows installer fully headless.
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">More content around CD and GoCD</span>
+      <div class="content">
+        <p>
+          To coincide with the 16.2 release, there is now a "Getting Started with GoCD" series of articles on go.cd. It
+          can be reached from the <a href="https://www.go.cd/help/">Need Help?</a> page. Take a look, if you haven't.
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">Other notable work (subset of changes)</span>
+      <div class="content">
+        <p>
+          There is a bit of a backlog of pull requests which needs to be handled (such a nice problem to have!). Some
+          interesting pull requests from this week are:
+        </p>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1909">#1909</a>
+          - Fix system call to kill processes on Java 8. More and more users are using Java 8, and though GoCD doesn't
+            yet officially support it, this was a problem that felt like it needed to be fixed soon.
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1937">#1937</a>
+          - The previously mentioned PR (#1909) caused an issue, because of a mistake upstream (in javasysmon).
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1810">#1810</a> and <a href="https://github.com/gocd/gocd/pull/1825">#1825</a>
+          - By <a href="https://github.com/tomzo">@tomzo</a>
+          - Being reviewed and is taking some time and effort. These are two of the last few PRs for this long-running
+            effort of making configuration external to GoCD.
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1947">#1947</a>
+          - Simplifying packaging
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1932">#1932</a>
+          - Security issues such as the recent Rails vulnerabilities (#1932)
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="note_title">Note</span>: If you're doing some work outside of the gocd GitHub organization and would
+      like it to be mentioned here (maybe you'll get some help!), please let me know, by sending a mail to
+      <a href="mailto:arvind@thoughtworks.com">me</a> or finding me (username: arvindsv) on
+      <a href="https://gitter.im/gocd/gocd">the Gitter developer channel</a> or on the
+      <a href="https://groups.google.com/forum/#!forum/go-cd">mailing list</a>.
+    </div>
+  </div>
+</div>
+
+<h3>Previous weeks:</h3>
+
+<div class="work_update old">
+  <div class="heading">
     <span class="title">Week of Jan 29, 2016</span>
   </div>
 
@@ -165,18 +290,8 @@ done, at the level of a week and will attempt to keep it as updated and approach
         </div>
       </div>
     </div>
-
-    <div class="note">
-      <span class="note_title">Note</span>: If you're doing some work outside of the gocd GitHub organization and would
-      like it to be mentioned here (maybe you'll get some help!), please let me know, by sending a mail to
-      <a href="mailto:arvind@thoughtworks.com">me</a> or finding me (username: arvindsv) on
-      <a href="https://gitter.im/gocd/gocd">the Gitter developer channel</a> or on the
-      <a href="https://groups.google.com/forum/#!forum/go-cd">mailing list</a>.
-    </div>
   </div>
 </div>
-
-<h3>Previous weeks:</h3>
 
 <div class="work_update old">
   <div class="heading">
