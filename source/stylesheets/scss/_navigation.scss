@@ -38,6 +38,12 @@ $menu-color:#fff;
   float: left;
   font-size: 14px;
   margin-right: 4px;
+  &.active{
+    background:#fff;
+    a{
+      color:#333;
+    }
+  }
   > a {
     display: block;
     text-decoration: none;
@@ -85,9 +91,9 @@ $menu-color:#fff;
      // border-top:2px solid  #fff;
     @media (min-width:$screen-tablet) {
 
-     -webkit-box-shadow: 1px 5px 5px -3px rgba(-1, 0, 0, 0.75);
--moz-box-shadow: 1px 5px 5px -3px rgba(-1, 0, 0, 0.75);
-box-shadow: 1px 5px 5px -3px rgba(-1, 0, 0, 0.75);
+     -webkit-box-shadow: 0px 5px 7px -3px rgba(-1, 0, 0, 0.75);
+-moz-box-shadow: 0px 5px 7px -3px rgba(-1, 0, 0, 0.75);
+box-shadow: 0px 5px 7px -3px rgba(-1, 0, 0, 0.75);
 }
 
     li{

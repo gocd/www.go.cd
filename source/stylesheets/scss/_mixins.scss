@@ -27,7 +27,7 @@
 
 @mixin button-bg($bg) {
   background:$bg ;
-  	@include linearGradient($bg, darken($bg, 20%));
+  	// @include linearGradient($bg, darken($bg, 20%));
   	 transition: all 1s ease;
   &:hover {
     @include linearGradient($bg, lighten($bg, 2%));
