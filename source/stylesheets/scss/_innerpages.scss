@@ -1,6 +1,6 @@
 // variables
 
-$inner-banner-bg: #333;
+$inner-banner-bg: $gray-lighter;
 $grey-bg: #e5e5e5;
 $border: #cccccc;
 
@@ -11,7 +11,6 @@ $border: #cccccc;
 
 	h1 {
 		font-size: 40px;
-		color: #fff;
 	}
 
 }
@@ -197,4 +196,52 @@ $border: #cccccc;
 		background-image: none;
 	}
 
+}
+
+//community
+
+.community{
+	.community-tiles{
+		padding: 30px 0 20px;
+	
+	h3{
+		text-align: center;
+	}
+	.fa{
+		font-size:100px;
+		margin:30px 0;
+		color:#ccc;
+	}
+}
+	.join-community{
+		background:$grey-bg;
+		padding:30px 0;
+		h3{
+		text-align: center;
+		margin:0 0 30px 0;
+
+	}
+		ul{
+			list-style-type: none;
+			margin:0;
+			padding:0;
+		text-align: center;
+		}
+		li{
+			display:inline-block;
+			padding:0 50px;
+		}
+		a{
+			display:block;
+			text-align: center;
+			color:#333;
+		}
+		.fa{
+			display: block;
+			font-size:40px;
+			color:$gray;
+			margin-bottom: 10px;
+
+		}
+	}
 }
