@@ -1,3 +1,7 @@
+$plugins-tile-bg :#f2f9fc;
+$tab-container-bg :#d8f0f1;
+
+
 //plugins
 
 .plugins {
@@ -83,7 +87,7 @@ width:100%;
 		margin: 10px;
 
 		.details {
-			background: #f5f5f5;
+			background: #fff;
 			padding: 20px;
 			width: 100%;
 			position: relative;
@@ -138,7 +142,7 @@ width:100%;
 
 		.more-details {
 			font-size: 12px;
-			color: $subtext;
+			// color: $subtext;
 
 			@media (min-width:$screen-tablet) {
 			}
@@ -151,7 +155,7 @@ width:100%;
 		}
 
 		.actions {
-			background: #dcdcdc;
+			background: #f2f8fc;
 			padding: 10px 20px;
 			@include clearfix;
 			transition: all 0.5s ease;
