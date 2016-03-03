@@ -48,9 +48,15 @@
   @include clearfix;
 }
 
-.help-row.gocd-community {
+.gocd-community {
   clear: both;
   border: 0;
+  .sub-title{
+    margin-bottom: 10px;
+  }
+  .desc{
+    margin-bottom: 50px;
+  }
 }
 
 .cta {
@@ -224,7 +230,7 @@
     margin: 20px 0 50px;
 
    a {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-decoration: underline;
     font-size: 12px;
     color:#fff;
@@ -243,12 +249,13 @@
   .btn-cta {
     clear: both;
     display: block;
-    background: #8A549B;
+    background: transparent;
     border: 0;
     color: #fff;
+    border: 1px solid #fff;
     width: 215px;
     height: 54px;
-    line-height: 54px;
+    line-height: 49px;
     text-align: center;
     text-decoration: none;
     margin: 0px auto 10px;
@@ -378,7 +385,7 @@
   }
 
   .foo-links {
-    margin-top: 30px;
+    margin-top: 50px;
   }
 
   @media only screen and (min-width:960px) {
@@ -393,6 +400,7 @@
     font-size: 15px;
     text-transform: uppercase;
     text-align: center;
+    margin-bottom: 30px;
   }
 
   .foo-links .footer-links a {
