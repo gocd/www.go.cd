@@ -4,11 +4,17 @@
 
 .inner-banner {
 	background: $inner-banner-bg;
-	// color: #fff;
+	padding: 0;
+		@media (min-width:$screen-tablet) {
 	padding: 0 0 20px 0;
 
+		}
+
 	h1 {
+		font-size: 20px;
+		@media (min-width:$screen-tablet) {
 		font-size: 40px;
+		}
 	}
 
 }
@@ -153,7 +159,7 @@
 	margin: 0 !important;
 
 	@media (min-width:$screen-tablet) {
-		margin-left: 163px!important;
+		margin-left: 163px !important;
 	}
 
 }
@@ -198,37 +204,35 @@
 
 //community
 
-.community{
-	.community-tiles{
+.community {
+	.community-tiles {
 		padding: 30px 0 20px;
-	
-	h3{
-		text-align: center;
+
+		h3 {
+			text-align: center;
+		}
+
+		.fa {
+			font-size: 100px;
+			margin: 30px 0;
+			color: #ccc;
+		}
+
 	}
-	.fa{
-		font-size:100px;
-		margin:30px 0;
-		color:#ccc;
-	}
-}
 
 }
 
 //partners
-.partners{
-	h4{
+.partners {
+	h4 {
 		margin-bottom: 40px;
-		font-size:24px;
+		font-size: 24px;
 	}
 
-	img{
-		max-width:150px;
+	img {
+		max-width: 150px;
 	}
+
 }
 
-
-
 //help
-
-
-

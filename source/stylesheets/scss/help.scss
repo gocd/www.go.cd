@@ -1,32 +1,43 @@
 .numbering {
   text-align: center;
-  padding: 50px 0;
+  padding: 20px 0;
   position: relative;
+    @media (min-width:$screen-tablet) {
+      padding: 50px 0;
+    }
 
   &:before {
     content: "";
     border-bottom: 1px solid $gray-lighter;
-    width: 300px;
+    width: 200px;
     top: 50%;
     left: 50%;
     display: block;
     position: absolute;
     transform: translateX(-50%);
     z-index: 0;
+    @media (min-width:$screen-tablet) {
+      width: 300px;
+    }
   }
 
   span {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     text-align: center;
-    line-height: 47px;
+    line-height: 30px;
     border-radius: 50%;
     border: 1px solid $border;
     background: #fff;
     color: #333;
     z-index: 2;
+    @media (min-width:$screen-tablet) {
+      width: 50px;
+      height: 50px;
+      line-height: 47px;
+    }
   }
 
 }
@@ -34,8 +45,12 @@
 .sub-title {
   text-align: center;
   text-transform: uppercase;
-  font-size: 36px;
-  margin: 0 0 50px 0;
+  font-size: 25px;
+  margin: 0 0 40px 0;
+    @media (min-width:$screen-tablet) {
+      font-size: 36px;
+      margin: 0 0 50px 0;
+    }
 
   .go {
     text-transform: none;
@@ -137,7 +152,11 @@
 
   p {
     margin: 0;
+    font-size: 14px;
+      @media only screen and (min-width:$screen-tablet) {
     font-size: 18px;
+
+      }
   }
 
   h3 {
@@ -156,6 +175,10 @@
 
 .cta a.padded {
   padding: 40px 20px;
+    @media only screen and (min-width:$screen-tablet) {
+  padding: 40px 20px;
+
+    }
 }
 
 .get-support {
@@ -262,11 +285,12 @@
     font-weight: 300;
     font-size: 18px;
     text-transform: uppercase;
-  }
+    &:focus{
+      outline:0;
+    }
 
-  @media only screen and (min-width:715px) {
-    .btn-cta {
-      width: 240px;
+   @media only screen and (min-width:$screen-tablet) {
+       width: 240px;
     }
 
   }
@@ -296,29 +320,26 @@
   }
 
   .signup {
-    clear: both;
-    border: 1px solid #ccc;
-    border-top-width: 0;
-    padding: 30px;
-    display: none;
-    position: relative;
-    text-align: center;
-  }
-
-  .signup:before {
+  clear: both;
+  border: 1px solid #ccc;
+  border-top-width: 0;
+  padding: 30px;
+  display: none;
+  position: relative;
+  text-align: center;
+  &:before {
     content: "";
     position: absolute;
     width: 0;
     left: 50%;
     height: 0;
     border-style: solid;
-    border-width: 30px 30px 0 30px;
-    border-color: #f1efef transparent transparent transparent;
-    top: -1px;
+    border-width: 0 30px 30px 30px;
+    border-color:  transparent transparent #ffffff transparent;
+    top: -20px;
     transform: translateX(-50%);
   }
-
-  .signup .close {
+  .close {
     position: absolute;
     right: 20px;
     font-weight: bold;
@@ -330,25 +351,23 @@
     border-radius: 50%;
     line-height: 31px;
   }
-
-  .signup h3 {
+  h3 {
     text-align: center;
     margin: 0 0 10px 0;
     font-size: 22px;
   }
-
-  @media only screen and (min-width:715px) {
-    .signup h3 {
-      font-size: 30px;
-    }
-
-  }
-
-  .signup p {
+  p {
     text-align: center;
     max-width: 400px;
     margin: 0 auto 30px;
   }
+}
+
+ @media only screen and (min-width:$screen-tablet) {
+  .signup h3 {
+    font-size: 30px;
+  }
+}
 
   .subsection {
     clear: both;
@@ -360,20 +379,18 @@
       margin: 0 0 10px 0;
       font-weight: 300;
       font-weight: 400;
-    }
 
-  }
+ @media only screen and (min-width:$screen-tablet) {
 
-  @media only screen and (min-width:715px) {
-    .subsection h3 {
       font-size: 20px;
     }
 
   }
 
-  .subsection p {
+ p {
     font-size: 15px;
     font-weight: 300;
+  }
   }
 
   .desc {
@@ -386,72 +403,65 @@
 
   .foo-links {
     margin-top: 50px;
-  }
-
-  @media only screen and (min-width:960px) {
-    .foo-links {
+    @media only screen and (min-width:$screen-desktop) {
       margin: 30px auto;
-      width: 70%;
+      width: 85%;
     }
-
+     h5 {
+      font-size: 15px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 30px;
+    }
   }
 
-  .foo-links h5 {
-    font-size: 15px;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .foo-links .footer-links a {
+   .footer-links {
+    a {
     text-decoration: underline;
     font-size: 14px;
-  }
-
-  .foo-links .footer-links a {
     color: #86569a;  /*margin-right: 20px;*/
-  }
+      &:hover,
+      &:visited {
+      color: #86569a;
+      }
+      }
+     ul {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      li{
+        margin: 0 0 20px 30px;
+         @media only screen and (min-width:$screen-tablet) {
+          
+         }
+      }
+    }
 
-  .foo-links .footer-links a:hover,
-  .foo-links .footer-links a:visited {
-    color: #86569a;
-  }
-
-  .foo-links .footer-links ul {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-
-  @media only screen and (min-width:715px) {
-    .foo-links .footer-links ul {
+ @media only screen and (min-width:$screen-tablet) {
       -webkit-flex-wrap: nowrap;
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+      margin:0 40px;
     }
 
   }
 
   .foo-links .footer-links ul li {
     width: 100%;
-  }
-
-  @media only screen and (min-width:715px) {
-    .foo-links .footer-links ul li {
-      width: auto;
-    }
-
+ @media only screen and (min-width:$screen-tablet) {
+        width: auto;
+      }
   }
 
   .signup #support_form input[type="text"] {
@@ -462,7 +472,7 @@
     padding: 5px 10px;
   }
 
-  @media only screen and (min-width:715px) {
+ @media only screen and (min-width:$screen-tablet) {
     .signup #support_form input[type="text"] {
       width: 250px;
       margin-bottom: 15px;
@@ -478,7 +488,7 @@
     padding: 5px 10px;
   }
 
-  @media only screen and (min-width:715px) {
+ @media only screen and (min-width:$screen-tablet) {
     .signup #support_form textarea {
       width: 250px;
       margin-bottom: 30px;
@@ -502,7 +512,7 @@
     text-transform: uppercase;
   }
 
-  @media only screen and (min-width:715px) {
+ @media only screen and (min-width:$screen-tablet) {
     .signup #support_form button {
       width: 240px;
     }

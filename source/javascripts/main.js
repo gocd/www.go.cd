@@ -109,3 +109,16 @@ jQuery(document).ready(function($) {
 	
 });
 
+
+jQuery(document).ready(function($) {
+  
+  $('.help_cta').click(function(event) {
+    $('.signup').slideDown('fast');
+  });
+  $('.signup .close').click(function(event) {
+    $('.signup').slideUp('fast');
+  });
+
+
+});
+
