@@ -13,7 +13,8 @@ meta_tag_keywords:
 <span>Thanks to everyone for contributing patches, feature requests, reporting issues and participating in various discussions.</span></p>
 
 <p> <strong>Releases:</strong>
-  <a href="#16.2.1">16.2.1 (latest)</a>
+  <a href="#16.3.0">16.3.0 (latest)</a>
+  | <a href="#16.2.1">16.2.1</a>
   | <a href="#16.2">16.2</a>
   | <a href="#16.1">16.1</a>
   | <a href="#15.3.1">15.3.1</a>
@@ -27,11 +28,65 @@ meta_tag_keywords:
 </p>
 <div class="grid-10">
   <div class="version">
-    <a name="latest"/></a>
+    <a name="latest"></a>
+    <a name="16.3"></a>
+    <a name="16.3.0"></a>
+    <h4>16.3.0</h4>
+
+    <div class="section">
+      <h5>Noteable features</h5>
+      <ul>
+        <li>
+          <a href="https://github.com/gocd/gocd/pull/1983">[Git] Check out working copy only when necessary "git clone --no-checkout"</a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd/pull/1887">[Git] Use shallow clones for faster checkouts and lower disk usage "git clone --depth=N" </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h5>Deprecations</h5>
+      <ul>
+        <li>
+          <p>
+            Deprecating the old java api based plugin extensions for tasks and package
+            repositories has been deprecated.
+            Developers are encouraged to use the new JSON message based APIs to author plugins.
+          </p>
+          <p>
+            <strong>These APIs would be removed in 6 months in version 16.9 of GoCD.</strong>
+          </p>
+        </li>
+        <li>
+          <p>
+            In light of downward trend in solaris installers, we are now considering a
+            timeline to stop providing solaris installers for GoCD.
+            Users can continue to use the generic zip files to run GoCD on Solaris.
+            However the support for solaris will be on a best-effort basis.
+          </p>
+          <p>
+            <strong>We will stop providing solaris installers from version 16.7 of GoCD.</strong>
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h5>Note</h5>
+      <p>
+        A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.3%22">here.</a>
+      </p>
+    </div>
+  </div>
+
+</div>
+<div class="grid-10">
+  <div class="version">
     <h4>16.2.1</h4>
     <a name="16.2.1"/></a>
       <p><span class="text-important">Important</span>: 16.2 has been removed from the downloads page because it had
-      an <a href="https://github.com/gocd/gocd/issues/1936">issue</a> which caused problems while installing windows agents. 
+      an <a href="https://github.com/gocd/gocd/issues/1936">issue</a> which caused problems while installing windows agents.
       <div class="section">
       <h5>Fixes</h5>
       <ul>
@@ -84,17 +139,17 @@ meta_tag_keywords:
         <h5>Contributors</h5>
         <p>
         <a href="https://github.com/arvindsv">Aravind SV</a>,
-        <a href="https://github.com/grahamc">Graham Christensen</a>, 
-        <a href="https://github.com/jyotisingh">Jyoti Singh</a>, 
+        <a href="https://github.com/grahamc">Graham Christensen</a>,
+        <a href="https://github.com/jyotisingh">Jyoti Singh</a>,
         <a href="https://github.com/juhijariwala">Juhi Jariwala</a>,
-        <a href="https://github.com/ketan">Ketan Padegaonkar</a>, 
+        <a href="https://github.com/ketan">Ketan Padegaonkar</a>,
         <a href="https://github.com/maheshp">Mahesh Panchaksharaiah</a>,
-        <a href="https://github.com/mrmanc">Mark Crossfield</a>, 
-        <a href="https://github.com/rajiesh">Rajiesh Narayanan</a>, 
-        <a href="https://github.com/tomzo">Tomasz Sętkowski</a>, 
-        <a href="https://github.com/varshavaradarajan">Varsha V</a>, 
-        <a href="https://github.com/wpc">WPC</a>, 
-        <a href="https://github.com/xli">Xiao Li</a>, 
+        <a href="https://github.com/mrmanc">Mark Crossfield</a>,
+        <a href="https://github.com/rajiesh">Rajiesh Narayanan</a>,
+        <a href="https://github.com/tomzo">Tomasz Sętkowski</a>,
+        <a href="https://github.com/varshavaradarajan">Varsha V</a>,
+        <a href="https://github.com/wpc">WPC</a>,
+        <a href="https://github.com/xli">Xiao Li</a>,
         <a href="https://github.com/zabil">Zabil C.M</a>
         </p>
       </div>
@@ -203,7 +258,7 @@ meta_tag_keywords:
 	<a href="https://api.go.cd/current/#pipeline-config">api.go.cd</a> for usage details.
       </p>
     </div>
-    
+
     <div class="section">
       <h5>Get informed about updates</h5>
       <p>
@@ -217,7 +272,7 @@ meta_tag_keywords:
       </p>
 
     </div>
-    
+
     <div class="section">
       <h5>Other notable features</h5>
       <ul>
@@ -284,7 +339,7 @@ meta_tag_keywords:
 	    New console log - last lines obscured
 	  </a>
 	</li>
-	
+
       </ul>
     </div>
     <div class="section">
@@ -301,7 +356,7 @@ meta_tag_keywords:
 	Arun Kumar, Björn Andersson, Federica Luraschi, Graham Christensen, Parker Shelton, Justin, Max Griffiths, Ashok Gowtham M, Massood, Ben Overmyer, James M. Greene, Ashwanth Kumar, Jakub Narloch, Alex Voitau, Joakim Wånggren, Paul Clarkin, X O and markuswehrle for making Go better.
       </p>
     </div>
-    
+
   </div>
 </div>
 
