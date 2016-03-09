@@ -13,7 +13,7 @@ excerpt: "<p>This is the first part of a series of posts about Continuous Delive
 </div>
 
 During the 10 plus years ThoughtWorks has been in the Continuous Delivery ecosystem, we've regularly come across people
-wanting to try our tools GoCD and Snap CI and as they start their journey toward Continuous Delivery (CD). Very often,
+wanting to try our tools GoCD and Snap CI as they start their journey toward Continuous Delivery (CD). Very often,
 in attempting to support teams new to CD, we suggest that they pause any tool evaluation and consider whether their
 organization is actually ready to embark on this journey. If you do not frankly assess your teams' readiness, the result
 can be a massive failure. The path to CD should not start by immediately adopting a CD tool.

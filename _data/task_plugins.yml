@@ -177,3 +177,12 @@
   releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
   github_stars: http://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
   first_available_date: 02/2016
+
+- name: Slack Task plugin
+  description: Send custom messages to Slack from Go CD jobs
+  readmore_url: https://github.com/Vincit/gocd-slack-task
+  author_url: https://github.com/Vincit
+  author_name: Juha Siponen
+  releases_url: https://github.com/Vincit/gocd-slack-task/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=Vincit&repo=gocd-slack-task&type=watch&count=true
+  first_available_date: 03/2016
