@@ -188,7 +188,7 @@
   first_available_date: 03/2016
   
 - name: Docker pipeline plugin
-  description: Builds a docker image from a Dockerfile, tags it with the tag you set, pushes it to a registry you specify and then cleans up everything.
+  description: Builds a docker image from a Dockerfile, tags it and pushes it to a registry.
   readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Docker-pipeline-plugin
   author_url: https://github.com/bradeac
   author_name: Camil Bradea
