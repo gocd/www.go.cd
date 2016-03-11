@@ -23,6 +23,202 @@ done, at the level of a week and will attempt to keep it as updated and approach
 
 <div class="work_update">
   <div class="heading">
+    <span class="title">Week of Feb 26, 2016 to Mar 11, 2016</span>
+  </div>
+
+  <div class="updates">
+    <div class="update">
+      <span class="title">Pipeline config UI rewrite</span>
+      <div class="content">
+        <p>
+          Tracked as <a href="https://github.com/gocd/gocd/issues/1404">#1404 (re-design)</a>, <a
+          href="https://github.com/gocd/gocd/issues/1724">#1724 (materials)</a>, <a
+          href="https://github.com/gocd/gocd/issues/1727">#1727 (tasks)</a> and <a
+          href="https://github.com/gocd/gocd/issues/1404#issuecomment-186051049">design vision</a>, work on the
+          single-page application to reduce clickiness and performace of the configuration UI continues.
+        </p>
+
+        <p>
+          Over the last couple of weeks, there has not been too much work done towards this. Take a look at the video
+          below to see the current state of it.
+        </p>
+
+        <p>
+          <figure>
+            <video src="https://thoughtworks.box.com/shared/static/1bfkmuwsqwx8qd65m69nfpfsmznnpvju.mov" controls width="100%">
+              Your browser does not support the <code>video</code> element. You can download the video from
+              <a href="https://thoughtworks.box.com/shared/static/1bfkmuwsqwx8qd65m69nfpfsmznnpvju.mov">here</a>.
+            </video>
+            <figcaption>Fig 1: Pipeline Config UI - Work in progress</figcaption>
+          </figure>
+        </p>
+
+        <p>
+          The main parts of this that are missing are:
+          <ul>
+            <li>Support for pipeline dependency (upstream pipeline)</li>
+            <li>Better support for server-side error message (this work is in progress currently)</li>
+            <li>UI and UX improvements</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">Elastic agents</span>
+
+      <div class="content">
+        <p>
+          There hasn't been much work done towards this in the last couple of weeks. There have been some changes made
+          in the core codebase to allow more flexible configuration of this endpoint, so that it does not depend on the
+          concept of "resources" which already existed in GoCD. This means that, unlike shown in earlier showcases, the
+          docker plugin for elastic agents can use a Dockerfile as its configuration, rather than using resources. The
+          relevant pull request for this is <a href="https://github.com/gocd/gocd/pull/1874">#1874</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">More releases</span>
+      <div class="content">
+        <p>
+          The roadmap for 2016 mentioned more releases this year: There will be a release coming up soon (probably next
+          week). The installer tests are <a
+          href="https://github.com/gocd/installer-testing/blob/b40431fd44ccd538f919efabb9035544dab06102/Rakefile#L38-L50">now
+          being used</a> for upgrade testing on CentOS and Debian based systems, as well as fresh-install testing. Soon,
+          we will move on to Windows installer testing.
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">More content around CD and GoCD</span>
+      <div class="content">
+        <p>
+          The second part of the "Are you ready for CD?" blog post is going to come out soon.
+        </p>
+      </div>
+    </div>
+
+    <div class="update">
+      <span class="title">Other notable work (subset of changes)</span>
+      <div class="content">
+        <p>
+          Some recent pull requests:
+        </p>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1887">#1887</a>
+          - Shallow cloning for git material
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1997">#1997</a>
+          - Add UI and API for the new shallow clone option in git materials
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1983">#1983</a>
+          - Use "git clone --no-checkout" to reduce size of checkout on server
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/2045">#2045</a>
+          - Using unique string for cipher generation
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/2031">#2031</a>
+          - Added request headers for ajax requests for pipeline and stage operations on pipeline history page.
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1999">#1999</a>
+          - Convert pipeline actions controller end-points to be AJAX only.
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/2022">#2022</a>
+          - Turning off websocket based communication (by default) for this release - 16.3
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1991">#1991</a>
+          - Clean up KeyPair generation
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1986">#1986</a>
+          - Deprecating the old java api based plugin extensions - ie. Task and Package-repo
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1915">#1915</a>
+          - Allow pipeline names with periods in them (#1801)
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1978">#1978</a>
+          - [OSX] Stop using an internal API for testing if the server is up.
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1874">#1874</a>
+          - Allow adding some metadata for jobs that should be run via elastic agent plugins (#1082)
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1811">#1811</a>
+          - By @d-led: Let Subversion use the password out of the store
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1906">#1906</a>
+          - Add system properties to disable gadget and gadget rendering server (#1908)
+        </div>
+
+        <div class="issue state_closed">
+          <a href="https://github.com/gocd/gocd/pull/1966">#1966</a>
+          - Pipeline Config UI Fixes for jobs #1404
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1947">#1947</a>
+          - Simply packaging scripts. Use gradle instead of buildr.
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/1959">#1959</a>
+          - Plugin list API - Needed for new config UI
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/2044">#2044</a>
+          - Pluggable SCM listing API (extension to "Plugin list API")
+        </div>
+
+        <div class="issue state_open">
+          <a href="https://github.com/gocd/gocd/pull/2017">#2017</a>
+          - By @mfriedenhagen: Adapt ServerCall to respect the Proxy system properties
+        </div>
+
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="note_title">Note</span>: If you're doing some work outside of the gocd GitHub organization and would
+      like it to be mentioned here (maybe you'll get some help!), please let me know, by sending a mail to
+      <a href="mailto:arvind@thoughtworks.com">me</a> or finding me (username: arvindsv) on
+      <a href="https://gitter.im/gocd/gocd">the Gitter developer channel</a> or on the
+      <a href="https://groups.google.com/forum/#!forum/go-cd">mailing list</a>.
+    </div>
+  </div>
+</div>
+
+<h3>Previous weeks:</h3>
+
+<div class="work_update old">
+  <div class="heading">
     <span class="title">Week of Feb 19, 2016</span>
   </div>
 
@@ -143,8 +339,6 @@ done, at the level of a week and will attempt to keep it as updated and approach
     </div>
   </div>
 </div>
-
-<h3>Previous weeks:</h3>
 
 <div class="work_update old">
   <div class="heading">
