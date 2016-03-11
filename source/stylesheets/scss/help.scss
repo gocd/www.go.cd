@@ -182,7 +182,7 @@
 }
 
 .get-support {
-  background: url(../images/help-bg.jpg) no-repeat center top;
+  background: url(../images/texture-bg.jpg) no-repeat center top;
   background-size:cover;
   color: #fff;
   @include clearfix;
@@ -233,21 +233,7 @@
   h3 {
     color: #fff;
   }
-
-}
-
-.points {
-  width: 100%;
-  margin: 30px auto;
-  @include clearfix;
-
-
-  @media only screen and (min-width:$screen-tablet) {
-    width: 77%;
-  }
-}
-
-  .actions {
+    .actions {
     clear: both;
     text-align: center;
     margin: 20px 0 50px;
@@ -268,6 +254,21 @@
 
   }
   }
+
+}
+
+.points {
+  width: 100%;
+  margin: 30px auto;
+  @include clearfix;
+
+
+  @media only screen and (min-width:$screen-tablet) {
+    width: 77%;
+  }
+}
+
+
 
   .btn-cta {
     clear: both;

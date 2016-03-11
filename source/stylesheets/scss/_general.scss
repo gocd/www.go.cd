@@ -4,10 +4,17 @@ body {
 	margin-top: 58px;
 	font-size: 14px;
 
-	@media (min-width:$screen-tablet) {
+	@media (min-width:$screen-lg-desktop) {
 		font-size: 16px;
 	}
 
+}
+p{
+		font-size: 14px;
+
+	@media (min-width:$screen-lg-desktop) {
+		font-size: 16px;
+	}
 }
 
 h1,

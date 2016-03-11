@@ -5,16 +5,18 @@
 .inner-banner {
 	background: $inner-banner-bg;
 	padding: 0;
-		@media (min-width:$screen-tablet) {
-	padding: 0 0 20px 0;
 
-		}
+	@media (min-width:$screen-tablet) {
+		padding: 0 0 20px 0;
+	}
 
 	h1 {
 		font-size: 20px;
+
 		@media (min-width:$screen-tablet) {
-		font-size: 40px;
+			font-size: 40px;
 		}
+
 	}
 
 }
@@ -235,4 +237,207 @@
 
 }
 
-//help
+//contribute
+
+.contribution-process {
+	background: url(../images/texture-bg.jpg) no-repeat center top;
+	background-size: cover;
+	color: #fff;
+	margin: 0;
+	padding: 40px 0;
+	@include clearfix;
+
+	@media (min-width:$screen-tablet) {
+		margin: 0 0 50px 0;
+	}
+
+	h3 {
+		margin: 0px 0 30px;
+		font-size: 24px;
+		color: #fff;
+		text-align: center;
+
+		@media (min-width:$screen-tablet) {
+			margin: 30px 0;
+			font-size: 40px;
+		}
+
+	}
+
+}
+
+.process {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	@media (min-width:$screen-tablet) {
+		float: right;
+	}
+
+	@include clearfix;
+
+	&.second {
+		margin-top: 50px;
+
+		li {
+			&:before {
+				content: "\f175";
+
+				@media (min-width:$screen-tablet) {
+					content: "\f177"''
+				}
+
+				&:first-child {
+					&:before {
+						content: "\f175";
+					}
+
+				}
+
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+		}
+
+	}
+
+	li {
+		width: 200px;
+		height: 200px;
+		margin: 0  auto 50px auto;
+		position: relative;
+
+		@media (min-width:$screen-tablet) {
+			margin: 0  10px 40px 0;
+			float: left;
+			width: 170px;
+			height: auto;
+		}
+		@media (min-width:$screen-desktop) {
+			margin: 0  50px 40px 0;
+			width: 185px;
+			height: auto;			
+		}
+		@media (min-width:$screen-lg-desktop) {
+			float: left;
+			width: 234px;
+		}		
+
+		&:before {
+			content: "\f175";
+			display: inline-block;
+			font: normal normal normal 14px/1 FontAwesome;
+			font-size: 30px;
+			position: absolute;
+			top: -76px;
+			left: 94px;
+
+			@media (min-width:$screen-tablet) {
+    		top: 21px;
+    		left: -17px;
+				content: "\f178";
+			}	
+			@media (min-width:$screen-desktop) {
+				top: 43px;
+				left: -40px;
+				content: "\f178";
+			}
+
+		}
+
+		&:first-child {
+			&:before {
+				content: "";
+			}
+
+		}
+
+		span {
+			text-align: center;
+			display: block;
+
+			&:first-child {
+				background: #fff;
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				margin: 0 auto 10px;
+				line-height: 100px;
+
+				@media (min-width:$screen-tablet) {
+					margin: 0 auto 30px;
+					width: 70px;
+					height: 70px;
+				line-height: 70px;
+				img{
+					width:30px;
+				}
+				}
+				@media (min-width:$screen-desktop) {
+					margin: 0 auto 30px;
+					width: 100px;
+					height: 100px;
+				line-height: 100px;
+				img{
+					width:auto;
+				}
+				}				
+
+			}
+
+		}
+
+		&.lastitem {
+			&:before {
+				content: "\f0ec";
+				transform: rotate(90deg);
+
+				@media (min-width:$screen-tablet) {
+					transform: rotate(0deg);
+				}
+
+			}
+
+			&:after {
+				content: "\f175";
+				display: inline-block;
+				font: normal normal normal 14px/1 FontAwesome;
+				font-size: 30px;
+				position: absolute;
+				top: 200px;
+				left: 95px;
+				@media (min-width:$screen-tablet) {
+				left: 78px;
+				top: 152px;
+				
+
+
+				}
+				@media (min-width:$screen-desktop) {
+				left: 86px;
+				top:185px;
+				}
+				@media (min-width:$screen-lg-desktop) {
+				left: 113px;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.howto {
+	margin: 30px 0;
+
+	@media (min-width:$screen-lg-desktop) {
+		margin: 50px 0;
+	}
+
+}
