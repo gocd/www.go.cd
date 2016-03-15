@@ -47,7 +47,7 @@ chaos. Poor quality will almost never reach production in a well-designed pipeli
 </figure>
 
 Most of the feedback loops you find in a deployment pipeline are good practices in and of themselves. You might already
-be doing parts of most of them. We think you should have many of these in place before moving forward with CD.
+be doing some or most of them. We think you should have many of these in place before moving forward with CD.
 
 ## Test automation
 
