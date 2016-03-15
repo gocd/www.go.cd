@@ -88,21 +88,38 @@ ol li{
 	font-size: 20px;
 }
 
-.post-content .header-img {
+.post-content figure {
   text-align: center;
   margin-bottom: 16px;
 }
 
-.post-content .header-img img {
+.post-content figure img {
   width: 100%;
 }
 
-.post-content .header-img .attribution {
+.post-content figure img.size_medium {
+  width: 50%;
+}
+
+.post-content figure img.size_medium_large {
+  width: 70%;
+}
+
+@media only screen and (max-width: 719px) {
+  .post-content figure img.size_medium {
+    width: 100%;
+  }
+  .post-content figure img.size_medium_large {
+    width: 100%;
+  }
+}
+
+.post-content figure .attribution {
     font-size: 8px;
     float: right;
     margin-top: -4px;
 }
 
-.post-content .header-img .attribution a {
+.post-content figure .attribution a {
     color: black;
 }
