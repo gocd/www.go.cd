@@ -1,3 +1,132 @@
+//banner
+.banner {
+	background-image: url("../images/go-banner-phone.jpg");
+	background-position: center 0;
+	background-repeat: no-repeat;
+	height: 250px;
+	position: relative;
+
+	@media (min-width:$screen-tablet) {
+		height: 500px;
+		background-image: url('../images/go-banner-tablet.jpg');
+		background-size: initial;
+	}
+
+	@media (min-width:1025px) {
+		background-image: url('../images/go-banner-desktop.jpg');
+		height: 700px;
+	}
+
+	.banner-content {
+		position: absolute;
+		top: 50%;
+		min-width: 300px;
+		max-width: 400px;
+		left: 50%;
+		text-align: center;
+		transform: translate(-50%, -50%);
+
+		@media (min-width:$screen-tablet) {
+			width: 750px;
+			max-width: 750px;
+		}
+
+		@media (min-width:$screen-desktop) {
+			width: 1000px;
+			max-width: 1100px;
+			transform: translate(-50%, -50%);
+		}
+
+	}
+
+	.caption {
+		color: #fff;
+		font-size: 35px;
+		font-weight: 700;
+		display: inline-block;
+
+		@media (min-width:$screen-tablet) {
+			font-size: 50px;
+		}
+
+		@media (min-width:$screen-desktop) {
+			font-size: 70px;
+		}
+
+	}
+
+	.subcaption {
+		color: #fff;
+		font-size: 15px;
+		font-weight: 400;
+		display: inline-block;
+		text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+
+		span {
+			display: block;
+
+			&:first-child {
+				text-transform: uppercase;
+
+				@media (min-width:$screen-tablet) {
+					font-size: 30px;
+					line-height: 40px;
+				}
+
+				@media (min-width:$screen-desktop) {
+					font-size: 40px;
+					line-height: 45px;
+				}
+
+			}
+
+			@media (min-width:$screen-tablet) {
+				font-size: 18px;
+			}
+
+			@media (min-width:$screen-desktop) {
+				font-size: 22px;
+			}
+
+		}
+
+		@media (min-width:$screen-tablet) {
+			font-size: 20px;
+		}
+
+	}
+
+}
+
+.btn-download {
+	color: #fff;
+	@include button-bg($primary-color);
+	width: 150px;
+	padding: 10px;
+	font-size: 18px;
+	margin: 10px auto 0;
+
+	&:hover,
+	&:active,
+	&:focus,
+	&:visited {
+		color: #fff;
+	}
+
+	@media (min-width:$screen-tablet) {
+		margin: 20px auto 0;
+		width: 200px;
+		font-size: 25px;
+	}
+
+}
+
+.btn-readmore {
+	border: 1px solid #ccc;
+	padding: 5px 15px;
+	border-radius: 3px;
+}
+
 //go features
 .go-features {
 	margin-bottom: 50px;
@@ -14,7 +143,8 @@
 }
 
 .bigtxt {
-	font-size: 20px;
+	font-size: 18px;
+	line-height: 26px;
 	width: 100%;
 	margin: 0 auto 30px auto;
 	text-align: center;
@@ -27,10 +157,12 @@
 		margin: 0 auto 30px auto;
 		padding: 30px 5%;
 		font-size: 25px;
+		line-height: 34px;
 		max-width: 100%;
 	}
 
 	@media (min-width:$screen-lg-desktop) {
+		line-height: 45px;
 		margin: 0 auto 30px auto;
 		padding: 50px 15%;
 		font-size: 35px;
@@ -50,6 +182,7 @@
 
 		@media (min-width:$screen-desktop) {
 			margin-bottom: 50px;
+			float: none;
 		}
 
 		img {
@@ -59,13 +192,24 @@
 	}
 
 	h3 {
-		font-size: 18px;
+		font-size: 22px;
+		font-weight: 300;
 		margin: 20px 0;
 
 		@media (min-width:$screen-tablet) {
-			// text-align: left;
+			text-align: left;
 		}
-
+		@media (min-width:$screen-tablet) {
+			text-align: center;
+		}
+	}
+	p{
+		@media (min-width:$screen-tablet) {
+			text-align: left;
+		}
+		@media (min-width:$screen-tablet) {
+			text-align: center;
+		}		
 	}
 
 	.features {

@@ -1,6 +1,4 @@
-// variables
-
-
+// Inner pages small banner
 
 .inner-banner {
 	background: $inner-banner-bg;
@@ -10,7 +8,7 @@
 		padding: 0 0 20px 0;
 	}
 
-	h1 {
+	.caption {
 		font-size: 20px;
 
 		@media (min-width:$screen-tablet) {
@@ -18,6 +16,17 @@
 		}
 
 	}
+	.subcaption {
+		font-size: 14px;
+		margin-bottom: 20px;
+		display:block;
+
+		@media (min-width:$screen-tablet) {
+			font-size: 16px;
+			margin-bottom: 0;
+		}
+
+	}	
 
 }
 
@@ -150,6 +159,14 @@
 
 //subscribe
 
+.subscribe{
+	ul{
+	li{
+		margin-bottom: 10px;
+	}
+}
+}
+
 .subscribe-content {
 	@media (min-width:$screen-tablet) {
 		padding-top: 30px;
@@ -228,7 +245,7 @@
 .partners {
 	h4 {
 		margin-bottom: 40px;
-		font-size: 24px;
+		// font-size: 24px;
 	}
 
 	img {

@@ -1,7 +1,6 @@
 //customise here
 $border-color: #ccc;
 $tab-hover-bg: #f5f5f5;
-$tab-head-color: #999;
 $accorion-header-bg: #fff;
 $accorion-header-bg-active: #e5e5e5;
 $tab-container-bg :#d8f0f1;
@@ -11,7 +10,7 @@ ul.tabs {
   padding: 0;
   float: left;
   list-style: none;
-  
+  border-top:1px solid #d8f0f1;
   
   width: 100%;
     @media (min-width:$screen-tablet) {
@@ -26,8 +25,6 @@ ul.tabs {
     margin: 0;
     cursor: pointer;
     padding: 10px 20px;
-      // background-color: $tab-hover-bg;
-    color: $tab-head-color;
     overflow: hidden;
     position: relative;
     font-size: 16px;

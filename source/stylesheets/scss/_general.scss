@@ -3,18 +3,23 @@ body {
 	color: #555555;
 	margin-top: 58px;
 	font-size: 14px;
+	line-height: 22px;
 
 	@media (min-width:$screen-lg-desktop) {
 		font-size: 16px;
+		line-height: 26px;
 	}
 
 }
-p{
-		font-size: 14px;
+
+p , dt, dd{
+	font-size: 14px;
 
 	@media (min-width:$screen-lg-desktop) {
 		font-size: 16px;
+		line-height: 26px;
 	}
+
 }
 
 h1,
@@ -27,7 +32,9 @@ h6 {
 }
 
 h3 {
-	font-size: 18px;
+	font-size: 22px;
+	font-weight: 300;
+	margin: 20px 0;
 }
 
 a {

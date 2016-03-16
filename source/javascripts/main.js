@@ -36,18 +36,28 @@ $(function(){
 
 // fixed header
 
-$(window).scroll(function () {
-     var sc = $(window).scrollTop()
-    if (sc > 1) {
-        $(".top").addClass("scroll-on")
-    } else {
-        $(".top").removeClass("scroll-on")
-    }
+  $(window).scroll(function () {
+       var sc = $(window).scrollTop()
+      if (sc > 1) {
+          $(".top").addClass("scroll-on")
+      } else {
+          $(".top").removeClass("scroll-on")
+      }
+  });
+
+// $(window).scroll(function () {
+//        var sc = $(window).scrollTop()
+//       if (sc > 100) {
+//           $(".getting-started-nav").addClass("fixed")
+//       } else {
+//           $(".getting-started-nav").removeClass("fixed")
+          
+//       }
+//   });
+
+
+
 });
-
-
-			              
-            });
 
 
 
@@ -122,3 +132,45 @@ jQuery(document).ready(function($) {
 
 });
 
+//getting started sidebar
+  $(document).ready(function() {
+    $('.verticalnav > li.dropdown-menu > a').click(function(e){
+      e.preventDefault();
+      $(this).parent().toggleClass('open')
+    // $(this).siblings().toggle();
+  });
+      });
+
+// smooth scroll on getting started page
+
+jQuery(document).ready(function($) {
+var $root = $('html, body');
+$('a').click(function() {
+    var href = $.attr(this, 'href');
+    $root.animate({
+        scrollTop: $(href).offset().top - 100
+    }, 500, function () {
+        window.location.hash = href;
+    });
+    return false;
+});
+});
+
+jQuery(document).ready(function($) {
+  
+// var hash = window.location.hash;
+
+        // this will get the full URL at the address bar
+        var url = window.location.href;
+
+        // passes on every "a" tag
+        $(".verticalnav a").each(function() {
+            // checks if its the same on the address bar
+            if (url == (this.href)) {
+                $(this).closest("li").addClass("active");
+            }
+        });
+
+
+
+});
