@@ -1,4 +1,4 @@
-GO.CD website prototype
+GoCD website prototype
 
 ```
 $ bundle install
