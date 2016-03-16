@@ -44,43 +44,24 @@ end
     </p>
 
     <div class="all-plugins">
-
       <ul class="tabs">
-        <li class="active" rel="tab1">
-          Package repository plugins
-          <span class="plugin-info">&gt;= GoCD v13.3</span>
-        </li>
+        <li class="active" rel="tab1">Package repository plugins <span class="plugin-info">&gt;= GoCD v13.3</span></li>
         <li rel="tab2">Task plugins <span class="plugin-info">&gt;= GoCD v14.1</span></li>
         <li rel="tab3">Notification plugins</li>
         <li rel="tab4">SCM plugins</li>
         <li rel="tab5">Authentication plugins</li>
       </ul>
+
       <div class="tab_container">
         <h3 class="d_active tab-accordion_heading" rel="tab1">Package repository plugins <span class="plugin-info">&gt;= GoCD v13.3</span></h3>
         <div id="tab1" class="tab_content">
-
           <div class="plugins-container">
             <ul class="plugins-list">
-              <li class=" go">
-                <div class="details">
-                  <%= image_tag "go-logo-small.png" , :class => "go-logo" %>
-                  <h5 class="name">Yum repository poller</h5>
-                  <p class="more-details">
-                    An Yum respository poller is a bundled package material plugin...
-                    <a href="http://www.go.cd/documentation/user/current/extension_points/yum_repository_poller.html">Read more</a>
-                  </p>
-                  <span class="created-by">by <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
-                  </span>
-                </div>
-                <div class="actions">
-                  <span class="with-go">Bundled with Go</span>
-                  <iframe src="http://ghbtns.com/github-btn.html?user=gocd&repo=go-plugins&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="20" class="github-star-button"></iframe>
-                </div>
-              </li>
               <% data.repo_plugins.each do |p| %>
                 <li>
                   <span class="logo"></span>
                   <div class="details">
+                    <%= image_tag "go-logo-small.png" , :class => "go-logo" if p.bundled %>
                     <h5 class="name"> <%= p.name %> </h5>
                     <p class="more-details">
                       <%= p.description %>
@@ -91,10 +72,14 @@ end
                     </span>
                   </div>
                   <div class="actions">
-                    <div class="download-plugin">
-                      <i class="fa fa-download"></i>
-                      <%= link_to('Download', p.releases_url) %>
-                    </div>
+                    <% if p.bundled %>
+                      <span class="with-go">Bundled with GoCD</span>
+                    <% else %>
+                      <div class="download-plugin">
+                        <i class="fa fa-download"></i>
+                        <%= link_to('Download', p.releases_url) %>
+                      </div>
+                    <% end %>
                     <%= github_star(p.github_stars) %>
                   </div>
                 </li>
