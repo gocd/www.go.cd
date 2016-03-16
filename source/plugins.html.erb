@@ -43,215 +43,73 @@ end
       <em>Officially maintained ThoughtWorks plugins are tagged with a <%= image_tag "go-logo-small.png" , :class => "go-tag" %> icon.</em>
     </p>
 
+    <% plugin_categories = [
+      {kind: "Package repository plugins", version_info: ">= GoCD v13.3", active: true, plugins: data.repo_plugins},
+      {kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.task_plugins},
+      {kind: "Notification plugins", plugins: data.notification_plugins},
+      {kind: "SCM plugins", plugins: data.scm_plugins},
+      {kind: "Authentication plugins", plugins: data.auth_plugins}
+    ] %>
     <div class="all-plugins">
       <ul class="tabs">
-        <li class="active" rel="tab1">Package repository plugins <span class="plugin-info">&gt;= GoCD v13.3</span></li>
-        <li rel="tab2">Task plugins <span class="plugin-info">&gt;= GoCD v14.1</span></li>
-        <li rel="tab3">Notification plugins</li>
-        <li rel="tab4">SCM plugins</li>
-        <li rel="tab5">Authentication plugins</li>
+        <% plugin_categories.each_with_index do |category, index| %>
+          <li <%= 'class="active" ' if category[:active] %>rel="tab<%= index + 1 %>">
+            <%= category[:kind] %> <span class="plugin-info"><%= category[:version_info] if category[:version_info] %></span>
+          </li>
+        <% end %>
       </ul>
 
       <div class="tab_container">
-        <h3 class="d_active tab-accordion_heading" rel="tab1">Package repository plugins <span class="plugin-info">&gt;= GoCD v13.3</span></h3>
-        <div id="tab1" class="tab_content">
-          <div class="plugins-container">
-            <ul class="plugins-list">
-              <% data.repo_plugins.each do |p| %>
-                <li>
-                  <span class="logo"></span>
-                  <div class="details">
-                    <%= image_tag "go-logo-small.png" , :class => "go-logo" if p.bundled %>
-                    <h5 class="name"> <%= p.name %> </h5>
-                    <p class="more-details">
-                      <%= p.description %>
-                      <%= link_to('Read more', p.readmore_url) %>
-                    </p>
-                    <span class="created-by">by
-                      <%= link_to(p.author_name, p.author_url)  %>
-                    </span>
-                  </div>
-                  <div class="actions">
-                    <% if p.bundled %>
-                      <span class="with-go">Bundled with GoCD</span>
-                    <% else %>
-                      <div class="download-plugin">
-                        <i class="fa fa-download"></i>
-                        <%= link_to('Download', p.releases_url) %>
-                      </div>
-                    <% end %>
-                    <%= github_star(p.github_stars) %>
-                  </div>
-                </li>
-              <% end %>
-              <li class=" contribute_tile">
-                <div class="contribute-plugin">
+        <% plugin_categories.each_with_index do |category, index| %>
+          <% tab_id = "tab#{index + 1}" %>
+          <h3 class="<%= 'd_active ' if category[:active] %>tab-accordion_heading" rel="<%= tab_id %>">
+            <%= category[:kind] %> <span class="plugin-info"><%= category[:version_info] if category[:version_info] %></span>
+          </h3>
 
-                  <i class="fa fa-star"></i>
-                  <h5>Want to contribute?</h5>
-                  <a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html">Write a plugin</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- #tab1 -->
-        <h3 class="tab-accordion_heading" rel="tab2">Task plugins <span class="plugin-info">&gt;= GoCD v14.1</span></h3>
-        <div id="tab2" class="tab_content">
-          <div class="plugins-container">
+          <div id="<%= tab_id %>" class="tab_content">
+            <div class="plugins-container">
+              <ul class="plugins-list">
 
-            <ul class="plugins-list">
+                <% category[:plugins].each do |p| %>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      <%= image_tag "go-logo-small.png" , :class => "go-logo" if p.bundled %>
+                      <h5 class="name"> <%= p.name %> </h5>
+                      <p class="more-details">
+                        <%= p.description %>
+                        <%= link_to('Read more', p.readmore_url) %>
+                      </p>
+                      <span class="created-by">by
+                        <%= link_to(p.author_name, p.author_url)  %>
+                      </span>
+                    </div>
+                    <div class="actions">
+                      <% if p.bundled %>
+                        <span class="with-go">Bundled with GoCD</span>
+                      <% else %>
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <%= link_to('Download', p.releases_url) %>
+                        </div>
+                      <% end %>
+                      <%= github_star(p.github_stars) %>
+                    </div>
+                  </li>
+                <% end %>
 
-              <% data.repo_plugins.each do |p| %>
-                <li class="go">
-                  <div class="details">
-                    <h5 class="name"> <%= p.name %> </h5>
-                    <p class="more-details">
-                      <%= p.description %>
-                      <%= link_to('Read more', p.readmore_url) %>
-                    </p>
-                    <span class="created-by">by <%= link_to(p.author_name, p.author_url) %>
-                    </span>
-                  </div>
-                  <div class="actions">
-                    <span class="with-go">
-                      <%= link_to('Download', p.releases_url) %>
+                <li class=" contribute_tile">
+                  <div class="contribute-plugin">
 
-                    </span>
-                    <%= github_star(p.github_stars) %>
+                    <i class="fa fa-star"></i>
+                    <h5>Want to contribute?</h5>
+                    <a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html">Write a plugin</a>
                   </div>
                 </li>
-              <% end %>
-              <li class=" contribute_tile">
-                <div class="contribute-plugin">
-
-                  <i class="fa fa-star"></i>
-                  <h5>Want to contribute?</h5>
-                  <a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html">Write a plugin</a>
-                </div>
-              </li>
-            </ul>
+              </ul>
+            </div>
           </div>
-        </div>
-        <!-- #tab2 -->
-        <h3 class="tab-accordion_heading" rel="tab3">Notification plugins</h3>
-        <div id="tab3" class="tab_content">
-          <div class="plugins-container">
-
-
-            <ul class="plugins-list">
-
-              <% data.notification_plugins.each do |p| %>
-                <li class="go">
-                  <div class="details">
-                    <h5 class="name"> <%= p.name %> </h5>
-                    <p class="more-details">
-                      <%= p.description %>
-                      <%= link_to('Read more', p.readmore_url) %>
-                    </p>
-                    <span class="created-by">by <%= link_to(p.author_name, p.author_url) %>
-                    </span>
-                  </div>
-                  <div class="actions">
-                    <span class="with-go">
-                      <%= link_to('Download', p.releases_url) %>
-
-                    </span>
-                    <%= github_star(p.github_stars) %>
-                  </div>
-                </li>
-              <% end %>
-              <li class=" contribute_tile">
-                <div class="contribute-plugin">
-
-                  <i class="fa fa-star"></i>
-                  <h5>Want to contribute?</h5>
-                  <a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html">Write a plugin</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- #tab3 -->
-        <h3 class="tab-accordion_heading" rel="tab4">SCM plugins</h3>
-        <div id="tab4" class="tab_content">
-
-          <div class="plugins-container">
-
-
-            <ul class="plugins-list">
-
-              <% data.scm_plugins.each do |p| %>
-                <li class="go">
-                  <div class="details">
-                    <h5 class="name"> <%= p.name %> </h5>
-                    <p class="more-details">
-                      <%= p.description %>
-                      <%= link_to('Read more', p.readmore_url) %>
-                    </p>
-                    <span class="created-by">by <%= link_to(p.author_name, p.author_url) %>
-                    </span>
-                  </div>
-                  <div class="actions">
-                    <span class="with-go">
-                      <%= link_to('Download', p.releases_url) %>
-
-                    </span>
-                    <%= github_star(p.github_stars) %>
-                  </div>
-                </li>
-              <% end %>
-              <li class=" contribute_tile">
-                <div class="contribute-plugin">
-
-                  <i class="fa fa-star"></i>
-                  <h5>Want to contribute?</h5>
-                  <a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html">Write a plugin</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- #tab4 -->
-        <h3 class="tab-accordion_heading" rel="tab5">Authentication plugins</h3>
-        <div id="tab5" class="tab_content">
-
-          <div class="plugins-container">
-
-            <ul class="plugins-list">
-
-              <% data.auth_plugins.each do |p| %>
-                <li class="go">
-                  <div class="details">
-                    <h5 class="name"> <%= p.name %> </h5>
-                    <p class="more-details">
-                      <%= p.description %>
-                      <%= link_to('Read more', p.readmore_url) %>
-                    </p>
-                    <span class="created-by">by <%= link_to(p.author_name, p.author_url) %>
-                    </span>
-                  </div>
-                  <div class="actions">
-                    <span class="with-go">
-                      <%= link_to('Download', p.releases_url) %>
-
-                    </span>
-                    <%= github_star(p.github_stars) %>
-                  </div>
-                </li>
-              <% end %>
-              <li class=" contribute_tile">
-                <div class="contribute-plugin">
-
-                  <i class="fa fa-star"></i>
-                  <h5>Want to contribute?</h5>
-                  <a href="http://www.go.cd/documentation/developer/writing_go_plugins/overview.html">Write a plugin</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- #tab5 -->
+        <% end %>
       </div>
     </div>
   </div>
