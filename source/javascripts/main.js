@@ -44,19 +44,6 @@ $(function(){
           $(".top").removeClass("scroll-on")
       }
   });
-
-// $(window).scroll(function () {
-//        var sc = $(window).scrollTop()
-//       if (sc > 100) {
-//           $(".getting-started-nav").addClass("fixed")
-//       } else {
-//           $(".getting-started-nav").removeClass("fixed")
-          
-//       }
-//   });
-
-
-
 });
 
 
@@ -181,34 +168,16 @@ jQuery(document).ready(function($) {
 
 });
 
-
 //sticky sidebar
-
-$(function () {    
-  $(window).load(function(){
-  var lst = 0;
-    $('.sidebar').height($('.getting-started-content').outerHeight());
-  var sidebar = $('.getting-started-nav');
-  var container = sidebar.closest('div').height()+400;
-  var height = sidebar.outerHeight();
-  var offset = sidebar.offset();
-  $(window).scroll(function () {
-    if ($(window).width()>768) {
-            if ($(window).scrollTop() > lst) { //downscroll
-              var bottom_trigger = parseFloat(sidebar.css('paddingTop')) + parseFloat(offset.top) + height;
-              if (($(window).scrollTop()+$(window).height()) > (bottom_trigger) && ($(window).scrollTop()+$(window).height()) < container) {
-                sidebar.css("padding-top", "+=" + ($(window).scrollTop()-lst));
-              }
-            } else { //upscroll
-              var top_trigger = parseFloat(sidebar.css('paddingTop'))+parseFloat(offset.top)-100;
-              if ($(window).scrollTop() < top_trigger) {
-                sidebar.css("padding-top", "+=" + ($(window).scrollTop()-lst));
-              }
-
-            }
-            lst = $(window).scrollTop();
-          }
-        });
-        });
-
+jQuery(document).ready(function($) {
+  $('nav.getting-started-nav').affix({
+    offset: {
+      top: function() {
+        return (this.top = $('header').outerHeight(true))
+      },
+      bottom: function () {
+        return (this.bottom = $('footer').outerHeight(true))
+      }
+    }
+  });
 });
