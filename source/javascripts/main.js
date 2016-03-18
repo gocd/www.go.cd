@@ -200,7 +200,7 @@ $(function () {
                 sidebar.css("padding-top", "+=" + ($(window).scrollTop()-lst));
               }
             } else { //upscroll
-              var top_trigger = parseFloat(sidebar.css('paddingTop'))+parseFloat(offset.top)-50;
+              var top_trigger = parseFloat(sidebar.css('paddingTop'))+parseFloat(offset.top)-100;
               if ($(window).scrollTop() < top_trigger) {
                 sidebar.css("padding-top", "+=" + ($(window).scrollTop()-lst));
               }
