@@ -15,9 +15,14 @@ $link-hover-bg : $primary-color;
 
 nav.getting-started-nav{
   margin-top: 40px;
-  &.fixed{
-    position:fixed;
-  }
+    @media (min-width:$screen-lg-desktop) {
+    width:262px;
+    }
+    &.fixed{
+      top:100px;
+      position:fixed;
+    }
+ 
   h5{
     background-color: $gray;
     color: #fff;
@@ -158,5 +163,10 @@ dt{
 }
 }
 
-
+.affix {
+  top: 50px;
+}
+.affix-bottom {
+  position: absolute;
+}
 

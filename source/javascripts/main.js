@@ -134,9 +134,12 @@ jQuery(document).ready(function($) {
 
 //getting started sidebar
   $(document).ready(function() {
-    $('.verticalnav > li.dropdown-menu > a').click(function(e){
+    $('.verticalnav > li.dropdown > a').click(function(e){
       e.preventDefault();
-      $(this).parent().toggleClass('open')
+      $('.verticalnav > li.dropdown > ul').hide();
+      $('.verticalnav > li.dropdown').removeClass('open');
+      $(this).parent().addClass('open');
+      $(this).parent().find('ul').show();
     // $(this).siblings().toggle();
   });
       });
@@ -158,19 +161,54 @@ $('a').click(function() {
 
 jQuery(document).ready(function($) {
   
-// var hash = window.location.hash;
 
-        // this will get the full URL at the address bar
-        var url = window.location.href;
-
-        // passes on every "a" tag
         $(".verticalnav a").each(function() {
             // checks if its the same on the address bar
+        var url = window.location.href;
             if (url == (this.href)) {
-                $(this).closest("li").addClass("active");
+              $(".verticalnav a").removeClass('active');
+                $(this).addClass("active");
             }
         });
 
 
+        $(".verticalnav a").click(function(event) {
+           $(".verticalnav a").removeClass('active');
+                $(this).addClass("active");
+         });
+
+
+
+});
+
+
+//sticky sidebar
+
+$(function () {    
+  $(window).load(function(){
+  var lst = 0;
+    $('.sidebar').height($('.getting-started-content').outerHeight());
+  var sidebar = $('.getting-started-nav');
+  var container = sidebar.closest('div').height()+400;
+  var height = sidebar.outerHeight();
+  var offset = sidebar.offset();
+  $(window).scroll(function () {
+    if ($(window).width()>768) {
+            if ($(window).scrollTop() > lst) { //downscroll
+              var bottom_trigger = parseFloat(sidebar.css('paddingTop')) + parseFloat(offset.top) + height;
+              if (($(window).scrollTop()+$(window).height()) > (bottom_trigger) && ($(window).scrollTop()+$(window).height()) < container) {
+                sidebar.css("padding-top", "+=" + ($(window).scrollTop()-lst));
+              }
+            } else { //upscroll
+              var top_trigger = parseFloat(sidebar.css('paddingTop'))+parseFloat(offset.top)-50;
+              if ($(window).scrollTop() < top_trigger) {
+                sidebar.css("padding-top", "+=" + ($(window).scrollTop()-lst));
+              }
+
+            }
+            lst = $(window).scrollTop();
+          }
+        });
+        });
 
 });
