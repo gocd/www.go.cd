@@ -115,10 +115,3 @@ In coming posts we will present similar sets of questions for you to consider in
 application design, process, and culture.
 
 *Update:* [Part 2](/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops.html) of this series, discussing feedback loops, has been published. 
-
-<style>
-  .blog .post-content ul {
-    margin: -5px 0 20px 0;
-    padding-left: 3em;
-  }
-</style>

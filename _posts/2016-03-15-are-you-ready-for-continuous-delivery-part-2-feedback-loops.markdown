@@ -175,10 +175,3 @@ enough of them in place, you will find that you’ve actually completed a large 
 Delivery.
 
 In future parts of this series, we plan to explore culture, the last mile, and more.
-
-<style>
-  .blog .post-content ul {
-    margin: -5px 0 20px 0;
-    padding-left: 3em;
-  }
-</style>
