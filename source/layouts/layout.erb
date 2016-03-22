@@ -6,8 +6,7 @@
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
     <title><%= current_page.data.title || "GoCD" %></title>
     <link href="/images/favicon.ico" rel="shortcut icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" %>
+    <%= tag(:link, { :href => '/vendor/stylesheets/font-awesome-4.5.0/css/font-awesome.min.css', :rel => 'stylesheet' }) %>
     <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag '/vendor/javascripts/jquery.min.js' %>
     <%= javascript_include_tag :all %>
