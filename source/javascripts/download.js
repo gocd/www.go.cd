@@ -23,7 +23,6 @@ var showDownloadLinks = (function($) {
 
     var showReleases = function(data) {
       var releases = R.compose(releasesLessThanAYearOld, R.reverse, R.map(addURL))(data);
-      debugger;
 
       var template = Handlebars.compile($("#download-revisions-template").html());
       $("#downloads").html(template({
@@ -38,7 +37,7 @@ var showDownloadLinks = (function($) {
       console.log("Error: " + error);
     };
 
-    $.getJSON('https://download.go.cd/releases.json')
+    return $.getJSON('https://download.go.cd/releases.json')
       .done(showReleases)
       .fail(showFailureMessage);
   };

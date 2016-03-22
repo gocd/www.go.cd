@@ -1,11 +1,6 @@
 ---
 title: GoCD plugins
 ---
-<%
-def github_star(url)
-  content_tag(:iframe, '', src: url, allowtransparency: 'true', frameborder: 0, scrolling: 0, width:75, height:20,class:'github-star-button' )
-end
-%>
 <div class="inner-banner plugins">
   <div class="container">
     <h1 class="caption"><span>Plugins</span></h1>
@@ -44,7 +39,7 @@ end
     </p>
 
     <% plugin_categories = [
-      {kind: "Package repository plugins", version_info: ">= GoCD v13.3", active: true, plugins: data.repo_plugins},
+      {kind: "Package repository plugins", version_info: ">= GoCD v13.3", plugins: data.repo_plugins},
       {kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.task_plugins},
       {kind: "Notification plugins", plugins: data.notification_plugins},
       {kind: "SCM plugins", plugins: data.scm_plugins},
@@ -53,7 +48,7 @@ end
     <div class="all-plugins">
       <ul class="tabs">
         <% plugin_categories.each_with_index do |category, index| %>
-          <li <%= 'class="active" ' if category[:active] %>rel="tab<%= index + 1 %>">
+          <li rel="tab<%= index + 1 %>">
             <%= category[:kind] %> <span class="plugin-info"><%= category[:version_info] if category[:version_info] %></span>
           </li>
         <% end %>
@@ -62,7 +57,7 @@ end
       <div class="tab_container">
         <% plugin_categories.each_with_index do |category, index| %>
           <% tab_id = "tab#{index + 1}" %>
-          <h3 class="<%= 'd_active ' if category[:active] %>tab-accordion_heading" rel="<%= tab_id %>">
+          <h3 class="tab-accordion_heading" rel="<%= tab_id %>">
             <%= category[:kind] %> <span class="plugin-info"><%= category[:version_info] if category[:version_info] %></span>
           </h3>
 
@@ -93,7 +88,6 @@ end
                           <%= link_to('Download', p.releases_url) %>
                         </div>
                       <% end %>
-                      <%= github_star(p.github_stars) %>
                     </div>
                   </li>
                 <% end %>
@@ -114,3 +108,11 @@ end
     </div>
   </div>
 </main>
+
+<%= javascript_include_tag :tabs %>
+
+<script>
+ jQuery(document).ready(function($) {
+   startTabContainer($);
+ });
+</script>
