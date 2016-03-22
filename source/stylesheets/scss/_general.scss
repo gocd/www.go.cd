@@ -1,10 +1,10 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: #555555;
-	margin-top: 58px;
 	font-size: 14px;
 	line-height: 22px;
 	position:relative;
+	margin:58px 0 0 0;
 
 	@media (min-width:$screen-lg-desktop) {
 		font-size: 16px;

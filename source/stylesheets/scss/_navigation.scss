@@ -140,7 +140,7 @@ box-shadow: 0px 5px 7px -3px rgba(-1, 0, 0, 0.75);
     width: 250px;
     top: 58px;
     bottom:auto;
-    height:100vh;
+    height:calc(100vh - 58px);
     left:-250px;
      transition: all 0.5s ease;
      background:#fff;
@@ -204,6 +204,9 @@ box-shadow: 0px 5px 7px -3px rgba(-1, 0, 0, 0.75);
   }
   .top .navbtn {
     display: block;
+    &:active, &:focus{
+      outline:0;
+    }
   }
 
   .nav-open{

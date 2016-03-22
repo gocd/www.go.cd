@@ -105,6 +105,7 @@ jQuery(document).ready(function($) {
 
 });
 
+// Help signup
 
 jQuery(document).ready(function($) {
 
@@ -116,3 +117,36 @@ jQuery(document).ready(function($) {
   });
 
 });
+
+// getting started navigation mobile
+
+jQuery(document).ready(function($) {
+
+  enquire.register("screen and (max-width: 992px)", {
+    match : function() {
+        $(".get-start-btn , .getting-started-nav h5 ").click(function() {
+          $(".getting-started-nav").slideToggle();
+        });
+        $(window).scroll(function () {
+            var sc = $(window).scrollTop()
+            if (sc > 58) {
+              $(".get-start-btn").addClass("fixed")
+            } else {
+              $(".get-start-btn").removeClass("fixed")
+            }
+          });
+          
+       $('nav.getting-started-nav ul.verticalnav > li.dropdown ul a').click(function(e){
+            e.preventDefault();
+            $(".get-start-btn").removeClass("fixed")
+            $(".getting-started-nav").slideToggle();
+        });          
+
+      
+    },  
+    unmatch : function() {
+        // Hide the sidebar
+    }
+});
+}); 
+

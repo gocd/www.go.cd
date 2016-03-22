@@ -3,59 +3,40 @@ $border-color: #ccc;
 $tab-hover-bg: #f5f5f5;
 $accorion-header-bg: #fff;
 $accorion-header-bg-active: #e5e5e5;
-$tab-container-bg :#d8f0f1;
+$tab-container-bg: #d8f0f1;
 
 ul.tabs {
   margin: 0;
   padding: 0;
-  float: left;
   list-style: none;
-  border-top:1px solid #d8f0f1;
-  
   width: 100%;
-    @media (min-width:$screen-tablet) {
-  width: 180px;
-  // border:1px solid $border;
-  border-right:0;
-  border-bottom:0;
-    }
+  display: table;
 
   li {
-    
+    display: table-cell;
     margin: 0;
     cursor: pointer;
     padding: 10px 20px;
     overflow: hidden;
     position: relative;
     font-size: 16px;
-    border-bottom: 1px solid $tab-container-bg;
-    border-left: 1px solid $tab-container-bg;
-    
-    
-
+    border-bottom: 1px solid  $border;
+    border-left: 1px solid  $border;
 
     strong {
       display: block;
       font-weight: 400;
     }
 
-    &:hover {
-      background-color: $tab-hover-bg;
-      color: #000;
-    }
 
     &.active {
-     
-      background-color: $tab-container-bg;
+      background-color: #fff;
       color: #333;
-      border-right: 1px solid $tab-container-bg;
-      display: block;
-      width:180px;
-      border-left:0;
+      border-left: 1px solid $border;
+      display: table-cell;
     }
-    &:last-child{
-      border-bottom-left-radius: 5px;
-    }
+
+
 
   }
 
@@ -66,24 +47,21 @@ ul.tabs {
   clear: both;
   float: left;
   width: 100%;
-  background:$tab-container-bg;
-    @media (min-width:$screen-tablet) {
-      width: 540px;
-      clear:none;
-      // border:1px solid $border;
+  @media (min-width:$screen-tablet) {
+    width: 540px;
+    clear: none;
+    // border: 1px solid $border;
+  }
 
-    }
-    @media (min-width:$screen-desktop) {
-      width: 760px;
-    }
-    @media (min-width:$screen-lg-desktop) {
-      width: 960px;
-    }
+  @media (min-width:$screen-desktop) {
+    width: 760px;
+  }
 
-    
+  @media (min-width:$screen-lg-desktop) {
+    width: 960px;
+  }
+
 }
-
-
 
 //accordion styles
 
@@ -110,22 +88,25 @@ ul.tabs {
     font-size: 16px;
 
     @media (min-width:$screen-tablet) {
-    font-size: 20px;
+      font-size: 20px;
     }
+
   }
 
-  .tab_container{
+  .tab_container {
     .tab-accordion_heading {
-      &:first-child{
+      &:first-child {
         border-top: 1px solid $border;
       }
+
     }
+
   }
 
   .d_active {
     background-color: $gray-dark;
     color: #fff;
-    border-color:#333;
+    border-color: #333;
 
     .plugin-info {
       // background: #fff;
@@ -135,15 +116,139 @@ ul.tabs {
 
   }
 
-
-
 }
 
 .tab_content {
+  @media (max-width:$screen-xs-max) {
+    border: 1px solid $border;
+  }
 
-   @media (max-width:$screen-xs-max) {
- border:1px solid $border;
-   }
 }
 
- 
+// plugins tabs
+
+.all-plugins {
+  ul.tabs {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    border-top: 1px solid #d8f0f1;
+    display: block;
+    width: 100%;
+
+    @media (min-width:$screen-tablet) {
+      width: 180px;
+      // border: 1px solid $border;
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    li {
+      margin: 0;
+      cursor: pointer;
+      padding: 10px 20px;
+      overflow: hidden;
+      position: relative;
+      font-size: 16px;
+      border-bottom: 1px solid $tab-container-bg;
+      border-left: 1px solid $tab-container-bg;
+      display: block;
+
+      strong {
+        display: block;
+        font-weight: 400;
+      }
+
+      &:hover {
+        background-color: $tab-hover-bg;
+        color: #000;
+      }
+
+      &.active {
+        background-color: $tab-container-bg;
+        color: #333;
+        border-right: 1px solid $tab-container-bg;
+        display: block;
+        width: 180px;
+        border-left: 0;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 5px;
+      }
+
+    }
+
+  }
+  .tab_container {
+  background: $tab-container-bg;
+
+  @media (min-width:$screen-tablet) {
+
+  }
+
+  @media (min-width:$screen-desktop) {
+
+  }
+
+  @media (min-width:$screen-lg-desktop) {
+
+  }
+
+}
+
+}
+
+.tabs.os{
+  margin:50px auto 10px;
+  border-bottom:0;
+  display:block;
+  li{
+    background:#fff;
+    color:#333;
+    height:100px;
+    width:calc(100%/6);
+    float:left;
+    display:block;
+      transition: all .2s ease-in-out;
+    span{
+      display:block;
+      text-align:center;
+      font-weight:400;
+      &.os-logo{
+      transition: all .2s ease-in-out;
+        height:50px;
+        margin:0 auto 5px;
+      }
+    }
+    &.active{
+      height:110px;
+      border-bottom: 0;
+    }
+    &:hover{
+      height:110px;
+        transition: all .2s ease-in-out;
+      span{
+        transition: all .2s ease-in-out;
+       margin-bottom: 10px;
+      }
+    }
+  }
+    @media (max-width:$screen-xs-max) {
+      display:none;
+    }
+}
+
+.os-tab-content{
+  margin-top: 20px;
+  .tab-accordion_heading {
+    background-color: $green;
+    color:#fff;
+    border-color:#fff;
+  }
+  .tab_content {
+ border:1px solid #fff;
+ padding:20px;
+}
+}

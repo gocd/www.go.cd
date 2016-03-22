@@ -52,8 +52,17 @@ jQuery(document).ready(function($) {
   };
 
   setupSidebar();
-  stickySidebar();
-
   setupSmoothScrollForSamePageLinks();
   highlightCorrectNavigationSectionBasedOnLocation();
+
+
+  enquire.register("screen and (min-width: 992px)", {
+    match : function() {
+      stickySidebar();
+    },  
+
+  });
+
+
+
 });

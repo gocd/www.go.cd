@@ -9,17 +9,25 @@ header.top {
 	transition: all 0.5s ease;
 
 	&.scroll-on {
-		background: rgba(134, 86, 154, 0.95);
+		background: $primary-color;
 		transition: all 0.5s ease;
 		-webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.48);
 		-moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.48);
 		box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.48);
+
+		@media (min-width:$screen-tablet) {
+			background: rgba(134, 86, 154, 0.95);
+		}
+
 	}
+
 	&:hover {
 		background: $header-bg;
 		transition: all 0.5s ease;
 	}
+
 }
+
 .logo {
 	margin: 10px 0;
 	float: left;

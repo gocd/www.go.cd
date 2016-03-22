@@ -5,14 +5,14 @@
 	padding: 0;
 
 	@media (min-width:$screen-tablet) {
-		padding: 0 0 20px 0;
+		 padding: 0 0 10px 0;
 	}
 
 	.caption {
 		font-size: 20px;
 
 		@media (min-width:$screen-tablet) {
-			font-size: 40px;
+			font-size: 25px;
 		}
 
 	}
@@ -37,6 +37,26 @@
 }
 
 //download
+
+.download-area{
+	  background: url(../images/texture-bg.jpg) no-repeat center top;
+  background-size:cover;
+  color: #fff;
+  padding:50px 0 0;
+  @include clearfix;
+    .sub-title {
+    color: #fff;
+    margin:0 0 10px;
+  }
+  .info{
+  	color:#fff;
+  	text-align: center;
+  	a{
+  	color:#fff;
+  		
+  	}
+  }
+}
 
 .warning {
 	padding: 10px;
