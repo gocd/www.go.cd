@@ -55,14 +55,10 @@ jQuery(document).ready(function($) {
   setupSmoothScrollForSamePageLinks();
   highlightCorrectNavigationSectionBasedOnLocation();
 
-
   enquire.register("screen and (min-width: 992px)", {
     match : function() {
       stickySidebar();
     },  
 
   });
-
-
-
 });
