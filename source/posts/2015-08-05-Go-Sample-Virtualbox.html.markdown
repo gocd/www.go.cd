@@ -50,11 +50,11 @@ you may get a port conflict.
 After a few minutes, you should be able to navigate to http://localhost:8153/go/pipelines on your local
 machine and see the following...
 
-![](/images/blog/sample-virtualbox/pipelines-v2.png)
+![](/assets/images/blog/sample-virtualbox/pipelines-v2.png)
 
 These pipelines are all related, as shown in the following value stream map screenshot...
 
-![](/images/blog/sample-virtualbox/vsm-v2.png)
+![](/assets/images/blog/sample-virtualbox/vsm-v2.png)
 
 Feel free to play around with the installation and see how everything works. You can always
 reset the box to it's orginal state if you need to!

@@ -15,7 +15,7 @@ Every time any change is introduced - application, database script, automated te
 
 Here’s a generic but common Build-Test-Release workflow. Each code commit will trigger a new release candidate and run through the gauntlet, left to right. Every workflow step is tasked to find an issue with the version of the software it is building, testing or deploying.
 
-![](/images/blog/mark-failfast1.png)
+![](/assets/images/blog/mark-failfast1.png)
 
 To shorten the feedback loop:
 
@@ -43,19 +43,19 @@ It’s important a team has a holistic context for every release candidate. Ever
 
 Let’s say a release candidate needs to pass 11 steps (gauntlet) before it can make it to an enduser. Sequence is important. The goal is to fail fast. A flat workflow will return feedback but it’s slow since only one step will run at a time.
 
-![](/images/blog/mark-failfast2.png)
+![](/assets/images/blog/mark-failfast2.png)
 
 If it turns out that a few steps can be run in parallel, you will speed up your workflow.
 
-![](/images/blog/mark-failfast3.png)
+![](/assets/images/blog/mark-failfast3.png)
 
 Speed things up even further by increasing the amount of parallelization.
 
-![](/images/blog/mark-failfast4.png)
+![](/assets/images/blog/mark-failfast4.png)
 
 Over time you may find other areas in your Build-Test-Release workflow where you can speed up your feedback loop. This workflow will find an issue much faster than the flat one we started with.
 
-![](/images/blog/mark-failfast5.png)
+![](/assets/images/blog/mark-failfast5.png)
 
 
 Sequencing and parallelization in Go

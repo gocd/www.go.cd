@@ -99,7 +99,7 @@ But [Go CD] has good support for APIs, so I wrote [Ruby script](https://github.c
 
 The following chart shows how the test runtime looks like on build. X-axis is job names; y-axis is job runtime.
 
-![Acceptance test time](/images/acceptnace-test-build-time.png)
+![Acceptance test time](/assets/images/acceptnace-test-build-time.png)
 
 Blue bars are test runtime on job. Red bars are "expected time", because [TLB] distributed tests by previous build test runtime.
 Red bars are test runtime calculated by previous build test runtime:
@@ -115,7 +115,7 @@ Then I ran same script on more builds. The outputs were similar, just different 
 As [Go CD] random picked up build VMs to run any job, it gave me a clue that maybe its build VM performance issue.
 So I wrote another [script](https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/agent_stats.rb) to build the following chart:
 
-![Go build agent runtime](/images/vms-build-time.jpg)
+![Go build agent runtime](/assets/images/vms-build-time.jpg)
 
 It's clear there are some VMs are consistent slower than others.
 Then Barrow Kwan found out 2 of our VMs hosts were overloaded when we increased vCPUs on our VMs.
@@ -132,7 +132,7 @@ It made build task runtime visible.
 I was not pay attention to the timestamps in the console logs until recently.
 The following screenshot shows an example:
 
-![timestamps in console logs](/images/timestamps-in-console-logs-example.png)
+![timestamps in console logs](/assets/images/timestamps-in-console-logs-example.png)
 
 It turns out, [tlb.rb] client we used has the following code:
 
@@ -148,7 +148,7 @@ After removed code `sleep 2`, there is almost no time spent at the end of test a
 
 Without "timestamps in console logs", it is something like following:
 
-![no timestamps in console logs](/images/no-timestamps-in-console-logs-example.png)
+![no timestamps in console logs](/assets/images/no-timestamps-in-console-logs-example.png)
 
 No one will notice it ever.
 

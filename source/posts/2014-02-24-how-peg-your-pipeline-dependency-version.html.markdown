@@ -9,7 +9,7 @@ author: Sriram Narayan
 
 Say we have a set up like the one below. We have two pipelines -- one for component-1 (C1) and another for component-2 (C2). C1 just builds off its source code in version control (VCS-1). C2 has its source in a different repository (VCS-2) and is also dependent (d3) on C1. In Go terminology, C1 has one upstream dependency d1 while C2 has two upstream dependencies d2 and d3.
 
-![](/images/blog/sriram-peg1_0.png)
+![](/assets/images/blog/sriram-peg1_0.png)
 
 
 ###Fluid dependencies
@@ -25,7 +25,7 @@ What if we want to keep d1 and d2 fluid but make d3 static? This is a reasonable
 
 On the face of it, it may appear that Go cannot support pegging. But that is not the case; Go’s pipelines are powerful and flexible building blocks. We could just introduce a “manual-gate” pipeline to achieve pegging.
 
-![](/images/blog/sriram-peg2.png)
+![](/assets/images/blog/sriram-peg2.png)
 
 
 “manual-gate” is a simple pipeline with one stage having a single no-op job, one upstream dependency C1, and [auto-scheduling turned off](http://www.go.cd/documentation/user/current/configuration/configuration_reference.html#approval) (this makes d3 static rather than fluid). The manual gate doesn’t trigger for every successful run of C1, it can only be manually triggered. C2 has a regular fluid dependency (d4) with manual-gate. The overall setup pegs C2 to a chosen good version of C1 while C1 is free to keep building new versions.

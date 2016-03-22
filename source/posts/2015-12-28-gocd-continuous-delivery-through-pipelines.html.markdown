@@ -31,7 +31,7 @@ But let us start from the beginning.
 At the highest level, Go consists of two main components, the Go Server and multiple Go Agents.
 The system works on a pull model where agents periodically poll the server for work.
 
-<img src="/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-architecture.png" alt="GoCD architecture"/>
+<img src="/assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-architecture.png" alt="GoCD architecture"/>
 
 The main flow of Go goes through a couple of following stages:
 
@@ -84,7 +84,7 @@ application and have functional tests on the client’s side, which depend on th
 being updated, you can make a client functional test pipeline which will trigger on commit
 on client and successful build and deploy of server side.
 
-<img src="/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-fanIn.png" alt="GoCD fan-in"/>
+<img src="/assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-fanIn.png" alt="GoCD fan-in"/>
 
 The additional challenge here is a diamond-like dependency, where it is not enough for both
 upstream dependencies to finish but to have right versions. The following diagram depicts
@@ -92,7 +92,7 @@ that problem. Here, configuration is really important, C1 must be set as materia
 C2 and C3 and C2 and C3 are materials for the pipeline Package. The package will auto trigger
 when both C2 and C3 go green with the same version of code.
 
-<img src="/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem.png" alt="GoCD diamond problem"/>
+<img src="/assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem.png" alt="GoCD diamond problem"/>
 
 ## Pipeline templates
 

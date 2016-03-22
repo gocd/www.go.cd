@@ -10,7 +10,7 @@ excerpt: <p>I hear people say all the time that they're practicing continuous de
 
 <div>
   <div class="float-image float-right">
-    <img src="/images/blog/deploy-now/but_it_just_needs_oven.png" class="pad-left">
+    <img src="/assets/images/blog/deploy-now/but_it_just_needs_oven.png" class="pad-left">
   </div>
 
   <div class="float-article float-left">
@@ -43,7 +43,7 @@ Over the next several weeks I'll be writing more about each of these types of pi
 
 <div>
   <div class="float-image float-left">
-    <img src="/images/blog/deploy-now/but_it_just_needs_recorded.png" class="pad-right">
+    <img src="/assets/images/blog/deploy-now/but_it_just_needs_recorded.png" class="pad-right">
   </div>
 
   <div class="float-article float-right">
@@ -72,7 +72,7 @@ It’s been said many times that it’s much easier to break an application by m
 
 <div>
   <div class="float-image float-right">
-    <img src="/images/blog/deploy-now/but_it_just_needs_paint.png" class="pad-left">
+    <img src="/assets/images/blog/deploy-now/but_it_just_needs_paint.png" class="pad-left">
   </div>
 
   <div class="float-article float-left">

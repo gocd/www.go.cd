@@ -26,7 +26,7 @@ We concur. This is a good example of cross-pollination of good ideas between dev
 11.   Infrastructure automation tools like Chef, Puppet and Ansible have good support for popular package management systems. Traditionally used for provisioning servers, and environments, these tools are increasingly being used for [application provisioning](https://github.com/opscode/java-quick-start) - more on this point in a follow-up post.
 There you go - eleven good reasons to start creating packages for your components and applications and deploying from packages rather than from a tag, branch or binary.
 
-![](/images/blog/sriram-package1.png)
+![](/assets/images/blog/sriram-package1.png)
 
 Thanks to [Danilo](http://www.dtsato.com/blog/about/), [Ram](http://twitter.com/sriramnrn) for their insights on this topic.
 

@@ -61,23 +61,23 @@ Starting release 14.3 you can spawn 'x' instances of a job. So if you want to di
 
 Setup a pipeline with material (SCM) that contains your tests.
 
-<img src="/images/blog/run-x-instance/1.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/1.png" style="width: 100%; border: 1px solid;">
 
 Setup Job to spawn required number of instances (run instance count).
 
-<img src="/images/blog/run-x-instance/3.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/3.png" style="width: 100%; border: 1px solid;">
 
 Setup TLB related environment variables at Environment / Pipeline / Stage / Job level.
 
-<img src="/images/blog/run-x-instance/2.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/2.png" style="width: 100%; border: 1px solid;">
 
 Setup the task to consume `GO_PIPELINE_NAME`, `GO_STAGE_NAME`, `GO_PIPELINE_COUNTER`, `GO_STAGE_COUNTER`, `GO_JOB_RUN_INDEX` & `GO_JOB_RUN_COUNT` environment variables that Go exposes.
 
-<img src="/images/blog/run-x-instance/4.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/4.png" style="width: 100%; border: 1px solid;">
 
 Upload junit xmls as test artifacts.
 
-<img src="/images/blog/run-x-instance/4-2.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/4-2.png" style="width: 100%; border: 1px solid;">
 
 **Sample Pipeline Configuration**
 
@@ -139,34 +139,34 @@ Upload junit xmls as test artifacts.
 
 Go's modelling capability gives it the ability to run jobs in parallel but wait for all of them to finish before the next Stage / downstream Pipelines are triggered.
 
-<img src="/images/blog/run-x-instance/6.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/6.png" style="width: 100%; border: 1px solid;">
 
 #### Stop the downstream flow
 
 If any of the tests (and as a result the Job running the test) fails, the Stage is considered as failed. This causes the flow to stop as expected.
 
-<img src="/images/blog/run-x-instance/5.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/5.png" style="width: 100%; border: 1px solid;">
 
 #### Consolidated Test Report
 
 Once all the Jobs are done running, Go consolidates test reports & shows the result at stage level for easy consumption.
 
-<img src="/images/blog/run-x-instance/7.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/7.png" style="width: 100%; border: 1px solid;">
 
 #### Drill down
 
 You can drill down at job level to know more information like 'test count', 'console output' for the Job (test) etc.
 
-<img src="/images/blog/run-x-instance/8.png" style="width: 100%; border: 1px solid;">
-<img src="/images/blog/run-x-instance/10.png" style="width: 100%; border: 1px solid;">
-<img src="/images/blog/run-x-instance/9.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/8.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/10.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/9.png" style="width: 100%; border: 1px solid;">
 
 #### Partition re-run
 
 Go also provides ability to re-run a Job of a stage. This provides ability to run the partition that could have failed due to flaky test etc. The best part is, TLB runs the exact tests that it ran the last time making sure no test is missed out!
 
-<img src="/images/blog/run-x-instance/11-1.png" style="width: 100%; border: 1px solid;">
-<img src="/images/blog/run-x-instance/11-2.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/11-1.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/11-2.png" style="width: 100%; border: 1px solid;">
 
 #### TLB Correctness Check
 

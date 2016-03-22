@@ -16,13 +16,13 @@ In this blog we will show you how you can integrate GoCD with GitHub using a few
 This plugin allows you to login, search and add existing github users to GoCD.
 
 <figure class='extra_small_image'>
-  <img src="/images/blog/authentication-plugins/login-page.png" class="has_border"
+  <img src="/assets/images/blog/authentication-plugins/login-page.png" class="has_border"
     alt="GoCD - Login Page" id="mature_ci_cd_setup" title="GoCD - Login Page" />
   <figcaption>Login Page with GitHub icon</figcaption>
 </figure>
 
 <figure class='extra_small_image'>
-  <img src="/images/blog/authentication-plugins/search-user.png" class="has_border"
+  <img src="/assets/images/blog/authentication-plugins/search-user.png" class="has_border"
     alt="GoCD - Search User" id="mature_ci_cd_setup" title="GoCD - Search User" />
   <figcaption>Search and Add User</figcaption>
 </figure>
@@ -34,13 +34,13 @@ This plugin allows you to login, search and add existing github users to GoCD.
 The combination of these plugins will help you configure GoCD such that any pull-requests that are submitted will automatically be built, and their statuses updated on the pull request on GitHub.
 
 <figure class="extra_small_image">
-  <img src="/images/blog/feature-branch/update-status-1.png" class="has_border full_size"
+  <img src="/assets/images/blog/feature-branch/update-status-1.png" class="has_border full_size"
     alt="GitHub PR page gets updated" id="github_pr_update" title="GitHub PR page gets updated" />
   <figcaption>GitHub PR page gets updated</figcaption>
 </figure>
 
 <figure class="extra_small_image">
-  <img src="/images/blog/feature-branch/update-status-2.png" class="has_border full_size"
+  <img src="/assets/images/blog/feature-branch/update-status-2.png" class="has_border full_size"
     alt="GitHub PR listing page gets updated" id="github_pr_update" title="GitHub PR listing page gets updated" />
   <figcaption>GitHub PR listing page gets updated</figcaption>
 </figure>
@@ -54,7 +54,7 @@ Any commit messages that contain references to issues or pull requests using the
 To configure this, edit the pipeline material and setup a pattern and a link under "Project Management" tab.
 
 <figure class="extra_small_image">
-  <img src="/images/blog/github-integration/github-issues-integration.png" class="has_border full_size"
+  <img src="/assets/images/blog/github-integration/github-issues-integration.png" class="has_border full_size"
     alt="GoCD - GitHub Issue Tracker Integration" id="mature_ci_cd_setup" title="GoCD - Login Page" />
   <figcaption>GitHub Issue Tracker Integration</figcaption>
 </figure>
@@ -62,7 +62,7 @@ To configure this, edit the pipeline material and setup a pattern and a link und
 Any commit messages with issue numbers will be linked to the correct GitHub issues:
 
 <figure class="extra_small_image">
-  <img src="/images/blog/github-integration/github-issue-link-in-build-cause.png" class="has_border full_size"
+  <img src="/assets/images/blog/github-integration/github-issue-link-in-build-cause.png" class="has_border full_size"
     alt="GoCD - Comment with GitHub issue link" id="mature_ci_cd_setup" title="GoCD - Login Page" />
   <figcaption>Comment with GitHub issue link (build cause pop-up)</figcaption>
 </figure>
@@ -70,7 +70,7 @@ Any commit messages with issue numbers will be linked to the correct GitHub issu
 You can also compare pipelines and get the release notes or changelog straight out of Go.
 
 <figure class="extra_small_image">
-  <img src="/images/blog/github-integration/github-issue-link-in-compare-pipeline.png" class="has_border full_size"
+  <img src="/assets/images/blog/github-integration/github-issue-link-in-compare-pipeline.png" class="has_border full_size"
     alt="GoCD - Comment with GitHub issue link" id="mature_ci_cd_setup" title="GoCD - Login Page" />
   <figcaption>Comment with GitHub issue link (compare pipeline page)</figcaption>
 </figure>

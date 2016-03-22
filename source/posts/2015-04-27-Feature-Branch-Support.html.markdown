@@ -23,7 +23,7 @@ Here is an example of a Value Stream Map from [Go CD](https://build.go.cd) (User
 where running all the tests and generating installers can take hours:
 
 <figure>
-  <img src="/images/blog/feature-branch/mature-ci-cd-setup.png" class="has_border full_size"
+  <img src="/assets/images/blog/feature-branch/mature-ci-cd-setup.png" class="has_border full_size"
     alt="Figure 1: GoCD - Value Stream Map" id="mature_ci_cd_setup" title="GoCD - Value Stream Map" />
   <figcaption>Figure 1: GoCD - Value Stream Map <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -32,7 +32,7 @@ Due to this, it becomes critical to keep the main Value Stream green all the tim
 commits ready to go in have to wait until the failed build is fixed:
 
 <figure>
-  <img src="/images/blog/feature-branch/failed-build.png" class="has_border full_size"
+  <img src="/assets/images/blog/feature-branch/failed-build.png" class="has_border full_size"
     alt="Figure 2: Failed build stops everything" id="failed_build" title="Failed build stops everything" />
   <figcaption>Figure 2: Failed build stops everything <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -94,7 +94,7 @@ page](http://www.go.cd/community/plugins.html#notification-plugins) for more inf
 * Verify that the plugins are loaded correctly.
 
 <figure>
-  <img src="/images/blog/feature-branch/plugins-loaded.png" class="has_border full_size"
+  <img src="/assets/images/blog/feature-branch/plugins-loaded.png" class="has_border full_size"
     alt="Figure 3: Verify Plugins" id="verify_plugins" title="Verify Plugins" />
   <figcaption>Figure 3: Verify Plugins <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -112,7 +112,7 @@ page](http://www.go.cd/community/plugins.html#notification-plugins) for more inf
     Suppose you have a setup of three pipelines like this:
 
     <figure>
-      <img src="/images/blog/feature-branch/setup.png" class="full_size"
+      <img src="/assets/images/blog/feature-branch/setup.png" class="full_size"
         alt="Figure 4: Example setup" id="example_setup" title="Example setup" />
       <figcaption>Figure 4: Example setup <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>
@@ -122,7 +122,7 @@ page](http://www.go.cd/community/plugins.html#notification-plugins) for more inf
     to look like this:
 
     <figure>
-      <img src="/images/blog/feature-branch/with_prs.png" class="full_size"
+      <img src="/assets/images/blog/feature-branch/with_prs.png" class="full_size"
         alt="Figure 5: Extract templates, create pipelines for PR" id="create_pipelines" title="Extract templates, create pipelines for PR" />
       <figcaption>Figure 5: Extract templates, create pipelines for PR <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>
@@ -131,7 +131,7 @@ page](http://www.go.cd/community/plugins.html#notification-plugins) for more inf
     Based on your decision, extract templates and create the new pipelines:
 
     <figure>
-      <img src="/images/blog/feature-branch/extract-template.png" class="has_border full_size"
+      <img src="/assets/images/blog/feature-branch/extract-template.png" class="has_border full_size"
         alt="Figure 6: Extract template" id="extract_template" title="Extract template" />
       <figcaption>Figure 6: Extract template <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>
@@ -141,13 +141,13 @@ page](http://www.go.cd/community/plugins.html#notification-plugins) for more inf
   the GitHub material (this material is provided by the GitHub poller plugin installed earlier):
 
     <figure>
-      <img src="/images/blog/feature-branch/replace-material-1.png" class="has_border full_size"
+      <img src="/assets/images/blog/feature-branch/replace-material-1.png" class="has_border full_size"
         alt="Figure 7: Add GitHub material" id="add_github_material" title="Add GitHub material" />
       <figcaption>Figure 7: Add GitHub material <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>
 
     <figure>
-      <img src="/images/blog/feature-branch/replace-material-2.png" class="has_border full_size"
+      <img src="/assets/images/blog/feature-branch/replace-material-2.png" class="has_border full_size"
         alt="Figure 8: Add GitHub material - Details" id="add_github_material_details" title="Add GitHub material - Details" />
       <figcaption>Figure 8: Add GitHub material - Details <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>
@@ -163,7 +163,7 @@ That's it.
 * Go will trigger builds for every new Pull Request and for new commits to existing Pull Requests:
 
     <figure>
-      <img src="/images/blog/feature-branch/trigger-build.png" class="has_border full_size"
+      <img src="/assets/images/blog/feature-branch/trigger-build.png" class="has_border full_size"
         alt="Figure 9: PR triggers build" id="pr_triggers_build" title="PR triggers build" />
       <figcaption>Figure 9: PR triggers build <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>
@@ -172,13 +172,13 @@ That's it.
 * Go will update Pull Request in GitHub with the build status:
 
     <figure>
-      <img src="/images/blog/feature-branch/update-status-1.png" class="has_border full_size"
+      <img src="/assets/images/blog/feature-branch/update-status-1.png" class="has_border full_size"
         alt="Figure 10: GitHub PR page gets updated" id="github_pr_update" title="GitHub PR page gets updated" />
       <figcaption>Figure 10: GitHub PR page gets updated <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>
 
     <figure>
-      <img src="/images/blog/feature-branch/update-status-2.png" class="has_border full_size"
+      <img src="/assets/images/blog/feature-branch/update-status-2.png" class="has_border full_size"
         alt="Figure 11: GitHub PR listing page gets updated" id="github_pr_update" title="GitHub PR listing page gets updated" />
       <figcaption>Figure 11: GitHub PR listing page gets updated <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>
@@ -186,7 +186,7 @@ That's it.
 * Fan-in and Value Stream Map work as expected:
 
     <figure>
-      <img src="/images/blog/feature-branch/vsm.png" class="has_border full_size"
+      <img src="/assets/images/blog/feature-branch/vsm.png" class="has_border full_size"
         alt="Figure 12: Fan-in and VSM work" id="vsm_works" title="Fan-in and VSM work" />
       <figcaption>Figure 12: Fan-in and VSM work <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>

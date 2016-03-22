@@ -34,7 +34,7 @@ I will not go into detail on how to achieve this, but you can read more on how t
 1. You will need to add two Environment Variables: SOURCE\_TEMPLATE and DESTINATION\_TEMPLATE that have some default values
 1. You will need to add two Secure Environment Variables: API\_USER and API\_PASS that contain credentials for a user that has correct permissions to use the [Configuration API](http://www.go.cd/documentation/user/current/api/configuration_api.html)
 
-![](/images/blog/cloning-templates/environment-variable-view.png)
+![](/assets/images/blog/cloning-templates/environment-variable-view.png)
 
 Alternative you can use the Config XML to inject your template in the group using the code below (do not forget to replace the environment variables with the right values)
 
@@ -73,7 +73,7 @@ After adding the code, please add the API\_USER and API\_PASS Secure Environment
 ####Trigger the pipeline with options
 Now you can just trigger your pipeline with options and go to the Environment Variables tab to put in the right details for cloning. 
 
-![](/images/blog/cloning-templates/trigger-with-options-1.png)
-![](/images/blog/cloning-templates/trigger-with-options-2.png)
+![](/assets/images/blog/cloning-templates/trigger-with-options-1.png)
+![](/assets/images/blog/cloning-templates/trigger-with-options-2.png)
 
 Enjoy!

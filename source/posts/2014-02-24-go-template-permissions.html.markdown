@@ -16,11 +16,11 @@ Template administrators can view and edit the templates (to which they have perm
 
 ###Pipeline Templates:
 
-![](/images/blog/Pipeline1.png)
+![](/assets/images/blog/Pipeline1.png)
 
 Then, click the "Permissions" link for the template, you want to manage permissions for:
 
-![](/images/blog/Permissions1.png)
+![](/assets/images/blog/Permissions1.png)
 
 More information on this is available in the [13.4 help documentation](http://www.go.cd/documentation/user/current/configuration/pipeline_templates.html#editing-pipeline-templates).
 

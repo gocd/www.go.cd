@@ -50,7 +50,7 @@ Promoting builds at the press of a button is what turns the deployment pipeline 
 
 In general, a build/deployment pipeline is also a promotion pipeline. Go’s support for pipelines and stages with automatic or manual approvals makes it easy to model and [visualize](http://www.go.cd/documentation/user/current/navigation/value_stream_map.html) your promotion process into the [CD value stream](http://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-2-pipelines-and-value-streams). A stage runs only when the previous stage has passed - this is like an automatic promotion gate. [Manual](http://www.go.cd/documentation/user/current/configuration/dev_choose_when_stage_runs.html) stage [approvals](http://www.go.cd/documentation/user/current/configuration/dev_authorization.html#adding-authorization-to-approvals) may also be used where needed.
 
-![](/images/blog/sriram-buildpromo1.png)
+![](/assets/images/blog/sriram-buildpromo1.png)
 
 **Modeling promotion levels (P1...P4) itno the CD value stream** 
 

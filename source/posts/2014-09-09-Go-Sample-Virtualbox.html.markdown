@@ -48,11 +48,11 @@ shown in the startup messages.
 After a few minutes, you should be able to navigate to http://localhost:8153/ on your local
 machine and see the following...
 
-![](/images/blog/sample-virtualbox/pipelines.png)
+![](/assets/images/blog/sample-virtualbox/pipelines.png)
 
 These pipelines are all related, as shown in the following value stream map screenshot...
 
-![](/images/blog/sample-virtualbox/vsm.png)
+![](/assets/images/blog/sample-virtualbox/vsm.png)
 
 Feel free to play around with the installation and see how everything works. You can always
 reset the box to it's orginal state if you need to!

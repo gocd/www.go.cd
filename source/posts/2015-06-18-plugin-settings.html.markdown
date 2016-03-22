@@ -14,7 +14,7 @@ Go is continously improving its plugin infrastructure. Starting 15.2.0 Go will s
 * On plugin listing page users will see a gear icon (similar to one on the pipeline dashboard) for the plugins that accept plugin settings.
 
 <figure>
-  <img src="/images/blog/plugin-settings/list-plugin.png" class="has_border full_size"
+  <img src="/assets/images/blog/plugin-settings/list-plugin.png" class="has_border full_size"
     alt="Figure 1: GoCD - Plugin Listing" id="mature_ci_cd_setup" title="GoCD - Plugin Listing" />
   <figcaption>Figure 1: Plugin listing with gear icon <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -22,7 +22,7 @@ Go is continously improving its plugin infrastructure. Starting 15.2.0 Go will s
 * Clicking on the gear icon opens a pop-up that renders "Plugin Settings" template that is provided by the plugin.
 
 <figure>
-  <img src="/images/blog/plugin-settings/configure-plugin.png" class="has_border full_size"
+  <img src="/assets/images/blog/plugin-settings/configure-plugin.png" class="has_border full_size"
     alt="Figure 2: GoCD - Configure Plugin" id="mature_ci_cd_setup" title="GoCD - Configure Plugin" />
   <figcaption>Figure 2: Configure plugin pop-up <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -30,7 +30,7 @@ Go is continously improving its plugin infrastructure. Starting 15.2.0 Go will s
 * On "Save" the user inputs are validated by plugin.
 
 <figure>
-  <img src="/images/blog/plugin-settings/configure-plugin-errors.png" class="has_border full_size"
+  <img src="/assets/images/blog/plugin-settings/configure-plugin-errors.png" class="has_border full_size"
     alt="Figure 2: GoCD - Configure Plugin Errors" id="mature_ci_cd_setup" title="GoCD - Configure Plugin Errors" />
   <figcaption>Figure 3: Configure plugin pop-up with errors <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>

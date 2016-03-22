@@ -8,7 +8,7 @@ excerpt: "<p>This is the first part of a series of posts about Continuous Delive
 ---
 
 <figure>
-  <img src="/images/blog/are-you-ready-for-continuous-delivery/woodline.jpeg" alt="Ready for Continuous Delivery?"></img>
+  <img src="/assets/images/blog/are-you-ready-for-continuous-delivery/woodline.jpeg" alt="Ready for Continuous Delivery?"></img>
   <span class="attribution"><a target="_blank" href="https://commons.wikimedia.org/wiki/File:Wood-snake(byJamesForbes).JPG">Attribution</a></span>
 </figure>
 

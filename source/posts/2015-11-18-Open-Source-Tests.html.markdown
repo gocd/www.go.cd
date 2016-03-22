@@ -24,7 +24,7 @@ How GoCD is continuously tested
 
 Let’s take a brief tour of how GoCD does continuous testing. GoCD is built, tested and deployed using GoCD itself. Here’s a snapshot of the GoCD build pipeline.
 
-<img src="/images/go-cd-QA-pipeline.png" alt="GoCD VSM" style="width: 1000px"/>
+<img src="/assets/images/go-cd-QA-pipeline.png" alt="GoCD VSM" style="width: 1000px"/>
 
 GoCD is tested using “Server in-the-box” model. In this model we define the system under test - its scope and its boundaries.
 External dependencies for the system under test (SUT) say git or yum repo are stubbed out or built into the SUT itself.
@@ -72,14 +72,14 @@ Gauge Specifications
 
 Gauge specifications are in markdown language making it more readable. Gauge specs intend to be live documents of the system behavior
 
-<img src="/images/go-gauge-specs.png" alt="Gauge specs"/>
+<img src="/assets/images/go-gauge-specs.png" alt="Gauge specs"/>
 
 Gauge Reports
 =============
 
 Gauge produces reports in an easily readable format and provides specification execution details like steps executed, time for each spec execution, overall test execution time, steps and specs  passed, what failed and the screen shot of the failure page.
 
-<img src="/images/go-gauge-report.png" alt="Gauge reports" style="width: 1000px"/>
+<img src="/assets/images/go-gauge-report.png" alt="Gauge reports" style="width: 1000px"/>
 
 
 Conclusion

@@ -8,7 +8,7 @@ excerpt: "<p>This is the second part of a series of posts about Continuous Deliv
 ---
 
 <figure>
-  <img src="/images/blog/are-you-ready-for-continuous-delivery/feedback_loops.jpg" alt="Ready for Continuous Delivery?"></img>
+  <img src="/assets/images/blog/are-you-ready-for-continuous-delivery/feedback_loops.jpg" alt="Ready for Continuous Delivery?"></img>
   <span class="attribution">
     <a target="_blank" href="https://www.flickr.com/photos/drainrat/14017306767/sizes/l">Attribution - Change: Cropped</a>
   </span>
@@ -32,7 +32,7 @@ of CD typically depict a linear flow. On the surface, this is quite different fr
 usually shown as a loop.
 
 <figure>
-  <img src="/images/blog/are-you-ready-for-continuous-delivery/gocd_thoughtworks_continuous_integration_feedback_loops.png"
+  <img src="/assets/images/blog/are-you-ready-for-continuous-delivery/gocd_thoughtworks_continuous_integration_feedback_loops.png"
     alt="Continuous Integration feedback loops GoCD ThoughtWorks" class="size_medium"></img>
 </figure>
 
@@ -42,7 +42,7 @@ pipeline halts and the team responds appropriately to the feedback. The feedback
 chaos. Poor quality will almost never reach production in a well-designed pipeline.
 
 <figure>
-  <img src="/images/blog/are-you-ready-for-continuous-delivery/gocd_thoughtworks_continuous_delivery_feedback_loops.png"
+  <img src="/assets/images/blog/are-you-ready-for-continuous-delivery/gocd_thoughtworks_continuous_delivery_feedback_loops.png"
     alt="Continuous Delivery feedback loops GoCD ThoughtWorks" class="size_medium_large"></img>
 </figure>
 

@@ -23,7 +23,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 * Generate OAuth token on GitHub.
 
 <figure>
-  <img src="/images/blog/authentication-plugins/generate-oauth-token.png" class="has_border full_size"
+  <img src="/assets/images/blog/authentication-plugins/generate-oauth-token.png" class="has_border full_size"
     alt="Figure 1: GitHub - Generate Oauth Token" id="mature_ci_cd_setup" title="GoCD - Generate Oauth Token" />
   <figcaption>Figure 1: Generate oauth token <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -31,7 +31,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 * On plugin listing page users will see a gear icon (similar to one on the pipeline dashboard).
 
 <figure>
-  <img src="/images/blog/authentication-plugins/list-plugin.png" class="has_border full_size"
+  <img src="/assets/images/blog/authentication-plugins/list-plugin.png" class="has_border full_size"
     alt="Figure 1: GoCD - Plugin Listing" id="mature_ci_cd_setup" title="GoCD - Plugin Listing" />
   <figcaption>Figure 1: Plugin listing with gear icon <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -39,7 +39,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 * Clicking on the gear icon opens a pop-up that renders "Plugin Settings".
 
 <figure>
-  <img src="/images/blog/authentication-plugins/configure-plugin.png" class="has_border full_size"
+  <img src="/assets/images/blog/authentication-plugins/configure-plugin.png" class="has_border full_size"
     alt="Figure 2: GoCD - Configure Plugin" id="mature_ci_cd_setup" title="GoCD - Configure Plugin" />
   <figcaption>Figure 2: Configure plugin pop-up <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -47,7 +47,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 * Login Page
 
 <figure>
-  <img src="/images/blog/authentication-plugins/login-page.png" class="has_border full_size"
+  <img src="/assets/images/blog/authentication-plugins/login-page.png" class="has_border full_size"
     alt="Figure 2: GoCD - Login Page" id="mature_ci_cd_setup" title="GoCD - Login Page" />
   <figcaption>Figure 3: Login Page with GitHub icon <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -55,7 +55,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 * Click on GitHub icon
 
 <figure>
-  <img src="/images/blog/authentication-plugins/github-login.png" class="has_border full_size"
+  <img src="/assets/images/blog/authentication-plugins/github-login.png" class="has_border full_size"
     alt="Figure 2: GoCD - Authorize Go Server on GitHub" id="mature_ci_cd_setup" title="GoCD - Authorize Go Server on GitHub" />
   <figcaption>Figure 3: Authorize Go Server to access GitHub <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -63,7 +63,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 * Successful login
 
 <figure>
-  <img src="/images/blog/authentication-plugins/successful-login.png" class="has_border full_size"
+  <img src="/assets/images/blog/authentication-plugins/successful-login.png" class="has_border full_size"
     alt="Figure 2: GoCD - On Successful Login" id="mature_ci_cd_setup" title="GoCD - On Successful Login" />
   <figcaption>Figure 3: On successful login <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
@@ -71,7 +71,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 * Ability to Search & Add users
 
 <figure>
-  <img src="/images/blog/authentication-plugins/search-user.png" class="has_border full_size"
+  <img src="/assets/images/blog/authentication-plugins/search-user.png" class="has_border full_size"
     alt="Figure 2: GoCD - Search User" id="mature_ci_cd_setup" title="GoCD - Search User" />
   <figcaption>Figure 3: Search User <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>

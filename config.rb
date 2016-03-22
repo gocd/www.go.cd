@@ -5,6 +5,9 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 set :base_url, "https://go.cd"
+set :js_dir, "assets/javascripts"
+set :css_dir, "assets/stylesheets"
+set :images_dir, "assets/images"
 
 # General configuration
 activate :directory_indexes
