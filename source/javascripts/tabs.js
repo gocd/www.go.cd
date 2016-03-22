@@ -6,7 +6,6 @@ var startTabContainer = function($) {
 
   //tab mode
   $("ul.tabs li").click(function() {
-
     $(".tab_content").hide();
     var activeTab = $(this).attr("rel");
     $("#"+activeTab).fadeIn();

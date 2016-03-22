@@ -1,11 +1,6 @@
 ---
 title: GoCD plugins
 ---
-<%
-def github_star(url)
-  content_tag(:iframe, '', src: url, allowtransparency: 'true', frameborder: 0, scrolling: 0, width:75, height:20,class:'github-star-button' )
-end
-%>
 <div class="inner-banner plugins">
   <div class="container">
     <h1 class="caption"><span>Plugins</span></h1>
@@ -93,7 +88,6 @@ end
                           <%= link_to('Download', p.releases_url) %>
                         </div>
                       <% end %>
-                      <%= github_star(p.github_stars) %>
                     </div>
                   </li>
                 <% end %>
