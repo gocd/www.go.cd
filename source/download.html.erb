@@ -18,7 +18,7 @@ title: GoCD Download
     </p>
 
     <p>
-      Scripting GoCD installations gets easier now. Both GoCD server and agent are now available on
+      Scripting GoCD installations gets easier now. Both GoCD Server and Agent are now available on
       public <a href="https://docs.go.cd/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhat-centos-fedora">YUM</a>
       and <a href="https://docs.go.cd/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">APT</a> repositories!
     </p>
@@ -32,11 +32,61 @@ title: GoCD Download
 
     <p class="note">New! <a href="/subscribe">Subscribe to updates</a> on new GoCD releases and more.</p>
 
-    <h3 class="page-headings">
-      Latest supported release (v<span id="latestVersion"></span>)
-      <small>
-        (<a href="/releases/#latest">What's new</a>)
-      </small>
-    </h3>
+    <div id="downloads"></div>
+
+    <script id="download-revisions-template" type="text/x-handlebars-template">
+      {{#*inline "show-for-installer-type"}}
+        <div class="{{{installer-type}}} files">
+          {{> show-file server type="server"}}
+          {{> show-file agent type="agent"}}
+        </div>
+      {{/inline}}
+
+      {{#*inline "show-file"}}
+        <div class="{{{type}}} file">
+          <div class="name"><a href="{{{url}}}">{{{file}}}</a></div>
+          <div class="sha256sum"><small>{{{sha256sum}}}</small></div>
+          <div class="md5sum"><small>{{{md5sum}}}</small></div>
+        </div>
+      {{/inline}}
+
+      <h3 class="page-headings">
+        Latest supported release (<span id="latest-version">{{latest_version}}</span>)
+        <small>(<a href="/releases/#latest">What's new</a>)</small>
+      </h3>
+
+      NOT DONE YET
+      <select id="release-selector">
+        {{#each releases}}
+        <option value="{{go_version}}">{{go_version}}</option>
+        {{/each}}
+      </select>
+      NOT DONE YET
+
+      <div class="releases">
+        {{#each releases}}
+        <div class="release {{go_version}}">
+          <span class="revision">{{go_version}}</span>
+
+          {{#with win}}     {{> show-for-installer-type . installer-type="win"}}     {{/with}}
+          {{#with osx}}     {{> show-for-installer-type . installer-type="osx"}}     {{/with}}
+          {{#with deb}}     {{> show-for-installer-type . installer-type="deb"}}     {{/with}}
+          {{#with rpm}}     {{> show-for-installer-type . installer-type="rpm"}}     {{/with}}
+          {{#with solaris}} {{> show-for-installer-type . installer-type="solaris"}} {{/with}}
+          {{#with generic}} {{> show-for-installer-type . installer-type="package"}} {{/with}}
+        </div>
+        {{/each}}
+      </div>
+    </script>
   </div>
 </main>
+
+<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js" %>
+<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/ramda/0.19.1/ramda.min.js" %>
+<%= javascript_include_tag :download %>
+
+<script>
+ jQuery(document).ready(function($) {
+   showDownloadLinks();
+ });
+</script>
