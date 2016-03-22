@@ -13,3 +13,9 @@ gem 'middleman', '>= 4.0.0'
 gem 'middleman-livereload'
 gem 'middleman-compass', '>= 4.0.0'
 gem 'middleman-deploy'
+gem 'middleman-blog'
+
+gem 'redcarpet', '~> 3.3', '>= 3.3.3'
+
+# For feed.xml.builder
+gem "builder", "~> 3.0"
