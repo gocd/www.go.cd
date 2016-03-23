@@ -5,6 +5,8 @@ status: public
 type: post
 published: true
 author: Ken Mugrage
+excerpt: "Every couple of weeks ThoughtWorks hosts learning sessions for people who want more information about continuous delivery with Go. This is a recording of the session from 6 March, 2014"
+summary_image: "/assets/images/blog/webinar-recording/webinar-recording-1.png"
 ---
 
 Every couple weeks ThoughtWorks hosts learning sessions for people who want more information about continuous delivery with Go. This 32 minute video is a recording of the session from 6 March, 2014.

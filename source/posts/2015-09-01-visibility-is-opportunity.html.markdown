@@ -5,6 +5,7 @@ status: public
 type: post
 author: Xiao Li
 excerpt: "Mingle is a 9 years JRuby Rails project. We do test-driven development and continous integration. We write selenium tests to test everything since Oct 2006. For a long time, our build time was 1 to 2 hours. We thought it was a good balance of build time and resources needed..."
+summary_image: "/assets/images/timestamps-in-console-logs-example.png"
 ---
 
 Visibility can be hard, but it's worth it.

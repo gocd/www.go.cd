@@ -5,6 +5,8 @@ status: public
 type: post
 published: true
 author: Scott Turnquest
+excerpt: "Scott Turnquest writes about how the Mingle team uses GoCD's Value Stream Map to figure out the answers to many questions, including which features are deployed to their many environments"
+summary_image: "/assets/images/blog/tracingprod1.png"
 ---
 
 
@@ -29,9 +31,9 @@ I find myself answering or asking some variant of the questions above multiple t
 
 We have multiple pipelines in our path to production. For legacy reasons we have pipelines that run tests using different browsers, databases and operating systems. We also run upgrade tests and performance tests at different frequencies based on need. Since we have a number of pipelines chained together it isn't always easy to know where a given change is in our deployment process. Consequently, it is difficult to answer questions about what features are in a given build or when a bug fix will be available for testing.
 
-###Go’s value stream mapping feature
+###GoCD's value stream mapping feature
 
-To answer each of the above questions, we now refer a lot to the new value stream mapping feature in Go. From any build we can now zoom in to find upstream and downstream pipelines and basically trace a single revision all the way through to production. Below is an example of the overview for a recent build that we are waiting to see promoted to our staging environment (called pasty).
+To answer each of the above questions, we now refer a lot to the new value stream mapping feature in GoCD. From any build we can now zoom in to find upstream and downstream pipelines and basically trace a single revision all the way through to production. Below is an example of the overview for a recent build that we are waiting to see promoted to our staging environment (called pasty).
 
 <img style="width:100%" src="/assets/images/blog/tracingprod1.png" alt="">
 
@@ -46,7 +48,7 @@ One added benefit we’ve gained from the value stream map is that I now have a 
 >
 >Me: “GreenInstallers... ah yes I know exactly where that fits in the overall process so I have a good idea about when that build will be ready. Thanks.” 
 
-I think it’s safe to say that the new value stream map is my new favorite feature in Go.
+I think it’s safe to say that the new value stream map is my new favorite feature in GoCD.
 
 
 <div class="highlight">This post is also cross-posted <a href="http://www.thoughtworks.com/insights/blog/tracing-our-path-production">here</a>.</div>

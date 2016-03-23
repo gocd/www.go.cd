@@ -5,25 +5,26 @@ status: public
 type: post
 published: true
 author: Sriram Narayan
+excerpt: "This post discusses different ways of handling dependencies during pipeline modeling and how to decide which dependencies trigger downstream builds"
 ---
 
-Say we have a set up like the one below. We have two pipelines -- one for component-1 (C1) and another for component-2 (C2). C1 just builds off its source code in version control (VCS-1). C2 has its source in a different repository (VCS-2) and is also dependent (d3) on C1. In Go terminology, C1 has one upstream dependency d1 while C2 has two upstream dependencies d2 and d3.
+Say we have a set up like the one below. We have two pipelines -- one for component-1 (C1) and another for component-2 (C2). C1 just builds off its source code in version control (VCS-1). C2 has its source in a different repository (VCS-2) and is also dependent (d3) on C1. In GoCD terminology, C1 has one upstream dependency d1 while C2 has two upstream dependencies d2 and d3.
 
 ![](/assets/images/blog/sriram-peg1_0.png)
 
 
 ###Fluid dependencies
 
-Now by default in Go, a pipeline gets scheduled when there is a change to any of its upstream dependencies. This behavior is referred to as a *fluid dependency* in the [Continuous delivery](http://continuousdelivery.com/) book (the book refers to a paper by Alex Chaffee).
+Now by default in GoCD, a pipeline gets scheduled when there is a change to any of its upstream dependencies. This behavior is referred to as a *fluid dependency* in the [Continuous delivery](http://continuousdelivery.com/) book (the book refers to a paper by Alex Chaffee).
 
->Chaffee’s proposal is to introduce a new piece of state into the dependency graph—whether a particular upstream dependency is static, guarded, or ﬂuid. Changes in a static upstream dependency do not trigger a new build.Changes in a ﬂuid upstream dependency always trigger a new build.
+> Chaffee’s proposal is to introduce a new piece of state into the dependency graph—whether a particular upstream dependency is static, guarded, or ﬂuid. Changes in a static upstream dependency do not trigger a new build.Changes in a ﬂuid upstream dependency always trigger a new build.
 
 
 ###Simulating static dependencies
 
 What if we want to keep d1 and d2 fluid but make d3 static? This is a reasonable requirement if you want to peg C2 to a known good version of C1 and still let C1 keep building against its frequently changing source. This may be the case if C1 is volatile or under control of a different team or organization.
 
-On the face of it, it may appear that Go cannot support pegging. But that is not the case; Go’s pipelines are powerful and flexible building blocks. We could just introduce a “manual-gate” pipeline to achieve pegging.
+On the face of it, it may appear that GoCD cannot support pegging. But that is not the case; GoCD’s pipelines are powerful and flexible building blocks. We could just introduce a “manual-gate” pipeline to achieve pegging.
 
 ![](/assets/images/blog/sriram-peg2.png)
 

@@ -5,20 +5,22 @@ status: public
 type: post
 published: true
 author: Pat Mc Grath
+excerpt: "This guest post by Pat Mc Grath talks about some things to be aware of when using Windows PowerShell tasks on GoCD"
+summary_image: "/assets/images/blog/using-windows-powershell-tasks/PowerShell_5.0_icon.png"
 ---
 
 Some things to be aware of when using Windows PowerShell tasks.
 
-### Go Agent default installation
+### GoCD Agent default installation
 
-The [default](http://www.go.cd/documentation/user/current/installation/installing_go_agent.html) installation of a Go
-agent will use a 32-bit JRE unless you indicate otherwise. This JRE is embedded in the Go agent installer.
+The [default](https://docs.go.cd/current/installation/installing_go_agent.html) installation of a GoCD
+agent will use a 32-bit JRE unless you indicate otherwise. This JRE is embedded in the GoCD agent installer.
 
-If you want to use an alternative JRE (must satisfy Go's JRE requirements) after the initial installation, you can alter
+If you want to use an alternative JRE (must satisfy GoCD's JRE requirements) after the initial installation, you can alter
 the "wrapper.java.command" key's value in the ```[InstallDirectory]\config\wrapper-agent.conf``` file  to point to a
-different JRE. You will then need to restart the Go agent service to start using the alternative JRE.
+different JRE. You will then need to restart the GoCD agent service to start using the alternative JRE.
 
-The ```[InstallDirectory]``` refers to the Go agents installation directory which by default is ```"C:\Program Files (x86)\Go Agent"```.
+The ```[InstallDirectory]``` refers to the GoCD agents installation directory which by default is ```"C:\Program Files (x86)\Go Agent"```.
 
 
 ### Pre-requisites for running PowerShell task commands
@@ -27,9 +29,9 @@ The ```[InstallDirectory]``` refers to the Go agents installation directory whic
 - You should tag the agents if your are also using linux agents  
 - You probably want to ensure your agents all have the same version of PowerShell  
 
-#### 32-bit Go agent
+#### 32-bit GoCD agent
 
-If you are running a default Go agent installation then you will be running a 32-bit JRE.
+If you are running a default GoCD agent installation then you will be running a 32-bit JRE.
 
 The 32-bit JRE will try to run PowerShell tasks in the 32-bit version of PowerShell, even if you give the full path to
 the 64-bit PowerShell executable in the task. If you need to execute a PowerShell script then you will need to alter the
@@ -42,11 +44,11 @@ execution policy as follows:
 set-executionpolicy remotesigned -force  
 ```
 
-This will allow you to run local scripts on the Windows Go agent box.
+This will allow you to run local scripts on the Windows GoCD agent box.
 
-#### 64-bit Go agent
+#### 64-bit GoCD agent
 
-If you are running a Go agent using a 64-bit JRE, it will run PowerShell tasks in the 64-bit version of PowerShell.
+If you are running a GoCD agent using a 64-bit JRE, it will run PowerShell tasks in the 64-bit version of PowerShell.
 
 If you need to execute a PowerShell script, then you will need to alter the execution policy as follows:
 
@@ -58,7 +60,7 @@ If you need to execute a PowerShell script, then you will need to alter the exec
 set-executionpolicy remotesigned -force  
 ```
 
-This will allow you to run local scripts on the Windows Go agent box.
+This will allow you to run local scripts on the Windows GoCD agent box.
 
 
 ### PowerShell task commands
@@ -146,7 +148,7 @@ catch
 [PowerShell execution policy](https://technet.microsoft.com/en-us/library/hh849812.aspx)  
 [Bypassing PowerShell execution policy](https://blog.netspi.com/15-ways-to-bypass-the-powershell-execution-policy/)  
 [Setting execution policy directly in the registry](https://codelucidate.wordpress.com/powershell/change-execution-policy-in-the-registry/)  
-[Go PowerShell runner plugin](https://github.com/manojlds/gocd-powershell-runner) - I believe it can only be configured on Windows based Go servers  
+[GoCD PowerShell runner plugin](https://github.com/manojlds/gocd-powershell-runner) - I believe it can only be configured on Windows based GoCD servers  
 
 ### About the author
 

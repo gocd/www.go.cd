@@ -4,12 +4,14 @@ title: Feature Branch Support
 status: public
 type: post
 published: true
-author: Go Team
+author: GoCD Team
+excerpt: "GoCD 15.1 introduced support for writing material repository plugins. This resulted in community-driven plugins developed for GoCD, to implement support for feature branches. This blog post has information specifically about GitHub Pull Request support."
+summary_image: "/assets/images/blog/feature-branch/update-status-1.png"
 ---
 
-Go 15.1 introduced support for writing material repository plugins, to extend the kind of source code material
-repositories that Go works with. This resulted in community-driven plugins developed for Go, to implement support for
-feature branches, with help from members of Go's core contributors. This blog posts has information specifically about
+GoCD 15.1 introduced support for writing material repository plugins, to extend the kind of source code material
+repositories that GoCD works with. This resulted in community-driven plugins developed for GoCD, to implement support for
+feature branches, with help from members of GoCD's core contributors. This blog post has information specifically about
 GitHub Pull Request support.
 
 **Note:** In this post, the terms *Branch* and *Pull Request* are used interchangeably, since a *Pull Request* is
@@ -19,7 +21,7 @@ As codebases grow and teams start writing more tests, they often hit upon a chal
 their build, test and deploy pipelines as a normal team or teams working with trunk-based development would have, then
 increasing the number of tests they have results in a longer time to certify a build and deploy to production.
 
-Here is an example of a Value Stream Map from [Go CD](https://build.go.cd) (Username: view, Password: password) itself,
+Here is an example of a Value Stream Map from [GoCD](https://build.go.cd) (Username: view, Password: password) itself,
 where running all the tests and generating installers can take hours:
 
 <figure>
@@ -53,12 +55,12 @@ Pull Request (GitHub, Gerrit etc.) / Feature Branch => Code Review => Merge => B
 
 Now, whether a feature branch based workflow is the best approach or not is hotly debated (see Martin Fowler's
 [article](http://martinfowler.com/bliki/FeatureBranch.html) on this). Organizations who follow a feature branch based
-workflow have been wanting support for it in Go.  Historically, [Go has advocated against feature
+workflow have been wanting support for it in GoCD.  Historically, [GoCD has advocated against feature
 branches](http://support.thoughtworks.com/entries/22037619-Support-for-feature-branches#view-post-21612654) and support
-for it has been limited. Go users have come up with some innovative work arounds, like this one from [Vision
+for it has been limited. GoCD users have come up with some innovative work arounds, like this one from [Vision
 Critical](https://groups.google.com/d/topic/go-cd/veZ5QyySR8k/discussion).
 
-Though the Go core contribution team continues to be wary of long-lived feature branches, short-lived feature branches
+Though the GoCD core contribution team continues to be wary of long-lived feature branches, short-lived feature branches
 create a window for validating changes before they are merged into the main branch. Since the majority of time spent in
 a CI/CD setup tends to be in running tests, and failed builds are typically due to test failures, you could run tests on
 a proposed change in a feature branch, get feedback about it and fix tests if needed, before merging it into the trunk.
@@ -71,7 +73,7 @@ you have more hardware (agents) to run branch builds.
 
 ### The way forward
 
-Assuming you have chosen the approach mentioned above, you can now use Go 15.1, with its two new extension points - [SCM
+Assuming you have chosen the approach mentioned above, you can now use GoCD 15.1, with its two new extension points - [SCM
 end-point](http://www.go.cd/documentation/user/15.1.0/extension_points/scm_extension.html) and the [Notification
 end-point](http://www.go.cd/documentation/user/15.1.0/extension_points/notification_extension.html), to test feature
 branches before they are merged.
@@ -83,13 +85,13 @@ responsible for polling a configured repository for changes, while the second on
 responsible for notifying GitHub about the suitability of a Pull Request for merging.
 
 **Note**: Even though this post specifically mentions GitHub only, plugins have been written to work with plain Git,
-Atlassian Stash, Gerrit and more! See the [Go community plugins
+Atlassian Stash, Gerrit and more! See the [GoCD community plugins
 page](http://www.go.cd/community/plugins.html#notification-plugins) for more information.
 
 
 ### Quick Setup
 
-* Download the [Git Branch Poller Plugin](https://github.com/ashwanthkumar/gocd-build-github-pull-requests#user-content-get-started) and the [Build Status Notification Plugin](https://github.com/srinivasupadhya/gocd-build-status-notifier#user-content-get-started). Place them under `<go-server>/plugins/external`. Restart the Go Server.
+* Download the [Git Branch Poller Plugin](https://github.com/ashwanthkumar/gocd-build-github-pull-requests#user-content-get-started) and the [Build Status Notification Plugin](https://github.com/srinivasupadhya/gocd-build-status-notifier#user-content-get-started). Place them under `<go-server>/plugins/external`. Restart the GoCD Server.
 
 * Verify that the plugins are loaded correctly.
 
@@ -106,7 +108,7 @@ page](http://www.go.cd/community/plugins.html#notification-plugins) for more inf
   build never gets deployed into production, by mistake.
 
     Your decision should be based on how much of your tests can reasonably be run for every Pull Request, and how far down
-    the Value Stream can a build containing those changes Go. For some, every test in the system needs to run before it is
+    the Value Stream can a build containing those changes GoCD. For some, every test in the system needs to run before it is
     deemed merge-able and for some, only unit and integration tests might be enough. It depends.
 
     Suppose you have a setup of three pipelines like this:
@@ -160,7 +162,7 @@ That's it.
 
 ### Results
 
-* Go will trigger builds for every new Pull Request and for new commits to existing Pull Requests:
+* GoCD will trigger builds for every new Pull Request and for new commits to existing Pull Requests:
 
     <figure>
       <img src="/assets/images/blog/feature-branch/trigger-build.png" class="has_border full_size"
@@ -169,7 +171,7 @@ That's it.
     </figure>
 
 
-* Go will update Pull Request in GitHub with the build status:
+* GoCD will update Pull Request in GitHub with the build status:
 
     <figure>
       <img src="/assets/images/blog/feature-branch/update-status-1.png" class="has_border full_size"
@@ -194,13 +196,13 @@ That's it.
 
 ### Shortcomings and known issues:
 
-* If multiple branches are updated at once, the plugin provides all of them as changes and Go will not run the pipeline
-  for every change separately. Go currently combines multiple changes into a single pipeline run (to save time). A
+* If multiple branches are updated at once, the plugin provides all of them as changes and GoCD will not run the pipeline
+  for every change separately. GoCD currently combines multiple changes into a single pipeline run (to save time). A
   feature allowing ["force trigger pipeline for each change"](https://github.com/gocd/gocd/pull/939) should be able to
   overcome this. This has not yet been accepted into the main GoCD codebase.
 
 * If there are multiple commits in a branch, the plugin only returns the top commit as a change. Hence only one change
-  shows up in the dashboard, value stream, etc. Also, since Go does not know about the other changes you will not be
+  shows up in the dashboard, value stream, etc. Also, since GoCD does not know about the other changes you will not be
   able to manually trigger a pipeline with the other commits.
 
 * The UI is lacking in certain areas: For instance, it is not possible to add an SCM plugin material during pipeline
@@ -213,10 +215,10 @@ Some discussions on the GoCD mailing lists and on GitHub about this:
 
 * [Potential feature request for enhanced materials API (beware, branch talk)](https://groups.google.com/d/topic/go-cd-dev/e0dbLDUsMK8/discussion)
 * [Pre-Commit validation for git master branch](https://groups.google.com/d/topic/go-cd/BwnJYhPZQPk/discussion)
-* [Go Material: Git-Pull-Request](https://groups.google.com/d/topic/go-cd/i0ZXbBL48Vk/discussion)
+* [GoCD Material: Git-Pull-Request](https://groups.google.com/d/topic/go-cd/i0ZXbBL48Vk/discussion)
 * [#298 - Support for building from multiple branches in GIT](https://github.com/gocd/gocd/issues/298)
 * [RFC - GoCD - Github PR Integration](https://groups.google.com/d/topic/go-cd-dev/Rt_Y5G2VkOc/discussion)
-* [A request for feature branch support on the old Go community lists](http://support.thoughtworks.com/entries/22037619-Support-for-feature-branches)
+* [A request for feature branch support on the old GoCD community lists](http://support.thoughtworks.com/entries/22037619-Support-for-feature-branches)
 
 ### Sample Configuration
 
@@ -325,4 +327,4 @@ img.has_border {
 
 ---
 
-As always, Go questions can be asked on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).
+As always, GoCD questions can be asked on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).

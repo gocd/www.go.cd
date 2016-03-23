@@ -6,6 +6,7 @@ type: post
 published: true
 author: David Rice
 excerpt: "ThoughtWorks has been building products for 10 years. We’ve learned some hard lessons while trying to keep fairly large codebases malleable year after year."
+summary_image: "/assets/images/blog/are-you-ready-for-continuous-delivery/woodline.jpeg"
 ---
 
 ThoughtWorks has been building products for 10 years. We’ve learned some hard lessons while trying to keep fairly large codebases malleable year after year. There are many great techniques for writing long-lived code. I am going to write about what we learned from our biggest challenges. And my writing these thoughts down isn’t my saying we’ve got it down cold. Like any team, we’re struggling to get better each and every day.

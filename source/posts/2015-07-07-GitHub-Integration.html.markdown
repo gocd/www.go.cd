@@ -4,7 +4,9 @@ title: Integrating GoCD with GitHub
 status: public
 type: post
 published: true
-author: Go Team
+author: GoCD Team
+excerpt: "With the upcoming 15.2 release, we're announcing some new API endpoints that will make integrating with GoCD with GitHub easier and fun. This post is a round-up of the many GoCD plugins which work with GitHub."
+summary_image: "/assets/images/blog/github-integration/github-issue-link-in-compare-pipeline.png"
 ---
 
 With the upcoming 15.2 release we're announcing some new API endpoints that will make integrating with GoCD with GitHub easier and fun.
@@ -49,7 +51,7 @@ The combination of these plugins will help you configure GoCD such that any pull
 
 # GitHub Issues Integration with [Custom Project Management Setup](http://www.go.cd/documentation/user/current/integration/go_integration.html#integration-with-bug-tracking-and-story-management-tools)
 
-Any commit messages that contain references to issues or pull requests using the popular means to mention issue (#42) can is something that Go already understands.
+Any commit messages that contain references to issues or pull requests using the popular means to mention issue (#42) can is something that GoCD already understands.
 
 To configure this, edit the pipeline material and setup a pattern and a link under "Project Management" tab.
 
@@ -67,7 +69,7 @@ Any commit messages with issue numbers will be linked to the correct GitHub issu
   <figcaption>Comment with GitHub issue link (build cause pop-up)</figcaption>
 </figure>
 
-You can also compare pipelines and get the release notes or changelog straight out of Go.
+You can also compare pipelines and get the release notes or changelog straight out of GoCD.
 
 <figure class="extra_small_image">
   <img src="/assets/images/blog/github-integration/github-issue-link-in-compare-pipeline.png" class="has_border full_size"
@@ -77,7 +79,7 @@ You can also compare pipelines and get the release notes or changelog straight o
 
 ---
 
-If you think Go CD can provide more integrations to GitHub or provide similar integrations with other tools/services please do leave a comment or ask on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).
+If you think GoCD can provide more integrations to GitHub or provide similar integrations with other tools/services please do leave a comment or ask on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).
 
 ---
 

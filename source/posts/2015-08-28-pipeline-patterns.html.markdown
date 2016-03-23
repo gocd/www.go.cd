@@ -5,13 +5,15 @@ status: public
 type: post
 published: true
 author: Ken Mugrage
+excerpt: "Teams have been automating the build, test and deploy processes of their software for many years, but usually in a very specific \"one off\" manner. This article walks through 5 key patterns to setting up a successful deployment pipeline, including designing parallel workflows, running tests in parallel, and more."
+summary_image: "/assets/images/blog/pipeline-patterns/infrastructure-as-code.png"
 ---
 
 Teams have been automating the build, test and deploy processes of their software for many years, but usually in a very
 specific "one off" manner. This article walks through 5 key patterns to setting up a successful deployment pipeline, 
 including designing parallel workflows, running tests in parallel, and more.
 
-In 2007 Go CD (then called "Cruise") introduced build pipelines to the masses. Shortly after, Jez Humble (Go CD's original
+In 2007 GoCD (then called "Cruise") introduced build pipelines to the masses. Shortly after, Jez Humble (GoCD's original
 product manager) and David Farley published [Continuous Delivery](http://www.amazon.com/gp/product/0321601912). With these
 concepts becoming more mainstream, some patterns have emerged. There are certainly more, but these are some that
 stick out.
@@ -40,7 +42,7 @@ wait a couple days before you know the state of your software.
 Too often this leads to teams only running part of their tests.
 
 What you should do is split those tests up into manageable size chunks and run them in parallel. In the case of the Mingle
-team those tests run on 65 Go CD agents at the same time.
+team those tests run on 65 GoCD agents at the same time.
 
 ![Jobs Screenshot](/assets/images/blog/pipeline-patterns/testing-jobs.png)
 
@@ -68,7 +70,7 @@ going on.
 
 Hopefully you noticed one other really important thing about the image above. The production pipelines have _not_ run. If
 you're doing things in parallel it's important that your Continuous Delivery system is smart about handling
-dependencies. This is a screenshot from Go CD, which uses fan in/fan out dependency management to make sure the project
+dependencies. This is a screenshot from GoCD, which uses fan in/fan out dependency management to make sure the project
 doesn't get deployed until both of the upstream pipelines have gone green.
 
 

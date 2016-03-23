@@ -1,13 +1,15 @@
 ---
 layout: post
-title: Introduction to setting up a Go development environment VM
+title: Setting up a GoCD development environment VM
 status: public
 type: post
 published: true
 author: Ken Mugrage
+excerpt: "The GoCD team has created a VirtualBox VM image to help people interested in development go get started quickly. This short video shows the process of downloading and setting up the virtual machine."
+summary_image: "/assets/images/blog/set-up-a-go-dev-environment/summary_image.png"
 ---
 
-The Go team has created a VirtualBox VM image to help people interested in development go get started quickly. This short video
+The GoCD team has created a VirtualBox VM image to help people interested in development go get started quickly. This short video
 shows the process of downloading and setting up the virtual machine. 
 
 The Vagrant box and Vagrantfile can be found at <a href="https://github.com/gocd/documentation/blob/master/developer/2/2.1.md">https://github.com/gocd/documentation/blob/master/developer/2/2.1.md</a>
