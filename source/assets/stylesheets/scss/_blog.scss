@@ -1,0 +1,114 @@
+.posts {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  @extend %flexbox;
+  @include flex-direction(column);
+  @include flex-wrap(wrap);
+  @include flex-flow(row wrap);
+  margin-top: 50px;
+
+  li {
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 50px;
+
+    @media (min-width:$screen-tablet) {
+      width: 50%;
+    }
+
+    @media (min-width:$screen-desktop) {
+      width: 33.3%;
+    }
+
+  }
+
+  .post-title {
+    font-size: 25px;
+    font-weight: 300;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+
+    a {
+      color: #333;
+    }
+
+  }
+
+  figure {
+    height: 230px;
+    margin-bottom: 30px;
+    position: relative;
+
+    img {
+      max-width: 100%;
+      height: 100%;
+    }
+
+  }
+
+  .attribution {
+    position: absolute;
+    right: 0px;
+    bottom: -24px;
+
+    a {
+      font-size: 10px;
+      color: $gray-light;
+    }
+
+  }
+
+}
+
+.section-title {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.post-date {
+  font-size: 14px;
+  color: $gray-light;
+  display: block;
+}
+
+.recent-ariticles {
+  li {
+    border-top: 1px solid $border;
+    padding: 10px 0;
+
+    &:first-child {
+      border: 0;
+    }
+
+  }
+
+}
+
+.post-sidebar {
+  section {
+    margin-bottom: 30px;
+  }
+
+  ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      line-height: 22px;
+    }
+
+  }
+
+  a {
+    display: block;
+    color: #333;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+  }
+
+}

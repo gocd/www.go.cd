@@ -9,9 +9,9 @@ excerpt: <p>Releasing with confidence means including things like security tests
 
 
 <div>
-  <div class="float-image float-right">
+  <figure>
     <img src="/assets/images/blog/deploy-now/security-badge.png" alt="Continuous Delivery Security Testing" class="pad-left">
-  </div>
+  </figure>
 
   <div class="float-article float-left">
 <p>This is the second part of a series called <a href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html">It’s not Continuous Delivery if you can’t deploy right now.</a> In this part, I’m going to cover some more common tools in security testing pipelines.</p>
