@@ -5,6 +5,7 @@ status: public
 type: post
 author: "David Rice and Aravind SV"
 excerpt: "This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this first post, we'll present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for Continuous Delivery."
+summary_image: "/assets/images/blog/are-you-ready-for-continuous-delivery/woodline.jpeg"
 ---
 
 <figure>

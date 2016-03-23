@@ -5,6 +5,7 @@ status: public
 type: post
 author: Nenad Bozic
 excerpt: "GoCD has pipeline abstraction in its core and that is reason why we like it. Read why we have chosen it as our build tool in SmartCat ..."
+summary_image: "/assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem.png"
 ---
 
 In order to compete in today’s IT market, you must be truly agile, you must listen

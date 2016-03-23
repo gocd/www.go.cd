@@ -5,6 +5,7 @@ status: public
 type: post
 author: "David Rice"
 excerpt: "This is the second part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this post, we’ll present some of the more common feedback loops your organization should have in place to determine your readiness for Continuous Delivery."
+summary_image: "/assets/images/blog/are-you-ready-for-continuous-delivery/feedback_loops.jpg"
 ---
 
 <figure>
