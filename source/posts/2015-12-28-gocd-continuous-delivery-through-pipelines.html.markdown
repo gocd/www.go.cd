@@ -4,7 +4,7 @@ title: "Guest post: GoCD - Continuous Delivery through pipelines"
 status: public
 type: post
 author: Nenad Bozic
-excerpt: "GoCD has pipeline abstraction in its core and that is reason why we like it. Read why we have chosen it as our build tool in SmartCat ..."
+excerpt: "GoCD has the pipeline abstraction at its core and that is a reason why we like it. Read why we have chosen it as our build tool in SmartCat ..."
 summary_image: "/assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem.png"
 ---
 

@@ -4,7 +4,7 @@ title: "It's not Continuous Delivery if you can't deploy right now."
 status: public
 type: post
 author: Ken Mugrage
-excerpt: "I hear people say all the time that they're practicing continuous delivery. This declaration is often followed by something like, &ldquo;I can let the security team know anytime”rdquo;, or &ldquo;I just have to run the performance tests&rdquo;. If you can't push your software to production right now, you're not done with your continuous delivery journey."
+excerpt: "I hear people say all the time that they're practicing continuous delivery. This declaration is often followed by something like, &ldquo;I can let the security team know anytime&rdquo;, or &ldquo;I just have to run the performance tests&rdquo;. If you can't push your software to production right now, you're not done with your continuous delivery journey."
 summary_image: "/assets/images/blog/deploy-now/but_it_just_needs_oven.png"
 ---
 
