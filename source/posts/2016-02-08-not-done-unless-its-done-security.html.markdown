@@ -4,7 +4,7 @@ title:  Add Security Testing to Your Deployment Pipelines
 status: public
 type: post
 author: Ken Mugrage
-excerpt: <p>Releasing with confidence means including things like security tests in your deployment pipeline</p>
+excerpt: "Releasing with confidence means including things like security tests in your deployment pipeline"
 ---
 
 

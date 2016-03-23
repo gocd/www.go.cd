@@ -6,4 +6,4 @@
 <figure class="post-summary-image"><img src="<%= article.data["summary_image"] %>"></figure>
 <% end %>
 
-<%= article.data["excerpt"] || article.summary(250) %>
+<span class="excerpt"><%= article.data["excerpt"] || article.summary(250) %></span>

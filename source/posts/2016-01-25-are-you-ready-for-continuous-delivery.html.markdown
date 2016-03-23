@@ -4,7 +4,7 @@ title: "Are you ready for Continuous Delivery?"
 status: public
 type: post
 author: "David Rice and Aravind SV"
-excerpt: "<p>This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this first post, we’ll present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for Continuous Delivery.</p>"
+excerpt: "This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this first post, we'll present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for Continuous Delivery."
 ---
 
 <figure>

@@ -4,7 +4,7 @@ title:  "Visibility Is Opportunity: stories of improving continuous integration"
 status: public
 type: post
 author: Xiao Li
-excerpt: <p>Mingle is a 9 years JRuby Rails project. We do test-driven development and continous integration. We write selenium tests to test everything since Oct 2006. For a long time, our build time was 1 to 2 hours. We thought it was a good balance of build time and resources needed...</p>
+excerpt: "Mingle is a 9 years JRuby Rails project. We do test-driven development and continous integration. We write selenium tests to test everything since Oct 2006. For a long time, our build time was 1 to 2 hours. We thought it was a good balance of build time and resources needed..."
 ---
 
 Visibility can be hard, but it's worth it.
