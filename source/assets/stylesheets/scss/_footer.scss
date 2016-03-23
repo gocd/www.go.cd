@@ -1,0 +1,90 @@
+footer{
+
+	padding-top: 50px;
+}
+
+.page-footer {
+	background: $gray;
+	padding: 30px 0;
+	color: #fff;
+	text-align: center;
+	a{
+		color:#fff;
+		text-decoration: underline;
+	}
+}
+
+.join-community {
+	background: $grey-bg;
+	padding: 30px 0;
+	background: url('/assets/images/bg-pattern.png') 0 0;
+	position: relative;
+
+	&:before {
+		position: absolute;
+		content: "";
+		width: 100%;
+		top: 0;
+		z-index: 1;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(210, 210, 210, 0.27);
+	}
+
+	h3 {
+		text-align: center;
+		margin: 0 0 30px 0;
+	}
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		position: relative;
+		z-index: 2;
+	}
+
+	li {
+		display: inline-block;
+		padding: 0 5px;
+		@media (min-width:$screen-tablet) {
+		border-right: 1px solid #ccc;
+		padding: 0 50px;
+		
+		}	
+		&:first-child {
+		@media (min-width:$screen-tablet) {
+			border-left: 1px solid #ccc;
+		}
+		}
+
+	}
+
+	a {
+		display: block;
+		text-align: center;
+		color: #333;
+		text-transform: uppercase;
+		font-size: 11px;
+	}
+
+	.fa {
+		display: block;
+		font-size: 18px;
+		color: $primary-color;
+		margin-bottom: 10px;
+		transition: all .2s ease-in-out;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+
+		@media (min-width:$screen-tablet) {
+			font-size: 40px;
+		}
+
+	}
+
+}

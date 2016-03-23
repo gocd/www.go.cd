@@ -1,0 +1,29 @@
+---
+pageable: true
+per_page: 10
+---
+<div class="inner-banner plugins">
+  <div class="container">
+    <h1 class="caption"><span>Blog</span></h1>
+    <span class="subcaption">Read about GoCD and Continuous Delivery</span>
+  </div>
+</div>
+
+<% if paginate && num_pages > 1 %>
+  <p>Page <%= page_number %> of <%= num_pages %></p>
+
+  <% if prev_page %>
+    <p><%= link_to 'Previous page', prev_page %></p>
+  <% end %>
+<% end %>
+
+<% page_articles.each_with_index do |article, i| %>
+  <h2><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></h2>
+  <%= article.summary(250) %>
+<% end %>
+
+<% if paginate %>
+  <% if next_page %>
+    <p><%= link_to 'Next page', next_page %></p>
+  <% end %>
+<% end %>
