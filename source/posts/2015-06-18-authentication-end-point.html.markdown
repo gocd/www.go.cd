@@ -4,10 +4,12 @@ title: Authentication end-point
 status: public
 type: post
 published: true
-author: Go Team
+author: GoCD Team
+excerpt: "GoCD 15.2.0 exposed authentication as an end-point which can be extended using a plugin. This post explains how the GitHub OAuth Login plugin works"
+summary_image: "/assets/images/blog/authentication-plugins/login-page.png"
 ---
 
-Starting 15.2.0 Go Server will expose authentication end-point. What this means is Go users can add "custom" authentication schemes through plugins. With [plugin settings](http://www.go.cd/documentation/developer/writing_go_plugins/plugin_settings/plugin_settings_overview.html) & [web request handling ability](http://www.go.cd/documentation/developer/writing_go_plugins/handling_web_requests.html) plugin developers get enough flexibility to write any authentication plugin they intend to write.
+Starting 15.2.0 GoCD Server will expose authentication end-point. What this means is GoCD users can add "custom" authentication schemes through plugins. With [plugin settings](http://www.go.cd/documentation/developer/writing_go_plugins/plugin_settings/plugin_settings_overview.html) & [web request handling ability](http://www.go.cd/documentation/developer/writing_go_plugins/handling_web_requests.html) plugin developers get enough flexibility to write any authentication plugin they intend to write.
 
 Examples of integrations possible:
 
@@ -56,8 +58,8 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 
 <figure>
   <img src="/assets/images/blog/authentication-plugins/github-login.png" class="has_border full_size"
-    alt="Figure 2: GoCD - Authorize Go Server on GitHub" id="mature_ci_cd_setup" title="GoCD - Authorize Go Server on GitHub" />
-  <figcaption>Figure 3: Authorize Go Server to access GitHub <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+    alt="Figure 2: GoCD - Authorize GoCD Server on GitHub" id="mature_ci_cd_setup" title="GoCD - Authorize GoCD Server on GitHub" />
+  <figcaption>Figure 3: Authorize GoCD Server to access GitHub <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
 * Successful login
@@ -116,4 +118,4 @@ img.has_border {
 
 ---
 
-As always, Go questions can be asked on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).
+As always, GoCD questions can be asked on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).

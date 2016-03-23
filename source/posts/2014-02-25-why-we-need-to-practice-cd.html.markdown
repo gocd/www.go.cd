@@ -5,6 +5,7 @@ status: public
 type: post
 published: true
 author: Ken Mugrage
+excerpt: "This article talks about the importance of CD vs CI, functional silos vs the DevOps movement and provides practical advice about automation practices and Continuous Delivery"
 ---
 
 For many (perhaps most) people visiting this site, this may be obvious. If you're new to continuous delivery and want

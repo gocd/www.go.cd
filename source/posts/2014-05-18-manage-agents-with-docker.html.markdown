@@ -1,11 +1,15 @@
 ---
 layout: post
-title: Using Go CD and Docker to manage your Go CD agents
+title: Using GoCD and Docker to manage your GoCD agents
 status: public
 type: post
 published: true
 author: Ken Mugrage
+excerpt: "Ken Mugrage talks about running GoCD agents using Docker, and being able to destroy them as needed"
+summary_image: "/assets/images/blog/manage-agents-with-docker/small_h.png"
 ---
+
+**[Update: As of the end of 2015, it might be better to use the GoCD Docker images available on [Docker Hub](https://hub.docker.com/r/gocd/) as they are newer and better maintained and used by many in the GoCD community]**
 
 I'm convinced that the ability to automatically create and destroy build agents is key to having a flexible continuous delivery
 setup. I'm equally convinced that this particular use case is better satisfied using very fast container technologies instead of

@@ -1,15 +1,16 @@
 ---
 layout: post
-title: Sample Go CD Virtualbox based environment
+title: Sample GoCD Virtualbox based environment
 status: public
 type: post
 published: true
 author: Ken Mugrage
+summary_image: "/assets/images/blog/sample-virtualbox/Virtualbox_logo.png"
 ---
 
-If you're interested in checking out Go CD but don't want to spend the time automating your
+If you're interested in checking out GoCD but don't want to spend the time automating your
 own system, this might be a great option for you. We've created an environment using Vagrant and Virtualbox.
-Once it's up, you'll have a full Go CD installation including several example pipelines.
+Once it's up, you'll have a full GoCD installation including several example pipelines.
 
 __Note: This is an update to a blog post last year. The demo has been modified enough to warrant a new post.__
 
@@ -44,7 +45,7 @@ Completion of this (especially the first time) will take quite a while, dependin
 bandwidth. Vagrant will be downloading the full box image (about 1GB) from Vagrantcloud
 while you wait.
 
-__Note:__ If you have an existing Go installation on the same machine as this virtual machine
+__Note:__ If you have an existing GoCD installation on the same machine as this virtual machine
 you may get a port conflict.
 
 After a few minutes, you should be able to navigate to http://localhost:8153/go/pipelines on your local
@@ -63,13 +64,13 @@ reset the box to it's orginal state if you need to!
 
 The box will be updated as new things come out, but as of this writing...
 
-* Go 15.2 Server
-* Go 15.2 Agent
+* GoCD 15.2 Server
+* GoCD 15.2 Agent
 * Pipelines which are simulated using empty Rake targets and /bin/echo commands
 
 <br>
 
-As always, Go questions can be asked at [https://groups.google.com/forum/#!forum/go-cd](https://groups.google.com/forum/#!forum/go-cd)
+As always, GoCD questions can be asked at [https://groups.google.com/forum/#!forum/go-cd](https://groups.google.com/forum/#!forum/go-cd)
 
 
 

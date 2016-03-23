@@ -4,14 +4,14 @@ title:  Add Security Testing to Your Deployment Pipelines
 status: public
 type: post
 author: Ken Mugrage
-excerpt: <p>Releasing with confidence means including things like security tests in your deployment pipeline</p>
+excerpt: "Releasing with confidence means including things like security tests in your deployment pipeline"
+summary_image: "/assets/images/blog/deploy-now/security-badge.png"
 ---
 
-
 <div>
-  <figure>
+  <div class="float-image float-right">
     <img src="/assets/images/blog/deploy-now/security-badge.png" alt="Continuous Delivery Security Testing" class="pad-left">
-  </figure>
+  </div>
 
   <div class="float-article float-left">
 <p>This is the second part of a series called <a href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html">It’s not Continuous Delivery if you can’t deploy right now.</a> In this part, I’m going to cover some more common tools in security testing pipelines.</p>
@@ -26,7 +26,7 @@ excerpt: <p>Releasing with confidence means including things like security tests
 
 ##Automation is one part of the solution
 
-Security has to be addressed in a holistic way. Automation is a way to get fast feedback on common security issues. A talented [penetration tester](http://security.stackexchange.com/a/46028) will consider scenarios and methods that are not usually automated. 
+Security has to be addressed in a holistic way. Automation is a way to get fast feedback on common security issues. A talented [penetration tester](http://security.stackexchange.com/a/46028) will consider scenarios and methods that are not usually automated.
 
 The goal of automation is to catch the “low-hanging fruit”. Are we pushing things to Git we shouldn’t be? Are we using an old, vulnerable package we shouldn’t? Are we violating our own company’s rules?
 
@@ -34,7 +34,7 @@ The goal of automation is to catch the “low-hanging fruit”. Are we pushing t
 
 There is a lot you can—and should—do before your code even gets to a pipeline. Generally speaking, CD servers watch your source code repositories for changes and then act on those changes. For many issues, this is too late!
 
-One of the biggest recurring stories we hear about SSH keys, auth tokens, private keys etc., being checked into source control. There was [a story](http://www.securityweek.com/github-search-makes-easy-discovery-encryption-keys-passwords-source-code) a few years ago where a basic search for private id_rsa keys returned over 600 matches on GitHub alone. 
+One of the biggest recurring stories we hear about SSH keys, auth tokens, private keys etc., being checked into source control. There was [a story](http://www.securityweek.com/github-search-makes-easy-discovery-encryption-keys-passwords-source-code) a few years ago where a basic search for private id_rsa keys returned over 600 matches on GitHub alone.
 
 Consider incorporating tools that check for these things before they are actually added!
 
@@ -46,13 +46,13 @@ ThoughtWorks recently created [Talisman](https://github.com/thoughtworks/talisma
 
 This starts with having good unit test coverage. Can you authenticate as you should be able to? Are bad authentication requests refused? Are retries being limited properly? Are password policies being properly enforced?
 
-Very early in your build process, your CD server can run some security-specific, source code level tests. These could look for issues ranging from bad code to policy violations. 
+Very early in your build process, your CD server can run some security-specific, source code level tests. These could look for issues ranging from bad code to policy violations.
 
-For Ruby applications, this category includes tools like [Brakeman](http://brakemanscanner.org/docs/introduction/) and [Bundler-audit](https://github.com/rubysec/bundler-audit). 
+For Ruby applications, this category includes tools like [Brakeman](http://brakemanscanner.org/docs/introduction/) and [Bundler-audit](https://github.com/rubysec/bundler-audit).
 
-Brakeman scans the application’s source code and can give out lots of different [warning types](http://brakemanscanner.org/docs/warning_types/). I particularly like what I’ll call policy checking. Someone implements basic authorization when you don’t want to allow that? Pipeline stage fails. 
+Brakeman scans the application’s source code and can give out lots of different [warning types](http://brakemanscanner.org/docs/warning_types/). I particularly like what I’ll call policy checking. Someone implements basic authorization when you don’t want to allow that? Pipeline stage fails.
 
-Bundler-audit does pretty much what it sounds like. It checks to see if you're using Gems that have known vulnerabilities. 
+Bundler-audit does pretty much what it sounds like. It checks to see if you're using Gems that have known vulnerabilities.
 
 For Java applications, [Sonatype](http://www.sonatype.com/) has some impressive tools in this area. According to one Sonatype [study](http://www.sonatype.com/assessments/known-vulnerabilities) “of the 106 component ‘parts’ used in a typical application, on average 24 have known cyber vulnerabilities, which are rated either critical or severe."
 
@@ -60,27 +60,27 @@ For Java applications, [Sonatype](http://www.sonatype.com/) has some impressive 
 
 Again quoting [Gartner’s](http://www.gartner.com/it-glossary/dynamic-application-security-testing-dast/) definition, these are tools which are “designed to detect conditions indicative of a security vulnerability in an application in its running state".
 
-The tools that run against your code are a good start, but they aren’t accessing the application like a user. Tools such as [Burp](https://portswigger.net/burp/), [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://www.arachni-scanner.com/), [w3af](http://w3af.org/) and [Vega](https://subgraph.com/vega/index.en.html) access the application itself, looking for exploit vectors like SQL Injection and cross-site scripting. 
+The tools that run against your code are a good start, but they aren’t accessing the application like a user. Tools such as [Burp](https://portswigger.net/burp/), [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://www.arachni-scanner.com/), [w3af](http://w3af.org/) and [Vega](https://subgraph.com/vega/index.en.html) access the application itself, looking for exploit vectors like SQL Injection and cross-site scripting.
 
 ##Who creates the tests?
 
 Normally, I’m a big proponent of tests being written by the developer as (or preferably before) they write the code. With that said, I don’t think it’s controversial to state that the average software developer isn’t very good at security testing. We should also acknowledge that developers do sometimes leave some doors open on purpose.
 
-I believe security is one of the few areas where having specialists writing and executing the tests is not only acceptable, but preferable. Development teams should seek out these experts and work with them in close collaboration. 
+I believe security is one of the few areas where having specialists writing and executing the tests is not only acceptable, but preferable. Development teams should seek out these experts and work with them in close collaboration.
 
 ##Where do the tests go in the CD pipeline?
 
-When people ask this question, they are usually trying to decide if security pipelines or stages should be blocking, meaning that the pipeline can’t move forward on failures. I definitely think they should block, but that doesn’t mean you can’t do other types of testing on the same build. 
+When people ask this question, they are usually trying to decide if security pipelines or stages should be blocking, meaning that the pipeline can’t move forward on failures. I definitely think they should block, but that doesn’t mean you can’t do other types of testing on the same build.
 
 If your continuous delivery server supports [fan-in / fan-out](https://www.go.cd/documentation/user/current/introduction/concepts_in_go.html#fan_in_out), you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we’ve decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won’t get deployed to our staging environment unless they both pass.
 
-<img src="/assets/images/blog/deploy-now/continuous_delivery_security_testing_pipeline.png" alt="continuous delivery security testing pipeline"> 
+<img src="/assets/images/blog/deploy-now/continuous_delivery_security_testing_pipeline.png" alt="continuous delivery security testing pipeline">
 
 ##Reminder: tools don’t solve problems
 
 I’ve spent the last 15 years working for makers of software development tools. There are only a few things I’m completely sure of, and one of them is that tools do not solve problems by themselves.
 
-Having the right continuous delivery server (like GoCD) will make your life a lot easier, and having the right security tools will make it easier to find issues fast. None of this is a substitute for expertise. 
+Having the right continuous delivery server (like GoCD) will make your life a lot easier, and having the right security tools will make it easier to find issues fast. None of this is a substitute for expertise.
 
 ##How do you start?
 

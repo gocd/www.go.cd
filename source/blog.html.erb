@@ -1,22 +1,33 @@
 ---
+title: GoCD - Blog
 pageable: true
-per_page: 10
+per_page: 9
 ---
 <div class="inner-banner plugins">
   <div class="container">
-    <h1 class="caption"><span>Blog</span></h1>
+    <h1 class="caption"><span>GoCD Blog</span></h1>
     <span class="subcaption">Read about GoCD and Continuous Delivery</span>
+    <span class="feed"><a href="/feed.xml">RSS feed</a></span>
   </div>
 </div>
+
+<% latest_post = page_articles.first if page_number == 1 %>
+<% articles    = page_number == 1 ? page_articles[1..-1] : page_articles %>
+
+<% unless latest_post.nil? %>
+<div id="latest-blog-post">
+  <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => latest_post } %>
+</div>
+<% end %>
+
 <ul class="posts">
-  <% page_articles.each_with_index do |article, i| %>
+  <% articles.each do |article| %>
   <li>
-    <span class="post-date"><%= article.date.strftime('%b %e') %></span>
-    <h2 class="post-title"><%= link_to article.title, article %> </h2>
-    <%= article.summary(250) %>
+    <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => article } %>
   </li>
   <% end %>
 </ul>
+
 <% if paginate && num_pages > 1 %>
   <% if prev_page %>
   <p><%= link_to 'Previous page', prev_page %></p>

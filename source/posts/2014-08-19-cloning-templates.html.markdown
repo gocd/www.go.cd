@@ -1,22 +1,24 @@
 ---
 layout: post
-title: Continuous Delivery with Go - Cloning Templates
+title: "Guest post: Continuous Delivery with GoCD - Cloning Templates"
 status: public
 type: post
 published: true
 author: Marius-Stefan Ciotlos
+excerpt: "Marius-Stefan Ciotlos' post talks about setting up a pipeline which helps to clone templates in GoCD - by using a script and the API for it"
+summary_image: "/assets/images/blog/cloning-templates/trigger-with-options-2.png"
 ---
 
 When using GO for Continuous Delivery with multiple teams where you have various security groups, you usually end up with multiple template types. Depending on your application ecosystem you might have different deployment methods depending on the application type, that have some overlapping. At the moment we don't have the ability to have Stage templates, so you need a completely new template when you have differences.
 
-We have decided to have one deployment template separate per application / security group (Pipeline group) so we distribute maintenance, but also reduce the risk of breaking Pipelines of other teams when we change a base template. Having different templates also allows us to allocate [Template Admins](http://www.go.cd/2014/02/24/go-template-permissions.html) specific for the application / team / security group that now can manage most of the needs of a team without requiring Go System Admin rights. 
+We have decided to have one deployment template separate per application / security group (Pipeline group) so we distribute maintenance, but also reduce the risk of breaking Pipelines of other teams when we change a base template. Having different templates also allows us to allocate [Template Admins](http://www.go.cd/2014/02/24/go-template-permissions.html) specific for the application / team / security group that now can manage most of the needs of a team without requiring GoCD System Admin rights. 
 
 As you don't want team to get Admin access across multiple applications but you still want them to have something to start with (a base template), we have created two Basic templates that cover basic needs for an application deployment that we "Clone" for each team. After cloning we assign an Admin from their team so they can start modifying it according to their own flavour. Cloning templates is not available in GO at the moment, so we had to find a way around it. 
 One [contributor](https://github.com/oanastoia) created a script that interacts with GO's own [Configuration API](http://www.go.cd/documentation/user/current/api/configuration_api.html) to allow template cloning. 
 
 ###How to setup cloning in your GO server instance
 1. Make sure you have access to [https://github.com/oanastoia/go-config-management.git](https://github.com/oanastoia/go-config-management.git), otherwise you will need to clone this repository inside your infrastructure
-1. Create a Pipeline in your Go server instance
+1. Create a Pipeline in your GoCD server instance
 1. Use the "Trigger with options" button to do the magic!
 
 
@@ -38,35 +40,33 @@ I will not go into detail on how to achieve this, but you can read more on how t
 
 Alternative you can use the Config XML to inject your template in the group using the code below (do not forget to replace the environment variables with the right values)
 
-```xml
-<pipeline name="GoCloneTemplate">
-  <environmentvariables>
-    <variable name="SOURCE_TEMPLATE">
-      <value>Source_Template</value>
-    </variable>
-    <variable name="DESTINATION_TEMPLATE">
-      <value>Example_Clone</value>
-    </variable>
-  </environmentvariables>
-  <materials>
-    <git url="https://github.com/oanastoia/go-config-management.git" />
-  </materials>
-  <stage name="CloneTemplate">
-    <approval type="manual" />
-    <jobs>
-      <job name="clone_template">
-        <tasks>
-          <exec command="ruby">
-            <arg>TemplateClone.rb</arg>
-            <arg>clone</arg>
-            <runif status="passed" />
-          </exec>
-        </tasks>
-      </job>
-    </jobs>
-  </stage>
-</pipeline>
-```
+    <pipeline name="GoCloneTemplate">
+      <environmentvariables>
+        <variable name="SOURCE_TEMPLATE">
+          <value>Source_Template</value>
+        </variable>
+        <variable name="DESTINATION_TEMPLATE">
+          <value>Example_Clone</value>
+        </variable>
+      </environmentvariables>
+      <materials>
+        <git url="https://github.com/oanastoia/go-config-management.git" />
+      </materials>
+      <stage name="CloneTemplate">
+        <approval type="manual" />
+        <jobs>
+          <job name="clone_template">
+            <tasks>
+              <exec command="ruby">
+                <arg>TemplateClone.rb</arg>
+                <arg>clone</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
 After adding the code, please add the API\_USER and API\_PASS Secure Environment Variables to reflect the correct user and password as seen in the above screenshot. 
 

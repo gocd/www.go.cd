@@ -1,11 +1,10 @@
 <% wrap_layout :layout do %>
-<!-- <div class="post-banner">
-  
-</div> -->
 <div class="container">
   <div class="row">
     <div class="col-md-9">
       <main id="main" role="main">
+        <h2><%= current_article.title %></h2>
+        <h4><%= current_article.data["author"] %></h4>
       <%= yield %>
       </main>
     </div>

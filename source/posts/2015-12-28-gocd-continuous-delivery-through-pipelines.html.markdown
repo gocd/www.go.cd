@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "Guest post: Go CD - Continuous delivery through pipelines"
+title: "Guest post: GoCD - Continuous Delivery through pipelines"
 status: public
 type: post
 author: Nenad Bozic
-excerpt: <p>Go CD has pipeline abstraction in its core and that is reason why we like it. Read why we have chosen it as our build tool in SmartCat...</p>
+excerpt: "GoCD has the pipeline abstraction at its core and that is a reason why we like it. Read why we have chosen it as our build tool in SmartCat ..."
+summary_image: "/assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem.png"
 ---
 
 In order to compete in today’s IT market, you must be truly agile, you must listen
@@ -20,7 +21,7 @@ widespread CD tool, with a great community and a lot of plugins and integrations
 other tools. What we lacked was a natural pipeline flow and good visualization. We also
 lacked some more advanced features like pipeline dependencies, conditional triggering jobs
 from many pipelines, templating etc. We needed to look elsewhere and we decided to go with
-Go CD, a product by ThoughtWorks which became open source in 2014. It is a Java/Ruby on Rails
+GoCD, a product by ThoughtWorks which became open source in 2014. It is a Java/Ruby on Rails
 advanced continuous integration and release management system, according to their website.
 The major reason why we chose it was that they modeled pipelines as first class citizens
 and that, in our opinion, it used right abstraction for delivery pipeline.
@@ -41,7 +42,6 @@ The main flow of Go goes through a couple of following stages:
 4. Go agents poll for work and get assignments
 5. Agent does the work
 
-<p>
 Let’s talk about the main building blocks of Go. As stated before, the main abstract is a
 **pipeline** which is the highest unit of work with its inputs and outputs. The input object
 of one pipeline is called a **material** and it can be either a version control resource
@@ -65,10 +65,10 @@ subscribe on build information based on preferred filters.
 Here is a [link](https://www.go.cd/documentation/user/current/configuration/dev_authentication.html)
 which explains the authentication process.
 
-It is worth mentioning that Go CD has a powerful API for power users where the entire
+It is worth mentioning that GoCD has a powerful API for power users where the entire
 configuration can be performed via REST. It has great documentation with examples,
 JSON requests and response. Here is a link to
-[Go CD API documentation](https://api.go.cd/current/#introduction).
+[GoCD API documentation](https://api.go.cd/current/#introduction).
 
 ## Pipeline dependencies
 
@@ -108,12 +108,12 @@ parameters, which can be created upon pipeline creation.
 
 ## Conclusion
 
-In the introductory part, we mentioned that pipelines are modeled in Go CD as first
+In the introductory part, we mentioned that pipelines are modeled in GoCD as first
 class citizens. In Jenkins, you can order a row of boxes and let the flow go through
 each one of them until it finishes. Each box here in Jenkins is equivalent to each task
-in Go CD. Moreover, in Go CD, each box is pipeline itself with its stages, jobs and tasks.
+in GoCD. Moreover, in GoCD, each box is pipeline itself with its stages, jobs and tasks.
 
-Go CD is a fairly new player in the automation world with refreshing UI and a couple of
+GoCD is a fairly new player in the automation world with refreshing UI and a couple of
 nice concepts. The community is still growing but it is responsive. We had a couple of
 problems which we posted on StackOverflow and usually got answers pretty quickly.
 We are using [Gerrit/Github plugin](https://github.com/ashwanthkumar/gocd-build-github-pull-requests)

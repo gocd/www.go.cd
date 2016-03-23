@@ -4,7 +4,8 @@ title:  "Open Source Tests - The GoCD way"
 status: public
 type: post
 author: Rajiesh
-excerpt: <p>At GoCD we are open-sourcing our functional tests, we believe open-sourcing system tests will - improve quality through collaboration, make regression tests efficient, give the community a detailed picture of the system behavior and act as .....</p>
+excerpt: "At GoCD, we are open-sourcing our functional tests, we believe open-sourcing system tests will - improve quality through collaboration, make regression tests efficient, give the community a detailed picture of the system behavior and act as ..."
+summary_image: "/assets/images/go-gauge-report.png"
 ---
 
 Why Open Source Tests

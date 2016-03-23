@@ -4,10 +4,12 @@ title: Plugin Settings
 status: public
 type: post
 published: true
-author: Go Team
+author: GoCD Team
+excerpt: "GoCD is continously improving its plugin infrastructure. Starting 15.2.0, GoCD will support \"Plugin Settings\" that will allow plugins developers to accept global settings. With this feature all plugins will have one approach to accept plugins settings from user & access plugin settings from GoCD Server."
+summary_image: "/assets/images/blog/plugin-settings/configure-plugin.png"
 ---
 
-Go is continously improving its plugin infrastructure. Starting 15.2.0 Go will support "Plugin Settings" that will allow plugins developers to accept global settings. Currently these configurations had to be supported via system properties or a file that is in specified format in a specified location, which makes it a little haphazard. With this feature "all" plugins will have one approach to accept plugins settings from user & access plugin settings from Go Server.
+GoCD is continously improving its plugin infrastructure. Starting 15.2.0 GoCD will support "Plugin Settings" that will allow plugins developers to accept global settings. Currently these configurations had to be supported via system properties or a file that is in specified format in a specified location, which makes it a little haphazard. With this feature *all* plugins will have one approach to accept plugins settings from user & access plugin settings from GoCD Server.
 
 ### How does it work?
 
@@ -75,4 +77,4 @@ img.has_border {
 
 ---
 
-As always, Go questions can be asked on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).
+As always, GoCD questions can be asked on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).

@@ -1,20 +1,21 @@
 ---
 layout: post
-title: Sample Go CD Virtualbox based environment
+title: Sample GoCD Virtualbox based environment
 status: public
 type: post
 published: false
 author: Ken Mugrage
+summary_image: "/assets/images/blog/sample-virtualbox/Virtualbox_logo.png"
 ---
 
-If you're interested in checking out Go but don't want to spend the time automating your
+If you're interested in checking out GoCD but don't want to spend the time automating your
 own system, this might be a great option for you.
 
-__Edit on 11 November, 2014__ - This box has been updated to Go version 14.3. For information about
+__Edit on 11 November, 2014__ - This box has been updated to GoCD version 14.3. For information about
 what's new in this release please see [http://www.go.cd/releases/](http://www.go.cd/releases/)
 
 We've created an environment using Vagrant and Virtualbox. Once it's up, you'll have a full
-Go installation including several example pipleines. 
+GoCD installation including several example pipleines. 
 
 ### System Requirements
 
@@ -41,7 +42,7 @@ Completion of this (especially the first time) will take quite a while, dependin
 bandwidth. Vagrant will be downloading the full box image (almost 1.4GB) from Vagrantcloud 
 while you wait.
 
-__Note:__ If you have an existing Go installation on the same machine as this virtual machine
+__Note:__ If you have an existing GoCD installation on the same machine as this virtual machine
 you may get a port conflict. Vagrant will automatically map to a new port which will be 
 shown in the startup messages. 
 
@@ -61,8 +62,8 @@ reset the box to it's orginal state if you need to!
 
 The box will be updated as new things come out, but as of this writing...
 
-* Go 14.3 Server
-* Go 14.3 Agent
+* GoCD 14.3 Server
+* GoCD 14.3 Agent
 * 3 very small PHP applications
 * Basic Capistrano deployment scripts
 * Local Git repo using Gitolite to manage permissions
@@ -74,9 +75,9 @@ to access this is to type 'vagrant ssh' at the command prompt in the same place 
 started the machine.
 
 The hope is that using this box you can see how real applications (even if they are small)
-are built, tested and deployed with Go. 
+are built, tested and deployed with GoCD. 
 
-As always, Go questions can be asked at [https://groups.google.com/forum/#!forum/go-cd](https://groups.google.com/forum/#!forum/go-cd)
+As always, GoCD questions can be asked at [https://groups.google.com/forum/#!forum/go-cd](https://groups.google.com/forum/#!forum/go-cd)
 
 
 

@@ -5,6 +5,7 @@ status: draft
 type: post
 published: true
 author: Ken Mugrage
+excerpt: "What does it take to get involved in an open-source project? It is reasonably easy on small or new projects, and considerably harder on larger or more mature projects"
 ---
 
 One of my personal favorite things about open source software is the ability to get involved. Sometimes the changes made are small, and sometimes they aren't. I've found that this is reasonably easy on small or new projects, and considerably harder on larger or more mature projects. 

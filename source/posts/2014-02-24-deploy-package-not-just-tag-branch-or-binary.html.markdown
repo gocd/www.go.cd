@@ -5,6 +5,7 @@ status: public
 type: post
 published: true
 author: Sriram Narayan
+excerpt: "This article lays out the benefits of using your operating system's packaging tools instead of rolling out your own installers and packages"
 ---
 
 In a section called *Principles and Practices of Build and Deployment Scripting*, [the CD book](http://continuousdelivery.com/) suggests to *Use Your Operating System’s Packaging Tools*.

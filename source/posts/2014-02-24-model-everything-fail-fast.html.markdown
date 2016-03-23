@@ -5,10 +5,11 @@ status: public
 type: post
 published: true
 author: Mark Chang
+excerpt: "Learn about modeling your pipelines to give you the quickest feedback fastest and other pipeline modeling tricks in this informative article by Mark Chang"
 ---
 
 
-Every time any change is introduced - application, database script, automated test, infrastructure, deployment script, configuration, etc. - the change should kick off a gauntlet of validation. The quicker you can find out if a change breaks something the better off you are and the more confidence you will have in your software. We tell the teams who want to go faster that they need to fail fast. We built Go to give teams the power to model and remodel a Build-Test- Release workflow so that they get super quick feedback on every change. And if something breaks, great, find it fast, fix it fast, and then run the new version through the gauntlet.
+Every time any change is introduced - application, database script, automated test, infrastructure, deployment script, configuration, etc. - the change should kick off a gauntlet of validation. The quicker you can find out if a change breaks something the better off you are and the more confidence you will have in your software. We tell the teams who want to go faster that they need to fail fast. We built GoCD to give teams the power to model and remodel a Build-Test- Release workflow so that they get super quick feedback on every change. And if something breaks, great, find it fast, fix it fast, and then run the new version through the gauntlet.
 
 
 ###A common workflow to fail fast
@@ -58,9 +59,9 @@ Over time you may find other areas in your Build-Test-Release workflow where you
 ![](/assets/images/blog/mark-failfast5.png)
 
 
-Sequencing and parallelization in Go
+#### Sequencing and parallelization in GoCD
 
-A Go pipeline is a building block (*). Teams using Go will come together and model an end-to-end Build-Test-Release workflow by chaining pipelines together. Part of this collaboration is figuring out the sequence of workflow steps and where parallelization makes sense.
+A GoCD pipeline is a building block (*). Teams using GoCD will come together and model an end-to-end Build-Test-Release workflow by chaining pipelines together. Part of this collaboration is figuring out the sequence of workflow steps and where parallelization makes sense.
 
 Sequencing workflow steps will define priority:
 
@@ -81,15 +82,15 @@ Parallelization will speed things up:
 
 ###We treat a workflow as a single entity
 
-It's extremely important to us that the core behavior of a single pipeline is maintained in a workflow (chain of pipelines), no matter the model. Go allows teams to model as they wish and handles stuff like artifact management and if a release candidate should advance to the next step. A lot of the intelligence comes down to [how Go manages dependencies](http://support.thoughtworks.com/entries/22229668-Go-s-Dependency-Management). We’re proud of this intelligence, especially the “fan-in” support. This is where Go really shines.
+It's extremely important to us that the core behavior of a single pipeline is maintained in a workflow (chain of pipelines), no matter the model. GoCD allows teams to model as they wish and handles stuff like artifact management and if a release candidate should advance to the next step. A lot of the intelligence comes down to [how GoCD manages dependencies](http://support.thoughtworks.com/entries/22229668-Go-s-Dependency-Management). We’re proud of this intelligence, especially the “fan-in” support. This is where GoCD really shines.
 
 
 ----------
-(*) Jez Humble and David Farley talk about a ["deployment pipeline"](http://www.informit.com/articles/article.aspx?p=1621865) in their book, Continuous Delivery. A core domain concept in Go is called a “pipeline”. They are not the same thing.
+(*) Jez Humble and David Farley talk about a ["deployment pipeline"](http://www.informit.com/articles/article.aspx?p=1621865) in their book, Continuous Delivery. A core domain concept in GoCD is called a “pipeline”. They are not the same thing.
 
 * The book talks about the "deployment pipeline" in a holistic sense, a **pattern** that can be implemented to model your path to production. They summarize a deployment pipeline as "in essence, an automated implementation of your application’s build, deploy, test, and release process".
 
-* Go is a Continuous Delivery tool that allows teams to implement that pattern via Go *pipelines*. A Go pipeline is a building block. Go pipelines are a way to implement a deployment pipeline. The product overloads the term. On behalf of Jez, sorry! 
+* GoCD is a Continuous Delivery tool that allows teams to implement that pattern via GoCD *pipelines*. A GoCD pipeline is a building block. GoCD pipelines are a way to implement a deployment pipeline. The product overloads the term. On behalf of Jez, sorry! 
 
 
 

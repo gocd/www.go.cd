@@ -1,0 +1,9 @@
+<span class="post-date"><%= article.date.strftime('%b %e, %Y') %></span>
+
+<h2 class="post-title"><%= link_to article.title, article %></h2>
+
+<% if article.data["summary_image"] %>
+<figure class="post-summary-image"><img src="<%= article.data["summary_image"] %>"></figure>
+<% end %>
+
+<span class="excerpt"><%= article.data["excerpt"] || article.summary(250) %></span>

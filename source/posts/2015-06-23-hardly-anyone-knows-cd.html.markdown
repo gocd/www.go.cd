@@ -5,25 +5,26 @@ status: public
 type: post
 published: true
 author: Ken Mugrage
+excerpt: "Ken Mugrage makes a strong case that lots more people need to learn about CD. He says: \"Those of us who work in or around teams doing continuous delivery often think it’s a mainstream thing. This couldn’t be further from the truth.\""
 ---
 
 Those of us who work in or around teams doing continuous delivery often think it’s a mainstream thing. This couldn’t be further from the truth.
 
-I work for ThoughtWorks, a company that implements processes and technologies we think are good long before most. We built the first CI server with Cruise Control, and Go was the first purpose built Continuous Delivery server. I go to a lot of conferences and events, read a lot of blogs, talk to a lot of peers, work with a lot of partners, etc. I thought most people involved with the creation of software had a pretty good idea what CD is.
+I work for ThoughtWorks, a company that implements processes and technologies we think are good long before most. We built the first CI server with Cruise Control, and GoCD was the first purpose built Continuous Delivery server. I go to a lot of conferences and events, read a lot of blogs, talk to a lot of peers, work with a lot of partners, etc. I thought most people involved with the creation of software had a pretty good idea what CD is.
 
 I was wrong.
 
 I just got back from a pretty big software conference that was a bit off my normal track. They had a few DevOps sessions this year, but historically this particular conference has been more about agile methodologies. As one of the sponsors, I spent a lot of time at the booth talking to people.
 
-The conversations in a trade show booth generally start with the visitor asking what we do (gotta work more on that so they don’t have to) and me telling them that Go is a continuous delivery server. From there we go on to talk about what makes Go unique and why they should use it.
+The conversations in a trade show booth generally start with the visitor asking what we do (gotta work more on that so they don’t have to) and me telling them that GoCD is a continuous delivery server. From there we go on to talk about what makes GoCD unique and why they should use it.
 
-At this show, when I told people Go is a continuous delivery server I was met with mostly blank stares. This was a conference attended by 100% people who create software for a living. The people attending care enough about their craft to spend (or get their company to spend) a couple thousand US dollars to come. But they had no idea what Continuous Delivery really is. I probably should note, this isn't meant as a knock on that conference at all.
+At this show, when I told people GoCD is a continuous delivery server I was met with mostly blank stares. This was a conference attended by 100% people who create software for a living. The people attending care enough about their craft to spend (or get their company to spend) a couple thousand US dollars to come. But they had no idea what Continuous Delivery really is. I probably should note, this isn't meant as a knock on that conference at all.
 
-The lack of knowledge is a really bad thing. Not just for the Go CD project, but for software in general. The world runs on software. Too much of that software is bad. The practices around Continuous Delivery could make some of it better, or kill it before it gets out.
+The lack of knowledge is a really bad thing. Not just for the GoCD CD project, but for software in general. The world runs on software. Too much of that software is bad. The practices around Continuous Delivery could make some of it better, or kill it before it gets out.
 
 ####So what can we do?
 
-Buy or borrow a copy of [Continuous Delivery](http://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912) by Jez Humble and Dave Farley for your office. Make everyone read at least the chapters that apply to them. Yes, Jez and Dave both worked for ThoughtWorks when they were writing the book. Yes, Jez was the product owner of Go before the book came out. No, we won't make any money off the link if you buy it. I promise this isn’t bias, it’s the definitive work on the subject.
+Buy or borrow a copy of [Continuous Delivery](http://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912) by Jez Humble and Dave Farley for your office. Make everyone read at least the chapters that apply to them. Yes, Jez and Dave both worked for ThoughtWorks when they were writing the book. Yes, Jez was the product owner of GoCD before the book came out. No, we won't make any money off the link if you buy it. I promise this isn’t bias, it’s the definitive work on the subject.
 
 Get [The Phoenix Project](http://www.amazon.com/The-Phoenix-Project-Helping-Business/dp/0988262509/ref=pd_bxgy_14_img_y) by Gene Kim. It’s a fictional novel and a bit corny at times, but people will learn a bit even if they don’t mean to.
 

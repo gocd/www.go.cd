@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "GoCD in 2016"
+title:  "Roadmap - GoCD in 2016"
 status: public
 type: post
 author: Aravind SV
-excerpt: <p>2016 is going to be an exciting year for GoCD. Read all about what's being planned for it ...</p>
+excerpt: "2016 is going to be an exciting year for GoCD. Read all about what's being planned for it ..."
+summary_image: "/assets/images/blog/are-you-ready-for-continuous-delivery/woodline.jpeg"
 ---
 
 GoCD 15.3 has been released! I think now is a great time to talk about GoCD in
@@ -21,9 +22,7 @@ This is what the high-level idea for GoCD in 2016 looks like:
 * Have a better getting-started experience both in the application itself and on [go.cd](https://go.cd)
 * Better support for clouds and containers
 
-<p>
 Let’s take a look at each of these areas and what kind of changes can be expected in the GoCD ecosystem for it, in 2016:
-
 
 ## Be universal and easily extensible
 
