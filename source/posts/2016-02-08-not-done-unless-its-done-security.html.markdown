@@ -9,9 +9,9 @@ summary_image: "/assets/images/blog/deploy-now/security-badge.png"
 ---
 
 <div>
-  <figure>
+  <div class="float-image float-right">
     <img src="/assets/images/blog/deploy-now/security-badge.png" alt="Continuous Delivery Security Testing" class="pad-left">
-  </figure>
+  </div>
 
   <div class="float-article float-left">
 <p>This is the second part of a series called <a href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html">It’s not Continuous Delivery if you can’t deploy right now.</a> In this part, I’m going to cover some more common tools in security testing pipelines.</p>
