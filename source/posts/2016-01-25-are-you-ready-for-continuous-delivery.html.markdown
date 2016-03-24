@@ -30,9 +30,9 @@ determine your readiness for Continuous Delivery.
 A foundation of CD is the ability to put a specific version of your application into a given environment at any point in
 time. CD is actually quite fussy about this. It’s a must. And this can only be done by:
 
-- Putting everything needed to make your application into a version control system 
-- Any time you change anything, push the changes to version control. 
-- Write an automated script that, given a version, checks out everything from version control and assembles your application. 
+- Putting everything needed to make your application into a version control system
+- Any time you change anything, push the changes to version control.
+- Write an automated script that, given a version, checks out everything from version control and assembles your application.
 
 CD is impossible when software teams (or the people on a single team) work in isolation from each other. When
 development work happens in isolation, large periods of integration and testing are required at the end of the
@@ -115,4 +115,4 @@ quickly. Also, this approach will set you up for success once you do feel the ne
 In coming posts we will present similar sets of questions for you to consider in the areas of infrastructure,
 application design, process, and culture.
 
-*Update:* [Part 2](/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops.html) of this series, discussing feedback loops, has been published. 
+*Update:* [Part 2](/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops) of this series, discussing feedback loops, has been published.

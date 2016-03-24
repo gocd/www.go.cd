@@ -19,13 +19,13 @@ This plugin allows you to login, search and add existing github users to GoCD.
 
 <figure class='extra_small_image'>
   <img src="/assets/images/blog/authentication-plugins/login-page.png" class="has_border"
-    alt="GoCD - Login Page" id="mature_ci_cd_setup" title="GoCD - Login Page" />
+    alt="GoCD - Login Page" id="login_page" title="GoCD - Login Page" />
   <figcaption>Login Page with GitHub icon</figcaption>
 </figure>
 
 <figure class='extra_small_image'>
   <img src="/assets/images/blog/authentication-plugins/search-user.png" class="has_border"
-    alt="GoCD - Search User" id="mature_ci_cd_setup" title="GoCD - Search User" />
+    alt="GoCD - Search User" id="search_user" title="GoCD - Search User" />
   <figcaption>Search and Add User</figcaption>
 </figure>
 
@@ -43,7 +43,7 @@ The combination of these plugins will help you configure GoCD such that any pull
 
 <figure class="extra_small_image">
   <img src="/assets/images/blog/feature-branch/update-status-2.png" class="has_border full_size"
-    alt="GitHub PR listing page gets updated" id="github_pr_update" title="GitHub PR listing page gets updated" />
+    alt="GitHub PR listing page gets updated" id="github_pr_update_list" title="GitHub PR listing page gets updated" />
   <figcaption>GitHub PR listing page gets updated</figcaption>
 </figure>
 
@@ -57,7 +57,7 @@ To configure this, edit the pipeline material and setup a pattern and a link und
 
 <figure class="extra_small_image">
   <img src="/assets/images/blog/github-integration/github-issues-integration.png" class="has_border full_size"
-    alt="GoCD - GitHub Issue Tracker Integration" id="mature_ci_cd_setup" title="GoCD - Login Page" />
+    alt="GoCD - GitHub Issue Tracker Integration" id="issue_tracker" title="GoCD - Login Page" />
   <figcaption>GitHub Issue Tracker Integration</figcaption>
 </figure>
 
@@ -65,7 +65,7 @@ Any commit messages with issue numbers will be linked to the correct GitHub issu
 
 <figure class="extra_small_image">
   <img src="/assets/images/blog/github-integration/github-issue-link-in-build-cause.png" class="has_border full_size"
-    alt="GoCD - Comment with GitHub issue link" id="mature_ci_cd_setup" title="GoCD - Login Page" />
+    alt="GoCD - Comment with GitHub issue link" id="comment_issue_github" title="GoCD - Login Page" />
   <figcaption>Comment with GitHub issue link (build cause pop-up)</figcaption>
 </figure>
 
@@ -73,7 +73,7 @@ You can also compare pipelines and get the release notes or changelog straight o
 
 <figure class="extra_small_image">
   <img src="/assets/images/blog/github-integration/github-issue-link-in-compare-pipeline.png" class="has_border full_size"
-    alt="GoCD - Comment with GitHub issue link" id="mature_ci_cd_setup" title="GoCD - Login Page" />
+    alt="GoCD - Comment with GitHub issue link" id="comment_issue_github_link" title="GoCD - Login Page" />
   <figcaption>Comment with GitHub issue link (compare pipeline page)</figcaption>
 </figure>
 

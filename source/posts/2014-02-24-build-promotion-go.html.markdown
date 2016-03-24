@@ -49,7 +49,7 @@ Promoting builds at the press of a button is what turns the deployment pipeline 
 
 ###Model your promotion process into the CD tool
 
-In general, a build/deployment pipeline is also a promotion pipeline. Go’s support for pipelines and stages with automatic or manual approvals makes it easy to model and [visualize](http://www.go.cd/documentation/user/current/navigation/value_stream_map.html) your promotion process into the [CD value stream](http://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-2-pipelines-and-value-streams). A stage runs only when the previous stage has passed - this is like an automatic promotion gate. [Manual](http://www.go.cd/documentation/user/current/configuration/dev_choose_when_stage_runs.html) stage [approvals](http://www.go.cd/documentation/user/current/configuration/dev_authorization.html#adding-authorization-to-approvals) may also be used where needed.
+In general, a build/deployment pipeline is also a promotion pipeline. Go’s support for pipelines and stages with automatic or manual approvals makes it easy to model and [visualize](https://docs.go.cd/current/navigation/value_stream_map.html) your promotion process into the [CD value stream](http://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-2-pipelines-and-value-streams). A stage runs only when the previous stage has passed - this is like an automatic promotion gate. [Manual](https://docs.go.cd/current/configuration/dev_choose_when_stage_runs.html) stage [approvals](https://docs.go.cd/current/configuration/dev_authorization.html#adding-authorization-to-approvals) may also be used where needed.
 
 ![](/assets/images/blog/sriram-buildpromo1.png)
 
@@ -57,15 +57,15 @@ In general, a build/deployment pipeline is also a promotion pipeline. Go’s sup
 
 ###Go 13.3
 
-[Go 13.3](http://www.go.cd/documentation/user/current/configuration/package_material.html) adds more support by letting you store your packages in a first-class external package repository and yet activating different promotion levels within the tool. We now have three ways of activating a promotion level manually or automatically:
+[Go 13.3](https://docs.go.cd/current/extension_points/package_repository_extension.html) adds more support by letting you store your packages in a first-class external package repository and yet activating different promotion levels within the tool. We now have three ways of activating a promotion level manually or automatically:
 
 1.   Stage n activating stage n+1
-1.   Pipeline X activating Pipeline Y [(pipeline dependency)](http://www.go.cd/documentation/user/current/configuration/managing_dependencies.html)
+1.   Pipeline X activating Pipeline Y [(pipeline dependency)](https://docs.go.cd/current/configuration/managing_dependencies.html)
 1.   Pipeline Y getting activated by the updation of a package in a package repository (package material dependency)
 
-There are situations when we could use either #2 or #3 above to model a promotion. The [package material](http://www.go.cd/documentation/user/current/configuration/package_material.html#value-stream-modeling-tip) docs has a section on this.
+There are situations when we could use either #2 or #3 above to model a promotion. The [package material](https://docs.go.cd/current/extension_points/package_repository_extension.html#value-stream-modeling-tip) docs has a section on this.
 
-Support for package material has been implemented as an extension point. Plugins written to this extension point can provide support for different types of repositories. A [yum plugin](http://www.go.cd/documentation/user/current/extension_points/yum_repository_poller.html) is bundled along with Go Server 13.3. Other non-bundled package material plugins are [listed here](http://thoughtworksinc.github.io/go-external-plugins/).
+Support for package material has been implemented as an extension point. Plugins written to this extension point can provide support for different types of repositories. A [yum plugin](https://docs.go.cd/current/extension_points/yum_repository_poller.html) is bundled along with Go Server 13.3. Other non-bundled package material plugins are [listed here](http://thoughtworksinc.github.io/go-external-plugins/).
 
 Happy packaging and promoting!
 

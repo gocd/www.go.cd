@@ -5,7 +5,7 @@ status: public
 type: post
 published: true
 author: GoCD Team
-excerpt: "GoCD is continously improving its plugin infrastructure. Starting 15.2.0, GoCD will support \"Plugin Settings\" that will allow plugins developers to accept global settings. With this feature all plugins will have one approach to accept plugins settings from user & access plugin settings from GoCD Server."
+excerpt: "GoCD is continously improving its plugin infrastructure. Starting 15.2.0, GoCD will support \"Plugin Settings\" that will allow plugins developers to accept global settings. With this feature all plugins will have one approach to accept plugins settings from user &amp; access plugin settings from GoCD Server."
 summary_image: "/assets/images/blog/plugin-settings/configure-plugin.png"
 ---
 
@@ -17,7 +17,7 @@ GoCD is continously improving its plugin infrastructure. Starting 15.2.0 GoCD wi
 
 <figure>
   <img src="/assets/images/blog/plugin-settings/list-plugin.png" class="has_border full_size"
-    alt="Figure 1: GoCD - Plugin Listing" id="mature_ci_cd_setup" title="GoCD - Plugin Listing" />
+    alt="Figure 1: GoCD - Plugin Listing" id="plugin_listing" title="GoCD - Plugin Listing" />
   <figcaption>Figure 1: Plugin listing with gear icon <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
@@ -25,7 +25,7 @@ GoCD is continously improving its plugin infrastructure. Starting 15.2.0 GoCD wi
 
 <figure>
   <img src="/assets/images/blog/plugin-settings/configure-plugin.png" class="has_border full_size"
-    alt="Figure 2: GoCD - Configure Plugin" id="mature_ci_cd_setup" title="GoCD - Configure Plugin" />
+    alt="Figure 2: GoCD - Configure Plugin" id="configure_plugin" title="GoCD - Configure Plugin" />
   <figcaption>Figure 2: Configure plugin pop-up <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
@@ -33,7 +33,7 @@ GoCD is continously improving its plugin infrastructure. Starting 15.2.0 GoCD wi
 
 <figure>
   <img src="/assets/images/blog/plugin-settings/configure-plugin-errors.png" class="has_border full_size"
-    alt="Figure 2: GoCD - Configure Plugin Errors" id="mature_ci_cd_setup" title="GoCD - Configure Plugin Errors" />
+    alt="Figure 2: GoCD - Configure Plugin Errors" id="configure_plugin_errors" title="GoCD - Configure Plugin Errors" />
   <figcaption>Figure 3: Configure plugin pop-up with errors <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
