@@ -37,9 +37,9 @@ jQuery(document).ready(function($) {
   };
 
   var setupSmoothScrollForSamePageLinks = function() {
-    $("body").on("click", "a[href^='#'][href!='#'], a[data-dest]", function() {
+    $("body").on("click", "a[href^='#'][href!='#'], a[data-dest]", function(evt) {
       var currentPage = window.location.pathname.replace(/\/$/, '');
-      var section = $.attr(this, 'href');
+      var section = $(this).data('section') || $.attr(this, 'href');
       var dest = $(this).data('dest') || currentPage;
       var targetIsInSamePage = (dest === currentPage);
 
@@ -48,6 +48,7 @@ jQuery(document).ready(function($) {
       } else {
         window.location.href = dest + section;
       }
+      evt.preventDefault();
     });
   };
 

@@ -181,7 +181,7 @@ That's it.
 
     <figure>
       <img src="/assets/images/blog/feature-branch/update-status-2.png" class="has_border full_size"
-        alt="Figure 11: GitHub PR listing page gets updated" id="github_pr_update" title="GitHub PR listing page gets updated" />
+        alt="Figure 11: GitHub PR listing page gets updated" id="github_pr_list_update" title="GitHub PR listing page gets updated" />
       <figcaption>Figure 11: GitHub PR listing page gets updated <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
     </figure>
 

@@ -34,7 +34,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 
 <figure>
   <img src="/assets/images/blog/authentication-plugins/list-plugin.png" class="has_border full_size"
-    alt="Figure 1: GoCD - Plugin Listing" id="mature_ci_cd_setup" title="GoCD - Plugin Listing" />
+    alt="Figure 1: GoCD - Plugin Listing" id="plugin_listing" title="GoCD - Plugin Listing" />
   <figcaption>Figure 1: Plugin listing with gear icon <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
@@ -42,7 +42,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 
 <figure>
   <img src="/assets/images/blog/authentication-plugins/configure-plugin.png" class="has_border full_size"
-    alt="Figure 2: GoCD - Configure Plugin" id="mature_ci_cd_setup" title="GoCD - Configure Plugin" />
+    alt="Figure 2: GoCD - Configure Plugin" id="configure_plugin" title="GoCD - Configure Plugin" />
   <figcaption>Figure 2: Configure plugin pop-up <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
@@ -50,7 +50,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 
 <figure>
   <img src="/assets/images/blog/authentication-plugins/login-page.png" class="has_border full_size"
-    alt="Figure 2: GoCD - Login Page" id="mature_ci_cd_setup" title="GoCD - Login Page" />
+    alt="Figure 2: GoCD - Login Page" id="login_page" title="GoCD - Login Page" />
   <figcaption>Figure 3: Login Page with GitHub icon <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
@@ -58,7 +58,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 
 <figure>
   <img src="/assets/images/blog/authentication-plugins/github-login.png" class="has_border full_size"
-    alt="Figure 2: GoCD - Authorize GoCD Server on GitHub" id="mature_ci_cd_setup" title="GoCD - Authorize GoCD Server on GitHub" />
+    alt="Figure 2: GoCD - Authorize GoCD Server on GitHub" id="auth_gocd_on_github" title="GoCD - Authorize GoCD Server on GitHub" />
   <figcaption>Figure 3: Authorize GoCD Server to access GitHub <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
@@ -66,7 +66,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 
 <figure>
   <img src="/assets/images/blog/authentication-plugins/successful-login.png" class="has_border full_size"
-    alt="Figure 2: GoCD - On Successful Login" id="mature_ci_cd_setup" title="GoCD - On Successful Login" />
+    alt="Figure 2: GoCD - On Successful Login" id="successful_login" title="GoCD - On Successful Login" />
   <figcaption>Figure 3: On successful login <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ Below is an explanation of how [GitHub OAuth Login plugin](https://github.com/sr
 
 <figure>
   <img src="/assets/images/blog/authentication-plugins/search-user.png" class="has_border full_size"
-    alt="Figure 2: GoCD - Search User" id="mature_ci_cd_setup" title="GoCD - Search User" />
+    alt="Figure 2: GoCD - Search User" id="search_user" title="GoCD - Search User" />
   <figcaption>Figure 3: Search User <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
