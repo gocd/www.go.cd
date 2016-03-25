@@ -9,8 +9,9 @@ set :js_dir, "assets/javascripts"
 set :css_dir, "assets/stylesheets"
 set :images_dir, "assets/images"
 
-# General configuration
-activate :directory_indexes
+set :relative_links, true
+
+activate :relative_assets
 activate :blog do |blog|
   blog.sources           = "posts/{year}-{month}-{day}-{title}.html"
   blog.layout            = "post"
@@ -18,6 +19,7 @@ activate :blog do |blog|
   blog.calendar_template = "posts/calendar.html"
   blog.paginate          = true
 end
+activate :directory_indexes
 
 configure :development do
   # Reload the browser automatically whenever files change

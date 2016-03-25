@@ -1,32 +1,32 @@
 <header class="top">
   <div class="container">
-    <a href="/" class="logo"><%= image_tag "Go_logo.png" %></a>
+    <%= link_to image_tag('Go_logo.png'), '/index.html', :class => 'logo' %>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
-          <a href="/features">Features</a>
+          <%= link_to 'Features', '/features.html' %>
           <ul>
-            <li><a href="/plugins">Plugins</a></li>
-            <li><a href="/roadmap">Roadmap</a></li>
-            <li><a href="/subscribe">Subscribe to updates</a></li>
+            <li><%= link_to 'Plugins', '/plugins.html' %></li>
+            <li><%= link_to 'Roadmap', '/roadmap.html' %></li>
+            <li><%= link_to 'Subscribe to updates', '/subscribe.html' %></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="/community">Community</a>
+          <%= link_to 'Community', '/community.html' %>
           <ul>
-            <li><a href="/contribute">Contribute</a></li>
-            <li><a href="/cla">CLA</a></li>
-            <li><a href="/open-issues">Open Issues</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="/partners">Partners</a></li>
+            <li><%= link_to 'Contribute', '/contribute.html' %></li>
+            <li><%= link_to 'CLA', '/cla.html' %></li>
+            <li><%= link_to 'Open Issues', '/open-issues.html' %></li>
+            <li><%= link_to 'Events', '/events.html' %></li>
+            <li><%= link_to 'Partners', '/partners.html' %></li>
           </ul>
         </li>
-        <li><a href="/blog">Blog</a></li>
+        <li><%= link_to 'Blog', '/blog.html' %></li>
         <li class="dropdown">
-          <a href="/help">Help</a>
+          <%= link_to 'Help', '/help.html' %>
           <ul>
-            <li><a href="/getting-started/part-1">Getting started</a></li>
-            <li><a href="/download">Download</a></li>
+            <li><%= link_to 'Getting started', '/getting-started/part-1.html' %></li>
+            <li><%= link_to 'Download', '/download.html' %></li>
           </ul>
         </li>
       </ul>

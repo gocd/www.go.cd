@@ -33,7 +33,7 @@ We've had quite a few questions about the change. Here are a few of them...
 
 ### How will the project be run?
 
-* **As a "proper" open source project.** Anyone who wishes to participate in the future of GoCD is encouraged to do so. We're currently working hard on making the source code available for GoCD, and will update this site as soon as it is. You can also [sign up to stay informed.](/contribute/)
+* **As a "proper" open source project.** Anyone who wishes to participate in the future of GoCD is encouraged to do so. We're currently working hard on making the source code available for GoCD, and will update this site as soon as it is. You can also [sign up to stay informed.](/contribute.html)
 
   * **Push Access** If a person makes quality contributions on a regular basis they may be nominated by the current committers to be granted push access to the GitHub repositories. When someone is nominated, the current committers will vote. The process will be the same for everyone.
 
