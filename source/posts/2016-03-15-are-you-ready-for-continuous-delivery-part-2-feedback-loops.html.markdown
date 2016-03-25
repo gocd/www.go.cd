@@ -21,7 +21,7 @@ support teams new to CD, we suggest that they pause any tool evaluation and cons
 actually ready to embark on this journey. If you do not frankly assess your team's readiness, the result can be a
 massive failure. The path to CD should not start with the immediate adoption of a CD tool.
 
-In [part one](/2016/01/25/are-you-ready-for-continuous-delivery) of this series, we explored some core development
+In [part one](/posts/2016-01-25-are-you-ready-for-continuous-delivery.html) of this series, we explored some core development
 practices that are prerequisites for CD. In this part, we'll look at a variety of feedback loops—both manual and
 automated—your organization should have in place before rolling out CD.
 

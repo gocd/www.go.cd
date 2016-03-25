@@ -25,7 +25,7 @@
         <h2 class="section-title">Tags</h2>
         <ol>
           <% blog.tags.each do |tag, articles| %>
-          <li><%= link_to "#{tag} (#{articles.size})", tag_path(tag) %></li>
+          <li><%= link_to "#{tag} (#{articles.size})", url_for(tag_path(tag).sub(/\/$/, '.html')) %></li>
           <% end %>
         </ol>
         </section>
@@ -33,7 +33,7 @@
          <h2 class="section-title">By Year</h2>
         <ol>
           <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
-          <li><%= link_to "#{year} (#{articles.size})", blog_year_path(year) %></li>
+          <li><%= link_to "#{year} (#{articles.size})", url_for(blog_year_path(year).sub(/\/$/, '.html')) %></li>
           <% end %>
         </ol>
         </section>

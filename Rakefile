@@ -42,10 +42,17 @@ namespace :static_checks do
   end
 
   task :html_proofer => [:build] do
-    STDERR.print "WARNING: Not checking outbound links. But, build will check them. Set environment variable: " +
+    STDERR.puts "WARNING: Not checking outbound links. But, build will check them. Set environment variable: " +
                  "RUN_EXTERNAL_CHECKS to 'true' to run them" if should_not_run_external_url_checks?
 
-    HTMLProofer.check_directory('build', options).run
+    puts "\nRunning link checks, html format and verifying that it can be hosted in a subdirectory (relative links):"
+    Dir.mktmpdir do |tmpdir|
+      cp_r 'build/', File.join(tmpdir, 'subdir')
+
+      cd tmpdir do
+        HTMLProofer.check_directory('.', options).run
+      end
+    end
   end
 
   task :all => [:html_proofer]
