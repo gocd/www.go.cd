@@ -109,6 +109,8 @@ GEM
       middleman-core (>= 3.2)
       net-sftp
       ptools
+    middleman-gh-pages (0.3.0)
+      rake (> 0.9.3)
     middleman-livereload (3.4.6)
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
@@ -137,6 +139,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (11.1.1)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -166,6 +169,7 @@ DEPENDENCIES
   middleman-blog
   middleman-compass (>= 4.0.0)
   middleman-deploy
+  middleman-gh-pages
   middleman-livereload
   redcarpet (~> 3.3, >= 3.3.3)
   tzinfo-data

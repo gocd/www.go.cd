@@ -1,7 +1,8 @@
 require 'rubygems'
+require 'nokogiri'
 require 'html-proofer'
 require 'rake/clean'
-require 'nokogiri'
+require 'middleman-gh-pages'
 
 namespace :static_checks do
   def should_not_run_external_url_checks?
@@ -56,10 +57,6 @@ namespace :static_checks do
   end
 
   task :all => [:html_proofer]
-end
-
-task :build do
-  sh "bundle exec middleman build"
 end
 
 task :default => [:build, 'static_checks:all']
