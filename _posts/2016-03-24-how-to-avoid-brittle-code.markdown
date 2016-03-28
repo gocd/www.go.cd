@@ -50,7 +50,7 @@ The typical means of swapping out new tech (outside the absurdity of long-lived 
 * X is gradually made obsolete
 * X is removed; the abstraction is maybe removed
 
-I have many times seen this process fail to complete due to discovering how difficult it is to remove that final 20% of the old component. I cannot stress how painful it is to drag around multiple ways of doing things year after year. It slows everything down and is demoralizing. Branch by Abstraction is a great pattern. It’s the only way I’d do this sort of component swapping. But it needs to be accompanied by the team's complete commitment to eliminate the old component within a specified timebox.
+I have many times seen this process fail to complete due to discovering how difficult it is to remove that final 20% of the old component. I cannot stress enough how painful it is to drag around multiple ways of doing things year after year. It slows everything down and is demoralizing. Branch by Abstraction is a great pattern. It’s the only way I’d do this sort of component swapping. But it needs to be accompanied by the team's complete commitment to eliminate the old component within a specified timebox.
 
 ## Technical debt can kill you
 
