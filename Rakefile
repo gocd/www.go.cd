@@ -4,9 +4,11 @@ require 'html-proofer'
 require 'rake/clean'
 require 'middleman-gh-pages'
 
+CLOBBER.include('build')
+
 namespace :static_checks do
   def should_not_run_external_url_checks?
-    ENV['RUN_EXTERNAL_CHECKS'].nil?
+    ENV['RUN_EXTERNAL_CHECKS'].nil? || ENV['RUN_EXTERNAL_CHECKS'] == 'false'
   end
 
   options = {
@@ -56,8 +58,14 @@ namespace :static_checks do
     end
   end
 
+  task :cleanup do
+    rm_rf 'build/'
+    Rake::Task['build'].reenable
+  end
+
   task :all => [:html_proofer]
 end
 
-task :publish => ['static_checks:all']
-task :default => [:build, 'static_checks:all']
+task :publish => ['static_checks:all', 'static_checks:cleanup']
+
+task :default => ['static_checks:all']
