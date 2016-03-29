@@ -1,8 +1,11 @@
 <% wrap_layout :layout do %>
 <div class="container blog-post">
-  <div class="post-banner">
-    <!-- pls put banner image for article here -->
-  </div>
+  <% if content_for?(:banner) %>
+    <div class="post-banner">
+      <%= yield_content :banner %>
+    </div>
+  <% end %>
+
   <header class="blog-post-header">
     <h2><%= current_article.title %></h2>
     <h4><%= current_article.data["author"] %></h4>
