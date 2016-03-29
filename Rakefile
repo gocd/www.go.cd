@@ -59,4 +59,5 @@ namespace :static_checks do
   task :all => [:html_proofer]
 end
 
+task :publish => ['static_checks:all']
 task :default => [:build, 'static_checks:all']

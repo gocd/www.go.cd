@@ -30,12 +30,12 @@ end
 # Helpers
 ###
 
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  def git_revision
+    $revision = `git rev-parse --verify HEAD 2>/dev/null || true`.strip if @revision.nil?
+    $revision
+  end
+end
 
 # Build-specific configuration
 configure :build do

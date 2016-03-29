@@ -1,0 +1,39 @@
+---
+title: GoCD - Blog
+pageable: false
+---
+<div class="inner-banner blog-banner">
+  <div class="container">
+    <h1 class="caption"><span>GoCD Blog</span></h1>
+    <span class="subcaption">Read about GoCD and Continuous Delivery</span>
+    <%= link_to 'RSS feed', '/feed.xml' , { :class=>"rss-feed" }  %>
+  </div>
+</div>
+<% latest_post = page_articles.first %>
+<% second_post = page_articles[1] %>
+<% articles    = page_articles.drop(2) %>
+
+<main class="main blog-list" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => latest_post } %>
+      </div>
+      <div class="col-md-3">
+        <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => second_post } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <% (0..2).each do |column_index| %>
+        <div class="col-md-4">
+          <% articles.select.with_index {|article, index| index % 3 == column_index}.each do |article| %>
+            <div class="blog-list-item">
+              <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => article } %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>
