@@ -3,7 +3,7 @@ $border-color: #ccc;
 $tab-hover-bg: #f5f5f5;
 $accorion-header-bg: #fff;
 $accorion-header-bg-active: #e5e5e5;
-$tab-container-bg: #d8f0f1;
+$tab-container-bg: #777777;
 
 ul.tabs {
   margin: 0;
@@ -28,7 +28,6 @@ ul.tabs {
       font-weight: 400;
     }
 
-
     &.active {
       background-color: #fff;
       color: #333;
@@ -36,31 +35,14 @@ ul.tabs {
       display: table-cell;
     }
 
-
-
   }
 
 }
 
 .tab_container {
   border-top: 0px;
-  clear: both;
   float: left;
   width: 100%;
-  @media (min-width:$screen-tablet) {
-    width: 540px;
-    clear: none;
-    // border: 1px solid $border;
-  }
-
-  @media (min-width:$screen-desktop) {
-    width: 760px;
-  }
-
-  @media (min-width:$screen-lg-desktop) {
-    width: 960px;
-  }
-
 }
 
 //accordion styles
@@ -133,8 +115,8 @@ ul.tabs {
     padding: 0;
     float: left;
     list-style: none;
-    border-top: 1px solid #d8f0f1;
-    display: block;
+    border-top: 1px solid $tab-container-bg;
+    display: none;
     width: 100%;
 
     @media (min-width:$screen-tablet) {
@@ -142,6 +124,7 @@ ul.tabs {
       // border: 1px solid $border;
       border-right: 0;
       border-bottom: 0;
+      display:block;
     }
 
     li {
@@ -167,7 +150,7 @@ ul.tabs {
 
       &.active {
         background-color: $tab-container-bg;
-        color: #333;
+        color: #fff;
         border-right: 1px solid $tab-container-bg;
         display: block;
         width: 180px;
@@ -181,74 +164,89 @@ ul.tabs {
     }
 
   }
+
   .tab_container {
-  background: $tab-container-bg;
+    background-color: $tab-container-bg;
 
-  @media (min-width:$screen-tablet) {
-
-  }
-
-  @media (min-width:$screen-desktop) {
-
-  }
-
-  @media (min-width:$screen-lg-desktop) {
-
-  }
-
-}
-
-}
-
-.tabs.os{
-  margin:50px auto 10px;
-  border-bottom:0;
-  display:block;
-  li{
-    background:#fff;
-    color:#333;
-    height:100px;
-    width:calc(100%/6);
-    float:left;
-    display:block;
-      transition: all .2s ease-in-out;
-    span{
-      display:block;
-      text-align:center;
-      font-weight:400;
-      &.os-logo{
-      transition: all .2s ease-in-out;
-        height:50px;
-        margin:0 auto 5px;
-      }
+    @media (min-width:$screen-tablet) {
+      width: 540px;
     }
-    &.active{
-      height:110px;
+
+    @media (min-width:$screen-desktop) {
+      width: 760px;
+    }
+
+    @media (min-width:$screen-lg-desktop) {
+      width: 960px;
+    }
+
+  }
+
+}
+
+.tabs.os {
+  margin: 50px auto 10px;
+  border-bottom: 0;
+  display: block;
+
+  li {
+    background: #fff;
+    color: #333;
+    height: 100px;
+    width: calc(100%/6);
+    float: left;
+    display: block;
+    transition: all .2s ease-in-out;
+
+    span {
+      display: block;
+      text-align: center;
+      font-weight: 400;
+
+      &.os-logo {
+        transition: all .2s ease-in-out;
+        height: 50px;
+        margin: 0 auto 5px;
+      }
+
+    }
+
+    &.active {
+      height: 110px;
       border-bottom: 0;
     }
-    &:hover{
-      height:110px;
+
+    &:hover {
+      height: 110px;
+      transition: all .2s ease-in-out;
+
+      span {
         transition: all .2s ease-in-out;
-      span{
-        transition: all .2s ease-in-out;
-       margin-bottom: 10px;
+        margin-bottom: 10px;
       }
+
     }
+
   }
-    @media (max-width:$screen-xs-max) {
-      display:none;
-    }
+
+  @media (max-width:$screen-xs-max) {
+    display: none;
+  }
+
 }
 
-.os-tab-content{
+.os-tab-content {
   margin-top: 20px;
+
   .tab-accordion_heading {
     background-color: $green;
-    color:#fff;
-    border-color:#fff;
+    color: #fff;
+    border-color: #fff;
   }
+
   .tab_content {
- border:1px solid #fff;
- padding:20px;
-}
+    border: 1px solid #fff;
+    padding: 20px;
+  }
+
 }

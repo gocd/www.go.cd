@@ -7,34 +7,34 @@ title: GoCD - Download
     <span class="subcaption">Download GoCD Server and GoCD Agent for Free</span>
   </div>
 </div>
-
 <main>
   <div class="container">
-    <p>
-      <strong>You need to download both
-      the <a href="https://docs.go.cd/current/installation/installing_go_server.html">server</a> and
-      the <a href="https://docs.go.cd/current/installation/installing_go_agent.html">agent</a> in order
-      to use GoCD.</strong>
-    </p>
-
-    <p>
-      Scripting GoCD installations gets easier now. Both GoCD Server and Agent are now available on
-      public <a href="https://docs.go.cd/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhat-centos-fedora">YUM</a>
-      and <a href="https://docs.go.cd/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">APT</a> repositories!
-    </p>
-
-    <p>
-      If you need help downloading, installing or using GoCD please join
-      the <a href="https://groups.google.com/forum/#!forum/go-cd">GoCD Users Google Group</a>. ThoughtWorks also
-      provides commercial help for GoCD. They can be reached
-      at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.
-    </p>
-
-    <p class="note">New! <%= link_to 'Subscribe to updates', '/subscribe.html' %> on new GoCD releases and more.</p>
-
-    <div id="downloads"></div>
-
-
+    <div class="row">
+      <div class="col-md-9">
+        <p>
+          <strong>You need to download both
+          the <a href="https://docs.go.cd/current/installation/installing_go_server.html">server</a> and
+          the <a href="https://docs.go.cd/current/installation/installing_go_agent.html">agent</a> in order
+          to use GoCD.</strong>
+        </p>
+        <p>
+          Scripting GoCD installations gets easier now. Both GoCD Server and Agent are now available on
+          public <a href="https://docs.go.cd/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhat-centos-fedora">YUM</a>
+          and <a href="https://docs.go.cd/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">APT</a> repositories!
+        </p>
+        <p>
+          If you need help downloading, installing or using GoCD please join
+          the <a href="https://groups.google.com/forum/#!forum/go-cd">GoCD Users Google Group</a>. ThoughtWorks also
+          provides commercial help for GoCD. They can be reached
+          at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.
+        </p>      
+      </div>
+      <div class="col-md-3">
+         <p class="note"> New! <%= link_to 'Subscribe to updates', '/subscribe.html' %> on new GoCD releases and more.</p>
+      </div>
+    </div>
+  </div>
+  <div id="downloads"></div>
     <script id="download-revisions-template" type="text/x-handlebars-template">
       {{#*inline "show-releases-for-installer-type"}}
         <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
@@ -89,11 +89,17 @@ title: GoCD - Download
       <div class="os-tab-content">
         <div class="container">
           <div class="tab_container">
+           <h3 class="tab-accordion_heading" rel="tab1">Windows</h3>
             {{> show-releases-for-installer-type installer_type="win"     heading="Windows" tab_id="tab1"}}
+             <h3 class="tab-accordion_heading" rel="tab2">OSX</h3>
             {{> show-releases-for-installer-type installer_type="osx"     heading="OSX"     tab_id="tab2"}}
+             <h3 class="tab-accordion_heading" rel="tab3">Debian</h3>
             {{> show-releases-for-installer-type installer_type="deb"     heading="Debian"  tab_id="tab3"}}
+             <h3 class="tab-accordion_heading" rel="tab4">RPM</h3>
             {{> show-releases-for-installer-type installer_type="rpm"     heading="RPM"     tab_id="tab4"}}
+             <h3 class="tab-accordion_heading" rel="tab5">Solaris</h3>
             {{> show-releases-for-installer-type installer_type="solaris" heading="Solaris" tab_id="tab5"}}
+             <h3 class="tab-accordion_heading" rel="tab6">Package</h3>
             {{> show-releases-for-installer-type installer_type="generic" heading="Package" tab_id="tab6"}}
           </div>
         </div>

@@ -33,9 +33,10 @@ var startTabContainer = function($) {
     $("ul.tabs li").removeClass("active");
     $("ul.tabs li[rel^='"+d_activeTab+"']").addClass("active");
 
-    var target= $('.all-plugins');
+    var dtarget= $('.tab_container');
     $('html,body').animate({
-      scrollTop: target.offset().top + -100
-    }, 1000);
-  });
+      scrollTop: dtarget.offset().top + -100
+       }, 1000);
+    });
+
 };

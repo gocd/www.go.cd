@@ -1,6 +1,5 @@
-$plugins-tile-bg :#f2f9fc;
-$tab-container-bg :#d8f0f1;
-
+$plugins-tile-bg: #f2f9fc;
+$tab-container-bg: #d8f0f1;
 
 //plugins
 
@@ -10,12 +9,13 @@ $tab-container-bg :#d8f0f1;
 	}
 
 }
-.plugins-container{
-    @media (min-width:$screen-tablet) {
-	margin-top: 10px;
-	min-height:400px;
 
-    }
+.plugins-container {
+	@media (min-width:$screen-tablet) {
+		margin-top: 10px;
+		min-height: 400px;
+	}
+
 }
 
 .plugin-info {
@@ -24,25 +24,28 @@ $tab-container-bg :#d8f0f1;
 	line-height: normal;
 	border-radius: 10px;
 	// background: $gray-dark;
-	display:inline-block;
-	// color:#fff;
+	display: inline-block;
+	// color: #fff;
 	// margin-top: 5px;
-		&:before{
-		content:"";
-		border-left:1px solid #ccc;
+
+	&:before {
+		content: "";
+		border-left: 1px solid #ccc;
 		padding-left: 10px;
 	}
-    @media (min-width:$screen-tablet) {
-margin-top: 0;
-    }
+
+	@media (min-width:$screen-tablet) {
+		margin-top: 0;
+	}
+
 }
 
 .go-tag {
 	margin: 0 5px;
 }
 
-.contribute_tile{
-width:100%;
+.contribute_tile {
+	width: 100%;
 }
 
 .contribute-plugin {
@@ -51,8 +54,9 @@ width:100%;
 	@include justify-content(center);
 	height: 215px;
 	text-align: center;
+
 	@media (min-width:$screen-tablet) {
-		height:215px;
+		height: 215px;
 	}
 
 	.fa-star {
@@ -78,13 +82,13 @@ width:100%;
 		padding: 10px 0;
 	}
 
-		@media (min-width:$screen-desktop) {
+	@media (min-width:$screen-desktop) {
 		margin: 10px 10px 10px 25px;
-
 	}
 
 	li {
 		margin: 10px;
+		width: 100%;
 
 		.details {
 			background: #fff;
@@ -98,31 +102,33 @@ width:100%;
 
 		@media (min-width:$screen-tablet) {
 			width: 46%;
-			   
-      margin: 10px 0 20px 25px;
-       &:nth-child(2n+1){
-        margin-left: 0;
-       }
+			margin: 10px 0 20px 25px;
 
+			&:nth-child(2n+1) {
+				margin-left: 0;
+			}
 
 		}
 
 		@media (min-width:$screen-desktop) {
 			width: 31%;
-			      &:nth-child(2n+1){
-        margin-left: 25px;
-       }
-			  &:nth-child(3n+4){
-        margin-left: 0;
-       }
-       &:first-child{
-       	margin-left: 0;
-       }
+
+			&:nth-child(2n+1) {
+				margin-left: 25px;
+			}
+
+			&:nth-child(3n+4) {
+				margin-left: 0;
+			}
+
+			&:first-child {
+				margin-left: 0;
+			}
+
 		}
 
 		@media (min-width:$screen-lg-desktop) {
 			width: 31%;
-
 		}
 
 		.go-logo {
@@ -142,7 +148,7 @@ width:100%;
 
 		.more-details {
 			font-size: 12px;
-			line-height:20px;
+			line-height: 20px;
 			// color: $subtext;
 
 			@media (min-width:$screen-tablet) {
@@ -227,11 +233,12 @@ width:100%;
 			}
 
 		}
-		&.go{
-			@media (max-width:$screen-xs-max) {
 
-			width:100%;
-		}
+		&.go {
+			@media (max-width:$screen-xs-max) {
+				width: 100%;
+			}
+
 		}
 
 	}
