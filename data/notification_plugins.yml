@@ -55,7 +55,7 @@
 - name: HipChat Notification
   description: Plugin that sends HipChat notifications on build status
   readmore_url: https://github.com/PagerDuty/gocd-hipchat-plugin
-  author_url: http://www.pagerduty.com
+  author_url: https://www.pagerduty.com
   author_name: PagerDuty
   releases_url: https://github.com/PagerDuty/gocd-hipchat-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=PagerDuty&repo=gocd-hipchat-plugin&type=watch&count=true
