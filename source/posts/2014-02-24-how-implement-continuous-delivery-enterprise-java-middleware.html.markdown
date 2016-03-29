@@ -6,6 +6,7 @@ type: post
 published: true
 author: Sriram Narayan
 excerpt: "In this talk, you can learn about the challenges encountered while trying to use Continuous Delivery in a Java-based enterprise environment"
+summary_image: "/assets/images/blog/how-implement-continuous-delivery-enterprise-java-middleware/summary_image.png"
 ---
 
 The goal of Continuous Delivery is to move your production release frequency from months to weeks or even days. This all sounds great, but is Continuous Delivery achievable in a complex enterprise IT environment running Java EE middleware such as WebLogic, WebSphere or JBoss?

@@ -7,6 +7,7 @@ type: post
 published: true
 author: Sachin Sudheendra
 excerpt: "Public service announcement: You need to upgrade the agent installer to 14.1 or newer, if you're planning to use task plugins"
+summary_image: "/assets/images/blog/agent-bootstrapper-upgrade-for-plugins/summary_image.png"
 ---
 
 As part of GoCD 14.1, we officially announced Task plugins. Because tasks inherently are executed on an agent, we had to make few changes in the *agent-bootstrapper* component to allow this. Unlike the *agent* component which upgrades automatically to remain compatible with the *server* version, the agent-bootstrapper has to be manually upgraded.

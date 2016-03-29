@@ -6,6 +6,7 @@ type: post
 published: true
 author: Sriram Narayan
 excerpt: "Learn all about promoting your builds through different environments and promotion levels - both automatically and manually"
+summary_image: "/assets/images/blog/sriram-buildpromo1.png"
 ---
 
 A typical build may have to clear several hurdles before it can be considered fit for release. For example:

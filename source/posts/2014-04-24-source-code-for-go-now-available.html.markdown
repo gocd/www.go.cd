@@ -6,6 +6,7 @@ type: post
 published: true
 author: GoCD team
 excerpt: "This is an announcement about GoCD's source code's availability to the public, shared on <a href=\"https://github.com/gocd/gocd\">GitHub</a> - this is a follow-up to going open-source"
+summary_image: "/assets/images/blog/source-code-for-go-now-available/summary_image.png"
 ---
 
 Source code for Go® is now available!

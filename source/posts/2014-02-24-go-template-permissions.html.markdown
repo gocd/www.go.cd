@@ -6,6 +6,7 @@ type: post
 published: true
 author: GoCD Team
 excerpt: "This article introduces the concept of a template administrator role in GoCD, allowing a super administrator to delegate template editing capabilities to any user"
+summary_image: "/assets/images/blog/Pipeline1.png"
 ---
 
 The GoCD System Administrator has access to all administrative functions, and has operational access to all parts of a GoCD installation, which differentiates the normal user from the admin user. Hence, this role cannot be assigned to every user in the system. This requirement demands a new set of  roles in the system which is a subset of the privileges that the super admin has and at the same time does not give full fledged access to the system. Currently in GoCD, we have one such super admin role subset, which is called pipeline admin. In GoCD 13.4, we are introducing a new role into the ecosystem called "The Template Admin".

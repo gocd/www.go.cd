@@ -6,6 +6,7 @@ type: post
 published: true
 author: Sriram Narayan
 excerpt: "This post discusses different ways of handling dependencies during pipeline modeling and how to decide which dependencies trigger downstream builds"
+summary_image: "/assets/images/blog/sriram-peg1_0.png"
 ---
 
 Say we have a set up like the one below. We have two pipelines -- one for component-1 (C1) and another for component-2 (C2). C1 just builds off its source code in version control (VCS-1). C2 has its source in a different repository (VCS-2) and is also dependent (d3) on C1. In GoCD terminology, C1 has one upstream dependency d1 while C2 has two upstream dependencies d2 and d3.

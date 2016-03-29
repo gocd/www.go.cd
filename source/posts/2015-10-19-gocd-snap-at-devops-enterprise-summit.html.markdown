@@ -5,6 +5,7 @@ status: public
 type: post
 author: Louda Peña
 excerpt: "ThoughtWorks’ Continuous Delivery Products Snap CI and GoCD Come Together at the DevOps Enterprise Summit 2015 to Showcase Innovation in Continuous Delivery"
+summary_image: "/assets/images/blog/gocd-snap-at-devops-enterprise-summit/summary_image.png"
 ---
 
 SAN FRANCISCO, CA -- GoCD and Snap CI, products of ThoughtWorks, will join other software thought leaders in co-sponsoring the 2015 DevOps Enterprise Summit.

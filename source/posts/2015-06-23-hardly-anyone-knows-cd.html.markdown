@@ -6,6 +6,7 @@ type: post
 published: true
 author: Ken Mugrage
 excerpt: "Ken Mugrage makes a strong case that lots more people need to learn about CD. He says: \"Those of us who work in or around teams doing continuous delivery often think it’s a mainstream thing. This couldn’t be further from the truth.\""
+summary_image: "/assets/images/blog/hardly-anyone-knows-cd/01_CD_the_idea_low-res.jpg"
 ---
 
 Those of us who work in or around teams doing continuous delivery often think it’s a mainstream thing. This couldn’t be further from the truth.

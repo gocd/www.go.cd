@@ -6,6 +6,7 @@ type: post
 published: true
 author: GoCD Team
 excerpt: "There was an <a href=\"https://github.com/gocd/gocd/issues/703\">issue</a> reported with respect to artifact uploads in the 14.3.0 release of GoCD. This post talks about it and the workarounds you can use for now"
+summary_image: "/assets/images/blog/issues/issue.png"
 ---
 
 There was an [issue](https://github.com/gocd/gocd/issues/703) reported with respect to artifact uploads in the 14.3.0 release of GoCD. 

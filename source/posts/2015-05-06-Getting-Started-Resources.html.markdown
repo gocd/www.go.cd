@@ -6,6 +6,7 @@ type: post
 published: true
 author: Ken Mugrage
 excerpt: "This post talks about resources you can use to help you get started in your journey with CD, and GoCD in particular"
+summary_image: "/assets/images/blog/getting-started-resources/summary_image.png"
 ---
 
 Some resources to help you get started using GoCD:
