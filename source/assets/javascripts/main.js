@@ -65,29 +65,63 @@ jQuery(document).ready(function($) {
 
   enquire.register("screen and (max-width: 992px)", {
     match : function() {
-        $(".get-start-btn , .getting-started-nav h5 ").click(function() {
-          $(".getting-started-nav").slideToggle();
-        });
-        $(window).scroll(function () {
-            var sc = $(window).scrollTop()
-            if (sc > 58) {
-              $(".get-start-btn").addClass("fixed")
-            } else {
-              $(".get-start-btn").removeClass("fixed")
-            }
-          });
-          
-       $('nav.getting-started-nav ul.verticalnav > li.dropdown ul a').click(function(e){
-            e.preventDefault();
-            $(".get-start-btn").removeClass("fixed")
-            $(".getting-started-nav").slideToggle();
-        });          
+      $(".get-start-btn , .getting-started-nav h5 ").click(function() {
+        $(".getting-started-nav").slideToggle();
+      });
+      $(window).scroll(function () {
+        var sc = $(window).scrollTop()
+        if (sc > 58) {
+          $(".get-start-btn").addClass("fixed")
+        } else {
+          $(".get-start-btn").removeClass("fixed")
+        }
+      });
+
+      $('nav.getting-started-nav ul.verticalnav > li.dropdown ul a').click(function(e){
+        e.preventDefault();
+        $(".get-start-btn").removeClass("fixed")
+        $(".getting-started-nav").slideToggle();
+      });          
 
       
     },  
     unmatch : function() {
         // Hide the sidebar
-    }
-});
+      }
+    });
 }); 
 
+//blog list
+
+jQuery(document).ready(function($) {
+  $('.posts').masonry({
+    itemSelector: '.blog-list-item',
+    columnWidth: '.grid-sizer',
+  });
+});
+
+// back to top
+
+$(document).ready(function(){
+
+  // hide #back-top first
+  $(".back-top").hide();
+  // fade in #back-top
+  $(function () {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        $('.back-top').fadeIn();
+      } else {
+        $('.back-top').fadeOut();
+      }
+    });
+    // scroll body to 0px on click
+    $('.back-top').click(function () {
+      $('body,html').animate({
+        scrollTop: 0
+      }, 800);
+      return false;
+    });
+  });
+
+});

@@ -3,8 +3,8 @@ body {
 	color: #555555;
 	font-size: 14px;
 	line-height: 22px;
-	position:relative;
-	margin:58px 0 0 0;
+	position: relative;
+	margin: 58px 0 0 0;
 
 	@media (min-width:$screen-lg-desktop) {
 		font-size: 16px;
@@ -13,7 +13,9 @@ body {
 
 }
 
-p , dt, dd{
+p,
+dt,
+dd {
 	font-size: 14px;
 
 	@media (min-width:$screen-lg-desktop) {
@@ -64,4 +66,21 @@ figure {
 
 img {
 	max-width: 100%;
+}
+
+.back-top {
+	right: 20px;
+	position: fixed;
+	bottom: 30px;
+	display: block;
+	text-align: center;
+	font-size: 40px;
+	color: #fff;
+	z-index: $backtotop;
+	// transition: all 0.5s ease-in-out;
+
+	&:hover {
+		color: #000;
+	}
+
 }

@@ -1,24 +1,21 @@
-$primary-color : #86569A;
-$heading        :#333333;
-$header-bg :$primary-color;
-$subtext :#777777;
-$green : #439f83;
-$red :#de572f;
-$yellow:#ffd34e;
-
-
-
-$border :#ccc;
- $inner-banner-bg: #eee;
-$grey-bg: #e5e5e5;
-$border: #cccccc;
+$primary-color      : #86569A;
+$heading            : #333333;
+$header-bg          : $primary-color;
+$subtext            : #777777;
+$green              : #439f83;
+$red                : #de572f;
+$yellow             : #ffd34e;
+$border             : #ccc;
+$inner-banner-bg    : #eee;
+$grey-bg            : #e5e5e5;
+$border             : #cccccc;
 
 // z-indexes
 
-
-$header-top: 11;
-$mobile-nav : 10;
 $mobile-nav-dark-bg : 9;
-$get-started-btn :10;
-$get-started-nav :11;
-$brand-primary : $primary-color ;
+$mobile-nav         : 10;
+$get-started-btn    : 10;
+$header-top         : 11;
+$get-started-nav    : 11;
+$backtotop          : 12;
+$brand-primary      : $primary-color ;
