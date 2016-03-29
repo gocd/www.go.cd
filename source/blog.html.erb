@@ -1,34 +1,32 @@
 ---
 title: GoCD - Blog
-pageable: true
-per_page: 9
+pageable: false
 ---
-<div class="inner-banner plugins">
+<div class="inner-banner blog-banner">
   <div class="container">
     <h1 class="caption"><span>GoCD Blog</span></h1>
     <span class="subcaption">Read about GoCD and Continuous Delivery</span>
-    <span class="feed"><%= link_to 'RSS feed', '/feed.xml' %></span>
+    <%= link_to 'RSS feed', '/feed.xml' , { :class=>"rss-feed" }  %>
   </div>
 </div>
-
-<% latest_post = page_articles.first if page_number == 1 %>
-<% articles    = page_number == 1 ? page_articles[1..-1] : page_articles %>
-
-<% unless latest_post.nil? %>
-<div id="latest-blog-post">
-  <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => latest_post } %>
-</div>
-<% end %>
-
-<ul class="posts">
-  <% articles.each do |article| %>
-  <li>
-    <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => article } %>
-  </li>
-  <% end %>
-</ul>
-
-<% if paginate && num_pages > 1 %>
+<% latest_post = page_articles.first %>
+<% articles    = page_articles.drop(1) %>
+<main class="main blog-list" >
+<div class="container">
+  <ul class="posts">
+    <li class="grid-sizer"></li>
+    <li class="blog-list-item latest-blog">
+      <% unless latest_post.nil? %>
+      <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => latest_post } %>
+      <% end %>
+    </li>
+    <% articles.each do |article| %>
+    <li class="blog-list-item">
+      <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => article } %>
+    </li>
+    <% end %>
+  </ul>
+  <% if paginate && num_pages > 1 %>
   <% if prev_page %>
   <p><%= link_to 'Previous page', prev_page %></p>
   <% end %>
@@ -36,4 +34,6 @@ per_page: 9
   <% if next_page %>
   <p><%= link_to 'Next page', next_page %></p>
   <% end %>
-<% end %>
+  <% end %>
+</div>
+</main>

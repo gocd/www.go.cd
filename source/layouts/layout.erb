@@ -7,11 +7,13 @@
     <title><%= (current_article.title unless current_article.nil?) || current_page.data.title || "GoCD" %></title>
     <link href="<%= url_for '/assets/images/favicon.ico' %>" rel="shortcut icon" />
     <%= tag(:link, { :href => '/assets/vendor/stylesheets/font-awesome-4.5.0/css/font-awesome.min.css', :rel => 'stylesheet' }) %>
-    <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag '/assets/vendor/javascripts/jquery/1.12.0/jquery.min.js' %>
+    <%= javascript_include_tag '/assets/vendor/bootstrap-sass-3.3.6/assets/javascripts/bootstrap.min.js' %>
+    <%= javascript_include_tag '/assets/vendor/javascripts/enquire/2.1.2/enquire.min.js' %>
+    <%= javascript_include_tag '/assets/vendor/javascripts/masonry.pkgd.min.js' %>
+    <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag :all %>
     <%= javascript_include_tag :main %>
-
     <%= feed_tag :atom, url_for("/feed.xml"), title: "GoCD blog feed" %>
   </head>
 
