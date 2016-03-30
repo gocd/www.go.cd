@@ -199,17 +199,22 @@
 		@media (min-width:$screen-tablet) {
 			text-align: left;
 		}
+
 		@media (min-width:$screen-tablet) {
 			text-align: center;
 		}
+
 	}
-	p{
+
+	p {
 		@media (min-width:$screen-tablet) {
 			text-align: left;
 		}
+
 		@media (min-width:$screen-tablet) {
 			text-align: center;
-		}		
+		}
+
 	}
 
 	.features {
@@ -268,32 +273,82 @@
 }
 
 .go-support {
-	color: #fff;
-	background: $green;
+	border: 1px solid $border;
 	overflow: hidden;
-	width: 100%;
 	margin: 0 auto;
 	padding: 20px;
 
-	@media (min-width:$screen-desktop) {
+	@media (min-width:$screen-tablet) {
+		background-image: linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-image: -o-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-image: -moz-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-image: -webkit-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-image: -ms-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-position: right top;
+		background-repeat: no-repeat;
+		@include flexbox;
+		@include justify-content(flex-start);
+		@include align-items(center);
 		width: 90%;
 	}
+	@media (min-width:$screen-desktop) {
+		background-image: linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-image: -o-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-image: -moz-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-image: -webkit-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-image: -ms-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-position: right top;
+		background-repeat: no-repeat;
+
+	}	
+	@media (min-width:$screen-lg-desktop) {
+		background-image: linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-image: -o-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-image: -moz-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-image: -webkit-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-image: -ms-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-position: right top;
+		background-repeat: no-repeat;
+
+	}		
 
 	p {
 		font-weight: 400;
-		font-size: 18px;
-		margin-bottom: 0;
-	}
+		font-size: 13px;
+		text-transform: uppercase;
+		@media (max-width:$screen-xs-max){
+		text-align: center;
 
-	a {
-		margin-top: 20px;
-
+		}
 		@media (min-width:$screen-tablet) {
-			margin-top: 16px;
+			// margin-right: 50px;
+			font-size: 18px;
 		}
 
 		@media (min-width:$screen-desktop) {
-			margin-top: 4px;
+			margin-right: 50px;
+			font-size: 18px;
+		}
+
+	}
+
+	a {
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 20px;
+		white-space: nowrap;
+		height: 50px;
+		color: #fff;
+		width: 100%;
+		max-width: 200px;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		line-height: 50px;
+		background-color: $primary-color;
+
+		@media (min-width:$screen-desktop) {
+			margin-left: 50px;
 		}
 
 	}

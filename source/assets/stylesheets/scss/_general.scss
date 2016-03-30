@@ -75,12 +75,13 @@ img {
 	display: block;
 	text-align: center;
 	font-size: 40px;
-	color: #fff;
+	color: $gray-light;
 	z-index: $backtotop;
 	// transition: all 0.5s ease-in-out;
 
 	&:hover {
-		color: #000;
+	transition: all 0.5s ease-in-out;
+		color: $primary-color;
 	}
 
 }

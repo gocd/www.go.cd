@@ -1,6 +1,7 @@
 footer{
-
-	padding-top: 50px;
+	@media (min-width:$screen-tablet) {
+		padding-top: 50px;
+	}
 }
 
 .page-footer {
@@ -29,7 +30,7 @@ footer{
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background: rgba(210, 210, 210, 0.27);
+		background: rgba(210, 210, 210, 0.70);
 	}
 
 	h3 {
