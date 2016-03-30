@@ -26,6 +26,7 @@
             <li>
               <span class="post-date"><%= article.date.strftime('%b %e') %></span>
               <%= link_to article.title, article %>
+              <span class="post-author"><%= article.data["author"] %></span>
             </li>
             <% end %>
           </ol>
