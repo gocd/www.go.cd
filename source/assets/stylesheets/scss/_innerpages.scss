@@ -150,12 +150,13 @@
 		border-bottom: 1px solid #ccc;
 
 		.name {
+      float: left;
 		}
 
-		.sha256sum,
-		.md5sum {
-		}
-
+    .verify-checksum {
+      float: right;
+      font-size: small;
+    }
 	}
 
 	.server {

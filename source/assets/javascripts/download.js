@@ -5,17 +5,19 @@ var showDownloadLinks = (function($) {
     });
 
     var addURL = function(release) {
-      var addBaseURL = R.curry(function(release, o) {
-        return R.assoc('url', 'https://download.go.cd/binaries/' + release['go_full_version'] + '/' + o["file"], o);
+      var addDetailsFrom = R.curry(function(release, o) {
+        var afterAddingURL = R.assoc('url', 'https://download.go.cd/binaries/' + release['go_full_version'] + '/' + o["file"], o);
+        var afterAddingFilename = R.assoc('filename', R.last(o["file"].split("/")), afterAddingURL);
+        return afterAddingFilename;
       });
 
       return R.evolve({
-        win:     {server: addBaseURL(release), agent: addBaseURL(release)},
-        osx:     {server: addBaseURL(release), agent: addBaseURL(release)},
-        deb:     {server: addBaseURL(release), agent: addBaseURL(release)},
-        rpm:     {server: addBaseURL(release), agent: addBaseURL(release)},
-        solaris: {server: addBaseURL(release), agent: addBaseURL(release)},
-        generic: {server: addBaseURL(release), agent: addBaseURL(release)}
+        win:     {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
+        osx:     {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
+        deb:     {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
+        rpm:     {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
+        solaris: {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
+        generic: {server: addDetailsFrom(release), agent: addDetailsFrom(release)}
       }, release);
     };
 
@@ -26,8 +28,9 @@ var showDownloadLinks = (function($) {
 
       var template = Handlebars.compile($("#download-revisions-template").html());
       $("#downloads").html(template({
-        releases: releases,
-        latest_version: releases[0].go_version
+        latest_release     : R.head(releases),
+        all_other_releases : R.tail(releases),
+        latest_version     : releases[0].go_version
       }));
     };
 
@@ -40,5 +43,19 @@ var showDownloadLinks = (function($) {
     return $.getJSON('https://download.go.cd/releases.json')
       .done(showReleases)
       .fail(showFailureMessage);
+  };
+})(jQuery);
+
+var setupShowVerifyChecksumMessage = (function($) {
+  return function() {
+    $("#downloads").on('click', '.verify-checksum', function(evt) {
+      var checksumElement = $(evt.currentTarget);
+      var template = Handlebars.compile($("#verify-checksum-message-template").html());
+      $("#verify-checksum-message").html(template({
+        filename  : checksumElement.data("filename"),
+        md5sum    : checksumElement.data("md5sum"),
+        sha256sum : checksumElement.data("sha256sum")
+      }));
+    });
   };
 })(jQuery);
