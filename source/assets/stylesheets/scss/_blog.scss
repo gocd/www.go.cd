@@ -36,14 +36,7 @@
       -moz-box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.75);
       box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.75);
     }
-
   }
-
-}
-
-.post-summary {
-  // margin: 0 15px;
-  // background: #f5f5f5;
 }
 
 .blog-details {
@@ -59,37 +52,29 @@
 .post-title {
   font-weight: 400;
   text-transform: uppercase;
-  margin: 0;
+  margin: 0 0 10px 0;
+  color: #333;
 
-  a {
-    margin: 0 0 10px 0;
-    color: #333;
+  @include ellipsis-txt(460px, 16px, 1.4, 2);
+
+  .latest-blog & {
+    margin: 0 0 0px 0;
     @include ellipsis-txt(460px, 16px, 1.4, 2);
 
     @media (min-width:$screen-tablet) {
-      @include ellipsis-txt(269px, 16px, 1.4, 2);
+      @include ellipsis-txt(680px, 20px, 1.4, 1);
     }
 
-    .latest-blog & {
-      margin: 0 0 0px 0;
-      @include ellipsis-txt(460px, 16px, 1.4, 2);
-
-      @media (min-width:$screen-tablet) {
-        @include ellipsis-txt(680px, 20px, 1.4, 1);
-      }
-
-      @media (min-width:$screen-desktop) {
-        @include ellipsis-txt(720px, 22px, 1.4, 1);
-      }
-
+    @media (min-width:$screen-desktop) {
+      @include ellipsis-txt(720px, 22px, 1.4, 1);
     }
 
   }
-
 }
 
 .excerpt {
   @include ellipsis-txt(460px, 14px, 1.4, 4);
+  color: #333;
 
   .latest-blog & {
     @media (min-width:$screen-tablet) {
@@ -314,11 +299,10 @@
 .post-summary{
   border-bottom:1px solid $border;
   overflow:hidden;
-    @media (min-width:$screen-tablet) {
-  border:1px solid $border;
-  border-radius: 5px;
-      
-    }
+  @media (min-width:$screen-tablet) {
+    border:1px solid $border;
+    border-radius: 5px;
+  }
   .post-summary-image{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -330,10 +314,9 @@
 
 .blog-list-item {
   margin-bottom: 15px;
-    @media (min-width:$screen-tablet) {
-  margin-bottom: 30px;
-
-    }
+  @media (min-width:$screen-tablet) {
+    margin-bottom: 30px;
+  }
 
   figure {
     height: 114px;
