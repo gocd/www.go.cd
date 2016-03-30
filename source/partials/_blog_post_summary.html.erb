@@ -5,6 +5,6 @@
 <div class="blog-details">
   <span class="post-date"><%= article.date.strftime('%b %e, %Y') %></span>
   <h2 class="post-title"><%= link_to article.title, article %></h2>
-  <span class="excerpt"><%= article.data["excerpt"] || article.summary(250) %></span>
+  <p class="excerpt"><%= article.data["excerpt"] || article.summary(250) %> </p>
 </div>
 </div>

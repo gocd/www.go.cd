@@ -93,12 +93,12 @@ jQuery(document).ready(function($) {
 
 //blog list
 
-jQuery(document).ready(function($) {
-  $('.posts').masonry({
-    itemSelector: '.blog-list-item',
-    columnWidth: '.grid-sizer',
-  });
-});
+// jQuery(document).ready(function($) {
+//   $('.posts').masonry({
+//     itemSelector: '.blog-list-item',
+//     columnWidth: '.grid-sizer',
+//   });
+// });
 
 // back to top
 
