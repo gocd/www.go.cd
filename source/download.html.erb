@@ -187,9 +187,11 @@ title: GoCD - Download
 <%= javascript_include_tag :tabs %>
 
 <script>
+  // <![CDATA[
   jQuery(document).ready(function($) {
     var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
     showDownloadLinks({typeOfInstallersToShow: isExperimental ? "experimental" : "stable"}).then(function() { startTabContainer($); });
     setupShowVerifyChecksumMessage();
   });
+  // ]]>
 </script>
