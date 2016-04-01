@@ -91,14 +91,6 @@ jQuery(document).ready(function($) {
     });
 }); 
 
-//blog list
-
-// jQuery(document).ready(function($) {
-//   $('.posts').masonry({
-//     itemSelector: '.blog-list-item',
-//     columnWidth: '.grid-sizer',
-//   });
-// });
 
 // back to top
 
@@ -124,4 +116,27 @@ $(document).ready(function(){
     });
   });
 
+});
+
+
+
+//downloads  show hide old releases
+
+jQuery(document).ready(function($) {
+
+
+  $(document).on('click', '.btn-release', function(){ 
+    $(this).closest('.tab_content').find('.old-release').slideToggle('fast');
+    $(this).text(function(i, text){
+          return text === "Show old releases" ? "Hide old releases" : "Show old releases";
+      });
+   
+  });
+
+  $(document).on('click', '.close-message, .verify-checksum-message', function(e){ 
+    if (e.target !== this)
+    return;
+    $('.verify-checksum-message').hide();
+      $('body').removeClass("o-h");
+     });  
 });

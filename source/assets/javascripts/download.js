@@ -8,7 +8,9 @@ var showDownloadLinks = (function($) {
       var addDetailsFrom = R.curry(function(release, o) {
         var afterAddingURL = R.assoc('url', 'https://download.go.cd/binaries/' + release['go_full_version'] + '/' + o["file"], o);
         var afterAddingFilename = R.assoc('filename', R.last(o["file"].split("/")), afterAddingURL);
-        return afterAddingFilename;
+        var afterDisplayVersion = R.assoc('display_version', release['go_full_version'], afterAddingFilename);
+
+        return afterDisplayVersion;
       });
 
       return R.evolve({
@@ -56,6 +58,7 @@ var setupShowVerifyChecksumMessage = (function($) {
         md5sum    : checksumElement.data("md5sum"),
         sha256sum : checksumElement.data("sha256sum")
       }));
+       $('body').addClass("o-h");
     });
   };
 })(jQuery);

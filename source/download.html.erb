@@ -33,40 +33,45 @@ title: GoCD - Download
         <p class="note"> New! <%= link_to 'Subscribe to updates', '/subscribe.html' %> on new GoCD releases and more.</p>
       </div>
     </div>
-
+</div>
     <script id="verify-checksum-message-template" type="text/x-handlebars-template">
+    <div class="verify-checksum-message">
+    <div class="content">
+    <button class="close-message">X</button>
       <div>
         You can verify the checksum using MD5 by doing this:
 
-        <pre>
+        <p>
         Put this MD5 sum in a file (say {{filename}}.md5): {{md5sum}}
         Place the downloaded file in the same directory: {{filename}}
         Verify that the output of this command is without errors: md5sum -c {{filename}}.md5
-        </pre>
+        </p>
 
         OR
 
-        <pre>
+        <p>
         Run: md5sum {{filename}}
         Verify that the output is: {{md5sum}}
-        </pre>
+        </p>
       </div>
 
       <div>
         You can verify the checksum using SHA256 by doing this:
 
-        <pre>
+        <p>
         Put this SHA256 sum in a file (say {{filename}}.sha): {{sha256sum}}
         Place the downloaded file in the same directory: {{filename}}
         Verify that the output of this command is without errors: sha256sum -c {{filename}}.sha
-        </pre>
+        </p>
 
         OR
 
-        <pre>
+        <p>
         Run: sha256sum {{filename}}
         Verify that the output is: {{sha256sum}}
-        </pre>
+        </p>
+      </div>
+      </div>
       </div>
     </script>
 
@@ -75,35 +80,39 @@ title: GoCD - Download
       {{#*inline "show-releases-for-installer-type"}}
       <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
         <div class="releases">
-
           <div class="latest">
             {{#with latest_release}}
             <div class="release {{go_version}}">
+              <span class="version">{{go_version}}</span>
               {{#with (lookup . ../installer_type)}}
-              <div class="files">
-                {{> show-file server type="server"}}
-                {{> show-file agent type="agent"}}
-              </div>
-              {{/with}}
+                <div class="files">
+                    {{> show-file server type="server"}}
+                    {{> show-file agent type="agent"}}
+                </div>  
             </div>
-            {{/with}}
+              {{/with}}
           </div>
-
-          <div class="others">
-            {{#each all_other_releases}}
+            {{/with}}
+        </div>
+        <div class="other-releases">
+          <button class="btn-release"><span>Show</span> old releases</button>
+        </div>
+        <div class="old-release">
+          {{#each all_other_releases}}
             <div class="release {{go_version}}">
+              <span class="version">{{go_version}}</span>
               {{#with (lookup . ../installer_type)}}
               <div class="files">
-                {{> show-file server type="server"}}
-                {{> show-file agent type="agent"}}
+                  {{> show-file server type="server"}}
+                  {{> show-file agent type="agent"}}
               </div>
               {{/with}}
             </div>
             {{/each}}
-          </div>
-
         </div>
+
       </div>
+
       {{/inline}}
 
       {{#*inline "show-tab-header"}}
@@ -115,9 +124,13 @@ title: GoCD - Download
 
       {{#*inline "show-file"}}
       <div class="{{{type}}} file">
-        <div class="name"><a href="{{{url}}}">{{{filename}}}</a></div>
+        <div class="name">
+        <a href="{{{url}}}"><i class="fa fa-download"></i> </a>
+        <!--  <span class="version">{{display_version}}</span> -->
+
+        </div>
         <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-md5sum="{{{md5sum}}}">
-          <span class="message">Verify checksum</span>
+          <button class="verify">Verify checksum</button>
         </div>
       </div>
       {{/inline}}
@@ -161,7 +174,7 @@ title: GoCD - Download
         <div id="verify-checksum-message"></div>
       </div>
     </script>
-  </div>
+  
 </main>
 
 <%= javascript_include_tag "/assets/vendor/javascripts/handlebars.js/4.0.5/handlebars.min.js" %>

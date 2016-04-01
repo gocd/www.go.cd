@@ -15,6 +15,7 @@ gem 'middleman-compass', '>= 4.0.0'
 gem 'middleman-deploy'
 gem 'middleman-blog'
 gem 'middleman-gh-pages'
+gem 'middleman-autoprefixer'
 
 gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 

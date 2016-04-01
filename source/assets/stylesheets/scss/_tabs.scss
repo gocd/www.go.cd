@@ -235,6 +235,17 @@ ul.tabs {
 
 }
 
+.tabs.os{
+  li{
+    &:first-child{
+          border-top-left-radius: 5px;
+    }
+    &:last-child{
+          border-top-right-radius: 5px;
+    }
+  }
+}
+
 .os-tab-content {
   margin-top: 20px;
 

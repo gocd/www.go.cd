@@ -11,6 +11,8 @@ set :images_dir, "assets/images"
 
 set :relative_links, true
 
+
+activate :autoprefixer
 activate :relative_assets
 activate :blog do |blog|
   blog.sources           = "posts/{year}-{month}-{day}-{title}.html"

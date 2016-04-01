@@ -25,8 +25,8 @@
             <% blog.articles[0...10].each do |article| %>
             <li>
               <span class="post-date"><%= article.date.strftime('%b %e') %></span>
-              <%= link_to article.title, article %>
               <span class="post-author"><%= article.data["author"] %></span>
+              <%= link_to article.title, article %>
             </li>
             <% end %>
           </ol>
