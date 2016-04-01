@@ -85,8 +85,8 @@ title: GoCD - Download
         <div class="releases">
           <div class="latest">
             {{#with latest_release}}
-            <div class="release {{go_version}}">
-              <span class="version">{{go_version}}</span>
+            <div class="release {{display_version}}">
+              <span class="version">{{display_version}}</span>
               {{#with (lookup . ../installer_type)}}
                 <div class="files">
                     {{> show-file server type="server"}}
@@ -97,13 +97,14 @@ title: GoCD - Download
           </div>
             {{/with}}
         </div>
+
         <div class="other-releases">
           <button class="btn-release"><span>Show</span> old releases</button>
         </div>
         <div class="old-release">
           {{#each all_other_releases}}
-            <div class="release {{go_version}}">
-              <span class="version">{{go_version}}</span>
+            <div class="release {{display_version}}">
+              <span class="version">{{display_version}}</span>
               {{#with (lookup . ../installer_type)}}
               <div class="files">
                   {{> show-file server type="server"}}
@@ -187,7 +188,8 @@ title: GoCD - Download
 
 <script>
   jQuery(document).ready(function($) {
-    showDownloadLinks().then(function() { startTabContainer($); });
+    var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
+    showDownloadLinks({typeOfInstallersToShow: isExperimental ? "experimental" : "stable"}).then(function() { startTabContainer($); });
     setupShowVerifyChecksumMessage();
   });
 </script>

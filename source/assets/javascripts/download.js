@@ -1,16 +1,33 @@
 var showDownloadLinks = (function($) {
-  return function() {
+  return function(options) {
+    var typeOfInstallersToShow = options.typeOfInstallersToShow;
+
+    var settingsForAllTypes = {
+      stable: {
+        download_info_url : 'https://download.go.cd/releases.json',
+        download_prefix   : 'https://download.go.cd/binaries/',
+        version_to_show   : function(release) { return release['go_version']; }
+      },
+      experimental: {
+        download_info_url : 'https://download.go.cd/experimental/releases.json',
+        download_prefix   : 'https://download.go.cd/experimental/binaries/',
+        version_to_show   : function(release) { return release['go_full_version']; }
+      }
+    };
+
+    var settings = settingsForAllTypes[typeOfInstallersToShow];
+
     var isNewerThanAYearOld = R.curry(function(timeInSecondsSinceEpoch) {
       return (new Date() - new Date(timeInSecondsSinceEpoch * 1000)) < 3600 * 24 * 366 * 1000;
     });
 
-    var addURL = function(release) {
-      var addDetailsFrom = R.curry(function(release, o) {
-        var afterAddingURL = R.assoc('url', 'https://download.go.cd/binaries/' + release['go_full_version'] + '/' + o["file"], o);
-        var afterAddingFilename = R.assoc('filename', R.last(o["file"].split("/")), afterAddingURL);
-        var afterDisplayVersion = R.assoc('display_version', release['go_full_version'], afterAddingFilename);
+    var releasesLessThanAYearOld = R.filter(R.where({release_time: isNewerThanAYearOld}));
 
-        return afterDisplayVersion;
+    var addURLToFiles = function(release) {
+      var addDetailsFrom = R.curry(function(release, o) {
+        var afterAddingURL = R.assoc('url', settings.download_prefix + release['go_full_version'] + '/' + o["file"], o);
+        var afterAddingFilename = R.assoc('filename', R.last(o["file"].split("/")), afterAddingURL, o);
+        return afterAddingFilename;
       });
 
       return R.evolve({
@@ -23,10 +40,14 @@ var showDownloadLinks = (function($) {
       }, release);
     };
 
-    var releasesLessThanAYearOld = R.filter(R.where({release_time: isNewerThanAYearOld}));
+    var addDisplayVersion = R.curry(function(release) {
+      return R.assoc('display_version', settings.version_to_show(release), release);
+    });
+
+
 
     var showReleases = function(data) {
-      var releases = R.compose(releasesLessThanAYearOld, R.reverse, R.map(addURL))(data);
+      var releases = R.compose(releasesLessThanAYearOld, R.reverse, R.map(addURLToFiles), R.map(addDisplayVersion))(data);
 
       var template = Handlebars.compile($("#download-revisions-template").html());
       $("#downloads").html(template({
@@ -42,7 +63,7 @@ var showDownloadLinks = (function($) {
       console.log("Error: " + error);
     };
 
-    return $.getJSON('https://download.go.cd/releases.json')
+    return $.getJSON(settings.download_info_url)
       .done(showReleases)
       .fail(showFailureMessage);
   };
