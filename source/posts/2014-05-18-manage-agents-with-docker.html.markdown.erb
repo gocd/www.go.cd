@@ -25,13 +25,13 @@ I can.
 ### Setting it up
 
 - Install Docker
-- Install Go server
-- Install at least one Go agent if you want to use the pipeline - Yup, even though the whole idea here is to create and destroy 
+- Install GoCD server
+- Install at least one GoCD agent if you want to use the pipeline - Yup, even though the whole idea here is to create and destroy 
 agents automatically, we have to install at least one to run the process. The server needs this to actually run the scripts. 
 
-		Once the Go agent is installed, go to the Agents tab in your Go user interface and assign this agent a resource of "manager" if you intend to use the Go pipeline below.
+		Once the GoCD agent is installed, go to the Agents tab in your GoCD user interface and assign this agent a resource of "manager" if you intend to use the GoCD pipeline below.
 	
-- In order for Go (and anyone else) to run this without having to become root, you'll have to follow the instructions under 
+- In order for GoCD (and anyone else) to run this without having to become root, you'll have to follow the instructions under 
 "Giving non-root access" at <a href="http://docs.docker.io/installation/ubuntulinux/">http://docs.docker.io/installation/ubuntulinux/</a>. 
 I make absolutely no warranties for the security of following those instructions! Again, the point here (for me) was to spike out 
 creating agents on the fly, this is not production code.
@@ -44,12 +44,12 @@ Please feel free to clone / fork / send pull requests.
 - __Dockerfile__
 
 This is the file that defines how the docker image will be created. Normally you would run the docker build
-program against this file, but I used a shell script so that I could call it from Go easier later.
+program against this file, but I used a shell script so that I could call it from GoCD easier later.
 
 - __go-agent-14.1.0-18882.deb__ (no longer included)
 
 Update on 22 June - The Dockerfile has been updated to use wget to download
-the Go 14.1 agent debian installer. If you need the RPM version visit 
+the GoCD 14.1 agent debian installer. If you need the RPM version visit 
 www.go.cd/download and change the Dockerfile to match your system.
 
 - __go-agent__
@@ -67,11 +67,11 @@ On my system, that returns...
 			  inet addr:172.17.42.1  Bcast:0.0.0.0  Mask:255.255.0.0
 
 Because that's my address, that's what you'll see in the go-agent file. As much as I might appreciate your help in supplying
-agents for me, they won't be able to connect if you don't make this match your Go server. 
+agents for me, they won't be able to connect if you don't make this match your GoCD server. 
 
 - __autoregister.properties__
 
-This file takes advantage of the autoregister feature in Go so that I don't have to manually approve the new agents. You'll 
+This file takes advantage of the autoregister feature in GoCD so that I don't have to manually approve the new agents. You'll 
 need to update the key based on the instructions at [http://www.go.cd/documentation/user/current/advanced_usage/agent_auto_register.html](http://www.go.cd/documentation/user/current/advanced_usage/agent_auto_register.html)
 
 - __build\_docker\_image.sh__
@@ -98,12 +98,12 @@ please feel free!
 
 - __remove\_agents.rb__
 
-This Ruby script removes disables and removes all agents on the Go server tagged with a "docker\_created"
+This Ruby script removes disables and removes all agents on the GoCD server tagged with a "docker\_created"
 resource. 
 
 - __go\_config\_xml\_excerpt.txt__
 
-Everything above can be run from the command line just fine. Of course I wanted to have a Go pipeline manage all of this. 
+Everything above can be run from the command line just fine. Of course I wanted to have a GoCD pipeline manage all of this. 
 This text file shows the pipeline definition for mine. You'll need to change the github URL to point to your own. You're welcome
 to use mine from above, but I removed it here just so your pipeline doesn't get executed with my GitHub changes if you don't
 want it to.
