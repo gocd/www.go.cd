@@ -32,5 +32,32 @@ title: GoCD Events
       </ul>
     </div>
 
+    <div class="events">
+      <h3 class="page-headings">Events</h3>
+      <span>
+        <a href="https://snap-ci.com/">Snap CI</a> and GoCD are partnering in 2016 for several events to represent
+        Continuous Delivery tools and practices.
+      </span>
+
+      <ul class="events-list">
+        <% data.events.each do |event| %>
+        <li>
+          <div class="details">
+            <a href="<%= event.url %>" class="title"><%= event.title %></a>
+            <div><%= event.description %></div>
+            <ul class="dates">
+              <% event.details.each do |detail| %>
+              <li>
+                <div class="date"><%= detail.date %></div>
+                <div class="location"><%= detail.location %></div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+
   </div>
 </main>
