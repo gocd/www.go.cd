@@ -10,23 +10,27 @@ title: GoCD Events
 
 <main>
   <div class="container">
-    <h3 class="page-headings">Upcoming Events</h3>
-      <ul class="event-list">
-        <% data.events.each do |event| %>
+
+    <div class="webinars">
+      <h3 class="page-headings">Webinars and Demos</h3>
+      <ul class="webinars-list">
+        <% data.webinars.each do |webinar| %>
         <li>
           <div class="box">
             <div class="datebox">
-              <span class="month"><%= event.month %></span>
-              <span class="date"><%= event.day %></span>
+              <span class="month"><%= webinar.month %></span>
+              <span class="date"><%= webinar.day %></span>
             </div>
           </div>
           <div class="details">
-            <a href="<%= event.url %>" class="title"><%= event.title %></a>
-            <span class="time"><%= event.date %></span>
-            <p><%= event.description %></p>
+            <a href="<%= webinar.url %>" class="title"><%= webinar.title %></a>
+            <span class="time"><%= webinar.date %></span>
+            <p><%= webinar.description %></p>
           </div>
         </li>
         <% end %>
       </ul>
+    </div>
+
   </div>
 </main>
