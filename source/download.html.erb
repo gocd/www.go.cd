@@ -8,190 +8,163 @@ title: GoCD - Download
   </div>
 </div>
 <main>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-9">
-        <p>
-          <strong>You need to download both
-            the <a href="https://docs.go.cd/current/installation/installing_go_server.html">server</a> and
-            the <a href="https://docs.go.cd/current/installation/installing_go_agent.html">agent</a> in order
-            to use GoCD.</strong>
-        </p>
-        <p>
-          Scripting GoCD installations gets easier now. Both GoCD Server and Agent are now available on
-          public <a href="https://docs.go.cd/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhat-centos-fedora">YUM</a>
-          and <a href="https://docs.go.cd/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">APT</a> repositories!
-        </p>
-        <p>
-          If you need help downloading, installing or using GoCD please join
-          the <a href="https://groups.google.com/forum/#!forum/go-cd">GoCD Users Google Group</a>. ThoughtWorks also
-          provides commercial help for GoCD. They can be reached
-          at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.
-        </p>
-      </div>
-      <div class="col-md-3">
-        <p class="note"> New! <%= link_to 'Subscribe to updates', '/subscribe.html' %> on new GoCD releases and more.</p>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <p>
+        <strong>You need to download both
+        the <a href="https://docs.go.cd/current/installation/installing_go_server.html">server</a> and
+        the <a href="https://docs.go.cd/current/installation/installing_go_agent.html">agent</a> in order
+        to use GoCD.</strong>
+      </p>
+      <p>
+        Scripting GoCD installations gets easier now. Both GoCD Server and Agent are now available on
+        public <a href="https://docs.go.cd/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhat-centos-fedora">YUM</a>
+        and <a href="https://docs.go.cd/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">APT</a> repositories!
+      </p>
+      <p>
+        If you need help downloading, installing or using GoCD please join
+        the <a href="https://groups.google.com/forum/#!forum/go-cd">GoCD Users Google Group</a>. ThoughtWorks also
+        provides commercial help for GoCD. They can be reached
+        at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.
+      </p>
     </div>
+    <div class="col-md-3">
+      <p class="note"> New! <%= link_to 'Subscribe to updates', '/subscribe.html' %> on new GoCD releases and more.</p>
+    </div>
+  </div>
 </div>
-    <script id="verify-checksum-message-template" type="text/x-handlebars-template">
-    <div class="verify-checksum-message">
-    <div class="content">
+<script id="verify-checksum-message-template" type="text/x-handlebars-template">
+<div class="verify-checksum-message">
+  <div class="content">
     <button class="close-message">X</button>
-      <div>
-        You can verify the checksum using MD5 by doing this:
-
-        <p>
-        Put this MD5 sum in a file (say {{filename}}.md5): {{md5sum}}
-        Place the downloaded file in the same directory: {{filename}}
-        Verify that the output of this command is without errors: md5sum -c {{filename}}.md5
-        </p>
-
-        OR
-
-        <p>
-        Run: md5sum {{filename}}
-        Verify that the output is: {{md5sum}}
-        </p>
+    <p>You can verify the checksum using MD5 by doing this:</p>
+    <p>
+      Put this MD5 sum in a file (say {{filename}}.md5): {{md5sum}}.<br/>
+      Place the downloaded file in the same directory: {{filename}}.<br/>
+      Verify that the output of this command is without errors: md5sum -c {{filename}}.md5
+    </p>
+    <p>OR</p>
+    <p>
+      Run: md5sum {{filename}} Verify that the output is: {{md5sum}}
+    </p>
+    <p>You can verify the checksum using SHA256 by doing this:</p>
+    <p>
+      Put this SHA256 sum in a file (say {{filename}}.sha): {{sha256sum}}. <br/>
+      Place the downloaded file in the same directory: {{filename}}.<br/>
+      Verify that the output of this command is without errors: sha256sum -c {{filename}}.sha
+    </p>
+    <p>OR</p>
+    <p>
+      Run: sha256sum {{filename}}. Verify that the output is: {{sha256sum}}
+    </p>
+  </div>
+</div>
+</script>
+<div id="downloads">
+<div class="container">
+  Please wait. Fetching information about download ...
+  </div>
+</div>
+<script id="download-revisions-template" type="text/x-handlebars-template">
+{{#*inline "show-releases-for-installer-type"}}
+<div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
+  <div class="releases">
+    <div class="latest">
+      {{#with latest_release}}
+      <div class="release {{display_version}}">
+        <span class="version">{{display_version}}</span>
+        {{#with (lookup . ../installer_type)}}
+        <div class="files">
+          {{> show-file server type="server"}}
+          {{> show-file agent type="agent"}}
+        </div>
+        {{/with}}
       </div>
-
-      <div>
-        You can verify the checksum using SHA256 by doing this:
-
-        <p>
-        Put this SHA256 sum in a file (say {{filename}}.sha): {{sha256sum}}
-        Place the downloaded file in the same directory: {{filename}}
-        Verify that the output of this command is without errors: sha256sum -c {{filename}}.sha
-        </p>
-
-        OR
-
-        <p>
-        Run: sha256sum {{filename}}
-        Verify that the output is: {{sha256sum}}
-        </p>
-      </div>
-      </div>
-      </div>
-    </script>
-
-    <div id="downloads">
-      Please wait. Fetching information about download ...
+      {{/with}}
     </div>
-
-    <script id="download-revisions-template" type="text/x-handlebars-template">
-      {{#*inline "show-releases-for-installer-type"}}
-      <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
-        <div class="releases">
-          <div class="latest">
-            {{#with latest_release}}
-            <div class="release {{display_version}}">
-              <span class="version">{{display_version}}</span>
-              {{#with (lookup . ../installer_type)}}
-                <div class="files">
-                    {{> show-file server type="server"}}
-                    {{> show-file agent type="agent"}}
-                </div>  
-            </div>
-              {{/with}}
-          </div>
-            {{/with}}
-        </div>
-
-        <div class="other-releases">
-          <button class="btn-release"><span>Show</span> old releases</button>
-        </div>
-        <div class="old-release">
-          {{#each all_other_releases}}
-            <div class="release {{display_version}}">
-              <span class="version">{{display_version}}</span>
-              {{#with (lookup . ../installer_type)}}
-              <div class="files">
-                  {{> show-file server type="server"}}
-                  {{> show-file agent type="agent"}}
-              </div>
-              {{/with}}
-            </div>
-            {{/each}}
-        </div>
-
+  </div>
+  <div class="other-releases">
+    <button class="btn-release"><span>Show</span> old releases</button>
+  </div>
+  <div class="old-release">
+    {{#each all_other_releases}}
+    <div class="release {{display_version}}">
+      <span class="version">{{display_version}}</span>
+      {{#with (lookup . ../installer_type)}}
+      <div class="files">
+        {{> show-file server type="server"}}
+        {{> show-file agent type="agent"}}
       </div>
-
-      {{/inline}}
-
-      {{#*inline "show-tab-header"}}
-      <li rel="{{{tab_id}}}">
-        <span class="os-logo"><img src="{{{image}}}" alt="{{{desc}}}" /></span>
-        <span class="desc">{{{desc}}}</span>
-      </li>
-      {{/inline}}
-
-      {{#*inline "show-file"}}
-      <div class="{{{type}}} file">
-        <div class="name">
-        <a href="{{{url}}}"><i class="fa fa-download"></i> </a>
-        <!--  <span class="version">{{display_version}}</span> -->
-
-        </div>
-        <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-md5sum="{{{md5sum}}}">
-          <button class="verify">Verify checksum</button>
-        </div>
-      </div>
-      {{/inline}}
-
-      <div class="download-area">
-        <div class="container">
-          <h2 class="sub-title">Choose your OS &amp; download</h2>
-          <p class="info">Latest supported release (<span id="latest-version">{{latest_version}}</span>) |
-            <a href="../releases/#latest">See what's new</a>
-          </p>
-
-          <ul class="tabs os">
-            {{> show-tab-header tab_id="tab1" image="/assets/images/download/windows.png" desc="Windows"}}
-            {{> show-tab-header tab_id="tab2" image="/assets/images/download/osx.png" desc="OSX"}}
-            {{> show-tab-header tab_id="tab3" image="/assets/images/download/debian.png" desc="Debian"}}
-            {{> show-tab-header tab_id="tab4" image="/assets/images/download/linux.png" desc="RPM"}}
-            {{> show-tab-header tab_id="tab5" image="/assets/images/download/solaris.png" desc="Solaris"}}
-            {{> show-tab-header tab_id="tab6" image="/assets/images/download/package.png" desc="Package"}}
-          </ul>
-        </div>
-      </div>
-
-      <div class="os-tab-content">
-        <div class="container">
-          <div class="tab_container">
-            <h3 class="tab-accordion_heading" rel="tab1">Windows</h3>
-            {{> show-releases-for-installer-type installer_type="win"     heading="Windows" tab_id="tab1"}}
-            <h3 class="tab-accordion_heading" rel="tab2">OSX</h3>
-            {{> show-releases-for-installer-type installer_type="osx"     heading="OSX"     tab_id="tab2"}}
-            <h3 class="tab-accordion_heading" rel="tab3">Debian</h3>
-            {{> show-releases-for-installer-type installer_type="deb"     heading="Debian"  tab_id="tab3"}}
-            <h3 class="tab-accordion_heading" rel="tab4">RPM</h3>
-            {{> show-releases-for-installer-type installer_type="rpm"     heading="RPM"     tab_id="tab4"}}
-            <h3 class="tab-accordion_heading" rel="tab5">Solaris</h3>
-            {{> show-releases-for-installer-type installer_type="solaris" heading="Solaris" tab_id="tab5"}}
-            <h3 class="tab-accordion_heading" rel="tab6">Package</h3>
-            {{> show-releases-for-installer-type installer_type="generic" heading="Package" tab_id="tab6"}}
-          </div>
-        </div>
-
-        <div id="verify-checksum-message"></div>
-      </div>
-    </script>
-  
+      {{/with}}
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{/inline}}
+{{#*inline "show-tab-header"}}
+<li rel="{{{tab_id}}}">
+  <span class="os-logo"><img src="{{{image}}}" alt="{{{desc}}}" /></span>
+  <span class="desc">{{{desc}}}</span>
+</li>
+{{/inline}}
+{{#*inline "show-file"}}
+<div class="{{{type}}} file">
+  <div class="name">
+    <a href="{{{url}}}"><i class="fa fa-download"></i> </a>
+  </div>
+  <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-md5sum="{{{md5sum}}}">
+    <button class="verify">Verify checksum</button>
+  </div>
+</div>
+{{/inline}}
+<div class="download-area">
+  <div class="container">
+    <h2 class="sub-title">Choose your OS &amp; download</h2>
+    <p class="info">Latest supported release (<span id="latest-version">{{latest_version}}</span>) |
+    <a href="../releases/#latest">See what's new</a>
+  </p>
+  <ul class="tabs os">
+    {{> show-tab-header tab_id="tab1" image="/assets/images/download/windows.png" desc="Windows"}}
+    {{> show-tab-header tab_id="tab2" image="/assets/images/download/osx.png" desc="OSX"}}
+    {{> show-tab-header tab_id="tab3" image="/assets/images/download/debian.png" desc="Debian"}}
+    {{> show-tab-header tab_id="tab4" image="/assets/images/download/linux.png" desc="RPM"}}
+    {{> show-tab-header tab_id="tab5" image="/assets/images/download/solaris.png" desc="Solaris"}}
+    {{> show-tab-header tab_id="tab6" image="/assets/images/download/package.png" desc="Package"}}
+  </ul>
+</div>
+</div>
+<div class="os-tab-content">
+<div class="container">
+  <div class="tab_container">
+    <h3 class="tab-accordion_heading" rel="tab1">Windows</h3>
+    {{> show-releases-for-installer-type installer_type="win"     heading="Windows" tab_id="tab1"}}
+    <h3 class="tab-accordion_heading" rel="tab2">OSX</h3>
+    {{> show-releases-for-installer-type installer_type="osx"     heading="OSX"     tab_id="tab2"}}
+    <h3 class="tab-accordion_heading" rel="tab3">Debian</h3>
+    {{> show-releases-for-installer-type installer_type="deb"     heading="Debian"  tab_id="tab3"}}
+    <h3 class="tab-accordion_heading" rel="tab4">RPM</h3>
+    {{> show-releases-for-installer-type installer_type="rpm"     heading="RPM"     tab_id="tab4"}}
+    <h3 class="tab-accordion_heading" rel="tab5">Solaris</h3>
+    {{> show-releases-for-installer-type installer_type="solaris" heading="Solaris" tab_id="tab5"}}
+    <h3 class="tab-accordion_heading" rel="tab6">Package</h3>
+    {{> show-releases-for-installer-type installer_type="generic" heading="Package" tab_id="tab6"}}
+  </div>
+</div>
+<div id="verify-checksum-message"></div>
+</div>
+</script>
 </main>
-
 <%= javascript_include_tag "/assets/vendor/javascripts/handlebars.js/4.0.5/handlebars.min.js" %>
 <%= javascript_include_tag "/assets/vendor/javascripts/ramda/0.19.1/ramda.min.js" %>
 <%= javascript_include_tag :download %>
 <%= javascript_include_tag :tabs %>
-
 <script>
-  // <![CDATA[
-  jQuery(document).ready(function($) {
-    var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
-    showDownloadLinks({typeOfInstallersToShow: isExperimental ? "experimental" : "stable"}).then(function() { startTabContainer($); });
-    setupShowVerifyChecksumMessage();
-  });
-  // ]]>
+// <![CDATA[
+jQuery(document).ready(function($) {
+var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
+showDownloadLinks({typeOfInstallersToShow: isExperimental ? "experimental" : "stable"}).then(function() { startTabContainer($); });
+setupShowVerifyChecksumMessage();
+});
+// ]]>
 </script>

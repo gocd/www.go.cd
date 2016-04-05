@@ -4,31 +4,27 @@
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
-          <%= link_to 'Features', '/features.html' %>
-          <ul>
-            <li><%= link_to 'Plugins', '/plugins.html' %></li>
-            <li><%= link_to 'Roadmap', '/roadmap.html' %></li>
-            <li><%= link_to 'Subscribe to updates', '/subscribe.html' %></li>
+          <%= link_to 'Why go', '/why-go.html' , :class => 'link_whygo'%>
+          <ul  class="level1">
+            <li><%= link_to 'Subscribe to updates', '/subscribe.html' , :class => 'link_subscribe' %></li>
           </ul>
         </li>
         <li class="dropdown">
-          <%= link_to 'Community', '/community.html' %>
-          <ul>
-            <li><%= link_to 'Contribute', '/contribute.html' %></li>
-            <li><%= link_to 'CLA', '/cla.html' %></li>
-            <li><%= link_to 'Open Issues', '/open-issues.html' %></li>
-            <li><%= link_to 'Events', '/events.html' %></li>
-            <li><%= link_to 'Partners', '/partners.html' %></li>
+          <%= link_to 'Community', '/contribute.html' %>
+          <ul  class="level1">
+            <li><%= link_to 'Contribute', '/contribute.html', :class => 'link_contribute'%></li>
+            <li><%= link_to 'Events', '/events.html' ,:class => 'link_events'%></li>
+            <li><%= link_to 'Plugins', '/plugins.html' ,:class => 'link_plugins'%></li>
           </ul>
         </li>
-        <li><%= link_to 'Blog', '/blog.html' %></li>
+        <li><%= link_to 'Blog', '/blog.html' ,:class => 'link_blog'%></li>
         <li class="dropdown">
-          <%= link_to 'Help', '/help.html' %>
-          <ul>
-            <li><%= link_to 'Getting started', '/getting-started/part-1.html' %></li>
-            <li><%= link_to 'Download', '/download.html' %></li>
+          <%= link_to 'Help', '/help.html', :class => 'link_help'%>
+          <ul  class="level1">
+            <li><%= link_to 'Getting started', '/getting-started/part-1.html', :class => 'link_getting-started' %></li>
           </ul>
         </li>
+        <li><%= link_to 'Download', '/download.html' ,  :class => 'link_download'%></li>
       </ul>
     </nav>
     <button class="navbtn menu collapse">

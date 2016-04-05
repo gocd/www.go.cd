@@ -90,6 +90,9 @@
 
 }
 
+//events
+
+
 .webinars-list {
 	list-style-type: none;
 	margin: 0;
@@ -140,6 +143,66 @@
 
 }
 
+.events-list,
+.dates {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.event {
+	.date,
+	.location {
+		display: inline-block;
+
+		.fa {
+			color: $gray-light;
+			margin-right: 5px;
+		}
+
+	}
+
+	.date {
+		margin-right: 20px;
+	}
+
+}
+
+.events-list {
+	margin: 30px 0;
+
+	> li {
+		margin-bottom: 20px;
+		padding: 10px 0;
+		border-bottom: 1px dashed #cccccc;
+	}
+
+}
+
+.details {
+	a.title {
+		font-size: 18px;
+		color: #333;
+		margin-bottom: 10px;
+	}
+
+}
+
+.dates {
+	margin: 10px 0px 10px;
+	@include flexbox;
+	@include flex-wrap(wrap);
+
+	li {
+		width: 340px;
+		font-size: 14px;
+		padding: 5px 0;
+	}
+
+}
+
+//downloads
+
 .release {
 	border-bottom: 1px solid $border;
 
@@ -151,9 +214,11 @@
 
 .files {
 	overflow: hidden;
-		@media (max-width:$screen-xs-min) {
-			padding: 20px 0 ;
-		}
+
+	@media (max-width:$screen-xs-min) {
+		padding: 20px 0;
+	}
+
 	padding: 20px 0 20px 60px;
 
 	.file {
@@ -174,8 +239,9 @@
 				color: #fff;
 				font-size: 14px;
 				background: $primary-color;
+
 				@media (max-width:$screen-xs-min) {
-					width:103px;
+					width: 103px;
 				}
 
 				.fa {
@@ -207,6 +273,7 @@
 
 	.server {
 		margin-right: 50px;
+
 		@media (max-width:$screen-xs-min) {
 			margin-bottom: 10px;
 		}
@@ -256,24 +323,26 @@
 	padding: 30px;
 	background: rgba(0, 0, 0, 0.80);
 	left: 0;
-		@media (min-width:$screen-tablet) {
 
-		}
+	@media (min-width:$screen-tablet) {
+	}
 
 	.content {
 		@media (max-width:$screen-xs-min) {
-		  width: 100%;
-	    top: 0;
-	    bottom: 0;
-	    left: 0;
-	    overflow-y: auto;
-	    right: 0;
-	  }
+			width: 100%;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			overflow-y: auto;
+			right: 0;
+		}
+
 		font-size: 14px;
 		border: 1px solid #ccc;
 		background: #fff;
 		position: absolute;
 		padding: 30px;
+
 		@media (min-width:$screen-tablet) {
 			width: 90%;
 			width: 800px;
@@ -301,9 +370,11 @@
 	font-weight: 700;
 	color: #555;
 	cursor: pointer;
-		@media (max-width:$screen-xs-min) {
-		position:fixed;
-		}
+
+	@media (max-width:$screen-xs-min) {
+		position: fixed;
+	}
+
 }
 
 .o-h {
@@ -311,9 +382,12 @@
 }
 
 .other-releases {
-	// text-align: center;
 	position: relative;
-	margin: 20px 0;
+	margin: 20px auto;
+
+	@media (min-width:$screen-lg-desktop) {
+		width: 70%;
+	}
 
 	.btn-release {
 		border-radius: 10px;
@@ -346,6 +420,15 @@
 	display: none;
 }
 
+.releases,
+.old-release {
+	@media (min-width:$screen-lg-desktop) {
+		width: 70%;
+		margin: 0 auto;
+	}
+
+}
+
 .version {
 	position: relative;
 	background: #fff;
@@ -360,7 +443,7 @@
 	font-size: 16px;
 
 	@media (min-width:$screen-tablet) {
-	float: left;
+		float: left;
 		width: 140px;
 	}
 
