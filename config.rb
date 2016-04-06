@@ -1,4 +1,5 @@
 require 'middleman-deploy'
+require File.expand_path('../lib/extensions/fallback_for_directory_indexes', __FILE__)
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -11,7 +12,6 @@ set :images_dir, "assets/images"
 
 set :relative_links, true
 
-
 activate :autoprefixer
 activate :relative_assets
 activate :blog do |blog|
@@ -22,15 +22,12 @@ activate :blog do |blog|
   blog.paginate          = true
 end
 activate :directory_indexes
+activate :fallback_for_directory_indexes
 
 configure :development do
   # Reload the browser automatically whenever files change
   activate :livereload
 end
-
-###
-# Helpers
-###
 
 helpers do
   def git_revision
