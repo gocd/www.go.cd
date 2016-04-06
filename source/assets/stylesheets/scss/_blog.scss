@@ -204,6 +204,12 @@
     margin-top: 15px;
   }
 
+  pre {
+    overflow-x: scroll;
+    background-color: #eee;
+    padding: 10px;
+  }
+
   .attribution {
     position: absolute;
     right: 0px;
