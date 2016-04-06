@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
       var currentPage = window.location.pathname.replace(/\/$/, '');
       var section = $(this).data('section') || $.attr(this, 'href');
       var dest = $(this).data('dest') || currentPage;
-      var targetIsInSamePage = (dest === currentPage);
+      var targetIsInSamePage = $(this).data('is-local') === true;
 
       if (targetIsInSamePage) {
         smoothScrollTo(section);
