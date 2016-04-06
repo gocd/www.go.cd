@@ -1,0 +1,14 @@
+<% wrap_layout :default do %>
+<div class="inner-banner">
+  <div class="container">
+    <h1 class="caption"><span><%= current_page.data.title %></span></h1>
+    <span class="subcaption"></span>
+  </div>
+</div>
+
+<div class="video">
+  <%= yield %>
+</div>
+
+<%= link_to '← Back to Videos', '/videos/index.html' %>
+<% end %>
