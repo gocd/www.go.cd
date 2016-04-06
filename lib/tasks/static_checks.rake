@@ -57,6 +57,12 @@ namespace :static_checks do
   task :all => [:html_proofer]
 end
 
+task :remove_build_dir do
+  rm_rf "build/"
+end
+
 task :build do
   Rake::Task['static_checks:all'].invoke
 end
+
+Rake::Task[:publish].prerequisites.unshift "remove_build_dir"
