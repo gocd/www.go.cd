@@ -53,11 +53,6 @@ namespace :static_checks do
     end
   end
 
-  task :cleanup do
-    rm_rf 'build/'
-    Rake::Task['build'].reenable
-  end
-
   task :all => [:html_proofer]
 end
 
