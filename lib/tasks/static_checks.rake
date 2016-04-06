@@ -15,7 +15,8 @@ namespace :static_checks do
     :alt_ignore           => [/.*/],
     :log_level            => :info,
     :report_invalid_tags  => true,
-    :report_script_embeds => true
+    :report_script_embeds => true,
+    :file_ignore          => [/googled355c365863be8d8/]
   }
 
   class ProperHTMLCheck < ::HTMLProofer::Check

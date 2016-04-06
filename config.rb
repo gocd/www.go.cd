@@ -14,21 +14,15 @@ set :relative_links, true
 
 REDIRECTS = {
   "2014/02/25/go-is-now-open-source.html" => "/2014/02/25/go-moving-to-open-source/index.html",
-  "community/resources.html"              => "/community",
-  "community/resources/index.html"        => "/community",
-  "community/events.html"                 => "/events",
-  "community/events/index.html"           => "/events",
-  "community/partners.html"               => "/partners",
-  "community/partners/index.html"         => "/partners",
-  "community/plugins.html"                => "/plugins",
-  "community/plugins/index.html"          => "/plugins",
-  "contribute/cla.html"                   => "/cla",
-  "contribute/cla/index.html"             => "/cla",
-  "contribute/roadmap.html"               => "/roadmap",
-  "contribute/roadmap/index.html"         => "/roadmap",
-  "getting-started/index.html"            => "/getting-started/part-1",
-  "contribute/contribution-guide.html"    => "/contribute",
-  "learn-more/why-go.html"                => "/why-go"
+  "community/resources/index.html"        => "/community/index.html",
+  "community/events/index.html"           => "/events/index.html",
+  "community/partners/index.html"         => "/partners/index.html",
+  "community/plugins/index.html"          => "/plugins/index.html",
+  "contribute/cla/index.html"             => "/cla/index.html",
+  "contribute/roadmap/index.html"         => "/roadmap/index.html",
+  "getting-started/index.html"            => "/getting-started/part-1/index.html",
+  "contribute/contribution-guide.html"    => "/contribute/index.html",
+  "learn-more/why-go.html"                => "/why-go/index.html"
 }
 
 activate :autoprefixer
@@ -55,8 +49,10 @@ helpers do
   end
 end
 
-REDIRECTS.each do |from, to|
-  redirect from, to: to
+ready do
+  REDIRECTS.each do |from, to|
+    proxy from, "/redirect.template.html", :locals => { :redirect_to => to }, :ignore => true
+  end
 end
 
 # Build-specific configuration
