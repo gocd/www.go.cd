@@ -1,0 +1,50 @@
+
+.go-features {
+  .row {
+    @media (min-width:$screen-tablet) {
+      padding: 50px 0;
+    }
+
+  }
+
+  figure {
+    text-align: center;
+
+    img {
+      max-width: 80%;
+
+      @media (min-width:$screen-tablet) {
+        max-width: 100%;
+      }
+
+    }
+
+  }
+
+  .features__title {
+    font-weight: 300;
+    font-size: 22px;
+    margin-bottom: 20px;
+
+    @media (min-width:$screen-tablet) {
+      font-size: 30px;
+    }
+
+  }
+
+  .row {
+    // margin-bottom: 50px;
+  }
+
+  hr {
+    border-top: 1px dashed #ccc;
+    position: relative;
+    clear: both;
+
+    @media (min-width:$screen-tablet) {
+      top: 48px;
+    }
+
+  }
+
+}

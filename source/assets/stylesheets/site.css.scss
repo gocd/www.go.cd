@@ -9,21 +9,27 @@
 @import "scss/mixins";
 @import "scss/flexbox";
 
-
 //components
 @import "scss/tabs";
 
-
-
 @import "scss/general";
-@import "scss/global";
 @import "scss/navigation";
 @import "scss/header";
 @import "scss/footer";
+
+//pages
+
 @import "scss/homepage";
-@import "scss/innerpages";
 @import "scss/plugins";
 @import "scss/help";
 @import "scss/getting-started";
 @import "scss/blog";
+@import "scss/downloads";
+@import "scss/events";
+@import "scss/why-go";
+@import "scss/subscribe";
+@import "scss/partners";
+@import "scss/contribute";
+
+@import "scss/innerpages";
 

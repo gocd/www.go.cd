@@ -2,8 +2,7 @@
 
 $navbutton: #fff;
 $nav-link: #fff;
-$nav-link-hover-bg: #fff;
-$nav-bg: #b1cdb3;
+$nav-link-hover-bg: rgba(134, 86, 154, 0.42);
 $menu-color: #fff;
 
 .top .navbtn {
@@ -63,15 +62,6 @@ $menu-color: #fff;
     float: left;
   }
 
-  &.active {
-    background: #fff;
-
-    a {
-      color: #333;
-    }
-
-  }
-
   > a {
     width: 100%;
     line-height: 1.4em;
@@ -82,10 +72,6 @@ $menu-color: #fff;
     text-decoration: none;
     font-weight: 500;
 
-    &:hover {
-      // background: #ccc;
-    }
-
     @media (min-width:$screen-tablet) {
       font-weight: 300;
       line-height: 58px;
@@ -94,6 +80,13 @@ $menu-color: #fff;
       font-size: 16px;
       position: relative;
       border: 0;
+    }
+
+  }
+
+  &:hover {
+    > a {
+      background: $nav-link-hover-bg;
     }
 
   }
@@ -117,10 +110,6 @@ ul.level1 {
     transform: translateX(-50%);
     transition: all 0.5s ease;
     position: absolute;
-    -webkit-box-shadow: 0px 5px 7px -3px rgba(-1, 0, 0, 0.75);
-    -moz-box-shadow: 0px 5px 7px -3px rgba(-1, 0, 0, 0.75);
-    box-shadow: 0px 5px 7px -3px rgba(-1, 0, 0, 0.75);
-    border-top: 4px solid $primary-color;
   }
 
   li {
@@ -150,11 +139,9 @@ ul.level1 {
     }
 
     &:hover {
-      background: $nav-link-hover-bg;
-      transition: all 0.5s ease;
-
       a {
-        color: #333;
+        color: #fff;
+        background: $nav-link-hover-bg;
       }
 
     }
@@ -162,37 +149,6 @@ ul.level1 {
     &:first-child {
       @media (min-width:$screen-tablet) {
         border-top: 0;
-
-        &:before {
-          content: "";
-          position: absolute;
-          height: 0;
-          border-style: solid;
-          border-width: 0 10px 10px 10px;
-          border-color: transparent transparent $primary-color  transparent;
-          left: 50%;
-          transform: translateX(-50%);
-          top: -14px;
-          width: 20px;
-          transition: all 0.5s ease;
-        }
-
-        a {
-          border-top-left-radius: 5px;
-          border-top-right-radius: 5px;
-        }
-
-      }
-
-    }
-
-    &:last-child {
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-
-      a {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
       }
 
     }
@@ -340,6 +296,11 @@ ul.level1 {
 .help .link_help,
 .getting-started .link_getting-started,
 .download .link_download {
-  background: $primary-color;
+  background: $nav-link-hover-bg;
   color: #fff !important;
+
+  &:hover {
+    background: $nav-link-hover-bg !important;
+  }
+
 }
