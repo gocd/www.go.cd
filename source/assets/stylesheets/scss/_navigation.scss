@@ -2,11 +2,10 @@
 
 $navbutton: #fff;
 $nav-link: #fff;
-$nav-link-hover-bg: rgba(134, 86, 154, 0.42);
+$nav-link-hover-bg: $primary-color;
 $menu-color: #fff;
 
 .top .navbtn {
-  display: none;
   float: right;
   margin: 2px 3px 0 0;
   padding: 5px;
@@ -15,6 +14,14 @@ $menu-color: #fff;
   text-decoration: none;
   border: none;
   background: transparent;
+  @media (min-width:$screen-tablet) {
+  display: none;
+  }
+
+    &:active,
+    &:focus {
+      outline: 0;
+    }
 }
 
 .mainnav {
@@ -80,13 +87,14 @@ $menu-color: #fff;
       font-size: 16px;
       position: relative;
       border: 0;
+      cursor:pointer;
     }
 
   }
 
   &:hover {
     > a {
-      background: $nav-link-hover-bg;
+      // background: $nav-link-hover-bg;
     }
 
   }
@@ -110,6 +118,8 @@ ul.level1 {
     transform: translateX(-50%);
     transition: all 0.5s ease;
     position: absolute;
+    border-top: 4px solid $primary-color;
+
   }
 
   li {
@@ -125,7 +135,7 @@ ul.level1 {
       display: block;
       padding: 10px 10px 10px 30px;
       text-decoration: none;
-
+      cursor:pointer;
       @media (min-width:$screen-tablet) {
         padding: 0 10px;
         height: 40px;
@@ -149,6 +159,20 @@ ul.level1 {
     &:first-child {
       @media (min-width:$screen-tablet) {
         border-top: 0;
+                &:before {
+          content: "";
+          position: absolute;
+          height: 0;
+          border-style: solid;
+          border-width: 0 10px 10px 10px;
+          border-color: transparent transparent $primary-color  transparent;
+          left: 50%;
+          transform: translateX(-50%);
+          top: -14px;
+          width: 20px;
+          transition: all 0.5s ease;
+        }
+
       }
 
     }
@@ -169,7 +193,7 @@ ul.level1 {
 }
 
 /* responsive styles */
-@media screen and (max-width:560px) {
+@media screen and (max-width:$screen-xs-max) {
   .mainnav ul li a.sel {
     color: #fff;
     background: #333;
@@ -181,18 +205,11 @@ ul.level1 {
 
   }
 
-  .top .navbtn {
-    display: block;
 
-    &:active,
-    &:focus {
-      outline: 0;
-    }
-
-  }
 
   .nav-open {
     overflow: hidden;
+    position: fixed;
   }
 
   .nav-open:after {
