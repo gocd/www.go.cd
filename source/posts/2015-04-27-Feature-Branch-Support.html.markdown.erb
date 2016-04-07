@@ -48,9 +48,7 @@ build to fail un-necessarily.
 
 In general, development workflows in organizations has moved to something which looks like:
 
-```
-Pull Request (GitHub, Gerrit etc.) / Feature Branch => Code Review => Merge => Build
-```
+    Pull Request (GitHub, Gerrit etc.) / Feature Branch => Code Review => Merge => Build
 
 
 Now, whether a feature branch based workflow is the best approach or not is hotly debated (see Martin Fowler's
@@ -224,76 +222,74 @@ Some discussions on the GoCD mailing lists and on GitHub about this:
 
 Here is a part of the configuration used to create the images shown above:
 
-```xml
-  <scms>
-    <scm id="b7386c23-71d5-4581-8129-bba5b67638e4" name="sample-repo">
-      <pluginConfiguration id="github.pr" version="1" />
-      <configuration>
-        <property>
-          <key>url</key>
-          <value>https://github.com/srinivasupadhya/sample-repo.git</value>
-        </property>
-      </configuration>
-    </scm>
-  </scms>
-  <pipelines group="sample-group-master">
-    <pipeline name="sample-pipeline-master" template="sample-pipeline">
-      <materials>
-        <git url="https://github.com/srinivasupadhya/sample-repo.git" dest="sample-repo" materialName="sample-repo" />
-      </materials>
-    </pipeline>
-    <pipeline name="sample-downstream-pipeline-master" template="sample-downstream-pipeline">
-      <materials>
-        <pipeline pipelineName="sample-pipeline-master" stageName="sample-stage-2" />
-      </materials>
-    </pipeline>
-  </pipelines>
-  <pipelines group="sample-group-PR">
-    <pipeline name="sample-pipeline-PR" template="sample-pipeline">
-      <materials>
-        <scm ref="b7386c23-71d5-4581-8129-bba5b67638e4" dest="sample-repo" />
-      </materials>
-    </pipeline>
-    <pipeline name="sample-downstream-pipeline-PR" template="sample-downstream-pipeline">
-      <materials>
-        <pipeline pipelineName="sample-pipeline-PR" stageName="sample-stage-2" />
-      </materials>
-    </pipeline>
-  </pipelines>
-  <templates>
-    <pipeline name="sample-pipeline">
-      <stage name="sample-stage-1">
-        <jobs>
-          <job name="sample-job-1">
-            <tasks>
-              <exec command="ls" />
-            </tasks>
-          </job>
-        </jobs>
-      </stage>
-      <stage name="sample-stage-2">
-        <jobs>
-          <job name="sample-job-2">
-            <tasks>
-              <exec command="ls" />
-            </tasks>
-          </job>
-        </jobs>
-      </stage>
-    </pipeline>
-    <pipeline name="sample-downstream-pipeline">
-      <stage name="sample-stage-3">
-        <jobs>
-          <job name="sample-job-3">
-            <tasks>
-              <exec command="ls" />
-            </tasks>
-          </job>
-        </jobs>
-      </stage>
-    </pipeline>
-  </templates>
-```
+    <scms>
+      <scm id="b7386c23-71d5-4581-8129-bba5b67638e4" name="sample-repo">
+        <pluginConfiguration id="github.pr" version="1" />
+        <configuration>
+          <property>
+            <key>url</key>
+            <value>https://github.com/srinivasupadhya/sample-repo.git</value>
+          </property>
+        </configuration>
+      </scm>
+    </scms>
+    <pipelines group="sample-group-master">
+      <pipeline name="sample-pipeline-master" template="sample-pipeline">
+        <materials>
+          <git url="https://github.com/srinivasupadhya/sample-repo.git" dest="sample-repo" materialName="sample-repo" />
+        </materials>
+      </pipeline>
+      <pipeline name="sample-downstream-pipeline-master" template="sample-downstream-pipeline">
+        <materials>
+          <pipeline pipelineName="sample-pipeline-master" stageName="sample-stage-2" />
+        </materials>
+      </pipeline>
+    </pipelines>
+    <pipelines group="sample-group-PR">
+      <pipeline name="sample-pipeline-PR" template="sample-pipeline">
+        <materials>
+          <scm ref="b7386c23-71d5-4581-8129-bba5b67638e4" dest="sample-repo" />
+        </materials>
+      </pipeline>
+      <pipeline name="sample-downstream-pipeline-PR" template="sample-downstream-pipeline">
+        <materials>
+          <pipeline pipelineName="sample-pipeline-PR" stageName="sample-stage-2" />
+        </materials>
+      </pipeline>
+    </pipelines>
+    <templates>
+      <pipeline name="sample-pipeline">
+        <stage name="sample-stage-1">
+          <jobs>
+            <job name="sample-job-1">
+              <tasks>
+                <exec command="ls" />
+              </tasks>
+            </job>
+          </jobs>
+        </stage>
+        <stage name="sample-stage-2">
+          <jobs>
+            <job name="sample-job-2">
+              <tasks>
+                <exec command="ls" />
+              </tasks>
+            </job>
+          </jobs>
+        </stage>
+      </pipeline>
+      <pipeline name="sample-downstream-pipeline">
+        <stage name="sample-stage-3">
+          <jobs>
+            <job name="sample-job-3">
+              <tasks>
+                <exec command="ls" />
+              </tasks>
+            </job>
+          </jobs>
+        </stage>
+      </pipeline>
+    </templates>
 
 <style type="text/css">
 figure {
