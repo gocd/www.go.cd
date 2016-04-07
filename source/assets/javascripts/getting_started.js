@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
   var highlightCorrectNavigationSectionBasedOnLocation = function() {
     $('nav.getting-started-nav a').removeClass('active');
-    $("nav.getting-started-nav a[href='" + window.location.hash + "']").addClass('active');
+    $("nav.getting-started-nav a[data-section='" + window.location.hash + "']").addClass('active');
   };
 
   var smoothScrollTo = function(sectionId) {
