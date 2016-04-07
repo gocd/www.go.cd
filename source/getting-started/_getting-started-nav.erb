@@ -1,8 +1,9 @@
-<% def link_to_fragment fragment_id, page_id, text_to_show, current_page_id %>
+<% def link_to_fragment fragment_id, page_id, text_to_show, current_page_id, more_attributes = {} %>
 <%   attributes = {"data-section" => "##{fragment_id}"} %>
 <%   attributes["data-dest"]     = url_for("/getting-started/#{page_id}/index.html") %>
 <%   attributes["data-is-local"] = (page_id == current_page_id).to_s %>
-<%   link_to text_to_show, '#', attributes %>
+<%   attributes["data-is-local"] = (page_id == current_page_id).to_s %>
+<%   link_to text_to_show, '#', more_attributes.merge(attributes) %>
 <% end %>
 
 <div class="col-md-3 sidebar">
@@ -15,7 +16,7 @@
         <a href="#" class="active">Part 1</a>
         <ul>
           <li><%= link_to_fragment "installation", "part-1", "Installation", open_nav_at %></li>
-          <li><%= link_to_fragment "concept1", "part-1", "<strong>Concept 1:</strong>Server and agents", open_nav_at %></li>
+          <li><%= link_to_fragment "concept1", "part-1", "<strong>Concept 1:</strong>Server and agents", open_nav_at, {"class" => "active"} %></li>
           <li><%= link_to_fragment "concept2", "part-1", "<strong>Concept 2:</strong>Pipelines and materials", open_nav_at %></li>
           <li><%= link_to_fragment "concept3", "part-1", "<strong>Concept 3:</strong>Agent prepares to do some work", open_nav_at %></li>
           <li><%= link_to_fragment "concept4", "part-1", "<strong>Concept 4:</strong>Stages, jobs and tasks ", open_nav_at %></li>
