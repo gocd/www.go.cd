@@ -3,6 +3,7 @@ var startTabContainer = function($) {
   $(".tab_content").hide();
   $(".tab_content:first").show();
   $("ul.tabs li:first").addClass("active");
+  $(".tab_container .tab-accordion_heading:first").addClass("d_active");
 
   //tab mode
   $("ul.tabs li").click(function() {
