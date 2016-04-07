@@ -62,7 +62,7 @@ title: GoCD plugins
       <ul class="tabs">
         <% plugin_categories.each_with_index do |category, index| %>
           <li rel="tab<%= index + 1 %>">
-            <%= category[:kind] %> <span class="plugin-info"><%= category[:version_info] if category[:version_info] %></span>
+            <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
           </li>
         <% end %>
       </ul>
@@ -71,7 +71,7 @@ title: GoCD plugins
         <% plugin_categories.each_with_index do |category, index| %>
           <% tab_id = "tab#{index + 1}" %>
           <h3 class="tab-accordion_heading" rel="<%= tab_id %>">
-            <%= category[:kind] %> <span class="plugin-info"><%= category[:version_info] if category[:version_info] %></span>
+            <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
           </h3>
 
           <div id="<%= tab_id %>" class="tab_content">
