@@ -48,6 +48,7 @@
       <div id="disqus_thread"></div>
       <script>
         var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
           this.page.url = "<%= config.base_url_for_blog_posts %>/<%= current_article.destination_path.sub('/index.html', '.html') %>";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
