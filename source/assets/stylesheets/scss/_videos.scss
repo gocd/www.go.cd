@@ -73,3 +73,54 @@
   }
 
 }
+
+//video player page
+
+.video-banner {
+  .caption {
+    text-align: center;
+    margin: 50px 0;
+    font-size:20px;
+  @media (min-width:$screen-tablet) {
+  font-size:30px;
+  }
+    span {
+      text-decoration: underline;
+    }
+
+  }
+
+}
+
+.video-player {
+  width: 100%;
+  height: 220px;
+  background: #000;
+  text-align: center;
+  margin: 50px auto;
+  position: relative;
+  padding: 10px 0;
+
+  @media (min-width:$screen-tablet) {
+    padding: 25px;
+    height: 465px;
+  }
+
+  @media (min-width:$screen-desktop) {
+    padding: 20px;
+    width: 840px;
+    height: 555px;
+  }
+
+}
+
+.backto {
+  color: #333;
+  width: 172px;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: -50px;
+}

@@ -78,6 +78,7 @@ $menu-color: #fff;
     display: block;
     text-decoration: none;
     font-weight: 500;
+    cursor:pointer;
 
     @media (min-width:$screen-tablet) {
       font-weight: 300;
