@@ -219,9 +219,11 @@
       font-size: 10px;
       color: $gray-light;
     }
-
   }
 
+  #disqus_thread {
+    padding-top: 3em;
+  }
 }
 
 .blog-post-header {

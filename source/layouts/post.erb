@@ -42,5 +42,27 @@
       </aside>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          this.page.url = "<%= config.base_url_for_blog_posts %>/<%= current_article.destination_path.sub('/index.html', '.html') %>";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
 </div>
 <% end %>
