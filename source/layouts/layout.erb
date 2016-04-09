@@ -1,10 +1,15 @@
 <!doctype html>
 <html>
   <head>
+    <% def metadata key %>
+    <%   (current_article.data[key] unless current_article.nil?) || (current_page.data[key] unless current_page.nil?) || (current_article.title unless current_article.nil?) || (current_page.data.title unless current_page.nil?)|| "GoCD - Continuous Delivery" %>
+    <% end %>
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <title><%= (current_article.title unless current_article.nil?) || current_page.data.title || "GoCD" %></title>
+    <meta content="<%= metadata(:meta_description) %>" name="description" />
+    <meta content="<%= metadata(:meta_keywords) %>" name="keywords" />
+    <title><%= metadata(:title_tag_of_header) %></title>
     <link href="<%= url_for '/assets/images/favicon.ico' %>" rel="shortcut icon" />
     <%= tag(:link, { :href => '/assets/vendor/stylesheets/font-awesome-4.5.0/css/font-awesome.min.css', :rel => 'stylesheet' }) %>
     <%= javascript_include_tag '/assets/vendor/javascripts/jquery/1.12.0/jquery.min.js' %>

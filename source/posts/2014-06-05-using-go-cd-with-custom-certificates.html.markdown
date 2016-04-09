@@ -7,6 +7,9 @@ published: true
 author: Sachin Sudheendra
 excerpt: "This post will help you set up GoCD to use your custom TLS certificate instead of the self-signed certificate that GoCD ships with."
 summary_image: "/assets/images/blog/using-go-cd-with-custom-certificates/summary_image.png"
+title_tag_of_header: "Blog - Using GoCD with custom certificates | GoCD"
+meta_description: "GoCD is open source continuous delivery software. This post will help you set up GoCD to use your custom certificate instead of a self-signed certificate."
+meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, custom certificate, self signed, certificate"
 ---
 
 The following post will help you setting up [GoCD](https://www.go.cd) to use your custom certificate instead of the self-signed certificate that GoCD ships with.
