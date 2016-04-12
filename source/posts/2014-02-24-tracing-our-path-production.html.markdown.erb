@@ -38,7 +38,7 @@ We have multiple pipelines in our path to production. For legacy reasons we have
 
 To answer each of the above questions, we now refer a lot to the new value stream mapping feature in GoCD. From any build we can now zoom in to find upstream and downstream pipelines and basically trace a single revision all the way through to production. Below is an example of the overview for a recent build that we are waiting to see promoted to our staging environment (called pasty).
 
-<img style="width:100%" src="/assets/images/blog/tracingprod1.png" alt="">
+<img style="width:100%" src="/assets/images/blog/tracingprod1.png" alt="Example of pipelines in our staging environment" title="Pipelines in our staging environment">
 
 The map above shows the key pipelines involved in the flow from our tests using Firefox and Oracle 11g all the way through to testing our hosting environment. Once the ‘mingle-saas’ pipeline is green I know that the targeted bug fix will be ready for deployment to our dogfooding environment (called ‘pasty’).
 

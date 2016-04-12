@@ -64,23 +64,23 @@ Starting release 14.3 you can spawn 'x' instances of a job. So if you want to di
 
 Setup a pipeline with material (SCM) that contains your tests.
 
-<img src="/assets/images/blog/run-x-instance/1.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/1.png" style="width: 100%; border: 1px solid;" title="Pipeline setup with materials" alt="Pipeline setup with materials">
 
 Setup Job to spawn required number of instances (run instance count).
 
-<img src="/assets/images/blog/run-x-instance/3.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/3.png" style="width: 100%; border: 1px solid;" title="Job Settings configured for three instances" alt="Job Settings configured for three instances">
 
 Setup TLB related environment variables at Environment / Pipeline / Stage / Job level.
 
-<img src="/assets/images/blog/run-x-instance/2.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/2.png" style="width: 100%; border: 1px solid;" title="Environment Variables Tab" alt="Environment Variables Tab">
 
 Setup the task to consume `GO_PIPELINE_NAME`, `GO_STAGE_NAME`, `GO_PIPELINE_COUNTER`, `GO_STAGE_COUNTER`, `GO_JOB_RUN_INDEX` & `GO_JOB_RUN_COUNT` environment variables that GoCD exposes.
 
-<img src="/assets/images/blog/run-x-instance/4.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/4.png" style="width: 100%; border: 1px solid;" title="Tasks Tab" alt="Tasks Tab">
 
 Upload junit xmls as test artifacts.
 
-<img src="/assets/images/blog/run-x-instance/4-2.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/4-2.png" style="width: 100%; border: 1px solid;" title="Artifacts Tab" alt="Artifacts Tab">
 
 **Sample Pipeline Configuration**
 
@@ -138,36 +138,36 @@ Upload junit xmls as test artifacts.
 
 #### Wait for all jobs to finish
 
-GoCD's modelling capability gives it the ability to run jobs in parallel but wait for all of them to finish before the next Stage / downstream Pipelines are triggered.
+GoCD's modeling capability gives it the ability to run jobs in parallel but wait for all of them to finish before the next Stage / downstream Pipelines are triggered.
 
-<img src="/assets/images/blog/run-x-instance/6.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/6.png" style="width: 100%; border: 1px solid;" title="Viewing Jobs progress in Jobs Tab" alt="Viewing Jobs progress in Jobs Tab">
 
 #### Stop the downstream flow
 
 If any of the tests (and as a result the Job running the test) fails, the Stage is considered as failed. This causes the flow to stop as expected.
 
-<img src="/assets/images/blog/run-x-instance/5.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/5.png" style="width: 100%; border: 1px solid;" title="Failed Stage" alt="Failed Stage">
 
 #### Consolidated Test Report
 
 Once all the Jobs are done running, GoCD consolidates test reports & shows the result at stage level for easy consumption.
 
-<img src="/assets/images/blog/run-x-instance/7.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/7.png" style="width: 100%; border: 1px solid;" title="Consolidated Reports in Tests Tab" alt="Consolidated Reports in Tests Tab">
 
 #### Drill down
 
 You can drill down at job level to know more information like 'test count', 'console output' for the Job (test) etc.
 
-<img src="/assets/images/blog/run-x-instance/8.png" style="width: 100%; border: 1px solid;">
-<img src="/assets/images/blog/run-x-instance/10.png" style="width: 100%; border: 1px solid;">
-<img src="/assets/images/blog/run-x-instance/9.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/8.png" style="width: 100%; border: 1px solid;" title="Drilled Down view of Passed Test 1" alt="Drilled Down view of Passed Test 1">
+<img src="/assets/images/blog/run-x-instance/10.png" style="width: 100%; border: 1px solid;" title="Drilled Down view of Failed Test" alt="Drilled Down view of Failed Test">
+<img src="/assets/images/blog/run-x-instance/9.png" style="width: 100%; border: 1px solid;" title="Drilled Down view of Passed Test 2" alt="Drilled Down view of Passed Test 2">
 
 #### Partition re-run
 
 GoCD also provides ability to re-run a Job of a stage. This provides ability to run the partition that could have failed due to flaky test etc. The best part is, TLB runs the exact tests that it ran the last time making sure no test is missed out!
 
-<img src="/assets/images/blog/run-x-instance/11-1.png" style="width: 100%; border: 1px solid;">
-<img src="/assets/images/blog/run-x-instance/11-2.png" style="width: 100%; border: 1px solid;">
+<img src="/assets/images/blog/run-x-instance/11-1.png" style="width: 100%; border: 1px solid;" title="Option to Rerun Jobs" alt="Option to Rerun Jobs">
+<img src="/assets/images/blog/run-x-instance/11-2.png" style="width: 100%; border: 1px solid;" title="State of Rerun Tests" alt="State of Rerun Tests">
 
 #### TLB Correctness Check
 

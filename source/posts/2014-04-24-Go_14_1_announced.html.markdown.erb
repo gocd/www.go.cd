@@ -21,13 +21,13 @@ Today we released GoCD 14.1.
 
 GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you'll see something like this:
 
-![](/assets/images/blog/go_14_1_announcement/1_Without_Curl.png)
+<%= image_tag "blog/go_14_1_announcement/1_Without_Curl.png", {:title => "Configuration UI for Task without Curl", :alt => "Configuration UI for Task without Curl"} %>
 
 A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.
 
 For instance, you can find the source of a sample Curl plugin in GoCD's updated help documents. Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:
 
-![](/assets/images/blog/go_14_1_announcement/2_With_Curl.png)
+<%= image_tag "blog/go_14_1_announcement/2_With_Curl.png", {:title => "Configuration UI for Task with Curl", :alt => "Configuration UI for Task with Curl"} %>
 
 
 <div class="highlight" style="background:#FFF6E4">
