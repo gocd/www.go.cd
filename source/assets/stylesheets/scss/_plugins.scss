@@ -89,14 +89,16 @@ $actions-bg-hover: $primary-color;
 
 	.fa-star {
 		font-size: 50px;
-		-webkit-transition: -webkit-transform .8s ease-in-out;
-		transition: transform .8s ease-in-out;
+		transition: all .8s ease-in-out;
+		color:$green;
 	}
 
 	&:hover {
 		.fa-star {
 			-webkit-transform: rotate(360deg);
 			transform: rotate(360deg);
+			color:$primary-color;
+			transition: all .8s ease-in-out;
 		}
 
 	}
