@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Guest post: Your First GoCD Pipeline"
+title:  "Managing Build Versions in your GoCD Pipeline"
 status: public
 type: post
 author: Moritz Lenz
