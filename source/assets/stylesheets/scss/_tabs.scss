@@ -87,9 +87,9 @@ ul.tabs {
   }
 
   .d_active {
-    background-color: $gray-dark;
+    background-color: $primary-color;
     color: #fff;
-    border-color: #333;
+    border-color: $primary-color;
 
     .plugin-info {
       // background: #fff;
@@ -110,7 +110,7 @@ ul.tabs {
 
 // plugins tabs
 
-.all-plugins {
+.v-tabs {
   ul.tabs {
     margin: 0;
     padding: 0;
@@ -138,6 +138,7 @@ ul.tabs {
       border-bottom: 1px solid $plugins-tab-container-bg;
       border-left: 1px solid $plugins-tab-container-bg;
       display: block;
+      transition: all .2s ease-in-out;
 
       strong {
         display: block;
@@ -147,11 +148,12 @@ ul.tabs {
       &:hover {
         background-color: $tab-hover-bg;
         color: #000;
+        transition: all .2s ease-in-out;
       }
 
       &.active {
         background-color: $plugins-tab-container-bg;
-        color: #333;
+        color: $primary-color;
         border-right: 1px solid $plugins-tab-container-bg;
         display: block;
         width: 180px;
@@ -262,6 +264,38 @@ ul.tabs {
   .tab_content {
     border: 1px solid #fff;
     padding: 20px;
+  }
+
+}
+
+// releases tabs
+
+
+.all-releases {
+  .tab_container {
+
+    @media (min-width:$screen-tablet) {
+      min-height: 517px;
+      width: 540px;
+    }
+
+    @media (min-width:$screen-desktop) {
+      width: 760px;
+    }
+
+    @media (min-width:$screen-lg-desktop) {
+      width: 960px;
+    }
+
+    .content {
+      padding: 20px;
+
+      @media (min-width:$screen-tablet) {
+        padding: 30px 50px;
+      }
+
+    }
+
   }
 
 }

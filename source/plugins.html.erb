@@ -61,7 +61,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
       {kind: "SCM plugins", plugins: data.scm_plugins},
       {kind: "Authentication plugins", plugins: data.auth_plugins}
     ] %>
-    <div class="all-plugins">
+    <div class="v-tabs all-plugins">
       <ul class="tabs">
         <% plugin_categories.each_with_index do |category, index| %>
           <li rel="tab<%= index + 1 %>">
