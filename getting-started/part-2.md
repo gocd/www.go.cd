@@ -101,7 +101,7 @@ That's it! You'll now have a pipeline which will run when un-pause. Un-pause it 
   </figure>
 
 That doesn't look very different. But, this allows for some powerful features such as fan-in, fan-out and the Value
-Stream Map (VSM), which we will learn about in [Part 3](/getting-started/part-3.html). Click on the label of the "MyFirstPipeline" (the part highlighted
+Stream Map (VSM), which we will learn about in <a href="/getting-started/part-3.html">Part 3</a>. Click on the label of the "MyFirstPipeline" (the part highlighted
 in the image above) for a sneak peek at a small Value Stream Map.
 
 <figure class="screenshot">
