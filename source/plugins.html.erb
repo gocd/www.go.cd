@@ -51,7 +51,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     </div>
 
     <p>
-      <em>Officially maintained ThoughtWorks plugins are tagged with a <%= image_tag "go-logo-small.png" , :class => "go-tag" %> icon.</em>
+      <em>Officially maintained ThoughtWorks plugins are tagged with a <%= image_tag "go-logo-small.png" , :class => "go-tag", :alt => "GoCD logo" %> icon.</em>
     </p>
 
     <% plugin_categories = [
@@ -85,7 +85,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
                   <li>
                     <span class="logo"></span>
                     <div class="details">
-                      <%= image_tag "go-logo-small.png" , :class => "go-logo" if p.bundled %>
+                      <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled %>
                       <h5 class="name"> <%= p.name %> </h5>
                       <p class="more-details">
                         <%= p.description %>
