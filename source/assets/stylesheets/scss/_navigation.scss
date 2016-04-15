@@ -14,14 +14,16 @@ $menu-color: #fff;
   text-decoration: none;
   border: none;
   background: transparent;
+
   @media (min-width:$screen-tablet) {
-  display: none;
+    display: none;
   }
 
-    &:active,
-    &:focus {
-      outline: 0;
-    }
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
 }
 
 .mainnav {
@@ -78,24 +80,26 @@ $menu-color: #fff;
     display: block;
     text-decoration: none;
     font-weight: 500;
-    cursor:pointer;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
     @media (min-width:$screen-tablet) {
       font-weight: 300;
       line-height: 58px;
       color: $nav-link;
       padding: 0 10px;
-      font-size: 16px;
+      font-size: 18px;
       position: relative;
-      border: 0;
-      cursor:pointer;
+      cursor: pointer;
     }
 
   }
 
   &:hover {
     > a {
-      // background: $nav-link-hover-bg;
+      transition: all 0.3s ease;
+      position: relative;
+      transform: translateY(-3px);
     }
 
   }
@@ -120,7 +124,6 @@ ul.level1 {
     transition: all 0.5s ease;
     position: absolute;
     border-top: 4px solid $primary-color;
-
   }
 
   li {
@@ -136,23 +139,29 @@ ul.level1 {
       display: block;
       padding: 10px 10px 10px 30px;
       text-decoration: none;
-      cursor:pointer;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
       @media (min-width:$screen-tablet) {
-        padding: 0 10px;
+        padding: 0 10px 0 20px;
         height: 40px;
         line-height: 40px;
         color: #fff;
         min-width: 180px;
         display: block;
-        transition: all 0.5s ease;
+      }
+
+      &:hover {
+        transition: all 0.3s ease;
+        transform: translateX(3px);
       }
 
     }
 
     &:hover {
       a {
-        color: #fff;
-        background: $nav-link-hover-bg;
+        // color: $primary-color;
+        transition: all 0.3s ease;
       }
 
     }
@@ -160,7 +169,8 @@ ul.level1 {
     &:first-child {
       @media (min-width:$screen-tablet) {
         border-top: 0;
-                &:before {
+
+        &:before {
           content: "";
           position: absolute;
           height: 0;
@@ -205,8 +215,6 @@ ul.level1 {
     }
 
   }
-
-
 
   .nav-open {
     overflow: hidden;
@@ -306,19 +314,50 @@ ul.level1 {
 //current link styles
 
 .why-gocd .link_whygocd,
+.blog .link_blog,
+.help .link_help,
+.download .link_download {
+  color: #fff !important;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0px 10px;
+    border-color: $primary-color transparent transparent   transparent;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0px;
+    width: 20px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(0px) !important;
+  }
+
+}
+
 .subscribe .link_subscribe,
 .contribute .link_contribute,
 .events .link_events,
 .plugins .link_plugins,
-.blog .link_blog,
-.help .link_help,
-.getting-started .link_getting-started,
-.download .link_download {
-  background: $nav-link-hover-bg;
+.getting-started .link_getting-started {
   color: #fff !important;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-left: 5px  solid $primary-color;
+    transition: all 0.3s ease;
+    height: 40px;
+    left: 0;
+  }
 
   &:hover {
-    background: $nav-link-hover-bg !important;
+    transform: translateY(0px) !important;
   }
 
 }
