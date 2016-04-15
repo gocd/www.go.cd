@@ -33,7 +33,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
       </p>
     </div>
     <div class="col-md-3">
-      <p class="note"> New! <%= link_to 'Subscribe to updates', '/subscribe/index.html' %> on new GoCD releases and more.</p>
+      <p class="note"><%= link_to 'Subscribe to updates', '/subscribe/index.html', :class => 'btn btn-dark' %> <span>on new GoCD releases and more.</span></p>
     </div>
   </div>
 </div>
@@ -42,31 +42,35 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
   <div class="content">
     <button class="close-message">X</button>
     <p>You can verify the checksum using MD5 by doing this:</p>
-    <p>
-      Put this MD5 sum in a file (say {{filename}}.md5): {{md5sum}}.<br/>
-      Place the downloaded file in the same directory: {{filename}}.<br/>
-      Verify that the output of this command is without errors: md5sum -c {{filename}}.md5
-    </p>
-    <p>OR</p>
-    <p>
-      Run: md5sum {{filename}} Verify that the output is: {{md5sum}}
-    </p>
+    <div class="md5">
+      <p>Put this MD5 sum in a file </p>
+      <p class="value">(say {{filename}}.md5): {{md5sum}}.</p>
+      <p>Place the downloaded file in the same directory:</p>
+      <p class="value"> {{filename}}.</p>
+      <p>Verify that the output of this command is without errors:</p>
+      <p class="value">md5sum -c {{filename}}.md5</p>
+      
+      <p>OR</p>
+      <p> Run: <span class="value">md5sum {{filename}}</span> </p>
+      <p>Verify that the output is: <span class="value">{{md5sum}}</span></p>
+    </div>
     <p>You can verify the checksum using SHA256 by doing this:</p>
-    <p>
-      Put this SHA256 sum in a file (say {{filename}}.sha): {{sha256sum}}. <br/>
-      Place the downloaded file in the same directory: {{filename}}.<br/>
-      Verify that the output of this command is without errors: sha256sum -c {{filename}}.sha
-    </p>
-    <p>OR</p>
-    <p>
-      Run: sha256sum {{filename}}. Verify that the output is: {{sha256sum}}
-    </p>
+    <div class="sha256">
+      
+      <p>Put this SHA256 sum in a file</p>
+      <p class="value"> (say {{filename}}.sha): {{sha256sum}}.</p>
+      <p> Place the downloaded file in the same directory: <span class="value">{{filename}}.</span></p>
+      <p>Verify that the output of this command is without errors: sha256sum -c {{filename}}.sha </p>
+      <p>OR</p>
+      <p>Run: <span class="value"> sha256sum {{filename}}. </span></p>
+      <p>Verify that the output is: <span class="value">{{sha256sum}}</span></p>
+    </div>
   </div>
 </div>
 </script>
 <div id="downloads">
-<div class="container">
-  Please wait. Fetching information about download ...
+  <div class="container">
+    Please wait. Fetching information about download ...
   </div>
 </div>
 <script id="download-revisions-template" type="text/x-handlebars-template">
@@ -75,7 +79,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
   <div class="releases">
     <div class="latest">
       {{#with latest_release}}
-      <div class="release {{display_version}}">
+      <div class="go-release {{display_version}}">
         <span class="version">{{display_version}}</span>
         {{#with (lookup . ../installer_type)}}
         <div class="files">
@@ -92,7 +96,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
   </div>
   <div class="old-release">
     {{#each all_other_releases}}
-    <div class="release {{display_version}}">
+    <div class="go-release {{display_version}}">
       <span class="version">{{display_version}}</span>
       {{#with (lookup . ../installer_type)}}
       <div class="files">
@@ -114,7 +118,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 {{#*inline "show-file"}}
 <div class="{{{type}}} file">
   <div class="name">
-    <a href="{{{url}}}"><i class="fa fa-download"></i> </a>
+    <a href="{{{url}}}" class="btn btn-primary"><i class="fa fa-download"></i> </a>
   </div>
   <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-md5sum="{{{md5sum}}}">
     <button class="verify">Verify checksum</button>
@@ -124,37 +128,35 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 <div class="download-area">
   <div class="container">
     <h2 class="sub-title">Choose your OS &amp; download</h2>
-    <p class="info">Latest supported release (<span id="latest-version">{{latest_version}}</span>) |
-    <a href="../releases/#latest">See what's new</a>
-  </p>
-  <ul class="tabs os">
-    {{> show-tab-header tab_id="tab1" image="<%= image_path "download/windows.png" %>" desc="Windows"}}
-    {{> show-tab-header tab_id="tab2" image="<%= image_path "download/osx.png" %>" desc="OSX"}}
-    {{> show-tab-header tab_id="tab3" image="<%= image_path "download/debian.png" %>" desc="Debian"}}
-    {{> show-tab-header tab_id="tab4" image="<%= image_path "download/linux.png" %>" desc="RPM"}}
-    {{> show-tab-header tab_id="tab5" image="<%= image_path "download/solaris.png" %>" desc="Solaris"}}
-    {{> show-tab-header tab_id="tab6" image="<%= image_path "download/package.png" %>" desc="Package"}}
-  </ul>
-</div>
-</div>
-<div class="os-tab-content">
-<div class="container">
-  <div class="tab_container">
-    <h3 class="tab-accordion_heading" rel="tab1">Windows</h3>
-    {{> show-releases-for-installer-type installer_type="win"     heading="Windows" tab_id="tab1"}}
-    <h3 class="tab-accordion_heading" rel="tab2">OSX</h3>
-    {{> show-releases-for-installer-type installer_type="osx"     heading="OSX"     tab_id="tab2"}}
-    <h3 class="tab-accordion_heading" rel="tab3">Debian</h3>
-    {{> show-releases-for-installer-type installer_type="deb"     heading="Debian"  tab_id="tab3"}}
-    <h3 class="tab-accordion_heading" rel="tab4">RPM</h3>
-    {{> show-releases-for-installer-type installer_type="rpm"     heading="RPM"     tab_id="tab4"}}
-    <h3 class="tab-accordion_heading" rel="tab5">Solaris</h3>
-    {{> show-releases-for-installer-type installer_type="solaris" heading="Solaris" tab_id="tab5"}}
-    <h3 class="tab-accordion_heading" rel="tab6">Package</h3>
-    {{> show-releases-for-installer-type installer_type="generic" heading="Package" tab_id="tab6"}}
+    <p class="info">Latest supported release (<span id="latest-version">{{latest_version}}</span>) <a href="../releases/#latest" class="btn btn-dark">See what's new</a> </p>
+    <ul class="tabs os">
+      {{> show-tab-header tab_id="tab1" image="<%= image_path "download/windows.png" %>" desc="Windows"}}
+      {{> show-tab-header tab_id="tab2" image="<%= image_path "download/osx.png" %>" desc="OSX"}}
+      {{> show-tab-header tab_id="tab3" image="<%= image_path "download/debian.png" %>" desc="Debian"}}
+      {{> show-tab-header tab_id="tab4" image="<%= image_path "download/linux.png" %>" desc="RPM"}}
+      {{> show-tab-header tab_id="tab5" image="<%= image_path "download/solaris.png" %>" desc="Solaris"}}
+      {{> show-tab-header tab_id="tab6" image="<%= image_path "download/package.png" %>" desc="Package"}}
+    </ul>
   </div>
 </div>
-<div id="verify-checksum-message"></div>
+<div class="os-tab-content">
+  <div class="container">
+    <div class="tab_container">
+      <h3 class="tab-accordion_heading" rel="tab1">Windows</h3>
+      {{> show-releases-for-installer-type installer_type="win"     heading="Windows" tab_id="tab1"}}
+      <h3 class="tab-accordion_heading" rel="tab2">OSX</h3>
+      {{> show-releases-for-installer-type installer_type="osx"     heading="OSX"     tab_id="tab2"}}
+      <h3 class="tab-accordion_heading" rel="tab3">Debian</h3>
+      {{> show-releases-for-installer-type installer_type="deb"     heading="Debian"  tab_id="tab3"}}
+      <h3 class="tab-accordion_heading" rel="tab4">RPM</h3>
+      {{> show-releases-for-installer-type installer_type="rpm"     heading="RPM"     tab_id="tab4"}}
+      <h3 class="tab-accordion_heading" rel="tab5">Solaris</h3>
+      {{> show-releases-for-installer-type installer_type="solaris" heading="Solaris" tab_id="tab5"}}
+      <h3 class="tab-accordion_heading" rel="tab6">Package</h3>
+      {{> show-releases-for-installer-type installer_type="generic" heading="Package" tab_id="tab6"}}
+    </div>
+  </div>
+  <div id="verify-checksum-message"></div>
 </div>
 </script>
 </main>
