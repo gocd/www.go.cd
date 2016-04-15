@@ -471,6 +471,7 @@
     width: 200px;
     margin-bottom: 10px;
     padding: 5px 10px;
+    border-radius:$border-radius;
   }
 
  @media only screen and (min-width:$screen-tablet) {
@@ -487,6 +488,7 @@
     width: 200px;
     margin-bottom: 20px;
     padding: 5px 10px;
+    border-radius:$border-radius;
   }
 
  @media only screen and (min-width:$screen-tablet) {
@@ -511,6 +513,7 @@
     font-weight: 300;
     font-size: 18px;
     text-transform: uppercase;
+    border-radius:$border-radius;
   }
 
  @media only screen and (min-width:$screen-tablet) {
@@ -566,3 +569,8 @@
     }
 
   }
+.graphics{
+  img{
+    width:100%;
+  }
+}

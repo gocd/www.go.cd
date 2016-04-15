@@ -99,24 +99,13 @@
 }
 
 .btn-download {
-	color: #fff;
-	@include button-bg($primary-color);
-	width: 150px;
-	padding: 10px;
-	font-size: 18px;
 	margin: 10px auto 0;
-
-	&:hover,
-	&:active,
-	&:focus,
-	&:visited {
-		color: #fff;
-	}
 
 	@media (min-width:$screen-tablet) {
 		margin: 20px auto 0;
 		width: 200px;
-		font-size: 25px;
+		padding: 10px;
+		font-size: 27px;
 	}
 
 }
@@ -144,7 +133,7 @@
 
 .bigtxt {
 	font-size: 18px;
-	font-weight:400;
+	font-weight: 400;
 	line-height: 26px;
 	width: 100%;
 	margin: 0px auto;
@@ -181,18 +170,23 @@
 	figure {
 		margin-bottom: 30px;
 
-		@media (min-width:$screen-tablet) {
+		@media (min-width:$screen-tablet) and (max-width:$screen-sm-max) {
 			float: left;
 			margin: 0;
+			width: 40%;
 		}
 
 		@media (min-width:$screen-desktop) {
 			margin-bottom: 30px;
-			float: none;
 		}
 
 		img {
-			max-width: 80%;
+			width: 276px;
+
+			@media (min-width:$screen-tablet) {
+				width: 240px;
+			}
+
 		}
 
 	}
@@ -205,7 +199,7 @@
 
 		@media (min-width:$screen-tablet) and (max-width:$screen-sm-max) {
 			float: right;
-			width: 50%;
+			width: 55%;
 			text-align: left;
 			margin: 0 0 20px 0;
 		}
@@ -213,13 +207,17 @@
 		@media (min-width:$screen-desktop) {
 			height: 50px;
 			margin: 0 0 20px 0;
+			float: none;
+			width: auto;
 		}
 
 	}
 
 	p {
-		@media (min-width:$screen-tablet) {
+		@media (min-width:$screen-tablet) and (max-width:$screen-sm-max) {
 			text-align: left;
+			float: right;
+			width: 55%;
 		}
 
 	}
@@ -251,7 +249,7 @@
 	}
 
 	.see-all-features {
-		width: 260px;
+		width: 230px;
 		margin: 30px auto 40px;
 		display: block;
 
@@ -262,8 +260,12 @@
 	}
 
 }
+
 .feature-box {
-    padding: 0 20px;
+	@media (min-width:$screen-lg-desktop) {
+		padding: 0 20px;
+	}
+
 }
 
 .plugins-community {
@@ -272,6 +274,16 @@
 
 	figure {
 		margin-top: 20px;
+
+		img {
+			max-width: 80%;
+
+			@media (min-width:$screen-tablet) {
+				width: 100px
+			}
+
+		}
+
 	}
 
 }
@@ -282,9 +294,11 @@
 
 .support {
 	padding: 50px 0;
+
 	@media (min-width:$screen-tablet) {
-	padding: 50px 0 0;
+		padding: 50px 0 0;
 	}
+
 }
 
 .go-support {

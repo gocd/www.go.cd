@@ -11,10 +11,10 @@
     text-align: center;
 
     img {
-      max-width: 80%;
+      width: 180px;
 
       @media (min-width:$screen-tablet) {
-        max-width: 100%;
+        width:auto;
       }
 
     }
@@ -25,9 +25,10 @@
     font-weight: 300;
     font-size: 22px;
     margin-bottom: 20px;
-
+    text-align: center;
     @media (min-width:$screen-tablet) {
       font-size: 30px;
+      text-align: left;
     }
 
   }

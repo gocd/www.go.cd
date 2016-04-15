@@ -26,13 +26,16 @@
   .download & {
     text-align: center;
 
-    span,
-    a {
-      display: block;
-    }
-
     span {
       font-size: 13px;
+
+        display: block;
+      @media (min-width:$screen-tablet) {
+        display: inline-block;
+      }
+      @media (min-width:$screen-desktop) {
+        display: block;
+      }
     }
 
   }
