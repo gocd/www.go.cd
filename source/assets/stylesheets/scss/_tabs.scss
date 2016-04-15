@@ -284,6 +284,7 @@ ul.tabs {
     }
 
     @media (min-width:$screen-lg-desktop) {
+      min-height: 565px;
       width: 960px;
     }
 

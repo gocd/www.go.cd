@@ -194,3 +194,13 @@ img {
 	}
 
 }
+
+//dark button
+
+$btn-dark-bg :#333;
+$btn-dark-color :#fff;
+$btn-dark-border :#333;
+
+.btn-dark {
+  @include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
+}
