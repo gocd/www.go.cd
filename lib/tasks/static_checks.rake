@@ -12,7 +12,6 @@ namespace :static_checks do
     :allow_hash_href      => true,
     :check_html           => true,
     :empty_alt_ignore     => true,
-    :alt_ignore           => [/.*/],
     :log_level            => :info,
     :report_invalid_tags  => true,
     :report_script_embeds => true,
