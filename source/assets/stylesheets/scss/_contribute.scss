@@ -1,5 +1,5 @@
 .contribution-process {
-  background: url(/assets/images/texture-bg.jpg) no-repeat center top;
+  background: $primary-color;
   background-size: cover;
   color: #fff;
   margin: 0;
@@ -7,6 +7,7 @@
   @include clearfix;
 
   @media (min-width:$screen-tablet) {
+  background: url(/assets/images/texture-bg.jpg) no-repeat center top;
     margin: 0 0 50px 0;
   }
 
