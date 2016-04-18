@@ -79,7 +79,7 @@ $menu-color: #fff;
     font-size: 15px;
     display: block;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -317,8 +317,13 @@ ul.level1 {
 .blog .link_blog,
 .help .link_help,
 .download .link_download {
-  color: #fff !important;
 
+  @media screen and (max-width:$screen-xs-max) {
+    color:$primary-color!important;
+  }
+
+  @media (min-width:$screen-tablet) {
+  color: #fff !important;
   &:before {
     content: "";
     position: absolute;
@@ -332,6 +337,7 @@ ul.level1 {
     width: 20px;
     transition: all 0.3s ease;
   }
+  }
 
   &:hover {
     transform: translateY(0px) !important;
@@ -344,16 +350,22 @@ ul.level1 {
 .events .link_events,
 .plugins .link_plugins,
 .getting-started .link_getting-started {
-  color: #fff !important;
-  position: relative;
+  @media screen and (max-width:$screen-xs-max) {
+    color:$primary-color!important;
+  }
 
-  &:before {
-    content: "";
-    position: absolute;
-    border-left: 5px  solid $primary-color;
-    transition: all 0.3s ease;
-    height: 40px;
-    left: 0;
+  @media (min-width:$screen-tablet) {
+  position: relative;
+  color: #fff !important;
+    &:before {
+      content: "";
+      position: absolute;
+      border-left: 5px  solid $primary-color;
+      transition: all 0.3s ease;
+      height: 40px;
+      left: 0;
+    }
+
   }
 
   &:hover {
