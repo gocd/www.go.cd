@@ -1,6 +1,6 @@
 //banner
 .banner {
-	// background-image: url("/assets/images/go-banner-phone.jpg");
+	background-image: url("/assets/images/go-banner-phone.jpg");
 	background-position: center 0;
 	background-repeat: no-repeat;
 	height: 250px;
@@ -10,12 +10,12 @@
 	@media (min-width:$screen-tablet) {
 		height: 432px;
 		// height: 500px;
-		// background-image: url('/assets/images/go-banner-tablet.jpg');
+		background-image: url('/assets/images/go-banner-tablet.jpg');
 		background-size: initial;
 	}
 
 	@media (min-width:1025px) {
-		// background-image: url('/assets/images/go-banner-desktop.jpg');
+		background-image: url('/assets/images/go-banner-desktop.jpg');
 		height: 700px;
 	}
 
