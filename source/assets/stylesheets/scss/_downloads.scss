@@ -28,14 +28,16 @@
 
     span {
       font-size: 13px;
+      display: block;
 
-        display: block;
       @media (min-width:$screen-tablet) {
         display: inline-block;
       }
+
       @media (min-width:$screen-desktop) {
         display: block;
       }
+
     }
 
   }
@@ -188,22 +190,14 @@
       top: 50%;
     }
 
-    .md5,
-    .sha256 {
-      color: #5bd900;
-
-      p {
-        margin-bottom: 0;
-      }
-
-      .value {
-        color: #fff;
-      }
-
-    }
-
-    .md5 {
-      margin-bottom: 20px;
+    .code {
+    display: block;
+    font-family: monospace;
+    white-space: normal;
+    background: #2B2B2B;
+    margin: 10px 0px;
+    padding: 10px;
+    font-size: 14px;
     }
 
   }

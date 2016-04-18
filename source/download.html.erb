@@ -6,8 +6,10 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 ---
 <div class="inner-banner plugins">
   <div class="container">
-    <h1 class="caption"><span>Download</span></h1>
-    <span class="subcaption">Download GoCD Server and GoCD Agent for Free</span>
+    <div class="banner-content">
+      <h1 class="caption"><span>Download</span></h1>
+      <span class="subcaption">Download GoCD Server and GoCD Agent for Free</span>
+    </div>
   </div>
 </div>
 <main>
@@ -41,30 +43,20 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 <div class="verify-checksum-message">
   <div class="content">
     <button class="close-message">X</button>
-    <p>You can verify the checksum using MD5 by doing this:</p>
-    <div class="md5">
-      <p>Put this MD5 sum in a file </p>
-      <p class="value">(say {{filename}}.md5): {{md5sum}}.</p>
-      <p>Place the downloaded file in the same directory:</p>
-      <p class="value"> {{filename}}.</p>
-      <p>Verify that the output of this command is without errors:</p>
-      <p class="value">md5sum -c {{filename}}.md5</p>
-      
-      <p>OR</p>
-      <p> Run: <span class="value">md5sum {{filename}}</span> </p>
-      <p>Verify that the output is: <span class="value">{{md5sum}}</span></p>
-    </div>
-    <p>You can verify the checksum using SHA256 by doing this:</p>
-    <div class="sha256">
-      
-      <p>Put this SHA256 sum in a file</p>
-      <p class="value"> (say {{filename}}.sha): {{sha256sum}}.</p>
-      <p> Place the downloaded file in the same directory: <span class="value">{{filename}}.</span></p>
-      <p>Verify that the output of this command is without errors: sha256sum -c {{filename}}.sha </p>
-      <p>OR</p>
-      <p>Run: <span class="value"> sha256sum {{filename}}. </span></p>
-      <p>Verify that the output is: <span class="value">{{sha256sum}}</span></p>
-    </div>
+    <p>You can verify the checksum using Linux by doing this:</p>
+        <p class='code'>
+            user@shell: CHECK=“{{sha256sum}}“
+            user@shell: echo "$CHECK {{filename}}“ >verify.sha256
+            user@shell: sha256sum -c verify.sha256
+            {{filename}}: OK
+    </p>
+    <p>You can verify the checksum using Linux by doing this:</p>
+       <p class='code'>
+            user@shell: CHECK=“{{sha256sum}}“
+            user@shell: echo "$CHECK {{filename}}“ >verify.sha256
+            user@shell: sha256sum -c verify.sha256
+            {{filename}}: OK
+    </p>
   </div>
 </div>
 </script>
