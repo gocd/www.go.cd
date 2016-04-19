@@ -349,21 +349,25 @@ ul.level1 {
 .contribute .link_contribute,
 .events .link_events,
 .plugins .link_plugins,
-.getting-started .link_getting-started {
+.getting-started .link_getting-started ,.resources .link_resources{
   @media screen and (max-width:$screen-xs-max) {
     color:$primary-color!important;
   }
 
   @media (min-width:$screen-tablet) {
   position: relative;
-  color: #fff !important;
+  color:#fff!important;
     &:before {
       content: "";
       position: absolute;
-      border-left: 5px  solid $primary-color;
       transition: all 0.3s ease;
-      height: 40px;
       left: 0;
+      top: 9px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent $primary-color;
     }
 
   }
