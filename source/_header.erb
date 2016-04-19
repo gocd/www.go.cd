@@ -5,9 +5,6 @@
       <ul class="level0">
         <li class="dropdown">
           <%= link_to 'Why GoCD?', '/why-gocd/index.html' , :class => 'link_whygocd'%>
-          <ul  class="level1">
-            <li><%= link_to 'Subscribe to updates', '/subscribe/index.html' , :class => 'link_subscribe' %></li>
-          </ul>
         </li>
         <li class="dropdown">
           <%= link_to 'Community', '/contribute/index.html' %>
@@ -21,8 +18,9 @@
         <li class="dropdown">
           <%= link_to 'Help', '/help/index.html', :class => 'link_help'%>
           <ul  class="level1">
-            <li><%= link_to 'Getting started', '/getting-started/part-1/index.html', :class => 'link_getting-started' %></li>
-             <li><%= link_to 'Resources', '/resources.html', :class => 'link_resources' %></li>
+            <li><%= link_to 'Getting started', '/help/index.html', :class => 'link_getting-started' %></li>
+            <li><%= link_to 'Resources', '/resources.html', :class => 'link_resources' %></li>
+            <li><%= link_to 'Documentation', 'https://docs.go.cd/current/', :class => 'link_resources' %></li>
           </ul>
         </li>
         <li><%= link_to 'Download', '/download/index.html' ,  :class => 'link_download'%></li>
