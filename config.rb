@@ -30,7 +30,6 @@ REDIRECTS = {
 
 activate :autoprefixer
 activate :relative_assets
-activate :asset_hash
 activate :blog do |blog|
   blog.sources           = "posts/{year}-{month}-{day}-{title}.html"
   blog.layout            = "post"
@@ -62,8 +61,8 @@ end
 # Build-specific configuration
 configure :build do
   # Minify CSS on build
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 end
