@@ -314,6 +314,7 @@ ul.level1 {
 //current link styles
 
 .why-gocd .link_whygocd,
+.contribute .link_contribute,
 .blog .link_blog,
 .help .link_help,
 .download .link_download {
@@ -347,10 +348,8 @@ ul.level1 {
 }
 
 .subscribe .link_subscribe,
-.contribute .link_contribute,
 .events .link_events,
 .plugins .link_plugins,
-.getting-started .link_getting-started,
 .resources .link_resources {
   @media screen and (max-width:$screen-xs-max) {
     color: $primary-color !important;
