@@ -9,6 +9,7 @@
   @media (min-width:$screen-tablet) {
   background: url(/assets/images/texture-bg.jpg) no-repeat center top;
     margin: 0 0 50px 0;
+    background-size: cover;
   }
 
   h3 {
