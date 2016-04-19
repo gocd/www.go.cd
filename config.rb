@@ -30,6 +30,7 @@ REDIRECTS = {
 
 activate :autoprefixer
 activate :relative_assets
+activate :asset_hash
 activate :blog do |blog|
   blog.sources           = "posts/{year}-{month}-{day}-{title}.html"
   blog.layout            = "post"
