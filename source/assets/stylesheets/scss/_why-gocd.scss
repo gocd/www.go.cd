@@ -1,4 +1,3 @@
-
 .go-features {
   .row {
     @media (min-width:$screen-tablet) {
@@ -14,7 +13,7 @@
       width: 180px;
 
       @media (min-width:$screen-tablet) {
-        width:auto;
+        width: auto;
       }
 
     }
@@ -26,6 +25,7 @@
     font-size: 22px;
     margin-bottom: 20px;
     text-align: center;
+
     @media (min-width:$screen-tablet) {
       font-size: 30px;
       text-align: left;
@@ -33,9 +33,6 @@
 
   }
 
-  .row {
-    // margin-bottom: 50px;
-  }
 
   hr {
     border-top: 1px dashed #ccc;

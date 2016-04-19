@@ -7,7 +7,7 @@
   @include clearfix;
 
   @media (min-width:$screen-tablet) {
-  background: url(/assets/images/texture-bg.jpg) no-repeat center top;
+    background: url(/assets/images/texture-bg.jpg) no-repeat center top;
     margin: 0 0 50px 0;
     background-size: cover;
   }
@@ -35,8 +35,9 @@
       }
 
     }
-    img{
-      width:100px;
+
+    img {
+      width: 100px;
     }
 
   }
@@ -147,9 +148,11 @@
         border-radius: 50%;
         margin: 0 auto 10px;
         line-height: 100px;
-          img {
-            width: 50px;
-          }
+
+        img {
+          width: 50px;
+        }
+
         @media (min-width:$screen-tablet) {
           margin: 0 auto 30px;
           width: 70px;
@@ -163,7 +166,6 @@
         }
 
         @media (min-width:$screen-desktop) {
-
           width: 100px;
           height: 100px;
           line-height: 100px;

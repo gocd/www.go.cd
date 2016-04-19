@@ -80,10 +80,12 @@
   .caption {
     text-align: center;
     margin: 50px 0;
-    font-size:20px;
-  @media (min-width:$screen-tablet) {
-  font-size:30px;
-  }
+    font-size: 20px;
+
+    @media (min-width:$screen-tablet) {
+      font-size: 30px;
+    }
+
     span {
       text-decoration: underline;
     }

@@ -4,7 +4,7 @@
 
 .rss-feed {
   background: url(/assets/images/rss-icon.png) no-repeat 0 0;
-  color: $gray-dark;
+  color: #fff;
   height: 32px;
   line-height: 32px;
   font-size: 16px;
@@ -16,6 +16,10 @@
     right: 30px;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  &:hover {
+    color: #fff;
   }
 
 }
@@ -105,11 +109,6 @@
   list-style-type: none;
   margin: 30px 0 0 0;
   padding: 0;
-  // @extend %flexbox;
-  // @include flex-direction(column);
-  // @include flex-wrap(wrap);
-  // @include flex-flow(row wrap);
-  // margin-top: 50px;
 
   li {
     width: 100%;
@@ -122,7 +121,6 @@
     }
 
     @media (min-width:$screen-desktop) {
-      // height: 400px;
       width: 33.33%;
     }
 

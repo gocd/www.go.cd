@@ -1,7 +1,7 @@
 //header
 header.top {
 	background: $header-bg;
-	border-top: 3px solid $primary-color ;
+	border-top: 3px solid $primary-color;
 	@include clearfix;
 	position: fixed;
 	z-index: $header-top;

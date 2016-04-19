@@ -90,13 +90,6 @@ ul.tabs {
     background-color: $primary-color;
     color: #fff;
     border-color: $primary-color;
-
-    .plugin-info {
-      // background: #fff;
-      // margin-top: 10px;
-      // color: #333;
-    }
-
   }
 
 }
@@ -122,7 +115,6 @@ ul.tabs {
 
     @media (min-width:$screen-tablet) {
       width: 180px;
-      // border: 1px solid $border;
       border-right: 0;
       border-bottom: 0;
       display: block;
