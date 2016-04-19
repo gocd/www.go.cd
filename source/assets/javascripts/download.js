@@ -77,6 +77,7 @@ var setupShowVerifyChecksumMessage = (function($) {
       $("#verify-checksum-message").html(template({
         filename  : checksumElement.data("filename"),
         md5sum    : checksumElement.data("md5sum"),
+        sha1sum   : checksumElement.data("sha1sum"),
         sha256sum : checksumElement.data("sha256sum")
       }));
        $('body').addClass("o-h");

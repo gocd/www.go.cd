@@ -191,18 +191,35 @@
     }
 
     .code {
-      display: block;
-      font-family: monospace;
-      white-space: normal;
-      background: #000;
-      margin: 10px 0px;
-      padding: 10px;
-      font-size: 14px;
-      color: #fff;
+      .commands, .prompts, .results {
+        display: inline-block;
+        font-family: monospace;
+        white-space: normal;
+        background: #000;
+        font-size: 14px;
+        color: #fff;
+      }
+      .prompts {
+        color: #777;
+        float: left;
+        width: 14%;
+        margin: 10px 0 0 0;
+        padding: 10px 10px 0 10px;
+      }
+      .commands {
+        float: right;
+        width: 86%;
+        margin: 10px 0 0 0;
+        padding: 10px 10px 0 10px;
+      }
+      .results {
+        clear: both;
+        margin: 0 0 10px 0;
+        padding: 0 0 0 10px;
+        width: 100%;
+      }
     }
-
   }
-
 }
 
 .close-message {

@@ -43,20 +43,32 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 <div class="verify-checksum-message">
   <div class="content">
     <button class="close-message">X</button>
-    <p>You can verify the checksum using Linux by doing this:</p>
-        <p class='code'>
-            user@shell: CHECK=“{{sha256sum}}“
-            user@shell: echo "$CHECK {{filename}}“ >verify.sha256
-            user@shell: sha256sum -c verify.sha256
-            {{filename}}: OK
-    </p>
-    <p>You can verify the checksum using Linux by doing this:</p>
-       <p class='code'>
-            user@shell: CHECK=“{{sha256sum}}“
-            user@shell: echo "$CHECK {{filename}}“ >verify.sha256
-            user@shell: sha256sum -c verify.sha256
-            {{filename}}: OK
-    </p>
+    <p>You can verify the checksum on Linux or Mac OSX by doing this:</p>
+    <div class="code">
+      <p class="prompts">
+        user@shell: <br/>
+        user@shell: <br/>
+        user@shell: <br/>
+      </p>
+      <p class="commands">
+        CHECK="{{sha256sum}}"<br/>
+        echo "$CHECK {{filename}}" &gt;verify.sha256<br/>
+        sha256sum -c verify.sha256<br/>
+      </p>
+      <p class="results">
+        {{filename}}: OK
+      </p>
+      <p>
+        On Windows, you will have to use a third-party utility like <a target="_blank" href="http://code.kliu.org/misc/hashutils/">HashUtils</a>
+        or <a target="_blank" href="https://support.microsoft.com/en-us/kb/841290">fciv</a>. The values you'd be looking for are:
+      </p>
+      <p class="results">
+        File: {{filename}}<br/>
+        MD5 sum: {{md5sum}}<br/>
+        SHA1 sum: {{sha1sum}}<br/>
+        SHA256 sum: {{sha256sum}}<br/>
+      </p>
+    </div>
   </div>
 </div>
 </script>
@@ -112,7 +124,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
   <div class="name">
     <a href="{{{url}}}" class="btn btn-primary"><i class="fa fa-download"></i> </a>
   </div>
-  <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-md5sum="{{{md5sum}}}">
+  <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-sha1sum="{{{sha1sum}}}" data-md5sum="{{{md5sum}}}">
     <button class="verify">Verify checksum</button>
   </div>
 </div>
