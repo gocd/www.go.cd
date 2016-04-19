@@ -17,7 +17,7 @@ set :relative_links, true
 
 REDIRECTS = {
   "2014/02/25/go-is-now-open-source.html" => "/2014/02/25/go-moving-to-open-source/index.html",
-  "community/resources/index.html"        => "/community/index.html",
+  "community/resources/index.html"        => "/resources/index.html",
   "community/events/index.html"           => "/events/index.html",
   "community/partners/index.html"         => "/partners/index.html",
   "community/plugins/index.html"          => "/plugins/index.html",
