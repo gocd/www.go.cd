@@ -1,6 +1,8 @@
 //banner
 .banner {
-	background-image: url("/assets/images/go-banner-phone.jpg");
+	// background-image: url("/assets/images/go-banner-phone.jpg");
+		background-image: url('https://images.unsplash.com/14/unsplash_5244800b1ebf4_1.JPG?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925');
+	
 	background-position: center 0;
 	background-repeat: no-repeat;
 	height: 250px;
@@ -10,12 +12,15 @@
 	@media (min-width:$screen-tablet) {
 		height: 432px;
 		// height: 500px;
-		background-image: url('/assets/images/go-banner-tablet.jpg');
+		// background-image: url('/assets/images/go-banner-tablet.jpg');
+		background-image: url('https://images.unsplash.com/14/unsplash_5244800b1ebf4_1.JPG?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925');
+
 		background-size: initial;
 	}
 
 	@media (min-width:1025px) {
-		background-image: url('/assets/images/go-banner-desktop.jpg');
+		// background-image: url('/assets/images/go-banner-desktop.jpg');
+		background-image: url('https://images.unsplash.com/14/unsplash_5244800b1ebf4_1.JPG?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925');
 		height: 750px;
 	}
 

@@ -220,12 +220,12 @@ $btn-dark-border :#333;
   @include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
 }
 
-.btn-download {
-  @include button-variant($btn-dark-color, #000, #000);
-  transition: all 0.3s ease-in-out;
-  &:hover{
-  	background:#333;
-  	border-color:#333;
-  	transition: all 0.3s ease-in-out;
-  }
-}
+// .btn-download {
+//   @include button-variant($btn-dark-color, #000, #000);
+//   transition: all 0.3s ease-in-out;
+//   &:hover{
+//   	background:#333;
+//   	border-color:#333;
+//   	transition: all 0.3s ease-in-out;
+//   }
+// }
