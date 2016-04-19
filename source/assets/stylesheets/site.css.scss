@@ -1,6 +1,8 @@
 @charset "utf-8";
 
-@import url(/assets/vendor/fonts/opensans/OpenSans_400_300_600_700.css);
+@import "scss/opensans";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 
 @import "scss/variables";
@@ -34,4 +36,3 @@
 @import "scss/releases";
 
 @import "scss/innerpages";
-
