@@ -15,6 +15,8 @@ gem 'middleman-compass', '>= 4.0.0'
 gem 'middleman-deploy'
 gem 'middleman-blog'
 gem 'middleman-gh-pages'
+gem "middleman-sprockets", "~> 4.0.0.rc"
+
 gem 'middleman-autoprefixer'
 
 gem 'redcarpet', '~> 3.3', '>= 3.3.3'
@@ -23,3 +25,5 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 gem "builder", "~> 3.0"
 
 gem 'html-proofer'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'font-awesome-sass'

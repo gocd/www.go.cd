@@ -29,6 +29,8 @@ REDIRECTS = {
   "learn-more/why-go.html"                     => "/why-gocd/index.html"
 }
 
+activate :sprockets
+
 activate :autoprefixer
 activate :relative_assets
 activate :blog do |blog|
