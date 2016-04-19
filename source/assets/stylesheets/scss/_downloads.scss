@@ -159,7 +159,7 @@
   top: 0;
   z-index: 20;
   padding: 30px;
-  // background: rgba(0, 0, 0, 0.80);
+  background: rgba(0, 0, 0, 0.80);
   left: 0;
 
   @media (min-width:$screen-tablet) {
@@ -177,10 +177,10 @@
 
     font-size: 14px;
     border: 1px solid #333;
-    background: #333;
+    background: #fff;
     position: absolute;
     padding: 30px;
-    color: #fff;
+    color: #333;
 
     @media (min-width:$screen-tablet) {
       width: 90%;
@@ -191,13 +191,14 @@
     }
 
     .code {
-    display: block;
-    font-family: monospace;
-    white-space: normal;
-    background: #2B2B2B;
-    margin: 10px 0px;
-    padding: 10px;
-    font-size: 14px;
+      display: block;
+      font-family: monospace;
+      white-space: normal;
+      background: #000;
+      margin: 10px 0px;
+      padding: 10px;
+      font-size: 14px;
+      color: #fff;
     }
 
   }
@@ -331,4 +332,9 @@
 
   }
 
+}
+
+.not-loaded {
+  text-align: center;
+  margin: 40px 0 0;
 }
