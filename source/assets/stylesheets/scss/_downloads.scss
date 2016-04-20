@@ -13,6 +13,7 @@
   .sub-title {
     color: #fff;
     margin: 0 0 10px;
+    text-align: center;
   }
 
   .info {
@@ -72,12 +73,13 @@
 
 .files {
   overflow: hidden;
-
+  padding:20px 0;
   @media (max-width:$screen-xs-min) {
     padding: 20px 0;
   }
-
-  padding: 20px 0 20px 60px;
+  @media (min-width:$screen-tablet) {
+    padding: 20px 0 20px 60px;
+  }
 
   .file {
     float: left;
@@ -88,6 +90,9 @@
 
     .name {
       float: left;
+    }
+    .btn{
+      width:97px;
     }
 
     .verify {
@@ -110,11 +115,14 @@
   }
 
   .server {
-    margin-right: 50px;
 
     @media (max-width:$screen-xs-min) {
       margin-bottom: 10px;
     }
+      @media (min-width:$screen-tablet) {
+
+    margin-right: 50px;
+  }
 
     a {
       .fa {
@@ -184,6 +192,13 @@
 
     @media (min-width:$screen-tablet) {
       width: 90%;
+      width: 100%;
+      transform: translateY(-50%);
+      left:0;
+      top: 50%;
+    }
+        @media (min-width:$screen-desktop) {
+      width: 90%;
       width: 800px;
       transform: translate(-50%, -50%);
       left: 50%;
@@ -191,7 +206,10 @@
     }
 
     .code {
-      .commands, .prompts, .results {
+      width:735px;
+      .commands,
+      .prompts,
+      .results {
         display: inline-block;
         font-family: monospace;
         white-space: normal;
@@ -199,6 +217,7 @@
         font-size: 14px;
         color: #fff;
       }
+
       .prompts {
         color: #777;
         float: left;
@@ -206,20 +225,25 @@
         margin: 10px 0 0 0;
         padding: 10px 10px 0 10px;
       }
+
       .commands {
         float: right;
         width: 86%;
         margin: 10px 0 0 0;
         padding: 10px 10px 0 10px;
       }
+
       .results {
         clear: both;
         margin: 0 0 10px 0;
         padding: 0 0 0 10px;
         width: 100%;
       }
+
     }
+
   }
+
 }
 
 .close-message {
@@ -354,4 +378,14 @@
 .not-loaded {
   text-align: center;
   margin: 40px 0 0;
+}
+
+.load-message {
+  text-align: center;
+  margin: 30px 0;
+
+  span {
+    display: block;
+  }
+
 }
