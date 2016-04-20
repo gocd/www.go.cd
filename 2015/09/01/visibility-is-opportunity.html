@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD is open source continuous delivery software. This blog has some lessons on improving Continuous Integration on projects." name="description" />
+    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source" name="keywords" />
+    <title>Visibility Is Opportunity | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all.js"></script>
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+  </head>
+
+  <body class="x2015 x2015_09 x2015_09_01 x2015_09_01_visibility-is-opportunity">
+    <header class="top">
+  <div class="container">
+    <a class="logo" href="../../../"><img title="GoCD Logo" alt="GoCD Logo" src="../../../assets/images/go_logo.svg" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a class="link_whygocd" href="../../../why-gocd/">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a class="toplink_contribute" href="../../../contribute/">Community</a>
+          <ul  class="level1">
+            <li><a class="link_contribute" href="../../../contribute/">Contribute</a></li>
+            <li><a class="link_events" href="../../../events/">Events</a></li>
+            <li><a class="link_plugins" href="../../../plugins/">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a class="link_blog" href="../../../blog/">Blog</a></li>
+        <li class="dropdown">
+          <a class="toplink_help" href="../../../help/">Help</a>
+          <ul  class="level1">
+            <li><a class="getting-started" href="../../../help/">Getting started</a></li>
+            <li><a target="_blank" href="https://docs.go.cd/current/">Documentation</a></li>
+            <li><a class="link_resources" href="../../../resources.html">Resources</a></li>
+          </ul>
+        </li>
+        <li><a class="link_download" href="../../../download/">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+
+
+    <div class="container blog-post">
+
+  <header class="blog-post-header">
+    <h2>Visibility Is Opportunity: stories of improving continuous integration</h2>
+    <h4>Xiao Li</h4>
+  </header>
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      <h1 id="visibility-can-be-hard-but-its-worth-it">Visibility can be hard, but it's worth it.</h1>
+
+<p><a href="https://www.thoughtworks.com/mingle">Mingle</a> is a 9 years JRuby Rails project.
+We do test-driven development and continous integration.
+We write selenium tests to test everything since Oct 2006.</p>
+
+<p>For a long time, our <strong>build time was 1 to 2 hours</strong>.
+We thought it was a good balance of build time and resources needed.</p>
+
+<p>2014, we had about 12+K tests, including units, functionals and selenium tests.
+The best build time was 1 hour ran in parallel on 46 VMs.</p>
+
+<p>We ran test in parallel by <a href="https://go.cd">Go CD</a> jobs and <a href="https://github.com/test-load-balancer/tlb">TLB</a>.
+There were 46 test jobs in one <a href="https://go.cd">Go CD</a> stage.
+Units, functionals and selenium tests were different.
+So We created 3 <a href="https://github.com/test-load-balancer/tlb">TLB</a> tasks to distribute them separately.
+We configured <a href="https://github.com/test-load-balancer/tlb">TLB</a> to distribute tests by test runtime for having similar build time.</p>
+
+<p>When I looked for ideas to improve build performance, I had the following questions:</p>
+
+<ol>
+  <li>Where was time spending when test was running?</li>
+  <li>Were there bottlenecks in test code?</li>
+</ol>
+
+<p>Profiling was an obvious option, but it was challenge to profile build.
+Because:</p>
+
+<ol>
+  <li>Profiling one test won't help. To figure out what's bottleneck for entire build, we need profile all tests running.</li>
+  <li>Profiling generates lots of data. 1 hour build on 46 VMs will generate tons of data.</li>
+  <li>We need merge/aggregate data collected from build VMs for analysis.</li>
+</ol>
+
+<p>It turns out, sampling profiler can be a good tool for this job. But Mingle is on Ruby 1.8.
+There wasn't sampling profiler support it.
+So I wrote <a href="https://rubygems.org/gems/sampling_prof">Sampling Profiler</a> and a data analysis web application to do the job:</p>
+
+<ol>
+  <li>First I ran <a href="https://rubygems.org/gems/sampling_prof">Sampling Profiler</a> with test on build.</li>
+  <li>Then sent all profiling call-graph data to the data analysis web application.</li>
+  <li>Data analysis web application merges same build profiling result.</li>
+  <li>Last, I built UI to navigate through profiling result.</li>
+</ol>
+
+<p>After I did it, test code performance improvement became straightforward.
+The biggest surprise I found was test slept 1 hour on build in total.
+The following code was one example:</p>
+
+<p>{% highlight ruby %}
+Timeout::timeout(time / 1000.0) do
+  # wait until given JavaScript condition is true
+  while get_eval(condition).downcase == "false"
+    sleep 1
+  end
+end
+{% endhighlight %}</p>
+
+<p>The <code>sleep 1</code> code above caused build slept about 40+ minutes in total.
+Changing <code>sleep 1</code> to <code>sleep 0.1</code> fixed problem.</p>
+
+<p>Although there was no big bottleneck found, I was able to list and fix a handful small bottlenecks.
+Our <strong>build time reduced to 45 minutes</strong>, and became more stable.</p>
+
+<p><strong>You're on the right track when you're improving visibility of the problem detials. It can be hard. But hard work pays off.</strong></p>
+
+<h1 id="detail-can-lead-you-to-the-truth">Detail can lead you to the truth.</h1>
+
+<p>Recently, our build became unstable (more random failures) and longer (1 hour) again.
+I got time to look into build performance again.
+My teammate <a href="http://www.thoughtworks.com/profiles/jeff-norris">Jeff Norris</a> noticed it was too slow when running selenium test on build VM.
+I realized we had not paid attention to our VM performance.
+Our VMs ran with 1 vertual CPU and 3.5 GB memory.
+To run a selenium test, we need launch 3 processes:</p>
+
+<ol>
+  <li><a href="https://www.thoughtworks.com/mingle">Mingle</a> application server for testing</li>
+  <li>Selenium proxy server</li>
+  <li>Selenium test.</li>
+</ol>
+
+<p>It is possible that 1 vertual CPU is not enough.
+So we increased build VMs to 2 vCPU.
+Build time decreased to 50 minutes.
+The result was not as good as we thought.
+So I compared all jobs runtime.
+It turned out some selenium test jobs ran twice faster than other selenium test jobs.</p>
+
+<p>As <a href="https://github.com/test-load-balancer/tlb">TLB</a> balanced our selenium tests by time, we expect job runtime similar.
+My first hypothesis was <a href="https://github.com/test-load-balancer/tlb">TLB</a> may not work as expected.
+Because tests didn't seem to be distributed well by runtime.
+To verify my hypothesis, I checked out <a href="https://github.com/test-load-balancer/tlb">TLB</a> source code. It was more complex than I thought.
+And there is also no way to output more logs to verify it's correctness.
+But <a href="https://go.cd">Go CD</a> has good support for APIs, so I wrote <a href="https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/compare_test_runtime.rb">Ruby script</a> to verify my hypothesis.</p>
+
+<p>The following chart shows how the test runtime looks like on build. X-axis is job names; y-axis is job runtime.</p>
+
+<p><img title="Graph representing Acceptance Test time" alt="Graph representing Acceptance Test time" src="../../../assets/images/acceptnace-test-build-time.png" /></p>
+
+<p>Blue bars are test runtime on job. Red bars are "expected time", because <a href="https://github.com/test-load-balancer/tlb">TLB</a> distributed tests by previous build test runtime.
+Red bars are test runtime calculated by previous build test runtime:</p>
+
+<pre><code>Job expected runtime = sum of each test runtime in previous build
+</code></pre>
+
+<p>From this result, we can see the balance is not perfect, but OK.
+Because red bars are similar high across all acceptance (selenium test) jobs.</p>
+
+<p>Blue bars matched what I observed on build time.
+Then I ran same script on more builds. The outputs were similar, just different jobs got longer time to run.</p>
+
+<p>As <a href="https://go.cd">Go CD</a> random picked up build VMs to run any job, it gave me a clue that maybe its build VM performance issue.
+So I wrote another <a href="https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/agent_stats.rb">script</a> to build the following chart:</p>
+
+<p><img title="Graph displaying GoCD build agent runtime" alt="Graph displaying GoCD build agent runtime" src="../../../assets/images/vms-build-time.jpg" /></p>
+
+<p>It's clear there are some VMs are consistent slower than others.
+Then Barrow Kwan found out 2 of our VMs hosts were overloaded when we increased vCPUs on our VMs.
+We have set the host NOT to overload the CPU core but there was a typo in configuration.
+After sorted out VM host CPU overload issue, our <strong>build time reduced to 30 minutes</strong>.</p>
+
+<p><strong>So, don't just assume, prove it with detailed data. Make details visible. It leads you to the truth.</strong></p>
+
+<h1 id="you-dont-know-what-you-dont-know">You don't know what you don't know.</h1>
+
+<p><a href="https://go.cd">Go CD</a> introduced "timestamps in console logs" in release 15.1.
+It made build task runtime visible.
+I was not pay attention to the timestamps in the console logs until recently.
+The following screenshot shows an example:</p>
+
+<p><img title="Timestamps in console logs" alt="Timestamps in console logs" src="../../../assets/images/timestamps-in-console-logs-example.png" /></p>
+
+<p>It turns out, <a href="https://github.com/test-load-balancer/tlb.rb">tlb.rb</a> client we used has the following code:</p>
+
+<p>{% highlight ruby %}
+def self.get path
+  sleep 2
+  Net::HTTP.get_response(host, path, port).body
+end
+{% endhighlight %}</p>
+
+<p>It only sleeps 2 seconds for one call, but it is called lots of times at the end of tests ran.
+After removed code <code>sleep 2</code>, there is almost no time spent at the end of test anymore.</p>
+
+<p>Without "timestamps in console logs", it is something like following:</p>
+
+<p><img title="No timestanps in console logs" alt="No timestanps in console logs" src="../../../assets/images/no-timestamps-in-console-logs-example.png" /></p>
+
+<p>No one will notice it ever.</p>
+
+<p>The benefit of fixing this problem is outstanding for our <strong>pre-commit build</strong>.
+Pre-commit build is a build running a test suite before developer pushes changes to trunk repository.
+Our pre-commit build runs all unit and functional tests.
+The <strong>build time reduced from 18 minutes to 10 minutes</strong> with 20 processes on 3 machines.</p>
+
+<p><strong>So, use/build tools that keep information visible,
+you may be surprised what you can get from it.</strong></p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Each time we improved our CI build performance, we thought that's the best we could do.
+But it was not true overtime.</p>
+
+<p>We found something, but missed other parts.
+So when you look into a problem, don't assume how it works.
+Working for better understanding instead.
+There are various ways to gain more understanding of the problem:</p>
+
+<ul>
+  <li>Start from scratch.</li>
+  <li>Look from different point of view.</li>
+  <li>Make hypothesis and verify it.</li>
+  <li>Find out more details of the problem.</li>
+  <li>Learn from resolving similar problems.</li>
+  <li>…</li>
+</ul>
+
+<p>Visibility of the problem detail supports you hunting helpful data.
+Thus it gives you more opportunities to understand and solve problem.</p>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Mar 24</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../2016/03/24/how-to-avoid-brittle-code/">How to Avoid Brittle Code</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 15</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">Are you ready for Continuous Delivery? Part 2: Feedback loops</a>
+            </li>
+            <li>
+              <span class="post-date">Feb  8</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../2016/02/08/not-done-unless-its-done-security/">Add Security Testing to Your Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 25</span>
+              <span class="post-author">David Rice and Aravind SV</span>
+              <a href="../../../2016/01/25/are-you-ready-for-continuous-delivery/">Are you ready for Continuous Delivery?</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 17</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../2016/01/17/not-done-unless-its-done/">It's not Continuous Delivery if you can't deploy right now.</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 28</span>
+              <span class="post-author">Nenad Bozic</span>
+              <a href="../../12/28/gocd-continuous-delivery-through-pipelines/">Guest post: GoCD - Continuous Delivery through pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 22</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="../../12/22/gocd-in-2016/">Roadmap - GoCD in 2016</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 18</span>
+              <span class="post-author">Rajiesh</span>
+              <a href="../../11/18/Open-Source-Tests/">Open Source Tests - The GoCD way</a>
+            </li>
+            <li>
+              <span class="post-date">Nov  9</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../11/09/deserialization-vulnerability-commons-collections/">Vulnerability in GoCD - Java deserialization and Apache commons-collections</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 29</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../10/29/go-webinar-recording/">Continuous Delivery with GoCD - Webinar Recording</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../2016/">2016 (5)</a></li>
+            <li><a href="../../">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2015/09/01/visibility-is-opportunity.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank">
+            <i class="fa fa-user-plus"></i>
+            join us
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank">
+            <i class="fa fa-wechat"></i>
+            develop with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank">
+            <i class="fa fa-binoculars"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank">
+            <i class="fa fa-twitter"></i>
+            follow us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+      <div class="links">
+         <a href="../../../subscribe/">Subscribe to updates</a> 
+      </div>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="https://github.com/gocd/gocd.github.io" class="social-buttons"><i class="fa fa-code-fork" aria-hidden="true"></i> fork</a>
+        <a href="https://github.com/gocd/gocd.github.io/issues"  class="social-buttons"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<script type="text/javascript">
+// <![CDATA[
+!function(){var t=window.jtr=window.jtr||[];if(!t.initialize){if(t.invoked)return void(window.console&&console.error&&console.error("Journey tracking snippet included twice."));t.invoked=!0,t.methods=["page","identify","userTraits","experimentGroup","track","trackInteraction","noConflict"],t.factory=function(e){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(e),t.push(n),t}};for(var e=0;e<t.methods.length;e++){var n=t.methods[e];t[n]=t.factory(n)}t.load=function(t){var e=document.documentElement;e.setAttribute("data-jtr-device-token",t);e.setAttribute("data-jtr-events-url", "https://event-stream.journey-app.io/events");var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://cdn.journey-app.io/v1.0.3/journey-tracker.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(n,r)},t.load("j.eca3f1b7-dbb4-4594-bade-9a8eb66ffe2a"),t.page()}}();
+// ]]>
+</script>
+
+</html>

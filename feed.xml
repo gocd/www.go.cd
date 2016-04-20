@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>GoCD</title>
+  <subtitle>Continuous Delivery</subtitle>
+  <id>https://www.go.cd/blog</id>
+  <link href="https://www.go.cd/blog"/>
+  <link href="https://www.go.cd/feed.xml" rel="self"/>
+  <updated>2016-03-24T00:00:00Z</updated>
+  <author>
+    <name>GoCD Team</name>
+  </author>
+  <entry>
+    <title>How to Avoid Brittle Code</title>
+    <link rel="alternate" href="https://www.go.cd/2016/03/24/how-to-avoid-brittle-code.html"/>
+    <id>https://www.go.cd/2016/03/24/how-to-avoid-brittle-code.html</id>
+    <published>2016-03-24T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>David Rice</name>
+    </author>
+    <content type="html">The most common problem with legacy code is brittleness. A brittle codebase is one that a team cannot change without great pain. In ThoughtWorks' 10 years of building products we've learned some hard lessons while trying to keep fairly large codebases malleable.</content>
+  </entry>
+  <entry>
+    <title>Are you ready for Continuous Delivery? Part 2: Feedback loops</title>
+    <link rel="alternate" href="https://www.go.cd/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops.html"/>
+    <id>https://www.go.cd/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops.html</id>
+    <published>2016-03-15T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>David Rice</name>
+    </author>
+    <content type="html">This is the second part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this post, we’ll present some of the more common feedback loops your organization should have in place to determine your readiness for Continuous Delivery.</content>
+  </entry>
+  <entry>
+    <title>Add Security Testing to Your Deployment Pipelines</title>
+    <link rel="alternate" href="https://www.go.cd/2016/02/08/not-done-unless-its-done-security.html"/>
+    <id>https://www.go.cd/2016/02/08/not-done-unless-its-done-security.html</id>
+    <published>2016-02-08T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">Releasing with confidence means including things like security tests in your deployment pipeline</content>
+  </entry>
+  <entry>
+    <title>Are you ready for Continuous Delivery?</title>
+    <link rel="alternate" href="https://www.go.cd/2016/01/25/are-you-ready-for-continuous-delivery.html"/>
+    <id>https://www.go.cd/2016/01/25/are-you-ready-for-continuous-delivery.html</id>
+    <published>2016-01-25T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>David Rice and Aravind SV</name>
+    </author>
+    <content type="html">This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this first post, we'll present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for Continuous Delivery.</content>
+  </entry>
+  <entry>
+    <title>It's not Continuous Delivery if you can't deploy right now.</title>
+    <link rel="alternate" href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html"/>
+    <id>https://www.go.cd/2016/01/17/not-done-unless-its-done.html</id>
+    <published>2016-01-17T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">I hear people say all the time that they're practicing continuous delivery. This declaration is often followed by something like, &amp;ldquo;I can let the security team know anytime&amp;rdquo;, or &amp;ldquo;I just have to run the performance tests&amp;rdquo;. If you can't push your software to production right now, you're not done with your continuous delivery journey.</content>
+  </entry>
+  <entry>
+    <title>Guest post: GoCD - Continuous Delivery through pipelines</title>
+    <link rel="alternate" href="https://www.go.cd/2015/12/28/gocd-continuous-delivery-through-pipelines.html"/>
+    <id>https://www.go.cd/2015/12/28/gocd-continuous-delivery-through-pipelines.html</id>
+    <published>2015-12-28T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>Nenad Bozic</name>
+    </author>
+    <content type="html">GoCD has the pipeline abstraction at its core and that is a reason why we like it. Read why we have chosen it as our build tool in SmartCat ...</content>
+  </entry>
+  <entry>
+    <title>Roadmap - GoCD in 2016</title>
+    <link rel="alternate" href="https://www.go.cd/2015/12/22/gocd-in-2016.html"/>
+    <id>https://www.go.cd/2015/12/22/gocd-in-2016.html</id>
+    <published>2015-12-22T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>Aravind SV</name>
+    </author>
+    <content type="html">2016 is going to be an exciting year for GoCD. Read all about what's being planned for it ...</content>
+  </entry>
+  <entry>
+    <title>Open Source Tests - The GoCD way</title>
+    <link rel="alternate" href="https://www.go.cd/2015/11/18/Open-Source-Tests.html"/>
+    <id>https://www.go.cd/2015/11/18/Open-Source-Tests.html</id>
+    <published>2015-11-18T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>Rajiesh</name>
+    </author>
+    <content type="html">At GoCD, we are open-sourcing our functional tests, we believe open-sourcing system tests will - improve quality through collaboration, make regression tests efficient, give the community a detailed picture of the system behavior and act as ...</content>
+  </entry>
+  <entry>
+    <title>Vulnerability in GoCD - Java deserialization and Apache commons-collections</title>
+    <link rel="alternate" href="https://www.go.cd/2015/11/09/deserialization-vulnerability-commons-collections.html"/>
+    <id>https://www.go.cd/2015/11/09/deserialization-vulnerability-commons-collections.html</id>
+    <published>2015-11-09T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>GoCD Team</name>
+    </author>
+    <content type="html">This post contains information about a security patch available for GoCD 15.2. If you're using GoCD 15.2 in production, and especially if it is available over the internet, it is highly recommended to apply this patch immediately.</content>
+  </entry>
+  <entry>
+    <title>Continuous Delivery with GoCD - Webinar Recording</title>
+    <link rel="alternate" href="https://www.go.cd/2015/10/29/go-webinar-recording.html"/>
+    <id>https://www.go.cd/2015/10/29/go-webinar-recording.html</id>
+    <published>2015-10-29T00:00:00Z</published>
+    <updated>2016-04-20T18:27:08Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">Every couple of weeks ThoughtWorks hosts learning sessions for people who want more information about continuous delivery with GoCD. This is a recording of the session from 29 Oct, 2015</content>
+  </entry>
+</feed>
