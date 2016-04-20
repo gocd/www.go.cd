@@ -7,7 +7,7 @@ body {
 	position: relative;
 	margin: 66px 0 0 0;
 
-	@media (min-width:$screen-lg-desktop) {
+	@media (min-width:$screen-tablet) {
 		font-size: 16px;
 		line-height: 26px;
 	}
@@ -201,7 +201,7 @@ img {
 	font-weight: 400;
 
 	@media (min-width:$screen-tablet) {
-		margin: 30px 10%;
+		margin: 0 0 30px 0;
 		font-size: 22px;
 		line-height: 32px;
 	}
