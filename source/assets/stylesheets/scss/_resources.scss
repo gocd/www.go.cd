@@ -16,6 +16,23 @@
     margin-bottom: 50px;
   }
 
+  @media screen and (max-width:$screen-sm-max) {
+    .col-xs-2 {
+      position: relative;
+
+      figure {
+        position: absolute;
+        width:48px;
+        left:0
+      }
+
+    }
+
+  }
+  figure{
+    max-width:65px;
+  }
+
 }
 
 .r_list {
