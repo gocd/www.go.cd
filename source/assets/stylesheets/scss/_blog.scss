@@ -333,7 +333,7 @@
     border-top-right-radius: 5px;
 
     img {
-      transform: scale(1.1);
+      transform: scale(1);
       transition: all 0.3s ease-in-out;
     }
 
@@ -393,7 +393,7 @@
       }
 
       @media (min-width:$screen-lg-desktop) {
-        height: 500px;
+        height: 560px;
       }
 
     }
