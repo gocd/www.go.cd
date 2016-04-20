@@ -57,8 +57,9 @@
 }
 
 .event {
-  margin-top: 50px;
-
+    @media screen and (max-width:$screen-xs-max) {
+      margin-top: 50px;
+    }
   .date,
   .location {
     display: inline-block;
@@ -109,9 +110,13 @@
   @include flex-wrap(wrap);
 
   li {
-    width: 340px;
+    width: 275px;
     font-size: 14px;
     padding: 5px 0;
+      @media only screen and (min-width:$screen-lg-desktop) {
+      width: 275px;
+
+      }
   }
 
 }
