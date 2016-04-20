@@ -1,0 +1,35 @@
+- name: Build Git Feature Branch
+  description: Plugin to poll Git repository.
+  readmore_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhya
+  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true
+  first_available_date: 02/2015
+
+- name: Build Github Pull Requests
+  description: Plugin that builds Pull Requests for project from Github.
+  readmore_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests
+  author_url: https://github.com/ashwanthkumar
+  author_name: Ashwanth Kumar
+  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true
+  first_available_date: 02/2015
+
+- name: Build Stash Pull Requests
+  description: Plugin that builds Pull Requests for project from Stash.
+  readmore_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhya
+  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true
+  first_available_date: 02/2015
+
+- name: Build Gerrit Change Set
+  description: Plugin that builds Change Sets for project from Gerrit.
+  readmore_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests
+  author_url: https://github.com/srinivasupadhya
+  author_name: Srinivas Upadhya
+  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true
+  first_available_date: 02/2015

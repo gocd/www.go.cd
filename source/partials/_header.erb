@@ -1,0 +1,35 @@
+<header class="top">
+  <div class="container">
+    <%= link_to image_tag('go_logo.svg', {:title => 'GoCD Logo', :alt => 'GoCD Logo'}), '/index.html', {:class => 'logo'} %>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <%= link_to 'Why GoCD?', '/why-gocd/index.html' , :class => 'link_whygocd'%>
+        </li>
+        <li class="dropdown">
+          <%= link_to 'Community', '/contribute/index.html' , :class => 'toplink_contribute' %>
+          <ul  class="level1">
+            <li><%= link_to 'Contribute', '/contribute/index.html' , :class => 'link_contribute' %></li>
+            <li><%= link_to 'Events', '/events/index.html' ,:class => 'link_events'%></li>
+            <li><%= link_to 'Plugins', '/plugins/index.html' ,:class => 'link_plugins'%></li>
+          </ul>
+        </li>
+        <li><%= link_to 'Blog', '/blog/index.html' ,:class => 'link_blog'%></li>
+        <li class="dropdown">
+          <%= link_to 'Help', '/help/index.html', :class => 'toplink_help'%>
+          <ul  class="level1">
+            <li><%= link_to 'Getting started', '/help/index.html' , :class => 'getting-started'%></li>
+            <li><%= link_to 'Documentation', 'https://docs.go.cd/current/', :target => '_blank' %></li>
+            <li><%= link_to 'Resources', '/resources.html', :class => 'link_resources' %></li>
+          </ul>
+        </li>
+        <li><%= link_to 'Download', '/download/index.html' ,  :class => 'link_download'%></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+

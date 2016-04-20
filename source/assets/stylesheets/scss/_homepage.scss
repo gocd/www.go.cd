@@ -1,0 +1,419 @@
+//banner
+.banner {
+	background-image: url("/assets/images/go-banner-phone.jpg");
+	background-position: center 0;
+	background-repeat: no-repeat;
+	height: 250px;
+	position: relative;
+	overflow: hidden;
+
+	@media (min-width:$screen-tablet) {
+		height: 500px;
+		background-image: url('/assets/images/go-banner-tablet.jpg');
+		background-size: initial;
+	}
+
+	@media (min-width:1025px) {
+		background-image: url('/assets/images/go-banner-desktop.jpg');
+		height: 750px;
+	}
+
+	.banner-content {
+		position: absolute;
+		top: 50%;
+		min-width: 300px;
+		max-width: 300px;
+		left: 50%;
+		text-align: center;
+		transform: translate(-50%, -62%);
+		background: rgba(0, 0, 0, 0.63);
+		font-weight: 400;
+
+		@media (min-width:$screen-tablet) {
+			transform: translate(-50%, -50%);
+			width: 575px;
+			max-width: 575px;
+		}
+
+		@media (min-width:$screen-desktop) {
+			width: 775px;
+			max-width: 775px;
+			transform: translate(-50%, -50%);
+		}
+
+		@media (min-width:$screen-lg-desktop) {
+			width: 880px;
+			max-width: 880px;
+			transform: translate(-50%, -50%);
+		}
+
+	}
+
+	.caption {
+		color: #fff;
+		font-size: 26px;
+		font-weight: 600;
+		text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+
+		@media (min-width:$screen-tablet) {
+			font-size: 50px;
+		}
+
+		@media (min-width:$screen-desktop) {
+			font-size: 70px;
+		}
+
+		@media (min-width:$screen-lg-desktop) {
+			font-size: 80px;
+		}
+
+		span {
+			display: inline-block;
+			margin-right: 10px;
+
+			@media (min-width:$screen-tablet) {
+				margin-right: 20px;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+		}
+
+	}
+
+	.subcaption {
+		color: #fff;
+		font-size: 15px;
+		font-weight: 300;
+		display: inline-block;
+		text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+		padding: 0px 20px;
+
+		@media (min-width:$screen-tablet) {
+			font-size: 21px;
+			padding: 10px 20px;
+			width: 92%;
+			line-height: 27px;
+		}
+
+		@media (min-width:$screen-desktop) {
+			font-size: 25px;
+			line-height: 31px;
+			width: 85%;
+		}
+
+		@media (min-width:$screen-lg-desktop) {
+			font-size: 32px;
+			line-height: 38px;
+			width: 92%;
+		}
+
+	}
+
+}
+
+.banner-video {
+	@media (max-width:$screen-xs-min) {
+		height: 100%;
+	}
+
+	@media (min-width:$screen-tablet) {
+		width: 100%;
+	}
+
+}
+
+.btn-download {
+	margin: 10px auto 0;
+	position: absolute;
+	left: 0;
+	bottom: -40px;
+	width: 300px;
+
+	@media (min-width:$screen-tablet) {
+		width: 575px;
+		padding: 10px;
+		font-size: 27px;
+		bottom: -70px;
+	}
+
+	@media (min-width:$screen-desktop) {
+		width: 775px;
+		position: absolute;
+		left: 0;
+		bottom: -70px;
+	}
+
+	@media (min-width:$screen-lg-desktop) {
+		width: 880px;
+		position: absolute;
+		left: 0;
+		bottom: -70px;
+	}
+
+}
+
+.btn-readmore {
+	border: 1px solid #ccc;
+	padding: 5px 15px;
+	border-radius: 3px;
+}
+
+.bigtxt {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 26px;
+	width: 100%;
+	margin: 0px auto;
+	text-align: center;
+	background: #f5f5f5;
+	color: #333333;
+	padding: 20px 10%;
+	color: $heading;
+
+	@media (min-width:$screen-tablet) {
+		margin: 0 auto 30px auto;
+		padding: 30px 5%;
+		font-size: 25px;
+		line-height: 34px;
+		max-width: 100%;
+	}
+
+	@media (min-width:$screen-desktop) {
+		padding: 30px 10%;
+	}
+
+	@media (min-width:$screen-lg-desktop) {
+		line-height: 45px;
+		margin: 0 auto 30px auto;
+		padding: 50px 15%;
+		font-size: 32px;
+		max-width: 90%;
+		background: transparent;
+	}
+
+}
+
+.main-features {
+	figure {
+		margin-bottom: 30px;
+
+		@media (min-width:$screen-tablet) and (max-width:$screen-sm-max) {
+			float: left;
+			margin: 0;
+			width: 40%;
+		}
+
+		@media (min-width:$screen-desktop) {
+			margin-bottom: 30px;
+		}
+
+		img {
+			width: 276px;
+
+			@media (min-width:$screen-tablet) {
+				width: 240px;
+			}
+
+		}
+
+	}
+
+	h3 {
+		font-size: 22px;
+		font-weight: 300;
+		margin: 20px 0;
+		text-align: center;
+
+		@media (min-width:$screen-tablet) and (max-width:$screen-sm-max) {
+			float: right;
+			width: 55%;
+			text-align: left;
+			margin: 0 0 20px 0;
+		}
+
+		@media (min-width:$screen-desktop) {
+			height: 50px;
+			margin: 0 0 20px 0;
+			float: none;
+			width: auto;
+		}
+
+	}
+
+	p {
+		@media (min-width:$screen-tablet) and (max-width:$screen-sm-max) {
+			text-align: left;
+			float: right;
+			width: 55%;
+		}
+
+	}
+
+	.features {
+		// text-align: center;
+
+		.feature-box {
+			@media (min-width:$screen-tablet) and (max-width:$screen-md-min) {
+				border-bottom: 1px dashed $border;
+				width: 100%;
+				float: left;
+				padding: 30px 0;
+			}
+
+		}
+
+		p {
+			border-bottom: 1px dashed $border;
+			padding-bottom: 20px;
+
+			@media (min-width:$screen-tablet) {
+				// text-align: left;
+				border: 0;
+			}
+
+		}
+
+	}
+
+	.see-all-features {
+		width: 230px;
+		margin: 30px auto 40px;
+		display: block;
+
+		@media (min-width:$screen-tablet) {
+			margin: 30px auto;
+		}
+
+	}
+
+}
+
+.feature-box {
+	@media (min-width:$screen-lg-desktop) {
+		padding: 0 20px;
+	}
+
+}
+
+.plugins-community {
+	background: #f5f5f5;
+	padding: 30px 0;
+
+	figure {
+		margin-top: 20px;
+
+		img {
+			max-width: 80%;
+
+			@media (min-width:$screen-tablet) {
+				width: 100px
+			}
+
+		}
+
+	}
+
+}
+
+.plugins-cont {
+	margin-bottom: 30px;
+}
+
+.support {
+	padding: 50px 0;
+
+	@media (min-width:$screen-tablet) {
+		padding: 50px 0 0;
+	}
+
+}
+
+.go-support {
+	border: 1px solid $primary-color;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 20px;
+
+	@media (min-width:$screen-tablet) {
+		background-image: linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-image: -o-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-image: -moz-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-image: -webkit-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-image: -ms-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
+		background-position: right top;
+		background-repeat: no-repeat;
+		@include flexbox;
+		@include justify-content(flex-start);
+		@include align-items(center);
+		width: 90%;
+	}
+
+	@media (min-width:$screen-desktop) {
+		background-image: linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-image: -o-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-image: -moz-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-image: -webkit-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-image: -ms-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+
+	@media (min-width:$screen-lg-desktop) {
+		background-image: linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-image: -o-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-image: -moz-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-image: -webkit-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-image: -ms-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+
+	p {
+		font-weight: 400;
+		font-size: 13px;
+		text-transform: uppercase;
+
+		@media (max-width:$screen-xs-max) {
+			text-align: center;
+		}
+
+		@media (min-width:$screen-tablet) {
+			font-size: 18px;
+		}
+
+		@media (min-width:$screen-desktop) {
+			margin-right: 50px;
+			font-size: 18px;
+		}
+
+	}
+
+	a {
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 20px;
+		white-space: nowrap;
+		height: 50px;
+		color: #fff;
+		width: 100%;
+		max-width: 200px;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		line-height: 50px;
+		background-color: $primary-color;
+
+		@media (min-width:$screen-desktop) {
+			margin-left: 50px;
+		}
+
+	}
+
+	.go {
+		text-transform: none;
+	}
+
+}
