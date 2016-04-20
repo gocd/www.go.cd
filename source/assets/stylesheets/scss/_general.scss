@@ -2,10 +2,10 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	color: #555555;
 	font-size: 14px;
-	font-weight:300;
+	font-weight: 300;
 	line-height: 22px;
 	position: relative;
-	margin: 58px 0 0 0;
+	margin: 66px 0 0 0;
 
 	@media (min-width:$screen-lg-desktop) {
 		font-size: 16px;
@@ -91,31 +91,36 @@ img {
 
 .inner-banner {
 	background: url('/assets/images/inner-banner-bg.jpg') no-repeat center center;
-  padding: 20px 0;
-		.banner-content{
+	padding: 20px 0;
+
+	.banner-content {
 		@include flexbox;
 		@include flex-direction(column);
 		@include justify-content(flex-start);
-		// @include align-items(center);
 		position: relative;
-		@media (min-width:$screen-tablet) {
+	}
 
-		}
-		@media (min-width:$screen-desktop) {	}
-		@media (min-width:$screen-lg-desktop) {
-			padding: 0;
-			// height:120px;
-		}
-		}
+	@media (min-width:$screen-tablet) {
+		padding: 25px 0;
+	}
+
+	@media (min-width:$screen-lg-desktop) {
+		padding: 30px 0;
+	}
 
 	.caption {
 		font-size: 20px;
-		color:#fff;
-	  font-weight: 400;
-    text-transform: uppercase;
-		margin:0;
+		color: #fff;
+		font-weight: 400;
+		text-transform: uppercase;
+		margin: 0;
+
 		@media (min-width:$screen-tablet) {
 			font-size: 35px;
+		}
+
+		@media (min-width:$screen-lg-desktop) {
+			font-size: 38px;
 		}
 
 	}
@@ -123,7 +128,7 @@ img {
 	.subcaption {
 		font-size: 14px;
 		display: block;
-		color:#fff;
+		color: #fff;
 
 		@media (min-width:$screen-tablet) {
 			font-size: 16px;
@@ -131,7 +136,8 @@ img {
 		}
 
 	}
-	.container{
+
+	.container {
 		position: relative;
 	}
 
@@ -211,24 +217,16 @@ img {
 		line-height: 40px;
 		line-height: 40px;
 	}
+
 }
 
 //dark button
 
-$btn-dark-bg :#333;
-$btn-dark-color :#fff;
-$btn-dark-border :#333;
+$btn-dark-bg: #333;
+$btn-dark-color: #fff;
+$btn-dark-border: #333;
 
 .btn-dark {
-  @include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
+	@include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
 }
 
-// .btn-download {
-//   @include button-variant($btn-dark-color, #000, #000);
-//   transition: all 0.3s ease-in-out;
-//   &:hover{
-//   	background:#333;
-//   	border-color:#333;
-//   	transition: all 0.3s ease-in-out;
-//   }
-// }
