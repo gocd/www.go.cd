@@ -6,13 +6,16 @@
   background: url(/assets/images/rss-icon.png) no-repeat 0 0;
   color: #fff;
   height: 32px;
+  display:block;
   line-height: 32px;
   font-size: 16px;
   padding-left: 40px;
-  position: absolute;
-  bottom: 10px;
+  margin-top: 10px;
 
   @media (min-width:$screen-tablet) {
+  margin-top: 0;
+  bottom: 10px;
+  position: absolute;
     right: 30px;
     top: 50%;
     transform: translateY(-50%);
