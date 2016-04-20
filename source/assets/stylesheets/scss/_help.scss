@@ -58,6 +58,7 @@
       font-size: 36px;
       margin: 0 0 50px 0;
     }
+
   }
 
   .get-start {
@@ -293,6 +294,12 @@
     font-weight: 300;
     font-size: 18px;
     text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease-in-out;
+    }
 
     &:focus {
       outline: 0;
@@ -435,13 +442,32 @@
 
   .footer-links {
     a {
-      text-decoration: underline;
-      font-size: 14px;
-      color: #86569a;
+      display: block;
+    }
+
+    span {
+      display: block;
+      color: #333;
+
+      @media only screen and (min-width:$screen-tablet) {
+        width: 80%;
+        margin: 0 auto;
+      }
 
       &:hover,
       &:visited {
-        color: #86569a;
+      }
+
+    }
+
+    figure {
+      width: 50px;
+      margin-bottom: 10px;
+      display: inline-block;
+      transition: all 0.3s ease-in-out;
+
+      @media only screen and (min-width:$screen-tablet) {
+        width: 70px;
       }
 
     }
@@ -451,21 +477,33 @@
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      margin: 0;
+      margin: 10px 20px;
       padding: 0;
       list-style-type: none;
       -webkit-box-pack: justify;
       -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
-      justify-content: space-between;
+      justify-content: center;
       -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 
       li {
-        margin: 0 0 20px 30px;
+        width: 50%;
+        text-align: center;
+        margin: 0 0 50px 0;
 
         @media only screen and (min-width:$screen-tablet) {
+          width: 25%;
+          margin-bottom: 0;
+        }
+
+        &:hover {
+          figure {
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+          }
+
         }
 
       }
@@ -477,15 +515,6 @@
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
       margin: 0 40px;
-    }
-
-  }
-
-  .foo-links .footer-links ul li {
-    width: 100%;
-
-    @media only screen and (min-width:$screen-tablet) {
-      width: auto;
     }
 
   }
@@ -561,5 +590,22 @@
 
   .go {
     text-transform: none;
+  }
+
+}
+
+  .graphics {
+    
+  .cta_pipeline &{
+    width: 158px;
+  }
+    .cta_installation &{
+    width: 76px;
+  }   
+   .cta_user-group &{
+    width: 76px;
+  }    
+  .cta_githut &{
+    width: 146px;
   }
 }
