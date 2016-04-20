@@ -556,49 +556,6 @@
     display: none;
   }
 
-  /* START Don't show "Need Professional Support?" header on this page. */
-  .need_help .header {
-    height: 90px;
-  }
-
-  .need_help .header .support-header {
-    display: none;
-  }
-
-  .need_help .header .social-icons,
-  .need_help .header .navigation {
-    margin-top: 20px;
-  }
-
-  .need_help .header .title .logo {
-    margin-top: 6px;
-  }
-
-  .need_help .page-title {
-    margin: 0px;
-    border: none;
-  }
-
-  @media only screen and (min-width:1200px) {
-    .need_help .container-12 {
-      width: auto;
-    }
-
-    .need_help .container_12 {
-      margin-left: auto;
-      margin-right: auto;
-      width: 1020px;
-      position: relative;
-    }
-
-    .need_help .container_12:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-
-  }
-
   .graphics {
     img {
       width: 100%;
