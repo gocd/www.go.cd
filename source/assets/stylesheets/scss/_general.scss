@@ -72,13 +72,17 @@ img {
 .back-top {
 	right: 20px;
 	position: fixed;
-	bottom: 30px;
+	bottom: 50px;
 	display: block;
 	text-align: center;
 	font-size: 40px;
 	color: $gray-light;
 	z-index: $backtotop;
 	// transition: all 0.5s ease-in-out;
+
+	@media (min-width:$screen-tablet) {
+    bottom: 30px;
+	}
 
 	&:hover {
 		transition: all 0.5s ease-in-out;
