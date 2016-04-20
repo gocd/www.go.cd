@@ -1,0 +1,117 @@
+---
+layout: post
+title: "Are you ready for Continuous Delivery?"
+status: public
+type: post
+author: "David Rice and Aravind SV"
+excerpt: "<p>This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this first post, we’ll present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for Continuous Delivery.</p>"
+---
+
+<figure>
+  <img src="/images/blog/are-you-ready-for-continuous-delivery/woodline.jpeg" alt="Ready for Continuous Delivery?"></img>
+  <span class="attribution"><a target="_blank" href="https://commons.wikimedia.org/wiki/File:Wood-snake(byJamesForbes).JPG">Attribution</a></span>
+</figure>
+
+During the 10 plus years ThoughtWorks has been in the Continuous Delivery ecosystem, we've regularly come across people
+wanting to try our tools GoCD and Snap CI as they start their journey toward Continuous Delivery (CD). Very often,
+in attempting to support teams new to CD, we suggest that they pause any tool evaluation and consider whether their
+organization is actually ready to embark on this journey. If you do not frankly assess your teams' readiness, the result
+can be a massive failure. The path to CD should not start by immediately adopting a CD tool.
+
+This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this
+first post, we’ll present questions you need to answer honestly about your own people, teams, and organization to
+determine your readiness for Continuous Delivery.
+
+## Part 1: Practices
+
+### Do you put <em>everything</em> into version control?
+
+A foundation of CD is the ability to put a specific version of your application into a given environment at any point in
+time. CD is actually quite fussy about this. It’s a must. And this can only be done by:
+
+- Putting everything needed to make your application into a version control system 
+- Any time you change anything, push the changes to version control. 
+- Write an automated script that, given a version, checks out everything from version control and assembles your application. 
+
+CD is impossible when software teams (or the people on a single team) work in isolation from each other. When
+development work happens in isolation, large periods of integration and testing are required at the end of the
+development phase. This results in long periods during which your application cannot be released. Avoiding these lengthy
+integration phases requires that your work be as visible to, and usable by, others as soon as possible. Our preferred
+mechanism for doing this is called trunk-based development:
+
+- Everyone regularly pulls others’ changes from version control.
+- Everyone regularly pushes their changes to version control.
+- Everyone works in the same place in version control, typically called "trunk" or "master".
+
+If you are new to trunk-based development, it might sound ridiculous. But the practices of CI, unit testing, and
+trunk-based development all playing together, not only makes it reasonable, but a truly pleasant way of working.We don't
+have space here to go into the details of making trunk-based development work, but know that it cannot work without
+version control.
+
+Even if you aren’t planning to do CD, start putting everything into version control now. And we mean everything. Not
+just your source code. Everything can include images, database scripts, tests, configuration, libraries, documentation,
+and more. Source code won’t be enough if you need to get back to a specific version of your application, infrastructure,
+etc. Also, this encourages your entire team—not just the developers—to collaborate.
+
+### Do your developers practice Continuous Integration (CI)?
+
+For CD to be successful, the entire organization must trust that your software is high quality and always in a working
+state. In terms of development team practices, CI is the fundamental building block to achieve this level of trust.
+
+So what is CI? Well, [much has been written about CI](http://www.martinfowler.com/articles/continuousIntegration.html), but here’s the TL;DR version:
+
+* Developers check code into trunk/master multiple times each day.
+* Developers maintain a suite of unit tests that verify the code works before merge, locally, and post merge, on an integration machine or CI server.
+
+The end result is a development team that has high trust that the code in trunk/master actually works. This will leave
+the development team more willing to push code to testers, or even production, more regularly. With this in place, trust
+between the groups will quickly grow.
+
+Our experience has been that development teams can only move quickly by combining unit testing, refactoring, and
+CI. That’s a discussion too broad for discussion here, but know that your teams will never deliver at a fast pace
+without CI.
+
+If your developers are not practicing CI we would recommend putting your move to CD on hold and shift your focus
+entirely to supporting the adoption of CI.
+
+### Do you automate relentlessly?
+
+CD is very dependent on automation. Automation everywhere is crucial to achieving trusted, one-click, low drama
+deployments. Manual processes are error-prone and do not lend themselves to repeatability. To practice CD, the entire
+team needs to get into the mindset of relentless automation of nearly everything.
+
+This mindset means asking "Why can't this be automated?" every time anyone on the team does anything manually more than
+once. Some components and aspects of your process that need automation are:
+
+* Tests at different levels, such as unit, integration, UI, regression, security and performance
+* Database schema creation, data migration and rollback
+* Installer creation and signing (if you have them)
+* Generation of documentation for every release
+* Last-mile deployment of your application to any environment
+* Provisioning of infrastructure all the way from test environments to production
+* Provisioning of developer workspaces
+
+We mentioned error reduction and repeatability. There are dozens of other compelling reasons to relentlessly automate. We have a few favorites:
+
+* Scripts codify team knowledge. This ups your bus factor. That’s a good thing.
+* It encourages consistency across environments. Once you have a script working in one environment, you’ll want to use it everywhere.
+* The output of these scripts provides a detailed audit trail that is hard to match manually.
+
+Relentless automation might seem daunting, particularly if you’re focused on something that truly cannot be automated,
+such as exploratory testing. In our experience, there will be many more parts of your process that can be automated than
+those that cannot. The best approach is to figure out the manual processes you are already using, and then make a plan
+to gradually automate them. As you begin to achieve small successes, you will want to automate more and more.
+
+If your team is hesitant to automate and cannot be convinced about the need, you might have to consider if there's
+enough maturity in your team to move toward CD. An automation mindset is a firm prerequisite for CD.
+
+### Conclusion
+
+There are numerous small steps you can take early in your CD journey that will have immediate, positive impacts. Don’t
+waste time flailing around with CD tools if you’ve got a bunch of low-hanging fruit that can provide high value
+quickly. Also, this approach will set you up for success once you do feel the need to adopt an end-to-end CD tool.
+
+In coming posts we will present similar sets of questions for you to consider in the areas of infrastructure,
+application design, process, and culture.
+
+*Update:* [Part 2](/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops.html) of this series, discussing feedback loops, has been published. 
