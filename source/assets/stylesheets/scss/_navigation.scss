@@ -85,7 +85,7 @@ $menu-color: #fff;
 
     @media (min-width:$screen-tablet) {
       font-weight: 300;
-      line-height: 58px;
+      line-height: 63px;
       color: $nav-link;
       padding: 0 10px;
       font-size: 18px;
@@ -314,9 +314,12 @@ ul.level1 {
 //current link styles
 
 .why-gocd .link_whygocd,
-.contribute .link_contribute,
+.contribute .toplink_contribute,
+.events .toplink_contribute,
+.plugins .toplink_contribute,
 .blog .link_blog,
-.help .link_help,
+.help .toplink_help,
+.resources .toplink_help,
 .download .link_download {
   @media screen and (max-width:$screen-xs-max) {
     color: $primary-color !important;
@@ -348,6 +351,8 @@ ul.level1 {
 }
 
 .subscribe .link_subscribe,
+.contribute .link_contribute,
+.help .getting-started,
 .events .link_events,
 .plugins .link_plugins,
 .resources .link_resources {
