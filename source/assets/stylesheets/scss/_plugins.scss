@@ -30,12 +30,7 @@ $actions-bg-hover: $primary-color;
 }
 
 .plugin-content {
-	margin-bottom: 30px;
-
-	@media (min-width:$screen-desktop) {
-		margin-bottom: 50px;
-	}
-
+	margin-bottom: 20px;
 }
 
 .plugins-container {
