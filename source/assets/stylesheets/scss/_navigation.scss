@@ -349,6 +349,15 @@ ul.level1 {
   }
 
 }
+.contribute .toplink_contribute,
+.events .toplink_contribute,
+.plugins .toplink_contribute,
+.help .toplink_help,
+.resources .toplink_help{
+  @media screen and (max-width:$screen-xs-max) {
+    color: #333 !important;
+  }
+}
 
 .subscribe .link_subscribe,
 .contribute .link_contribute,
