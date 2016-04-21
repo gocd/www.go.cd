@@ -1,6 +1,5 @@
 # require 'middleman-deploy'
 require File.expand_path('../lib/extensions/fallback_for_directory_indexes', __FILE__)
-require File.expand_path('../doc.redirects.rb', __FILE__)
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -69,13 +68,9 @@ end
 
 # Build-specific configuration
 configure :build do
+  # Minify CSS on build
   activate :minify_css
-  activate :minify_javascript
 
-  # Documentation redirects are too many. Causes "middleman serve" to stop working.
-  ready do
-    (DOC_REDIRECTS.merge(REDIRECTS)).each do |from, to|
-      proxy from, "/redirect.template.html", :locals => { :redirect_to => to }, :ignore => true
-    end
-  end
+  # Minify Javascript on build
+  activate :minify_javascript
 end
