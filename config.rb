@@ -1,4 +1,4 @@
-require 'middleman-deploy'
+# require 'middleman-deploy'
 require File.expand_path('../lib/extensions/fallback_for_directory_indexes', __FILE__)
 
 page '/*.xml', layout: false
