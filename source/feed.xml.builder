@@ -15,7 +15,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
       xml.link "rel" => "alternate", "href" => URI.join(site_url, article.url).to_s.sub(/\/$/, ".html")
       xml.id URI.join(site_url, article.url).to_s.sub(/\/$/, ".html")
       xml.published article.date.to_time.utc.iso8601
-      xml.updated File.mtime(article.source_file).utc.iso8601
+      xml.updated article.data["updated_at"].nil? ? article.date.to_time.utc.iso8601 : DateTime.parse(article.data["updated_at"]).iso8601
       xml.author { xml.name article.data["author"] || "GoCD Team" }
       xml.content article.data["excerpt"] || article.summary(250), "type" => "html"
     end
