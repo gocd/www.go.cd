@@ -1,4 +1,5 @@
-# go.cd - website
+# go.cd - website [![Build Status](https://snap-ci.com/gocd/www.go.cd/branch/master/build_image)](https://snap-ci.com/gocd/www.go.cd/branch/master)
+
 
 This repository hosts code for the website at [https://go.cd](https://go.cd).
 
