@@ -6,12 +6,10 @@ layout: empty
   <head>
     <link rel="canonical" href="<%= url_for(redirect_to) %>" />
     <meta http-equiv="refresh" content="0; url=<%= url_for(redirect_to) %>" />
-    <meta name="robots" content="noindex,follow" />
-    <meta http-equiv="cache-control" content="no-cache" />
   </head>
   <body>
-    You will be redirected to the <%= url_for(redirect_to) %> of the go.cd website.
-    If you are not redirected in a couple of seconds please <%= link_to('click here' redirect_to) %>
+    You will be redirected to the <%= url_for(redirect_to) %> page of the go.cd website.
+    If you are not redirected in a couple of seconds please <%= link_to('click here', redirect_to) %>
     <script>
     window.location.href = "<%= url_for(redirect_to) %>";
     </script>
