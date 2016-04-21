@@ -69,22 +69,57 @@
   </p>
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab1" class="active"> 16.3.0 (latest)</li>
-      <li rel="tab2"> 16.2.1 </li>
-      <li rel="tab3"> 16.2 </li>
-      <li rel="tab4"> 16.1 </li>
-      <li rel="tab5"> 15.3.1 </li>
-      <li rel="tab6"> 15.3 </li>
-      <li rel="tab7"> 15.2 </li>
-      <li rel="tab8"> 15.1 </li>
-      <li rel="tab9"> 14.4 </li>
-      <li rel="tab10"> 14.3 </li>
-      <li rel="tab11"> 14.2 </li>
-      <li rel="tab12"> 14.1 </li>
+      <li rel="tab-16-4-0" class="active"> 16.4.0 (latest) </li>
+      <li rel="tab-16-3-0"> 16.3.0</li>
+      <li rel="tab-16-2-1"> 16.2.1 </li>
+      <li rel="tab-16-2-0"> 16.2 </li>
+      <li rel="tab-16-1-0"> 16.1 </li>
+      <li rel="tab-15-3-1"> 15.3.1 </li>
+      <li rel="tab-15-3-0"> 15.3 </li>
+      <li rel="tab-15-2-0"> 15.2 </li>
+      <li rel="tab-15-1-0"> 15.1 </li>
+      <li rel="tab-14-4-0"> 14.4 </li>
+      <li rel="tab-14-3-0"> 14.3 </li>
+      <li rel="tab-14-2-0"> 14.2 </li>
+      <li rel="tab-14-1-0"> 14.1 </li>
     </ul>
     <div class="tab_container">
-      <h3 class="tab-accordion_heading  d_active" rel="tab1"> 16.3.0 (latest)</h3>
-      <div id="tab1" class="tab_content" style="display: block;">
+      <h3 class="tab-accordion_heading  d_active" rel="tab-16-4-0"> 16.4.0 (latest)</h3>
+      <div id="tab-16-4-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Security</h4>
+          <p><b>Important</b> There are several security fixes to prevent XSS, CSRF and remote execution exploits. We highly recommend this upgrade to keep your GoCD server and agent secure.</p>
+          <h4>Performance</h4>
+          <p><a href="https://github.com/gocd/gocd/pull/2106">#2106</a> Handle eviction/expiry of composite-keys from GoCache</p>
+          <h4>Note</h4>
+          <p>
+            A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.4%22+is%3Amerged">here.</a>
+          </p>
+          <h4>Contributors</h4>
+          <p>
+            <strong>Special thanks again to <a href="https://github.com/drrb">drrb</a> for reporting and verifying all of the security vulnerabilities in this release.</strong></p>
+            <p> Thanks to
+              <a href="https://github.com/arvindsv">Aravind SV</a>,
+              <a href="https://github.com/aguestuser">Austin Guest</a>,
+              <a href="https://github.com/djrice">David Rice</a>,
+              <a href="https://github.com/ganeshspatil">Ganesh S Patil</a>,
+              <a href="https://github.com/jemarley">Jen Marley</a>,
+              <a href="https://github.com/jyotisingh">Jyoti Singh</a>,
+              <a href="https://github.com/juhijariwala">Juhi Jariwala</a>,
+              <a href="https://github.com/ketan">Ketan Padegaonkar</a>,
+              <a href="https://github.com/maheshp">Mahesh Panchaksharaiah</a>,
+              <a href="https://github.com/naveenbhaskar">Naveen Bhaskar</a>,
+              <a href="https://github.com/rajiesh">Rajiesh Narayanan</a>,
+              <a href="https://github.com/icnocop">Rami</a>,
+              <a href="https://github.com/varshavaradarajan">Varsha V</a>,
+              <a href="https://github.com/wpc">WPC</a>,
+              <a href="https://github.com/xli">Xiao Li</a>,
+              <a href="https://github.com/zabil">Zabil C.M</a> for making GoCD better!
+          </p>
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading  d_active" rel="tab-16-3-0"> 16.3.0 (latest)</h3>
+      <div id="tab-16-3-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Security</h4>
           <p>
@@ -188,8 +223,8 @@
             </p>
           </div>
         </div>
-        <h3 class="tab-accordion_heading" rel="tab2"> 16.2.1 </h3>
-        <div id="tab2" class="tab_content">
+        <h3 class="tab-accordion_heading" rel="tab-16-2-1"> 16.2.1 </h3>
+        <div id="tab-16-2-1" class="tab_content">
           <div class="content">
             <p>
               <span class="text-important">Important</span>: 16.2 has been removed from the downloads page because it had an <a href="https://github.com/gocd/gocd/issues/1936">issue</a> which caused problems while installing windows agents.</p>
@@ -201,8 +236,8 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab3"> 16.2  </h3>
-          <div id="tab3" class="tab_content">
+          <h3 class="tab-accordion_heading" rel="tab-16-2-0"> 16.2  </h3>
+          <div id="tab-16-2-0" class="tab_content">
             <div class="content">
               <h4>What's new in GoCD 16.2</h4>
               <h5>Features and bug fixes</h5>
@@ -258,8 +293,8 @@
               </p>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab4"> 16.1  </h3>
-          <div id="tab4" class="tab_content">
+          <h3 class="tab-accordion_heading" rel="tab-16-1-0"> 16.1  </h3>
+          <div id="tab-16-1-0" class="tab_content">
             <div class="content">
               <h4>What's new in GoCD 16.1</h4>
               <p>
@@ -301,8 +336,8 @@
               <p>Tomasz Setkowski, Sean Escriva for making this release of GoCD better!</p>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab5"> 15.3.1 </h3>
-          <div id="tab5" class="tab_content">
+          <h3 class="tab-accordion_heading" rel="tab-15-3-1"> 15.3.1 </h3>
+          <div id="tab-15-3-1" class="tab_content">
             <div class="content">
               <h4>What's new in GoCD 15.3.1</h4>
               <p><span class="text-important">Important</span>: 15.3.1 has been removed from the downloads page because it had an <a href="https://github.com/gocd/gocd/issues/1753">issue</a> which could have caused problems during configuration save. The issue
@@ -326,8 +361,8 @@
             </p>
           </div>
         </div>
-        <h3 class="tab-accordion_heading" rel="tab6"> 15.3  </h3>
-        <div id="tab6" class="tab_content">
+        <h3 class="tab-accordion_heading" rel="tab-15-3-0"> 15.3  </h3>
+        <div id="tab-15-3-0" class="tab_content">
           <div class="content">
             <h4>New API for editing pipelines</h4>
             <p>
@@ -420,8 +455,8 @@
             </p>
           </div>
         </div>
-        <h3 class="tab-accordion_heading" rel="tab7"> 15.2  </h3>
-        <div id="tab7" class="tab_content">
+        <h3 class="tab-accordion_heading" rel="tab-15-2-0"> 15.2  </h3>
+        <div id="tab-15-2-0" class="tab_content">
           <div class="content">
             <h4>Improvements to the console log</h4>
             <p>
@@ -492,8 +527,8 @@
             </p>
           </div>
         </div>
-        <h3 class="tab-accordion_heading" rel="tab8"> 15.1  </h3>
-        <div id="tab8" class="tab_content">
+        <h3 class="tab-accordion_heading" rel="tab-15-1-0"> 15.1  </h3>
+        <div id="tab-15-1-0" class="tab_content">
           <div class="content">
             <h4>New plugin endpoint for "Materials"</h4>
             <p> This new plugin endpoint introduced in 15.1 allows Go’s already long list of source code materials to be extended without making changes to the core! </p>
@@ -546,8 +581,8 @@
       </ul>
     </div>
   </div>
-  <h3 class="tab-accordion_heading" rel="tab9"> 14.4  </h3>
-  <div id="tab9" class="tab_content">
+  <h3 class="tab-accordion_heading" rel="tab-14-4-0"> 14.4  </h3>
+  <div id="tab-14-4-0" class="tab_content">
     <div class="content">
       <h4>New Features</h4>
       <ul>
@@ -574,8 +609,8 @@
 </ul>
 </div>
 </div>
-<h3 class="tab-accordion_heading" rel="tab10"> 14.3 </h3>
-<div id="tab10" class="tab_content">
+<h3 class="tab-accordion_heading" rel="tab-14-3-0"> 14.3 </h3>
+<div id="tab-14-3-0" class="tab_content">
 <div class="content">
 <h4>New Features</h4>
 <ul>
@@ -634,8 +669,8 @@
 </ul>
 </div>
 </div>
-<h3 class="tab-accordion_heading" rel="tab11"> 14.2 </h3>
-<div id="tab11" class="tab_content">
+<h3 class="tab-accordion_heading" rel="tab-14-2-0"> 14.2 </h3>
+<div id="tab-14-2-0" class="tab_content">
 <div class="content">
 <h4>Enhancements</h4>
 <ul>
@@ -668,8 +703,8 @@
 </ul>
 </div>
 </div>
-<h3 class="tab-accordion_heading" rel="tab12"> 14.1 </h3>
-<div id="tab12" class="tab_content">
+<h3 class="tab-accordion_heading" rel="tab-14-1-0"> 14.1 </h3>
+<div id="tab-14-1-0" class="tab_content">
 <div class="content">
 <a name="14.1"></a>
 <h4>Enhancements</h4>
