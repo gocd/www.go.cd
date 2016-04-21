@@ -15,7 +15,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     <p class="subcaption">
       Open source continuous delivery server specializing in advanced workflow modeling and visualization
     </p>
-    <%= link_to 'Download Now', "/download/index.html", {:class => "btn btn-primary btn-download"} %>
+    <%= link_to 'Download Now', "/download/index.html", {:class => "btn btn-primary btn-download", "analytics-label" => "home-download-cta"} %>
   </div>
   
 </div>
@@ -55,7 +55,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
         </div>
       </div>
     </div>
-    <%= link_to 'See more GoCD features', '/why-gocd/index.html', :class => 'btn btn-default see-all-features' %>
+    <%= link_to 'See more GoCD features', '/why-gocd/index.html', :class => 'btn btn-default see-all-features', "analytics-label" => "link_homepage_see_more_gocd_features" %>
   </div>
 </div>
 <div class="plugins-community">
@@ -72,8 +72,9 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
             <h3>Plugins</h3>
             <p>
               GoCD has extension points for which plugins can be created. There are
-              <%= link_to 'numerous plugins', '/plugins/index.html' %> already available, or if you don’t see
-              what you need, you can <%= link_to 'write your own', 'https://developer.go.cd/current/writing_go_plugins/go_plugins_basics.html' %>.
+              <%= link_to 'numerous plugins', '/plugins/index.html', "analytics-label" => "link_homepage_plugins" %> already available, or if you don’t see
+              what you need, you can <%= link_to 'write your own', 'https://developer.go.cd/current/writing_go_plugins/go_plugins_basics.html',
+                                         "analytics-label" => "link_homepage_plugin_writing_docs" %>.
             </p>
           </div>
         </div>
@@ -90,7 +91,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
             <p>
               GoCD's community is 1000 members strong and growing. Through our active forum, users and contributors share best practices and 
               openly discuss a wide range of topics including product how-tos. To join in the
-              conversation visit <a href="https://groups.google.com/forum/#!forum/go-cd">our Google group.</a>
+              conversation visit <a href="https://groups.google.com/forum/#!forum/go-cd" analytics-label="link_homepage_google_group" >our Google group.</a>
             </p>
           </div>
         </div>
@@ -105,7 +106,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
         <span class="go">Go</span>CD is a critical piece of your infrastructure. We get that. We are committed to
         providing world-class support for <span class="go">Go</span>CD users.
       </p>
-      <a href="https://thoughtworks.com/go">Get Support</a>
+      <a href="https://thoughtworks.com/go" analytics-label="professional-support">Get Support</a>
     </div>
   </div>
 </div>
