@@ -1,0 +1,67 @@
+<h4>Improvements to the console log</h4>
+<p>
+  GoCD now supports rendering of ANSI color codes to show you much more beautiful console logs. Additionally, Go will automatically follow the logs as your build produces it, very much like your favorite terminal program.
+</p>
+<figure class="small_image">
+  <%= image_tag "releases/15.2/console-log-color.png", {:title => "Console log coloring", :alt => "Console log coloring"} %>
+</figure>
+<h5>Authentication end-point</h5>
+<p>
+  With the newly exposed authentication end-point, Go users can now add custom authentication schemes through plugins. Read the <a href="http://www.go.cd/2015/06/18/authentication-end-point.html">blog
+    post</a> for details.
+</p>
+<figure class="extra_small_image">
+  <%= image_tag "blog/authentication-plugins/login-page.png", {:title => "GoCD Login Page with GitHub icon", :alt => "GoCD Login Page with Git Hub icon"} %>
+</figure>
+<h5>Setup hostname when auto-registering agents</h5>
+<p>
+  You can now specify a property <code>agent.auto.register.hostname</code> to setup the hostname when
+  <a href="http://www.go.cd/documentation/user/current/advanced_usage/agent_auto_register.html">auto-registering</a> an agent.
+</p>
+<h4>API Improvements</h4>
+<p>
+  Go's APIs are fairly old, have inconsistent and unpredictable content types (csv, xml, json, plain text).
+</p>
+<p>
+  We have now migrated the
+  <a href="http://api.go.cd/#agents">Agents API</a>,
+  <a href="http://api.go.cd/#users">Users API</a>,
+  <a href="http://api.go.cd/#backups">Backups API</a> to use JSON hypermedia API (using JSON+HAL).
+</p>
+<p> Going forward, we would like to announce an ongoing effort to improve and migrate existing APIs to use something that is more modern, easy to discover, learn and build API clients for. </p>
+<p>Learn more about the new API on our new <a href="http://api.go.cd">api documentation</a> site.</p>
+<h4>Other notable features</h4>
+<ul>
+  <li> <a href="https://github.com/gocd/gocd/issues/194">#194</a> - Allow secure variables (environment) on environments, stages and jobs. </li>
+  <li> <a href="https://github.com/gocd/gocd/issues/1121">#1121</a> - Ability for plugins to <a href="http://www.go.cd/2015/06/18/plugin-settings.html">CRUD global configuration</a>. </li>
+  <li><a href="https://github.com/gocd/gocd/issues/958">#958</a> - API method for renaming agent.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/264">#264</a> - Agent API to assign resource.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/1261">#1261</a> - Port over Users API.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/1292">#1292</a> - Port over Backup API.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/1087">#1087</a> - Switching to Jetty 9 by default</li>
+  <li><a href="https://github.com/gocd/gocd/issues/1210">#1210</a> - SSL connection errors/warnings with modern browsers</li>
+  <li><a href="https://github.com/gocd/gocd/issues/1306">#1306</a> - Upgrade jre packaged with windows installers to java 7u79</li>
+</ul>
+<h4>Bug fixes</h4>
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/68">#68</a> - Re-scheduled pipeline does not show the updated Agent IP details on the Job details page</li>
+  <li><a href="https://github.com/gocd/gocd/issues/">#1089</a> - Re-scheduled Jobs not being marked as completed on completion</li>
+  <li><a href="https://github.com/gocd/gocd/issues/">#1060</a> - Assets (and content) could be served as gzip</li>
+  <li><a href="https://github.com/gocd/gocd/issues/">#1061</a> - UTF-8 characters not getting displayed correctly when the job is running or when it is rescheduled</li>
+  <li><a href="https://github.com/gocd/gocd/issues/1291">#1291</a> and <a href="https://github.com/gocd/gocd/issues/1249">#1249</a> - Fan-in performance improvements.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/1039">#1039</a> - Fix for relative root paths in SVN 1.5+ externals.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/1109">#1109</a> - XSS vulnerability on user settings page.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/1219">#1219</a> - XSS vulnerability via SCM commit messages.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/649">#649</a> - Destination folder inside flyweight gets deleted in case a material is specified twice in the config (with and without destination).</li>
+  <li><a href="https://github.com/gocd/gocd/pull/1297">#1297</a> - UI fix to display file in artifact tab if it contains only blank spaces as file name.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/1199">#1199</a> - Could not fetch artifact with '+' symbol in filename </li>
+  <li><a href="https://github.com/gocd/gocd/issues/1012">#1012</a> - Unable to change configuration after making one of the pipelines use a template</li>
+  <li><a href="https://github.com/gocd/gocd/pull/1201">#1201</a> - Session tracking mode changed to be cookie only </li>
+</ul>
+<h4>Note</h4>
+<p> The comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+15.2%22+is%3Aclosed">here</a>.</p>
+<h4>Thanks!</h4>
+<p>
+  <a href="https://github.com/ctorpe">@ctorpe</a>, <a href="https://github.com/thenathanjones">@thenathanjones</a>,
+  <a href="https://github.com/nfisher">@nfisher</a>, <a href="https://github.com/paulclarkin">@paulclarkin</a>, <a href="https://github.com/Skarlso">@skarlso</a> for making Go better.
+</p>

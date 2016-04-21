@@ -1,0 +1,49 @@
+<h4>New plugin endpoint for "Materials"</h4>
+<p> This new plugin endpoint introduced in 15.1 allows Go’s already long list of source code materials to be extended without making changes to the core! </p>
+<p> Support for this endpoint brought along support for GitHub pull requests, contributed by an external contributor <a href="https://github.com/ashwanthkumar">@ashwanthkumar</a> (so exciting!), with support from a Go core contributor, <a href="https://github.com/srinivasupadhya/">@srinivasupadhya</a>.
+  You’ll never need to wish that Go supported your favorite kind of material repository, you can implement support for it yourself!
+</p>
+<p>
+  You can see all the SCM material plugins on the <a href="http://www.go.cd/community/plugins#scm-plugins">Go community plugins page</a>. See how to write one, <a href="http://www.go.cd/documentation/user/current/extension_points/scm_extension.html">here</a>.
+</p>
+<p>
+  Here’s how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="http://www.go.cd/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
+</p>
+<figure class="small_image">
+  <%= image_tag "releases/15.1/15_1_github_pr.png", {:title => "GitHub Pull Request with GitHub poller and notification plugins", :alt => "GitHub Pull Request with GitHub poller and notification plugins"} %>
+</figure>
+<h4>New plugin endpoint for "Notifications"</h4>
+<p>Continuing on the path of opening up different parts of Go for extension, Go 15.1 introduces a new plugin endpoint for notifications. At this point, Go notifies the plugin of changes in the status of every stage, as it happens! This allows
+  for quite a lot of use cases, and we are excited to see plugins written against this endpoint even before release (yay, open source!).</p>
+<p> <a href="https://github.com/matt-richardson">@matt-richardson</a> has written a really nice generic notification plugin, which sends build notifications to any websocket listener! <a href="https://github.com/ashwanthkumar">@ashwanthkumar</a>              has written a great plugin to notify Slack about build status changes. <a href="https://github.com/srinivasupadhya/">@srinivasupadhya</a> has written a couple of nice notification plugins to update pull request statuses in GitHub and Atlassian
+  Stash.</p>
+<p> You can see all of those plugins on the <a href="http://www.go.cd/community/plugins#notification-plugins">Go community plugins page</a>. See how to write one yourself, <a href="http://www.go.cd/documentation/user/current/extension_points/notification_extension.html">here</a>.</p>
+<h4>Pipeline label shortening</h4>
+<p> This contribution by <a href="https://github.com/alexschwartz">@alexschwartz</a> helps declutter the Go Dashboard, by allowing the pipeline label to be trimmed, per material. This feature is really useful when dealing with unwieldy 40 character
+  SHAs in pipelines with git/mercurial materials in them. This feature allows this: </p>
+<figure class="small_image">
+  <%= image_tag "releases/15.1/15_1_old_pipeline_label.png", {:title => "Old pipeline labels - Long", :alt => "Old long pipeline labels"} %>
+</figure>
+<p> to be changed into this:</p>
+<figure class="small_image">
+  <%= image_tag "releases/15.1/15_1_new_pipeline_label.png", {:title => "New pipleine labels - Short", :alt => "New short pipleine labels"} %>
+</figure>
+<p> Read more about this feature <a href="http://www.go.cd/documentation/user/current/configuration/admin_use_custom_pipeline_label.html#using-truncated-material-revisions">in the documentation.</a></p>
+<h4>Timestamps in console logs</h4>
+<p> Starting from Go 15.1, Go’s console logs will have timestamps for every line. This is very useful for finding out long-running parts of tasks. Here’s how it looks:</p>
+<figure class="small_image">
+  <%= image_tag "releases/15.1/15_1_console_log_timestamp.png", {:title => "Console log timestamps", :alt => "Console log timestamps"} %>
+</figure>
+<h5>More ...</h5>
+<p>This release is filled with many other notable features, changes and fixes, such as:</p>
+<ul>
+  <li><a href="https://github.com/gocd/gocd/pull/848">#848</a> - Support for Mercurial versions 2.0 and greater.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/781">#781</a> - Post-commit hook for Mercurial (contribution by Go team alumnus, <a href="https://github.com/sachinsudheendra">@sachinsudheendra</a>).</li>
+  <li><a href="https://github.com/gocd/gocd/pull/768">#768</a> - A beta feature to upload plugins directly from within the Go plugins tab (contribution by <a href="https://github.com/pwen">@pwen</a> and <a href="https://github.com/pamo">@pamo</a>).</li>
+  <li><a href="https://github.com/gocd/gocd/pull/700">#700</a> - Run multiple agents as services - for Linux (contribution by <a href="https://github.com/bernardn">@bernardn</a>).</li>
+  <li><a href="https://github.com/gocd/gocd/issues/400">#400</a> - Large part of a long-pending upgrade from Jetty 6 to Jetty 9 (turned off, by default in 15.1 - Waiting for some performance fixes on Jetty’s side).</li>
+  <li><a href="https://github.com/gocd/gocd/issues/104">#104</a> - Agents do not restart because of a server restart, any more (plugin sync issue fixed).</li>
+  <li><a href="https://github.com/gocd/gocd/pull/725">#725</a> - Pipeline instance information through APIs. </li>
+  <li><a href="https://github.com/gocd/gocd/pull/941">#941</a> - Small improvement around config save -Look for a lot more around this area soon! </li>
+  <li><a href="https://github.com/gocd/gocd/pull/877">#877</a> - Performance improvements around CCTray and APIs. </li>
+</ul>
