@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD is open source continuous delivery software. Learn how to use Docker to create and destroy build agents inorder to have a flexible continuous delivery setup." name="description" />
+    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, docker, agents, flexible" name="keywords" />
+    <title>Using GoCD and Docker to manage agents | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all.js"></script>
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+  </head>
+
+  <body class="x2014 x2014_05 x2014_05_18 x2014_05_18_manage-agents-with-docker x2014_05_18_manage-agents-with-docker_index">
+    <header class="top">
+  <div class="container">
+    <a class="logo" href="../../../../"><img title="GoCD Logo" alt="GoCD Logo" src="../../../../assets/images/go_logo.svg" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a class="link_whygocd" href="../../../../why-gocd/">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a class="toplink_contribute" href="../../../../contribute/">Community</a>
+          <ul  class="level1">
+            <li><a class="link_contribute" href="../../../../contribute/">Contribute</a></li>
+            <li><a class="link_events" href="../../../../events/">Events</a></li>
+            <li><a class="link_plugins" href="../../../../plugins/">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a class="link_blog" href="../../../../blog/">Blog</a></li>
+        <li class="dropdown">
+          <a class="toplink_help" href="../../../../help/">Help</a>
+          <ul  class="level1">
+            <li><a class="getting-started" href="../../../../help/">Getting started</a></li>
+            <li><a target="_blank" href="https://docs.go.cd/current/">Documentation</a></li>
+            <li><a class="link_resources" href="../../../../resources.html">Resources</a></li>
+          </ul>
+        </li>
+        <li><a class="link_download" href="../../../../download/">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+
+
+    <div class="container blog-post">
+
+  <header class="blog-post-header">
+    <h2>Using <span class="go">Go</span>CD and Docker to manage your <span class="go">Go</span>CD agents</h2>
+    <h4>Ken Mugrage</h4>
+  </header>
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      <p><strong>[Update: As of the end of 2015, it might be better to use the GoCD Docker images available on <a href="https://hub.docker.com/r/gocd/">Docker Hub</a> as they are newer and better maintained and used by many in the GoCD community]</strong></p>
+
+<p>I'm convinced that the ability to automatically create and destroy build agents is key to having a flexible continuous delivery
+setup. I'm equally convinced that this particular use case is better satisfied using very fast container technologies instead of
+virtual machines. This is blog entry talks about using Docker for this challenge.</p>
+
+<p><strong>IMPORTANT</strong> It should be noted that this blog entry and code is the result of a spike. This definitely isn't production ready,
+but could be useful if you're thinking about doing the same sort of thing. This will only work on Linux
+machines, because Docker only works on Linux machines.</p>
+
+<p>If anyone with more current programmer skills wants to fork and make it more production like, I'd be very happy to assist in any way
+I can.</p>
+
+<h3 id="setting-it-up">Setting it up</h3>
+
+<ul>
+  <li>Install Docker</li>
+  <li>Install GoCD server</li>
+  <li>
+    <p>Install at least one GoCD agent if you want to use the pipeline - Yup, even though the whole idea here is to create and destroy 
+agents automatically, we have to install at least one to run the process. The server needs this to actually run the scripts.</p>
+
+    <pre><code>  Once the GoCD agent is installed, go to the Agents tab in your GoCD user interface and assign this agent a resource of "manager" if you intend to use the GoCD pipeline below.
+</code></pre>
+  </li>
+  <li>In order for GoCD (and anyone else) to run this without having to become root, you'll have to follow the instructions under 
+"Giving non-root access" at <a href="http://docs.docker.io/installation/ubuntulinux/">http://docs.docker.io/installation/ubuntulinux/</a>. 
+I make absolutely no warranties for the security of following those instructions! Again, the point here (for me) was to spike out 
+creating agents on the fly, this is not production code.</li>
+</ul>
+
+<h3 id="the-pieces">The pieces</h3>
+
+<p>All of the scripts I'm using can be found at <a href="https://github.com/kmugrage/go-agent-docker">https://github.com/kmugrage/go-agent-docker</a>.
+Please feel free to clone / fork / send pull requests.</p>
+
+<ul>
+  <li><strong>Dockerfile</strong></li>
+</ul>
+
+<p>This is the file that defines how the docker image will be created. Normally you would run the docker build
+program against this file, but I used a shell script so that I could call it from GoCD easier later.</p>
+
+<ul>
+  <li><strong>go-agent-14.1.0-18882.deb</strong> (no longer included)</li>
+</ul>
+
+<p>Update on 22 June - The Dockerfile has been updated to use wget to download
+the GoCD 14.1 agent debian installer. If you need the RPM version visit 
+www.go.cd/download and change the Dockerfile to match your system.</p>
+
+<ul>
+  <li><strong>go-agent</strong></li>
+</ul>
+
+<p>You'll need to modify this file to set the IP address of your server. Just to make this more interesting, it needs to be the
+IP address that Docker is aware of, so probaly not the one you're used to using.</p>
+
+<p>You can find this IP address using ifconfig…</p>
+
+<pre><code>ifconfig | grep -A 1 docker
+</code></pre>
+
+<p>On my system, that returns…</p>
+
+<pre><code>docker0   Link encap:Ethernet  HWaddr 56:84:7a:fe:97:99  
+		  inet addr:172.17.42.1  Bcast:0.0.0.0  Mask:255.255.0.0
+</code></pre>
+
+<p>Because that's my address, that's what you'll see in the go-agent file. As much as I might appreciate your help in supplying
+agents for me, they won't be able to connect if you don't make this match your GoCD server.</p>
+
+<ul>
+  <li><strong>autoregister.properties</strong></li>
+</ul>
+
+<p>This file takes advantage of the autoregister feature in GoCD so that I don't have to manually approve the new agents. You'll 
+need to update the key based on the instructions at <a href="http://www.go.cd/documentation/user/current/advanced_usage/agent_auto_register.html">http://www.go.cd/documentation/user/current/advanced_usage/agent_auto_register.html</a></p>
+
+<ul>
+  <li><strong>build_docker_image.sh</strong></li>
+</ul>
+
+<p>Once you've modified the above, you're ready to build your containers. Execute this script at a command prompt.</p>
+
+<p>This step could take quite a while depending on the speed of your internet connection. It has to download the base box, 
+add Java and a bunch of other things and then create the image you'll be using.</p>
+
+<ul>
+  <li><strong>start_agent_containers.sh</strong></li>
+</ul>
+
+<p>This shell script starts docker containers from the image. You can control how many containers get started by editing
+the script itself.</p>
+
+<ul>
+  <li><strong>stop_agent_containers.sh</strong></li>
+</ul>
+
+<p>This shell script <em>stops and removes all docker containers</em> - <strong>WARNING:</strong> I do mean all. 
+If you run this on your box every single Docker container will be stopped and deleted. Did I mention this will remove
+<em>every single container</em> on your machine?</p>
+
+<p>If someone that's better with sed / awk / ? would like to modify to only remove the containers tagged with gocd/go-agent
+please feel free!</p>
+
+<ul>
+  <li><strong>remove_agents.rb</strong></li>
+</ul>
+
+<p>This Ruby script removes disables and removes all agents on the GoCD server tagged with a "docker_created"
+resource.</p>
+
+<ul>
+  <li><strong>go_config_xml_excerpt.txt</strong></li>
+</ul>
+
+<p>Everything above can be run from the command line just fine. Of course I wanted to have a GoCD pipeline manage all of this. 
+This text file shows the pipeline definition for mine. You'll need to change the github URL to point to your own. You're welcome
+to use mine from above, but I removed it here just so your pipeline doesn't get executed with my GitHub changes if you don't
+want it to.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>It's my sincere hope that my first attempt to actually use Docker (and Ruby for that matter) will help you get something real
+done. Please feel free to comment / ask questions / etc.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Mar 24</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../../2016/03/24/how-to-avoid-brittle-code/">How to Avoid Brittle Code</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 15</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../../2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">Are you ready for Continuous Delivery? Part 2: Feedback loops</a>
+            </li>
+            <li>
+              <span class="post-date">Feb  8</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2016/02/08/not-done-unless-its-done-security/">Add Security Testing to Your Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 25</span>
+              <span class="post-author">David Rice and Aravind SV</span>
+              <a href="../../../../2016/01/25/are-you-ready-for-continuous-delivery/">Are you ready for Continuous Delivery?</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 17</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2016/01/17/not-done-unless-its-done/">It's not Continuous Delivery if you can't deploy right now.</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 28</span>
+              <span class="post-author">Nenad Bozic</span>
+              <a href="../../../../2015/12/28/gocd-continuous-delivery-through-pipelines/">Guest post: GoCD - Continuous Delivery through pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 22</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="../../../../2015/12/22/gocd-in-2016/">Roadmap - GoCD in 2016</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 18</span>
+              <span class="post-author">Rajiesh</span>
+              <a href="../../../../2015/11/18/Open-Source-Tests/">Open Source Tests - The GoCD way</a>
+            </li>
+            <li>
+              <span class="post-date">Nov  9</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../../../2015/11/09/deserialization-vulnerability-commons-collections/">Vulnerability in GoCD - Java deserialization and Apache commons-collections</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 29</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2015/10/29/go-webinar-recording/">Continuous Delivery with GoCD - Webinar Recording</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../../2016/">2016 (5)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../">2014 (26)</a></li>
+          </ol>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2014/05/18/manage-agents-with-docker.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank">
+            <i class="fa fa-user-plus"></i>
+            join us
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank">
+            <i class="fa fa-wechat"></i>
+            develop with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank">
+            <i class="fa fa-binoculars"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank">
+            <i class="fa fa-twitter"></i>
+            follow us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+      <div class="links">
+         <a href="../../../../subscribe/">Subscribe to updates</a> 
+      </div>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="https://github.com/gocd/gocd.github.io" class="social-buttons"><i class="fa fa-code-fork" aria-hidden="true"></i> fork</a>
+        <a href="https://github.com/gocd/gocd.github.io/issues"  class="social-buttons"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<script type="text/javascript">
+// <![CDATA[
+!function(){var t=window.jtr=window.jtr||[];if(!t.initialize){if(t.invoked)return void(window.console&&console.error&&console.error("Journey tracking snippet included twice."));t.invoked=!0,t.methods=["page","identify","userTraits","experimentGroup","track","trackInteraction","noConflict"],t.factory=function(e){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(e),t.push(n),t}};for(var e=0;e<t.methods.length;e++){var n=t.methods[e];t[n]=t.factory(n)}t.load=function(t){var e=document.documentElement;e.setAttribute("data-jtr-device-token",t);e.setAttribute("data-jtr-events-url", "https://event-stream.journey-app.io/events");var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://cdn.journey-app.io/v1.0.3/journey-tracker.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(n,r)},t.load("j.eca3f1b7-dbb4-4594-bade-9a8eb66ffe2a"),t.page()}}();
+// ]]>
+</script>
+
+</html>

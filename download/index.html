@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD - open source continuous delivery software. Helps agile projects increase productivity and deliver high quality through automation. Download GoCD for free." name="description" />
+    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, download, Go" name="keywords" />
+    <title>Download - Free Go Server and Agent | GoCD</title>
+    <link href="../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../assets/stylesheets/site.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all.js"></script>
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
+  </head>
+
+  <body class="download download_index">
+    <header class="top">
+  <div class="container">
+    <a class="logo" href="../"><img title="GoCD Logo" alt="GoCD Logo" src="../assets/images/go_logo.svg" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a class="link_whygocd" href="../why-gocd/">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a class="toplink_contribute" href="../contribute/">Community</a>
+          <ul  class="level1">
+            <li><a class="link_contribute" href="../contribute/">Contribute</a></li>
+            <li><a class="link_events" href="../events/">Events</a></li>
+            <li><a class="link_plugins" href="../plugins/">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a class="link_blog" href="../blog/">Blog</a></li>
+        <li class="dropdown">
+          <a class="toplink_help" href="../help/">Help</a>
+          <ul  class="level1">
+            <li><a class="getting-started" href="../help/">Getting started</a></li>
+            <li><a target="_blank" href="https://docs.go.cd/current/">Documentation</a></li>
+            <li><a class="link_resources" href="../resources.html">Resources</a></li>
+          </ul>
+        </li>
+        <li><a class="link_download" href="./">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+
+
+    <div class="inner-banner plugins">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="caption"><span>Download</span></h1>
+    </div>
+  </div>
+</div>
+<main>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <p>
+        <strong>You need to download both
+        the <a href="https://docs.go.cd/current/installation/installing_go_server.html">server</a> and
+        the <a href="https://docs.go.cd/current/installation/installing_go_agent.html">agent</a> in order
+        to use GoCD. Both are free.</strong>
+      </p>
+      <p>
+        Scripting GoCD installations gets easier now. Both GoCD Server and Agent are now available on
+        public <a href="https://docs.go.cd/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhat-centos-fedora">YUM</a>
+        and <a href="https://docs.go.cd/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">APT</a> repositories!
+      </p>
+      <p>
+        If you need help downloading, installing or using GoCD please join
+        the <a href="https://groups.google.com/forum/#!forum/go-cd">GoCD Users Google Group</a>. ThoughtWorks also
+        provides commercial help for GoCD. They can be reached
+        at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p class="note"><a class="btn btn-dark" href="../subscribe/">Subscribe to updates</a> <span>on new GoCD releases and more.</span></p>
+    </div>
+  </div>
+</div>
+<script id="verify-checksum-message-template" type="text/x-handlebars-template">
+<div class="verify-checksum-message">
+  <div class="content">
+    <button class="close-message">X</button>
+    <p>You can verify the checksum on Linux or Mac OSX by doing this:</p>
+    <div class="code">
+      <p class="prompts">
+        user@shell: <br/>
+        user@shell: <br/>
+        user@shell: <br/>
+      </p>
+      <p class="commands">
+        CHECK="{{sha256sum}}"<br/>
+        echo "$CHECK {{filename}}" &gt; verify.sha256<br/>
+        sha256sum -c verify.sha256<br/>
+      </p>
+      <p class="results">
+        {{filename}}: OK
+      </p>
+      <p>
+        On Windows, you will have to use a third-party utility like <a target="_blank" href="http://code.kliu.org/misc/hashutils/">HashUtils</a>
+        or <a target="_blank" href="https://support.microsoft.com/en-us/kb/841290">fciv</a>. The values you'd be looking for are:
+      </p>
+      <p class="results">
+        File: {{filename}}<br/>
+        MD5 sum: {{md5sum}}<br/>
+        SHA1 sum: {{sha1sum}}<br/>
+        SHA256 sum: {{sha256sum}}<br/>
+      </p>
+    </div>
+  </div>
+</div>
+</script>
+<div id="downloads">
+  <div class="container">
+  <div class="load-message">
+      <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
+      <span> Please wait. Fetching information about download ...</span>
+      </div>
+  </div>
+</div>
+<script id="download-revisions-template" type="text/x-handlebars-template">
+{{#*inline "show-releases-for-installer-type"}}
+<div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
+  <div class="go-releases">
+    <div class="latest">
+      {{#with latest_release}}
+      <div class="go-release {{display_version}}">
+        <span class="version">{{display_version}}</span>
+        {{#with (lookup . ../installer_type)}}
+        <div class="files">
+          {{> show-file server type="server"}}
+          {{> show-file agent type="agent"}}
+        </div>
+        {{/with}}
+      </div>
+      {{/with}}
+    </div>
+  </div>
+  <div class="other-releases">
+    <button class="btn-release"><span>Show</span> old releases</button>
+  </div>
+  <div class="old-release">
+    {{#each all_other_releases}}
+    <div class="go-release {{display_version}}">
+      <span class="version">{{display_version}}</span>
+      {{#with (lookup . ../installer_type)}}
+      <div class="files">
+        {{> show-file server type="server"}}
+        {{> show-file agent type="agent"}}
+      </div>
+      {{/with}}
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{/inline}}
+{{#*inline "show-tab-header"}}
+<li rel="{{{tab_id}}}">
+  <span class="os-logo"><img src="{{{image}}}" alt="{{{desc}}}" /></span>
+  <span class="desc">{{{desc}}}</span>
+</li>
+{{/inline}}
+{{#*inline "show-file"}}
+<div class="{{{type}}} file">
+  <div class="name">
+    <a href="{{{url}}}" class="btn btn-primary"><i class="fa fa-download"></i> </a>
+  </div>
+  <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-sha1sum="{{{sha1sum}}}" data-md5sum="{{{md5sum}}}">
+    <button class="verify">Verify checksum</button>
+  </div>
+</div>
+{{/inline}}
+<div class="download-area">
+  <div class="container">
+    <h2 class="sub-title">Choose your OS &amp; download</h2>
+    <p class="info">Latest supported release (<span id="latest-version">{{latest_version}}</span>) <a href="../releases/#latest" class="btn btn-dark">See what's new</a> </p>
+    <ul class="tabs os">
+      {{> show-tab-header tab_id="tab1" image="../assets/images/download/windows.png" desc="Windows"}}
+      {{> show-tab-header tab_id="tab2" image="../assets/images/download/osx.png" desc="OSX"}}
+      {{> show-tab-header tab_id="tab3" image="../assets/images/download/debian.png" desc="Debian"}}
+      {{> show-tab-header tab_id="tab4" image="../assets/images/download/redhat.png" desc="RPM"}}
+      {{> show-tab-header tab_id="tab5" image="../assets/images/download/solaris.png" desc="Solaris"}}
+      {{> show-tab-header tab_id="tab6" image="../assets/images/download/package.png" desc="Package"}}
+    </ul>
+  </div>
+</div>
+<div class="os-tab-content">
+  <div class="container">
+    <div class="tab_container">
+      <h3 class="tab-accordion_heading" rel="tab1">Windows</h3>
+      {{> show-releases-for-installer-type installer_type="win"     heading="Windows" tab_id="tab1"}}
+      <h3 class="tab-accordion_heading" rel="tab2">OSX</h3>
+      {{> show-releases-for-installer-type installer_type="osx"     heading="OSX"     tab_id="tab2"}}
+      <h3 class="tab-accordion_heading" rel="tab3">Debian</h3>
+      {{> show-releases-for-installer-type installer_type="deb"     heading="Debian"  tab_id="tab3"}}
+      <h3 class="tab-accordion_heading" rel="tab4">RPM</h3>
+      {{> show-releases-for-installer-type installer_type="rpm"     heading="RPM"     tab_id="tab4"}}
+      <h3 class="tab-accordion_heading" rel="tab5">Solaris</h3>
+      {{> show-releases-for-installer-type installer_type="solaris" heading="Solaris" tab_id="tab5"}}
+      <h3 class="tab-accordion_heading" rel="tab6">Package</h3>
+      {{> show-releases-for-installer-type installer_type="generic" heading="Package" tab_id="tab6"}}
+    </div>
+  </div>
+  <div id="verify-checksum-message"></div>
+</div>
+</script>
+</main>
+<script>
+// <![CDATA[
+jQuery(document).ready(function($) {
+var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
+showDownloadLinks({typeOfInstallersToShow: isExperimental ? "experimental" : "stable"}).then(function() { startTabContainer($); });
+setupShowVerifyChecksumMessage();
+});
+// ]]>
+</script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank">
+            <i class="fa fa-user-plus"></i>
+            join us
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank">
+            <i class="fa fa-wechat"></i>
+            develop with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank">
+            <i class="fa fa-binoculars"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank">
+            <i class="fa fa-twitter"></i>
+            follow us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+      <div class="links">
+         <a href="../subscribe/">Subscribe to updates</a> 
+      </div>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="https://github.com/gocd/gocd.github.io" class="social-buttons"><i class="fa fa-code-fork" aria-hidden="true"></i> fork</a>
+        <a href="https://github.com/gocd/gocd.github.io/issues"  class="social-buttons"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<script type="text/javascript">
+// <![CDATA[
+!function(){var t=window.jtr=window.jtr||[];if(!t.initialize){if(t.invoked)return void(window.console&&console.error&&console.error("Journey tracking snippet included twice."));t.invoked=!0,t.methods=["page","identify","userTraits","experimentGroup","track","trackInteraction","noConflict"],t.factory=function(e){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(e),t.push(n),t}};for(var e=0;e<t.methods.length;e++){var n=t.methods[e];t[n]=t.factory(n)}t.load=function(t){var e=document.documentElement;e.setAttribute("data-jtr-device-token",t);e.setAttribute("data-jtr-events-url", "https://event-stream.journey-app.io/events");var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://cdn.journey-app.io/v1.0.3/journey-tracker.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(n,r)},t.load("j.eca3f1b7-dbb4-4594-bade-9a8eb66ffe2a"),t.page()}}();
+// ]]>
+</script>
+
+</html>

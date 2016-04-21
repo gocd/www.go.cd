@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD is open source continuous delivery software. Read about what the roadmap looks like for GoCD in 2016." name="description" />
+    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, roadmap, vision, 2016" name="keywords" />
+    <title>GoCD in 2016 | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all.js"></script>
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+  </head>
+
+  <body class="x2015 x2015_12 x2015_12_22 x2015_12_22_gocd-in-2016">
+    <header class="top">
+  <div class="container">
+    <a class="logo" href="../../../"><img title="GoCD Logo" alt="GoCD Logo" src="../../../assets/images/go_logo.svg" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a class="link_whygocd" href="../../../why-gocd/">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a class="toplink_contribute" href="../../../contribute/">Community</a>
+          <ul  class="level1">
+            <li><a class="link_contribute" href="../../../contribute/">Contribute</a></li>
+            <li><a class="link_events" href="../../../events/">Events</a></li>
+            <li><a class="link_plugins" href="../../../plugins/">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a class="link_blog" href="../../../blog/">Blog</a></li>
+        <li class="dropdown">
+          <a class="toplink_help" href="../../../help/">Help</a>
+          <ul  class="level1">
+            <li><a class="getting-started" href="../../../help/">Getting started</a></li>
+            <li><a target="_blank" href="https://docs.go.cd/current/">Documentation</a></li>
+            <li><a class="link_resources" href="../../../resources.html">Resources</a></li>
+          </ul>
+        </li>
+        <li><a class="link_download" href="../../../download/">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+
+
+    <div class="container blog-post">
+
+  <header class="blog-post-header">
+    <h2>Roadmap - <span class="go">Go</span>CD in 2016</h2>
+    <h4>Aravind SV</h4>
+  </header>
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      <p>GoCD 15.3 has been released! I think now is a great time to talk about GoCD in
+2016. In a way, a lot of work in 2015 was setup towards enabling more
+improvements in 2016. There was some "debt" that needed paying off, some
+performance improvements that needed to be made, some APIs that needed to be
+standardized and improved and more. All of it was valuable, in my opinion, and
+were necessary to do a lot more exciting work!</p>
+
+<p>This is what the high-level idea for GoCD in 2016 looks like:</p>
+
+<ul>
+  <li>Be universal and easily extensible through usable extension points (both APIs and plugins)</li>
+  <li>Produce more content around how GoCD can be used effectively and even how your CD journey can be more effective</li>
+  <li>Have a better getting-started experience both in the application itself and on <a href="https://go.cd">go.cd</a></li>
+  <li>Better support for clouds and containers</li>
+</ul>
+
+<p>Let’s take a look at each of these areas and what kind of changes can be expected in the GoCD ecosystem for it, in 2016:</p>
+
+<h2 id="be-universal-and-easily-extensible">Be universal and easily extensible</h2>
+
+<p>For a while now, GoCD has been introducing new extension points to make new
+<a href="https://www.go.cd/community/plugins.html">plugins</a> possible. In 2015, the
+material endpoint was introduced to enable GoCD to use newer kinds of
+materials. This led to plugins which trigger builds on GitHub pull requests, Git
+feature branches, Gerrit change sets and some plugins which have not been
+open-sourced by the authoring organizations yet. Similarly, the notification
+endpoint allowed, among other plugins, notifiers for Slack, HipChat, Gerrit,
+Websockets, etc.</p>
+
+<p>In 2016, this trend should continue with a more comprehensive notification
+endpoint which includes events related to agents registering and going missing,
+jobs and pipelines starting and finishing, config changes, user actions, logins
+and more. This should allow users and tool authors to write better dashboards,
+generate better information out of GoCD and integrate it better with external
+tools.</p>
+
+<p>Adding to this, the <a href="https://arvindsv.github.io/elastic_agents_for_gocd.html">elastic agent
+endpoint</a>, the plan for
+which is to start work in the new year, should enable quite interesting
+integrations and make GoCD more effective on clouds and containers. More on this
+below!</p>
+
+<p>Finally, the <a href="https://api.go.cd">APIs</a> in GoCD are continuously improving and are being
+extended. This will continue in 2016, and enable better integrations and UX. The
+idea is to continue to be API-first and any change to GoCD itself involves a
+re-think of the API surrounding it and often, work is done on the API and it is
+improved before the actual change is made.</p>
+
+<p>For ThoughtWorks’ <a href="https://thoughtworks.com/go">supported offering</a>, the plan is
+to use the notifications to introduce a system of reports such as audit logs,
+agent usage, end-to-end delivery times and more to provide helpful information
+to a wide audience. If that interests you, <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#116;&#104;&#111;&#117;&#103;&#104;&#116;&#119;&#111;&#114;&#107;&#115;&#046;&#099;&#111;&#109;">let us
+know</a> what kind of information and reports
+might be interesting to you, and challenges you’re facing without having them.</p>
+
+<h2 id="produce-more-content-around-gocd-and-cd-itself">Produce more content around GoCD and CD itself</h2>
+
+<p>Though there is some growing content around how CD ("Continuous Delivery")
+works, it is hard to find good guides around a lot of concepts and practices
+around it. It’s definitely hard to find it in one place. The closest is probably
+the excellent book, <a href="http://continuousdelivery.com/">Continuous Delivery</a>,
+co-authored by Jez Humble and Dave Farley. However, there’s definitely room for
+more content, including recent experience reports and learnings. I’d like us to
+start this with some ideas and posts, but <em>this is something with which you,
+wonderful reader, can help</em>. Guest posts or even edits and comments will always
+be useful. This need not be content generated solely by this community. I feel
+that it should link out to good external references as needed and be a good
+place for everyone to learn more about CD in general and improve their
+craft. Look out for more of this in 2016!</p>
+
+<h2 id="have-a-better-getting-started-experience">Have a better getting-started experience</h2>
+
+<p>GoCD’s getting started experience can definitely be better. As with everything
+these days, users’ expectations regarding their initial and continued
+experiences keeps changing. In GoCD’s world, I think one of the problems is that
+the domain of GoCD’s
+<a href="http://www.go.cd/documentation/user/current/introduction/concepts_in_go.html">concepts</a>
+takes getting used to. Other problems include a not-so-easy installation and
+evaluation experience, better documentation targeted towards a new user ("How do
+I create my first pipeline?"), better dashboard UI, a much better
+<a href="https://go.cd">go.cd</a> site which points to all this information in a meaningful
+way, etc.</p>
+
+<p>In 2016, GoCD and the ecosystem around it should change to make this possible
+and though changing everything in the application is probably a multi-year
+effort, the already-mentioned changes to the API have been making this easier to
+do, since the frontend and the backend are more clearly separated. If you have
+good UI/UX skills and are willing to help, just join us on the <a href="https://gitter.im/gocd/gocd">developers'
+Gitter channel</a> and let us know!</p>
+
+<h2 id="better-support-for-clouds-and-containers">Better support for clouds and containers</h2>
+
+<p>Though this comes up last in this list, it is definitely not the least
+important. In fact, the current plan is to start on this very soon. The cloud
+and container ecosystems (who am I kidding, no one seems to be able to look
+beyond "docker") have been exploding over the last couple of years (at least)
+and there is a definite trend of interest and move towards both of them and
+beyond them. As a CD system, I feel that GoCD can definitely help users make use
+of their investments in clouds and containers more effective, when used for CD.</p>
+
+<p>Elastic agents have been mentioned earlier in this document. In 2016, the idea
+is to use elastic agents and create a docker-container-per-job plugin, which
+runs a fully isolated job with dependency management done inside the docker
+image rather than the GoCD agent ("You need Maven 3.0? Sure. Update your
+Dockerfile and it will be taken care of. You won’t cause issues with this other
+pipeline which needs Maven 2.0."). With elastic agents, this can be done
+transparently and a GoCD agent can be brought up inside a container temporarily
+and a build can be executed and the agent torn down and thrown away. To make
+this work really well will involve some exciting changes to the GoCD Agent
+infrastructure, like moving away from a pure Java agent to a language-agnostic
+one (umm, I’m going to go for full buzz points and say, "golang") and pure JSON
+communication between the agent and the server. Though Docker is the one with
+the most interest from everyone, there are many other competing container
+ecosystems and the fact that the elastic agent endpoint is open and usable by
+anyone will help plugin authors do this for other ecosystems, if there is
+interest.</p>
+
+<p>GoCD also needs to be more easily usable in cloud ecosystems. First of all that
+means making it more easy to evaluate it on different cloud offerings. Second,
+it means having the ability to spin up agents on different cloud offerings and
+have them connect to the server. Though this is possible today, and is used by
+some users of GoCD, there is a perception that it cannot be done. I think this
+scenario should be explicitly thought about and there should be enough content
+and related infrastructure provided to make it easy for anyone to run their CD
+system in the cloud. Again, with elastic agents, they can be brought up and down
+on demand and can be really cost-effective.</p>
+
+<p>For ThoughtWorks’ <a href="https://thoughtworks.com/go">supported offering</a>, the idea is
+to pick a cloud provider (most likely AWS, as it is an obvious choice for many)
+and provide deeper integration with it, along with the ability to have fully
+elastic agents. Similarly, there is a vast ecosystem around containers to work
+with, and it is likely that there will be much deeper integration with
+Kubernetes or Mesos and maybe more. I am excited about the potential of this to
+change how organizations think about their builds, repeatability of builds and
+isolation. All topics that interest me and many on the GoCD team as well. Does
+this interest you? If so, <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#116;&#104;&#111;&#117;&#103;&#104;&#116;&#119;&#111;&#114;&#107;&#115;&#046;&#099;&#111;&#109;">write to us</a> and let us
+know what you think.</p>
+
+<h2 id="what-else">What else?</h2>
+
+<p>There is some work from 2015 that will need to be wrapped up: the new config UI
+for one, getting Tomasz' <a href="https://github.com/gocd/gocd/issues/1133">config
+changes</a> merged in, some API endpoints
+and smaller changes. But, apart from that, I’d like the core GoCD team to focus
+on what is in this document. Though this is different from 2015 where we asked
+the community to help choose ideas, I feel that it is worth trying to set a
+direction and work towards it rather than try and design by committee.</p>
+
+<p>There is always room for feedback and I’m not averse to changing this as it is
+not set in stone. However, I would like to be convinced for the need to change
+this. :) If you really feel strongly about something which is not on this and
+you think it should be fixed, you’re always welcome to work on it and submit a
+pull request and the team has been responsive to them. In fact, the feeling of
+knowing that someone else cares enough to take the effort to understand the code
+and submit a pull request is … something else. We love it!</p>
+
+<p>We have had some wonderful contributors in 2015, and I hope they continue in
+2016 and beyond and I hope we continue to get new contributors interested in
+making GoCD even better.</p>
+
+<p>You will also see many more releases in 2016 than earlier. The plan is to not
+tie releases to features and either release on a date or maybe even every green
+regression build. The team and I feel that the groundwork to do this will be
+valuable and it will be useful to the many users who are looking to get the
+latest and greatest more often, and provide quicker feedback.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Lots of exciting changes coming up: APIs, endpoints, clouds, containers, Docker,
+better content, getting started, UI and UX changes … and more. It’s going to be
+a great year!</p>
+
+<p><small>Please pardon the verbosity of this post. A better one with pictures and better
+communication might be on its way soon. :) I just wanted the information out here
+earlier than later.</small></p>
+
+<style>
+  em {
+    color: green;
+  }
+</style>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Mar 24</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../2016/03/24/how-to-avoid-brittle-code/">How to Avoid Brittle Code</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 15</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">Are you ready for Continuous Delivery? Part 2: Feedback loops</a>
+            </li>
+            <li>
+              <span class="post-date">Feb  8</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../2016/02/08/not-done-unless-its-done-security/">Add Security Testing to Your Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 25</span>
+              <span class="post-author">David Rice and Aravind SV</span>
+              <a href="../../../2016/01/25/are-you-ready-for-continuous-delivery/">Are you ready for Continuous Delivery?</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 17</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../2016/01/17/not-done-unless-its-done/">It's not Continuous Delivery if you can't deploy right now.</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 28</span>
+              <span class="post-author">Nenad Bozic</span>
+              <a href="../28/gocd-continuous-delivery-through-pipelines/">Guest post: GoCD - Continuous Delivery through pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 22</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="gocd-in-2016/">Roadmap - GoCD in 2016</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 18</span>
+              <span class="post-author">Rajiesh</span>
+              <a href="../../11/18/Open-Source-Tests/">Open Source Tests - The GoCD way</a>
+            </li>
+            <li>
+              <span class="post-date">Nov  9</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../11/09/deserialization-vulnerability-commons-collections/">Vulnerability in GoCD - Java deserialization and Apache commons-collections</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 29</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../10/29/go-webinar-recording/">Continuous Delivery with GoCD - Webinar Recording</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../2016/">2016 (5)</a></li>
+            <li><a href="../../">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2015/12/22/gocd-in-2016.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank">
+            <i class="fa fa-user-plus"></i>
+            join us
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank">
+            <i class="fa fa-wechat"></i>
+            develop with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank">
+            <i class="fa fa-binoculars"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank">
+            <i class="fa fa-twitter"></i>
+            follow us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+      <div class="links">
+         <a href="../../../subscribe/">Subscribe to updates</a> 
+      </div>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="https://github.com/gocd/gocd.github.io" class="social-buttons"><i class="fa fa-code-fork" aria-hidden="true"></i> fork</a>
+        <a href="https://github.com/gocd/gocd.github.io/issues"  class="social-buttons"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<script type="text/javascript">
+// <![CDATA[
+!function(){var t=window.jtr=window.jtr||[];if(!t.initialize){if(t.invoked)return void(window.console&&console.error&&console.error("Journey tracking snippet included twice."));t.invoked=!0,t.methods=["page","identify","userTraits","experimentGroup","track","trackInteraction","noConflict"],t.factory=function(e){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(e),t.push(n),t}};for(var e=0;e<t.methods.length;e++){var n=t.methods[e];t[n]=t.factory(n)}t.load=function(t){var e=document.documentElement;e.setAttribute("data-jtr-device-token",t);e.setAttribute("data-jtr-events-url", "https://event-stream.journey-app.io/events");var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://cdn.journey-app.io/v1.0.3/journey-tracker.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(n,r)},t.load("j.eca3f1b7-dbb4-4594-bade-9a8eb66ffe2a"),t.page()}}();
+// ]]>
+</script>
+
+</html>
