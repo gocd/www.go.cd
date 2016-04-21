@@ -59,7 +59,7 @@ var showDownloadLinks = (function($) {
 
     var showFailureMessage = function(error) {
       $("#downloads").html('<p class="not-loaded">Sorry. Something went wrong and we could not list the download links. \
-        Please report <a href="https://github.com/gocd/gocd.github.io/issues">this issue</a>.</p>')
+        Please report <a href="https://github.com/gocd/www.go.cd/issues">this issue</a>.</p>')
       console.log("Error: " + error);
     };
 
