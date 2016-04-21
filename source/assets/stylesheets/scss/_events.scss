@@ -1,0 +1,122 @@
+.webinars-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    @include clearfix;
+    @extend %flexbox;
+    @include justify-content(flex-start);
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px dashed $border;
+
+    .title {
+      font-size: 18px;
+      display: block;
+    }
+
+    .time {
+      display: block;
+      color: $gray-light;
+    }
+
+  }
+
+}
+
+.details {
+}
+
+.datebox {
+  background: $secondary-color;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-right: 20px;
+  text-align: center;
+  color: #fff;
+
+  .month {
+    display: block;
+    font-size: 16px;
+  }
+
+  .date {
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+}
+
+.events-list,
+.dates {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.event {
+    @media screen and (max-width:$screen-xs-max) {
+      margin-top: 50px;
+    }
+  .date,
+  .location {
+    display: inline-block;
+
+    .fa {
+      color: $gray-light;
+      margin-right: 5px;
+    }
+
+  }
+
+  .date {
+    margin-right: 20px;
+  }
+
+}
+
+.events-list {
+  margin: 30px 0;
+
+  > li {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #cccccc;
+  }
+
+}
+
+.details {
+  a.title {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 400;
+
+    .fa {
+      color: $secondary-color;
+      margin-top: 5px;
+    }
+
+  }
+
+}
+
+.dates {
+  margin: 10px 0px 10px;
+  @include flexbox;
+  @include flex-wrap(wrap);
+
+  li {
+    width: 275px;
+    font-size: 14px;
+    padding: 5px 0;
+      @media only screen and (min-width:$screen-lg-desktop) {
+      width: 275px;
+
+      }
+  }
+
+}

@@ -1,0 +1,651 @@
+---
+title: "What's new?"
+title_tag_of_header: "Releases - Version notes | GoCD"
+meta_description: "Description of key new features, known bugs and enhancements for versions of GoCD. GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation."
+meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, releases, version, release notes, Go"
+---
+<div class="inner-banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="caption"><span>What's new?</span></h1>
+      <span class="subcaption">Release notes of GoCD</span>
+    </div>
+  </div>
+</div>
+<main>
+<div class="container">
+  <p>
+    Check out "Enhacements" and "Bug fixes" for specific versions of Go below. As always, feel free to tell us what you think, or file a bug on <a href="https://github.com/gocd/gocd/issues/new" target="_blank">GitHub</a>.
+  </p>
+  <p>
+    <span>We try our best to credit all contributors. Apologies if we miss you out. Let us know and we will change this.</span>
+    <span>Thanks to everyone for contributing patches, feature requests, reporting issues and participating in various discussions.</span>
+  </p>
+  <div class="v-tabs all-releases">
+    <ul class="tabs">
+      <li rel="tab1" class="active"> 16.3.0 (latest)</li>
+      <li rel="tab2"> 16.2.1 </li>
+      <li rel="tab3"> 16.2 </li>
+      <li rel="tab4"> 16.1 </li>
+      <li rel="tab5"> 15.3.1 </li>
+      <li rel="tab6"> 15.3 </li>
+      <li rel="tab7"> 15.2 </li>
+      <li rel="tab8"> 15.1 </li>
+      <li rel="tab9"> 14.4 </li>
+      <li rel="tab10"> 14.3 </li>
+      <li rel="tab11"> 14.2 </li>
+      <li rel="tab12"> 14.1 </li>
+    </ul>
+    <div class="tab_container">
+      <h3 class="tab-accordion_heading  d_active" rel="tab1"> 16.3.0 (latest)</h3>
+      <div id="tab1" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Security</h4>
+          <p>
+            <strong>Important:</strong> This release fixes several XSS and CSRF vulnerabilities which can be exploited in earlier versions. As the changes are extensive, patches for older releases will not be provided. We recommend all users to upgrade
+            to this version to safeguard your GoCD server.
+          </p>
+          <p>
+            These security vulnerabilities were responsibly disclosed by <a href="https://github.com/drrb">drrb</a>. We want to give users some time to upgrade, before providing more details about the vulnerabilities. We will work with drrb on the specifics
+            of providing these details, soon.
+          </p>
+          <h4>Notable features</h4>
+          <h5>Materials</h5>
+          <ul>
+            <li>
+              <a href="https://github.com/gocd/gocd/issues/1890">Make git material clone use -n (--no-checkout) option</a>
+            </li>
+            <li>
+              <a href="https://github.com/gocd/gocd/issues/313">Use shallow clones of Git materials for faster checkouts and lower
+              disk usage</a>
+            </li>
+          </ul>
+          <figure>
+            <%= image_tag "releases/16.3/git-shallow-clone.png", {:title => "GoCD shallow clone for git", :alt => "GoCD shallow clone for git"} %>
+          </figure>
+          <h5>Configuration</h5>
+          <ul>
+            <li>
+              <a href="https://github.com/gocd/gocd/pull/2045">Using unique string for cipher generation</a>
+            </li>
+          </ul>
+          <h5>Installers</h5>
+          <ul>
+            <li>
+              <a href="https://github.com/gocd/gocd/issues/1928">Support for silent install of GoCD server on
+              windows</a>
+            </li>
+          </ul>
+          <h4>API changes</h4>
+          <p>The following APIs now require an extra request header <em>Confirm: true</em> (due to security-related changes):</p>
+          <ul>
+            <li><a href="https://api.go.cd/current/#cancel-stage">Cancel stage</a></li>
+            <li><a href="https://api.go.cd/current/#pause-a-pipeline">Pause pipeline</a></li>
+            <li><a href="https://api.go.cd/current/#unpause-a-pipeline">Unpause pipeline</a></li>
+            <li><a href="https://api.go.cd/current/#releasing-a-pipeline-lock">Releasing pipeline lock</a></li>
+            <li><a href="https://api.go.cd/current/#scheduling-pipelines">Scheduling pipeline</a></li>
+            <li><a href="https://api.go.cd/current/#notify-svn-materials">Notify SVN materials</a></li>
+            <li><a href="https://api.go.cd/current/#notify-git-materials">Notify Git materials</a></li>
+            <li><a href="https://api.go.cd/current/#notify-mercurial-materials">Notify Mercurial materials</a></li>
+            <li><a href="https://api.go.cd/current/#create-property">Create property</a></li>
+          </ul>
+          <h4>Deprecations</h4>
+          <ul>
+            <li>
+              <p>
+                The old java API-based plugin extensions for tasks and package repositories has been deprecated. Developers are encouraged to use the new JSON message-based APIs to author plugins.
+              </p>
+              <p>
+                <strong>These APIs will be removed in the September release of GoCD.</strong>
+              </p>
+            </li>
+            <li>
+              <p>
+                In light of downward trend in Solaris installers, we are now considering a timeline to stop providing Solaris installers for GoCD. Users can continue to use the generic zip files to run GoCD on Solaris. However the support for Solaris will be on a best-effort
+                basis.
+              </p>
+              <p>
+                <strong>We will stop providing Solaris installers from the July release of GoCD.</strong>
+              </p>
+            </li>
+          </ul>
+          <h4>Note</h4>
+          <p>
+            A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.3%22+is%3Amerged">here.</a>
+          </p>
+          <h4>Contributors</h4>
+          <p>
+            <strong>Special thanks to <a href="https://github.com/drrb">drrb</a> for reporting and verifying all of the security vulnerabilities in this release.</strong></p>
+            <p> Thanks to
+              <a href="https://github.com/andregmoeller">Andre Moeller</a>,
+              <a href="https://github.com/arvindsv">Aravind SV</a>,
+              <a href="https://github.com/bradeac">bradeac</a>,
+              <a href="https://github.com/cnorthwood">Chris Northwood</a>,
+              <a href="https://github.com/danielsomerfield">Daniel Somerfield</a>,
+              <a href="https://github.com/djrice">David Rice</a>,
+              <a href="https://github.com/d-led">Dmitry Ledentsov</a>,
+              <a href="https://github.com/FredrikWendt">Fredrik Wendt</a>,
+              <a href="https://github.com/gmlewis">Glenn Lewis</a>,
+              <a href="https://github.com/janfabry">Jan Fabry</a>,
+              <a href="https://github.com/jalleyne">Jovan Alleyne</a>,
+              <a href="https://github.com/jyotisingh">Jyoti Singh</a>,
+              <a href="https://github.com/juhijariwala">Juhi Jariwala</a>,
+              <a href="https://github.com/juhasipo">Juha Siponen</a>,
+              <a href="https://github.com/ketan">Ketan Padegaonkar</a>,
+              <a href="https://github.com/maheshp">Mahesh Panchaksharaiah</a>,
+              <a href="https://github.com/rajiesh">Rajiesh Narayanan</a>,
+              <a href="https://github.com/tomzo">Tomasz Sętkowski</a>,
+              <a href="https://github.com/varshavaradarajan">Varsha V</a>,
+              <a href="https://github.com/wpc">WPC</a>,
+              <a href="https://github.com/xli">Xiao Li</a>,
+              <a href="https://github.com/zabil">Zabil C.M</a> for making GoCD better!
+            </p>
+          </div>
+        </div>
+        <h3 class="tab-accordion_heading" rel="tab2"> 16.2.1 </h3>
+        <div id="tab2" class="tab_content">
+          <div class="content">
+            <p>
+              <span class="text-important">Important</span>: 16.2 has been removed from the downloads page because it had an <a href="https://github.com/gocd/gocd/issues/1936">issue</a> which caused problems while installing windows agents.</p>
+              <h5>Fixes</h5>
+              <ul>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1936">Error on windows agent 16.2 update</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="tab-accordion_heading" rel="tab3"> 16.2  </h3>
+          <div id="tab3" class="tab_content">
+            <div class="content">
+              <h4>What's new in GoCD 16.2</h4>
+              <h5>Features and bug fixes</h5>
+              <ul>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1808">Select a range of agents by shift-clicking
+                  checkboxes</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1909">Fix system call to kill processes on agents running
+                  Java 8</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1898">[Security] When editing SVN, TFS, P4 materials, the
+                  plain password is printed in html.</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/issues/871">Output environment variables once per job instead
+                  of per task</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1822">[Performance] Turn off JRuby's invokedynamic on to
+                  improve performance on servers running Java 8</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/issues/1785">Git material is always cloned if branch is set to
+                  empty string</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/issues/1646">[Config] Do not allow blank users in
+                  "authorization"</a>
+                </li>
+              </ul>
+              <h4>Note</h4>
+              <p>
+                A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.2%22">here.</a>
+              </p>
+              <h4>Contributors</h4>
+              <p>
+                <a href="https://github.com/arvindsv">Aravind SV</a>,
+                <a href="https://github.com/grahamc">Graham Christensen</a>,
+                <a href="https://github.com/jyotisingh">Jyoti Singh</a>,
+                <a href="https://github.com/juhijariwala">Juhi Jariwala</a>,
+                <a href="https://github.com/ketan">Ketan Padegaonkar</a>,
+                <a href="https://github.com/maheshp">Mahesh Panchaksharaiah</a>,
+                <a href="https://github.com/mrmanc">Mark Crossfield</a>,
+                <a href="https://github.com/rajiesh">Rajiesh Narayanan</a>,
+                <a href="https://github.com/tomzo">Tomasz Sętkowski</a>,
+                <a href="https://github.com/varshavaradarajan">Varsha V</a>,
+                <a href="https://github.com/wpc">WPC</a>,
+                <a href="https://github.com/xli">Xiao Li</a>,
+                <a href="https://github.com/zabil">Zabil C.M</a>
+              </p>
+            </div>
+          </div>
+          <h3 class="tab-accordion_heading" rel="tab4"> 16.1  </h3>
+          <div id="tab4" class="tab_content">
+            <div class="content">
+              <h4>What's new in GoCD 16.1</h4>
+              <p>
+                We are moving to a more regular release schedule, and so you might see releases with mostly issues fixed, while bigger level features are in progress across releases.
+              </p>
+              <h5>Important features and bug fixes in this release -</h5>
+              <ul>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1739">Don't send 'Server:' header from Jetty</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1489">GoCD 15.2's config schema (cruise-config.xsd)
+                  causes validation errors</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1740">Throwing BadCredentialsException when user is not
+                  found in configured…</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1741">Pipeline Config validation fixes</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/issues/1753">Pipeline API: updating a lot of pipelines stops
+                  working </a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1779">Check approvers properly against allowed roles</a>
+                </li>
+                <li>
+                  <a href="https://github.com/gocd/gocd/pull/1786">Fix some compatibility when installing RPM packages
+                  on RHEL5 and derivatives (#1766) </a>
+                </li>
+              </ul>
+              <h4>Note</h4>
+              <p>
+                The comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.1%22+is%3Aclosed">here.</a>
+              </p>
+              <h4>Thanks!</h4>
+              <p>Tomasz Setkowski, Sean Escriva for making this release of GoCD better!</p>
+            </div>
+          </div>
+          <h3 class="tab-accordion_heading" rel="tab5"> 15.3.1 </h3>
+          <div id="tab5" class="tab_content">
+            <div class="content">
+              <h4>What's new in GoCD 15.3.1</h4>
+              <p><span class="text-important">Important</span>: 15.3.1 has been removed from the downloads page because it had an <a href="https://github.com/gocd/gocd/issues/1753">issue</a> which could have caused problems during configuration save. The issue
+            mentioned is fixed in 16.1.0. The rest of the issues mentioned below are a part of 16.1.0 as well. We highly recommend upgrading to 16.1.0.</p>
+            <h5>Important bug fixes in this release -</h5>
+            <ul>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1743" class="issue-title-link js-navigation-open">
+                  File handle leak that causes windows agents to not cleanup properly
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/pull/1747" class="issue-title-link js-navigation-open">
+                  Fix OOM on agents when parsing large xml test artefacts
+                </a>
+              </li>
+            </ul>
+            <h4>Note</h4>
+            <p>
+              The comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+15.3.1%22+is%3Aclosed">here.</a>
+            </p>
+          </div>
+        </div>
+        <h3 class="tab-accordion_heading" rel="tab6"> 15.3  </h3>
+        <div id="tab6" class="tab_content">
+          <div class="content">
+            <h4>New API for editing pipelines</h4>
+            <p>
+              A convenience JSON HAL compliant API for modifying pipelines. Check
+              <a href="https://api.go.cd/current/#pipeline-config">api.go.cd</a> for usage details.
+            </p>
+            <h4>Get informed about updates</h4>
+            <p>
+              A new version of Go CD is released every few months, with this feature you’ll now be notified about the latest supported release (if you are running an older version).
+            </p>
+            <p>
+              <%= image_tag "releases/15.3/update-check-bell.png", {:title => "Notification Bell icon", :alt => "Bell icon on the top nav bar"} %>
+            </p>
+            <p>
+              <%= image_tag "releases/15.3/update-check-info.png", {:title => "Release notification appears on hovering over the bell icon", :alt => "Release notification appears on hovering over the bell icon"} %>
+            </p>
+            <h4>Other notable features</h4>
+            <ul>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1522" class="issue-title-link js-navigation-open">
+                  Add Environment to the parameters of the Update Agent API
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1567" class="issue-title-link js-navigation-open">
+                  Integrate periodic garbage collection for config.git
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/pull/1573" class="issue-title-link js-navigation-open">
+                  Allow agents API to update resources that an agent is associated with (#1522)
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/pull/1542" class="issue-title-link js-navigation-open">
+                  Add API endpoint to create a user.
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/pull/1524" class="issue-title-link js-navigation-open">
+                  Pipeline paused by and comment to the pipeline status API.
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1406" class="issue-title-link js-navigation-open">
+                  Make embedded SQL cross compatible
+                </a>
+              </li>
+            </ul>
+            <h4>Important bug fixes</h4>
+            <ul>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1628" class="issue-title-link js-navigation-open">
+                  Upgrade commons-collections to library version 3.2.2
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1456" class="issue-title-link js-navigation-open">
+                  Formatted console output with incorrect formatting
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1450" class="issue-title-link js-navigation-open">
+                  Pipeline Configuration Peforce, unable to specify "ssl:"
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1438" class="issue-title-link js-navigation-open">
+                  UI reports agent as "disabled (building)", API only reports "disabled"
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1393" class="issue-title-link js-navigation-open">
+                  check paths in zip archive before unzipping during artifact upload
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/gocd/gocd/issues/1349" class="issue-title-link js-navigation-open">
+                  New console log - last lines obscured
+                </a>
+              </li>
+            </ul>
+            <h4>Note</h4>
+            <p>
+              The comprehensive list of changes for this release can be found
+              <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+15.3%22+is%3Aclosed">here</a>.
+            </p>
+            <h4>Thanks!</h4>
+            <p> Tomasz Setkowski, Steve Hill, Alex Schwartz, Pooja R, Srinivas Upadhya, Xiao Li, Sandy Gordon, Arun Kumar, Björn Andersson, Federica Luraschi, Graham Christensen, Parker Shelton, Justin, Max Griffiths, Ashok Gowtham M, Massood, Ben Overmyer,James M. Greene, Ashwanth Kumar, Jakub Narloch, Alex Voitau, Joakim Wånggren, Paul Clarkin, X O and markuswehrle for making Go better.
+            </p>
+          </div>
+        </div>
+        <h3 class="tab-accordion_heading" rel="tab7"> 15.2  </h3>
+        <div id="tab7" class="tab_content">
+          <div class="content">
+            <h4>Improvements to the console log</h4>
+            <p>
+              GoCD now supports rendering of ANSI color codes to show you much more beautiful console logs. Additionally, Go will automatically follow the logs as your build produces it, very much like your favorite terminal program.
+            </p>
+            <figure class="small_image">
+              <%= image_tag "releases/15.2/console-log-color.png", {:title => "Console log coloring", :alt => "Console log coloring"} %>
+            </figure>
+            <h5>Authentication end-point</h5>
+            <p>
+              With the newly exposed authentication end-point, Go users can now add custom authentication schemes through plugins. Read the <a href="http://www.go.cd/2015/06/18/authentication-end-point.html">blog
+              post</a> for details.
+            </p>
+            <figure class="extra_small_image">
+              <%= image_tag "blog/authentication-plugins/login-page.png", {:title => "GoCD Login Page with GitHub icon", :alt => "GoCD Login Page with Git Hub icon"} %>
+            </figure>
+            <h5>Setup hostname when auto-registering agents</h5>
+            <p>
+              You can now specify a property <code>agent.auto.register.hostname</code> to setup the hostname when
+              <a href='http://www.go.cd/documentation/user/current/advanced_usage/agent_auto_register.html'>auto-registering</a> an agent.
+            </p>
+            <h4>API Improvements</h4>
+            <p>
+              Go's APIs are fairly old, have inconsistent and unpredictable content types (csv, xml, json, plain text).
+            </p>
+            <p>
+              We have now migrated the
+              <a href="http://api.go.cd/#agents">Agents API</a>,
+              <a href="http://api.go.cd/#users">Users API</a>,
+              <a href="http://api.go.cd/#backups">Backups API</a> to use JSON hypermedia API (using JSON+HAL).
+            </p>
+            <p> Going forward, we would like to announce an ongoing effort to improve and migrate existing APIs to use something that is more modern, easy to discover, learn and build API clients for. </p>
+            <p>Learn more about the new API on our new <a href='http://api.go.cd'>api documentation</a> site.</p>
+            <h4>Other notable features</h4>
+            <ul>
+              <li> <a href="https://github.com/gocd/gocd/issues/194">#194</a> - Allow secure variables (environment) on environments, stages and jobs. </li>
+              <li> <a href="https://github.com/gocd/gocd/issues/1121">#1121</a> - Ability for plugins to <a href="http://www.go.cd/2015/06/18/plugin-settings.html">CRUD global configuration</a>. </li>
+              <li><a href="https://github.com/gocd/gocd/issues/958">#958</a> - API method for renaming agent.</li>
+              <li><a href="https://github.com/gocd/gocd/issues/264">#264</a> - Agent API to assign resource.</li>
+              <li><a href="https://github.com/gocd/gocd/pull/1261">#1261</a> - Port over Users API.</li>
+              <li><a href="https://github.com/gocd/gocd/pull/1292">#1292</a> - Port over Backup API.</li>
+              <li><a href="https://github.com/gocd/gocd/issues/1087">#1087</a> - Switching to Jetty 9 by default</li>
+              <li><a href="https://github.com/gocd/gocd/issues/1210">#1210</a> - SSL connection errors/warnings with modern browsers</li>
+              <li><a href="https://github.com/gocd/gocd/issues/1306">#1306</a> - Upgrade jre packaged with windows installers to java 7u79</li>
+            </ul>
+            <h4>Bug fixes</h4>
+            <ul>
+              <li><a href="https://github.com/gocd/gocd/issues/68">#68</a> - Re-scheduled pipeline does not show the updated Agent IP details on the Job details page</li>
+              <li><a href="https://github.com/gocd/gocd/issues/">#1089</a> - Re-scheduled Jobs not being marked as completed on completion</li>
+              <li><a href="https://github.com/gocd/gocd/issues/">#1060</a> - Assets (and content) could be served as gzip</li>
+              <li><a href="https://github.com/gocd/gocd/issues/">#1061</a> - UTF-8 characters not getting displayed correctly when the job is running or when it is rescheduled</li>
+              <li><a href="https://github.com/gocd/gocd/issues/1291">#1291</a> and <a href="https://github.com/gocd/gocd/issues/1249">#1249</a> - Fan-in performance improvements.</li>
+              <li><a href="https://github.com/gocd/gocd/issues/1039">#1039</a> - Fix for relative root paths in SVN 1.5+ externals.</li>
+              <li><a href="https://github.com/gocd/gocd/issues/1109">#1109</a> - XSS vulnerability on user settings page.</li>
+              <li><a href="https://github.com/gocd/gocd/issues/1219">#1219</a> - XSS vulnerability via SCM commit messages.</li>
+              <li><a href="https://github.com/gocd/gocd/issues/649">#649</a> - Destination folder inside flyweight gets deleted in case a material is specified twice in the config (with and without destination).</li>
+              <li><a href="https://github.com/gocd/gocd/pull/1297">#1297</a> - UI fix to display file in artifact tab if it contains only blank spaces as file name.</li>
+              <li><a href="https://github.com/gocd/gocd/pull/1199">#1199</a> - Could not fetch artifact with '+' symbol in filename </li>
+              <li><a href="https://github.com/gocd/gocd/issues/1012">#1012</a> - Unable to change configuration after making one of the pipelines use a template</li>
+              <li><a href="https://github.com/gocd/gocd/pull/1201">#1201</a> - Session tracking mode changed to be cookie only </li>
+            </ul>
+            <h4>Note</h4>
+            <p> The comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+15.2%22+is%3Aclosed">here</a>.</p>
+            <h4>Thanks!</h4>
+            <p>
+              <a href="https://github.com/ctorpe">@ctorpe</a>, <a href="https://github.com/thenathanjones">@thenathanjones</a>,
+              <a href="https://github.com/nfisher">@nfisher</a>, <a href="https://github.com/paulclarkin">@paulclarkin</a>, <a href="https://github.com/Skarlso">@skarlso</a> for making Go better.
+            </p>
+          </div>
+        </div>
+        <h3 class="tab-accordion_heading" rel="tab8"> 15.1  </h3>
+        <div id="tab8" class="tab_content">
+          <div class="content">
+            <h4>New plugin endpoint for "Materials"</h4>
+            <p> This new plugin endpoint introduced in 15.1 allows Go’s already long list of source code materials to be extended without making changes to the core! </p>
+            <p> Support for this endpoint brought along support for GitHub pull requests, contributed by an external contributor <a href="https://github.com/ashwanthkumar">@ashwanthkumar</a> (so exciting!), with support from a Go core contributor, <a href="https://github.com/srinivasupadhya/">@srinivasupadhya</a>.
+            You’ll never need to wish that Go supported your favorite kind of material repository, you can implement support for it yourself!
+          </p>
+          <p>
+            You can see all the SCM material plugins on the <a href="http://www.go.cd/community/plugins#scm-plugins">Go community plugins page</a>. See how to write one, <a href="http://www.go.cd/documentation/user/current/extension_points/scm_extension.html">here</a>.
+          </p>
+          <p>
+            Here’s how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="http://www.go.cd/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
+          </p>
+          <figure class="small_image">
+            <%= image_tag "releases/15.1/15_1_github_pr.png", {:title => "GitHub Pull Request with GitHub poller and notification plugins", :alt => "GitHub Pull Request with GitHub poller and notification plugins"} %>
+          </figure>
+          <h4>New plugin endpoint for "Notifications"</h4>
+          <p>Continuing on the path of opening up different parts of Go for extension, Go 15.1 introduces a new plugin endpoint for notifications. At this point, Go notifies the plugin of changes in the status of every stage, as it happens! This allows
+          for quite a lot of use cases, and we are excited to see plugins written against this endpoint even before release (yay, open source!).</p>
+          <p> <a href="https://github.com/matt-richardson">@matt-richardson</a> has written a really nice generic notification plugin, which sends build notifications to any websocket listener! <a href="https://github.com/ashwanthkumar">@ashwanthkumar</a>              has written a great plugin to notify Slack about build status changes. <a href="https://github.com/srinivasupadhya/">@srinivasupadhya</a> has written a couple of nice notification plugins to update pull request statuses in GitHub and Atlassian
+        Stash.</p>
+        <p> You can see all of those plugins on the <a href="http://www.go.cd/community/plugins#notification-plugins">Go community plugins page</a>. See how to write one yourself, <a href="http://www.go.cd/documentation/user/current/extension_points/notification_extension.html">here</a>.</p>
+        <h4>Pipeline label shortening</h4>
+        <p> This contribution by <a href="https://github.com/alexschwartz">@alexschwartz</a> helps declutter the Go Dashboard, by allowing the pipeline label to be trimmed, per material. This feature is really useful when dealing with unwieldy 40 character
+      SHAs in pipelines with git/mercurial materials in them. This feature allows this: </p>
+      <figure class="small_image">
+        <%= image_tag "releases/15.1/15_1_old_pipeline_label.png", {:title => "Old pipeline labels - Long", :alt => "Old long pipeline labels"} %>
+      </figure>
+      <p> to be changed into this:</p>
+      <figure class="small_image">
+        <%= image_tag "releases/15.1/15_1_new_pipeline_label.png", {:title => "New pipleine labels - Short", :alt => "New short pipleine labels"} %>
+      </figure>
+      <p> Read more about this feature <a href="http://www.go.cd/documentation/user/current/configuration/admin_use_custom_pipeline_label.html#using-truncated-material-revisions">in the documentation.</a></p>
+      <h4>Timestamps in console logs</h4>
+      <p> Starting from Go 15.1, Go’s console logs will have timestamps for every line. This is very useful for finding out long-running parts of tasks. Here’s how it looks:</p>
+      <figure class="small_image">
+        <%= image_tag "releases/15.1/15_1_console_log_timestamp.png", {:title => "Console log timestamps", :alt => "Console log timestamps"} %>
+      </figure>
+      <h5>More ...</h5>
+      <p>This release is filled with many other notable features, changes and fixes, such as:</p>
+      <ul>
+        <li><a href="https://github.com/gocd/gocd/pull/848">#848</a> - Support for Mercurial versions 2.0 and greater.</li>
+        <li><a href="https://github.com/gocd/gocd/pull/781">#781</a> - Post-commit hook for Mercurial (contribution by Go team alumnus, <a href="https://github.com/sachinsudheendra">@sachinsudheendra</a>).</li>
+        <li><a href="https://github.com/gocd/gocd/pull/768">#768</a> - A beta feature to upload plugins directly from within the Go plugins tab (contribution by <a href="https://github.com/pwen">@pwen</a> and <a href="https://github.com/pamo">@pamo</a>).</li>
+        <li><a href="https://github.com/gocd/gocd/pull/700">#700</a> - Run multiple agents as services - for Linux (contribution by <a href="https://github.com/bernardn">@bernardn</a>).</li>
+        <li><a href="https://github.com/gocd/gocd/issues/400">#400</a> - Large part of a long-pending upgrade from Jetty 6 to Jetty 9 (turned off, by default in 15.1 - Waiting for some performance fixes on Jetty’s side).</li>
+        <li><a href="https://github.com/gocd/gocd/issues/104">#104</a> - Agents do not restart because of a server restart, any more (plugin sync issue fixed).</li>
+        <li><a href="https://github.com/gocd/gocd/pull/725">#725</a> - Pipeline instance information through APIs. </li>
+        <li><a href="https://github.com/gocd/gocd/pull/941">#941</a> - Small improvement around config save -Look for a lot more around this area soon! </li>
+        <li><a href="https://github.com/gocd/gocd/pull/877">#877</a> - Performance improvements around CCTray and APIs. </li>
+      </ul>
+    </div>
+  </div>
+  <h3 class="tab-accordion_heading" rel="tab9"> 14.4  </h3>
+  <div id="tab9" class="tab_content">
+    <div class="content">
+      <h4>New Features</h4>
+      <ul>
+        <li><a href="https://github.com/gocd/gocd/issues/719">719</a> - JSON message based Plugin APIs (docs - <a href="http://www.go.cd/documentation/developer/writing_go_plugins/package_material/json_message_based_package_material_extension.html">package</a>,
+        <a href="http://www.go.cd/documentation/developer/writing_go_plugins/task/json_message_based_task_extension.html">task</a>)
+      </li>
+      <li><a href="https://github.com/gocd/gocd/issues/44">44</a> - Revise how new pipelines appear under 'Personalize'. Thanks <a href="https://github.com/mmb">@mmb</a> for the contribution. (<a href="http://www.go.cd/documentation/user/14.4.0/navigation/pipelines_dashboard_page.html#personalize-pipelines-view">docs</a>)
+    </li>
+    <li> <a href="https://github.com/gocd/gocd/pull/699">699</a> - Users can comment on pipeline run history. (<a href="http://www.go.cd/documentation/user/current/beta/comment_on_pipeline_run.html">docs</a>)<br/>Note: This feature needs some improvements
+    listed <a href="https://github.com/gocd/gocd/issues/707">here</a>. Therefore the feature is turned 'off' for this release. To turn 'on' the feature, see <a href="https://github.com/gocd/gocd/pull/766#issuecomment-66963529">details</a>.
+    Thanks <a href="https://github.com/mmb">@mmb</a>, <a href="https://github.com/gajwani">@gajwani</a>,<a href="https://github.com/fkotsian">@fkotsian</a> &amp; <a href="https://github.com/bsnchan">@bsnchan</a>contribution.
+  </li>
+</ul>
+<h4>Bug Fixes</h4>
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/716">716</a> - Multiline commit comments don't trigger notifications. Thanks <a href="https://github.com/mythgarr">@mythgarr</a> for the contribution. </li>
+  <li><a href="https://github.com/gocd/gocd/issues/360">360</a> - Unable to 'clean working directory' when recursive symlinks are present. Also, improved logging for error scenario. Thanks <a href="https://github.com/mmb">@mmb</a> &amp; <a href="https://github.com/gajwani">@gajwani</a>                for the contribution. </li>
+  <li><a href="https://github.com/gocd/gocd/pull/770">770</a> - 'Check connection' for package materials fails in 'new pipeline creation' wizard when there are many other task plugins registered.</li>
+</ul>
+<h4>Others</h4>
+<ul>
+  <li><a href="https://github.com/gocd/gocd/pull/688">688</a> - Change command error stream prefix to STDERR. Thanks <a href="https://github.com/mmb">@mmb</a> for the contribution.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/769">769</a> - Remove unnecessary logging from test environment. Thanks <a href="https://github.com/hammerdr">@hammerdr</a> for the contribution.</li>
+</ul>
+</div>
+</div>
+<h3 class="tab-accordion_heading" rel="tab10"> 14.3 </h3>
+<div id="tab10" class="tab_content">
+<div class="content">
+<h4>New Features</h4>
+<ul>
+  <li>
+    <a href="https://github.com/gocd/gocd/pull/396">396</a> - Automate running 'X' instances of a particular job and achieve faster results by parallelization. (<a href="http://www.go.cd/documentation/user/current/advanced_usage/admin_spawn_multiple_jobs#run-x-instances-of-a-job">docs</a>)
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/pull/225">225</a>, <a href="https://github.com/gocd/gocd/pull/394">394</a> &amp; <a href="https://github.com/gocd/gocd/pull/395">395</a> - New APIs.
+  </li>
+  <ul>
+    <li><a href="http://www.go.cd/documentation/user/current/api/pipeline_api.html#pipeline-history">Pipeline History API</a></li>
+    <li><a href="http://www.go.cd/documentation/user/current/api/stages_api.html#stage-history">Stage History API</a></li>
+    <li><a href="http://www.go.cd/documentation/user/current/api/job_api.html#job-history">Job History API</a></li>
+    <li><a href="http://www.go.cd/documentation/user/current/api/agent_api.html#agent-job-run-history">Agent Job Run History API</a></li>
+    <li><a href="http://www.go.cd/documentation/user/current/api/materials_api.html#modifications-api">Material Modification Listing API</a></li>
+    <li><a href="http://www.go.cd/documentation/user/current/api/configuration_api.html#config-repository-modification-listing-api">Configuration Repository Modification Listing API</a></li>
+    <li><a href="http://www.go.cd/documentation/user/current/api/pipeline_group_api.html#config-listing-api">Pipeline Group Listing API</a></li>
+    <li><a href="http://www.go.cd/documentation/user/current/api/materials_api.html#config-listing-api">Material Listing API</a></li>
+  </ul>
+</ul>
+<h4>Enhancements</h4>
+<ul>
+  <li> <a href="https://github.com/gocd/gocd/pull/435">435</a> - Value Stream Map for a commit. (<a href="http://www.go.cd/documentation/user/current/navigation/value_stream_map#viewing-the-value-stream-map">docs</a>)
+</li>
+<li><a href="https://github.com/gocd/gocd/pull/466">466</a> - Setting up e-mail notifications is now easier with 'any pipeline' and 'any stage' options. Thanks <a href="https://github.com/lcs777">@lcs777</a> for the contribution. (<a href="http://www.go.cd/documentation/user/current/configuration/dev_notifications.html">docs</a>)
+</li>
+<li><a href="https://github.com/gocd/gocd/pull/460">460</a> - Enhanced search which hide pipelines. Thanks <a href="https://github.com/ciotlosm">@ciotlosm</a> for the contribution.</li>
+<li><a href="https://github.com/gocd/gocd/pull/310">310</a> - Plugin logger now allows logging exceptions. Thanks <a href="https://github.com/tusharm">@tusharm</a> for the contribution.
+</li>
+</ul>
+<h4>Tech Debt</h4>
+<ul>
+<li>
+<a href="https://github.com/gocd/gocd/pull/130">130</a> - Upgrade Rails 2.3.14 to 4.0.4. Thanks <a href="https://github.com/juniorz">@juniorz</a> for your ideas and contributions during the early days of migration.
+</li>
+<li><a href="https://github.com/gocd/gocd/issues/401">401</a> - Moved four database tables to Hibernate from iBatis. Not something we expected to get a PR for, kudos to <a href="https://github.com/RikTyer">@RikTyer</a> for this one.
+</li>
+</ul>
+<h4>Bug Fixes</h4>
+<ul>
+<li><a href="https://github.com/gocd/gocd/issues/315">315</a> - Pipeline label was not getting resolved in case of auto trigger. </li>
+<li><a href="https://github.com/gocd/gocd/issues/403">403</a> - If Go server has firewall restrictions on outgoing connections, Xml test artifacts with dtd specified used to cause problems while uploading. </li>
+<li><a href="https://github.com/gocd/gocd/issues/469">469</a> - Fixed logged in session timeout. Thanks <a href="https://github.com/greenmoss">@greenmoss</a> for reporting the issue. </li>
+<li><a href="https://github.com/gocd/gocd/issues/297">297</a> - Resource and personalise drop-downs were not showing up properly on some versions of chrome.</li>
+<li><a href="https://github.com/gocd/gocd/issues/482">482</a> - In Value Stream Map, material circle was not being rendered properly. Thanks <a href="https://github.com/dvarchev">@dvarchev</a> for investigating and sending a patch.</li>
+<li><a href="https://github.com/gocd/gocd/issues/548">548</a> - Polling and builds used to fail when a git submodule URL changed. Thanks <a href="https://github.com/mmb">@mmb</a> for the contribution. </li>
+<li><a href="https://github.com/gocd/gocd/issues/314">314</a> - Don't allow leading/trailing spaces in commands. Thanks <a href="https://github.com/sahilm">@sahilm</a> for the patch.
+</li>
+<li><a href="https://github.com/gocd/gocd/issues/525">525</a> - Output working directory in console output and when polling fails. Thanks <a href="https://github.com/mmb">@mmb</a> for the patch.
+</li>
+</ul>
+<h5>Other</h5>
+<ul>
+<li> <a href="https://github.com/gocd/gocd/issues/659">659</a> - Go has new <a href="http://www.go.cd/documentation/user/current">user documentation</a>. A big thank you to <a href="https://github.com/afoster">@afoster</a> for the commits. Thanks
+<a href="https://github.com/gregoriomelo">@gregoriomelo</a> and <a href="https://github.com/mastojun">@mastojun</a> for your contributions. </li>
+</ul>
+</div>
+</div>
+<h3 class="tab-accordion_heading" rel="tab11"> 14.2 </h3>
+<div id="tab11" class="tab_content">
+<div class="content">
+<h4>Enhancements</h4>
+<ul>
+<li><a href="https://github.com/gocd/gocd/pull/190">190</a> - Git post commit hook to trigger Go pipeline.
+</li>
+<li><a href="https://github.com/gocd/gocd/pull/271">271</a> - Make card activity gadget work with mingle saas instance.
+</li>
+<li><a href="https://github.com/gocd/gocd/pull/185">185</a> - Adding a layer of database connection configurations.
+</li>
+<li><a href="https://github.com/gocd/gocd/pull/203">203</a> - Adding verbosity to exception message while loading DatabaseProvider.
+</li>
+<li><a href="https://github.com/gocd/gocd/pull/114">114</a> - Move OSX packaging from ant to buildr.
+</li>
+</ul>
+<h4>Bug Fixes</h4>
+<ul>
+<li><a href="https://github.com/gocd/gocd/pull/286">286</a> - Go server logs for mac installers are not coming up.
+</li>
+<li><a href="https://github.com/gocd/gocd/pull/196">196</a> - Cannot save a job which has colon (:) in its Nant Path.
+</li>
+<li><a href="https://github.com/gocd/gocd/pull/223">223</a> - Large artifact fail to upload.</li>
+<li><a href="https://github.com/gocd/gocd/pull/246">246</a> - Pipeline history view flashes for long pipelines.
+</li>
+<li><a href="https://github.com/gocd/gocd/pull/91">91</a> - The pipeline activity page does not show the revision completely even on hovering on it.
+</li>
+</ul>
+<h4>Others</h4>
+<ul>
+<li><a href="https://github.com/gocd/gocd/pull/231">213</a> - Removing unused filter code.</li>
+</ul>
+</div>
+</div>
+<h3 class="tab-accordion_heading" rel="tab12"> 14.1 </h3>
+<div id="tab12" class="tab_content">
+<div class="content">
+<a name="14.1"></a>
+<h4>Enhancements</h4>
+<ul>
+<li>Added capability to create a Task plugin.</li>
+</ul>
+<h4>Bug Fixes</h4>
+<ul>
+<li>Fixed a corner case issue around job reschedule.</li>
+<li>Fixed issue where SVN post-commit hook was not passing along credentials.</li>
+<li>Fixed issue with adding users via UI with a . (dot) in the username.</li>
+<li>Go Agent handles UnknownHostException by substituting host name with a generated name.</li>
+<li>Task running executables in the working directory should now be prefixed with ./.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+jQuery(document).ready(function($) {
+startTabContainer($);
+});
+</script>

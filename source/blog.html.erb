@@ -1,0 +1,38 @@
+---
+title: GoCD - Blog
+pageable: false
+title_tag_of_header: "Blog - Continuous Delivery | GoCD"
+meta_description: "GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD."
+meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software development"
+---
+<div class="inner-banner blog-banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="caption"><span><span class="go">Go</span>CD Blog</span></h1>
+    </div>
+    <%= link_to 'RSS feed', '/feed.xml' , { :class=>"rss-feed" }  %>
+  </div>
+</div>
+<% latest_post = page_articles.first %>
+<% second_post = page_articles[1] %>
+<% articles    = page_articles.drop(1) %>
+
+<main class="main blog-list" >
+  <div class="container">
+    <div class="blog-list-item latest-blog">
+    <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => latest_post } %>
+  </div>
+
+    <div class="row">
+      <% (0..2).each do |column_index| %>
+        <div class="col-sm-6 col-md-4">
+          <% articles.select.with_index {|article, index| index % 3 == column_index}.each do |article| %>
+            <div class="blog-list-item">
+              <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => article } %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

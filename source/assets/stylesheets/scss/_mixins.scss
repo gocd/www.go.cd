@@ -1,0 +1,104 @@
+// mixins
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+// linear gradinet mixin
+// usage  @include linearGradient(#cccccc, #666666);
+
+@mixin linearGradient($top, $bottom) {
+  background: $top; /* Old browsers */
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $top), color-stop(100%, $bottom)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, $top 0%, $bottom 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $top 0%, $bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $top 0%, $bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $top 0%, $bottom 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#000000', GradientType=0); /* IE6-9 */
+}
+
+// button mixin
+
+
+@mixin button-bg($bg) {
+  background: $bg;
+  // @include linearGradient($bg, darken($bg, 20%));
+  transition: all 1s ease;
+
+  &:hover {
+    @include linearGradient($bg, lighten($bg, 2%));
+    transition: all 1s ease;
+  }
+
+  &:active {
+    transition: all 0.5s ease;
+    @include linearGradient($bg, lighten($bg, 2%));
+  }
+
+}
+
+.btn {
+  text-decoration: none;
+  // padding: 5px 10px;
+  // border-radius: 3px;
+  // font-size: 15px;
+  // // border: 0;
+}
+
+//ellipsis
+
+
+$font-size: 14px;
+$line-height: 1.4;
+$lines-to-show: 2;
+$font-size-subtitle: 12px;
+$line-height: 1.2;
+$lines-to-show: 2;
+$font-size-single: 12px;
+$line-height-single: 1.4;
+$lines-to-show-single: 1;
+
+.ellipsis {
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box !important;
+  max-width: 290px;
+  height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin ellipsis($width) {
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box !important;
+  max-width: $width;
+  height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin ellipsis-txt($width, $fontsize, $lineheight, $linestoshow) {
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box !important;
+  max-width: $width;
+  height: $fontsize*$lineheight*$linestoshow; /* Fallback for non-webkit */
+  font-size: $fontsize;
+  line-height: $lineheight;
+  -webkit-line-clamp: $linestoshow;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

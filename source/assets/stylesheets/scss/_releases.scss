@@ -1,0 +1,37 @@
+.versions {
+  a {
+    display: inline-block;
+    background: $secondary-color;
+    padding: 5px 10px;
+    border-radius: $border-radius;
+    color: #fff;
+  }
+
+}
+
+.all-releases {
+  @include clearfix;
+  margin: 30px 0;
+
+  .content {
+    h3 {
+      margin: 0 0 30px 0;
+    }
+
+    h4 {
+      margin: 30px 0;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+
+    }
+
+  }
+
+  figure {
+    display: block;
+    margin: 30px 0;
+  }
+
+}

@@ -1,0 +1,49 @@
+---
+layout: post
+title: GoCD 14.1 Released
+status: public
+type: post
+published: true
+author: GoCD Team
+excerpt: "This is a release announcement of GoCD 14.1, which allowed task plugins, by introducing a task plugin endpoint"
+summary_image: "/assets/images/blog/gocd-versions/gocd_14_1.png"
+title_tag_of_header: "Version 14.1 released | GoCD Blog"
+meta_description: "GoCD is open source continuous delivery software. Version 14.1 of GoCD released on Apr 24 2014. Read about the new features that are now available."
+meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, version, release, 14.1, product"
+---
+
+
+Today we released GoCD 14.1. 
+
+### New Feature
+
+#### Create your own task plugins for GoCD.
+
+GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you'll see something like this:
+
+<%= image_tag "blog/go_14_1_announcement/1_Without_Curl.png", {:title => "Configuration UI for Task without Curl", :alt => "Configuration UI for Task without Curl"} %>
+
+A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.
+
+For instance, you can find the source of a sample Curl plugin in GoCD's updated help documents. Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:
+
+<%= image_tag "blog/go_14_1_announcement/2_With_Curl.png", {:title => "Configuration UI for Task with Curl", :alt => "Configuration UI for Task with Curl"} %>
+
+
+<div class="highlight" style="background:#FFF6E4">
+	To use the new plugin related features of GoCD, it is required that you upgrade the agent-bootstrapper with version < 12.3. Although agent-bootstrapper version >= 12.3 is capable of handling this feature, we recommend upgrading your go-server and go-agents to the latest release.
+</div>
+
+### Source Code Updates
+
+The way that GoCD is built and tested has been updated to make it easier for people to contribute. 
+
+### Bug Fixes
+
+- Fixed a corner case issue around job reschedule. [(link)](https://github.com/GoCD/GoCD/issues/6)
+- Fixed issue where SVN post-commit hook was not passing along credentials. [(link)](https://github.com/GoCD/GoCD/issues/9)
+- Fixed issue with adding users via UI with a . (dot) in the username. [(link)](https://github.com/GoCD/GoCD/issues/17)
+- GoCD Agent handles UnknownHostException by substituting host name with a generated name. [(link)](https://github.com/GoCD/GoCD/issues/19)
+- Task running executables in the working directory should now be prefixed with ./ [(link)](https://github.com/GoCD/GoCD/issues/21)
+
+<br><br>

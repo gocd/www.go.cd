@@ -1,0 +1,266 @@
+---
+layout: layout
+title: Getting Started
+title_tag_of_header: "Help - Getting Started with GoCD Part Three | GoCD"
+meta_description: "New to GoCD - open source continuous delivery software? Learn about some of GoCD's concepts and features, and get the chance to try them out on a real server."
+meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, help, support, resources, getting started, release automation, Go"
+---
+
+<div class="inner-banner">
+  <div class="container">
+    <h1 class="caption"><span>Getting started with GoCD</span></h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <%= partial "getting-started-nav", :locals => {:open_nav_at => "part-3"} %>
+    <div class="col-md-9">
+      <div class="getting-started-content">
+        <p>
+          In <%= link_to 'Part 1', '/getting-started/part-1/index.html' %> of this guide, the concepts of GoCD Server, GoCD Agents,
+          pipelines, materials, stages, jobs and tasks were introduced. You were also able to get a simple pipeline
+          with a single stage, job and task each working.
+        </p>
+
+        <p>
+          In <%= link_to 'Part 2', '/getting-started/part-2/index.html' %>, you learnt about using pipelines as materials
+          (dependency materials), artifacts and custom tabs.
+        </p>
+
+        <p>Let us continue, in this part, by learning about the Value Stream Map (VSM) and about fan-in and fan-out.</p>
+
+        <h2 class="big-title" id="value_stream_map">Value Stream Map (VSM)</h2>
+
+        <section class="concept" id="concept_vsm">
+          <h3>Concept 9: Value Stream Map (VSM)</h3>
+
+          <p>
+            The Value Stream Map is the full end-to-end (from commits to production) view across pipelines, and maps to
+            the concept of a "Continuous Delivery Pipeline" or "Deployment Pipeline", in the book, "Continuous Delivery"
+            by Jez Humble and David Farley. In their book, a couple of different views of a Deployment Pipeline are
+            presented:
+          </p>
+
+          <figure>
+            <%= image_tag "image01.png", {:title => "Deployment Pipeline - Moving closer to production increases confidence of build's production", :alt => "Deployment Pipeline view shows that as you go closer to production, the confidence of the build's production readiness increases"} %>
+            <figcaption>
+              The idea is that, as you go closer to production, the confidence of the build's production readiness
+              increases. (Image &copy; Humble, Farley)
+            </figcaption>
+          </figure>
+
+          <figure>
+            <%= image_tag "image02.png", {:title => "Deployment Pipeline - Interactions between source code repositories, artifact repositories and different stages", :alt => "Image depicts the interactions between source code repositories, artifact repositories and different stages of the Deployment Pipeline."} %>
+            <figcaption>
+              This depicts the interactions between source code repositories, artifact repositories and different stages
+              of the Deployment Pipeline. (Image &copy; Humble, Farley)
+            </figcaption>
+          </figure>
+
+          <p>
+            A corresponding representation of a Value Stream Map in GoCD looks like this:
+          </p>
+
+          <figure>
+            <%= image_tag "image03.png", {:title => "Representation of Value Stream Map in GoCD", :alt => "Go C D Value Stream Map representing the stages of deployment pipeline"} %>
+          </figure>
+
+          <p>
+            There are some unfortunate differences in naming between GoCD and the book. What is termed as a "Stage of a Deployment
+            Pipeline" in the book is called a "Pipeline" in GoCD. The "Deployment Pipeline" (end-to-end) is called the "Value
+            Stream Map". In the rest of this guide, the term "Pipeline" will refer to a GoCD Pipeline and the term "Stage" will
+            refer to a "Stage of a GoCD pipeline".
+          </p>
+
+          <p>
+            Interestingly, Jez Humble was the first product manager of GoCD, and was around while these naming decisions were
+            made. Rumour has it that he regrets the choice of the overloaded term, "Pipeline". :)
+          </p>
+
+          <p>
+            The previously defined concepts of a Pipeline, Artifact and Pipeline Dependency (chaining of pipelines) come
+            together to enable a true end-to-end Deployment Pipeline, which is known as a Value Stream Map (VSM) in GoCD. . The
+            ability to do this, and so this concept is important because:
+          </p>
+
+          <ol start="1">
+            <li>
+              <strong>Abstraction</strong>: It is a level of abstraction in modeling, and allows you to hide (by default) what
+              is going on underneath and not have to know the details unless you need to. It helps talk about and reason about
+              your end-to-end workflow at a different level.
+            </li>
+            <li>
+              <strong>Build once</strong>: This allows artifacts to be propagated through the pipelines. As mentioned in the
+              Artifact concept definition, this enables an important CD concept, "Only Build Your Binaries Once".
+            </li>
+            <li>
+              <strong>Parallelization</strong>: This provides another approach to parallelize your workflow. In the example
+              above, the User Acceptance Pipeline and the Capacity Testing Pipeline can run simultaneously, providing quicker
+              feedback. This will be discussed later in this guide, in the Fan-In/Fan-Out section.
+            </li>
+            <li>
+              <strong>Traceability</strong>: This provides true auditability and traceability, all the way from a commit to
+              production. You know exactly what went into production.
+            </li>
+          </ol>
+        </section>
+
+        <p>
+          To use a Value Stream Map in GoCD, you don't really need to do anything. If you've pipelines which use
+          pipeline dependencies, then you can always get a VSM at the click of a button. Here is a dashboard view of
+          pipelines which map to the example shown in the concept. Clicking on the label (marked in red boxes) of any of
+          the pipelines shows the VSM from the perspective of that pipeline:
+        </p>
+        <figure>
+          <%= image_tag "getting-started/gateways-to-VSM.png", {:title => "The labels of pipelines: gateways to VSM", :alt => "The labels of pipelines - gateways to VSM"} %>
+          <figcaption>The labels of pipelines: gateways to VSM</figcaption>
+        </figure>
+
+        <p>Clicking on the label of the "Production" pipeline, takes you to its Value Stream Map, in which all of its upstream
+          pipelines and their source control materials are shown.</p>
+
+        <figure>
+          <%= image_tag "getting-started/production-pipeline.png", {:title => "VSM from the view of the Production pipeline", :alt => "VSM from the view of the Production pipeline"} %>
+          <figcaption>VSM from the view of the "Production" pipeline</figcaption>
+        </figure>
+
+        <p>
+          Clicking on the label of the "Build" pipeline, either from the dashboard or the VSM view above, takes you to a
+          similar view with the perspective of the "Build" pipeline instance you clicked on. It is shown below. You can
+          see that the source material of "CapacityTesting" pipeline is not shown, because it is not directly downstream
+          of the "Build" pipeline.
+        </p>
+
+        <figure class="screenshot">
+          <%= image_tag "getting-started/build-pipeline.png", {:title => "VSM from the view of the Build pipeline", :alt => "VSM from the view of the Build pipeline"} %>
+          <figcaption>VSM from the view of the "Build" pipeline</figcaption>
+        </figure>
+
+        <p>
+          Now, that we know about the VSM, let's delve a little deeper into powerful concepts called fan-in and fan-out,
+          which the VSM visualizes.
+        </p>
+
+        <h2 class="big-title" id="fan_out_fan_in">Fan-Out and Fan-In</h2>
+
+        <p>Let's start with the basic concepts and then use an example to understand this further.</p>
+
+        <section class="concept" id="concept_fan_out_fan_in">
+          <h3>Concept 10: Fan-Out and Fan-In</h3>
+
+          <h4>Fan-Out</h4>
+
+          <p>
+            A pipeline "X" can be said to fan-out to downstream pipelines, when there are multiple downstream pipelines
+            for which pipeline "X" is a dependency. It looks like this:
+          </p>
+
+          <figure>
+            <%= image_tag "image07.png", {:title => "Pipeline fanning out to downstream pipelines", :alt => "Pipeline fanning out to downstream pipelines"} %>
+          </figure>
+          <p>
+            Similarly, a source material can be said to fan-out to downstream pipelines:
+          </p>
+
+          <figure>
+            <%= image_tag "image08.png", {:title => "Source Material fanning out to downstream pipelines", :alt => "Source Material fanning out to downstream pipelines"} %>
+          </figure>
+          <p>
+            This brings in the advantages of parallelization and quicker feedback, which is a key goal of Continuous Delivery. As
+            long as there are enough agents available, all three downstream dependencies will trigger together and can run
+            together.
+          </p>
+
+          <h4>Fan-In</h4>
+
+          <p>
+            Opposite of fan-out. When multiple dependencies are used by a single pipeline, then the dependencies are
+            said to fan-in to the pipeline. It looks like this:
+          </p>
+
+          <figure>
+            <%= image_tag "image09.png", {:title => "Fanning In - Multiple dependencies used by a single pipeline", :alt => "image shows multiple dependencies used by a single pipeline as fanning in to the pipeline"} %>
+          </figure>
+
+          <p>
+            In this example, there is a fan-in at the Production pipeline, from its two upstream pipelines and the git
+            material. Similarly, there is a fan-in at the CapacityTesting pipeline. The important aspect of fan-in is
+            not that there are multiple dependencies upstream, but the way that the pipeline is triggered, by ensuring
+            that all of its dependencies are consistent in version, when the pipeline runs. This ensures correctness of
+            the build, and quicker feedback through elimination of spurious builds.
+          </p>
+        </section>
+
+        <p>
+          Let's bring back an earlier VSM view, from the Production pipeline perspective, with the links leading into
+          the Production pipeline emphasized a bit, by pinning it:
+        </p>
+
+        <figure>
+          <%= image_tag "image10.png", {:title => "VSM with links pinned - showing fan-in", :alt => "VSM with links pinned - showing fan-in"} %>
+          <figcaption>VSM with links pinned - showing fan-in</figcaption>
+        </figure>
+
+        <p>
+          In this setup, the Build pipeline is said to fan-out to the UserAcceptance and CapacityTesting pipelines, and
+          the git material, UserAcceptance pipeline, and CapacityTesting pipeline are said to fan-in to the Production
+          pipeline. From a terminology perspective, that might make sense. But what does it really mean? Why is it
+          important?
+        </p>
+
+        <p>
+          To understand that, let's consider what should happen when a commit (say C1) is made to the git material
+          shown. Even though the Production pipeline has a direct dependency on the git material, it should not be
+          triggered automatically. The correct order of triggering of pipelines is:
+        </p>
+
+        <ol>
+          <li>Build pipeline - with commit C1 (let's say the pipeline label of this is "Build_1").</li>
+          <li>Once it succeeds, both UserAcceptance and CapacityTesting pipelines with "Build_1" as their dependency (say "UA_1" and "CT_1").</li>
+          <li>Once they succeed, Production pipeline with git commit C1, pipeline dependency UA_1, and pipeline dependency CT_1.</li>
+        </ol>
+
+        <p>
+          This ordering and consistency of versioning is what GoCD with fan-out and fan-in will ensure. There are two
+          main reasons for this to be considered very important:
+        </p>
+
+        <ol>
+          <li>
+            <p>
+              <strong>Correctness</strong>: Without fan-in, if the CapacityTesting pipeline was slow and UserAcceptance
+              pipeline was fast, then the Production pipeline could have been triggered with an old version of
+              CapacityTesting pipeline and a new version of UserAcceptance pipeline. Imagine deploying to Production
+              without really knowing that all upstream dependent pipelines have not finished successfully!
+            </p>
+
+            <p>
+              A very important part of fan-out and fan-in is that a downstream pipeline will <em>always</em> figure out
+              the correct upstream dependency versions, including repository materials, unless it is manually forced by
+              a user not to.
+            </p>
+
+            <p>
+              Similarly, any artifacts fetched from any upstream pipeline, however many levels up, is guaranteed to be
+              consistent and correct. This means that the right revision of those artifacts will be fetched,
+              irrespective of any other runs of that pipeline that may have run after.
+            </p>
+          </li>
+
+          <li>
+            <strong>Quicker feedback</strong>: By eliminating spurious builds which should never have been built (using
+            wrong dependencies), fan-in provides quicker feedback. Similarly, fan-out allows multiple independent
+            downstream pipelines to run simultaneously, providing quicker feedback.
+          </li>
+        </ol>
+
+        <p>
+          This has been a bit of a whirlwind tour of some of GoCD's concepts and ideas. To learn more about all the
+          other features and how to use them, head on over to the <a href="https://docs.go.cd/current/">GoCD
+          documentation</a> page.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
