@@ -23,7 +23,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
     <span>Thanks to everyone for contributing patches, feature requests, reporting issues and participating in various discussions.</span>
   </p>
 
-  <% releases = Dir["source/partials/release_notes/_release-*"].reverse.collect do |release_file, index| %>
+  <% releases = Dir["source/partials/release_notes/_release-*"].sort.reverse.collect do |release_file, index| %>
   <%   release_file.sub(%r{.*release_notes/_release-(.*).html.erb}, '\1') %>
   <% end %>
 
