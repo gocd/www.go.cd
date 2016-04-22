@@ -430,7 +430,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
             <h5>Setup hostname when auto-registering agents</h5>
             <p>
               You can now specify a property <code>agent.auto.register.hostname</code> to setup the hostname when
-              <a href='http://www.go.cd/documentation/user/current/advanced_usage/agent_auto_register.html'>auto-registering</a> an agent.
+              <a href='https://docs.go.cd/current/advanced_usage/agent_auto_register.html'>auto-registering</a> an agent.
             </p>
             <h4>API Improvements</h4>
             <p>
@@ -490,7 +490,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
             You’ll never need to wish that Go supported your favorite kind of material repository, you can implement support for it yourself!
           </p>
           <p>
-            You can see all the SCM material plugins on the <a href="http://www.go.cd/community/plugins#scm-plugins">Go community plugins page</a>. See how to write one, <a href="http://www.go.cd/documentation/user/current/extension_points/scm_extension.html">here</a>.
+            You can see all the SCM material plugins on the <a href="http://www.go.cd/community/plugins#scm-plugins">Go community plugins page</a>. See how to write one, <a href="https://docs.go.cd/current/extension_points/scm_extension.html">here</a>.
           </p>
           <p>
             Here’s how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="http://www.go.cd/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
@@ -503,7 +503,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
           for quite a lot of use cases, and we are excited to see plugins written against this endpoint even before release (yay, open source!).</p>
           <p> <a href="https://github.com/matt-richardson">@matt-richardson</a> has written a really nice generic notification plugin, which sends build notifications to any websocket listener! <a href="https://github.com/ashwanthkumar">@ashwanthkumar</a>              has written a great plugin to notify Slack about build status changes. <a href="https://github.com/srinivasupadhya/">@srinivasupadhya</a> has written a couple of nice notification plugins to update pull request statuses in GitHub and Atlassian
         Stash.</p>
-        <p> You can see all of those plugins on the <a href="http://www.go.cd/community/plugins#notification-plugins">Go community plugins page</a>. See how to write one yourself, <a href="http://www.go.cd/documentation/user/current/extension_points/notification_extension.html">here</a>.</p>
+        <p> You can see all of those plugins on the <a href="http://www.go.cd/community/plugins#notification-plugins">Go community plugins page</a>. See how to write one yourself, <a href="https://docs.go.cd/current/extension_points/notification_extension.html">here</a>.</p>
         <h4>Pipeline label shortening</h4>
         <p> This contribution by <a href="https://github.com/alexschwartz">@alexschwartz</a> helps declutter the Go Dashboard, by allowing the pipeline label to be trimmed, per material. This feature is really useful when dealing with unwieldy 40 character
       SHAs in pipelines with git/mercurial materials in them. This feature allows this: </p>
@@ -514,7 +514,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
       <figure class="small_image">
         <%= image_tag "releases/15.1/15_1_new_pipeline_label.png", {:title => "New pipleine labels - Short", :alt => "New short pipleine labels"} %>
       </figure>
-      <p> Read more about this feature <a href="http://www.go.cd/documentation/user/current/configuration/admin_use_custom_pipeline_label.html#using-truncated-material-revisions">in the documentation.</a></p>
+      <p> Read more about this feature <a href="https://docs.go.cd/current/configuration/admin_use_custom_pipeline_label.html#using-truncated-material-revisions">in the documentation.</a></p>
       <h4>Timestamps in console logs</h4>
       <p> Starting from Go 15.1, Go’s console logs will have timestamps for every line. This is very useful for finding out long-running parts of tasks. Here’s how it looks:</p>
       <figure class="small_image">
@@ -540,12 +540,12 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
     <div class="content">
       <h4>New Features</h4>
       <ul>
-        <li><a href="https://github.com/gocd/gocd/issues/719">719</a> - JSON message based Plugin APIs (docs - <a href="http://www.go.cd/documentation/developer/writing_go_plugins/package_material/json_message_based_package_material_extension.html">package</a>,
-        <a href="http://www.go.cd/documentation/developer/writing_go_plugins/task/json_message_based_task_extension.html">task</a>)
+        <li><a href="https://github.com/gocd/gocd/issues/719">719</a> - JSON message based Plugin APIs (docs - <a href="https://developer.go.cd/current/writing_go_plugins/package_material/json_message_based_package_material_extension.html">package</a>,
+        <a href="https://developer.go.cd/current/writing_go_plugins/task/json_message_based_task_extension.html">task</a>)
       </li>
-      <li><a href="https://github.com/gocd/gocd/issues/44">44</a> - Revise how new pipelines appear under 'Personalize'. Thanks <a href="https://github.com/mmb">@mmb</a> for the contribution. (<a href="http://www.go.cd/documentation/user/14.4.0/navigation/pipelines_dashboard_page.html#personalize-pipelines-view">docs</a>)
+      <li><a href="https://github.com/gocd/gocd/issues/44">44</a> - Revise how new pipelines appear under 'Personalize'. Thanks <a href="https://github.com/mmb">@mmb</a> for the contribution. (<a href="https://docs.go.cd/14.4.0/navigation/pipelines_dashboard_page.html#personalize-pipelines-view">docs</a>)
     </li>
-    <li> <a href="https://github.com/gocd/gocd/pull/699">699</a> - Users can comment on pipeline run history. (<a href="http://www.go.cd/documentation/user/current/beta/comment_on_pipeline_run.html">docs</a>)<br/>Note: This feature needs some improvements
+    <li> <a href="https://github.com/gocd/gocd/pull/699">699</a> - Users can comment on pipeline run history. (<a href="https://docs.go.cd/current/beta/comment_on_pipeline_run.html">docs</a>)<br/>Note: This feature needs some improvements
     listed <a href="https://github.com/gocd/gocd/issues/707">here</a>. Therefore the feature is turned 'off' for this release. To turn 'on' the feature, see <a href="https://github.com/gocd/gocd/pull/766#issuecomment-66963529">details</a>.
     Thanks <a href="https://github.com/mmb">@mmb</a>, <a href="https://github.com/gajwani">@gajwani</a>,<a href="https://github.com/fkotsian">@fkotsian</a> &amp; <a href="https://github.com/bsnchan">@bsnchan</a>contribution.
   </li>
@@ -569,27 +569,27 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
 <h4>New Features</h4>
 <ul>
   <li>
-    <a href="https://github.com/gocd/gocd/pull/396">396</a> - Automate running 'X' instances of a particular job and achieve faster results by parallelization. (<a href="http://www.go.cd/documentation/user/current/advanced_usage/admin_spawn_multiple_jobs#run-x-instances-of-a-job">docs</a>)
+    <a href="https://github.com/gocd/gocd/pull/396">396</a> - Automate running 'X' instances of a particular job and achieve faster results by parallelization. (<a href="https://docs.go.cd/current/advanced_usage/admin_spawn_multiple_jobs#run-x-instances-of-a-job">docs</a>)
   </li>
   <li>
     <a href="https://github.com/gocd/gocd/pull/225">225</a>, <a href="https://github.com/gocd/gocd/pull/394">394</a> &amp; <a href="https://github.com/gocd/gocd/pull/395">395</a> - New APIs.
   </li>
   <ul>
-    <li><a href="http://www.go.cd/documentation/user/current/api/pipeline_api.html#pipeline-history">Pipeline History API</a></li>
-    <li><a href="http://www.go.cd/documentation/user/current/api/stages_api.html#stage-history">Stage History API</a></li>
-    <li><a href="http://www.go.cd/documentation/user/current/api/job_api.html#job-history">Job History API</a></li>
-    <li><a href="http://www.go.cd/documentation/user/current/api/agent_api.html#agent-job-run-history">Agent Job Run History API</a></li>
-    <li><a href="http://www.go.cd/documentation/user/current/api/materials_api.html#modifications-api">Material Modification Listing API</a></li>
-    <li><a href="http://www.go.cd/documentation/user/current/api/configuration_api.html#config-repository-modification-listing-api">Configuration Repository Modification Listing API</a></li>
-    <li><a href="http://www.go.cd/documentation/user/current/api/pipeline_group_api.html#config-listing-api">Pipeline Group Listing API</a></li>
-    <li><a href="http://www.go.cd/documentation/user/current/api/materials_api.html#config-listing-api">Material Listing API</a></li>
+    <li><a href="https://docs.go.cd/current/api/pipeline_api.html#pipeline-history">Pipeline History API</a></li>
+    <li><a href="https://docs.go.cd/current/api/stages_api.html#stage-history">Stage History API</a></li>
+    <li><a href="https://docs.go.cd/current/api/job_api.html#job-history">Job History API</a></li>
+    <li><a href="https://docs.go.cd/current/api/agent_api.html#agent-job-run-history">Agent Job Run History API</a></li>
+    <li><a href="https://docs.go.cd/current/api/materials_api.html#modifications-api">Material Modification Listing API</a></li>
+    <li><a href="https://docs.go.cd/current/api/configuration_api.html#config-repository-modification-listing-api">Configuration Repository Modification Listing API</a></li>
+    <li><a href="https://docs.go.cd/current/api/pipeline_group_api.html#config-listing-api">Pipeline Group Listing API</a></li>
+    <li><a href="https://docs.go.cd/current/api/materials_api.html#config-listing-api">Material Listing API</a></li>
   </ul>
 </ul>
 <h4>Enhancements</h4>
 <ul>
-  <li> <a href="https://github.com/gocd/gocd/pull/435">435</a> - Value Stream Map for a commit. (<a href="http://www.go.cd/documentation/user/current/navigation/value_stream_map#viewing-the-value-stream-map">docs</a>)
+  <li> <a href="https://github.com/gocd/gocd/pull/435">435</a> - Value Stream Map for a commit. (<a href="https://docs.go.cd/current/navigation/value_stream_map#viewing-the-value-stream-map">docs</a>)
 </li>
-<li><a href="https://github.com/gocd/gocd/pull/466">466</a> - Setting up e-mail notifications is now easier with 'any pipeline' and 'any stage' options. Thanks <a href="https://github.com/lcs777">@lcs777</a> for the contribution. (<a href="http://www.go.cd/documentation/user/current/configuration/dev_notifications.html">docs</a>)
+<li><a href="https://github.com/gocd/gocd/pull/466">466</a> - Setting up e-mail notifications is now easier with 'any pipeline' and 'any stage' options. Thanks <a href="https://github.com/lcs777">@lcs777</a> for the contribution. (<a href="https://docs.go.cd/current/configuration/dev_notifications.html">docs</a>)
 </li>
 <li><a href="https://github.com/gocd/gocd/pull/460">460</a> - Enhanced search which hide pipelines. Thanks <a href="https://github.com/ciotlosm">@ciotlosm</a> for the contribution.</li>
 <li><a href="https://github.com/gocd/gocd/pull/310">310</a> - Plugin logger now allows logging exceptions. Thanks <a href="https://github.com/tusharm">@tusharm</a> for the contribution.
@@ -618,7 +618,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
 </ul>
 <h5>Other</h5>
 <ul>
-<li> <a href="https://github.com/gocd/gocd/issues/659">659</a> - Go has new <a href="http://www.go.cd/documentation/user/current">user documentation</a>. A big thank you to <a href="https://github.com/afoster">@afoster</a> for the commits. Thanks
+<li> <a href="https://github.com/gocd/gocd/issues/659">659</a> - Go has new <a href="https://docs.go.cd/current">user documentation</a>. A big thank you to <a href="https://github.com/afoster">@afoster</a> for the commits. Thanks
 <a href="https://github.com/gregoriomelo">@gregoriomelo</a> and <a href="https://github.com/mastojun">@mastojun</a> for your contributions. </li>
 </ul>
 </div>
