@@ -1,29 +1,42 @@
 <h4>Security</h4>
-<p><b>Important:</b> There are several security fixes to prevent XSS, CSRF and remote execution exploits. We highly recommend this upgrade to keep your GoCD server and agent secure.
-</p><h4>Performance</h4>
-<p><a href="https://github.com/gocd/gocd/pull/2106">#2106</a> Handle eviction/expiry of composite-keys from GoCache</p>
-<h4>Note</h4>
+
 <p>
-  A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.4%22+is%3Amerged">here.</a>
+  <b>Important:</b> There are several security fixes to prevent XSS, CSRF and remote execution exploits. We highly recommend this upgrade to keep your GoCD server and agent secure.
 </p>
-<h4>Contributors</h4>
+
+<h4>Performance</h4>
+
+<p><%= link_to_pull_request(2106, 'Handle eviction/expiry of composite-keys from GoCache') %></p>
+
+<h4>Note</h4>
+
 <p>
-  <strong>Special thanks again to <a href="https://github.com/drrb">drrb</a> for reporting and verifying all of the security vulnerabilities in this release.</strong></p>
-<p> Thanks to
-  <a href="https://github.com/arvindsv">Aravind SV</a>,
-  <a href="https://github.com/aguestuser">Austin Guest</a>,
-  <a href="https://github.com/djrice">David Rice</a>,
-  <a href="https://github.com/ganeshspatil">Ganesh S Patil</a>,
-  <a href="https://github.com/jemarley">Jen Marley</a>,
-  <a href="https://github.com/jyotisingh">Jyoti Singh</a>,
-  <a href="https://github.com/juhijariwala">Juhi Jariwala</a>,
-  <a href="https://github.com/ketan">Ketan Padegaonkar</a>,
-  <a href="https://github.com/maheshp">Mahesh Panchaksharaiah</a>,
-  <a href="https://github.com/naveenbhaskar">Naveen Bhaskar</a>,
-  <a href="https://github.com/rajiesh">Rajiesh Narayanan</a>,
-  <a href="https://github.com/icnocop">Rami</a>,
-  <a href="https://github.com/varshavaradarajan">Varsha V</a>,
-  <a href="https://github.com/wpc">WPC</a>,
-  <a href="https://github.com/xli">Xiao Li</a>,
-  <a href="https://github.com/zabil">Zabil C.M</a> for making GoCD better!
+  A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 16.4' %>
+</p>
+
+<h4>Contributors</h4>
+
+<p>
+  <strong>Special thanks again to <%= link_to_github_user('drrb') %> for reporting and verifying all of the security vulnerabilities in this release.</strong>
+</p>
+
+<p>
+  Thanks to
+  <%= link_to_github_user('arvindsv', 'Aravind SV') %>,
+  <%= link_to_github_user('aguestuser', 'Austin Guest') %>,
+  <%= link_to_github_user('djrice', 'David Rice') %>,
+  <%= link_to_github_user('ganeshspatil', 'Ganesh S Patil') %>,
+  <%= link_to_github_user('jemarley', 'Jen Marley') %>,
+  <%= link_to_github_user('jyotisingh', 'Jyoti Singh') %>,
+  <%= link_to_github_user('juhijariwala', 'Juhi Jariwala') %>,
+  <%= link_to_github_user('ketan', 'Ketan Padegaonkar') %>,
+  <%= link_to_github_user('maheshp', 'Mahesh Panchaksharaiah') %>,
+  <%= link_to_github_user('naveenbhaskar', 'Naveen Bhaskar') %>,
+  <%= link_to_github_user('rajiesh', 'Rajiesh Narayanan') %>,
+  <%= link_to_github_user('icnocop', 'Rami') %>,
+  <%= link_to_github_user('varshavaradarajan', 'Varsha V') %>,
+  <%= link_to_github_user('wpc', 'WPC') %>,
+  <%= link_to_github_user('xli', 'Xiao Li') %>,
+  <%= link_to_github_user('zabil', 'Zabil C.M') %>
+  for making GoCD better!
 </p>
