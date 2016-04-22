@@ -48,6 +48,7 @@ a {
 	&:active,
 	&:focus {
 		text-decoration: none;
+		color:$primary-color;
 	}
 
 }
@@ -94,7 +95,7 @@ img {
 // Inner pages  general styles
 
 .inner-banner {
-	background: url('/assets/images/inner-banner-bg.jpg') no-repeat center center;
+	background: url('/assets/images/inner-banner-bg.jpg') repeat-x center center;
 	padding: 20px 0;
 
 	.banner-content {
