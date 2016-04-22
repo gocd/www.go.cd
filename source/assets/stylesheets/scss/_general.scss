@@ -48,7 +48,7 @@ a {
 	&:active,
 	&:focus {
 		text-decoration: none;
-		color:$primary-color;
+		color: $primary-color;
 	}
 
 }
@@ -82,7 +82,7 @@ img {
 	// transition: all 0.5s ease-in-out;
 
 	@media (min-width:$screen-tablet) {
-    bottom: 30px;
+		bottom: 30px;
 	}
 
 	&:hover {
@@ -234,4 +234,3 @@ $btn-dark-border: #333;
 .btn-dark {
 	@include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
 }
-
