@@ -89,8 +89,8 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
         <span class="version">{{display_version}}</span>
         {{#with (lookup . ../installer_type)}}
         <div class="files">
-          {{> show-file server type="server"}}
-          {{> show-file agent type="agent"}}
+          {{> show-file server type="server" os=../../installer_type}}
+          {{> show-file agent type="agent" os=../../installer_type}}
         </div>
         {{/with}}
       </div>
@@ -98,7 +98,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     </div>
   </div>
   <div class="other-releases">
-    <button class="btn-release"><span>Show</span> old releases</button>
+    <button class="btn-release" analytics-label="show-old-releases"><span>Show</span> old releases</button>
   </div>
   <div class="old-release">
     {{#each all_other_releases}}
@@ -106,8 +106,8 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
       <span class="version">{{display_version}}</span>
       {{#with (lookup . ../installer_type)}}
       <div class="files">
-        {{> show-file server type="server"}}
-        {{> show-file agent type="agent"}}
+        {{> show-file server type="server" os=../../installer_type}}
+        {{> show-file agent type="agent" os=../../installer_type}}
       </div>
       {{/with}}
     </div>
@@ -124,10 +124,10 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 {{#*inline "show-file"}}
 <div class="{{{type}}} file">
   <div class="name">
-    <a href="{{{url}}}" class="btn btn-primary"><i class="fa fa-download"></i> </a>
+    <a href="{{{url}}}" class="btn btn-primary"><i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}"></i> </a>
   </div>
   <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-sha1sum="{{{sha1sum}}}" data-md5sum="{{{md5sum}}}">
-    <button class="verify">Verify checksum</button>
+    <button class="verify" analytics-label="verify-checksum">Verify checksum</button>
   </div>
 </div>
 {{/inline}}

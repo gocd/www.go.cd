@@ -1,0 +1,75 @@
+<h4>Security</h4>
+<p><strong>Important:</strong> This release fixes several XSS and CSRF vulnerabilities which can be exploited in earlier versions. As the changes are extensive, patches for older releases will not be provided. We recommend all users to upgrade to this version to safeguard your GoCD server.</p>
+<p>These security vulnerabilities were responsibly disclosed by <a href="https://github.com/drrb">drrb</a>. We want to give users some time to upgrade, before providing more details about the vulnerabilities. We will work with drrb on the specifics of providing these details, soon.</p>
+<h4>Notable features</h4>
+<h5>Materials</h5>
+<ul>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1890">Make git material clone use -n (--no-checkout) option</a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/313">Use shallow clones of Git materials for faster checkouts and lower disk usage</a>
+  </li>
+</ul>
+<figure>
+  <%= image_tag "releases/16.3/git-shallow-clone.png", {:title => "GoCD shallow clone for git", :alt => "GoCD shallow clone for git"} %>
+</figure>
+<h5>Configuration</h5>
+<ul>
+  <li>
+    <a href="https://github.com/gocd/gocd/pull/2045">Using unique string for cipher generation</a>
+  </li>
+</ul>
+<h5>Installers</h5>
+<ul>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1928">Support for silent install of GoCD server on windows</a>
+  </li>
+</ul>
+<h4>API changes</h4>
+<p>The following APIs now require an extra request header <em>Confirm: true</em> (due to security-related changes):</p>
+<ul>
+  <li>
+    <a href="https://api.go.cd/current/#cancel-stage">Cancel stage</a>
+  </li>
+  <li>
+    <a href="https://api.go.cd/current/#pause-a-pipeline">Pause pipeline</a>
+  </li>
+  <li>
+    <a href="https://api.go.cd/current/#unpause-a-pipeline">Unpause pipeline</a>
+  </li>
+  <li>
+    <a href="https://api.go.cd/current/#releasing-a-pipeline-lock">Releasing pipeline lock</a>
+  </li>
+  <li>
+    <a href="https://api.go.cd/current/#scheduling-pipelines">Scheduling pipeline</a>
+  </li>
+  <li>
+    <a href="https://api.go.cd/current/#notify-svn-materials">Notify SVN materials</a>
+  </li>
+  <li>
+    <a href="https://api.go.cd/current/#notify-git-materials">Notify Git materials</a>
+  </li>
+  <li>
+    <a href="https://api.go.cd/current/#notify-mercurial-materials">Notify Mercurial materials</a>
+  </li>
+  <li>
+    <a href="https://api.go.cd/current/#create-property">Create property</a>
+  </li>
+</ul>
+<h4>Deprecations</h4>
+<ul>
+  <li>
+    <p>The old java API-based plugin extensions for tasks and package repositories has been deprecated. Developers are encouraged to use the new JSON message-based APIs to author plugins.</p>
+    <p><strong>These APIs will be removed in the September release of GoCD.</strong></p>
+  </li>
+  <li>
+    <p>In light of downward trend in Solaris installers, we are now considering a timeline to stop providing Solaris installers for GoCD. Users can continue to use the generic zip files to run GoCD on Solaris. However the support for Solaris will be on a best-effort basis.</p>
+    <p><strong>We will stop providing Solaris installers from the July release of GoCD.</strong></p>
+  </li>
+</ul>
+<h4>Note</h4>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.3%22+is%3Amerged">here.</a></p>
+<h4>Contributors</h4>
+<p><strong>Special thanks to <a href="https://github.com/drrb">drrb</a> for reporting and verifying all of the security vulnerabilities in this release.</strong></p>
+<p>Thanks to <a href="https://github.com/andregmoeller">Andre Moeller</a>, <a href="https://github.com/arvindsv">Aravind SV</a>, <a href="https://github.com/bradeac">bradeac</a>, <a href="https://github.com/cnorthwood">Chris Northwood</a>, <a href="https://github.com/danielsomerfield">Daniel Somerfield</a>, <a href="https://github.com/djrice">David Rice</a>, <a href="https://github.com/d-led">Dmitry Ledentsov</a>, <a href="https://github.com/FredrikWendt">Fredrik Wendt</a>, <a href="https://github.com/gmlewis">Glenn Lewis</a>, <a href="https://github.com/janfabry">Jan Fabry</a>, <a href="https://github.com/jalleyne">Jovan Alleyne</a>, <a href="https://github.com/jyotisingh">Jyoti Singh</a>, <a href="https://github.com/juhijariwala">Juhi Jariwala</a>, <a href="https://github.com/juhasipo">Juha Siponen</a>, <a href="https://github.com/ketan">Ketan Padegaonkar</a>, <a href="https://github.com/maheshp">Mahesh Panchaksharaiah</a>, <a href="https://github.com/rajiesh">Rajiesh Narayanan</a>, <a href="https://github.com/tomzo">Tomasz Sętkowski</a>, <a href="https://github.com/varshavaradarajan">Varsha V</a>, <a href="https://github.com/wpc">WPC</a>, <a href="https://github.com/xli">Xiao Li</a>, <a href="https://github.com/zabil">Zabil C.M</a> for making GoCD better!</p>

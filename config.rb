@@ -1,4 +1,3 @@
-# require 'middleman-deploy'
 require File.expand_path('../lib/extensions/fallback_for_directory_indexes', __FILE__)
 
 page '/*.xml', layout: false
@@ -55,8 +54,29 @@ helpers do
     $revision
   end
 
-  def put_gocd_in_span text
+  def put_gocd_in_span(text)
     text.gsub(/GoCD/, '<span class="go">Go</span>CD')
+  end
+
+  def link_to_github_user(login, display_name=nil)
+    display_name = login if display_name.blank?
+    link_to(display_name, "https://github.com/#{login}", )
+  end
+
+  def link_to_pull_request(number, text)
+    concat_content(link_to("##{number}", "https://github.com/gocd/gocd/pull/#{number}"))
+    concat_content(' - ')
+    concat_content(text)
+  end
+
+  def link_to_issue(number, text)
+    concat_content(link_to("##{number}", "https://github.com/gocd/gocd/issue/#{number}"))
+    concat_content(' - ')
+    concat_content(text)
+  end
+
+  def link_to_full_changelog(text, milestone_name)
+    link_to(text, "https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22#{CGI.escape(milestone_name)}%22+is%3Amerged")
   end
 end
 

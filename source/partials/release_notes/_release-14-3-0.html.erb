@@ -1,0 +1,57 @@
+<h4>New Features</h4>
+<ul>
+  <li>
+    <a href="https://github.com/gocd/gocd/pull/396">396</a> - Automate running 'X' instances of a particular job and achieve faster results by parallelization. (<a href="https://docs.go.cd/current/advanced_usage/admin_spawn_multiple_jobs#run-x-instances-of-a-job">docs</a>)
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/pull/225">225</a>, <a href="https://github.com/gocd/gocd/pull/394">394</a> &amp; <a href="https://github.com/gocd/gocd/pull/395">395</a> - New APIs.
+  </li>
+  <li>
+    <ul>
+      <li><a href="https://docs.go.cd/current/api/pipeline_api.html#pipeline-history">Pipeline History API</a></li>
+      <li><a href="https://docs.go.cd/current/api/stages_api.html#stage-history">Stage History API</a></li>
+      <li><a href="https://docs.go.cd/current/api/job_api.html#job-history">Job History API</a></li>
+      <li><a href="https://docs.go.cd/current/api/agent_api.html#agent-job-run-history">Agent Job Run History API</a></li>
+      <li><a href="https://docs.go.cd/current/api/materials_api.html#modifications-api">Material Modification Listing API</a></li>
+      <li><a href="https://docs.go.cd/current/api/configuration_api.html#config-repository-modification-listing-api">Configuration Repository Modification Listing API</a></li>
+      <li><a href="https://docs.go.cd/current/api/pipeline_group_api.html#config-listing-api">Pipeline Group Listing API</a></li>
+      <li><a href="https://docs.go.cd/current/api/materials_api.html#config-listing-api">Material Listing API</a></li>
+    </ul>
+  </li>
+</ul>
+<h4>Enhancements</h4>
+<ul>
+  <li> <a href="https://github.com/gocd/gocd/pull/435">435</a> - Value Stream Map for a commit. (<a href="https://docs.go.cd/current/navigation/value_stream_map#viewing-the-value-stream-map">docs</a>)
+  </li>
+  <li><a href="https://github.com/gocd/gocd/pull/466">466</a> - Setting up e-mail notifications is now easier with 'any pipeline' and 'any stage' options. Thanks <a href="https://github.com/lcs777">@lcs777</a> for the contribution. (<a href="https://docs.go.cd/current/configuration/dev_notifications.html">docs</a>)
+  </li>
+  <li><a href="https://github.com/gocd/gocd/pull/460">460</a> - Enhanced search which hide pipelines. Thanks <a href="https://github.com/ciotlosm">@ciotlosm</a> for the contribution.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/310">310</a> - Plugin logger now allows logging exceptions. Thanks <a href="https://github.com/tusharm">@tusharm</a> for the contribution.
+  </li>
+</ul>
+<h4>Tech Debt</h4>
+<ul>
+  <li>
+    <a href="https://github.com/gocd/gocd/pull/130">130</a> - Upgrade Rails 2.3.14 to 4.0.4. Thanks <a href="https://github.com/juniorz">@juniorz</a> for your ideas and contributions during the early days of migration.
+  </li>
+  <li><a href="https://github.com/gocd/gocd/issues/401">401</a> - Moved four database tables to Hibernate from iBatis. Not something we expected to get a PR for, kudos to <a href="https://github.com/RikTyer">@RikTyer</a> for this one.
+  </li>
+</ul>
+<h4>Bug Fixes</h4>
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/315">315</a> - Pipeline label was not getting resolved in case of auto trigger. </li>
+  <li><a href="https://github.com/gocd/gocd/issues/403">403</a> - If Go server has firewall restrictions on outgoing connections, Xml test artifacts with dtd specified used to cause problems while uploading. </li>
+  <li><a href="https://github.com/gocd/gocd/issues/469">469</a> - Fixed logged in session timeout. Thanks <a href="https://github.com/greenmoss">@greenmoss</a> for reporting the issue. </li>
+  <li><a href="https://github.com/gocd/gocd/issues/297">297</a> - Resource and personalise drop-downs were not showing up properly on some versions of chrome.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/482">482</a> - In Value Stream Map, material circle was not being rendered properly. Thanks <a href="https://github.com/dvarchev">@dvarchev</a> for investigating and sending a patch.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/548">548</a> - Polling and builds used to fail when a git submodule URL changed. Thanks <a href="https://github.com/mmb">@mmb</a> for the contribution. </li>
+  <li><a href="https://github.com/gocd/gocd/issues/314">314</a> - Don't allow leading/trailing spaces in commands. Thanks <a href="https://github.com/sahilm">@sahilm</a> for the patch.
+  </li>
+  <li><a href="https://github.com/gocd/gocd/issues/525">525</a> - Output working directory in console output and when polling fails. Thanks <a href="https://github.com/mmb">@mmb</a> for the patch.
+  </li>
+</ul>
+<h5>Other</h5>
+<ul>
+  <li> <a href="https://github.com/gocd/gocd/issues/659">659</a> - Go has new <a href="https://docs.go.cd/current">user documentation</a>. A big thank you to <a href="https://github.com/afoster">@afoster</a> for the commits. Thanks
+    <a href="https://github.com/gregoriomelo">@gregoriomelo</a> and <a href="https://github.com/mastojun">@mastojun</a> for your contributions. </li>
+</ul>
