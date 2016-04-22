@@ -3,7 +3,11 @@ require 'html-proofer'
 
 namespace :static_checks do
   def should_not_run_external_url_checks?
-    ENV['RUN_EXTERNAL_CHECKS'].nil? || ENV['RUN_EXTERNAL_CHECKS'] == 'false'
+    if ENV['CI'] || ENV['SNAP_CI']
+      false
+    else
+      ENV['RUN_EXTERNAL_CHECKS'].nil? || ENV['RUN_EXTERNAL_CHECKS'] == 'false'
+    end
   end
 
   options = {
