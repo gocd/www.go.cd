@@ -1,0 +1,89 @@
+<h4>New API for editing pipelines</h4>
+<p>
+  A convenience JSON HAL compliant API for modifying pipelines. Check
+  <a href="https://api.go.cd/current/#pipeline-config">api.go.cd</a> for usage details.
+</p>
+<h4>Get informed about updates</h4>
+<p>
+  A new version of Go CD is released every few months, with this feature you’ll now be notified about the latest supported release (if you are running an older version).
+</p>
+<p>
+  <%= image_tag "releases/15.3/update-check-bell.png", {:title => "Notification Bell icon", :alt => "Bell icon on the top nav bar"} %>
+</p>
+<p>
+  <%= image_tag "releases/15.3/update-check-info.png", {:title => "Release notification appears on hovering over the bell icon", :alt => "Release notification appears on hovering over the bell icon"} %>
+</p>
+<h4>Other notable features</h4>
+<ul>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1522" class="issue-title-link js-navigation-open">
+      Add Environment to the parameters of the Update Agent API
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1567" class="issue-title-link js-navigation-open">
+      Integrate periodic garbage collection for config.git
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/pull/1573" class="issue-title-link js-navigation-open">
+      Allow agents API to update resources that an agent is associated with (#1522)
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/pull/1542" class="issue-title-link js-navigation-open">
+      Add API endpoint to create a user.
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/pull/1524" class="issue-title-link js-navigation-open">
+      Pipeline paused by and comment to the pipeline status API.
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1406" class="issue-title-link js-navigation-open">
+      Make embedded SQL cross compatible
+    </a>
+  </li>
+</ul>
+<h4>Important bug fixes</h4>
+<ul>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1628" class="issue-title-link js-navigation-open">
+      Upgrade commons-collections to library version 3.2.2
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1456" class="issue-title-link js-navigation-open">
+      Formatted console output with incorrect formatting
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1450" class="issue-title-link js-navigation-open">
+      Pipeline Configuration Peforce, unable to specify "ssl:"
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1438" class="issue-title-link js-navigation-open">
+      UI reports agent as "disabled (building)", API only reports "disabled"
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1393" class="issue-title-link js-navigation-open">
+      check paths in zip archive before unzipping during artifact upload
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/gocd/gocd/issues/1349" class="issue-title-link js-navigation-open">
+      New console log - last lines obscured
+    </a>
+  </li>
+</ul>
+<h4>Note</h4>
+<p>
+  The comprehensive list of changes for this release can be found
+  <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+15.3%22+is%3Aclosed">here</a>.
+</p>
+<h4>Thanks!</h4>
+<p> Tomasz Setkowski, Steve Hill, Alex Schwartz, Pooja R, Srinivas Upadhya, Xiao Li, Sandy Gordon, Arun Kumar, Björn Andersson, Federica Luraschi, Graham Christensen, Parker Shelton, Justin, Max Griffiths, Ashok Gowtham M, Massood, Ben Overmyer,James M. Greene, Ashwanth Kumar, Jakub Narloch, Alex Voitau, Joakim Wånggren, Paul Clarkin, X O and markuswehrle for making Go better.
+</p>
