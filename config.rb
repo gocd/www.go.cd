@@ -7,6 +7,7 @@ page '/*.txt', layout: false
 set :base_url, "https://www.go.cd"
 # Repeated, just to show that it is important. Changing this might mean you lose Disqus comments.
 set :base_url_for_blog_posts, "https://www.go.cd"
+set :cname, (ENV['CNAME'] || 'www.go.cd')
 
 set :js_dir, "assets/javascripts"
 set :css_dir, "assets/stylesheets"
