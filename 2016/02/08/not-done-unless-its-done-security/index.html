@@ -16,30 +16,30 @@
   <body class="x2016 x2016_02 x2016_02_08 x2016_02_08_not-done-unless-its-done-security x2016_02_08_not-done-unless-its-done-security_index">
     <header class="top">
   <div class="container">
-    <a class="logo" href="../../../../"><img title="GoCD Logo" alt="GoCD Logo" src="../../../../assets/images/go_logo.svg" /></a>
+    <a class="logo" analytics-label="logo" href="../../../../"><img title="GoCD Logo" alt="GoCD Logo" src="../../../../assets/images/go_logo.svg" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
-          <a class="link_whygocd" href="../../../../why-gocd/">Why GoCD?</a>
+          <a class="link_whygocd" analytics-label="link_whygocd" href="../../../../why-gocd/">Why GoCD?</a>
         </li>
         <li class="dropdown">
-          <a class="toplink_contribute" href="../../../../contribute/">Community</a>
+          <a class="toplink_contribute" analytics-label="link_community" href="../../../../contribute/">Community</a>
           <ul  class="level1">
-            <li><a class="link_contribute" href="../../../../contribute/">Contribute</a></li>
-            <li><a class="link_events" href="../../../../events/">Events</a></li>
-            <li><a class="link_plugins" href="../../../../plugins/">Plugins</a></li>
+            <li><a class="link_contribute" analytics-label="link_community&gt;link_contribute" href="../../../../contribute/">Contribute</a></li>
+            <li><a class="link_events" analytics-label="link_community&gt;link_events" href="../../../../events/">Events</a></li>
+            <li><a class="link_plugins" analytics-label="link_community&gt;link_plugins" href="../../../../plugins/">Plugins</a></li>
           </ul>
         </li>
-        <li><a class="link_blog" href="../../../../blog/">Blog</a></li>
+        <li><a class="link_blog" analytics-label="Blog" href="../../../../blog/">Blog</a></li>
         <li class="dropdown">
-          <a class="toplink_help" href="../../../../help/">Help</a>
+          <a class="toplink_help" analytics-label="link_help" href="../../../../help/">Help</a>
           <ul  class="level1">
-            <li><a class="getting-started" href="../../../../help/">Getting started</a></li>
-            <li><a target="_blank" href="https://docs.go.cd/current/">Documentation</a></li>
-            <li><a class="link_resources" href="../../../../resources.html">Resources</a></li>
+            <li><a class="getting-started" analytics-label="link_help&gt;link_getting_started" href="../../../../help/">Getting started</a></li>
+            <li><a target="_blank" analytics-label="link_help&gt;link_documentation" href="https://docs.go.cd/current/">Documentation</a></li>
+            <li><a class="link_resources" analytics-label="link_help&gt;link_resources" href="../../../../resources.html">Resources</a></li>
           </ul>
         </li>
-        <li><a class="link_download" href="../../../../download/">Download</a></li>
+        <li><a class="link_download" analytics-label="link_help&gt;link_download" href="../../../../download/">Download</a></li>
       </ul>
     </nav>
     <button class="navbtn menu collapse">
@@ -76,7 +76,7 @@
 
 <h2 id="automation-is-one-part-of-the-solution">Automation is one part of the solution</h2>
 
-<p>Security has to be addressed in a holistic way. Automation is a way to get fast feedback on common security issues. A talented <a href="http://security.stackexchange.com/a/46028">penetration tester</a> will consider scenarios and methods that are not usually automated.</p>
+<p>Security has to be addressed in a holistic way. Automation is a way to get fast feedback on common security issues. A talented <a href="http://security.stackexchange.com/questions/46021/what-is-a-pen-tester/46028#46028">penetration tester</a> will consider scenarios and methods that are not usually automated.</p>
 
 <p>The goal of automation is to catch the “low-hanging fruit”. Are we pushing things to Git we shouldn’t be? Are we using an old, vulnerable package we shouldn’t? Are we violating our own company’s rules?</p>
 
@@ -122,7 +122,7 @@
 
 <p>When people ask this question, they are usually trying to decide if security pipelines or stages should be blocking, meaning that the pipeline can’t move forward on failures. I definitely think they should block, but that doesn’t mean you can’t do other types of testing on the same build.</p>
 
-<p>If your continuous delivery server supports <a href="https://www.go.cd/documentation/user/current/introduction/concepts_in_go.html#fan_in_out">fan-in / fan-out</a>, you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we’ve decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won’t get deployed to our staging environment unless they both pass.</p>
+<p>If your continuous delivery server supports <a href="https://docs.go.cd/current/introduction/concepts_in_go.html#fan_in_out">fan-in / fan-out</a>, you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we’ve decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won’t get deployed to our staging environment unless they both pass.</p>
 
 <p><img src="../../../../assets/images/blog/deploy-now/continuous_delivery_security_testing_pipeline.png" alt="continuous delivery security testing pipeline" title="continuous delivery security testing pipeline" /></p>
 
@@ -293,26 +293,26 @@
       <h3>Join our community</h3>
       <ul>
         <li>
-          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank">
-            <i class="fa fa-user-plus"></i>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon join-us"></i>
             join us
           </a>
         </li>
         <li>
-          <a href="https://gitter.im/gocd/gocd" target="_blank">
-            <i class="fa fa-wechat"></i>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon develop-with-us"></i>
             develop with us
           </a>
         </li>
         <li>
-          <a href="https://github.com/gocd/gocd" target="_blank">
-            <i class="fa fa-binoculars"></i>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon watch-us"></i>
             watch us
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/goforcd" target="_blank">
-            <i class="fa fa-twitter"></i>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon follow-us"></i>
             follow us
           </a>
         </li>
@@ -322,23 +322,21 @@
   <div class="page-footer">
     <div class="container">
       <div class="foo-content">
-      <div class="links">
-         <a href="../../../../subscribe/">Subscribe to updates</a> 
-      </div>
+        <div class="links">
+          <a href="../../../../subscribe/">Subscribe to updates</a>
+        </div>
         <h5 class="help-us-improve">Make this place better</h5>
-        <a href="https://github.com/gocd/www.go.cd" class="social-buttons"><i class="fa fa-code-fork" aria-hidden="true"></i> fork</a>
-        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <a href="https://github.com/gocd/www.go.cd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
         <p>
-          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com">ThoughtWorks Inc.</a>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
           under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
-
         </p>
       </div>
     </div>
   </div>
 </footer>
 <a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
-
   </body>
 
   <!-- Google Tag Manager -->
