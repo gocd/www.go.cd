@@ -16,6 +16,7 @@
 
       img {
         width: 180px;
+        max-height: 200px;
 
         @media (min-width:$screen-tablet) {
           width: auto;
