@@ -1,10 +1,10 @@
 - name: XUnit Converter
   description: A plugin to convert test reports to XUnit format
-  readmore_url: https://github.com/srinivasupadhya/xunit-converter-task
+  readmore_url: https://github.com/gocd-contrib/xunit-converter-task
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/srinivasupadhya/xunit-converter-task/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=xunit-converter-task&type=watch&count=true
+  releases_url: https://github.com/gocd-contrib/xunit-converter-task/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=xunit-converter-task&type=watch&count=true
   first_available_date: 05/2014
 
 - name: Powershell Task
@@ -53,12 +53,12 @@
   first_available_date: 12/2014
 
 - name: Script Executor Task Plugin
-  description: Plugin to allow running Script in GoCD
-  readmore_url: https://github.com/srinivasupadhya/script-executor-task
+  description: Plugin to allow running Script in Go
+  readmore_url: https://github.com/gocd-contrib/script-executor-task
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/srinivasupadhya/script-executor-task/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=srinivasupadhya&repo=script-executor-task&type=watch&count=true
+  releases_url: https://github.com/gocd-contrib/script-executor-task/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=script-executor-task&type=watch&count=true
   first_available_date: 12/2014
 
 - name: Publish to S3
@@ -141,7 +141,7 @@
   releases_url: https://github.com/jmnarloch/gocd-health-check-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=jmnarloch&repo=gocd-health-check-plugin&type=watch&count=true
   first_available_date: 09/2015
-  
+
 - name: SBT Task plugin
   description: Task plugin for running SBT builds
   readmore_url: https://github.com/jmnarloch/gocd-sbt-plugin
@@ -159,3 +159,39 @@
   releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
   github_stars: http://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
   first_available_date: 11/2015
+
+- name: SonarQube Quality Gate Task plugin
+  description: Stop/break your pipeline if a quality gate is not passed in SonarQube.
+  readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/SonarQube-Quality-Gates-Task-Plugin
+  author_url: https://github.com/markus2810
+  author_name: Markus Wehrle
+  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
+  first_available_date: 12/2015
+
+- name: Check_MK monitoring plugin
+  description: Manage a host on a Check_MK monitoring server from a GoCD pipeline. Add, remove hosts directly to Check_MK.
+  readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Check_Mk-Monitoring-Task-Plugin
+  author_url: https://github.com/bocradu
+  author_name: Boc Radu
+  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
+  first_available_date: 02/2016
+
+- name: Slack Task plugin
+  description: Send custom messages to Slack from Go CD jobs
+  readmore_url: https://github.com/Vincit/gocd-slack-task
+  author_url: https://github.com/Vincit
+  author_name: Juha Siponen
+  releases_url: https://github.com/Vincit/gocd-slack-task/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=Vincit&repo=gocd-slack-task&type=watch&count=true
+  first_available_date: 03/2016
+
+- name: Docker pipeline plugin
+  description: Builds a docker image from a Dockerfile, tags it and pushes it to a registry.
+  readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Docker-pipeline-plugin
+  author_url: https://github.com/bradeac
+  author_name: Camil Bradea
+  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
+  first_available_date: 02/2016
