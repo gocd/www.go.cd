@@ -24,19 +24,20 @@ var showDownloadLinks = (function($) {
     var releasesLessThanAYearOld = R.filter(R.where({release_time: isNewerThanAYearOld}));
 
     var addURLToFiles = function(release) {
-      var addDetailsFrom = R.curry(function(release, o) {
+      var addDetailsFrom = R.curry(function(release, analyticsIDPrefix, o) {
         var afterAddingURL = R.assoc('url', settings.download_prefix + release['go_full_version'] + '/' + o["file"], o);
         var afterAddingFilename = R.assoc('filename', R.last(o["file"].split("/")), afterAddingURL, o);
-        return afterAddingFilename;
+        var afterAddingAnalyticsID = R.assoc('analytics_id', analyticsIDPrefix + "_" + release['go_full_version'], afterAddingFilename, o);
+        return afterAddingAnalyticsID;
       });
 
       return R.evolve({
-        win:     {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
-        osx:     {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
-        deb:     {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
-        rpm:     {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
-        solaris: {server: addDetailsFrom(release), agent: addDetailsFrom(release)},
-        generic: {server: addDetailsFrom(release), agent: addDetailsFrom(release)}
+        win:     {server: addDetailsFrom(release, 'Windows-Server'),  agent: addDetailsFrom(release, 'Windows-Agent')},
+        osx:     {server: addDetailsFrom(release, 'Mac-Server'),      agent: addDetailsFrom(release, 'Mac-Agent')},
+        deb:     {server: addDetailsFrom(release, 'LinuxDeb-Server'), agent: addDetailsFrom(release, 'LinuxDeb-Agent')},
+        rpm:     {server: addDetailsFrom(release, 'LinuxRpm-Server'), agent: addDetailsFrom(release, 'LinuxRpm-Agent')},
+        solaris: {server: addDetailsFrom(release, 'Solaris-Server'),  agent: addDetailsFrom(release, 'Solaris-Agent')},
+        generic: {server: addDetailsFrom(release, 'Package-Server'),  agent: addDetailsFrom(release, 'Package-Agent')}
       }, release);
     };
 
