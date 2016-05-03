@@ -170,7 +170,7 @@
 {{#*inline "show-file"}}
 <div class="{{{type}}} file">
   <div class="name">
-    <a href="{{{url}}}" class="btn btn-primary"><i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}"></i> </a>
+    <a id="{{{analytics_id}}}" href="{{{url}}}" class="btn btn-primary"><i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}"></i> </a>
   </div>
   <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-sha1sum="{{{sha1sum}}}" data-md5sum="{{{md5sum}}}">
     <button class="verify" analytics-label="verify-checksum">Verify checksum</button>
