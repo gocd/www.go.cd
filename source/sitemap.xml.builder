@@ -7,7 +7,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     next unless resource.destination_path.end_with?(index_path)
 
     xml.url do
-      xml.loc app.config[:base_url] + "/" + resource.destination_path.chomp(index_path)
+      xml.loc app.config[:base_url] + "/" + resource.destination_path.chomp(index_path) + "/"
     end
   end
 end
