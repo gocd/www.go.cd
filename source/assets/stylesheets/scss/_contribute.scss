@@ -1,5 +1,7 @@
 .contribution-process {
-  background: $primary-color;
+  background: rgba(148, 57, 158, 1);
+  background: linear-gradient(135deg, rgba(37, 26, 39, 0.95), 0%, rgba(56, 28, 60, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94399e', endColorstr='#381c3c', GradientType=1);
   background-size: cover;
   color: #fff;
   margin: 0;

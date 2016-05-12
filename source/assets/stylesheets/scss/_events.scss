@@ -1,3 +1,10 @@
+.events {
+  main {
+    padding-top: 0;
+  }
+
+}
+
 .webinars-list {
   list-style-type: none;
   margin: 0;
@@ -25,26 +32,101 @@
 
 }
 
-.details {
+.demos {
+  background: rgba(148, 57, 158, 1);
+  background: linear-gradient(135deg, rgba(37, 26, 39, 0.95), 0%, rgba(56, 28, 60, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94399e', endColorstr='#381c3c', GradientType=1);
+  background-size: cover;
+  text-align: center;
+  padding: 40px 0;
+  @include clearfix;
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width:$screen-tablet) {
+    background: url(/assets/images/texture-bg-2.jpg) no-repeat center center;
+    margin: 0 0 50px 0;
+    background-size: cover;
+  }
+
+  h3 {
+    margin: 0px 0 30px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+
+    @media (min-width:$screen-tablet) {
+      margin: 30px 0;
+      font-size: 40px;
+    }
+
+  }
+
+}
+
+.demo-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+
+  .details {
+    position: absolute;
+    background: $primary-color;
+    color: #fff;
+    padding: 10px 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all .3s ease;
+    bottom: -50px;
+    width: 100%;
+    white-space: nowrap;
+
+    @media (min-width:$screen-tablet) {
+      width: auto;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+  }
+
+  li:hover .details {
+    transition: all .3s ease;
+    bottom: 0px;
+    opacity: 1;
+    display: block;
+  }
+
 }
 
 .datebox {
   background: $secondary-color;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-top: 5px solid $primary-color;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   margin-right: 20px;
   text-align: center;
   color: #fff;
+  width: 90px;
+  height: 90px;
 
   .month {
     display: block;
     font-size: 16px;
+    margin-bottom: 2px;
+    line-height: 26px;
   }
 
   .date {
     display: block;
     font-size: 25px;
     font-weight: 700;
+    line-height: 26px;
   }
 
 }
@@ -57,9 +139,10 @@
 }
 
 .event {
-    @media screen and (max-width:$screen-xs-max) {
-      margin-top: 50px;
-    }
+  @media screen and (max-width:$screen-xs-max) {
+    margin-top: 50px;
+  }
+
   .date,
   .location {
     display: inline-block;
@@ -90,8 +173,7 @@
 
 .details {
   a.title {
-    font-size: 18px;
-    color: #333;
+    font-size: 20px;
     margin-bottom: 10px;
     font-weight: 400;
 
@@ -113,10 +195,11 @@
     width: 275px;
     font-size: 14px;
     padding: 5px 0;
-      @media only screen and (min-width:$screen-lg-desktop) {
-      width: 275px;
 
-      }
+    @media only screen and (min-width:$screen-lg-desktop) {
+      width: 275px;
+    }
+
   }
 
 }
