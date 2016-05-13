@@ -1,15 +1,12 @@
 <!doctype html>
 <html>
   <head>
-    <% def metadata key %>
-    <% (current_article.data[key] unless current_article.nil?) || (current_page.data[key] unless current_page.nil?) || (current_article.title unless current_article.nil?) || (current_page.data.title unless current_page.nil?)|| "GoCD - Continuous Delivery" %>
-    <% end %>
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="<%= metadata(:meta_description) %>" name="description" />
-    <meta content="<%= metadata(:meta_keywords) %>" name="keywords" />
-    <title><%= metadata(:title_tag_of_header) %></title>
+    <meta content="<%= value_or_title_as_default(:meta_description) %>" name="description" />
+    <meta content="<%= value_or_default(:meta_keywords, 'GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, automated release management, Go') %>" name="keywords" />
+    <title><%= value_or_title_as_default(:title_tag_of_header) %></title>
     <link href="<%= url_for '/assets/images/favicon.ico' %>" rel="shortcut icon" />
     <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag :all %>

@@ -80,6 +80,15 @@ helpers do
   def link_to_full_changelog(text, milestone_name)
     link_to(text, "https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22#{CGI.escape(milestone_name)}%22+is%3Amerged")
   end
+
+  def value_or_default key, default_value = nil
+    (current_article.data[key] unless current_article.nil?) || (current_page.data[key] unless current_page.nil?) || default_value
+  end
+
+  def value_or_title_as_default property
+    default_title = (current_article.title unless current_article.nil?) || (current_page.data.title unless current_page.nil?) || "GoCD - Continuous Delivery"
+    value_or_default(property, default_title)
+  end
 end
 
 ready do
