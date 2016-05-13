@@ -89,6 +89,18 @@ helpers do
     default_title = (current_article.title unless current_article.nil?) || (current_page.data.title unless current_page.nil?) || "GoCD - Continuous Delivery"
     value_or_default(property, default_title)
   end
+
+  def twitter_card_property twitter_specific_property, fallback_property
+    value_or_default(twitter_specific_property, value_or_default(fallback_property, ""))
+  end
+
+  def twitter_card_image default_image
+    path_to_image = value_or_default(:twitter_card_image, value_or_default(:summary_image, default_image))
+    asset_path_of_image = asset_path(:images, path_to_image, :relative => false)
+    full_path_of_image = File.join(app.config[:source], asset_path(:images, path_to_image, :relative => false))
+    raise "Image does not exist or too large to use for Twitter summary: #{full_path_of_image}" unless (File.exists? full_path_of_image and (File.size full_path_of_image) < (1024 * 1024 * 1024))
+    URI::join(config.base_url, asset_path_of_image)
+  end
 end
 
 ready do
