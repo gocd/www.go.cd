@@ -19,6 +19,11 @@
 		height: 750px;
 	}
 
+	@media (min-width:$screen-lg-desktop) {
+		background-image: url('/assets/images/go-banner-desktop.jpg');
+		background-size: cover;
+	}
+
 	.banner-content {
 		position: absolute;
 		top: 50%;

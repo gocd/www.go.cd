@@ -50,6 +50,10 @@ $menu-color: #fff;
 
   }
 
+  @media (min-width:$screen-desktop) and (max-width:1400px) {
+    margin-right: 85px;
+  }
+
   ul {
     list-style: none;
     margin: 0;
@@ -349,14 +353,16 @@ ul.level1 {
   }
 
 }
+
 .contribute .toplink_contribute,
 .events .toplink_contribute,
 .plugins .toplink_contribute,
 .help .toplink_help,
-.resources .toplink_help{
+.resources .toplink_help {
   @media screen and (max-width:$screen-xs-max) {
     color: #333 !important;
   }
+
 }
 
 .subscribe .link_subscribe,

@@ -28,9 +28,19 @@ header.top {
 	}
 
 }
-
 .logo {
 	margin: 13px 0;
 	float: left;
 	width: 74px;
+}
+
+.fork-me {
+
+    width: 115px;
+    height: 115px;
+    position: absolute;
+    right: -2px;
+    top: -64px;
+    z-index: 11;
+    overflow:hidden;
 }
