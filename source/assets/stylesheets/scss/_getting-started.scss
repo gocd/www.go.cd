@@ -178,6 +178,10 @@ nav.getting-started-nav {
       &.open {
         ul {
           display: block;
+          @media (min-width:$screen-lg-desktop) and (max-height:700px) {
+            max-height: 300px;
+            overflow-y: auto;
+          }
         }
 
       }
