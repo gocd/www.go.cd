@@ -8,6 +8,7 @@ header.top {
 	width: 100%;
 	top: 0;
 	transition: all 0.5s ease;
+	height:66px;
 
 	&.scroll-on {
 		background: $header-bg;
