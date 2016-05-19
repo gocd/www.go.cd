@@ -5,7 +5,8 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 cname = (ENV['CNAME'] || 'www.go.cd')
-set :base_url, "https://#{cname}"
+protocol = (ENV['PROTOCOL'] || 'https')
+set :base_url, "#{protocol}://#{cname}"
 # Repeated, just to show that it is important. Changing this might mean you lose Disqus comments.
 set :base_url_for_blog_posts, "https://www.go.cd"
 set :cname, cname
