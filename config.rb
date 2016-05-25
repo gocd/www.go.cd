@@ -73,7 +73,7 @@ helpers do
   end
 
   def link_to_issue(number, text)
-    concat_content(link_to("##{number}", "https://github.com/gocd/gocd/issue/#{number}"))
+    concat_content(link_to("##{number}", "https://github.com/gocd/gocd/issues/#{number}"))
     concat_content(' - ')
     concat_content(text)
   end

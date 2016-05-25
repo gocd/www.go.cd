@@ -1,0 +1,47 @@
+<h4>Support for Java 8</h4>
+
+<p>
+We've graduated from being Java 8 compatible to officially supporting it! 
+You can see our journey to this milestone
+<a href="https://github.com/gocd/gocd/issues/1086">here</a>
+</p>
+
+<h4>Performance</h4>
+ 
+<p><%= link_to_issue(2145, 'Handle large modifications made to SCM materials without memory issues on the agent') %></p>
+
+
+<h4>Materials</h4>
+<p>Fixes around handling git rebase</p>
+
+<p><%= link_to_issue(2110, 'Fix automatic build loop after a git rebase') %></p>
+<p><%= link_to_issue(985, 'Fix git history rewrite causing errors') %></p>
+
+<h4>User interface</h4>
+
+<p><%= link_to_pull_request(2136, 'Warnings on VSM if pipeline built with incompatible revisions') %></p>
+
+<h4>Note</h4>
+<p>
+  A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 16.5' %>
+</p>
+
+<h4>Contributors</h4>
+
+<p>
+  Thanks to
+  <%= link_to_github_user('arvindsv', 'Aravind SV') %>,
+  <%= link_to_github_user('brettcave', 'Brett Cave') %>,
+  <%= link_to_github_user('ganeshspatil', 'Ganesh S Patil') %>,
+  <%= link_to_github_user('jemarley', 'Jen Marley') %>,
+  <%= link_to_github_user('jyotisingh', 'Jyoti Singh') %>,
+  <%= link_to_github_user('ketan', 'Ketan Padegaonkar') %>,
+  <%= link_to_github_user('moritz', 'Moritz Lenz') %>,
+  <%= link_to_github_user('maheshp', 'Mahesh Panchaksharaiah') %>,
+  <%= link_to_github_user('naveenbhaskar', 'Naveen Bhaskar') %>,
+  <%= link_to_github_user('rajiesh', 'Rajiesh Narayanan') %>,
+  <%= link_to_github_user('tomzo', 'Tomasz SÄtkowski') %>,
+  <%= link_to_github_user('varshavaradarajan', 'Varsha V') %>,
+  <%= link_to_github_user('zabil', 'Zabil C.M') %>
+  for making GoCD better!
+</p>
