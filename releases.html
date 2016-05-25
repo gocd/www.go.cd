@@ -77,7 +77,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-16-4-0" class="active">16.4.0 (latest)</li>
+      <li rel="tab-16-5-0" class="active">16.5.0 (latest)</li>
+      <li rel="tab-16-4-0">16.4.0</li>
       <li rel="tab-16-3-0">16.3.0</li>
       <li rel="tab-16-2-1">16.2.1</li>
       <li rel="tab-16-2-0">16.2.0</li>
@@ -93,7 +94,61 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-16-4-0">16.4.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-16-5-0">16.5.0 (latest)</h3>
+      <div id="tab-16-5-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Support for Java 8</h4>
+
+<p>
+We've graduated from being Java 8 compatible to officially supporting it! 
+You can see our journey to this milestone
+<a href="https://github.com/gocd/gocd/issues/1086">here</a>.
+</p>
+
+<h4>Performance</h4>
+ 
+<p><a href="https://github.com/gocd/gocd/issues/2145">#2145</a> - Handle large modifications made to SCM materials without memory issues on the agent.</p>
+
+
+<h4>Materials</h4>
+<p>Fixes around handling git rebase</p>
+
+<p><a href="https://github.com/gocd/gocd/issues/2110">#2110</a> - Fix automatic build loop after a git rebase.</p>
+<p><a href="https://github.com/gocd/gocd/issues/985">#985</a> - Fix git history rewrite causing errors.</p>
+
+<h4>User interface</h4>
+
+<p><a href="https://github.com/gocd/gocd/pull/2136">#2136</a> - Warnings on VSM if pipeline is built with incompatible revisions.</p>
+
+<h4>Note</h4>
+<p>
+  A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.5%22+is%3Amerged">here.</a>
+</p>
+
+<h4>Contributors</h4>
+
+<p>
+  Thanks to
+  <a href="https://github.com/arvindsv">Aravind SV</a>,
+  <a href="https://github.com/brettcave">Brett Cave</a>,
+  <a href="https://github.com/ganeshspatil">Ganesh S Patil</a>,
+  <a href="https://github.com/jemarley">Jen Marley</a>,
+  <a href="https://github.com/jyotisingh">Jyoti Singh</a>,
+  <a href="https://github.com/ketan">Ketan Padegaonkar</a>,
+  <a href="https://github.com/moritz">Moritz Lenz</a>,
+  <a href="https://github.com/maheshp">Mahesh Panchaksharaiah</a>,
+  <a href="https://github.com/naveenbhaskar">Naveen Bhaskar</a>,
+  <a href="https://github.com/rajiesh">Rajiesh Narayanan</a>,
+  <a href="https://github.com/tomzo">Tomasz Sętkowski</a>,
+  <a href="https://github.com/varshavaradarajan">Varsha V</a>,
+  <a href="https://github.com/vmignot">vmignot</a>,
+  <a href="https://github.com/zabil">Zabil C.M</a>
+  for making GoCD better!
+</p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-16-4-0">16.4.0</h3>
       <div id="tab-16-4-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Security</h4>
