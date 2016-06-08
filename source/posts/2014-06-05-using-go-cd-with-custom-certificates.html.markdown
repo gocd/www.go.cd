@@ -3,7 +3,6 @@ layout: post
 title: Using GoCD with custom certificates
 status: public
 type: post
-published: true
 author: Sachin Sudheendra
 excerpt: "This post will help you set up GoCD to use your custom TLS certificate instead of the self-signed certificate that GoCD ships with."
 summary_image: "/assets/images/blog/using-go-cd-with-custom-certificates/summary_image.png"
