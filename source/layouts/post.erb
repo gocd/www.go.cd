@@ -6,10 +6,13 @@
     </div>
   <% end %>
 
+  <%= '<div class="draft-banner">This is a draft. It will not show up on the live site.</div>' if (should_show_drafts? && is_draft?(current_article)) %>
+
   <header class="blog-post-header">
     <h2><%= put_gocd_in_span(current_article.title) %></h2>
     <h4><%= current_article.data["author"] %></h4>
   </header>
+
   <div class="row">
     <div class="col-md-9">
       <main id="main" role="main">

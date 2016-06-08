@@ -4,12 +4,15 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
-cname = (ENV['CNAME'] || 'www.go.cd')
-protocol = (ENV['PROTOCOL'] || 'https')
+cname              = (ENV['CNAME'] || 'www.go.cd')
+protocol           = (ENV['PROTOCOL'] || 'https')
+deploy_environment = (ENV['DEPLOY_ENVIRONMENT'] || 'live')
+
 set :base_url, "#{protocol}://#{cname}"
 # Repeated, just to show that it is important. Changing this might mean you lose Disqus comments.
 set :base_url_for_blog_posts, "https://www.go.cd"
 set :cname, cname
+set :deploy_environment, deploy_environment
 
 set :js_dir, "assets/javascripts"
 set :css_dir, "assets/stylesheets"
@@ -99,8 +102,20 @@ helpers do
     path_to_image = value_or_default(:twitter_card_image, value_or_default(:summary_image, default_image))
     asset_path_of_image = asset_path(:images, path_to_image, :relative => false)
     full_path_of_image = File.join(app.config[:source], asset_path(:images, path_to_image, :relative => false))
-    raise "Image does not exist or too large to use for Twitter summary: #{full_path_of_image}" unless (File.exists? full_path_of_image and (File.size full_path_of_image) < (1024 * 1024 * 1024))
+    raise "Image does not exist or too large to use for Twitter summary: #{full_path_of_image}" unless (File.exists?(full_path_of_image) && (File.size(full_path_of_image) < (1024 * 1024 * 1024)))
     URI::join(config.base_url, asset_path_of_image)
+  end
+
+  def should_show_drafts?
+    not config.deploy_environment.eql?("live")
+  end
+
+  def is_draft? article
+    article.data["draft"] == true
+  end
+
+  def selected_articles_for_display_in articles
+    articles.reject do |article| !should_show_drafts? && is_draft?(article) end
   end
 end
 

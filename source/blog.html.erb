@@ -5,6 +5,7 @@ title_tag_of_header: "Blog - Continuous Delivery | GoCD"
 meta_description: "GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD."
 meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software development"
 ---
+
 <div class="inner-banner blog-banner">
   <div class="container">
     <div class="banner-content">
@@ -13,9 +14,11 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     <%= link_to 'RSS feed', '/feed.xml' , { :class=>"rss-feed" }  %>
   </div>
 </div>
-<% latest_post = page_articles.first %>
-<% second_post = page_articles[1] %>
-<% articles    = page_articles.drop(1) %>
+
+<% articles_to_show = selected_articles_for_display_in page_articles %>
+<% latest_post      = articles_to_show.first %>
+<% second_post      = articles_to_show[1] %>
+<% articles         = articles_to_show.drop(1) %>
 
 <main class="main blog-list" >
   <div class="container">
