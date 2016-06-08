@@ -5,10 +5,21 @@
   <id>https://www.go.cd/blog</id>
   <link href="https://www.go.cd/blog"/>
   <link href="https://www.go.cd/feed.xml" rel="self"/>
-  <updated>2016-03-24T00:00:00Z</updated>
+  <updated>2016-06-08T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Add performance testing to your Continuous Delivery pipeline</title>
+    <link rel="alternate" href="https://www.go.cd/2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline.html"/>
+    <id>https://www.go.cd/2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline.html</id>
+    <published>2016-06-08T00:00:00Z</published>
+    <updated>2016-06-08T00:00:00Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">Performance testing as part of a Continuous Delivery (CD) pipeline is rare. The intent of this article is to provide you with some pointers on the types of testing you can do on a regular basis, and to give some strategies for implementation.</content>
+  </entry>
   <entry>
     <title>How to Avoid Brittle Code</title>
     <link rel="alternate" href="https://www.go.cd/2016/03/24/how-to-avoid-brittle-code.html"/>
@@ -107,16 +118,5 @@
       <name>GoCD Team</name>
     </author>
     <content type="html">This post contains information about a security patch available for GoCD 15.2. If you're using GoCD 15.2 in production, and especially if it is available over the internet, it is highly recommended to apply this patch immediately.</content>
-  </entry>
-  <entry>
-    <title>Continuous Delivery with GoCD - Webinar Recording</title>
-    <link rel="alternate" href="https://www.go.cd/2015/10/29/go-webinar-recording.html"/>
-    <id>https://www.go.cd/2015/10/29/go-webinar-recording.html</id>
-    <published>2015-10-29T00:00:00Z</published>
-    <updated>2015-10-29T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">Every couple of weeks ThoughtWorks hosts learning sessions for people who want more information about continuous delivery with GoCD. This is a recording of the session from 29 Oct, 2015</content>
   </entry>
 </feed>
