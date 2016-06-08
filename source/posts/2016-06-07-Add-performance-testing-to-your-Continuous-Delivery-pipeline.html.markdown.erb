@@ -20,27 +20,15 @@ summary_image: "/assets/images/blog/add-performance-testing/add-performance-test
 
 This is the third part of a series called [It’s Not Continuous Delivery if You Can’t Deploy Right Now](https://www.go.cd/2016/01/17/not-done-unless-its-done.html). In this part, we’ll talk about performance testing.
 
-Years ago, when I was in management, I had a favorite rule. If asked “is something done?” the answer could not include the word “except” or any of its synonyms. 
+Years ago, when I was in management, I had a favorite rule. If asked “is something done?” the answer could not include the word “except” or any of its synonyms.
 
 Performance testing as part of a Continuous Delivery (CD) pipeline is rare. In fact, it’s so rare that HP [applied for a patent](http://www.google.com/patents/WO2014027990A1?cl=en) on it. To quote from the patent application:
 
 >*Load and performance tests are rarely included in the [CD] tests due to cost and time constraints since the execution time of performance and load tests are longer than unit tests and application programming interface tests. As a result, the tests lack a quality guarantee since the test sets do not include tests that measure performance of the code changes under testing conditions.*
 
-<div>
-  <div class="float-image float-right">
-    <img src="/assets/images/blog/add-performance-testing/add-performance.jpg" class="pad-left" title="Continuous delivery, add performance testing to pipeline" alt="Continuous delivery, add performance testing to pipeline">
-  </div>
+The fact that so few organizations are doing performance testing is especially scary since performance has such a huge impact on your business. In 2007, [Amazon found](http://pearanalytics.com/blog/2009/how-webpage-load-time-related-to-visitor-loss/) that for every 100 millisecond increase in load time, sales decreased by 1 percent. And that was nine years ago!
 
-  <div class="float-article float-left">
-    <p>The fact that so few organizations are doing performance testing is especially scary since performance has such a huge impact on your business. In 2007, <a href="http://pearanalytics.com/blog/2009/how-webpage-load-time-related-to-visitor-loss/" target="_blank">Amazon found</a> that for every 100 millisecond increase in load time, sales decreased by 1 percent. And that was nine years ago!
-    </p>
-<p>The intent of this article is to provide you with some pointers on the types of testing you can do on a regular basis, and to give some strategies for implementation.
-</p>
-   
-  </div>
-  <div class="clear"/>
-</div>
-
+The intent of this article is to provide you with some pointers on the types of testing you can do on a regular basis, and to give some strategies for implementation.
 
 ## Most common types of performance testing
 
