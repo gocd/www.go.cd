@@ -4,9 +4,9 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
-cname              = (ENV['CNAME'] || 'www.go.cd')
-protocol           = (ENV['PROTOCOL'] || 'https')
-deploy_environment = (ENV['DEPLOY_ENVIRONMENT'] || 'live')
+cname              = (ENV['CNAME'] || 'localhost')
+protocol           = (ENV['PROTOCOL'] || 'http')
+deploy_environment = (ENV['DEPLOY_ENVIRONMENT'] || 'preview')
 
 set :base_url, "#{protocol}://#{cname}"
 # Repeated, just to show that it is important. Changing this might mean you lose Disqus comments.
