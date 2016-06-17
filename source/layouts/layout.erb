@@ -16,6 +16,7 @@
     <link href="<%= url_for '/assets/images/favicon.ico' %>" rel="shortcut icon" />
     <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag :all %>
+    <%= auto_javascript_include_tag %>
     <%= feed_tag :atom, url_for("/feed.xml"), title: "GoCD blog feed" %>
   </head>
 
