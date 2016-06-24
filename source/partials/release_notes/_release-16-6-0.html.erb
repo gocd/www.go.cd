@@ -1,0 +1,46 @@
+<h4 id="whitelist-support-for-scm-materials">Whitelist support for SCM materials</h4>
+
+<p><%= link_to_pull_request(2314, 'Handling the triggering of a pipeline for monolithic repositories using a whitelist.') %></p>
+<p>For example, in a repository 'baz' with folders/projects 'foo/bar' and 'foo/qux' one 
+can trigger the pipeline only on changes to 'foo/bar' by configuring it as a whitelisted folder.</p>
+
+<h4 id="api-enhancements">API Enhancements</h4>
+
+<p><%= link_to_pull_request(2240, 'Added a URL endpoint to grab a snapshot of the GoCD config git repository.') %>
+For example, backup the config repo 'config-repository' using:</p>
+
+<pre><code>git clone https://ci.example.com/go/api/config-repository.git</code></pre>
+
+<p><% link_to_pull_request(2283,'Changed the existing API /api/support to return information in JSON format for easier parsing.') %>
+This end point also returns more information to identify performance bottlenecks.</p>
+
+<p><%= link_to_pull_request(2239, 'Added a version API to get the version of Go server.') %></p>
+
+<h4 id="performance-improvements">Performance Improvements</h4>
+
+<p><%= link_to_pull_request(2248,'Improved page load performance across the board.') %></p>
+
+
+<h4>Contributors</h4>
+
+<p>
+  Thanks to
+  <%= link_to_github_user('arvindsv', 'Aravind SV') %>,
+  <%= link_to_github_user('cv', 'Carlos Villela') %>,
+  <%= link_to_github_user('ganeshspatil', 'Ganesh S Patil') %>,
+  <%= link_to_github_user('VibyJocke', 'Joakim Lahtinen') %>,
+  <%= link_to_github_user('jyotisingh', 'Jyoti Singh') %>,
+  <%= link_to_github_user('ketan', 'Ketan Padegaonkar') %>,
+  <%= link_to_github_user('nyuday', 'Lubaina Rangwala') %>,
+  <%= link_to_github_user('maheshp', 'Mahesh Panchaksharaiah') %>,
+  <%= link_to_github_user('marimysh', 'Marina') %>,
+  <%= link_to_github_user('naveenbhaskar', 'Naveen Bhaskar') %>,
+  <%= link_to_github_user('ravenscar', 'Paul Nilsson') %>,
+  <%= link_to_github_user('rajiesh', 'Rajiesh Narayanan') %>,
+  <%= link_to_github_user('tedops', 'Ted Sheibar') %>,
+  <%= link_to_github_user('tomzo', 'Tomasz Sętkowski') %>,
+  <%= link_to_github_user('varshavaradarajan', 'Varsha V') %>,
+  <%= link_to_github_user('xli', 'Xiao Li') %>,
+  <%= link_to_github_user('zabil', 'Zabil C.M') %>
+  for making GoCD better!
+</p>
