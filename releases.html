@@ -78,7 +78,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-16-5-0" class="active">16.5.0 (latest)</li>
+      <li rel="tab-16-6-0" class="active">16.6.0 (latest)</li>
+      <li rel="tab-16-5-0">16.5.0</li>
       <li rel="tab-16-4-0">16.4.0</li>
       <li rel="tab-16-3-0">16.3.0</li>
       <li rel="tab-16-2-1">16.2.1</li>
@@ -95,7 +96,71 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-16-5-0">16.5.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-16-6-0">16.6.0 (latest)</h3>
+      <div id="tab-16-6-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4 id="whitelist-support-for-scm-materials">Whitelist support for SCM materials</h4>
+
+<p><a href="https://github.com/gocd/gocd/pull/2314">#2314</a> - Handling the triggering of a pipeline for monolithic repositories using a whitelist.</p>
+<p>For example, in a repository 'baz' with folders/projects 'foo/bar' and 'foo/qux' one 
+can trigger the pipeline only on changes to 'foo/bar' by configuring it as a whitelisted folder.</p>
+
+<h4 id="api-enhancements">API Enhancements</h4>
+
+<p><a href="https://github.com/gocd/gocd/pull/2240">#2240</a> - Added a URL endpoint to grab a snapshot of the GoCD config git repository.
+For example, backup the config repo 'config-repository' using:</p>
+
+<pre><code>git clone https://ci.example.com/go/api/config-repository.git</code></pre>
+
+<p><a href="https://github.com/gocd/gocd/pull/2283">#2283</a> - Changed the existing API /api/support to return information in JSON format for easier parsing.
+This end point also returns more information to identify performance bottlenecks.</p>
+
+<p><a href="https://github.com/gocd/gocd/pull/2239">#2239</a> - Added a version API to get the version of Go server.</p>
+
+<h4 id="performance-improvements">Performance Improvements</h4>
+
+<p><a href="https://github.com/gocd/gocd/pull/2248">#2248</a> - Improved page load performance across the board.</p>
+
+<h4>Upcoming Feature - Config in a repository</h4>
+<p>
+This release also adds foundation for reading pipeline configuration from the material's repository.  
+This feature is still in development and more details can be found 
+<a href="https://docs.google.com/document/d/1_eGZaqIz9ydnYQJ_Xrcb3obXc-T6jIfV_pgZQNCydVk/pub">here</a>.
+</p>
+
+<h4>Note</h4>
+<p>
+  A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.6%22+is%3Amerged">here.</a>
+</p>
+
+
+<h4>Contributors</h4>
+
+<p>
+  Thanks to
+  <a href="https://github.com/arvindsv">Aravind SV</a>,
+  <a href="https://github.com/cv">Carlos Villela</a>,
+  <a href="https://github.com/ganeshspatil">Ganesh S Patil</a>,
+  <a href="https://github.com/VibyJocke">Joakim Lahtinen</a>,
+  <a href="https://github.com/jyotisingh">Jyoti Singh</a>,
+  <a href="https://github.com/ketan">Ketan Padegaonkar</a>,
+  <a href="https://github.com/nyuday">Lubaina Rangwala</a>,
+  <a href="https://github.com/maheshp">Mahesh Panchaksharaiah</a>,
+  <a href="https://github.com/marimysh">Marina</a>,
+  <a href="https://github.com/naveenbhaskar">Naveen Bhaskar</a>,
+  <a href="https://github.com/ravenscar">Paul Nilsson</a>,
+  <a href="https://github.com/rajiesh">Rajiesh Narayanan</a>,
+  <a href="https://github.com/tedops">Ted Sheibar</a>,
+  <a href="https://github.com/tomzo">Tomasz Sętkowski</a>,
+  <a href="https://github.com/varshavaradarajan">Varsha V</a>,
+  <a href="https://github.com/xli">Xiao Li</a>,
+  <a href="https://github.com/zabil">Zabil C.M</a>
+  for making GoCD better!
+</p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-16-5-0">16.5.0</h3>
       <div id="tab-16-5-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Support for Java 8</h4>
