@@ -36,7 +36,6 @@ var showDownloadLinks = (function($) {
         osx:     {server: addDetailsFrom(release, 'Mac-Server'),      agent: addDetailsFrom(release, 'Mac-Agent')},
         deb:     {server: addDetailsFrom(release, 'LinuxDeb-Server'), agent: addDetailsFrom(release, 'LinuxDeb-Agent')},
         rpm:     {server: addDetailsFrom(release, 'LinuxRpm-Server'), agent: addDetailsFrom(release, 'LinuxRpm-Agent')},
-        solaris: {server: addDetailsFrom(release, 'Solaris-Server'),  agent: addDetailsFrom(release, 'Solaris-Agent')},
         generic: {server: addDetailsFrom(release, 'Package-Server'),  agent: addDetailsFrom(release, 'Package-Agent')}
       }, release);
     };
