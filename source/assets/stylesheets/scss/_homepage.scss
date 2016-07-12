@@ -343,58 +343,39 @@
 	border: 1px solid $primary-color;
 	overflow: hidden;
 	margin: 0 auto;
-	padding: 20px;
-
-	@media (min-width:$screen-tablet) {
-		background-image: linear-gradient(top left, #ffffff 65%, $primary-color 50%);
-		background-image: -o-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
-		background-image: -moz-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
-		background-image: -webkit-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
-		background-image: -ms-linear-gradient(top left, #ffffff 65%, $primary-color 50%);
-		background-position: right top;
-		background-repeat: no-repeat;
-		@include flexbox;
-		@include justify-content(flex-start);
-		@include align-items(center);
-		width: 90%;
+	@extend %flexbox;
+  @include justify-content(flex-start);
+  @include align-items(center);
+  @include flex-direction(column);
+  @media (min-width:$screen-tablet) {
+  @include flex-direction(row);
+		padding: 0px 0 0;
+	}
+	a{
+		background:$primary-color;
 	}
 
-	@media (min-width:$screen-desktop) {
-		background-image: linear-gradient(top left, #ffffff 70%, $primary-color 50%);
-		background-image: -o-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
-		background-image: -moz-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
-		background-image: -webkit-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
-		background-image: -ms-linear-gradient(top left, #ffffff 70%, $primary-color 50%);
-		background-position: right top;
-		background-repeat: no-repeat;
-	}
-
-	@media (min-width:$screen-lg-desktop) {
-		background-image: linear-gradient(top left, #ffffff 76%, $primary-color 50%);
-		background-image: -o-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
-		background-image: -moz-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
-		background-image: -webkit-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
-		background-image: -ms-linear-gradient(top left, #ffffff 76%, $primary-color 50%);
-		background-position: right top;
-		background-repeat: no-repeat;
-	}
 
 	p {
 		font-weight: 400;
 		font-size: 13px;
 		text-transform: uppercase;
+			padding: 0 20px;
+			margin:0;
 
 		@media (max-width:$screen-xs-max) {
 			text-align: center;
+			padding:20px;
 		}
 
 		@media (min-width:$screen-tablet) {
-			font-size: 18px;
+			font-size: 16px;
+			width:70%;
 		}
 
 		@media (min-width:$screen-desktop) {
-			margin-right: 50px;
 			font-size: 18px;
+				width:85%;
 		}
 
 	}
@@ -403,19 +384,20 @@
 		text-transform: uppercase;
 		font-weight: 700;
 		font-size: 20px;
-		white-space: nowrap;
-		height: 50px;
+		padding: 21px;
 		color: #fff;
 		width: 100%;
-		max-width: 200px;
 		margin: 0 auto;
 		display: block;
 		text-align: center;
-		line-height: 50px;
 		background-color: $primary-color;
 
+		@media (min-width:$screen-tablet) {
+			width:30%;
+			padding:25px;
+		}
 		@media (min-width:$screen-desktop) {
-			margin-left: 50px;
+				width:25%;
 		}
 
 	}
