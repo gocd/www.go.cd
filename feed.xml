@@ -5,10 +5,21 @@
   <id>https://www.go.cd/blog</id>
   <link href="https://www.go.cd/blog"/>
   <link href="https://www.go.cd/feed.xml" rel="self"/>
-  <updated>2016-06-21T00:00:00Z</updated>
+  <updated>2016-07-11T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>.NET Core and GoCD</title>
+    <link rel="alternate" href="https://www.go.cd/2016/07/11/DotNet-Core-and-GoCD.html"/>
+    <id>https://www.go.cd/2016/07/11/DotNet-Core-and-GoCD.html</id>
+    <published>2016-07-11T00:00:00Z</published>
+    <updated>2016-07-11T00:00:00Z</updated>
+    <author>
+      <name>Jason Rowe</name>
+    </author>
+    <content type="html">GoCD is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it. This post documents setting up a .NET core project in GoCD in a minimal way for demo purposes.</content>
+  </entry>
   <entry>
     <title>Don't let sunk costs sink your project</title>
     <link rel="alternate" href="https://www.go.cd/2016/06/21/dont-let-sunk-costs-sink-your-project.html"/>
@@ -107,16 +118,5 @@
       <name>Aravind SV</name>
     </author>
     <content type="html">2016 is going to be an exciting year for GoCD. Read all about what's being planned for it ...</content>
-  </entry>
-  <entry>
-    <title>Open Source Tests - The GoCD way</title>
-    <link rel="alternate" href="https://www.go.cd/2015/11/18/Open-Source-Tests.html"/>
-    <id>https://www.go.cd/2015/11/18/Open-Source-Tests.html</id>
-    <published>2015-11-18T00:00:00Z</published>
-    <updated>2015-11-18T00:00:00Z</updated>
-    <author>
-      <name>Rajiesh</name>
-    </author>
-    <content type="html">At GoCD, we are open-sourcing our functional tests, we believe open-sourcing system tests will - improve quality through collaboration, make regression tests efficient, give the community a detailed picture of the system behavior and act as ...</content>
   </entry>
 </feed>
