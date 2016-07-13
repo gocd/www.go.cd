@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Feature Branch Support
-status: public
 type: post
-published: true
 author: GoCD Team
 excerpt: "GoCD 15.1 introduced support for writing material repository plugins. This resulted in community-driven plugins developed for GoCD, to implement support for feature branches. This blog post has information specifically about GitHub Pull Request support."
 summary_image: "/assets/images/blog/feature-branch/update-status-1.png"
@@ -42,7 +40,7 @@ commits ready to go in have to wait until the failed build is fixed:
   <figcaption>Figure 2: Failed build stops everything <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
 </figure>
 
----
+-------------------------------------
 
 The root of this problem is a slow build, and sometimes that can be tackled directly. However, with the advent of
 short-lived feature branches (aka, *Pull Requests* in GitHub land), this problem can become worse. Since feature
@@ -324,6 +322,6 @@ img.has_border {
   });
 </script>
 
----
+-------------------------------------
 
 As always, GoCD questions can be asked on the [mailing list](https://groups.google.com/forum/#!forum/go-cd).
