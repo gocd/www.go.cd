@@ -10,12 +10,17 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
 summary_image: "/assets/images/blog/dotnet-core-gocd/dotnet_core_masthead.png"
 draft: true
 ---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/dotnet-core-gocd/dotnet_core_masthead.png" alt="GoCD and .NET Core" />
+</figure>
+<% end %>
 
 [This post originally appeared on [Jason Rowe's site](http://jasonrowe.com/2016/06/26/asp-net-core-gocd/) and is reproduced with permission]
 
 I've been reading up on continuous delivery and the GoCD tool is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it.
 
-This post documents setting up a .NET core project in GoCD in a minimal way for demo purposes. I cover setting up a hello world app and simple scripts to build, test, and package. Then I will create a pipeline in GoCD to build our site and run unit tests. Finally I'll show how to add additional pipelines for manual acceptance tests and deployment.
+This post documents setting up a .NET core project in GoCD in a minimal way. I cover setting up a hello world app and simple scripts to build, test, and package. Then I will create a pipeline in GoCD to build our site and run unit tests. Finally I'll show how to add additional pipelines for manual acceptance tests and deployment.
 
 If you want to know about my environment and .NET core project for this demo you can read the next section [Demo Environment Setup](#demo_env). If you want to just jump ahead to the GoCD part you can scroll down to the [GoCD Setup](#gocd_setup) or [GoCD Pipelines](#gocd_pipelines) sections.
 
