@@ -1,6 +1,11 @@
 .mapcontainer {
+  & {
+    margin: 25px 0 25px;
+  }
+
   svg path {
     fill: rgba(190, 195, 202, 0.63);
+    stroke-width: 0.5;
   }
 
   circle[data-id*='city-'] {
@@ -12,7 +17,7 @@
   }
 
   .mapTooltip {
-    position : fixed;
+    position : absolute;
     background-color : #fff;
     moz-opacity:0.70;
     opacity: 0.70;
@@ -21,7 +26,7 @@
     padding : 10px;
     z-index: 1000;
     max-width: 200px;
-    display:none;
+    display: none;
     color: #343434;
   }
   .container {
@@ -296,9 +301,4 @@
   @media (min-width:$screen-lg-desktop) {
     margin: 50px 0;
   }
-
-}
-
-.mapcontainer {
-    margin: 50px 0 50px;
 }
