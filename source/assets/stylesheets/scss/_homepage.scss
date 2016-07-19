@@ -344,38 +344,44 @@
 	overflow: hidden;
 	margin: 0 auto;
 	@extend %flexbox;
-  @include justify-content(flex-start);
-  @include align-items(center);
-  @include flex-direction(column);
-  @media (min-width:$screen-tablet) {
-  @include flex-direction(row);
+	@include justify-content(flex-start);
+	@include align-items(center);
+	@include flex-direction(column);
+
+	@media (min-width:$screen-tablet) {
+		@include flex-direction(row);
 		padding: 0px 0 0;
 	}
-	a{
-		background:$primary-color;
-	}
 
+	a {
+		background: $primary-color;
+
+		&:hover {
+			background-color: #712b79;
+		}
+
+	}
 
 	p {
 		font-weight: 400;
 		font-size: 13px;
 		text-transform: uppercase;
-			padding: 0 20px;
-			margin:0;
+		padding: 0 20px;
+		margin: 0;
 
 		@media (max-width:$screen-xs-max) {
 			text-align: center;
-			padding:20px;
+			padding: 20px;
 		}
 
 		@media (min-width:$screen-tablet) {
 			font-size: 16px;
-			width:70%;
+			width: 70%;
 		}
 
 		@media (min-width:$screen-desktop) {
 			font-size: 18px;
-				width:85%;
+			width: 85%;
 		}
 
 	}
@@ -393,11 +399,12 @@
 		background-color: $primary-color;
 
 		@media (min-width:$screen-tablet) {
-			width:30%;
-			padding:25px;
+			width: 30%;
+			padding: 40px;
 		}
+
 		@media (min-width:$screen-desktop) {
-				width:25%;
+			width: 25%;
 		}
 
 	}
