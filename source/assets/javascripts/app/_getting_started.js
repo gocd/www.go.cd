@@ -59,7 +59,7 @@ jQuery(document).ready(function($) {
   setupSmoothScrollForSamePageLinks();
   highlightCorrectNavigationSectionBasedOnLocation();
 
-  enquire.register("screen and (min-width: 992px) and (min-height: 700px)", {
+  enquire.register("screen and (min-width: 992px) and (min-height: 600px)", {
     match : function() {
       stickySidebar();
     },  
