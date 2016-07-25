@@ -75,6 +75,17 @@ helpers do
     concat_content(text)
   end
 
+  def link_to_commit(sha, text, issue = nil)
+    concat_content(link_to("#{sha}", "https://github.com/gocd/gocd/commit/#{sha}"))
+    concat_content(' - ')
+    concat_content(text)
+    if issue
+      concat_content(' (')
+      concat_content(link_to("##{issue}", "https://github.com/gocd/gocd/issues/#{issue}"))
+      concat_content(')')
+    end
+  end
+
   def link_to_issue(number, text)
     concat_content(link_to("##{number}", "https://github.com/gocd/gocd/issues/#{number}"))
     concat_content(' - ')
