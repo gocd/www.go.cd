@@ -1,72 +1,71 @@
 <h4>GoCD configuration under SCM (a.k.a Config repositories)</h4>
-<p>
-Manage pipeline configurations from one or more source-control repositories (think “git repository”) and modify them externally. You can watch a quick demo of this feature <a href="http://youtu.be/1AfBxCWRqD8">here</a>
-</p>
+<p>Manage pipeline configurations from one or more source-control repositories (think “git repository”) and modify them externally. 
+You can watch a quick demo of this feature <a href="http://youtu.be/1AfBxCWRqD8">here</a></p>
 
 <h4>Improvements</h4>
-<p>
-<%= link_to_commit('B283b42','Display the correct ip-address of agents running on virtualized instances or containers.', 1657) %>
-</p>
+<p><%= link_to_commit('B283b42','Display the correct ip-address of agents running on virtualized instances or containers.', 1657) %></p>
 
 <h4>API Enhancements</h4>
-<p><%= link_to_commit('34e05b6',"New #{link_to 'API', 'https://api.go.cd/current/#scms'} for viewing, creating and editing Pluggable  SCMs.", 1508) %></p>
-<p><%= link_to_commit('642d7f4',"New #{link_to 'API', 'https://api.go.cd/current/#environment-config'} for creating and editing environments.", 966) %></p>
-<p><%= link_to_commit('79c7168',"New #{link_to 'API', 'https://api.go.cd/current/#agents'} API for bulk updating agents.", 2340) %></p>
-<p><%= link_to_commit('99e2707',"New #{link_to 'API', 'https://api.go.cd/current/#plugin-info'} API for viewing Plugin Information.", 1873) %></p>
+<p><%= link_to_commit('34e05b6',"New #{link_to_api 'scms'} for viewing, creating and editing Pluggable  SCMs.", 1508) %></p>
+<p><%= link_to_commit('642d7f4',"New #{link_to_api 'environment-config'} for creating and editing environments.", 966) %></p>
+<p><%= link_to_commit('79c7168',"New #{link_to_api 'agents'} for bulk updating agents.", 2340) %></p>
+<p><%= link_to_commit('99e2707',"New #{link_to_api 'plugin-info'} for viewing Plugin Information.", 1873) %></p>
 <p><%= link_to_commit('d4a7639',"Support for updating whitelists using pipeline configuration API.") %></p>
 
 <h4>Security fixes</h4>
-<p><%= link_to_commit('103340c','Upgraded all agent-server communication to use HTTPS by default.') %> <%= link_to('Read more', 'https://docs.go.cd/16.7.0/installation/ssl_tls/end_to_end_transport_security.html') %> about how to improve security of your GoCD setup.</p>
+<p><%= link_to_commit('103340c','Upgraded all agent-server communication to use HTTPS by default.') %> 
+<%= link_to('Read more', 'https://docs.go.cd/16.7.0/installation/ssl_tls/end_to_end_transport_security.html') %> about how to improve security of your GoCD setup.</p>
 <p><%= link_to_commit('3d2afad','Pluggable tasks secure configurations are encrypted before saving to xml configuration.', 903) %></p>
 <p><%= link_to_commit('657feb3','Added missing security headers on a few pages to activate web browser protection.') %></p>
 <p><%= link_to_commit('6909484','Escaped the error message in the repositories page. (XSS)') %></p>
 
 <h4>Breaking changes</h4>
-<p><%= link_to_commit('f58e900','Removed Agents API v1, users should use version 2 of the') %> <%= link_to('Agents API', 'https://api.go.cd/current/#agents') %></p>
-<p><%= link_to_commit('5602048','Removed old backup API, users should user version 1 of the') %> <%= link_to('Backup API', 'https://api.go.cd/current/#backups') %></p>
+<p><%= link_to_commit('f58e900','Removed Agents API v1, users should use version 2 of the') %> Agents  <%= link_to_api 'agents' %></p>
+<p><%= link_to_commit('5602048','Removed old backup API, users should user version 1 of the') %> Backup <%= link_to_api 'backups' %></p>
 
 <h4>Deprecations</h4>
 <p>Deprecating version 1 of the Pipeline Config API. This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016)</p>
 
 <h4>Plugin Deprecations</h4>
-<p>Java API based Go Plugins have been deprecated for a while and support for these plugins would stop by end of this year. The first release of Go next year(2017) would stop support for Java API based plugins and will have support only for <%= link_to('JSON message based plugin API.', 'https://developer.go.cd/current/writing_go_plugins/json_message_based_plugin_api.html') %></p>
+<p>Java API based Go Plugins have been deprecated for a while and support for these plugins would stop by end of this year. 
+The first release of Go next year(2017) would stop support for Java API based plugins and will have support only for 
+<%= link_to('JSON message based plugin API.', 'https://developer.go.cd/current/writing_go_plugins/json_message_based_plugin_api.html') %></p>
 <p>Request all plugin developers to please update their plugins to use JSON message based plugin API by end of this year.</p>
-<p>Below is the list of Java API based Go Plugins. </p>
+<p>Below is the list of Java API based Go Plugins.</p>
 <h5>Package Plugins</h5>
 <ul>
-<li><%= link_to('Maven (Nexus) repository poller', 'https://github.com/aresok/go-maven-poller') %></li>
-<li><%= link_to('Docker Registry Poller - 1', 'https://github.com/hammerdr/go-docker-registry-poller') %></li>
-<li><%= link_to('Docker Registry Poller - 2', 'https://github.com/decoomanj/gocd-docker-material-poller') %></li>
-<li><%= link_to('Puppet Forge repository poller', 'https://github.com/drrb/go-puppet-forge-poller') %></li>
-<li><%= link_to('Debian repository poller', 'https://github.com/gocd-contrib/deb-repo-poller') %></li>
-<li><%= link_to('Cloud Foundry poller', 'https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md') %></li>
-<li><%= link_to('Nuget repository poller', 'https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/') %></li>
-<li><%= link_to('Generic Artifactory poller', 'https://github.com/varchev/go-generic-artifactory-poller') %></li>
-<li><%= link_to('NPM repository poller', 'https://github.com/varchev/go-npm-poller') %></li>
+  <li><%= link_to('Maven (Nexus) repository poller', 'https://github.com/aresok/go-maven-poller') %></li>
+  <li><%= link_to('Docker Registry Poller - 1', 'https://github.com/hammerdr/go-docker-registry-poller') %></li>
+  <li><%= link_to('Docker Registry Poller - 2', 'https://github.com/decoomanj/gocd-docker-material-poller') %></li>
+  <li><%= link_to('Puppet Forge repository poller', 'https://github.com/drrb/go-puppet-forge-poller') %></li>
+  <li><%= link_to('Debian repository poller', 'https://github.com/gocd-contrib/deb-repo-poller') %></li>
+  <li><%= link_to('Cloud Foundry poller', 'https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md') %></li>
+  <li><%= link_to('Nuget repository poller', 'https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/') %></li>
+  <li><%= link_to('Generic Artifactory poller', 'https://github.com/varchev/go-generic-artifactory-poller') %></li>
+  <li><%= link_to('NPM repository poller', 'https://github.com/varchev/go-npm-poller') %></li>
 </ul>
 
 <h5>Task Plugins</h5>
 <ul>
-<li><%= link_to('MSBuild Task', 'https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md') %></li>
-<li><%= link_to('XUnit Converter', 'https://github.com/gocd-contrib/xunit-converter-task') %></li>
-<li><%= link_to('Publish to S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li>
-<li><%= link_to('Fetch from S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li>
-<li><%= link_to('Powershell Task', 'https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md') %></li>
-<li><%= link_to('RapidDeploy Package Builder', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin') %></li>
-<li><%= link_to('RapidDeploy Job Runner', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin') %></li>
-<li><%= link_to('Maven Task Plugin', 'https://github.com/ruckc/gocd-maven-plugin') %></li>
-<li><%= link_to('Publish to Artifactory', 'https://github.com/tusharm/go-artifactory-plugin') %></li>
+  <li><%= link_to('MSBuild Task', 'https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md') %></li>
+  <li><%= link_to('XUnit Converter', 'https://github.com/gocd-contrib/xunit-converter-task') %></li>
+  <li><%= link_to('Publish to S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li>
+  <li><%= link_to('Fetch from S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li>
+  <li><%= link_to('Powershell Task', 'https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md') %></li>
+  <li><%= link_to('RapidDeploy Package Builder', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin') %></li>
+  <li><%= link_to('RapidDeploy Job Runner', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin') %></li>
+  <li><%= link_to('Maven Task Plugin', 'https://github.com/ruckc/gocd-maven-plugin') %></li>
+  <li><%= link_to('Publish to Artifactory', 'https://github.com/tusharm/go-artifactory-plugin') %></li>
 </ul>
 
 <h5>For GoCD developers</h5>
 <p><%= link_to_commit('d395806', 'Migrated build scripts to Gradle') %></p>
 
 <h4>Contributors</h4>
-<p>Aravind SV, adeshmukh-sf, Dominic Tootell, Ganesh Patil, Jyoti Singh, Ketan Padegaonkar, Mahesh Panchaksharaiah, norcnorc, Rajiesh Narayanan, Sumanth M, Ted Sheibar, Tomasz Sętkowski, Varsha Varadarajan, Venkata Jaswanth, Viktor Sadovnikov, Zabil Cheriya Maliackal</p>
+<p>Aravind SV, adeshmukh-sf, Dominic Tootell, Ganesh Patil, Jyoti Singh, Ketan Padegaonkar, Mahesh Panchaksharaiah, norcnorc, Rajiesh Narayanan, Sumanth M, 
+Ted Sheibar, Tomasz Sętkowski, Varsha Varadarajan, Venkata Jaswanth, Viktor Sadovnikov, Zabil Cheriya Maliackal</p>
 <h4>Note</h4>
-<p>
-  A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 16.7' %>
-</p>
+<p>A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 16.7' %></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We’re here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.</p>
 <p>Found a critical security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %></p>

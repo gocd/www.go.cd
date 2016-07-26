@@ -86,6 +86,10 @@ helpers do
     end
   end
 
+  def link_to_api(api_section)
+    link_to 'API', "http://api.go.cd/current/##{api_section}"
+  end
+
   def link_to_issue(number, text)
     concat_content(link_to("##{number}", "https://github.com/gocd/gocd/issues/#{number}"))
     concat_content(' - ')
