@@ -38,6 +38,11 @@ var startTabContainer = function($) {
     $('html,body').animate({
       scrollTop: dtarget.offset().top + -100
        }, 1000);
-    });
+  });
+
+  if(window.location.hash) {
+    release = window.location.hash.substring(1).replace(/\./g,'-');
+    $('[rel=tab-' + release + ']').click();
+  }
 
 };
