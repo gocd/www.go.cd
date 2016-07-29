@@ -76,7 +76,7 @@ helpers do
   end
 
   def link_to_commit(sha, text, issue = nil)
-    concat_content(link_to("#{sha}", "https://github.com/gocd/gocd/commit/#{sha}"))
+    concat_content(content_tag(:code, link_to("#{sha}", "https://github.com/gocd/gocd/commit/#{sha}")))
     concat_content(' - ')
     concat_content(text)
     if issue
@@ -87,7 +87,7 @@ helpers do
   end
 
   def link_to_api(api_section)
-    link_to 'API', "http://api.go.cd/current/##{api_section}"
+    link_to 'API', "https://api.go.cd/current/##{api_section}"
   end
 
   def link_to_issue(number, text)
