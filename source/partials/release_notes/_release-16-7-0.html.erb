@@ -1,9 +1,14 @@
 <h4>GoCD configuration under SCM (a.k.a Config repositories)</h4>
+
 <p>
   Manage pipeline configurations from one or more source-control repositories (think "git repository") and modify them externally.
   You can find more details about it <a href="https://docs.google.com/document/d/1_eGZaqIz9ydnYQJ_Xrcb3obXc-T6jIfV_pgZQNCydVk/pub">here</a>,
   and watch a quick demo of this feature <a href="https://youtu.be/1AfBxCWRqD8">here</a>.
 </p>
+
+<h4>Known issues</h4>
+<p>Upgrading the agent to 16.7.0 before upgrading the server is known to cause issues. Users are advised to first upgrade the server to 16.7.0 before they upgrade the server.</p>
+<p>In case you are seeing issues with the agent not starting up after the upgrade, please see <%= link_to 'this comment', 'https://github.com/gocd/gocd/issues/2525#issuecomment-237553253' %>.</p>
 
 <h4>Important bug fixes</h4>
 <p><%= link_to_commit('3e88caf', 'Windows Installer fixes') %></p>
