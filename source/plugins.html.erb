@@ -75,13 +75,13 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
                     <span class="logo"></span>
                     <div class="details">
                       <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled %>
-                      <h5 class="name"> <%= p.name %> </h5>
+                      <h5 class="name"> <%= escape_html(p.name) %> </h5>
                       <p class="more-details">
-                        <%= p.description %>
+                        <%= escape_html(p.description) %>
                         <%= link_to('Read more', p.readmore_url) %>
                       </p>
                       <span class="created-by">by
-                        <%= link_to(p.author_name, p.author_url)  %>
+                        <%= link_to(escape_html(p.author_name), p.author_url)  %>
                       </span>
                     </div>
                     <div class="actions">
