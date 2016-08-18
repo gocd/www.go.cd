@@ -1,0 +1,48 @@
+<h4>Beta Feature - Elastic agents</h4>
+<p>
+<%= link_to('https://plugin-api.go.cd/current/elastic-agents/', 'https://plugin-api.go.cd/current/elastic-agents/') %>
+</p>
+<p>
+The new extension point allows the gocd server (with the help of plugins) to spin up and shut down agents on demand. 
+This extension point allows plugin developers to write plugins that allow GoCD to hook into and leverage various technologies 
+like <%= link_to('Docker', 'https://www.docker.com/') %>, <%= link_to('AWS', 'https://aws.amazon.com/') %>,
+<%= link_to('GCE', 'https://cloud.google.com/compute/') %>, <%= link_to('Kubernetes', 'http://kubernetes.io/') %>. 
+</p>
+<p>
+Developers can start building their own elastic agent plugins by forking the 
+<%= link_to('skeleton plugin', 'https://github.com/gocd-contrib/elastic-agent-skeleton-plugin') %> 
+and looking at a sample <%= link_to('docker plugin', 'https://github.com/gocd-contrib/docker-elastic-agents') %> 
+as an example reference implementation.
+</p>
+
+<h4>API Enhancements</h4>
+<p><%= link_to_commit('ee281ec', 'Added v3 of agents API to render (read-only) elastic agent attributes.') %></p>
+
+<h4>Security Fixes</h4>
+<p><%= link_to_commit('d8cd812', 'Disallowed directory listing of certain folders on the GoCD server.') %></p>
+<p><%= link_to_commit('d05746b', 'Added a friendlier error message on failing to send test email.') %></p>
+<p><%= link_to_commit('fb32102', 'Disallowed Plugin Interact endpoint for non Authentication Plugins.') %></p>
+<p><%= link_to_commit('4d871a6', 'Add cache control and pragma header to login page.') %></p>
+
+<h4>Breaking Changes</h4>
+<p><%= link_to_commit('e7bb87b', 'Added a custom header to the Create Backup API.') %></p>
+<p><%= link_to_commit('914974d', 'Added a custom header for the Create Artifact API.') %></p>
+
+<h4>Performance fixes</h4>
+<p><%= link_to_commit('670df79', 'Re-use SSL connections by specifying a user principal as part of all remoting connections.') %></p>
+<p><%= link_to_commit('4c472e1', 'Used fixed delay instead rate execution of agent ping thread.') %></p>
+
+<h4>For GoCD developers</h4>
+<p><%= link_to_commit('8806f6b', 'Added a vagrant file to allow local development and testing of GoCD.') %></p>
+
+<h4>Contributors</h4>
+<p>
+Aravind SV, Ganesh Patil, Jyoti Singh, Ken Mugrage, Ketan Padegaonkar, Mahesh Panchaksharaiah, Naveen Bhaskar, norcnorc, Rajiesh Narayanan, Sumanth M, Tomasz Setkowski, Varsha Varadarajan, Zabil Cheriya Maliackal
+</p>
+<h4>Security researchers</h4>
+<p><%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %></p>
+<h4>Note</h4>
+<p>A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 16.8' %></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.</p>
+<p>Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %></p>
