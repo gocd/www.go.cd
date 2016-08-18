@@ -1,18 +1,17 @@
 <h4>Beta Feature - Elastic agents</h4>
-<p>
-<%= link_to('https://plugin-api.go.cd/current/elastic-agents/', 'https://plugin-api.go.cd/current/elastic-agents/') %>
-</p>
+
 <p>
 The new extension point allows the gocd server (with the help of plugins) to spin up and shut down agents on demand. 
 This extension point allows plugin developers to write plugins that allow GoCD to hook into and leverage various technologies 
 like <%= link_to('Docker', 'https://www.docker.com/') %>, <%= link_to('AWS', 'https://aws.amazon.com/') %>,
 <%= link_to('GCE', 'https://cloud.google.com/compute/') %>, <%= link_to('Kubernetes', 'http://kubernetes.io/') %>. 
 </p>
+
 <p>
 Developers can start building their own elastic agent plugins by forking the 
 <%= link_to('skeleton plugin', 'https://github.com/gocd-contrib/elastic-agent-skeleton-plugin') %> 
 and looking at a sample <%= link_to('docker plugin', 'https://github.com/gocd-contrib/docker-elastic-agents') %> 
-as an example reference implementation.
+as an example reference implementation. The plugin API documentation can be found <%= link_to('here', 'https://plugin-api.go.cd/current/elastic-agents') %>.
 </p>
 
 <h4>API Enhancements</h4>
