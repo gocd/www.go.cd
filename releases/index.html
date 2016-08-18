@@ -78,7 +78,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-16-7-0" class="active">16.7.0 (latest)</li>
+      <li rel="tab-16-8-0" class="active">16.8.0 (latest)</li>
+      <li rel="tab-16-7-0">16.7.0</li>
       <li rel="tab-16-6-0">16.6.0</li>
       <li rel="tab-16-5-0">16.5.0</li>
       <li rel="tab-16-4-0">16.4.0</li>
@@ -97,7 +98,61 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-16-7-0">16.7.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-16-8-0">16.8.0 (latest)</h3>
+      <div id="tab-16-8-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Beta Feature - Elastic agents</h4>
+<p>
+<a href="https://plugin-api.go.cd/current/elastic-agents/">https://plugin-api.go.cd/current/elastic-agents/</a>
+</p>
+<p>
+The new extension point allows the gocd server (with the help of plugins) to spin up and shut down agents on demand. 
+This extension point allows plugin developers to write plugins that allow GoCD to hook into and leverage various technologies 
+like <a href="https://www.docker.com/">Docker</a>, <a href="https://aws.amazon.com/">AWS</a>,
+<a href="https://cloud.google.com/compute/">GCE</a>, <a href="http://kubernetes.io/">Kubernetes</a>. 
+</p>
+<p>
+Developers can start building their own elastic agent plugins by forking the 
+<a href="https://github.com/gocd-contrib/elastic-agent-skeleton-plugin">skeleton plugin</a> 
+and looking at a sample <a href="https://github.com/gocd-contrib/docker-elastic-agents">docker plugin</a> 
+as an example reference implementation.
+</p>
+
+<h4>API Enhancements</h4>
+<p><code><a href="https://github.com/gocd/gocd/commit/ee281ec">ee281ec</a></code> - Added v3 of agents API to render (read-only) elastic agent attributes.</p>
+
+<h4>Security Fixes</h4>
+<p><code><a href="https://github.com/gocd/gocd/commit/d8cd812">d8cd812</a></code> - Disallowed directory listing of certain folders on the GoCD server.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/d05746b">d05746b</a></code> - Added a friendlier error message on failing to send test email.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/fb32102">fb32102</a></code> - Disallowed Plugin Interact endpoint for non Authentication Plugins.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/4d871a6">4d871a6</a></code> - Add cache control and pragma header to login page.</p>
+
+<h4>Breaking Changes</h4>
+<p><code><a href="https://github.com/gocd/gocd/commit/e7bb87b">e7bb87b</a></code> - Added a custom header to the Create Backup API.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/914974d">914974d</a></code> - Added a custom header for the Create Artifact API.</p>
+
+<h4>Performance fixes</h4>
+<p><code><a href="https://github.com/gocd/gocd/commit/670df79">670df79</a></code> - Re-use SSL connections by specifying a user principal as part of all remoting connections.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/4c472e1">4c472e1</a></code> - Used fixed delay instead rate execution of agent ping thread.</p>
+
+<h4>For GoCD developers</h4>
+<p><code><a href="https://github.com/gocd/gocd/commit/8806f6b">8806f6b</a></code> - Added a vagrant file to allow local development and testing of GoCD.</p>
+
+<h4>Contributors</h4>
+<p>
+Aravind SV, Ganesh Patil, Jyoti Singh, Ken Mugrage, Ketan Padegaonkar, Mahesh Panchaksharaiah, Naveen Bhaskar, norcnorc, Rajiesh Narayanan, Sumanth M, Tomasz Setkowski, Varsha Varadarajan, Zabil Cheriya Maliackal
+</p>
+<h4>Security researchers</h4>
+<p><a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a></p>
+<h4>Note</h4>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22Release+16.8%22+is%3Amerged">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-16-7-0">16.7.0</h3>
       <div id="tab-16-7-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>GoCD configuration under SCM (a.k.a Config repositories)</h4>
