@@ -97,7 +97,7 @@ helpers do
   end
 
   def link_to_full_changelog(text, milestone_name)
-    link_to(text, "https://github.com/gocd/gocd/pulls?q=is%3Apr+milestone%3A%22#{CGI.escape(milestone_name)}%22+is%3Amerged")
+    link_to(text, "https://github.com/gocd/gocd/issues?q=milestone%3A%22#{CGI.escape(milestone_name)}%22")
   end
 
   def value_or_default key, default_value = nil
