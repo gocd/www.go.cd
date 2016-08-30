@@ -26,8 +26,14 @@
       location: Chicago
     - date: October 6 - 7
       location: Raleigh
+    - date: October 20 - 21
+      location: Kansas City
+    - date: October 26 - 27
+      location: Philadelphia
     - date: October 31 - November 1
       location: Ohio
+    - date: November 16 - November 17
+      location: Berlin
 
 - title: "PIPELINE: The Continuous Delivery Conference"
   url: http://web.pipelineconf.info/
@@ -42,6 +48,13 @@
   details:
     - date: April 26 - 29
       location: Budapest
+
+- title: "Operability"
+  url: http://www.operability.io
+  description: "Operability is an event about DevOps from the operations point of view, exploring topics like software operability and IT operating models, in light of all the new processes, tools and techniques that are changing the industry forever."
+  details:
+    - date: September 19 - 20
+      location: London
 
 - title: "QCon"
   url: http://www.qconferences.com/
