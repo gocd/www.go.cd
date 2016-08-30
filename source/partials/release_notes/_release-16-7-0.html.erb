@@ -34,25 +34,54 @@
 <p><%= link_to_commit('5602048', 'Removed old backup API, users should user version 1 of the') %> Backup <%= link_to_api 'backups' %></p>
 
 <h4>Deprecations</h4>
-<p>Deprecating version 1 of the Pipeline Config API by bumping it up to version 2. This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016)</p>
+<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>The following features have been deprecated, along with the timeframe when they will be removed</p>
 
-<h4>Plugin deprecations</h4>
-<p>Java API based Go Plugins have been deprecated for a while and support for these plugins would stop by end of this year.
-  The first release of Go next year(2017) would stop support for Java API based plugins and will have support only for
-  <%= link_to('JSON message based plugin API.', 'https://developer.go.cd/current/writing_go_plugins/json_message_based_plugin_api.html') %></p>
-<p>Request all plugin developers to please update their plugins to use JSON message based plugin API by end of this year.</p>
-<p>Below is the list of Java API based Go Plugins.</p>
-<h5>Package plugins</h5>
 <ul>
-  <li><%= link_to('Maven (Nexus) repository poller', 'https://github.com/aresok/go-maven-poller') %></li>
-  <li><%= link_to('Docker Registry Poller - 1', 'https://github.com/hammerdr/go-docker-registry-poller') %></li>
-  <li><%= link_to('Docker Registry Poller - 2', 'https://github.com/decoomanj/gocd-docker-material-poller') %></li>
-  <li><%= link_to('Puppet Forge repository poller', 'https://github.com/drrb/go-puppet-forge-poller') %></li>
-  <li><%= link_to('Debian repository poller', 'https://github.com/gocd-contrib/deb-repo-poller') %></li>
-  <li><%= link_to('Cloud Foundry poller', 'https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md') %></li>
-  <li><%= link_to('Nuget repository poller', 'https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/') %></li>
-  <li><%= link_to('Generic Artifactory poller', 'https://github.com/varchev/go-generic-artifactory-poller') %></li>
-  <li><%= link_to('NPM repository poller', 'https://github.com/varchev/go-npm-poller') %></li>
+  <li>
+    As of release 16.5, Java 7 support was deprecated.
+    Java 7 support will be removed in 17.1 release (scheduled to be released in January 2017).
+    GoCD works great with Java 8, and users are encouraged to use it.
+  </li>
+  <li>
+    As of release 16.7, version 1 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> was deprecated.
+    This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
+    Version 2 of this API is backward compatible, and users are encouraged to use it.
+  </li>
+  <li>
+    As of release 16.7, Java API based Go Plugins have been deprecated.
+    Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
+    Plugin developers are encouraged to upgrade their plugins to use <%= link_to('JSON message based plugin API.', 'https://plugin-api.go.cd/current/tasks') %> to build plugins.
+
+    <p>Below is the list of plugins that will stop working in 17.1.</p>
+
+    <h5>Package plugins</h5>
+    <ul>
+      <li><%= link_to('Maven (Nexus) repository poller', 'https://github.com/aresok/go-maven-poller') %></li>
+      <li><%= link_to('Docker Registry Poller - 1', 'https://github.com/hammerdr/go-docker-registry-poller') %></li>
+      <li><%= link_to('Docker Registry Poller - 2', 'https://github.com/decoomanj/gocd-docker-material-poller') %></li>
+      <li><%= link_to('Puppet Forge repository poller', 'https://github.com/drrb/go-puppet-forge-poller') %></li>
+      <li><%= link_to('Debian repository poller', 'https://github.com/gocd-contrib/deb-repo-poller') %></li>
+      <li><%= link_to('Cloud Foundry poller', 'https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md') %></li>
+      <li><%= link_to('Nuget repository poller', 'https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/') %></li>
+      <li><%= link_to('Generic Artifactory poller', 'https://github.com/varchev/go-generic-artifactory-poller') %></li>
+      <li><%= link_to('NPM repository poller', 'https://github.com/varchev/go-npm-poller') %></li>
+    </ul>
+
+    <h5>Task plugins</h5>
+    <ul>
+      <li><%= link_to('MSBuild Task', 'https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md') %></li>
+      <li><%= link_to('XUnit Converter', 'https://github.com/gocd-contrib/xunit-converter-task') %></li>
+      <li><%= link_to('Publish to S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li>
+      <li><%= link_to('Fetch from S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li>
+      <li><%= link_to('Powershell Task', 'https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md') %></li>
+      <li><%= link_to('RapidDeploy Package Builder', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin') %></li>
+      <li><%= link_to('RapidDeploy Job Runner', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin') %></li>
+      <li><%= link_to('Maven Task Plugin', 'https://github.com/ruckc/gocd-maven-plugin') %></li>
+      <li><%= link_to('Publish to Artifactory', 'https://github.com/tusharm/go-artifactory-plugin') %></li>
+    </ul>
+
+  </li>
 </ul>
 
 <h5>Task plugins</h5>
