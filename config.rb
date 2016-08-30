@@ -86,8 +86,8 @@ helpers do
     end
   end
 
-  def link_to_api(api_section)
-    link_to 'API', "https://api.go.cd/current/##{api_section}"
+  def link_to_api(api_section, text='API')
+    link_to text, "https://api.go.cd/current/##{api_section}"
   end
 
   def link_to_issue(number, text)

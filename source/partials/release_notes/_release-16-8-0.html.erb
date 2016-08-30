@@ -1,16 +1,16 @@
 <h4>Beta Feature - Elastic agents</h4>
 
 <p>
-The new extension point allows the gocd server (with the help of plugins) to spin up and shut down agents on demand. 
-This extension point allows plugin developers to write plugins that allow GoCD to hook into and leverage various technologies 
+The new extension point allows the gocd server (with the help of plugins) to spin up and shut down agents on demand.
+This extension point allows plugin developers to write plugins that allow GoCD to hook into and leverage various technologies
 like <%= link_to('Docker', 'https://www.docker.com/') %>, <%= link_to('AWS', 'https://aws.amazon.com/') %>,
-<%= link_to('GCE', 'https://cloud.google.com/compute/') %>, <%= link_to('Kubernetes', 'http://kubernetes.io/') %>. 
+<%= link_to('GCE', 'https://cloud.google.com/compute/') %>, <%= link_to('Kubernetes', 'http://kubernetes.io/') %>.
 </p>
 
 <p>
-Developers can start building their own elastic agent plugins by forking the 
-<%= link_to('skeleton plugin', 'https://github.com/gocd-contrib/elastic-agent-skeleton-plugin') %> 
-and looking at a sample <%= link_to('docker plugin', 'https://github.com/gocd-contrib/docker-elastic-agents') %> 
+Developers can start building their own elastic agent plugins by forking the
+<%= link_to('skeleton plugin', 'https://github.com/gocd-contrib/elastic-agent-skeleton-plugin') %>
+and looking at a sample <%= link_to('docker plugin', 'https://github.com/gocd-contrib/docker-elastic-agents') %>
 as an example reference implementation. The plugin API documentation can be found <%= link_to('here', 'https://plugin-api.go.cd/current/elastic-agents') %>.
 </p>
 
@@ -30,6 +30,28 @@ as an example reference implementation. The plugin API documentation can be foun
 <h4>Performance fixes</h4>
 <p><%= link_to_commit('670df79', 'Re-use SSL connections by specifying a user principal as part of all remoting connections.') %></p>
 <p><%= link_to_commit('4c472e1', 'Used fixed delay instead rate execution of agent ping thread.') %></p>
+
+<h4>Deprecations</h4>
+<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>The following features have been deprecated, along with the timeframe when they will be removed</p>
+
+<ul>
+  <li>
+    As of release 16.5, Java 7 support was deprecated.
+    Java 7 support will be removed in 17.1 release (scheduled to be released in January 2017).
+    GoCD works great with Java 8, and users are encouraged to use it.
+  </li>
+  <li>
+    As of release 16.7, version 1 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> was deprecated.
+    This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
+    Version 2 of this API is backward compatible, and users are encouraged to use it.
+  </li>
+  <li>
+    As of release 16.7, Java API based Go Plugins have been deprecated.
+    Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
+    Plugin developers are encouraged to upgrade their plugins to use <%= link_to('JSON message based plugin API.', 'https://plugin-api.go.cd/current/tasks') %> to build plugins.
+  </li>
+</ul>
 
 <h4>For GoCD developers</h4>
 <p><%= link_to_commit('8806f6b', 'Added a vagrant file to allow local development and testing of GoCD.') %></p>
