@@ -1,10 +1,10 @@
-<h4 id="whitelist-support-for-scm-materials">Whitelist support for SCM materials</h4>
+<h4>Whitelist support for SCM materials</h4>
 
 <p><%= link_to_pull_request(2314, 'Handling the triggering of a pipeline for monolithic repositories using a whitelist.') %></p>
-<p>For example, in a repository 'baz' with folders/projects 'foo/bar' and 'foo/qux' one 
+<p>For example, in a repository 'baz' with folders/projects 'foo/bar' and 'foo/qux' one
 can trigger the pipeline only on changes to 'foo/bar' by configuring it as a whitelisted folder.</p>
 
-<h4 id="api-enhancements">API Enhancements</h4>
+<h4>API Enhancements</h4>
 
 <p><%= link_to_pull_request(2240, 'Added a URL endpoint to grab a snapshot of the GoCD config git repository.') %>
 For example, backup the config repo 'config-repository' using:</p>
@@ -16,14 +16,26 @@ This end point also returns more information to identify performance bottlenecks
 
 <p><%= link_to_pull_request(2239, 'Added a version API to get the version of Go server.') %></p>
 
-<h4 id="performance-improvements">Performance Improvements</h4>
+<h4>Performance Improvements</h4>
 
 <p><%= link_to_pull_request(2248,'Improved page load performance across the board.') %></p>
 
+<h4>Deprecations</h4>
+<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>The following features have been deprecated, along with the timeframe when they will be removed</p>
+
+<ul>
+  <li>
+    As of release 16.5, Java 7 support was deprecated.
+    Java 7 support will be removed in 17.1 release (scheduled to be released in January 2017).
+    GoCD works great with Java 8, and users are encouraged to use it.
+  </li>
+</ul>
+
 <h4>Upcoming Feature - Config in a repository</h4>
 <p>
-This release also adds foundation for reading pipeline configuration from the material's repository.  
-This feature is still in development and more details can be found 
+This release also adds foundation for reading pipeline configuration from the material's repository.
+This feature is still in development and more details can be found
 <a href="https://docs.google.com/document/d/1_eGZaqIz9ydnYQJ_Xrcb3obXc-T6jIfV_pgZQNCydVk/pub">here</a>.
 </p>
 
@@ -31,7 +43,6 @@ This feature is still in development and more details can be found
 <p>
   A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 16.6' %>
 </p>
-
 
 <h4>Contributors</h4>
 
