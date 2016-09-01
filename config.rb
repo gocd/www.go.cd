@@ -90,9 +90,9 @@ helpers do
     link_to text, "https://api.go.cd/current/##{api_section}"
   end
 
-  def link_to_issue(number, text)
+  def link_to_issue(number, text='')
     concat_content(link_to("##{number}", "https://github.com/gocd/gocd/issues/#{number}"))
-    concat_content(' - ')
+    concat_content(' - ') unless text == ''
     concat_content(text)
   end
 
