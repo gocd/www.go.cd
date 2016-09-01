@@ -24,9 +24,9 @@
 <p>We are working on adding few missing features like:</p>
 
 <ul>
-	<li><p>Package materials (like yum, maven, artifactory plugins)</li></p>
+	<li><p>Package materials (like yum, maven, artifactory plugins)</p></li>
 	<li><p>Pipeline template editing, pipelines that use templates can only update Pipeline Settings 
-and Materials</li></p>
+and Materials</p></li>
 </ul>
 
 <b>Known issues?</b>
@@ -34,9 +34,9 @@ and Materials</li></p>
 <p>Missing API validation for a few attributes, they are tracked below:</p>
 
 <ul>
-	<li><p>Pipeline Config API: Stage operate permission user not validated (<%= link_to_issue('2629') %>)</li></p>
-	<li><p>Pipeline Config API: Validation missing for parameter name used in the custom task argument (<%= link_to_issue('2628') %>)</li></p>
-	<li><p>Missing validation errors on pipeline_config API (<%= link_to_issue('2553') %>)</li></p>
+	<li><p>Pipeline Config API: Stage operate permission user not validated (<%= link_to_issue('2629') %>)</p></li>
+	<li><p>Pipeline Config API: Validation missing for parameter name used in the custom task argument (<%= link_to_issue('2628') %>)</p></li>
+	<li><p>Missing validation errors on pipeline_config API (<%= link_to_issue('2553') %>)</p></li>
 </ul>
 
 <b>What’s next?</b>
@@ -70,58 +70,58 @@ and Materials</li></p>
     As of release 16.5, Java 7 support was deprecated.
     Java 7 support will be removed in 17.1 release (scheduled to be released in January 2017).
     GoCD works great with Java 8, and users are encouraged to use it.
-  </li></p>
+  </p></li>
   <li><p>
     As of release 16.7, version 1 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> was deprecated.
     This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
     Version 2 of this API is backward compatible, and users are encouraged to use it.
-  </li></p>
+  </p></li>
   <li><p>
     As of release 16.7, Java API based Go Plugins have been deprecated.
     Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
-    Plugin developers are encouraged to upgrade their plugins to use <%= link_to('JSON message based plugin API.', 'https://plugin-api.go.cd/current/tasks') %> to build plugins.
+    Plugin developers are encouraged to upgrade their plugins to use <%= link_to('JSON message based plugin API.', 'https://plugin-api.go.cd/current/tasks') %> to build plugins.</p>
 
     <p>Below is the list of plugins that will stop working in 17.1.</p>
 
     <h5>Package plugins</h5>
     <ul>
-      <li><p><%= link_to('Maven (Nexus) repository poller', 'https://github.com/aresok/go-maven-poller') %></li></p>
-      <li><p><%= link_to('Docker Registry Poller - 1', 'https://github.com/hammerdr/go-docker-registry-poller') %></li></p>
-      <li><p><%= link_to('Docker Registry Poller - 2', 'https://github.com/decoomanj/gocd-docker-material-poller') %></li></p>
-      <li><p><%= link_to('Puppet Forge repository poller', 'https://github.com/drrb/go-puppet-forge-poller') %></li></p>
-      <li><p><%= link_to('Debian repository poller', 'https://github.com/gocd-contrib/deb-repo-poller') %></li></p>
-      <li><p><%= link_to('Cloud Foundry poller', 'https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md') %></li></p>
-      <li><p><%= link_to('Nuget repository poller', 'https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/') %></li></p>
-      <li><p><%= link_to('Generic Artifactory poller', 'https://github.com/varchev/go-generic-artifactory-poller') %></li></p>
-      <li><p><%= link_to('NPM repository poller', 'https://github.com/varchev/go-npm-poller') %></li></p>
+      <li><p><%= link_to('Maven (Nexus) repository poller', 'https://github.com/aresok/go-maven-poller') %></p></li>
+      <li><p><%= link_to('Docker Registry Poller - 1', 'https://github.com/hammerdr/go-docker-registry-poller') %></p></li>
+      <li><p><%= link_to('Docker Registry Poller - 2', 'https://github.com/decoomanj/gocd-docker-material-poller') %></p></li>
+      <li><p><%= link_to('Puppet Forge repository poller', 'https://github.com/drrb/go-puppet-forge-poller') %></p></li>
+      <li><p><%= link_to('Debian repository poller', 'https://github.com/gocd-contrib/deb-repo-poller') %></p></li>
+      <li><p><%= link_to('Cloud Foundry poller', 'https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md') %></p></li>
+      <li><p><%= link_to('Nuget repository poller', 'https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/') %></p></li>
+      <li><p><%= link_to('Generic Artifactory poller', 'https://github.com/varchev/go-generic-artifactory-poller') %></p></li>
+      <li><p><%= link_to('NPM repository poller', 'https://github.com/varchev/go-npm-poller') %></p></li>
     </ul>
 
     <h5>Task plugins</h5>
     <ul>
-      <li><p><%= link_to('MSBuild Task', 'https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md') %></li></p>
-      <li><p><%= link_to('XUnit Converter', 'https://github.com/gocd-contrib/xunit-converter-task') %></li></p>
-      <li><p><%= link_to('Publish to S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li></p>
-      <li><p><%= link_to('Fetch from S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li></p>
-      <li><p><%= link_to('Powershell Task', 'https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md') %></li></p>
-      <li><p><%= link_to('RapidDeploy Package Builder', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin') %></li></p>
-      <li><p><%= link_to('RapidDeploy Job Runner', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin') %></li></p>
-      <li><p><%= link_to('Maven Task Plugin', 'https://github.com/ruckc/gocd-maven-plugin') %></li></p>
-      <li><p><%= link_to('Publish to Artifactory', 'https://github.com/tusharm/go-artifactory-plugin') %></li></p>
+      <li><p><%= link_to('MSBuild Task', 'https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md') %></p></li>
+      <li><p><%= link_to('XUnit Converter', 'https://github.com/gocd-contrib/xunit-converter-task') %></p></li>
+      <li><p><%= link_to('Publish to S3', 'http://ind9.github.io/gocd-s3-artifacts') %></p></li>
+      <li><p><%= link_to('Fetch from S3', 'http://ind9.github.io/gocd-s3-artifacts') %></p></li>
+      <li><p><%= link_to('Powershell Task', 'https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md') %></p></li>
+      <li><p><%= link_to('RapidDeploy Package Builder', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin') %></p></li>
+      <li><p><%= link_to('RapidDeploy Job Runner', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin') %></p></li>
+      <li><p><%= link_to('Maven Task Plugin', 'https://github.com/ruckc/gocd-maven-plugin') %></p></li>
+      <li><p><%= link_to('Publish to Artifactory', 'https://github.com/tusharm/go-artifactory-plugin') %></p></li>
     </ul>
 
     <h5>Task plugins</h5>
     <ul>
-      <li><p><%= link_to('MSBuild Task', 'https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md') %></li></p>
-      <li><p><%= link_to('XUnit Converter', 'https://github.com/gocd-contrib/xunit-converter-task') %></li></p>
-      <li><p><%= link_to('Publish to S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li></p>
-      <li><p><%= link_to('Fetch from S3', 'http://ind9.github.io/gocd-s3-artifacts') %></li></p>
-      <li><p><%= link_to('Powershell Task', 'https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md') %></li></p>
-      <li><p><%= link_to('RapidDeploy Package Builder', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin') %></li></p>
-      <li><p><%= link_to('RapidDeploy Job Runner', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin') %></li></p>
-      <li><p><%= link_to('Maven Task Plugin', 'https://github.com/ruckc/gocd-maven-plugin') %></li></p>
-      <li><p><%= link_to('Publish to Artifactory', 'https://github.com/tusharm/go-artifactory-plugin') %></li></p>
+      <li><p><%= link_to('MSBuild Task', 'https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md') %></p></li>
+      <li><p><%= link_to('XUnit Converter', 'https://github.com/gocd-contrib/xunit-converter-task') %></p></li>
+      <li><p><%= link_to('Publish to S3', 'http://ind9.github.io/gocd-s3-artifacts') %></p></li>
+      <li><p><%= link_to('Fetch from S3', 'http://ind9.github.io/gocd-s3-artifacts') %></p></li>
+      <li><p><%= link_to('Powershell Task', 'https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md') %></p></li>
+      <li><p><%= link_to('RapidDeploy Package Builder', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin') %></p></li>
+      <li><p><%= link_to('RapidDeploy Job Runner', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin') %></p></li>
+      <li><p><%= link_to('Maven Task Plugin', 'https://github.com/ruckc/gocd-maven-plugin') %></p></li>
+      <li><p><%= link_to('Publish to Artifactory', 'https://github.com/tusharm/go-artifactory-plugin') %></p></li>
     </ul>
-  </li></p>
+  </li>
 </ul>
 
 <h4>Contributors</h4>
