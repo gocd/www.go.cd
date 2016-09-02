@@ -78,7 +78,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-16-8-0" class="active">16.8.0 (latest)</li>
+      <li rel="tab-16-9-0" class="active">16.9.0 (latest)</li>
+      <li rel="tab-16-8-0">16.8.0</li>
       <li rel="tab-16-7-0">16.7.0</li>
       <li rel="tab-16-6-0">16.6.0</li>
       <li rel="tab-16-5-0">16.5.0</li>
@@ -98,7 +99,150 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-16-8-0">16.8.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-16-9-0">16.9.0 (latest)</h3>
+      <div id="tab-16-9-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Quick Edit (Beta)</h4>
+
+<p>Currently, editing a pipeline means navigating through multiple pages (and page refreshes), for modifying stages, jobs with tabs for options and environment variables, etc. Quick edit to make it smoother.</p>
+
+<p>With this feature, you can change a pipeline's materials/stages/jobs/tasks simultaneously and update it as single operation. This feature also uses the new pipeline config API to make your configuration changes quicker.</p>
+
+<b>How do I use this?</b>
+
+<p>Click on "Quick Edit" button on the pipeline edit page.</p>
+
+<figure>
+  <img title="Quick edit" alt="Quick edit" src="assets/images/releases/16.9/quickeditbutton.png" />
+</figure>
+
+<p>Click on "Normal Edit" button to get back to old edit page.</p>
+<figure>
+  <img title="Quick edit" alt="Quick edit" src="assets/images/releases/16.9/quickeditpage.png" />
+</figure>
+
+<b>Why is this beta?</b>
+
+<p>We are working on adding few missing features like:</p>
+
+<ul>
+	<li><p>Package materials (like yum, maven, artifactory plugins)</p></li>
+	<li><p>Pipeline template editing, pipelines that use templates can only update Pipeline Settings 
+and Materials</p></li>
+</ul>
+
+<b>Known issues?</b>
+
+<p>Missing API validation for a few attributes, they are tracked below:</p>
+
+<ul>
+	<li><p>Pipeline Config API: Stage operate permission user not validated (<a href="https://github.com/gocd/gocd/issues/2629">#2629</a>)</p></li>
+	<li><p>Pipeline Config API: Validation missing for parameter name used in the custom task argument (<a href="https://github.com/gocd/gocd/issues/2628">#2628</a>)</p></li>
+	<li><p>Missing validation errors on pipeline_config API (<a href="https://github.com/gocd/gocd/issues/2553">#2553</a>)</p></li>
+</ul>
+
+<b>What's next?</b>
+
+<p>We really appreciate your feedback to make this page better.</p>
+
+<p>Going forward, once all the features are in, we plan to use this page as the default view for modifying configuration.</p>
+
+<p>Submit your feedback by creating github issue at <a href="https://github.com/gocd/gocd/issues">https://github.com/gocd/gocd/issues</a></p>
+
+<h4>API Enhancements</h4>
+<p><code><a href="https://github.com/gocd/gocd/commit/d662685">d662685</a></code> - Provided Git and git-gc stats in the support api (<a href="https://github.com/gocd/gocd/issues/2578">#2578</a>)</p>
+
+<h4>Library upgrades</h4>
+<p><code><a href="https://github.com/gocd/gocd/commit/973cbf2">973cbf2</a></code> - Upgraded jetty minor version to 9.2.18.v20160721</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/74b8b47">74b8b47</a></code> - Upgraded logging jars</p>
+
+<h4>Bug fixes</h4>
+<p><code><a href="https://github.com/gocd/gocd/commit/dc78601">dc78601</a></code> - Added validation of the encryptedPassword attribute of password aware materials - SVN, P4, TFS.</p>
+
+<h4>Security Fixes</h4>
+<p><code><a href="https://github.com/gocd/gocd/commit/faa6a2a">faa6a2a</a></code> - Removed displaying url's from the not found page (<a href="https://github.com/gocd/gocd/issues/2584">#2584</a>)</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/ca7ff9c">ca7ff9c</a></code> - Changed the package material check-connection request from GET to POST (<a href="https://github.com/gocd/gocd/issues/2550">#2550</a>)</p>
+
+<h4>Deprecations</h4>
+<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>The following features have been deprecated, along with the timeframe when they will be removed</p>
+
+<ul>
+  <li><p>
+    As of release 16.5, Java 7 support was deprecated.
+    Java 7 support will be removed in 17.1 release (scheduled to be released in January 2017).
+    GoCD works great with Java 8, and users are encouraged to use it.
+  </p></li>
+  <li><p>
+    As of release 16.7, version 1 of the <a href="https://api.go.cd/current/#pipeline-config">Pipeline Config API</a> was deprecated.
+    This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
+    Version 2 of this API is backward compatible, and users are encouraged to use it.
+  </p></li>
+  <li><p>
+    As of release 16.7, Java API based Go Plugins have been deprecated.
+    Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
+    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.go.cd/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
+
+    <p>Below is the list of plugins that will stop working in 17.1.</p>
+
+    <h5>Package plugins</h5>
+    <ul>
+      <li><p><a href="https://github.com/aresok/go-maven-poller">Maven (Nexus) repository poller</a></p></li>
+      <li><p><a href="https://github.com/hammerdr/go-docker-registry-poller">Docker Registry Poller - 1</a></p></li>
+      <li><p><a href="https://github.com/decoomanj/gocd-docker-material-poller">Docker Registry Poller - 2</a></p></li>
+      <li><p><a href="https://github.com/drrb/go-puppet-forge-poller">Puppet Forge repository poller</a></p></li>
+      <li><p><a href="https://github.com/gocd-contrib/deb-repo-poller">Debian repository poller</a></p></li>
+      <li><p><a href="https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md">Cloud Foundry poller</a></p></li>
+      <li><p><a href="https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/">Nuget repository poller</a></p></li>
+      <li><p><a href="https://github.com/varchev/go-generic-artifactory-poller">Generic Artifactory poller</a></p></li>
+      <li><p><a href="https://github.com/varchev/go-npm-poller">NPM repository poller</a></p></li>
+    </ul>
+
+    <h5>Task plugins</h5>
+    <ul>
+      <li><p><a href="https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md">MSBuild Task</a></p></li>
+      <li><p><a href="https://github.com/gocd-contrib/xunit-converter-task">XUnit Converter</a></p></li>
+      <li><p><a href="http://ind9.github.io/gocd-s3-artifacts">Publish to S3</a></p></li>
+      <li><p><a href="http://ind9.github.io/gocd-s3-artifacts">Fetch from S3</a></p></li>
+      <li><p><a href="https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md">Powershell Task</a></p></li>
+      <li><p><a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">RapidDeploy Package Builder</a></p></li>
+      <li><p><a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin">RapidDeploy Job Runner</a></p></li>
+      <li><p><a href="https://github.com/ruckc/gocd-maven-plugin">Maven Task Plugin</a></p></li>
+      <li><p><a href="https://github.com/tusharm/go-artifactory-plugin">Publish to Artifactory</a></p></li>
+    </ul>
+
+    <h5>Task plugins</h5>
+    <ul>
+      <li><p><a href="https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md">MSBuild Task</a></p></li>
+      <li><p><a href="https://github.com/gocd-contrib/xunit-converter-task">XUnit Converter</a></p></li>
+      <li><p><a href="http://ind9.github.io/gocd-s3-artifacts">Publish to S3</a></p></li>
+      <li><p><a href="http://ind9.github.io/gocd-s3-artifacts">Fetch from S3</a></p></li>
+      <li><p><a href="https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md">Powershell Task</a></p></li>
+      <li><p><a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">RapidDeploy Package Builder</a></p></li>
+      <li><p><a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin">RapidDeploy Job Runner</a></p></li>
+      <li><p><a href="https://github.com/ruckc/gocd-maven-plugin">Maven Task Plugin</a></p></li>
+      <li><p><a href="https://github.com/tusharm/go-artifactory-plugin">Publish to Artifactory</a></p></li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Ganesh S Patil, Ketan Padegaonkar, Mahesh Panchaksharaiah, Naveen Bhaskar, Sumanth Kumar Mora, Tomasz Sętkowski, Varsha Varadarajan, Zabil Cheriya Maliackal</p> 
+
+<h4>Security researchers</h4>
+
+<a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
+
+<h4>Note</h4>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.9%22">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-16-8-0">16.8.0</h3>
       <div id="tab-16-8-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Beta Feature - Elastic agents</h4>
