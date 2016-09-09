@@ -44,10 +44,25 @@ var showDownloadLinks = (function($) {
       return R.assoc('display_version', settings.version_to_show(release), release);
     });
 
+    function compareVersions (a, b) {
+      var i, diff;
 
+      var segmentsA = a.go_full_version.replace('-', '.').split('.');
+      var segmentsB = b.go_full_version.replace('-', '.').split('.');
+
+      var l = Math.min(segmentsA.length, segmentsB.length);
+
+      for (i = 0; i < l; i++) {
+        diff = parseInt(segmentsB[i], 10) - parseInt(segmentsA[i], 10);
+        if (diff) {
+          return diff;
+        }
+      }
+      return segmentsA.length - segmentsB.length;
+    }
 
     var showReleases = function(data) {
-      var releases = R.compose(releasesLessThanAYearOld, R.reverse, R.map(addURLToFiles), R.map(addDisplayVersion))(data);
+      var releases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(data);
 
       var template = Handlebars.compile($("#download-revisions-template").html());
       $("#downloads").html(template({
