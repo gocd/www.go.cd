@@ -166,9 +166,25 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 <script>
 // <![CDATA[
 jQuery(document).ready(function($) {
-var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
-showDownloadLinks({typeOfInstallersToShow: isExperimental ? "experimental" : "stable"}).then(function() { startTabContainer($); });
-setupShowVerifyChecksumMessage();
+  var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
+  showDownloadLinks({ typeOfInstallersToShow: isExperimental ? "experimental" : "stable"})
+    .then(function() {
+      startTabContainer($);
+    }).then(function(){
+      var package="zip";
+      var appVersion = navigator.appVersion;
+
+      if (appVersion.indexOf("Win")!=-1) package="windows";
+      if (appVersion.indexOf("Mac")!=-1) package="osx";
+      if (appVersion.indexOf("Debian")!=-1) package="debian";
+      if (appVersion.indexOf("Ubuntu")!=-1) package="debian";
+      if (appVersion.indexOf("RedHat")!=-1) package="redhat";
+      if (appVersion.indexOf("CentOS")!=-1) package="redhat";
+
+      $('[rel=tab-' + package + ']').click();
+    });
+
+  setupShowVerifyChecksumMessage();
 });
 // ]]>
 </script>
