@@ -18,11 +18,11 @@
 
 - name: GitLab(CE) OAuth Login
   description: Plugin to support login through GitLab (CE) OAuth.
-  readmore_url: https://github.com/selvakn/gocd-oauth-login
+  readmore_url: https://github.com/gocd-contrib/gocd-oauth-login
   author_url: https://github.com/selvakn
   author_name: Selvakumar Natesan
-  releases_url: https://github.com/selvakn/gocd-oauth-login/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=selvakn&repo=gocd-oauth-login&type=watch&count=true
+  releases_url: https://github.com/gocd-contrib/gocd-oauth-login/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-oauth-login&type=watch&count=true
   first_available_date: 09/2016
 
 - name: TLS Client Certificates Login
