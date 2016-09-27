@@ -220,9 +220,25 @@
 <script>
 // <![CDATA[
 jQuery(document).ready(function($) {
-var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
-showDownloadLinks({typeOfInstallersToShow: isExperimental ? "experimental" : "stable"}).then(function() { startTabContainer($); });
-setupShowVerifyChecksumMessage();
+  var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
+  showDownloadLinks({ typeOfInstallersToShow: isExperimental ? "experimental" : "stable"})
+    .then(function() {
+      startTabContainer($);
+    }).then(function(){
+      var package="zip";
+      var appVersion = navigator.appVersion;
+
+      if (appVersion.indexOf("Win")!=-1) package="windows";
+      if (appVersion.indexOf("Mac")!=-1) package="osx";
+      if (appVersion.indexOf("Debian")!=-1) package="debian";
+      if (appVersion.indexOf("Ubuntu")!=-1) package="debian";
+      if (appVersion.indexOf("RedHat")!=-1) package="redhat";
+      if (appVersion.indexOf("CentOS")!=-1) package="redhat";
+
+      $('[rel=tab-' + package + ']').click();
+    });
+
+  setupShowVerifyChecksumMessage();
 });
 // ]]>
 </script>
@@ -230,8 +246,8 @@ setupShowVerifyChecksumMessage();
 <div class="support">
   <div class="container">
     <div class="go-support">
-      <p>We know <span class="go">Go</span>CD is a critical piece of your infrastructure. To maximize your experience, we provide our support and expertise free for 30 days. Sign up for a trial of <span class="go">Go</span>CD Professional Support. </p>
-      <a href="https://www.thoughtworks.com/go" analytics-label="professional-support">Start free trial</a>
+      <p>ThoughtWorks offers commercial support for <span class="go">Go</span>CD. Sign up for expert support and access to enterprise add-ons.</p>
+      <a href="https://www.thoughtworks.com/go" analytics-label="professional-support">Get Support</a>
     </div>
   </div>
 </div>
@@ -244,7 +260,7 @@ setupShowVerifyChecksumMessage();
         <li>
           <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
             <i class="icon join-us"></i>
-            Connect with us
+            Join our discussion forum
           </a>
         </li>
         <li>
@@ -286,6 +302,7 @@ setupShowVerifyChecksumMessage();
   </div>
 </footer>
 <a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
   </body>
 
   <!-- Google Tag Manager -->
