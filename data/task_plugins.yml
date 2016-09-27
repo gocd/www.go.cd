@@ -63,20 +63,20 @@
 
 - name: Publish to S3
   description: Task plugin to publish artifacts to Amazon S3
-  readmore_url: http://ind9.github.io/gocd-s3-artifacts
-  author_url: https://github.com/ind9/
+  readmore_url: https://github.com/indix-eng/gocd-s3-artifacts
+  author_url: https://github.com/indix-eng
   author_name: Indix
-  releases_url: https://github.com/ind9/gocd-s3-artifacts/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=ind9&repo=gocd-s3-artifacts&type=watch&count=true
+  releases_url: https://github.com/indix-eng/gocd-s3-artifacts/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=indix-eng&repo=gocd-s3-artifacts&type=watch&count=true
   first_available_date: 02/2015
 
 - name: Fetch from S3
   description: Task plugin to fetch artifacts from Amazon S3
-  readmore_url: http://ind9.github.io/gocd-s3-artifacts
-  author_url: https://github.com/ind9/
+  readmore_url: https://github.com/indix-eng/gocd-s3-artifacts
+  author_url: https://github.com/indix-eng
   author_name: Indix
-  releases_url: https://github.com/ind9/gocd-s3-artifacts/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=ind9&repo=gocd-s3-artifacts&type=watch&count=true
+  releases_url: https://github.com/indix-eng/gocd-s3-artifacts/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=indix-eng&repo=gocd-s3-artifacts&type=watch&count=true
   first_available_date: 02/2015
 
 - name: Docker task
@@ -204,4 +204,3 @@
   releases_url: https://github.com/insano10/gocd-pr-comment-scalastyle/releases
   github_stars: http://ghbtns.com/github-btn.html?user=insano10&repo=gocd-pr-comment-scalastyle&type=watch&count=true
   first_available_date: 05/2016
-
