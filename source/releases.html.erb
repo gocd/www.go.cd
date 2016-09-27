@@ -23,23 +23,23 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
     <span>Thanks to everyone for contributing patches, feature requests, reporting issues and participating in various discussions.</span>
   </p>
 
-  <% releases = Dir["source/partials/release_notes/_release-*"].sort.reverse.collect do |release_file, index| %>
-  <%   release_file.sub(%r{.*release_notes/_release-(.*).html.erb}, '\1') %>
-  <% end %>
+  <% releases = Dir["source/partials/release_notes/_release-*"].map do |file| %>
+  <%      Gem::Version.new(file.sub(%r{.*release_notes/_release-(.*).html.erb}, '\1').gsub('-', '.')) %>
+  <% end.sort.reverse.collect(&:to_s) %>
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
       <%  releases.each_with_index do |release, index| %>
-      <li rel="tab-<%= release %>"<%= ' class="active"' if index == 0 %>><%= release.gsub('-', '.') %><%= ' (latest)' if index == 0 %></li>
+      <li rel="tab-<%= release.gsub('.', '-') %>"<%= ' class="active"' if index == 0 %>><%= release %><%= ' (latest)' if index == 0 %></li>
       <% end %>
     </ul>
 
     <div class="tab_container">
       <%  releases.each_with_index do |release, index| %>
-      <h3 class="tab-accordion_heading<%= ' d_active' if index == 0 %>" rel="tab-<%= release %>"><%= release.gsub('-', '.') %><%= ' (latest)' if index == 0 %></h3>
-      <div id="tab-<%= release %>" class="tab_content" style="display: block;">
+      <h3 class="tab-accordion_heading<%= ' d_active' if index == 0 %>" rel="tab-<%= release.gsub('.', '-')%>"><%= release %><%= ' (latest)' if index == 0 %></h3>
+      <div id="tab-<%= release.gsub('.', '-')%>" class="tab_content" style="display: block;">
         <div class="content">
-          <%= partial "partials/release_notes/release-#{release}.html" %>
+          <%= partial "partials/release_notes/release-#{release.gsub('.', '-')}.html" %>
         </div>
       </div>
       <% end %>
