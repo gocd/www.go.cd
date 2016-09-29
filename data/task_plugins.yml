@@ -63,7 +63,7 @@
 
 - name: Publish to S3
   description: Task plugin to publish artifacts to Amazon S3
-  readmore_url: https://github.com/indix/gocd-s3-artifacts
+  readmore_url: http://oss.indix.com/gocd-s3-artifacts/publish.html
   author_url: https://github.com/indix
   author_name: Indix
   releases_url: https://github.com/indix/gocd-s3-artifacts/releases
@@ -72,7 +72,7 @@
 
 - name: Fetch from S3
   description: Task plugin to fetch artifacts from Amazon S3
-  readmore_url: https://github.com/indix/gocd-s3-artifacts
+  readmore_url: http://oss.indix.com/gocd-s3-artifacts/fetch.html
   author_url: https://github.com/indix
   author_name: Indix
   releases_url: https://github.com/indix/gocd-s3-artifacts/releases
