@@ -98,7 +98,7 @@
 
 - name: S3 artifacts poller - 1
   description: Plugin to poll Amazon S3 for artifacts
-  readmore_url: https://github.com/indix/gocd-s3-artifacts
+  readmore_url: http://oss.indix.com/gocd-s3-artifacts/material_poller.html
   author_url: https://github.com/indix
   author_name: Indix
   releases_url: https://github.com/indix/gocd-s3-artifacts/releases
