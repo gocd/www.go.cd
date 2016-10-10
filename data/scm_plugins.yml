@@ -51,3 +51,12 @@
   releases_url: https://github.com/cnenning/go-artifactory-scm-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=cnenning&repo=go-artifactory-scm-plugin&type=watch&count=true
   first_available_date: 10/2016
+
+- name: Git Path Material
+  description: Plugin to introduce a material, that watches on a sub-directory of git repository.
+  readmore_url: https://github.com/TWChennai/gocd-git-path-material-plugin
+  author_url: https://github.com/TWChennai
+  author_name: ThoughtWorks Inc.
+  releases_url: https://github.com/TWChennai/gocd-git-path-material-plugin/releases
+  github_stars: https://ghbtns.com/github-btn.html?user=TWChennai&repo=gocd-git-path-material-plugin&type=star&count=true
+  first_available_data: 10/2016
