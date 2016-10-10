@@ -33,6 +33,7 @@ REDIRECTS = {
   "contribute/contribution-guide.html"         => "/contribute/index.html",
   "learn-more/why-go.html"                     => "/why-gocd/index.html",
   "cla/index.html"                             => "/contributor-license-agreement/index.html",
+  "support/index.html"                         => "https://www.thoughtworks.com/go",
 }
 
 activate :sprockets
