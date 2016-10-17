@@ -44,71 +44,72 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     </p>
 
     <% plugin_categories = [
-      {kind: "Package repository plugins", version_info: ">= GoCD v13.3", plugins: data.repo_plugins},
-      {kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.task_plugins},
-      {kind: "Notification plugins", plugins: data.notification_plugins},
-      {kind: "SCM plugins", plugins: data.scm_plugins},
-      {kind: "Authentication plugins", plugins: data.auth_plugins},
-      {kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.config_repo_plugins}
+        {kind: "Package repository plugins", version_info: ">= GoCD v13.3", plugins: data.repo_plugins},
+        {kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.task_plugins},
+        {kind: "Notification plugins", plugins: data.notification_plugins},
+        {kind: "SCM plugins", plugins: data.scm_plugins},
+        {kind: "Authentication plugins", plugins: data.auth_plugins},
+        {kind: "Elastic agents plugins", version_info: ">= GoCD v16.8", plugins: data.elastic_agent_plugins},
+        {kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.config_repo_plugins}
     ] %>
     <div class="v-tabs all-plugins">
       <ul class="tabs">
         <% plugin_categories.each_with_index do |category, index| %>
-          <li rel="tab<%= index + 1 %>">
-            <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
-          </li>
+            <li rel="tab<%= index + 1 %>">
+              <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
+            </li>
         <% end %>
       </ul>
 
       <div class="tab_container">
         <% plugin_categories.each_with_index do |category, index| %>
-          <% tab_id = "tab#{index + 1}" %>
-          <h3 class="tab-accordion_heading" rel="<%= tab_id %>">
-            <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
-          </h3>
+            <% tab_id = "tab#{index + 1}" %>
+            <h3 class="tab-accordion_heading" rel="<%= tab_id %>">
+              <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
+            </h3>
 
-          <div id="<%= tab_id %>" class="tab_content">
-            <div class="plugins-container">
-              <ul class="plugins-list">
+            <div id="<%= tab_id %>" class="tab_content">
+              <div class="plugins-container">
+                <ul class="plugins-list">
 
-                <% category[:plugins].each do |p| %>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled %>
-                      <h5 class="name"> <%= escape_html(p.name) %> </h5>
-                      <p class="more-details">
-                        <%= escape_html(p.description) %>
-                        <%= link_to('Read more', p.readmore_url) %>
-                      </p>
-                      <span class="created-by">by
-                        <%= link_to(escape_html(p.author_name), p.author_url)  %>
+                  <% category[:plugins].each do |p| %>
+                      <li>
+                        <span class="logo"></span>
+                        <div class="details">
+                          <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled %>
+                          <h5 class="name"> <%= escape_html(p.name) %> </h5>
+                          <p class="more-details">
+                            <%= escape_html(p.description) %>
+                            <%= link_to('Read more', p.readmore_url) %>
+                          </p>
+                          <span class="created-by">by
+                            <%= link_to(escape_html(p.author_name), p.author_url)  %>
                       </span>
-                    </div>
-                    <div class="actions">
-                      <% if p.bundled %>
-                        <span class="with-go">Bundled with GoCD</span>
-                      <% else %>
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <%= link_to('Download', p.releases_url) %>
                         </div>
-                      <% end %>
+                        <div class="actions">
+                          <% if p.bundled %>
+                              <span class="with-go">Bundled with GoCD</span>
+                          <% else %>
+                              <div class="download-plugin">
+                                <i class="fa fa-download"></i>
+                                <%= link_to('Download', p.releases_url) %>
+                              </div>
+                          <% end %>
+                        </div>
+                      </li>
+                  <% end %>
+
+                  <li class=" contribute_tile">
+                    <div class="contribute-plugin">
+
+                      <i class="fa fa-star"></i>
+                      <h5>Want to contribute?</h5>
+                      <a href="https://developer.go.cd/current/writing_go_plugins/overview.html">Write a plugin</a>
                     </div>
                   </li>
-                <% end %>
-
-                <li class=" contribute_tile">
-                  <div class="contribute-plugin">
-
-                    <i class="fa fa-star"></i>
-                    <h5>Want to contribute?</h5>
-                    <a href="https://developer.go.cd/current/writing_go_plugins/overview.html">Write a plugin</a>
-                  </div>
-                </li>
-              </ul>
+                </ul>
+              </div>
             </div>
-          </div>
         <% end %>
       </div>
     </div>
@@ -128,7 +129,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 </main>
 
 <script>
- jQuery(document).ready(function($) {
-   startTabContainer($);
- });
+  jQuery(document).ready(function($) {
+    startTabContainer($);
+  });
 </script>
