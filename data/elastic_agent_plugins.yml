@@ -1,0 +1,17 @@
+- name: GoCD Elastic agent plugin for Docker
+  description: GoCD Elastic agent plugin for Docker
+  readmore_url: https://github.com/gocd-contrib/docker-elastic-agents
+  author_url: https://github.com/gocd-contrib
+  author_name: Ketan
+  releases_url: https://github.com/gocd-contrib/aws-elastic-agents/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=docker-elastic-agents&type=watch&count=true
+  first_available_date: 10/2016
+
+- name: GoCD Elastic agent plugin for Docker Swarm
+  description: GoCD Elastic agent plugin for Docker Swarm
+  readmore_url: https://github.com/gocd-contrib/docker-swarm-elastic-agents
+  author_url: https://github.com/gocd-contrib
+  author_name: Ketan
+  releases_url: https://github.com/gocd-contrib/aws-elastic-agents/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=docker-swarm-elastic-agents&type=watch&count=true
+  first_available_date: 10/2016
