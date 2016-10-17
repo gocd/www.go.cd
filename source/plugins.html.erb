@@ -49,7 +49,8 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
       {kind: "Notification plugins", plugins: data.notification_plugins},
       {kind: "SCM plugins", plugins: data.scm_plugins},
       {kind: "Authentication plugins", plugins: data.auth_plugins},
-      {kind: "Elastic agents plugins", plugins: data.elastic_agent_plugins}
+      {kind: "Elastic agents plugins", version_info: ">= GoCD v16.8", plugins: data.elastic_agent_plugins},
+      {kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.config_repo_plugins}
     ] %>
     <div class="v-tabs all-plugins">
       <ul class="tabs">
