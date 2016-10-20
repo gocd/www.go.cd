@@ -34,6 +34,8 @@ REDIRECTS = {
   "learn-more/why-go.html"                     => "/why-gocd/index.html",
   "cla/index.html"                             => "/contributor-license-agreement/index.html",
   "support/index.html"                         => "https://www.thoughtworks.com/go",
+  "talkpython/index.html"                      => "/download/index.html",
+  "thechangelog/index.html"                    => "/download/index.html",
 }
 
 activate :sprockets
