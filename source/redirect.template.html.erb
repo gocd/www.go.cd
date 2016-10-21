@@ -4,14 +4,14 @@ layout: empty
 <!doctype html>
 <html>
   <head>
-    <link rel="canonical" href="<%= escaped_url_for(redirect_to) %>" />
-    <meta http-equiv="refresh" content="0; url=<%= escaped_url_for(redirect_to) %>" />
+    <link rel="canonical" href="<%= url_for(redirect_to) %>" />
+    <meta http-equiv="refresh" content="0; url=<%= url_for(redirect_to) %>" />
   </head>
   <body>
-    You will be redirected to the <%= escaped_url_for(redirect_to) %> page of the <%= link_to('GoCD website', config.base_url) %>.
-    If you are not redirected in a couple of seconds please <%= link_to('click here', redirect_to) %>.
+    You will be redirected to the <%= url_for(redirect_to) %> page of the go.cd website.
+    If you are not redirected in a couple of seconds please <%= link_to('click here', redirect_to) %>
     <script>
-    window.location.href = "<%= escaped_url_for(redirect_to) %>";
+    window.location.href = "<%= url_for(redirect_to) %>";
     </script>
   </body>
 </html>

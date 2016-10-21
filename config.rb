@@ -135,10 +135,6 @@ helpers do
   def selected_articles_for_display_in articles
     articles.reject do |article| !should_show_drafts? && is_draft?(article) end
   end
-
-  def escaped_url_for resource
-    URI.escape(url_for(resource), '&')
-  end
 end
 
 ready do
