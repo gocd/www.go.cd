@@ -24,7 +24,7 @@ namespace :static_checks do
 
     :empty_alt_ignore     => true,
     :log_level            => :info,
-    :file_ignore          => [/googled355c365863be8d8/]
+    :file_ignore          => [/googled355c365863be8d8/, /talkpython/, /thechangelog/]
   }
 
   class ProperHTMLCheck < ::HTMLProofer::Check
