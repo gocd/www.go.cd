@@ -36,7 +36,6 @@ REDIRECTS = {
   "support/index.html"                         => "https://www.thoughtworks.com/go",
   "talkpython/index.html"                      => "/download/index.html?utm_campaign=tptm_2016&utm_medium=podcast_banner&utm_source=podcast_Banner_tptm&utm_content=manage_complexity_ease&utm_term=",
   "changelog/index.html"                       => "/download/index.html?utm_campaign=the_changelog_2016&utm_medium=podcast&utm_source=podcast_audio&utm_content=go_download&utm_term=",
-  "infoq/index.html"                           => "/download/index.html?utm_campaign=infoq_2016_q4&utm_medium=podcast_infoq&utm_source=podcast_infoq&utm_content=go_download&utm_term=",
 
   }
 
