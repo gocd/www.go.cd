@@ -34,7 +34,7 @@ REDIRECTS = {
   "learn-more/why-go.html"                     => "/why-gocd/index.html",
   "cla/index.html"                             => "/contributor-license-agreement/index.html",
   "support/index.html"                         => "https://www.thoughtworks.com/go",
-  "infoq/index.html"                           => "/download/index.html",
+  "infoq/index.html"                           => "/download/index.html?utm_campaign=infoq_2016_q4&utm_medium=podcast_infoq&utm_source=podcast_infoq&utm_content=go_download&utm_term=",
   "talkpython/index.html"                      => "/download/index.html?utm_campaign=tptm_2016&utm_medium=podcast_banner&utm_source=podcast_Banner_tptm&utm_content=manage_complexity_ease&utm_term=",
   }
 
