@@ -58,6 +58,7 @@ GEM
       parallel (~> 1.3)
       typhoeus (~> 0.7)
       yell (~> 2.0)
+    htmlentities (4.3.4)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     json (1.8.3)
@@ -164,6 +165,7 @@ DEPENDENCIES
   builder
   font-awesome-sass
   html-proofer
+  htmlentities
   middleman (>= 4.0.0)
   middleman-autoprefixer
   middleman-blog
@@ -175,4 +177,4 @@ DEPENDENCIES
   wdm (~> 0.1.0)
 
 BUNDLED WITH
-   1.11.2
+   1.13.6

@@ -1,5 +1,7 @@
+# coding: utf-8
 require 'nokogiri'
 require 'html-proofer'
+require 'htmlentities'
 
 namespace :static_checks do
   def should_not_run_external_url_checks?
@@ -28,7 +30,7 @@ namespace :static_checks do
   }
 
   class ProperHTMLCheck < ::HTMLProofer::Check
-    VALID_HTML5_ENTITIES = ['copy', 'ldquo', 'rdquo', 'nbsp']
+    VALID_HTML5_ENTITIES = HTMLEntities::MAPPINGS['xhtml1'].keys
     def add_error error
       if error.respond_to?('line') and error.respond_to?('message')
         add_issue "Proper HTML Check: #{error.message}", line: error.line
