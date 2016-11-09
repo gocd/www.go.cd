@@ -28,7 +28,7 @@ namespace :static_checks do
   }
 
   class ProperHTMLCheck < ::HTMLProofer::Check
-    VALID_HTML5_ENTITIES = ['copy', 'ldquo', 'rdquo']
+    VALID_HTML5_ENTITIES = ['copy', 'ldquo', 'rdquo', 'nbsp']
     def add_error error
       if error.respond_to?('line') and error.respond_to?('message')
         add_issue "Proper HTML Check: #{error.message}", line: error.line
