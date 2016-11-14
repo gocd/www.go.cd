@@ -88,12 +88,23 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
       <div class="go-release {{display_version}}">
         <span class="version">{{display_version}}</span>
         {{#with (lookup . ../installer_type)}}
-        <div class="files">
-          {{> show-file server type="server" os=../../installer_type}}
-          {{> show-file agent type="agent" os=../../installer_type}}
-        </div>
+          <div class="files">
+            {{#if server32bit}}
+              {{> show-file server type="server" display_name="Server<br><span>(64 bit JRE)</span>" os=../../installer_type}}
+              {{> show-file agent type="agent" display_name="Agent<br><span>(64 bit JRE)</span>" os=../../installer_type}}
+              {{> show-file server32bit type="server32bit" display_name="Server<br><span>(32 bit JRE)</span>" os=../../installer_type}}
+              {{> show-file agent32bit type="agent32bit" display_name="Agent<br><span>(32 bit JRE)</span>" os=../../installer_type}}
+              <div class="download-message">
+                * Please download Server/Agent with 32 bit JRE is packaged with JRE 32 bit
+                * Server/Agent with 64 bit JRE is packaged with JRE 64 bit
+              </div>
+            {{else}}
+              {{> show-file server type="server" display_name="Server" os=../../installer_type}}
+              {{> show-file agent type="agent" display_name="Agent" os=../../installer_type}}
+            {{/if}}
+          </div>
         {{/with}}
-      </div>
+        </div>
       {{/with}}
     </div>
   </div>
@@ -106,8 +117,15 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
       <span class="version">{{display_version}}</span>
       {{#with (lookup . ../installer_type)}}
       <div class="files">
-        {{> show-file server type="server" os=../../installer_type}}
-        {{> show-file agent type="agent" os=../../installer_type}}
+        {{#if server32bit}}
+          {{> show-file server type="server" display_name="Server<br><span>(64 bit JRE)</span>" os=../../installer_type}}
+          {{> show-file agent type="agent" display_name="Agent<br><span>(64 bit JRE)</span>" os=../../installer_type}}
+          {{> show-file server32bit type="server32bit" display_name="Server<br><span>(32 bit JRE)</span>" os=../../installer_type}}
+          {{> show-file agent32bit type="agent32bit" display_name="Agent<br><span>(32 bit JRE)</span>" os=../../installer_type}}
+        {{else}}
+          {{> show-file server type="server" display_name="Server" os=../../installer_type}}
+          {{> show-file agent type="agent" display_name="Agent" os=../../installer_type}}
+        {{/if}}          
       </div>
       {{/with}}
     </div>
@@ -124,7 +142,11 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 {{#*inline "show-file"}}
 <div class="{{{type}}} file">
   <div class="name">
-    <a id="{{{analytics_id}}}" href="{{{url}}}" class="btn btn-primary"><i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}"></i> </a>
+    <a id="{{{analytics_id}}}" href="{{{url}}}" class="btn btn-primary">
+      <i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}">
+        <span>{{{display_name}}}</span>
+      </i> 
+      </a>
   </div>
   <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-sha1sum="{{{sha1sum}}}" data-md5sum="{{{md5sum}}}">
     <button class="verify" analytics-label="verify-checksum">Verify checksum</button>

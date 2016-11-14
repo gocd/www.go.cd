@@ -74,6 +74,7 @@
 .files {
   overflow: hidden;
   padding:20px 0;
+  position: relative;
   @media (max-width:$screen-xs-min) {
     padding: 20px 0;
   }
@@ -83,6 +84,7 @@
 
   .file {
     float: left;
+    margin-bottom: 20px;
 
     .others & {
       border-bottom: 1px solid #ccc;
@@ -114,49 +116,75 @@
 
   }
 
-  .server {
-
+  .server32bit, .server {
     @media (max-width:$screen-xs-min) {
       margin-bottom: 10px;
     }
       @media (min-width:$screen-tablet) {
-
     margin-right: 50px;
   }
-
     a {
       .fa {
-        &:after {
-          content: "Server";
+        span {
           font-size: 16px;
           font-family: 'Open Sans', sans-serif;
           color: #fff;
           margin-left: 10px;
+          span {
+            background: #fff;
+            color: #000;
+            padding: 3px 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0 0 0;
+            border-radius: 4px;
+            font-size: 9px;
+          }
         }
+      }
+    }
 
+  }
+
+  .agent32bit, .agent {
+    a {
+      .fa {
+        span {
+          font-size: 16px;
+          font-family: 'Open Sans', sans-serif;
+          color: #fff;
+          margin-left: 10px;
+          span {
+            background: #fff;
+            color: #000;
+            padding: 3px 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0 0 0;
+            border-radius: 4px;
+            font-size: 9px;
+          }
+        }
       }
 
     }
 
   }
 
-  .agent {
-    a {
-      .fa {
-        &:after {
-          content: "Agent";
-          font-size: 16px;
-          font-family: 'Open Sans', sans-serif;
-          color: #fff;
-          margin-left: 10px;
-        }
+}
 
-      }
-
-    }
-
-  }
-
+  .download-message {
+    font-size: 12px;
+    line-height: 16px;
+    position: absolute;
+    float: right;
+    width: 250px;
+    right: -174px;
+    top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 3px;
+    background: #f5f5f5;
 }
 
 .verify-checksum-message {
