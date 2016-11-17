@@ -32,7 +32,7 @@ var showDownloadLinks = (function($) {
       });
 
       return R.evolve({
-        win:     {server: addDetailsFrom(release, 'Windows-Server'),  agent: addDetailsFrom(release, 'Windows-Agent')},
+        win:     {server: addDetailsFrom(release, 'Windows-Server'), agent: addDetailsFrom(release, 'Windows-Agent'),  server32bit: addDetailsFrom(release, 'Windows-Server-32bit'), agent32bit: addDetailsFrom(release, 'Windows-Agent-32bit')},
         osx:     {server: addDetailsFrom(release, 'Mac-Server'),      agent: addDetailsFrom(release, 'Mac-Agent')},
         deb:     {server: addDetailsFrom(release, 'LinuxDeb-Server'), agent: addDetailsFrom(release, 'LinuxDeb-Agent')},
         rpm:     {server: addDetailsFrom(release, 'LinuxRpm-Server'), agent: addDetailsFrom(release, 'LinuxRpm-Agent')},
