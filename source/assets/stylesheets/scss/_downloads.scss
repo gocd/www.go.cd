@@ -73,18 +73,24 @@
 
 .files {
   overflow: hidden;
-  padding:20px 0;
   position: relative;
-  @media (max-width:$screen-xs-min) {
-    padding: 20px 0;
+
+  @media (min-width:$screen-sm) {
+    padding-top: 16px;
+    width: 500px;
   }
-  @media (min-width:$screen-tablet) {
-    padding: 20px 0 20px 60px;
+
+  @media (min-width:$screen-md) {
+    width: 695px;
+  }
+
+  @media (min-width:$screen-lg) {
+    width: 840px;
   }
 
   .file {
     float: left;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 
     .others & {
       border-bottom: 1px solid #ccc;
@@ -93,8 +99,10 @@
     .name {
       float: left;
     }
-    .btn{
-      width:97px;
+
+    .btn {
+      width: 97px;
+      position: relative;
     }
 
     .verify {
@@ -116,13 +124,28 @@
 
   }
 
-  .server32bit, .server {
-    @media (max-width:$screen-xs-min) {
-      margin-bottom: 10px;
-    }
-      @media (min-width:$screen-tablet) {
-    margin-right: 50px;
+  span.bit {
+    position: absolute;
+    top: 102%;
+    color: #333;
+    background: #e6e6e6;
+    padding: 5px 9px;
+    transform: translateX(-50%);
+    font-size: 12px;
+    left: 50%;
+    border-radius: 0px 0px 3px 3px;
   }
+
+  .server32bit,
+  .server {
+    @media (max-width:$screen-xs-min) {
+      margin-bottom: 50px;
+    }
+
+    @media (min-width:$screen-tablet) {
+      margin-right: 50px;
+    }
+
     a {
       .fa {
         span {
@@ -130,6 +153,7 @@
           font-family: 'Open Sans', sans-serif;
           color: #fff;
           margin-left: 10px;
+
           span {
             background: #fff;
             color: #000;
@@ -140,13 +164,17 @@
             border-radius: 4px;
             font-size: 9px;
           }
+
         }
+
       }
+
     }
 
   }
 
-  .agent32bit, .agent {
+  .agent32bit,
+  .agent {
     a {
       .fa {
         span {
@@ -154,6 +182,7 @@
           font-family: 'Open Sans', sans-serif;
           color: #fff;
           margin-left: 10px;
+
           span {
             background: #fff;
             color: #000;
@@ -173,18 +202,35 @@
 
 }
 
-  .download-message {
-    font-size: 12px;
-    line-height: 16px;
+.download-files {
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.download-message {
+  font-size: 12px;
+  line-height: 16px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 3px;
+  background: #f5f5f5;
+
+  @media (max-width:$screen-sm-min) {
+    float: left
+  }
+
+  @media (min-width:$screen-md) {
     position: absolute;
-    float: right;
-    width: 250px;
-    right: -174px;
-    top: 10px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 3px;
-    background: #f5f5f5;
+    top: 16px;
+    right: 0;
+    width: 212px;
+  }
+
+  @media (min-width:$screen-md) {
+    width: 300px;
+  }
+
 }
 
 .verify-checksum-message {
@@ -222,10 +268,11 @@
       width: 90%;
       width: 100%;
       transform: translateY(-50%);
-      left:0;
+      left: 0;
       top: 50%;
     }
-        @media (min-width:$screen-desktop) {
+
+    @media (min-width:$screen-desktop) {
       width: 90%;
       width: 800px;
       transform: translate(-50%, -50%);
@@ -234,7 +281,8 @@
     }
 
     .code {
-      width:735px;
+      width: 735px;
+
       .commands,
       .prompts,
       .results {
@@ -305,7 +353,7 @@
   margin: 20px auto;
 
   @media (min-width:$screen-lg-desktop) {
-    width: 70%;
+    width: 100%;
   }
 
   .btn-release {
@@ -342,8 +390,8 @@
 .go-releases,
 .old-release {
   @media (min-width:$screen-lg-desktop) {
-    width: 70%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 30px auto;
   }
 
 }
@@ -355,15 +403,24 @@
   height: 42px;
   line-height: 40px;
   display: block;
-  margin-top: 16px;
+  margin: 16px 0 20px;
   width: 120px;
   text-align: center;
   color: #555;
   font-size: 16px;
 
-  @media (min-width:$screen-tablet) {
+  @media (min-width:$screen-sm) {
     float: left;
     width: 140px;
+    margin-right: 50px;
+  }
+
+  @media (min-width:$screen-md) {
+    margin-right: 101px;
+  }
+
+  @media (min-width:$screen-md) {
+    margin-right: 154px;
   }
 
   &:after,
