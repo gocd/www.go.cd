@@ -127,48 +127,81 @@
 </script>
 <div id="downloads">
   <div class="container">
-  <div class="load-message">
+    <div class="load-message">
       <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
       <span> Please wait. Fetching information about download ...</span>
-      </div>
+    </div>
   </div>
 </div>
 <script id="download-revisions-template" type="text/x-handlebars-template">
 {{#*inline "show-releases-for-installer-type"}}
-<div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
-  <div class="go-releases">
-    <div class="latest">
-      {{#with latest_release}}
-      <div class="go-release {{display_version}}">
-        <span class="version">{{display_version}}</span>
-        {{#with (lookup . ../installer_type)}}
-        <div class="files">
-          {{> show-file server type="server" os=../../installer_type}}
-          {{> show-file agent type="agent" os=../../installer_type}}
+  <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
+    <div class=" go-releases">
+      <div class="latest">
+        {{#with latest_release}}
+        <div class="go-release {{display_version}}">
+          <span class="version">{{display_version}}</span>
+          {{#with (lookup . ../installer_type)}}
+          <div class="files">
+            {{#if server32bit}}
+              {{> show-server-and-agent-32-and-64-bit-installers}}
+              <div class="download-message">
+                There are two flavors of Server and Agent installers for Windows, one packaged with 64 bit JRE and the other
+                with 32 bit JRE. We recommend using a Server with 64 bit JRE and an Agent with 32 bit JRE.
+              </div>
+            {{else}}
+              {{> show-server-and-agent-installer}}
+            {{/if}}
+          </div>
+          {{/with}}
         </div>
         {{/with}}
       </div>
-      {{/with}}
     </div>
-  </div>
-  <div class="other-releases">
-    <button class="btn-release" analytics-label="show-old-releases"><span>Show</span> old releases</button>
-  </div>
-  <div class="old-release">
-    {{#each all_other_releases}}
-    <div class="go-release {{display_version}}">
-      <span class="version">{{display_version}}</span>
-      {{#with (lookup . ../installer_type)}}
-      <div class="files">
-        {{> show-file server type="server" os=../../installer_type}}
-        {{> show-file agent type="agent" os=../../installer_type}}
+    <div class="other-releases">
+      <button class="btn-release" analytics-label="show-old-releases"><span>Show</span> old releases</button>
+    </div>
+    <div class="old-release">
+      {{#each all_other_releases}}
+      <div class="row go-release {{display_version}}">
+        <div class="col-sm-3 ">
+          <span class="version">{{display_version}}</span>
+        </div>
+        {{#with (lookup . ../installer_type)}}
+        <div class="col-sm-9 ">
+          <div class="files">
+            {{#if server32bit}}
+              {{> show-server-and-agent-32-and-64-bit-installers}}
+            {{else}}
+              {{> show-server-and-agent-installer}}
+            {{/if}}
+          </div>
+        </div>
+        {{/with}}
       </div>
-      {{/with}}
+      {{/each}}
     </div>
-    {{/each}}
   </div>
-</div>
 {{/inline}}
+
+{{#*inline "show-server-and-agent-32-and-64-bit-installers"}}
+  <div class="download-files">
+    {{> show-file server type="server" display_name="Server" info="(64 bit JRE)" os=../../installer_type}}
+    {{> show-file agent type="agent" display_name="Agent" info="(64 bit JRE)" os=../../installer_type}}
+  </div>
+  <div class="download-files">
+    {{> show-file server32bit type="server32bit" display_name="Server" info="(32 bit JRE)" os=../../installer_type}}
+    {{> show-file agent32bit type="agent32bit" display_name="Agent" info="(32 bit JRE)" os=../../installer_type}}
+  </div>
+{{/inline}}
+
+{{#*inline "show-server-and-agent-installer"}}
+  <div>
+    {{> show-file server type="server" display_name="Server" os=../../installer_type}}
+    {{> show-file agent type="agent" display_name="Agent" os=../../installer_type}}
+  </div>
+{{/inline}}
+
 {{#*inline "show-tab-header"}}
 <li rel="{{{tab_id}}}">
   <span class="os-logo"><img src="{{{image}}}" alt="{{{desc}}}" /></span>
@@ -177,12 +210,19 @@
 {{/inline}}
 {{#*inline "show-file"}}
 <div class="{{{type}}} file">
-  <div class="name">
-    <a id="{{{analytics_id}}}" href="{{{url}}}" class="btn btn-primary"><i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}"></i> </a>
-  </div>
-  <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-sha1sum="{{{sha1sum}}}" data-md5sum="{{{md5sum}}}">
-    <button class="verify" analytics-label="verify-checksum">Verify checksum</button>
-  </div>
+<div class="name">
+  <a id="{{{analytics_id}}}" href="{{{url}}}" class="btn btn-primary">
+    <i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}">
+    <span>{{{display_name}}}</span>
+    </i>
+    {{#if info}}
+      <span class="bit">{{{info}}}</span>
+    {{/if}}
+  </a>
+</div>
+<div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-sha1sum="{{{sha1sum}}}" data-md5sum="{{{md5sum}}}">
+  <button class="verify" analytics-label="verify-checksum">Verify checksum</button>
+</div>
 </div>
 {{/inline}}
 <div class="download-area">
