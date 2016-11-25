@@ -1,5 +1,7 @@
+# coding: utf-8
 require 'nokogiri'
 require 'html-proofer'
+require 'htmlentities'
 
 namespace :static_checks do
   def should_not_run_external_url_checks?
@@ -14,16 +16,25 @@ namespace :static_checks do
     :disable_external     => should_not_run_external_url_checks?,
     :url_ignore           => ['http://localhost:8153'],
     :allow_hash_href      => true,
+
     :check_html           => true,
+    :validation           => {
+      :report_invalid_tags  => false,
+      :report_script_embeds => false,
+      :report_missing_names => true,
+    },
+
+    :typhoeus => {
+      :ssl_verifypeer => false,
+    },
+
     :empty_alt_ignore     => true,
     :log_level            => :info,
-    :report_invalid_tags  => true,
-    :report_script_embeds => true,
-    :file_ignore          => [/googled355c365863be8d8/]
+    :file_ignore          => [/googlebac7590bd2b477d8/, /talkpython/, /changelog/, /infoq/]
   }
 
   class ProperHTMLCheck < ::HTMLProofer::Check
-    VALID_HTML5_ENTITIES = ['copy', 'ldquo', 'rdquo']
+    VALID_HTML5_ENTITIES = HTMLEntities::MAPPINGS['xhtml1'].keys
     def add_error error
       if error.respond_to?('line') and error.respond_to?('message')
         add_issue "Proper HTML Check: #{error.message}", line: error.line
