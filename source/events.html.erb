@@ -61,4 +61,24 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     </ul>
   </div>
 </div>
+
+<div class="workshops">
+  <div class="container">
+    <h3 class="page-headings">Workshops and Presentations</h3>
+    <p>
+      Workshop and Presentation description
+    </p>
+    <ul class="workshops-list">
+      <% data.workshops_presentations.each do |workshop| %>
+      <li>
+        <div class="details">
+          <a href="<%= workshop.url %>" class="title"><%= workshop.title %></a>
+
+          <p><%= workshop.description %></p>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 </main>
