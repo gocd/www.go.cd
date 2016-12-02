@@ -62,19 +62,33 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
   </div>
 </div>
 
-<div class="workshops">
+<div class="workshop">
   <div class="container">
     <h3 class="page-headings">Workshops and Presentations</h3>
     <p>
-      Workshop and Presentation description
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam maximus pulvinar libero blandit dapibus.
     </p>
     <ul class="workshops-list">
       <% data.workshops_presentations.each do |workshop| %>
       <li>
         <div class="details">
           <a href="<%= workshop.url %>" class="title"><%= workshop.title %></a>
-
-          <p><%= workshop.description %></p>
+          <div>
+            <div class='workshop-topic'>
+              <i class="fa fa-list-alt" aria-hidden="true"></i> <%= workshop.topic %>
+            </div>
+            <div class='workshop-presenter'>
+              <i class="fa fa-user" aria-hidden="true"></i> <%= workshop.speaker %>
+            </div>
+          </div>
+          <ul class="dates">
+            <% workshop.details.each do |detail| %>
+            <li>
+              <div class="date"><i class="fa fa-calendar"></i> <%= detail.date %></div>
+              <div class="location"><i class="fa fa-map-marker"></i> <%= detail.location %></div>
+            </li>
+            <% end %>
+          </ul>
         </div>
       </li>
       <% end %>

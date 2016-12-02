@@ -212,3 +212,11 @@
   }
 
 }
+.workshop-topic, .workshop-presenter{
+  display: inline-block;
+}
+.workshop-presenter{
+    margin-left: 20px;
+    font-style: italic;
+    font-size: 0.9em;
+}
