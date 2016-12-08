@@ -16,11 +16,11 @@ summary_image: "/assets/images/blog/add-performance-testing/add-performance-test
 </figure>
 <% end %>
 
-This is the third part of a series called [It’s Not Continuous Delivery if You Can’t Deploy Right Now](https://www.go.cd/2016/01/17/not-done-unless-its-done.html). In this part, we’ll talk about performance testing.
+This is the third part of a series called [It's Not Continuous Delivery if You Can't Deploy Right Now](https://www.go.cd/2016/01/17/not-done-unless-its-done.html). In this part, we'll talk about performance testing.
 
-Years ago, when I was in management, I had a favorite rule. If asked “is something done?” the answer could not include the word “except” or any of its synonyms.
+Years ago, when I was in management, I had a favorite rule. If asked "is something done?" the answer could not include the word "except" or any of its synonyms.
 
-Performance testing as part of a Continuous Delivery (CD) pipeline is rare. In fact, it’s so rare that HP [applied for a patent](http://www.google.com/patents/WO2014027990A1?cl=en) on it. To quote from the patent application:
+Performance testing as part of a Continuous Delivery (CD) pipeline is rare. In fact, it's so rare that HP [applied for a patent](http://www.google.com/patents/WO2014027990A1?cl=en) on it. To quote from the patent application:
 
 >*Load and performance tests are rarely included in the [CD] tests due to cost and time constraints since the execution time of performance and load tests are longer than unit tests and application programming interface tests. As a result, the tests lack a quality guarantee since the test sets do not include tests that measure performance of the code changes under testing conditions.*
 
@@ -32,7 +32,7 @@ The intent of this article is to provide you with some pointers on the types of 
 
 ### Load testing
 
-Load testing an application generally means that you’re measuring performance with a specific predetermined amount of load. This is a good way to make sure that you haven’t introduced a change that has impacted your overall application. There has been [quite a bit](http://ux.stackexchange.com/questions/58163/acceptable-waiting-time-for-users-in-time-sensitive-actions) written on "acceptable" performance for a web application. A 20 percent increase in response time probably isn’t going to generate a monitoring alert, but it may very well be killing your business.
+Load testing an application generally means that you're measuring performance with a specific predetermined amount of load. This is a good way to make sure that you haven't introduced a change that has impacted your overall application. There has been [quite a bit](http://ux.stackexchange.com/questions/58163/acceptable-waiting-time-for-users-in-time-sensitive-actions) written on "acceptable" performance for a web application. A 20 percent increase in response time probably isn't going to generate a monitoring alert, but it may very well be killing your business.
 
 Once you set a baseline, this is the easiest type of performance testing to include in a CD pipeline, since you already have an expectation of how long it'll take.
 
@@ -45,7 +45,7 @@ Performance tests often take longer than other types of tests, so be sure to use
 
 ### Spike testing
 
-Spike testing is done by suddenly increasing the load on a system and seeing what happens. This is the type of testing I’ve seen the least of in the wild, but seems incredibly important in this world of dynamic containers and such. Your system is supposed to start a new container in milliseconds when the load requires it. Does it?
+Spike testing is done by suddenly increasing the load on a system and seeing what happens. This is the type of testing I've seen the least of in the wild, but seems incredibly important in this world of dynamic containers and such. Your system is supposed to start a new container in milliseconds when the load requires it. Does it?
 
 <figure>
   <img src="/assets/images/blog/add-performance-testing/spike-test.jpg"
@@ -56,7 +56,7 @@ Spike testing is done by suddenly increasing the load on a system and seeing wha
 
 Stress testing is normally used to find out how much load your system can take before it fails. Is your site going to go down if you run that big promotion? What about the big holiday shopping days?
 
-With stress testing in a pipeline, you may not want to always have downstream dependencies which require a “pass” all of the time. It’s certainly important to know what your failure point is, but that isn’t necessarily a reason not to ship during “normal” business.
+With stress testing in a pipeline, you may not want to always have downstream dependencies which require a "pass" all of the time. It's certainly important to know what your failure point is, but that isn't necessarily a reason not to ship during "normal" business.
 
 <figure>
   <img src="/assets/images/blog/add-performance-testing/stress-test.jpg"
@@ -74,31 +74,31 @@ Soak testing makes sure that your system keeps running under a sustained load. I
 
 ## Run them on every build
 
-During the writing of this post there were several discussions about the “right time” to run security tests. The one common theme that came out was “run them on every release candidate”.
+During the writing of this post there were several discussions about the "right time" to run security tests. The one common theme that came out was "run them on every release candidate".
 
-I believe every commit results in a release candidate, so I’m advocating running them on every build. You never know when some security issue or other emergency is going to force you to release today.
+I believe every commit results in a release candidate, so I'm advocating running them on every build. You never know when some security issue or other emergency is going to force you to release today.
 
-Suzie Price, ThoughtWorks Head of Product says “For SaaS products I think this is essential. Even in non SaaS products I honestly don't buy that one is doing CD if you don't do these tests or some smoke of these tests.”
+Suzie Price, ThoughtWorks Head of Product says "For SaaS products I think this is essential. Even in non SaaS products I honestly don't buy that one is doing CD if you don't do these tests or some smoke of these tests."
 
-The title of this blog series is [“It’s Not Continuous Delivery if You Can’t Deploy Right Now”](https://www.go.cd/2016/01/17/not-done-unless-its-done.html). If you haven’t done the performance tests, then you may not be able to deploy.
+The title of this blog series is ["It's Not Continuous Delivery if You Can't Deploy Right Now"](https://www.go.cd/2016/01/17/not-done-unless-its-done.html). If you haven't done the performance tests, then you may not be able to deploy.
 
 **Yeah, but…**
 
-The cost of performance testing does force a bit of a reality check on the “run them on every build” rule. Performance testing can be very expensive to run since you need enough hardware and bandwidth to truly stress (and actually topple over, in the case of stress testing) your application. I understand it’s not always possible in every organization to run them every time. You should try anyway.
+The cost of performance testing does force a bit of a reality check on the "run them on every build" rule. Performance testing can be very expensive to run since you need enough hardware and bandwidth to truly stress (and actually topple over, in the case of stress testing) your application. I understand it's not always possible in every organization to run them every time. You should try anyway.
 
 ## Tools
 
-There are several tools available for performance testing, I won’t try to list them all. Software Testing Help has a fairly [recent blog post](http://www.softwaretestinghelp.com/performance-testing-tools-load-testing-tools/) highlighting several of the most popular.
+There are several tools available for performance testing, I won't try to list them all. Software Testing Help has a fairly [recent blog post](http://www.softwaretestinghelp.com/performance-testing-tools-load-testing-tools/) highlighting several of the most popular.
 
-As always, tools are a vital component, but they aren’t a substitute for real-world knowledge.
+As always, tools are a vital component, but they aren't a substitute for real-world knowledge.
 
 ## Summary
 
-*More than ever, in today’s world performance has a huge impact on our businesses. If your applications don’t perform, people will very quickly find ones that do.*
+*More than ever, in today's world performance has a huge impact on our businesses. If your applications don't perform, people will very quickly find ones that do.*
 
-The longer you go between runs of any type of testing, the harder it’s going to be to find out why it failed. This is more true for performance testing than any other category.
+The longer you go between runs of any type of testing, the harder it's going to be to find out why it failed. This is more true for performance testing than any other category.
 
-In order to be able to deploy at any time that’s right for the business, you have to make sure all of your testing is done every time.
+In order to be able to deploy at any time that's right for the business, you have to make sure all of your testing is done every time.
 
 <style type="text/css">
 .float-image {
