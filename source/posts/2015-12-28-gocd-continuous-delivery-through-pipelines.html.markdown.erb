@@ -10,7 +10,7 @@ meta_description: "GoCD is open source continuous delivery software. This is a g
 meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, guest post, deployment pipeline, Jenkins, pipeline dependencies, fan-in fan-out"
 ---
 
-In order to compete in today’s IT market, you must be truly agile, you must listen
+In order to compete in today's IT market, you must be truly agile, you must listen
 to your customers and deliver features in a timely manner. In order to support business
 development and marketing in their lean strategies we, as developers, must leverage
 fast deliveries and deployments and test automations. Continuous Delivery makes it possible
@@ -44,7 +44,7 @@ The main flow of Go goes through a couple of following stages:
 4. Go agents poll for work and get assignments
 5. Agent does the work
 
-Let’s talk about the main building blocks of Go. As stated before, the main abstract is a
+Let's talk about the main building blocks of Go. As stated before, the main abstract is a
 **pipeline** which is the highest unit of work with its inputs and outputs. The input object
 of one pipeline is called a **material** and it can be either a version control resource
 (Git, Gerrit, Subversion, Mercurial) or an output from another pipeline. The output of a
@@ -59,7 +59,7 @@ success or manually. Within each stage, jobs are parallel. The outcome of a stag
 as failure if at least one job fails. Again, tasks within each job are also sequential.
 
 After installing Go server and client there is no need for an extensive configuration.
-However, it is recommended to create a separate partition on a computer’s hard disk for
+However, it is recommended to create a separate partition on a computer's hard disk for
 Go server artifacts (artifacts can grow over time and problems may occur). In server
 configuration, there is also an admin tab for URL configuration. We needed to get feedback
 on failing builds, so we integrated Go with LDAP so each user of Go had an email and could
@@ -82,7 +82,7 @@ manually (for example for building on production environment).
 Multiple pipeline dependency is called **fan-in** and it ensures that pipeline is triggered
 only when all upstream dependencies finish. Upstream dependencies consist of other
 pipelines or version control which make them powerful. If you have a client server
-application and have functional tests on the client’s side, which depend on the server
+application and have functional tests on the client's side, which depend on the server
 being updated, you can make a client functional test pipeline which will trigger on commit
 on client and successful build and deploy of server side.
 
@@ -121,7 +121,7 @@ problems which we posted on StackOverflow and usually got answers pretty quickly
 We are using [Gerrit/Github plugin](https://github.com/ashwanthkumar/gocd-build-github-pull-requests)
 to notify Github PR on failed or passed build which is being actively developed.
 New releases are pushed frequently. Documentation is great, especially API documentation.
-It’s our pleasure to use such a great UI and a couple of nice advanced features.
+It's our pleasure to use such a great UI and a couple of nice advanced features.
 You have a possibility to model your pipeline in a great variety of ways.
 There are some features missing but we in [SmartCat](https://www.smartcat.io/) are all
 about open source so, in the future, we will try to help this project and start contributing.

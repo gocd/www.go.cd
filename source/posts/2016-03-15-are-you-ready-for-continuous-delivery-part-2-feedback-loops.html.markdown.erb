@@ -3,7 +3,7 @@ layout: post
 title: "Are you ready for Continuous Delivery? Part 2: Feedback loops"
 type: post
 author: "David Rice"
-excerpt: "This is the second part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this post, we’ll present some of the more common feedback loops your organization should have in place to determine your readiness for Continuous Delivery."
+excerpt: "This is the second part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this post, we'll present some of the more common feedback loops your organization should have in place to determine your readiness for Continuous Delivery."
 summary_image: "/assets/images/blog/are-you-ready-for-continuous-delivery/feedback_loops.jpg"
 title_tag_of_header: "Are you ready for Continuous Delivery Part 2 | GoCD Blog"
 meta_description: "GoCD is open source continuous delivery software. This is the second part of a series of posts about Continuous Delivery infrastructure, culture, and process."
@@ -58,7 +58,7 @@ be doing some or most of them. We think you should have many of these in place b
 
 The most common feedback loop in any deployment pipeline is the execution of automated tests. You must have a solid test
 automation strategy before attempting CD. Some people like the approach of the
-[test pyramid](http://martinfowler.com/bliki/TestPyramid.html). We’re actually fine with any sensible approach, as long
+[test pyramid](http://martinfowler.com/bliki/TestPyramid.html). We're actually fine with any sensible approach, as long
 as it's fast and reliable. There are myriad types of automated tests, and which ones you use will depend upon your
 circumstances. Here, we will take a look at three of the most important types: unit, regression, and performance.
 
@@ -66,12 +66,12 @@ circumstances. Here, we will take a look at three of the most important types: u
 
 Unit tests verify your application at the most granular level, typically methods or classes. They are fast, easy to
 maintain, and support rapid change of your application. Unit tests should be the foundation of your automation
-strategy. If your teams don't value a thorough and fast unit test suite, they won’t be able to move fast or with
+strategy. If your teams don't value a thorough and fast unit test suite, they won't be able to move fast or with
 confidence.
 
 Some points to consider when assessing your team:
 
-- The suite must be fast. What’s fast? A few minutes on a large code base is OK. But faster is better. Slow unit tests
+- The suite must be fast. What's fast? A few minutes on a large code base is OK. But faster is better. Slow unit tests
   result in a slow, horribly frustrating development flow.
 - On a mature team, the testers will be comfortable with pushing as much of your test automation as possible into your
   unit test layer.
@@ -89,11 +89,11 @@ Firstly, regression tests should be 100 percent automated. They are change-detec
 execute. A manual regression stage in your deployment process will prove painful. Work to get rid of it. Your testers
 can add more value elsewhere.
 
-Secondly, we reject the notion that a regression suite must mean slow, flaky Selenium tests. Our take is, yes, it’s a
+Secondly, we reject the notion that a regression suite must mean slow, flaky Selenium tests. Our take is, yes, it's a
 fair reputation, but it was earned by many teams doing it wrong. How to author and maintain an automated regression
 suite is a book-worthy topic, but quickly:
 
-- Don’t couple them to small stories or tasks. Only consider them in the context of the entire application.
+- Don't couple them to small stories or tasks. Only consider them in the context of the entire application.
 - Relentlessly prune the suite. Keep it tight. Err on the side of leaving something uncovered rather than accepting
   duplication.
 - Treat them as production code. Keep things very clean.
@@ -104,30 +104,30 @@ suite is a book-worthy topic, but quickly:
   to parallelize execution.
 
 One caveat to note: the best testers will want to do a manual regression every so often, just to help structure how they
-think about the application. That’s a good thing so long as it’s about their being thoughtful and not how you actually
+think about the application. That's a good thing so long as it's about their being thoughtful and not how you actually
 integrate regression checks into your process.
 
 #### Performance testing
 
-Performance testing—verifying that your application meets specific performance criteria—is a massive topic. There’s no
+Performance testing—verifying that your application meets specific performance criteria—is a massive topic. There's no
 one way to do it: your approach will vary according to request volume and data size. There are many varieties: load,
-stress, soak, and spike, to name a few. It’s too big a topic for this post. That said, we do have some thinking that can
+stress, soak, and spike, to name a few. It's too big a topic for this post. That said, we do have some thinking that can
 help you assess your maturity:
 
-- Do not leave this phase for last. We cannot stress enough just how difficult this practice is and how much time we’ve
+- Do not leave this phase for last. We cannot stress enough just how difficult this practice is and how much time we've
   seen sunk into failed efforts. Everything about it is difficult: modeling, standing up an environment, building the
   harness, assessing results, building it into your deployment pipeline.
-- It’s critical to test against specific criteria. Don't worry about getting your criteria wrong at first. You can change
+- It's critical to test against specific criteria. Don't worry about getting your criteria wrong at first. You can change
   the criteria once you have real production data.
-- Don’t assume you'll reach web-scale in month two. You’ll waste huge cycles prematurely optimizing both your application
-  and your tests. (Don’t read this as us saying, "Don’t consider what your actual scale might be." Just a suggestion that
+- Don't assume you'll reach web-scale in month two. You'll waste huge cycles prematurely optimizing both your application
+  and your tests. (Don't read this as us saying, "Don't consider what your actual scale might be." Just a suggestion that
   you be realistic and pragmatic.)
 - Utilize production monitoring to the greatest extent possible. A canary release can go a long way toward verifying the
   performance of a new version of your application.
 
 ## Production monitoring
 
-Do you have a production monitoring strategy? Feedback loops aren’t only for pre-production phases. As much as we try to
+Do you have a production monitoring strategy? Feedback loops aren't only for pre-production phases. As much as we try to
 achieve dev/prod parity, production is truly a unique environment for most organizations and things can—and do—go wrong.
 
 Here are some questions to help you assess your readiness:
@@ -136,7 +136,7 @@ Here are some questions to help you assess your readiness:
   respond?
 - Does your team ignore alerts?
 - Do your teams tend to invent an approach to monitoring as they go along? Believe it or not, we actually see this a lot
-  and it’s not a good thing. Be as thoughtful about monitoring and alerts as you are with other parts or your application.
+  and it's not a good thing. Be as thoughtful about monitoring and alerts as you are with other parts or your application.
 - Do you keep a database of events so that you can later query for patterns?
 
 ## User testing
@@ -150,8 +150,8 @@ If you do not do user testing, you will struggle getting users to accept frequen
 only like rapid changes if the experience remains usable, consistent, and effective.
 
 We also want to call out that these feedback loops are manual processes that often require weeks or months of elapsed
-time. They are typically not modeled into the deployment pipeline, and that’s fine. But do not leave them both batched
-up until the end. That’s a long wait period and likely an unknown amount of rework before deploying to prod. If you do
+time. They are typically not modeled into the deployment pipeline, and that's fine. But do not leave them both batched
+up until the end. That's a long wait period and likely an unknown amount of rework before deploying to prod. If you do
 this, your process will feel more like waterfall than CD. Run these user tests early and often, while you are writing
 the code.
 
@@ -170,13 +170,13 @@ testing, this testing should be done throughout the development process and not 
 
 ## Summary
 
-This list of feedback loops organizations should have in place before doing CD is not exhaustive (e.g., we didn’t
+This list of feedback loops organizations should have in place before doing CD is not exhaustive (e.g., we didn't
 discuss A/B testing). We have presented the more common feedback loops we see where CD has been successful. Obviously
 every situation presents different problems and has different needs.
 
-You don’t need to have high marks on everything we have presented to begin your journey to CD. But if you are feeling
-only so-so against a majority of them, we’d suggest working on the individual pieces before approaching CD. Once you get
-enough of them in place, you will find that you’ve actually completed a large swath of your journey to Continuous
+You don't need to have high marks on everything we have presented to begin your journey to CD. But if you are feeling
+only so-so against a majority of them, we'd suggest working on the individual pieces before approaching CD. Once you get
+enough of them in place, you will find that you've actually completed a large swath of your journey to Continuous
 Delivery.
 
 In future parts of this series, we plan to explore culture, the last mile, and more.
