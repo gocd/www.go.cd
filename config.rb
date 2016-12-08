@@ -80,7 +80,7 @@ helpers do
   end
 
   def link_to_commit(sha, text, issue = nil)
-    concat_content(content_tag(:code, link_to("#{sha}", "https://github.com/gocd/gocd/commit/#{sha}")))
+    concat_content(content_tag(:code, link_to("#{sha.first(7)}", "https://github.com/gocd/gocd/commit/#{sha}")))
     concat_content(' - ')
     concat_content(text)
     if issue

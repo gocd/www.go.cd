@@ -24,7 +24,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
   </p>
 
   <% releases = Dir["source/partials/release_notes/_release-*"].map do |file| %>
-  <%      Gem::Version.new(file.sub(%r{.*release_notes/_release-(.*).html.erb}, '\1').gsub('-', '.')) %>
+  <%      Gem::Version.new(file.sub(%r{.*release_notes/_release-(.*).(html|md).erb}, '\1').gsub('-', '.')) %>
   <% end.sort.reverse.collect(&:to_s) %>
 
   <div class="v-tabs all-releases">
@@ -39,7 +39,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
       <h3 class="tab-accordion_heading<%= ' d_active' if index == 0 %>" rel="tab-<%= release.gsub('.', '-')%>"><%= release %><%= ' (latest)' if index == 0 %></h3>
       <div id="tab-<%= release.gsub('.', '-')%>" class="tab_content" style="display: block;">
         <div class="content">
-          <%= partial "partials/release_notes/release-#{release.gsub('.', '-')}.html" %>
+          <%= partial "partials/release_notes/release-#{release.gsub('.', '-')}" %>
         </div>
       </div>
       <% end %>
