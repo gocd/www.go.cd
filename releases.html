@@ -123,8 +123,8 @@
 <p><code><a href="https://github.com/gocd/gocd/commit/c69c1c4">c69c1c4</a></code> - Having fixed-delay does not honour the git gc cron.</p>
 <p><code><a href="https://github.com/gocd/gocd/commit/4509fe7">4509fe7</a></code> - Fixing VSM show more link.</p>
 <p><code><a href="https://github.com/gocd/gocd/commit/e3d3360">e3d3360</a></code> - Allow pipeline group admins to create or update SCMs.</p>
-<p><code><a href="https://github.com/gocd/gocd/commit/d646cfc">d646cfc</a></code> - Added a blank check for build tasks’ attributes.</p>
-<p><code><a href="https://github.com/gocd/gocd/commit/5a54b2b">5a54b2b</a></code> - Change current directory of agent’s batch file in windows 8.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/d646cfc">d646cfc</a></code> - Added a blank check for build tasks' attributes.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/5a54b2b">5a54b2b</a></code> - Change current directory of agent's batch file in windows 8.</p>
 <p><code><a href="https://github.com/gocd/gocd/commit/008f4f4">008f4f4</a></code> - Fix the checkbox to allow known users to login in server configuration page.</p>
 <p><code><a href="https://github.com/gocd/gocd/commit/e49cac1">e49cac1</a></code> - Handling empty responses from package material plugins.</p>
 
@@ -213,7 +213,7 @@
 <p>We would really appreciate your feedback to make this page better. If you notice any issues or bugs with this page, please submit a bug report on <a href="https://github.com/gocd/gocd/issues">GitHub</a></p>
 
 <div class="figure">
-  <img src="https://cloud.githubusercontent.com/assets/10598/18782812/e11e86ba-81a5-11e6-9c0a-4217657d23e2.png" alt="agents-spa-screenshot" />
+  <img alt="Beta Agents Page" src="assets/images/releases/16.10/agents-page-beta.png" />
 </div>
 
 <p><strong>How do I use this?</strong></p>
@@ -221,7 +221,7 @@
 <p>Click on the &quot;Check out the new agents page&quot; on the agents page that you're familiar with.</p>
 
 <div class="figure">
-  <img src="https://cloud.githubusercontent.com/assets/10598/18782787/c3be9b14-81a5-11e6-9e36-2ebec3210db2.png" alt="old-agents-page" />
+  <img alt="Old Agents Page" src="assets/images/releases/16.10/agents-page-old.png" />
 </div>
 <br/>
 <p><strong>Known issues</strong></p>
@@ -308,7 +308,7 @@
 
 <h4>Contributors</h4>
 
-<p>Aravind SV, Ganesh S Patil, Juhi Jariwala, Ketan Padegaonkar, Mahesh Panchaksharaiah, Matt Devlin (Mdevlin4 on GitHub), Sumanth Kumar Mora, Naveen Bhaskar, Rajiesh Narayanan, Tim Anderegg, Tomasz Sętkowski, Varsha Varadarajan, Venkata Jaswanth, Zabil Cheriya Maliackal</p> 
+<p>Aravind SV, Ganesh S Patil, Juhi Jariwala, Ketan Padegaonkar, Mahesh Panchaksharaiah, Matt Devlin (Mdevlin4 on GitHub), Sumanth Kumar Mora, Naveen Bhaskar, Rajiesh Narayanan, Tim Anderegg, Tomasz Sętkowski, Varsha Varadarajan, Venkata Jaswanth, Zabil Cheriya Maliackal</p>
 
 <h4>Security researchers</h4>
 
@@ -1072,7 +1072,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 </p>
 <h4>Get informed about updates</h4>
 <p>
-  A new version of Go CD is released every few months, with this feature you’ll now be notified about the latest supported release (if you are running an older version).
+  A new version of Go CD is released every few months, with this feature you'll now be notified about the latest supported release (if you are running an older version).
 </p>
 <p>
   <img title="Notification Bell icon" alt="Bell icon on the top nav bar" src="assets/images/releases/15.3/update-check-bell.png" />
@@ -1234,15 +1234,15 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
       <div id="tab-15-1-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>New plugin endpoint for "Materials"</h4>
-<p> This new plugin endpoint introduced in 15.1 allows Go’s already long list of source code materials to be extended without making changes to the core! </p>
+<p> This new plugin endpoint introduced in 15.1 allows Go's already long list of source code materials to be extended without making changes to the core! </p>
 <p> Support for this endpoint brought along support for GitHub pull requests, contributed by an external contributor <a href="https://github.com/ashwanthkumar">@ashwanthkumar</a> (so exciting!), with support from a Go core contributor, <a href="https://github.com/srinivasupadhya/">@srinivasupadhya</a>.
-  You’ll never need to wish that Go supported your favorite kind of material repository, you can implement support for it yourself!
+  You'll never need to wish that Go supported your favorite kind of material repository, you can implement support for it yourself!
 </p>
 <p>
   You can see all the SCM material plugins on the <a href="http://www.go.cd/community/plugins#scm-plugins">Go community plugins page</a>. See how to write one, <a href="https://docs.go.cd/current/extension_points/scm_extension.html">here</a>.
 </p>
 <p>
-  Here’s how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="http://www.go.cd/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
+  Here's how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="http://www.go.cd/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
 </p>
 <figure class="small_image">
   <img title="GitHub Pull Request with GitHub poller and notification plugins" alt="GitHub Pull Request with GitHub poller and notification plugins" src="assets/images/releases/15.1/15_1_github_pr.png" />
@@ -1265,7 +1265,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 </figure>
 <p> Read more about this feature <a href="https://docs.go.cd/current/configuration/admin_use_custom_pipeline_label.html#using-truncated-material-revisions">in the documentation.</a></p>
 <h4>Timestamps in console logs</h4>
-<p> Starting from Go 15.1, Go’s console logs will have timestamps for every line. This is very useful for finding out long-running parts of tasks. Here’s how it looks:</p>
+<p> Starting from Go 15.1, Go's console logs will have timestamps for every line. This is very useful for finding out long-running parts of tasks. Here's how it looks:</p>
 <figure class="small_image">
   <img title="Console log timestamps" alt="Console log timestamps" src="assets/images/releases/15.1/15_1_console_log_timestamp.png" />
 </figure>
@@ -1276,7 +1276,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
   <li><a href="https://github.com/gocd/gocd/pull/781">#781</a> - Post-commit hook for Mercurial (contribution by Go team alumnus, <a href="https://github.com/sachinsudheendra">@sachinsudheendra</a>).</li>
   <li><a href="https://github.com/gocd/gocd/pull/768">#768</a> - A beta feature to upload plugins directly from within the Go plugins tab (contribution by <a href="https://github.com/pwen">@pwen</a> and <a href="https://github.com/pamo">@pamo</a>).</li>
   <li><a href="https://github.com/gocd/gocd/pull/700">#700</a> - Run multiple agents as services - for Linux (contribution by <a href="https://github.com/bernardn">@bernardn</a>).</li>
-  <li><a href="https://github.com/gocd/gocd/issues/400">#400</a> - Large part of a long-pending upgrade from Jetty 6 to Jetty 9 (turned off, by default in 15.1 - Waiting for some performance fixes on Jetty’s side).</li>
+  <li><a href="https://github.com/gocd/gocd/issues/400">#400</a> - Large part of a long-pending upgrade from Jetty 6 to Jetty 9 (turned off, by default in 15.1 - Waiting for some performance fixes on Jetty's side).</li>
   <li><a href="https://github.com/gocd/gocd/issues/104">#104</a> - Agents do not restart because of a server restart, any more (plugin sync issue fixed).</li>
   <li><a href="https://github.com/gocd/gocd/pull/725">#725</a> - Pipeline instance information through APIs. </li>
   <li><a href="https://github.com/gocd/gocd/pull/941">#941</a> - Small improvement around config save -Look for a lot more around this area soon! </li>
