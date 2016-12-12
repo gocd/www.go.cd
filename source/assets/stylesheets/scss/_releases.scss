@@ -31,7 +31,13 @@
 
   figure {
     display: block;
-    margin: 30px 0;
+    margin: 10px;
+    border-left: 5px solid gray;
+    padding-left: 10px;
+
+    &.shrink-figure-70 {
+      width: 80%;
+    }
   }
 
 }
