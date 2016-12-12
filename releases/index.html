@@ -206,9 +206,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 <p>The following features have been deprecated, along with the timeframe when they will be removed.</p>
 
 <ul>
-  <li>
-    <p>We shall be stopping support for git versions older than 1.9 in three months time (Feb 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to <a href="https://www.softwarecollections.org/en/scls/rhscl/git19/">this</a> and/or <a href="http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633">this</a> to upgrade git.</p>
-  </li>
+  <li>We shall be stopping support for git versions older than 1.9 in three months time (Feb 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to <a href="https://www.softwarecollections.org/en/scls/rhscl/git19/">this</a> and/or <a href="http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633">this</a> to upgrade git.</li>
   <li>The GoCD api support page <code>http://your-server:8153/go/api/support</code> supports JSON and plain-text outputs. JSON has been the default since release 16.6. We will be removing the plain-text output in release 17.1 (scheduled to be released in Jan 2017). It is much simpler to consume the JSON output than the plain-text output.</li>
   <li>As of release 16.12, the <a href="https://en.wikipedia.org/wiki/OpenSocial">OpenSocial gadgets</a> have been deprecated. This feature will be removed in 17.1 (scheduled to be released in Jan 2017). This has been done for a few of reasons —
 (a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
@@ -223,7 +221,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 
     <p>Below is the list of plugins that will stop working in 17.1.</p>
 
-    <p><strong>Note:</strong> The GoCD team has built a <a href="https://github.com/aresok/go-maven-poller/compare/master...arvindsv:make-it-work-with-gocd-17-1">shim</a> that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.1.</p>
+    <p><strong>Note:</strong> The GoCD team has built a <a href="https://github.com/gocd-contrib/gocd-package-material-plugin-shim">shim</a> that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.1.</p>
 
     <p><strong>Package plugins</strong></p>
 
