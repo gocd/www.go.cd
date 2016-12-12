@@ -1,4 +1,4 @@
-<h4 class="agents-page-beta">Agents page (Beta)</h4>
+<h4>Agents page (Beta)</h4>
 
 <p>This is a new page for managing agents, which should feel a lot more light weight and snappier than the existing agents page.</p>
 
@@ -19,32 +19,32 @@
 <p><strong>Known issues</strong></p>
 <p><%= link_to_issue('2735', 'Agents Bulk update API: Enabling a pending agent returns 400 bad request') %></p>
 
-<h4 class="improvements">Improvements</h4>
+<h4>Improvements</h4>
 
 <p><%= link_to_commit('53d0d42', 'Show details about linux distribution flavors and versions', '2608') %></p>
 <p><%= link_to_commit('cc69476', 'Filter for pipeline history view', '2391') %></p>
 
-<h4 class="api-enhancements">API enhancements</h4>
+<h4>API enhancements</h4>
 
 <p><%= link_to_commit('687d454', "Added new #{link_to_api 'template-config'} to manage pipeline templates", '2233') %></p>
 <p><%= link_to_commit('f8ab50a', "Added PATCH support for environments update #{link_to_api 'environment-config'}, this will allow you to specify pipelines and agents that should be added and/or removed in a single API call.") %> </p>
 <p><%= link_to_commit('09c864e', "Added Agents #{link_to_api 'agents'} V4. This adds a 'build_details' property with relevant links to the job that is currently building on the agent.") %></p>
 
-<h4 class="bug-fixes">Bug fixes</h4>
+<h4>Bug fixes</h4>
 
 <p><%= link_to_commit('2d8ec07', 'Spaces are not trimmed from environment variables', '1411') %></p>
 <p><%= link_to_commit('845ee9b', 'Tweak the agent registration protocol a bit', '2558') %></p>
 <p><%= link_to_commit('ee9cdae', 'Escape the jar URL to allow symbols such as # (needed when running GoCD on Mesos)') %></p>
 
-<h4 class="security-fixes">Security fixes</h4>
+<h4>Security fixes</h4>
 
 <p><%= link_to_commit('1f2a189', 'Do not display the value of secure environment variable in templates view', '2652') %></p>
 
-<h4 class="performance-improvements">Performance improvements</h4>
+<h4>Performance improvements</h4>
 
 <p><%= link_to_commit('53ab276', 'Removed an extra post merge validation', '2594') %></p>
 
-<h2 class="breaking-changes">Breaking changes</h2>
+<h4>Breaking changes</h4>
 
 <p>No breaking changes in this release</p>
 
