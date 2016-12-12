@@ -1,0 +1,101 @@
+#### API Enhancements
+
+* <%= link_to_commit 'xxxx', "Lorem ipsum #{link_to_api 'plugin-info'} dolor sit amet" %>
+
+#### Other Improvements
+
+* <%= link_to_commit 'xxx', 'YYY.', 123 %>
+
+#### Bug Fixes
+
+* <%= link_to_commit 'xxx', 'yyy.' %>
+
+#### Library upgrades
+
+* <%= link_to_commit 'f4bce94a14e088caf7baf6dd9979cf69e0681146', 'Upgrading JGit to 4.5.0.201609210915-r.' %>
+
+#### Breaking changes
+
+- <%= link_to_commit '920b7ee2bd7fb5a614f9e7540e59bf38c60ee92b', 'Removed support for Java 7.' %>
+- <%= link_to_commit 'f2ac6b182c03413e8c6cdbae26c47fe944a11897', 'Removed support for text based API support log', 2975 %>
+- <%= link_to_commit '7274d233c1895d3364ce73575dc32cb7f60bbf55', 'Removed version 2 and 3 of the agents api', 2984 %>
+
+#### Deprecations
+
+Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
+
+The following features have been deprecated, along with the timeframe when they will be removed.
+
+* We shall be stopping support for git versions older than 1.9 in three months time (Feb 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to [this](https://www.softwarecollections.org/en/scls/rhscl/git19/) and/or [this](http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633) to upgrade git.
+* As of release 16.12, the [OpenSocial gadgets](https://en.wikipedia.org/wiki/OpenSocial) have been deprecated. This feature will be removed in 17.1 (scheduled to be released in Jan 2017). This has been done for a few of reasons —
+  (a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
+  (b) the underlying implementation framework ([Apache Shindig](https://shindig.apache.org/)) hasn't been maintained for quite some time and contain several security vulnerabilities.
+* As of release 16.12, version 1 of the <%= link_to_api 'get-all-plugin-info', 'Plugin Info API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.
+* As of release 16.11, version 1 of the <%= link_to_api 'template-config', 'Templates API' %> is deprecated. This version of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 2 of the API is available, and users are encouraged to use it.
+* As of release 16.12, version 2 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.
+* As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017). Plugin developers are encouraged to upgrade their plugins to use [JSON message based plugin API.](https://plugin-api.go.cd/current/tasks) to build plugins.
+
+    Below is the list of plugins that will stop working in 17.1.
+
+    **Note:** The GoCD team has built a [shim](https://github.com/aresok/go-maven-poller/compare/master...arvindsv:make-it-work-with-gocd-17-1) that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.1.
+
+    **Package plugins**
+
+    * [Maven (Nexus) repository poller](https://github.com/aresok/go-maven-poller)
+    * [Docker Registry Poller - 1](https://github.com/hammerdr/go-docker-registry-poller)
+    * [Docker Registry Poller - 2](https://github.com/decoomanj/gocd-docker-material-poller)
+    * [Puppet Forge repository poller](https://github.com/drrb/go-puppet-forge-poller)
+    * [Debian repository poller](https://github.com/gocd-contrib/deb-repo-poller)
+    * [Cloud Foundry poller](https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md)
+    * [Nuget repository poller](https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/)
+    * [Generic Artifactory poller](https://github.com/varchev/go-generic-artifactory-poller)
+    * [NPM repository poller](https://github.com/varchev/go-npm-poller)
+
+    **Task plugins**
+
+    * [MSBuild Task](https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md)
+    * [XUnit Converter](https://github.com/gocd-contrib/xunit-converter-task)
+    * [Publish to S3](https://github.com/indix-eng/gocd-s3-artifacts)
+    * [Fetch from S3](https://github.com/indix-eng/gocd-s3-artifacts)
+    * [Powershell Task](https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md)
+    * [RapidDeploy Package Builder](https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin)
+    * [RapidDeploy Job Runner](https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin)
+    * [Maven Task Plugin](https://github.com/ruckc/gocd-maven-plugin)
+    * [Publish to Artifactory](https://github.com/tusharm/go-artifactory-plugin)
+
+
+#### Contributors
+
+<%= [
+  'Alison Polton-Simon',
+  'Aravind SV',
+  'Bhupendrakumar Piprava',
+  'ByteFlinger',
+  'Ganesh S Patil',
+  'Jyoti Singh',
+  'Ketan Padegaonkar',
+  'Mahesh Panchaksharaiah',
+  'Markandan R',
+  'Naveen Bhaskar',
+  'Padma Mullagiri',
+  'Rajiesh Narayanan',
+  'Sallie Walecka',
+  'Sumanth Kumar Mora',
+  'Tomasz Setkowski',
+  'Varsha Varadarajan',
+  'Walmyr (wlsf82 on GitHub)',
+  'Zabil Cheriya Maliackal',
+].sort.uniq.join(', ')
+%>
+
+#### Security researchers
+
+<%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
+
+#### Note
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.1' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
