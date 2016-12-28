@@ -71,12 +71,11 @@ namespace :static_checks do
   task :all => [:html_proofer]
 end
 
-task :remove_build_dir do
-  rm_rf "build/"
-end
-
+desc "Build the website"
 task :build do
-  Rake::Task['static_checks:all'].invoke
+  sh("bundle exec middleman build")
 end
 
-Rake::Task[:publish].prerequisites.unshift "remove_build_dir"
+task publish: [:clean, :build, 'static_checks:all'] do
+  sh('bundle exec middleman s3_sync')
+end
