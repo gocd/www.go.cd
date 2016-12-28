@@ -38,7 +38,7 @@ REDIRECTS = {
   "changelog/index.html"                       => "/index.html?utm_campaign=the_changelog_2016&utm_medium=podcast&utm_source=podcast_audio&utm_content=go_download&utm_term=",
   "talkpython/index.html"                      => "/download/index.html?utm_campaign=tptm_2016&utm_medium=podcast_banner&utm_source=podcast_Banner_tptm&utm_content=manage_complexity_ease&utm_term=",
   "recode/index.html"                          => "/index.html?utm_campaign=recode_podcast_q1_2017&utm_medium=podcast_recode&utm_source=podcast_recode&utm_content=go_cd&utm_term=",
-  "twit/index.html"                            => "/index.html?utm_campaign=twit_podcast_q1_2017&utm_medium=podcast_twit&utm_source=podcast_twit&utm_content=go_cd&utm_term=", 
+  "twit/index.html"                            => "/index.html?utm_campaign=twit_podcast_q1_2017&utm_medium=podcast_twit&utm_source=podcast_twit&utm_content=go_cd&utm_term=",
   }
 #To ignore HtmlCheck for URL's with &, update file_ignore options in lib/tasks/static_checks.rake
 activate :sprockets
@@ -144,6 +144,12 @@ ready do
   REDIRECTS.each do |from, to|
     proxy from, "/redirect.template.html", :locals => { :redirect_to => to }, :ignore => true
   end
+end
+
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket                     = ENV['S3_BUCKET']
+  s3_sync.region                     = 'us-east-1'
+  s3_sync.prefer_gzip = false
 end
 
 # Build-specific configuration
