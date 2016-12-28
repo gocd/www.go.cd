@@ -10,7 +10,7 @@ meta_description: "GoCD is open source continuous delivery software. This post w
 meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, custom certificate, self signed, certificate"
 ---
 
-The following post will help you setting up [GoCD](https://www.go.cd) to use your custom certificate instead of the self-signed certificate that GoCD ships with.
+The following post will help you setting up [GoCD](https://www.gocd.io) to use your custom certificate instead of the self-signed certificate that GoCD ships with.
 
 Note: This post is a copy of the one available [here](http://sachinsudheendra.github.io/2014/03/08/using-go-cd-with-custom-certificates.html)
 
@@ -84,5 +84,5 @@ Post this, when you access the GoCD Server over HTTPS (https://<go-server>:8154)
 
 ## References
 
-- [#gocd](https://www.go.cd)
+- [#gocd](https://www.gocd.io)
 - [Setting up self-signed SSL certificates for your Jetty instance (experiments with Noir and Clojure)](http://sharetheconversation.blogspot.in/2012/01/setting-up-self-signed-ssl-certificates.html)
