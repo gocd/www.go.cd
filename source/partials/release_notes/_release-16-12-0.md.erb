@@ -55,7 +55,7 @@ Users can now directly navigate to the pipeline settings page from the stage and
 
     The self-signed web-server certificate that GoCD generates is now a SHA-256 certificate instead of a SHA-1 certificate. SHA1 certificates have been [deprecated](https://blog.qualys.com/ssllabs/2014/09/09/sha1-deprecation-what-you-need-to-know) by most browser vendors and users will start to see a warning in their browsers.
 
-    Any new installations of GoCD will generate a SHA-256 certificate. For existing installations, users should remove the file `config/keystore` to allow GoCD to regenerate a new server certificate. Depending on your [end-to-end transport security](https://docs.go.cd/current/installation/ssl_tls/end_to_end_transport_security.html) settings you may need to configure the `-rootCertFile` argument to the GoCD agent.
+    Any new installations of GoCD will generate a SHA-256 certificate. For existing installations, users should remove the file `config/keystore` to allow GoCD to regenerate a new server certificate. Depending on your [end-to-end transport security](https://docs.gocd.io/current/installation/ssl_tls/end_to_end_transport_security.html) settings you may need to configure the `-rootCertFile` argument to the GoCD agent.
 
 #### Bug Fixes
 
