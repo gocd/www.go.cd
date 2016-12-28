@@ -1,6 +1,6 @@
 - name: Yum repository poller
   description: Bundled plugin to poll a Yum repository.
-  readmore_url: https://docs.go.cd/current/extension_points/yum_repository_poller.html
+  readmore_url: https://docs.gocd.io/current/extension_points/yum_repository_poller.html
   author_url: http://www.thoughtworks.com/products/
   author_name: ThoughtWorks Inc.
   github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=go-plugins&type=watch&count=true

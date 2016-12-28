@@ -74,7 +74,7 @@ I believe security is one of the few areas where having specialists writing and 
 
 When people ask this question, they are usually trying to decide if security pipelines or stages should be blocking, meaning that the pipeline can't move forward on failures. I definitely think they should block, but that doesn't mean you can't do other types of testing on the same build.
 
-If your continuous delivery server supports [fan-in / fan-out](https://docs.go.cd/current/introduction/concepts_in_go.html#fan_in_out), you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we've decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won't get deployed to our staging environment unless they both pass.
+If your continuous delivery server supports [fan-in / fan-out](https://docs.gocd.io/current/introduction/concepts_in_go.html#fan_in_out), you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we've decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won't get deployed to our staging environment unless they both pass.
 
 <img src="/assets/images/blog/deploy-now/continuous_delivery_security_testing_pipeline.png" alt="continuous delivery security testing pipeline" title="continuous delivery security testing pipeline">
 
