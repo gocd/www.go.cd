@@ -10,7 +10,7 @@ deploy_environment = (ENV['DEPLOY_ENVIRONMENT'] || 'preview')
 
 set :base_url, "#{protocol}://#{cname}"
 # Repeated, just to show that it is important. Changing this might mean you lose Disqus comments.
-set :base_url_for_blog_posts, "https://www.gocd.io"
+set :base_url_for_blog_posts, "https://www.go.cd"
 set :cname, cname
 set :deploy_environment, deploy_environment
 
