@@ -72,7 +72,7 @@
       <main id="main" role="main">
       <p>When using GO for Continuous Delivery with multiple teams where you have various security groups, you usually end up with multiple template types. Depending on your application ecosystem you might have different deployment methods depending on the application type, that have some overlapping. At the moment we don't have the ability to have Stage templates, so you need a completely new template when you have differences.</p>
 
-<p>We have decided to have one deployment template separate per application / security group (Pipeline group) so we distribute maintenance, but also reduce the risk of breaking Pipelines of other teams when we change a base template. Having different templates also allows us to allocate <a href="https://www.gocd.io/2014/02/24/go-template-permissions.html">Template Admins</a> specific for the application / team / security group that now can manage most of the needs of a team without requiring GoCD System Admin rights.</p>
+<p>We have decided to have one deployment template separate per application / security group (Pipeline group) so we distribute maintenance, but also reduce the risk of breaking Pipelines of other teams when we change a base template. Having different templates also allows us to allocate <a href="http://www.gocd.io/2014/02/24/go-template-permissions.html">Template Admins</a> specific for the application / team / security group that now can manage most of the needs of a team without requiring GoCD System Admin rights.</p>
 
 <p>As you don't want team to get Admin access across multiple applications but you still want them to have something to start with (a base template), we have created two Basic templates that cover basic needs for an application deployment that we "Clone" for each team. After cloning we assign an Admin from their team so they can start modifying it according to their own flavour. Cloning templates is not available in GO at the moment, so we had to find a way around it. 
 One <a href="https://github.com/oanastoia">contributor</a> created a script that interacts with GO's own <a href="https://docs.gocd.io/current/api/configuration_api.html">Configuration API</a> to allow template cloning.</p>
@@ -220,7 +220,7 @@ I will not go into detail on how to achieve this, but you can read more on how t
       <script>
         var disqus_config = function () {
           /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.gocd.io/2014/08/19/cloning-templates.html";
+          this.page.url = "https://www.go.cd/2014/08/19/cloning-templates.html";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
         };
