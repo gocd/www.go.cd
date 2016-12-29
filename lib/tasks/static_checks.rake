@@ -77,5 +77,5 @@ task :build do
 end
 
 task publish: [:clean, :build, 'static_checks:all'] do
-  sh('bundle exec middleman s3_sync')
+  sh('bundle exec middleman s3_sync -i')
 end

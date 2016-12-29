@@ -140,16 +140,14 @@ helpers do
   end
 end
 
-ready do
-  REDIRECTS.each do |from, to|
-    proxy from, "/redirect.template.html", :locals => { :redirect_to => to }, :ignore => true
-  end
+REDIRECTS.each do |from, to|
+  proxy from, "/redirect.template.html", :locals => { :redirect_to => to }, :ignore => true
 end
 
 activate :s3_sync do |s3_sync|
-  s3_sync.bucket                     = ENV['S3_BUCKET']
-  s3_sync.region                     = 'us-east-1'
-  s3_sync.prefer_gzip = false
+  s3_sync.bucket       = ENV['S3_BUCKET']
+  s3_sync.region       = 'us-east-1'
+  s3_sync.prefer_gzip  = false
 end
 
 # Build-specific configuration
