@@ -10,7 +10,7 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Add Security Testing to Your Deployment Pipelines | GoCD Blog" />
     <meta name="twitter:description" content="GoCD is open source continuous delivery software. This is the second in a series of articles that will help ensure your software is production-ready at any time." />
-    <meta name="twitter:image" content="https://www.go.cd/assets/images/blog/deploy-now/security-badge.png" />
+    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/deploy-now/security-badge.png" />
 
     <title>Add Security Testing to Your Deployment Pipelines | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
@@ -42,7 +42,7 @@
           <a class="toplink_help" analytics-label="link_help" href="../../../help/">Help</a>
           <ul  class="level1">
             <li><a class="getting-started" analytics-label="link_help&gt;link_getting_started" href="../../../help/">Getting started</a></li>
-            <li><a target="_blank" analytics-label="link_help&gt;link_documentation" href="https://docs.go.cd/current/">Documentation</a></li>
+            <li><a target="_blank" analytics-label="link_help&gt;link_documentation" href="https://docs.gocd.io/current/">Documentation</a></li>
             <li><a class="link_resources" analytics-label="link_help&gt;link_resources" href="../../../resources.html">Resources</a></li>
           </ul>
         </li>
@@ -76,7 +76,7 @@
   </div>
 
   <div class="float-article float-left">
-<p>This is the second part of a series called <a href="https://www.go.cd/2016/01/17/not-done-unless-its-done.html">It's not Continuous Delivery if you can't deploy right now.</a> In this part, I'm going to cover some more common tools in security testing pipelines.</p>
+<p>This is the second part of a series called <a href="https://www.gocd.io/2016/01/17/not-done-unless-its-done.html">It's not Continuous Delivery if you can't deploy right now.</a> In this part, I'm going to cover some more common tools in security testing pipelines.</p>
 <p>In my experience, automated security testing is pretty rare in CD pipelines. If the job of a pipeline is to make you confident in your release, confidence in your security is a must have. While it's not practical to try to list them all, I'll give a few examples of tools used for this automation. You can find more <a href="https://www.owasp.org/index.php/Appendix_A:_Testing_Tools">here</a>.</p>
 
 <p>Tests created by your team and run by tools like the ones in this article should be a key part of any deployment pipeline.</p>
@@ -133,7 +133,7 @@
 
 <p>When people ask this question, they are usually trying to decide if security pipelines or stages should be blocking, meaning that the pipeline can't move forward on failures. I definitely think they should block, but that doesn't mean you can't do other types of testing on the same build.</p>
 
-<p>If your continuous delivery server supports <a href="https://docs.go.cd/current/introduction/concepts_in_go.html#fan_in_out">fan-in / fan-out</a>, you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we've decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won't get deployed to our staging environment unless they both pass.</p>
+<p>If your continuous delivery server supports <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#fan_in_out">fan-in / fan-out</a>, you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we've decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won't get deployed to our staging environment unless they both pass.</p>
 
 <p><img src="../../../assets/images/blog/deploy-now/continuous_delivery_security_testing_pipeline.png" alt="continuous delivery security testing pipeline" title="continuous delivery security testing pipeline" /></p>
 
@@ -277,7 +277,7 @@
       <script>
         var disqus_config = function () {
           /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2016/02/08/not-done-unless-its-done-security.html";
+          this.page.url = "https://www.gocd.io/2016/02/08/not-done-unless-its-done-security.html";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
         };

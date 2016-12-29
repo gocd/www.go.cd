@@ -10,7 +10,7 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Releases - Version notes | GoCD" />
     <meta name="twitter:description" content="Description of key new features, known bugs and enhancements for versions of GoCD. GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation." />
-    <meta name="twitter:image" content="https://www.go.cd/assets/images/gocd_continuous_delivery_thoughtworks_twitter.jpg" />
+    <meta name="twitter:image" content="https://www.gocd.io/assets/images/gocd_continuous_delivery_thoughtworks_twitter.jpg" />
 
     <title>Releases - Version notes | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
@@ -42,7 +42,7 @@
           <a class="toplink_help" analytics-label="link_help" href="../help/">Help</a>
           <ul  class="level1">
             <li><a class="getting-started" analytics-label="link_help&gt;link_getting_started" href="../help/">Getting started</a></li>
-            <li><a target="_blank" analytics-label="link_help&gt;link_documentation" href="https://docs.go.cd/current/">Documentation</a></li>
+            <li><a target="_blank" analytics-label="link_help&gt;link_documentation" href="https://docs.gocd.io/current/">Documentation</a></li>
             <li><a class="link_resources" analytics-label="link_help&gt;link_resources" href="../resources.html">Resources</a></li>
           </ul>
         </li>
@@ -132,7 +132,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 
 <p>Elastic agents is now a fully supported feature in GoCD.</p>
 
-<p>To be able to use elastic agents, you should install an existing <a href="https://www.go.cd/plugins">elastic-agent plugin</a>, or <a href="https://plugin-api.go.cd/current/elastic-agents">write your own</a>. Once the plugin is installed you must configure an "elastic agent profile" that you can associate with the jobs that require elastic agents.</p>
+<p>To be able to use elastic agents, you should install an existing <a href="https://www.gocd.io/plugins">elastic-agent plugin</a>, or <a href="https://plugin-api.gocd.io/current/elastic-agents">write your own</a>. Once the plugin is installed you must configure an "elastic agent profile" that you can associate with the jobs that require elastic agents.</p>
 
 <figure class="shrink-figure-70">
   <img alt="Create Elastic Profile" src="../assets/images/releases/16.12/elastic-profiles-add-new.png" />
@@ -149,9 +149,9 @@ If you have feedback or issues with the new agents page please log them at <a hr
 <h4 id="api-enhancements">API Enhancements</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/8952af2168feca77c1e2115d0300ae1e521fa5ff">8952af2</a></code> - <a href="https://api.go.cd/current/#packages">API</a> to manage packages.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/e599a230697f26ad51596d50c7d38ec851aa00c6">e599a23</a></code> - <a href="https://api.go.cd/current/#package-repositories">API</a> to manage package repositories.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/9aabf482c593a3b54ceac05aac8b6a3ba1d4889c">9aabf48</a></code> - Introduced version 2 of Plugin Info <a href="https://api.go.cd/current/#plugin-info">API</a> to provide complete metadata for plugin type <code>package-repository</code> and icons for plugins that provide it.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/8952af2168feca77c1e2115d0300ae1e521fa5ff">8952af2</a></code> - <a href="https://api.gocd.io/current/#packages">API</a> to manage packages.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e599a230697f26ad51596d50c7d38ec851aa00c6">e599a23</a></code> - <a href="https://api.gocd.io/current/#package-repositories">API</a> to manage package repositories.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/9aabf482c593a3b54ceac05aac8b6a3ba1d4889c">9aabf48</a></code> - Introduced version 2 of Plugin Info <a href="https://api.gocd.io/current/#plugin-info">API</a> to provide complete metadata for plugin type <code>package-repository</code> and icons for plugins that provide it.</li>
 </ul>
 
 <h4 id="other-improvements">Other Improvements</h4>
@@ -169,7 +169,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 
     <p>The self-signed web-server certificate that GoCD generates is now a SHA-256 certificate instead of a SHA-1 certificate. SHA1 certificates have been <a href="https://blog.qualys.com/ssllabs/2014/09/09/sha1-deprecation-what-you-need-to-know">deprecated</a> by most browser vendors and users will start to see a warning in their browsers.</p>
 
-    <p>Any new installations of GoCD will generate a SHA-256 certificate. For existing installations, users should remove the file <code>config/keystore</code> to allow GoCD to regenerate a new server certificate. Depending on your <a href="https://docs.go.cd/current/installation/ssl_tls/end_to_end_transport_security.html">end-to-end transport security</a> settings you may need to configure the <code>-rootCertFile</code> argument to the GoCD agent.</p>
+    <p>Any new installations of GoCD will generate a SHA-256 certificate. For existing installations, users should remove the file <code>config/keystore</code> to allow GoCD to regenerate a new server certificate. Depending on your <a href="https://docs.gocd.io/current/installation/ssl_tls/end_to_end_transport_security.html">end-to-end transport security</a> settings you may need to configure the <code>-rootCertFile</code> argument to the GoCD agent.</p>
   </li>
 </ul>
 
@@ -211,13 +211,13 @@ If you have feedback or issues with the new agents page please log them at <a hr
   <li>As of release 16.12, the <a href="https://en.wikipedia.org/wiki/OpenSocial">OpenSocial gadgets</a> have been deprecated. This feature will be removed in 17.1 (scheduled to be released in Jan 2017). This has been done for a few of reasons —
 (a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
 (b) the underlying implementation framework (<a href="https://shindig.apache.org/">Apache Shindig</a>) hasn't been maintained for quite some time and contain several security vulnerabilities.</li>
-  <li>As of release 16.12, version 1 of the <a href="https://api.go.cd/current/#get-all-plugin-info">Plugin Info API</a> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.</li>
-  <li>As of release 16.11, version 1 of the <a href="https://api.go.cd/current/#template-config">Templates API</a> is deprecated. This version of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 2 of the API is available, and users are encouraged to use it.</li>
-  <li>As of release 16.12, version 2 and version 3 of the <a href="https://api.go.cd/current/#agents">Agents API</a> is deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 4 of this API is backward compatible, and users are encouraged to use it.</li>
+  <li>As of release 16.12, version 1 of the <a href="https://api.gocd.io/current/#get-all-plugin-info">Plugin Info API</a> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.</li>
+  <li>As of release 16.11, version 1 of the <a href="https://api.gocd.io/current/#template-config">Templates API</a> is deprecated. This version of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 2 of the API is available, and users are encouraged to use it.</li>
+  <li>As of release 16.12, version 2 and version 3 of the <a href="https://api.gocd.io/current/#agents">Agents API</a> is deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 4 of this API is backward compatible, and users are encouraged to use it.</li>
   <li>As of release 16.5, Java 7 support was deprecated. Java 7 support will be removed in 17.1 release (scheduled to be released in January 2017). GoCD works great with Java 8, and users are encouraged to use it.</li>
-  <li>As of release 16.12, version 2 of the <a href="https://api.go.cd/current/#pipeline-config">Pipeline Config API</a> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.</li>
+  <li>As of release 16.12, version 2 of the <a href="https://api.gocd.io/current/#pipeline-config">Pipeline Config API</a> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.</li>
   <li>
-    <p>As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017). Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.go.cd/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
+    <p>As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017). Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.gocd.io/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
 
     <p>Below is the list of plugins that will stop working in 17.1.</p>
 
@@ -276,7 +276,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
         <div class="content">
           <h4>API enhancements</h4>
 
-<p><code><a href="https://github.com/gocd/gocd/commit/fb24522">fb24522</a></code> - Added new <a href="https://api.go.cd/current/#elastic-agent-profiles">API</a> to manage elastic agent profiles.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/fb24522">fb24522</a></code> - Added new <a href="https://api.gocd.io/current/#elastic-agent-profiles">API</a> to manage elastic agent profiles.</p>
 
 <h4>Quick Edit (Beta) Changes/Fixes</h4>
 
@@ -316,14 +316,14 @@ If you have feedback or issues with the new agents page please log them at <a hr
     GoCD works great with Java 8, and users are encouraged to use it.
   </p></li>
   <li><p>
-    As of release 16.7, version 1 of the <a href="https://api.go.cd/current/#pipeline-config">Pipeline Config API</a> was deprecated.
+    As of release 16.7, version 1 of the <a href="https://api.gocd.io/current/#pipeline-config">Pipeline Config API</a> was deprecated.
     This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
     Version 2 of this API is backward compatible, and users are encouraged to use it.
   </p></li>
   <li><p>
     As of release 16.7, Java API based Go Plugins have been deprecated.
     Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
-    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.go.cd/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
+    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.gocd.io/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
 
     <p>Below is the list of plugins that will stop working in 17.1, unless those changes are made.</p>
 
@@ -402,9 +402,9 @@ If you have feedback or issues with the new agents page please log them at <a hr
 
 <h4>API enhancements</h4>
 
-<p><code><a href="https://github.com/gocd/gocd/commit/687d454">687d454</a></code> - Added new <a href="https://api.go.cd/current/#template-config">API</a> to manage pipeline templates (<a href="https://github.com/gocd/gocd/issues/2233">#2233</a>)</p>
-<p><code><a href="https://github.com/gocd/gocd/commit/f8ab50a">f8ab50a</a></code> - Added PATCH support for environments update <a href="https://api.go.cd/current/#environment-config">API</a>, this will allow you to specify pipelines and agents that should be added and/or removed in a single API call. </p>
-<p><code><a href="https://github.com/gocd/gocd/commit/09c864e">09c864e</a></code> - Added Agents <a href="https://api.go.cd/current/#agents">API</a> V4. This adds a 'build_details' property with relevant links to the job that is currently building on the agent.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/687d454">687d454</a></code> - Added new <a href="https://api.gocd.io/current/#template-config">API</a> to manage pipeline templates (<a href="https://github.com/gocd/gocd/issues/2233">#2233</a>)</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/f8ab50a">f8ab50a</a></code> - Added PATCH support for environments update <a href="https://api.gocd.io/current/#environment-config">API</a>, this will allow you to specify pipelines and agents that should be added and/or removed in a single API call. </p>
+<p><code><a href="https://github.com/gocd/gocd/commit/09c864e">09c864e</a></code> - Added Agents <a href="https://api.gocd.io/current/#agents">API</a> V4. This adds a 'build_details' property with relevant links to the job that is currently building on the agent.</p>
 
 <h4>Bug fixes</h4>
 
@@ -435,14 +435,14 @@ If you have feedback or issues with the new agents page please log them at <a hr
     GoCD works great with Java 8, and users are encouraged to use it.
   </p></li>
   <li><p>
-    As of release 16.7, version 1 of the <a href="https://api.go.cd/current/#pipeline-config">Pipeline Config API</a> was deprecated.
+    As of release 16.7, version 1 of the <a href="https://api.gocd.io/current/#pipeline-config">Pipeline Config API</a> was deprecated.
     This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
     Version 2 of this API is backward compatible, and users are encouraged to use it.
   </p></li>
   <li><p>
     As of release 16.7, Java API based Go Plugins have been deprecated.
     Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
-    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.go.cd/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
+    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.gocd.io/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
 
     <p>Below is the list of plugins that will stop working in 17.1, unless those changes are made.</p>
 
@@ -565,14 +565,14 @@ and Materials</p></li>
     GoCD works great with Java 8, and users are encouraged to use it.
   </p></li>
   <li><p>
-    As of release 16.7, version 1 of the <a href="https://api.go.cd/current/#pipeline-config">Pipeline Config API</a> was deprecated.
+    As of release 16.7, version 1 of the <a href="https://api.gocd.io/current/#pipeline-config">Pipeline Config API</a> was deprecated.
     This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
     Version 2 of this API is backward compatible, and users are encouraged to use it.
   </p></li>
   <li><p>
     As of release 16.7, Java API based Go Plugins have been deprecated.
     Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
-    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.go.cd/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
+    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.gocd.io/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
 
     <p>Below is the list of plugins that will stop working in 17.1.</p>
 
@@ -636,7 +636,7 @@ like <a href="https://www.docker.com/">Docker</a>, <a href="https://aws.amazon.c
 Developers can start building their own elastic agent plugins by forking the
 <a href="https://github.com/gocd-contrib/elastic-agent-skeleton-plugin">skeleton plugin</a>
 and looking at a sample <a href="https://github.com/gocd-contrib/docker-elastic-agents">docker plugin</a>
-as an example reference implementation. The plugin API documentation can be found <a href="https://plugin-api.go.cd/current/elastic-agents">here</a>.
+as an example reference implementation. The plugin API documentation can be found <a href="https://plugin-api.gocd.io/current/elastic-agents">here</a>.
 </p>
 
 <h4>API Enhancements</h4>
@@ -667,14 +667,14 @@ as an example reference implementation. The plugin API documentation can be foun
     GoCD works great with Java 8, and users are encouraged to use it.
   </li>
   <li>
-    As of release 16.7, version 1 of the <a href="https://api.go.cd/current/#pipeline-config">Pipeline Config API</a> was deprecated.
+    As of release 16.7, version 1 of the <a href="https://api.gocd.io/current/#pipeline-config">Pipeline Config API</a> was deprecated.
     This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
     Version 2 of this API is backward compatible, and users are encouraged to use it.
   </li>
   <li>
     As of release 16.7, Java API based Go Plugins have been deprecated.
     Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
-    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.go.cd/current/tasks">JSON message based plugin API.</a> to build plugins.
+    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.gocd.io/current/tasks">JSON message based plugin API.</a> to build plugins.
   </li>
 </ul>
 
@@ -717,21 +717,21 @@ Aravind SV, Ganesh Patil, Jyoti Singh, Ken Mugrage, Ketan Padegaonkar, Mahesh Pa
 <p><code><a href="https://github.com/gocd/gocd/commit/b283b42">b283b42</a></code> - Display the correct ip-address of agents running on virtualized instances or containers. (<a href="https://github.com/gocd/gocd/issues/1657">#1657</a>)</p>
 
 <h4>API enhancements</h4>
-<p><code><a href="https://github.com/gocd/gocd/commit/34e05b6">34e05b6</a></code> - New <a href="https://api.go.cd/current/#scms">API</a> for viewing, creating and editing Pluggable  SCMs. (<a href="https://github.com/gocd/gocd/issues/1508">#1508</a>)</p>
-<p><code><a href="https://github.com/gocd/gocd/commit/642d7f4">642d7f4</a></code> - New <a href="https://api.go.cd/current/#environment-config">API</a> for creating and editing environments. (<a href="https://github.com/gocd/gocd/issues/966">#966</a>)</p>
-<p><code><a href="https://github.com/gocd/gocd/commit/79c7168">79c7168</a></code> - New <a href="https://api.go.cd/current/#bulk-update-agents">API</a> for bulk updating agents. (<a href="https://github.com/gocd/gocd/issues/2340">#2340</a>)</p>
-<p><code><a href="https://github.com/gocd/gocd/commit/99e2707">99e2707</a></code> - New <a href="https://api.go.cd/current/#plugin-info">API</a> for viewing Plugin Information. (<a href="https://github.com/gocd/gocd/issues/1873">#1873</a>)</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/34e05b6">34e05b6</a></code> - New <a href="https://api.gocd.io/current/#scms">API</a> for viewing, creating and editing Pluggable  SCMs. (<a href="https://github.com/gocd/gocd/issues/1508">#1508</a>)</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/642d7f4">642d7f4</a></code> - New <a href="https://api.gocd.io/current/#environment-config">API</a> for creating and editing environments. (<a href="https://github.com/gocd/gocd/issues/966">#966</a>)</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/79c7168">79c7168</a></code> - New <a href="https://api.gocd.io/current/#bulk-update-agents">API</a> for bulk updating agents. (<a href="https://github.com/gocd/gocd/issues/2340">#2340</a>)</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/99e2707">99e2707</a></code> - New <a href="https://api.gocd.io/current/#plugin-info">API</a> for viewing Plugin Information. (<a href="https://github.com/gocd/gocd/issues/1873">#1873</a>)</p>
 <p><code><a href="https://github.com/gocd/gocd/commit/d4a7639">d4a7639</a></code> - Support for updating whitelists using pipeline configuration API.</p>
 
 <h4>Security fixes</h4>
-<p><code><a href="https://github.com/gocd/gocd/commit/103340c">103340c</a></code> - Upgraded all agent-server communication to use HTTPS by default. <a href="https://docs.go.cd/16.7.0/installation/ssl_tls/end_to_end_transport_security.html">Read more</a> about how to improve security of your GoCD setup.</p>
+<p><code><a href="https://github.com/gocd/gocd/commit/103340c">103340c</a></code> - Upgraded all agent-server communication to use HTTPS by default. <a href="https://docs.gocd.io/16.7.0/installation/ssl_tls/end_to_end_transport_security.html">Read more</a> about how to improve security of your GoCD setup.</p>
 <p><code><a href="https://github.com/gocd/gocd/commit/3d2afad">3d2afad</a></code> - Pluggable tasks secure configurations are encrypted before saving to xml configuration. (<a href="https://github.com/gocd/gocd/issues/903">#903</a>)</p>
 <p><code><a href="https://github.com/gocd/gocd/commit/657feb3">657feb3</a></code> - Added missing security headers on a few pages to activate web browser protection.</p>
 <p><code><a href="https://github.com/gocd/gocd/commit/6909484">6909484</a></code> - Escaped the error message in the repositories page. (XSS)</p>
 
 <h4>Breaking changes</h4>
-<p><code><a href="https://github.com/gocd/gocd/commit/f58e900">f58e900</a></code> - Removed Agents API v1, users should use version 2 of the Agents  <a href="https://api.go.cd/current/#agents">API</a></p>
-<p><code><a href="https://github.com/gocd/gocd/commit/5602048">5602048</a></code> - Removed old backup API, users should user version 1 of the Backup <a href="https://api.go.cd/current/#backups">API</a></p>
+<p><code><a href="https://github.com/gocd/gocd/commit/f58e900">f58e900</a></code> - Removed Agents API v1, users should use version 2 of the Agents  <a href="https://api.gocd.io/current/#agents">API</a></p>
+<p><code><a href="https://github.com/gocd/gocd/commit/5602048">5602048</a></code> - Removed old backup API, users should user version 1 of the Backup <a href="https://api.gocd.io/current/#backups">API</a></p>
 
 <h4>Deprecations</h4>
 <p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
@@ -744,14 +744,14 @@ Aravind SV, Ganesh Patil, Jyoti Singh, Ken Mugrage, Ketan Padegaonkar, Mahesh Pa
     GoCD works great with Java 8, and users are encouraged to use it.
   </li>
   <li>
-    As of release 16.7, version 1 of the <a href="https://api.go.cd/current/#pipeline-config">Pipeline Config API</a> was deprecated.
+    As of release 16.7, version 1 of the <a href="https://api.gocd.io/current/#pipeline-config">Pipeline Config API</a> was deprecated.
     This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
     Version 2 of this API is backward compatible, and users are encouraged to use it.
   </li>
   <li>
     As of release 16.7, Java API based Go Plugins have been deprecated.
     Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
-    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.go.cd/current/tasks">JSON message based plugin API.</a> to build plugins.
+    Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.gocd.io/current/tasks">JSON message based plugin API.</a> to build plugins.
 
     <p>Below is the list of plugins that will stop working in 17.1.</p>
 
@@ -1041,31 +1041,31 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 <p>The following APIs now require an extra request header <em>Confirm: true</em> (due to security-related changes):</p>
 <ul>
   <li>
-    <a href="https://api.go.cd/current/#cancel-stage">Cancel stage</a>
+    <a href="https://api.gocd.io/current/#cancel-stage">Cancel stage</a>
   </li>
   <li>
-    <a href="https://api.go.cd/current/#pause-a-pipeline">Pause pipeline</a>
+    <a href="https://api.gocd.io/current/#pause-a-pipeline">Pause pipeline</a>
   </li>
   <li>
-    <a href="https://api.go.cd/current/#unpause-a-pipeline">Unpause pipeline</a>
+    <a href="https://api.gocd.io/current/#unpause-a-pipeline">Unpause pipeline</a>
   </li>
   <li>
-    <a href="https://api.go.cd/current/#releasing-a-pipeline-lock">Releasing pipeline lock</a>
+    <a href="https://api.gocd.io/current/#releasing-a-pipeline-lock">Releasing pipeline lock</a>
   </li>
   <li>
-    <a href="https://api.go.cd/current/#scheduling-pipelines">Scheduling pipeline</a>
+    <a href="https://api.gocd.io/current/#scheduling-pipelines">Scheduling pipeline</a>
   </li>
   <li>
-    <a href="https://api.go.cd/current/#notify-svn-materials">Notify SVN materials</a>
+    <a href="https://api.gocd.io/current/#notify-svn-materials">Notify SVN materials</a>
   </li>
   <li>
-    <a href="https://api.go.cd/current/#notify-git-materials">Notify Git materials</a>
+    <a href="https://api.gocd.io/current/#notify-git-materials">Notify Git materials</a>
   </li>
   <li>
-    <a href="https://api.go.cd/current/#notify-mercurial-materials">Notify Mercurial materials</a>
+    <a href="https://api.gocd.io/current/#notify-mercurial-materials">Notify Mercurial materials</a>
   </li>
   <li>
-    <a href="https://api.go.cd/current/#create-property">Create property</a>
+    <a href="https://api.gocd.io/current/#create-property">Create property</a>
   </li>
 </ul>
 <h4>Deprecations</h4>
@@ -1236,7 +1236,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
           <h4>New API for editing pipelines</h4>
 <p>
   A convenience JSON HAL compliant API for modifying pipelines. Check
-  <a href="https://api.go.cd/current/#pipeline-config">api.go.cd</a> for usage details.
+  <a href="https://api.gocd.io/current/#pipeline-config">api.go.cd</a> for usage details.
 </p>
 <h4>Get informed about updates</h4>
 <p>
@@ -1337,7 +1337,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 </figure>
 <h5>Authentication end-point</h5>
 <p>
-  With the newly exposed authentication end-point, Go users can now add custom authentication schemes through plugins. Read the <a href="http://www.go.cd/2015/06/18/authentication-end-point.html">blog
+  With the newly exposed authentication end-point, Go users can now add custom authentication schemes through plugins. Read the <a href="https://www.gocd.io/2015/06/18/authentication-end-point.html">blog
     post</a> for details.
 </p>
 <figure class="extra_small_image">
@@ -1346,7 +1346,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 <h5>Setup hostname when auto-registering agents</h5>
 <p>
   You can now specify a property <code>agent.auto.register.hostname</code> to setup the hostname when
-  <a href="https://docs.go.cd/current/advanced_usage/agent_auto_register.html">auto-registering</a> an agent.
+  <a href="https://docs.gocd.io/current/advanced_usage/agent_auto_register.html">auto-registering</a> an agent.
 </p>
 <h4>API Improvements</h4>
 <p>
@@ -1354,16 +1354,16 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 </p>
 <p>
   We have now migrated the
-  <a href="http://api.go.cd/#agents">Agents API</a>,
-  <a href="http://api.go.cd/#users">Users API</a>,
-  <a href="http://api.go.cd/#backups">Backups API</a> to use JSON hypermedia API (using JSON+HAL).
+  <a href="https://api.gocd.io/#agents">Agents API</a>,
+  <a href="https://api.gocd.io/#users">Users API</a>,
+  <a href="https://api.gocd.io/#backups">Backups API</a> to use JSON hypermedia API (using JSON+HAL).
 </p>
 <p> Going forward, we would like to announce an ongoing effort to improve and migrate existing APIs to use something that is more modern, easy to discover, learn and build API clients for. </p>
-<p>Learn more about the new API on our new <a href="http://api.go.cd">api documentation</a> site.</p>
+<p>Learn more about the new API on our new <a href="https://api.gocd.io">api documentation</a> site.</p>
 <h4>Other notable features</h4>
 <ul>
   <li> <a href="https://github.com/gocd/gocd/issues/194">#194</a> - Allow secure variables (environment) on environments, stages and jobs. </li>
-  <li> <a href="https://github.com/gocd/gocd/issues/1121">#1121</a> - Ability for plugins to <a href="http://www.go.cd/2015/06/18/plugin-settings.html">CRUD global configuration</a>. </li>
+  <li> <a href="https://github.com/gocd/gocd/issues/1121">#1121</a> - Ability for plugins to <a href="https://www.gocd.io/2015/06/18/plugin-settings.html">CRUD global configuration</a>. </li>
   <li><a href="https://github.com/gocd/gocd/issues/958">#958</a> - API method for renaming agent.</li>
   <li><a href="https://github.com/gocd/gocd/issues/264">#264</a> - Agent API to assign resource.</li>
   <li><a href="https://github.com/gocd/gocd/pull/1261">#1261</a> - Port over Users API.</li>
@@ -1407,10 +1407,10 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
   You'll never need to wish that Go supported your favorite kind of material repository, you can implement support for it yourself!
 </p>
 <p>
-  You can see all the SCM material plugins on the <a href="http://www.go.cd/community/plugins#scm-plugins">Go community plugins page</a>. See how to write one, <a href="https://docs.go.cd/current/extension_points/scm_extension.html">here</a>.
+  You can see all the SCM material plugins on the <a href="https://www.gocd.io/community/plugins#scm-plugins">Go community plugins page</a>. See how to write one, <a href="https://docs.gocd.io/current/extension_points/scm_extension.html">here</a>.
 </p>
 <p>
-  Here's how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="http://www.go.cd/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
+  Here's how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="https://www.gocd.io/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
 </p>
 <figure class="small_image">
   <img title="GitHub Pull Request with GitHub poller and notification plugins" alt="GitHub Pull Request with GitHub poller and notification plugins" src="../assets/images/releases/15.1/15_1_github_pr.png" />
@@ -1420,7 +1420,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
   for quite a lot of use cases, and we are excited to see plugins written against this endpoint even before release (yay, open source!).</p>
 <p> <a href="https://github.com/matt-richardson">@matt-richardson</a> has written a really nice generic notification plugin, which sends build notifications to any websocket listener! <a href="https://github.com/ashwanthkumar">@ashwanthkumar</a>              has written a great plugin to notify Slack about build status changes. <a href="https://github.com/srinivasupadhya/">@srinivasupadhya</a> has written a couple of nice notification plugins to update pull request statuses in GitHub and Atlassian
   Stash.</p>
-<p> You can see all of those plugins on the <a href="http://www.go.cd/community/plugins#notification-plugins">Go community plugins page</a>. See how to write one yourself, <a href="https://docs.go.cd/current/extension_points/notification_extension.html">here</a>.</p>
+<p> You can see all of those plugins on the <a href="https://www.gocd.io/community/plugins#notification-plugins">Go community plugins page</a>. See how to write one yourself, <a href="https://docs.gocd.io/current/extension_points/notification_extension.html">here</a>.</p>
 <h4>Pipeline label shortening</h4>
 <p> This contribution by <a href="https://github.com/alexschwartz">@alexschwartz</a> helps declutter the Go Dashboard, by allowing the pipeline label to be trimmed, per material. This feature is really useful when dealing with unwieldy 40 character
   SHAs in pipelines with git/mercurial materials in them. This feature allows this: </p>
@@ -1431,7 +1431,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 <figure class="small_image">
   <img title="New pipleine labels - Short" alt="New short pipleine labels" src="../assets/images/releases/15.1/15_1_new_pipeline_label.png" />
 </figure>
-<p> Read more about this feature <a href="https://docs.go.cd/current/configuration/admin_use_custom_pipeline_label.html#using-truncated-material-revisions">in the documentation.</a></p>
+<p> Read more about this feature <a href="https://docs.gocd.io/current/configuration/admin_use_custom_pipeline_label.html#using-truncated-material-revisions">in the documentation.</a></p>
 <h4>Timestamps in console logs</h4>
 <p> Starting from Go 15.1, Go's console logs will have timestamps for every line. This is very useful for finding out long-running parts of tasks. Here's how it looks:</p>
 <figure class="small_image">
@@ -1458,12 +1458,12 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
         <div class="content">
           <h4>New Features</h4>
 <ul>
-  <li><a href="https://github.com/gocd/gocd/issues/719">719</a> - JSON message based Plugin APIs (docs - <a href="https://developer.go.cd/current/writing_go_plugins/package_material/json_message_based_package_material_extension.html">package</a>,
-    <a href="https://developer.go.cd/current/writing_go_plugins/task/json_message_based_task_extension.html">task</a>)
+  <li><a href="https://github.com/gocd/gocd/issues/719">719</a> - JSON message based Plugin APIs (docs - <a href="https://developer.gocd.io/current/writing_go_plugins/package_material/json_message_based_package_material_extension.html">package</a>,
+    <a href="https://developer.gocd.io/current/writing_go_plugins/task/json_message_based_task_extension.html">task</a>)
   </li>
-  <li><a href="https://github.com/gocd/gocd/issues/44">44</a> - Revise how new pipelines appear under 'Personalize'. Thanks <a href="https://github.com/mmb">@mmb</a> for the contribution. (<a href="https://docs.go.cd/14.4.0/navigation/pipelines_dashboard_page.html#personalize-pipelines-view">docs</a>)
+  <li><a href="https://github.com/gocd/gocd/issues/44">44</a> - Revise how new pipelines appear under 'Personalize'. Thanks <a href="https://github.com/mmb">@mmb</a> for the contribution. (<a href="https://docs.gocd.io/14.4.0/navigation/pipelines_dashboard_page.html#personalize-pipelines-view">docs</a>)
   </li>
-  <li> <a href="https://github.com/gocd/gocd/pull/699">699</a> - Users can comment on pipeline run history. (<a href="https://docs.go.cd/current/beta/comment_on_pipeline_run.html">docs</a>)<br/>Note: This feature needs some improvements
+  <li> <a href="https://github.com/gocd/gocd/pull/699">699</a> - Users can comment on pipeline run history. (<a href="https://docs.gocd.io/current/beta/comment_on_pipeline_run.html">docs</a>)<br/>Note: This feature needs some improvements
     listed <a href="https://github.com/gocd/gocd/issues/707">here</a>. Therefore the feature is turned 'off' for this release. To turn 'on' the feature, see <a href="https://github.com/gocd/gocd/pull/766#issuecomment-66963529">details</a>.
     Thanks <a href="https://github.com/mmb">@mmb</a>, <a href="https://github.com/gajwani">@gajwani</a>,<a href="https://github.com/fkotsian">@fkotsian</a> &amp; <a href="https://github.com/bsnchan">@bsnchan</a>contribution.
   </li>
@@ -1488,29 +1488,29 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
           <h4>New Features</h4>
 <ul>
   <li>
-    <a href="https://github.com/gocd/gocd/pull/396">396</a> - Automate running 'X' instances of a particular job and achieve faster results by parallelization. (<a href="https://docs.go.cd/current/advanced_usage/admin_spawn_multiple_jobs#run-x-instances-of-a-job">docs</a>)
+    <a href="https://github.com/gocd/gocd/pull/396">396</a> - Automate running 'X' instances of a particular job and achieve faster results by parallelization. (<a href="https://docs.gocd.io/current/advanced_usage/admin_spawn_multiple_jobs#run-x-instances-of-a-job">docs</a>)
   </li>
   <li>
     <a href="https://github.com/gocd/gocd/pull/225">225</a>, <a href="https://github.com/gocd/gocd/pull/394">394</a> &amp; <a href="https://github.com/gocd/gocd/pull/395">395</a> - New APIs.
   </li>
   <li>
     <ul>
-      <li><a href="https://docs.go.cd/current/api/pipeline_api.html#pipeline-history">Pipeline History API</a></li>
-      <li><a href="https://docs.go.cd/current/api/stages_api.html#stage-history">Stage History API</a></li>
-      <li><a href="https://docs.go.cd/current/api/job_api.html#job-history">Job History API</a></li>
-      <li><a href="https://docs.go.cd/current/api/agent_api.html#agent-job-run-history">Agent Job Run History API</a></li>
-      <li><a href="https://docs.go.cd/current/api/materials_api.html#modifications-api">Material Modification Listing API</a></li>
-      <li><a href="https://docs.go.cd/current/api/configuration_api.html#config-repository-modification-listing-api">Configuration Repository Modification Listing API</a></li>
-      <li><a href="https://docs.go.cd/current/api/pipeline_group_api.html#config-listing-api">Pipeline Group Listing API</a></li>
-      <li><a href="https://docs.go.cd/current/api/materials_api.html#config-listing-api">Material Listing API</a></li>
+      <li><a href="https://docs.gocd.io/current/api/pipeline_api.html#pipeline-history">Pipeline History API</a></li>
+      <li><a href="https://docs.gocd.io/current/api/stages_api.html#stage-history">Stage History API</a></li>
+      <li><a href="https://docs.gocd.io/current/api/job_api.html#job-history">Job History API</a></li>
+      <li><a href="https://docs.gocd.io/current/api/agent_api.html#agent-job-run-history">Agent Job Run History API</a></li>
+      <li><a href="https://docs.gocd.io/current/api/materials_api.html#modifications-api">Material Modification Listing API</a></li>
+      <li><a href="https://docs.gocd.io/current/api/configuration_api.html#config-repository-modification-listing-api">Configuration Repository Modification Listing API</a></li>
+      <li><a href="https://docs.gocd.io/current/api/pipeline_group_api.html#config-listing-api">Pipeline Group Listing API</a></li>
+      <li><a href="https://docs.gocd.io/current/api/materials_api.html#config-listing-api">Material Listing API</a></li>
     </ul>
   </li>
 </ul>
 <h4>Enhancements</h4>
 <ul>
-  <li> <a href="https://github.com/gocd/gocd/pull/435">435</a> - Value Stream Map for a commit. (<a href="https://docs.go.cd/current/navigation/value_stream_map#viewing-the-value-stream-map">docs</a>)
+  <li> <a href="https://github.com/gocd/gocd/pull/435">435</a> - Value Stream Map for a commit. (<a href="https://docs.gocd.io/current/navigation/value_stream_map#viewing-the-value-stream-map">docs</a>)
   </li>
-  <li><a href="https://github.com/gocd/gocd/pull/466">466</a> - Setting up e-mail notifications is now easier with 'any pipeline' and 'any stage' options. Thanks <a href="https://github.com/lcs777">@lcs777</a> for the contribution. (<a href="https://docs.go.cd/current/configuration/dev_notifications.html">docs</a>)
+  <li><a href="https://github.com/gocd/gocd/pull/466">466</a> - Setting up e-mail notifications is now easier with 'any pipeline' and 'any stage' options. Thanks <a href="https://github.com/lcs777">@lcs777</a> for the contribution. (<a href="https://docs.gocd.io/current/configuration/dev_notifications.html">docs</a>)
   </li>
   <li><a href="https://github.com/gocd/gocd/pull/460">460</a> - Enhanced search which hide pipelines. Thanks <a href="https://github.com/ciotlosm">@ciotlosm</a> for the contribution.</li>
   <li><a href="https://github.com/gocd/gocd/pull/310">310</a> - Plugin logger now allows logging exceptions. Thanks <a href="https://github.com/tusharm">@tusharm</a> for the contribution.
@@ -1539,7 +1539,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 </ul>
 <h5>Other</h5>
 <ul>
-  <li> <a href="https://github.com/gocd/gocd/issues/659">659</a> - Go has new <a href="https://docs.go.cd/current">user documentation</a>. A big thank you to <a href="https://github.com/afoster">@afoster</a> for the commits. Thanks
+  <li> <a href="https://github.com/gocd/gocd/issues/659">659</a> - Go has new <a href="https://docs.gocd.io/current">user documentation</a>. A big thank you to <a href="https://github.com/afoster">@afoster</a> for the commits. Thanks
     <a href="https://github.com/gregoriomelo">@gregoriomelo</a> and <a href="https://github.com/mastojun">@mastojun</a> for your contributions. </li>
 </ul>
 
