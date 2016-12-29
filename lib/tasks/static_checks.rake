@@ -71,11 +71,16 @@ namespace :static_checks do
   task :all => [:html_proofer]
 end
 
-desc "Build the website"
 task :build do
-  sh("bundle exec middleman build")
+  Rake::Task['static_checks:all'].invoke
 end
 
 task publish: [:clean, :build, 'static_checks:all'] do
-  sh('bundle exec middleman s3_sync -i')
+  if ENV['PUSH_TO_S3'] == 'true'
+    sh('bundle exec middleman s3_sync -i')
+  else
+    puts "WARNING: Not pushing to S3, since PUSH_TO_S3 is not set to 'true'"
+  end
 end
+
+Rake::Task[:publish].prerequisites.unshift "clobber"
