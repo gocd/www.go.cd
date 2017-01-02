@@ -61,7 +61,7 @@ configure :development do
 end
 
 REDIRECTS.each do |from, to|
-  redirect from, to
+  proxy from, "/redirect.template.html", :locals => { :redirect_to => to }, :ignore => true
 end
 
 activate :s3_sync do |s3_sync|
