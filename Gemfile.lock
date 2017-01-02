@@ -140,6 +140,9 @@ GEM
     middleman-sprockets (4.1.0)
       middleman-core (~> 4.0)
       sprockets (>= 3.0)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
@@ -197,6 +200,7 @@ DEPENDENCIES
   middleman-livereload
   middleman-s3_sync
   middleman-sprockets
+  mime-types
   rake
   redcarpet
 
