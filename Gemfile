@@ -10,7 +10,7 @@ gem 'middleman-gh-pages'
 gem 'middleman-s3_sync'
 gem 'rake'
 gem 'middleman-sprockets'
-
+gem 'mime-types'
 gem 'middleman-autoprefixer'
 
 gem 'redcarpet'
