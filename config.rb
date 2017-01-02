@@ -1,5 +1,7 @@
 require File.expand_path('../lib/extensions/fallback_for_directory_indexes', __FILE__)
-require File.expand_path('../lib/extensions/gocd_helpers', __FILE__)
+require File.expand_path('../lib/helpers/gocd_helpers', __FILE__)
+
+helpers GoCDHelpers
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -53,7 +55,6 @@ activate :blog do |blog|
 end
 activate :directory_indexes
 activate :fallback_for_directory_indexes
-activate :gocd_helpers
 
 configure :development do
   # Reload the browser automatically whenever files change

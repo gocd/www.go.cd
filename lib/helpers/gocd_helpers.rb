@@ -1,4 +1,4 @@
-class GoCDHelpers < ::Middleman::Extension
+module GoCDHelpers
   def git_revision
     $revision = `git rev-parse --verify HEAD 2>/dev/null || true`.strip if @revision.nil?
     $revision
@@ -77,5 +77,3 @@ class GoCDHelpers < ::Middleman::Extension
     articles.reject do |article| !should_show_drafts? && is_draft?(article) end
   end
 end
-
-::Middleman::Extensions.register(:gocd_helpers, GoCDHelpers)
