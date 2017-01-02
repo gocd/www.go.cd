@@ -60,9 +60,7 @@ configure :development do
   activate :livereload
 end
 
-REDIRECTS.each do |from, to|
-  proxy from, "/redirect.template.html", :locals => { :redirect_to => to }, :ignore => true
-end
+redirect from, to
 
 activate :s3_sync do |s3_sync|
   s3_sync.bucket       = ENV['S3_BUCKET']
