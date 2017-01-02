@@ -60,7 +60,9 @@ configure :development do
   activate :livereload
 end
 
-redirect from, to
+REDIRECTS.each do |from, to|
+  redirect from, to
+end
 
 activate :s3_sync do |s3_sync|
   s3_sync.bucket       = ENV['S3_BUCKET']
