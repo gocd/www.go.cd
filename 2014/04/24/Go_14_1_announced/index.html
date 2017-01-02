@@ -23,31 +23,31 @@
   <body class="x2014 x2014_04 x2014_04_24 x2014_04_24_Go_14_1_announced x2014_04_24_Go_14_1_announced_index">
     <header class="top">
   <div class="container">
-    <a class="logo" analytics-label="logo" href="../../../../"><img title="GoCD Logo" alt="GoCD Logo" src="../../../../assets/images/go_logo.svg" /></a>
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
-          <a class="link_whygocd" analytics-label="link_whygocd" href="../../../../why-gocd/">Why GoCD?</a>
+          <a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
         </li>
         <li class="dropdown">
-          <a class="toplink_contribute" analytics-label="link_community" href="../../../../contribute/">Community</a>
+          <a href="../../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
           <ul  class="level1">
-            <li><a class="link_contribute" analytics-label="link_community&gt;link_contribute" href="../../../../contribute/">Contribute</a></li>
-            <li><a class="link_events" analytics-label="link_community&gt;link_events" href="../../../../events/">Events</a></li>
-            <li><a class="link_plugins" analytics-label="link_community&gt;link_plugins" href="../../../../plugins/">Plugins</a></li>
+            <li><a href="../../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
           </ul>
         </li>
-        <li><a class="link_blog" analytics-label="Blog" href="../../../../blog/">Blog</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
         <li class="dropdown">
-          <a class="toplink_help" analytics-label="link_help" href="../../../../help/">Help</a>
+          <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
-            <li><a class="getting-started" analytics-label="link_help&gt;link_getting_started" href="../../../../help/">Getting started</a></li>
-            <li><a target="_blank" analytics-label="link_help&gt;link_documentation" href="https://docs.gocd.io/current/">Documentation</a></li>
-            <li><a class="link_resources" analytics-label="link_help&gt;link_resources" href="../../../../resources.html">Resources</a></li>
+            <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
-        <li><a class="link_download" analytics-label="link_help&gt;link_download" href="../../../../download/">Download</a></li>
-        <li><a class="link_support" target="_blank" analytics-label="link_support" href="https://www.thoughtworks.com/go">Get Support</a></li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
       </ul>
     </nav>
     <button class="navbtn menu collapse">
@@ -56,7 +56,7 @@
   </div>
 </header>
 <span id="top"></span>
-<a class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub" href="http://github.com/gocd">Fork me on GitHub</a>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
 
     <div class="container blog-post">
 
@@ -79,13 +79,13 @@
 
 <p>GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you'll see something like this:</p>
 
-<p><img title="Configuration UI for Task without Curl" alt="Configuration UI for Task without Curl" src="../../../../assets/images/blog/go_14_1_announcement/1_Without_Curl.png" /></p>
+<p><img src="../../../../assets/images/blog/go_14_1_announcement/1_Without_Curl.png" title="Configuration UI for Task without Curl" alt="Configuration UI for Task without Curl" /></p>
 
 <p>A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.</p>
 
 <p>For instance, you can find the source of a sample Curl plugin in GoCD's updated help documents. Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:</p>
 
-<p><img title="Configuration UI for Task with Curl" alt="Configuration UI for Task with Curl" src="../../../../assets/images/blog/go_14_1_announcement/2_With_Curl.png" /></p>
+<p><img src="../../../../assets/images/blog/go_14_1_announcement/2_With_Curl.png" title="Configuration UI for Task with Curl" alt="Configuration UI for Task with Curl" /></p>
 
 <div class="highlight" style="background:#FFF6E4">
 	To use the new plugin related features of GoCD, it is required that you upgrade the agent-bootstrapper with version &lt; 12.3. Although agent-bootstrapper version &gt;= 12.3 is capable of handling this feature, we recommend upgrading your go-server and go-agents to the latest release.

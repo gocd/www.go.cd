@@ -23,31 +23,31 @@
   <body class="x2015 x2015_09 x2015_09_01 x2015_09_01_visibility-is-opportunity">
     <header class="top">
   <div class="container">
-    <a class="logo" analytics-label="logo" href="../../../"><img title="GoCD Logo" alt="GoCD Logo" src="../../../assets/images/go_logo.svg" /></a>
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
-          <a class="link_whygocd" analytics-label="link_whygocd" href="../../../why-gocd/">Why GoCD?</a>
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
         </li>
         <li class="dropdown">
-          <a class="toplink_contribute" analytics-label="link_community" href="../../../contribute/">Community</a>
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
           <ul  class="level1">
-            <li><a class="link_contribute" analytics-label="link_community&gt;link_contribute" href="../../../contribute/">Contribute</a></li>
-            <li><a class="link_events" analytics-label="link_community&gt;link_events" href="../../../events/">Events</a></li>
-            <li><a class="link_plugins" analytics-label="link_community&gt;link_plugins" href="../../../plugins/">Plugins</a></li>
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
           </ul>
         </li>
-        <li><a class="link_blog" analytics-label="Blog" href="../../../blog/">Blog</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
         <li class="dropdown">
-          <a class="toplink_help" analytics-label="link_help" href="../../../help/">Help</a>
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
-            <li><a class="getting-started" analytics-label="link_help&gt;link_getting_started" href="../../../help/">Getting started</a></li>
-            <li><a target="_blank" analytics-label="link_help&gt;link_documentation" href="https://docs.gocd.io/current/">Documentation</a></li>
-            <li><a class="link_resources" analytics-label="link_help&gt;link_resources" href="../../../resources.html">Resources</a></li>
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
-        <li><a class="link_download" analytics-label="link_help&gt;link_download" href="../../../download/">Download</a></li>
-        <li><a class="link_support" target="_blank" analytics-label="link_support" href="https://www.thoughtworks.com/go">Get Support</a></li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
       </ul>
     </nav>
     <button class="navbtn menu collapse">
@@ -56,7 +56,7 @@
   </div>
 </header>
 <span id="top"></span>
-<a class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub" href="http://github.com/gocd">Fork me on GitHub</a>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
 
     <div class="container blog-post">
 
@@ -167,7 +167,7 @@ But <a href="https://gocd.io">Go CD</a> has good support for APIs, so I wrote <a
 
 <p>The following chart shows how the test runtime looks like on build. X-axis is job names; y-axis is job runtime.</p>
 
-<p><img title="Graph representing Acceptance Test time" alt="Graph representing Acceptance Test time" src="../../../assets/images/acceptnace-test-build-time.png" /></p>
+<p><img src="../../../assets/images/acceptnace-test-build-time.png" title="Graph representing Acceptance Test time" alt="Graph representing Acceptance Test time" /></p>
 
 <p>Blue bars are test runtime on job. Red bars are "expected time", because <a href="https://github.com/test-load-balancer/tlb">TLB</a> distributed tests by previous build test runtime.
 Red bars are test runtime calculated by previous build test runtime:</p>
@@ -184,7 +184,7 @@ Then I ran same script on more builds. The outputs were similar, just different 
 <p>As <a href="https://gocd.io">Go CD</a> random picked up build VMs to run any job, it gave me a clue that maybe its build VM performance issue.
 So I wrote another <a href="https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/agent_stats.rb">script</a> to build the following chart:</p>
 
-<p><img title="Graph displaying GoCD build agent runtime" alt="Graph displaying GoCD build agent runtime" src="../../../assets/images/vms-build-time.jpg" /></p>
+<p><img src="../../../assets/images/vms-build-time.jpg" title="Graph displaying GoCD build agent runtime" alt="Graph displaying GoCD build agent runtime" /></p>
 
 <p>It's clear there are some VMs are consistent slower than others.
 Then Barrow Kwan found out 2 of our VMs hosts were overloaded when we increased vCPUs on our VMs.
@@ -200,7 +200,7 @@ It made build task runtime visible.
 I was not pay attention to the timestamps in the console logs until recently.
 The following screenshot shows an example:</p>
 
-<p><img title="Timestamps in console logs" alt="Timestamps in console logs" src="../../../assets/images/timestamps-in-console-logs-example.png" /></p>
+<p><img src="../../../assets/images/timestamps-in-console-logs-example.png" title="Timestamps in console logs" alt="Timestamps in console logs" /></p>
 
 <p>It turns out, <a href="https://github.com/test-load-balancer/tlb.rb">tlb.rb</a> client we used has the following code:</p>
 
@@ -216,7 +216,7 @@ After removed code <code>sleep 2</code>, there is almost no time spent at the en
 
 <p>Without "timestamps in console logs", it is something like following:</p>
 
-<p><img title="No timestanps in console logs" alt="No timestanps in console logs" src="../../../assets/images/no-timestamps-in-console-logs-example.png" /></p>
+<p><img src="../../../assets/images/no-timestamps-in-console-logs-example.png" title="No timestanps in console logs" alt="No timestanps in console logs" /></p>
 
 <p>No one will notice it ever.</p>
 

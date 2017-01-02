@@ -23,31 +23,31 @@
   <body class="x2014 x2014_02 x2014_02_24 x2014_02_24_model-everything-fail-fast">
     <header class="top">
   <div class="container">
-    <a class="logo" analytics-label="logo" href="../../../"><img title="GoCD Logo" alt="GoCD Logo" src="../../../assets/images/go_logo.svg" /></a>
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
-          <a class="link_whygocd" analytics-label="link_whygocd" href="../../../why-gocd/">Why GoCD?</a>
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
         </li>
         <li class="dropdown">
-          <a class="toplink_contribute" analytics-label="link_community" href="../../../contribute/">Community</a>
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
           <ul  class="level1">
-            <li><a class="link_contribute" analytics-label="link_community&gt;link_contribute" href="../../../contribute/">Contribute</a></li>
-            <li><a class="link_events" analytics-label="link_community&gt;link_events" href="../../../events/">Events</a></li>
-            <li><a class="link_plugins" analytics-label="link_community&gt;link_plugins" href="../../../plugins/">Plugins</a></li>
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
           </ul>
         </li>
-        <li><a class="link_blog" analytics-label="Blog" href="../../../blog/">Blog</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
         <li class="dropdown">
-          <a class="toplink_help" analytics-label="link_help" href="../../../help/">Help</a>
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
-            <li><a class="getting-started" analytics-label="link_help&gt;link_getting_started" href="../../../help/">Getting started</a></li>
-            <li><a target="_blank" analytics-label="link_help&gt;link_documentation" href="https://docs.gocd.io/current/">Documentation</a></li>
-            <li><a class="link_resources" analytics-label="link_help&gt;link_resources" href="../../../resources.html">Resources</a></li>
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
-        <li><a class="link_download" analytics-label="link_help&gt;link_download" href="../../../download/">Download</a></li>
-        <li><a class="link_support" target="_blank" analytics-label="link_support" href="https://www.thoughtworks.com/go">Get Support</a></li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
       </ul>
     </nav>
     <button class="navbtn menu collapse">
@@ -56,7 +56,7 @@
   </div>
 </header>
 <span id="top"></span>
-<a class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub" href="http://github.com/gocd">Fork me on GitHub</a>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
 
     <div class="container blog-post">
 
@@ -77,7 +77,7 @@
 
 <p>Here's a generic but common Build-Test-Release workflow. Each code commit will trigger a new release candidate and run through the gauntlet, left to right. Every workflow step is tasked to find an issue with the version of the software it is building, testing or deploying.</p>
 
-<p><img title="Generic Build-Test-Release workflow" alt="Generic Build-Test-Release workflow" src="../../../assets/images/blog/mark-failfast1.png" /></p>
+<p><img src="../../../assets/images/blog/mark-failfast1.png" title="Generic Build-Test-Release workflow" alt="Generic Build-Test-Release workflow" /></p>
 
 <p>To shorten the feedback loop:</p>
 
@@ -106,19 +106,19 @@
 
 <p>Let's say a release candidate needs to pass 11 steps (gauntlet) before it can make it to an enduser. Sequence is important. The goal is to fail fast. A flat workflow will return feedback but it's slow since only one step will run at a time.</p>
 
-<p><img title="A flat workflow running one step at a time" alt="A flat workflow running one step at a time" src="../../../assets/images/blog/mark-failfast2.png" /></p>
+<p><img src="../../../assets/images/blog/mark-failfast2.png" title="A flat workflow running one step at a time" alt="A flat workflow running one step at a time" /></p>
 
 <p>If it turns out that a few steps can be run in parallel, you will speed up your workflow.</p>
 
-<p><img title="A workflow running few steps in parallel" alt="A workflow running few steps in parallel" src="../../../assets/images/blog/mark-failfast3.png" /></p>
+<p><img src="../../../assets/images/blog/mark-failfast3.png" title="A workflow running few steps in parallel" alt="A workflow running few steps in parallel" /></p>
 
 <p>Speed things up even further by increasing the amount of parallelization.</p>
 
-<p><img title="A workflow with increased paralellization" alt="A workflow with increased paralellization" src="../../../assets/images/blog/mark-failfast4.png" /></p>
+<p><img src="../../../assets/images/blog/mark-failfast4.png" title="A workflow with increased paralellization" alt="A workflow with increased paralellization" /></p>
 
 <p>Over time you may find other areas in your Build-Test-Release workflow where you can speed up your feedback loop. This workflow will find an issue much faster than the flat one we started with.</p>
 
-<p><img title="Increasing paralellization in multiple areas" alt="Increasing paralellization in multiple areas" src="../../../assets/images/blog/mark-failfast5.png" /></p>
+<p><img src="../../../assets/images/blog/mark-failfast5.png" title="Increasing paralellization in multiple areas" alt="Increasing paralellization in multiple areas" /></p>
 
 <h4 id="sequencing-and-parallelization-in-gocd">Sequencing and parallelization in GoCD</h4>
 
