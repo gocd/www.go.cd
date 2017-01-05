@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it. This post explains why we moved our domain from go.cd to gocd.io" name="description" />
+    <meta content="GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Why we've moved from go.cd to gocd.io | GoCD Blog" />
+    <meta name="twitter:description" content="GoCD is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it. This post explains why we moved our domain from go.cd to gocd.io" />
+    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/why-we-moved-from-go-cd-to-gocd-io/please-standy-by.jpg" />
+
+    <title>Why we've moved from go.cd to gocd.io | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+  </head>
+
+  <body class="x2017 x2017_01 x2017_01_05 x2017_01_05_why-we-moved-from-go-cd-to-gocd-io x2017_01_05_why-we-moved-from-go-cd-to-gocd-io_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+    <div class="post-banner">
+      <figure>
+  <img src="../../../../assets/images/blog/why-we-moved-from-go-cd-to-gocd-io/please-standy-by.jpg" alt="Please standy by - We are experiencing technical difficulties" />
+</figure>
+
+    </div>
+
+  
+
+  <header class="blog-post-header">
+    <h2>Why we've moved from go.cd to gocd.io</h2>
+    <h4>GoCD team</h4>
+  </header>
+
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      
+<p>If you've been following us on <a href="https://twitter.com/goforcd/status/814299381125910528">twitter</a>, our community forum, or
+tried to access our website in the past two weeks, you'll know that we've moved from https://go.cd to
+<a href="https://gocd.io">https://gocd.io</a>. We are very sorry for the inconvenience this has caused our users and community. We
+hope that this post helps give more visibility into what has been happening and why, and a view into our plans going
+forward.</p>
+
+<p><a name="what_happened"></a></p>
+
+<h2 id="what-the-heck-happened">What the heck happened???</h2>
+
+<p>On December 23, 2016 (at around 15:45 GMT), we learned that the go.cd website was inaccessible. Upon investigation, we
+found that our DNS registrar, <a href="https://conic.cd/">Conic.cd</a>, marked go.cd as "expired" even though it should not have
+been. We had renewed it through 2021.</p>
+
+<p><a name="how_we_responded"></a></p>
+
+<h2 id="how-we-responded">How we responded</h2>
+
+<p>As soon as we realized what had happened, we raised a ticket with Conic. We also tried to call them but found many of
+their contact numbers do not work. Our ticket sat unanswered so we pinged them again about our case. No response. As our
+frustration grew, we turned to the administrative and technical contacts of the DNS registrar for the ".cd" top-level
+domain (TLD). This is the organization that is registered with IANA and ICANN as those responsible to make sure
+something like this gets resolved quickly. For ".cd" this is <a href="https://icannwiki.com/CDNIC">CDNIC</a>. We were able to reach
+someone in their organization via phone*. We explained what happened, they said that they would get back to us. We have
+not heard from them since, despite repeated efforts to contact them again.</p>
+
+<p>For users that needed critical access to our website, APIs, documentation, etc., we provided a quick
+<a href="https://twitter.com/goforcd/status/813701191574192128">workaround</a>. This involved adding some entries into local hosts
+file. We were able to provide this because all of our sites were really up but just not accessible via the standard URLs
+because of the missing DNS entries.</p>
+
+<p><small>*FYI – Thankfully we have folks in our organization who speak French, which proved very important as ".cd" is
+the ccTLD for the Democratic Republic of Congo (DRC) and is home to CDNIC.</small></p>
+
+<p><a name="why_the_domain_change"></a></p>
+
+<h2 id="why-the-domain-change-to-gocdio">Why the domain change to gocd.io?</h2>
+
+<p>By December 28th, our efforts to reach our domain registrar and the TLD registrar for the DRC to get our go.cd domain
+back were still unanswered.</p>
+
+<p>Giving up on go.cd was and is heartbreaking for us. But at this point we had no choice but move to a new domain as we
+had no confidence in getting a response from the DNS registrars. So we set up an alternate domain with the TLD .io.</p>
+
+<p>As of the time of writing this post, we still have not heard back from Conic nor CDNIC, despite many, many attempts to
+reach them. When we do get this resolved, we hope to retain the go.cd domain. However, for now, our primary domain for
+GoCD will be gocd.io.</p>
+
+<p><a name="will_gocd_io_be_permanent"></a></p>
+
+<h2 id="will-gocdio-be-the-permanent-domain-for-gocd">Will gocd.io be the permanent domain for GoCD?</h2>
+
+<p>This is TBD. We are working tirelessly on finding a forever home for GoCD on the web, but we do not have the final
+solution yet. We know this may not be satisfactory for some. But this experience has really made us weary of the DNS
+system. And when we make the final move, we want to be as certain as we possibly can this will not happen again. So we
+are proceeding quickly but also cautiously.</p>
+
+<p>However, no matter what happens, we will commit to maintaining registration for gocd.io and ensuring that web pages
+redirect properly even if it does not end up being our permanent domain.</p>
+
+<p><a name="too_clever"></a></p>
+
+<h2 id="were-we-a-little-too-clever-by-getting-a-cd-domain">Were we a little too clever by getting a .cd domain?</h2>
+
+<p>Yes. Clearly we were. Acquiring a great domain is hard 28 years into the WWW Age. In hindsight, we were so thrilled to
+get go.cd for our domain that we ignored how problematic it could be to have a TLD that is managed by a country for
+which we lacked presence, contacts, and context. We are left in a position where we have no real recourse to fix
+this. Lesson learned.</p>
+
+<p><a name="what_happens_to_go_cd"></a></p>
+
+<h2 id="what-happens-to-the-gocd-domain">What happens to the go.cd domain?</h2>
+
+<p>When we get the go.cd domain back, we plan to set up redirects from go.cd to gocd.io for all pages. We feel most third
+party apps and sites should work this way. However we strongly encourage any third party apps or sites to use gocd.io
+going forward.</p>
+
+<p><a name="what_this_means_for_you"></a></p>
+
+<h2 id="what-this-means-for-you">What this means for you</h2>
+
+<p>For GoCD users, your version of GoCD will have the outdated link in the footer for documentation. We'll make sure that
+subsequent releases of GoCD have the latest URL, but in the meantime, you'll be able to access documentation at
+<a href="https://docs.gocd.io">https://docs.gocd.io</a>.</p>
+
+<p>For those who have built an app that uses https://go.cd, or are referencing the website in a blog post, we urge you to
+start using <a href="https://gocd.io">https://gocd.io</a>.</p>
+
+<p>If you find any links that have "go.cd" in them, please feel free to submit a pull request to replace them with
+"gocd.io" since GoCD is open source, or <a href="https://github.com/gocd/gocd/issues/3052">let us know</a> and we will update them.</p>
+
+<p>Several important GoCD sites have been impacted. Here are the new locations for those:</p>
+
+<ul>
+  <li>
+    <p>User documentation: <a href="https://docs.gocd.io">https://docs.gocd.io</a></p>
+  </li>
+  <li>
+    <p>API documentation: <a href="https://api.gocd.io">https://api.gocd.io</a></p>
+  </li>
+  <li>
+    <p>Plugin API documentation: <a href="https://plugin-api.gocd.io">https://plugin-api.gocd.io</a></p>
+  </li>
+  <li>
+    <p>Developer documentation <a href="https://developer.gocd.io">https://developer.gocd.io</a></p>
+  </li>
+  <li>
+    <p>GoCD building itself: <a href="https://build.gocd.io">https://build.gocd.io</a> (Username: "view" and password: "password" or click on the "Guest login" button)</p>
+  </li>
+</ul>
+
+<p><br />
+So that's the scoop. While we still love go.cd and hope to get it back, we feel that in the long term, moving to a more
+reliable TLD is the best option for GoCD, our users and community.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Jan  5</span>
+              <span class="post-author">GoCD team</span>
+              <a href="./">Why we've moved from go.cd to gocd.io</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 13</span>
+              <span class="post-author">Jason Rowe</span>
+              <a href="../../../../2016/07/13/DotNet-Core-and-GoCD/">.NET Core and GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 21</span>
+              <span class="post-author">Jeff Norris</span>
+              <a href="../../../../2016/06/21/dont-let-sunk-costs-sink-your-project/">Don't let sunk costs sink your project</a>
+            </li>
+            <li>
+              <span class="post-date">Jun  8</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline/">Add performance testing to your Continuous Delivery pipeline</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 24</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../../2016/03/24/how-to-avoid-brittle-code/">How to Avoid Brittle Code</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 15</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../../2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">Are you ready for Continuous Delivery? Part 2: Feedback loops</a>
+            </li>
+            <li>
+              <span class="post-date">Feb  8</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2016/02/08/not-done-unless-its-done-security/">Add Security Testing to Your Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 25</span>
+              <span class="post-author">David Rice and Aravind SV</span>
+              <a href="../../../../2016/01/25/are-you-ready-for-continuous-delivery/">Are you ready for Continuous Delivery?</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 17</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2016/01/17/not-done-unless-its-done/">It's not Continuous Delivery if you can't deploy right now.</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 28</span>
+              <span class="post-author">Nenad Bozic</span>
+              <a href="../../../../2015/12/28/gocd-continuous-delivery-through-pipelines/">Guest post: GoCD - Continuous Delivery through pipelines</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2017 (1)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/01/05/why-we-moved-from-go-cd-to-gocd-io.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        <li>
+          <a href="../../../../subscribe/"><i class='icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+</html>

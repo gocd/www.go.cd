@@ -5,10 +5,21 @@
   <id>https://www.gocd.io/blog</id>
   <link href="https://www.gocd.io/blog"/>
   <link href="https://www.gocd.io/feed.xml" rel="self"/>
-  <updated>2016-07-13T00:00:00Z</updated>
+  <updated>2017-01-05T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Why we've moved from go.cd to gocd.io</title>
+    <link rel="alternate" href="https://www.gocd.io/2017/01/05/why-we-moved-from-go-cd-to-gocd-io.html"/>
+    <id>https://www.gocd.io/2017/01/05/why-we-moved-from-go-cd-to-gocd-io.html</id>
+    <published>2017-01-05T00:00:00Z</published>
+    <updated>2017-01-05T00:00:00Z</updated>
+    <author>
+      <name>GoCD team</name>
+    </author>
+    <content type="html">If you've been following us on twitter, our community forum, or tried to access our website in the past two weeks, you'll know that we've moved from https://go.cd to https://gocd.io. Learn more about it.</content>
+  </entry>
   <entry>
     <title>.NET Core and GoCD</title>
     <link rel="alternate" href="https://www.gocd.io/2016/07/13/DotNet-Core-and-GoCD.html"/>
@@ -107,16 +118,5 @@
       <name>Nenad Bozic</name>
     </author>
     <content type="html">GoCD has the pipeline abstraction at its core and that is a reason why we like it. Read why we have chosen it as our build tool in SmartCat ...</content>
-  </entry>
-  <entry>
-    <title>Roadmap - GoCD in 2016</title>
-    <link rel="alternate" href="https://www.gocd.io/2015/12/22/gocd-in-2016.html"/>
-    <id>https://www.gocd.io/2015/12/22/gocd-in-2016.html</id>
-    <published>2015-12-22T00:00:00Z</published>
-    <updated>2015-12-22T00:00:00Z</updated>
-    <author>
-      <name>Aravind SV</name>
-    </author>
-    <content type="html">2016 is going to be an exciting year for GoCD. Read all about what's being planned for it ...</content>
   </entry>
 </feed>
