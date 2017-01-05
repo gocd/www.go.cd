@@ -1,0 +1,131 @@
+---
+layout: post
+title: "Why we've moved from go.cd to gocd.io"
+type: post
+author: GoCD team
+excerpt: "If you've been following us on twitter, our community forum, or tried to access our website in the past two weeks, you'll know that we've moved from https://go.cd to https://gocd.io. Learn more about it."
+title_tag_of_header: "Why we've moved from go.cd to gocd.io | GoCD Blog"
+meta_description: "GoCD is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it. This post explains why we moved our domain from go.cd to gocd.io"
+meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go"
+summary_image: "/assets/images/blog/why-we-moved-from-go-cd-to-gocd-io/please-standy-by.jpg"
+---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/why-we-moved-from-go-cd-to-gocd-io/please-standy-by.jpg" alt="Please standy by - We are experiencing technical difficulties" />
+</figure>
+<% end %>
+
+If you've been following us on [twitter](https://twitter.com/goforcd/status/814299381125910528), our community forum, or
+tried to access our website in the past two weeks, you'll know that we've moved from https://go.cd to
+[https://gocd.io](https://gocd.io). We are very sorry for the inconvenience this has caused our users and community. We
+hope that this post helps give more visibility into what has been happening and why, and a view into our plans going
+forward.
+
+
+<a name="what_happened"></a>
+
+## What the heck happened???
+
+On December 23, 2016 (at around 15:45 GMT), we learned that the go.cd website was inaccessible. Upon investigation, we
+found that our DNS registrar, [Conic.cd](https://conic.cd/), marked go.cd as "expired" even though it should not have
+been. We had renewed it through 2021.
+
+
+<a name="how_we_responded"></a>
+
+## How we responded
+
+As soon as we realized what had happened, we raised a ticket with Conic. We also tried to call them but found many of
+their contact numbers do not work. Our ticket sat unanswered so we pinged them again about our case. No response. As our
+frustration grew, we turned to the administrative and technical contacts of the DNS registrar for the ".cd" top-level
+domain (TLD). This is the organization that is registered with IANA and ICANN as those responsible to make sure
+something like this gets resolved quickly. For ".cd" this is [CDNIC](https://icannwiki.com/CDNIC). We were able to reach
+someone in their organization via phone*. We explained what happened, they said that they would get back to us. We have
+not heard from them since, despite repeated efforts to contact them again.
+
+For users that needed critical access to our website, APIs, documentation, etc., we provided a quick
+[workaround](https://twitter.com/goforcd/status/813701191574192128). This involved adding some entries into local hosts
+file. We were able to provide this because all of our sites were really up but just not accessible via the standard URLs
+because of the missing DNS entries.
+
+<small>*FYI -- Thankfully we have folks in our organization who speak French, which proved very important as ".cd" is
+the ccTLD for the Democratic Republic of Congo (DRC) and is home to CDNIC.</small>
+
+
+<a name="why_the_domain_change"></a>
+
+## Why the domain change to gocd.io?
+
+By December 28th, our efforts to reach our domain registrar and the TLD registrar for the DRC to get our go.cd domain
+back were still unanswered.
+
+Giving up on go.cd was and is heartbreaking for us. But at this point we had no choice but move to a new domain as we
+had no confidence in getting a response from the DNS registrars. So we set up an alternate domain with the TLD .io.
+
+As of the time of writing this post, we still have not heard back from Conic nor CDNIC, despite many, many attempts to
+reach them. When we do get this resolved, we hope to retain the go.cd domain. However, for now, our primary domain for
+GoCD will be gocd.io.
+
+
+<a name="will_gocd_io_be_permanent"></a>
+
+## Will gocd.io be the permanent domain for GoCD?
+
+This is TBD. We are working tirelessly on finding a forever home for GoCD on the web, but we do not have the final
+solution yet. We know this may not be satisfactory for some. But this experience has really made us weary of the DNS
+system. And when we make the final move, we want to be as certain as we possibly can this will not happen again. So we
+are proceeding quickly but also cautiously.
+
+However, no matter what happens, we will commit to maintaining registration for gocd.io and ensuring that web pages
+redirect properly even if it does not end up being our permanent domain.
+
+
+<a name="too_clever"></a>
+
+## Were we a little too clever by getting a .cd domain? 
+
+Yes. Clearly we were. Acquiring a great domain is hard 28 years into the WWW Age. In hindsight, we were so thrilled to
+get go.cd for our domain that we ignored how problematic it could be to have a TLD that is managed by a country for
+which we lacked presence, contacts, and context. We are left in a position where we have no real recourse to fix
+this. Lesson learned.
+
+
+<a name="what_happens_to_go_cd"></a>
+
+## What happens to the go.cd domain?
+
+When we get the go.cd domain back, we plan to set up redirects from go.cd to gocd.io for all pages. We feel most third
+party apps and sites should work this way. However we strongly encourage any third party apps or sites to use gocd.io
+going forward.
+
+
+<a href="what_this_means_for_you"></a>
+
+## What this means for you
+
+For GoCD users, your version of GoCD will have the outdated link in the footer for documentation. We'll make sure that
+subsequent releases of GoCD have the latest URL, but in the meantime, you'll be able to access documentation at
+[https://docs.gocd.io](https://docs.gocd.io).
+
+For those who have built an app that uses https://go.cd, or are referencing the website in a blog post, we urge you to
+start using [https://gocd.io](https://gocd.io).
+
+If you find any links that have "go.cd" in them, please feel free to submit a pull request to replace them with
+"gocd.io" since GoCD is open source, or [let us know](https://github.com/gocd/gocd/issues/3052) and we will update them.
+
+Several important GoCD sites have been impacted. Here are the new locations for those:
+
+  - User documentation: [https://docs.gocd.io](https://docs.gocd.io)
+
+  - API documentation: [https://api.gocd.io](https://api.gocd.io)
+
+  - Plugin API documentation: [https://plugin-api.gocd.io](https://plugin-api.gocd.io)
+
+  - Developer documentation [https://developer.gocd.io](https://developer.gocd.io)
+
+  - GoCD building itself: [https://build.gocd.io](https://build.gocd.io) (Username: "view" and password: "password" or click on the "Guest login" button)
+
+
+<br/>
+So that's the scoop. While we still love go.cd and hope to get it back, we feel that in the long term, moving to a more
+reliable TLD is the best option for GoCD, our users and community.
