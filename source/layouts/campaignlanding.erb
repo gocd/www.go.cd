@@ -1,0 +1,46 @@
+<% wrap_layout :layout do %>
+  <header class="campaign-header">
+    <div class="">
+      <%= yield_content :banner %>
+      <div class="container">
+        <div class="banner-content">
+          <h1 class="caption"><span><%= current_page.data.page_caption %></span></h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <div class="container">
+      <div class='row campaign-body'>
+        <div class='col-sm-12 col-md-9'>
+          <%= yield %>
+        </div>
+        <div class='col-sm-12 col-md-3'>
+          <%= link_to 'Download Now', "/download/index.html", {:class => "btn btn-primary btn-download", "analytics-label" => "campaign-download-cta"} %>
+        </div>
+      </div>
+    </div>
+
+    <% if current_page.data.show_features %>
+    <div class='main-features'>
+      <div class="container">
+        <div class="row features">
+          <h2 class='feature-title'>Why GoCD?</h2>
+          <div class=" col-sm-12 col-md-4">
+            <%= partial "partials/whygocdfeature1" %>
+          </div>
+          <div class=" col-sm-12 col-md-4">
+            <%= partial "partials/whygocdfeature2" %>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <%= partial "partials/whygocdfeature3" %>
+          </div>
+        </div>
+        <%= link_to 'See more GoCD features', '/why-gocd/index.html', :class => 'btn btn-default see-all-features', "analytics-label" => "link_campaignpage_see_more_gocd_features" %>
+      </div>
+    </div>
+    <% end %>
+    <%= partial "partials/supportbanner" %>
+</main>
+<% end %>
