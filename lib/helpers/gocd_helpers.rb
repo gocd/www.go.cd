@@ -57,19 +57,22 @@ module GoCDHelpers
     value_or_default(twitter_specific_property, value_or_default(fallback_property, ""))
   end
 
-  def twitter_card_image default_image
-    path_to_image = value_or_default(:twitter_card_image, value_or_default(:summary_image, default_image))
-    asset_path_of_image = asset_path(:images, path_to_image, :relative => false)
-    full_path_of_image = File.join(app.config[:source], asset_path(:images, path_to_image, :relative => false))
+  def twitter_card_image(image)
+    path_to_image = value_or_default(:twitter_card_image, value_or_default(:summary_image, image))
+    full_path_of_image = if build?
+      File.join(app.config[:build_dir], asset_path(:images, path_to_image, :relative => false))
+    else
+      File.join(app.config[:source], asset_path(:images, path_to_image, :relative => false))
+    end
     raise "Image does not exist or too large to use for Twitter summary: #{full_path_of_image}" unless (File.exists?(full_path_of_image) && (File.size(full_path_of_image) < (1024 * 1024 * 1024)))
-    URI::join(config.base_url, asset_path_of_image)
+    asset_url(path_to_image)
   end
 
   def should_show_drafts?
     not config.deploy_environment.eql?("live")
   end
 
-  def is_draft? article
+  def is_draft?(article)
     article.data["draft"] == true
   end
 
