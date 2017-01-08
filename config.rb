@@ -71,7 +71,8 @@ activate :s3_sync do |s3_sync|
   s3_sync.prefer_gzip  = false
 end
 
-default_caching_policy      max_age: 600, must_revalidate: true
+caching_policy 'text/html', max_age: 600, must_revalidate: true
+default_caching_policy      max_age:(60 * 60 * 24 * 365)
 
 # Build-specific configuration
 configure :build do
@@ -80,4 +81,6 @@ configure :build do
 
   # Minify Javascript on build
   activate :minify_javascript
+
+  activate :asset_hash
 end
