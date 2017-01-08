@@ -10,12 +10,12 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Continuous delivery through pipelines | GoCD Blog" />
     <meta name="twitter:description" content="GoCD is open source continuous delivery software. This is a guest post by Nenad Bozic about why the team switched from Jenkins to GoCD." />
-    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem.png" />
+    <meta name="twitter:image" content="../../../assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem-6c3b1401.png" />
 
     <title>Continuous delivery through pipelines | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all.js"></script>
+    <link href="../../../assets/stylesheets/site-47f6bde5.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-b532d9de.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
   </head>
@@ -23,7 +23,7 @@
   <body class="x2015 x2015_12 x2015_12_28 x2015_12_28_gocd-continuous-delivery-through-pipelines">
     <header class="top">
   <div class="container">
-    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
@@ -94,7 +94,7 @@ But let us start from the beginning.</p>
 <p>At the highest level, Go consists of two main components, the Go Server and multiple Go Agents.
 The system works on a pull model where agents periodically poll the server for work.</p>
 
-<p><img src="../../../assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-architecture.png" title="GoCD Architecture" alt="GoCD Architecture" /></p>
+<p><img src="../../../assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-architecture-f39bda5b.png" title="GoCD Architecture" alt="GoCD Architecture" /></p>
 
 <p>The main flow of Go goes through a couple of following stages:</p>
 
@@ -148,7 +148,7 @@ application and have functional tests on the client's side, which depend on the 
 being updated, you can make a client functional test pipeline which will trigger on commit
 on client and successful build and deploy of server side.</p>
 
-<p><img src="../../../assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-fanIn.png" title="Pipeline dependencies tab showing fan-in" alt="Pipeline dependencies tab showing fan-in" /></p>
+<p><img src="../../../assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-fanIn-4f7b1e3b.png" title="Pipeline dependencies tab showing fan-in" alt="Pipeline dependencies tab showing fan-in" /></p>
 
 <p>The additional challenge here is a diamond-like dependency, where it is not enough for both
 upstream dependencies to finish but to have right versions. The following diagram depicts
@@ -156,7 +156,7 @@ that problem. Here, configuration is really important, C1 must be set as materia
 C2 and C3 and C2 and C3 are materials for the pipeline Package. The package will auto trigger
 when both C2 and C3 go green with the same version of code.</p>
 
-<p><img src="../../../assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem.png" title="Pipeline dependencies show a Diamond dependency Problem" alt="Pipeline dependencies show a Diamond dependency Problem" /></p>
+<p><img src="../../../assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem-6c3b1401.png" title="Pipeline dependencies show a Diamond dependency Problem" alt="Pipeline dependencies show a Diamond dependency Problem" /></p>
 
 <h2 id="pipeline-templates">Pipeline templates</h2>
 

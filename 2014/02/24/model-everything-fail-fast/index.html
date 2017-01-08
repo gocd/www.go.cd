@@ -10,12 +10,12 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Model everything to fail fast | GoCD Blog" />
     <meta name="twitter:description" content="We built GoCD to give teams the power to model and remodel a Build-Test-Release workflow so that they get super quick feedback on every change. Learn about how modeling a workflow helps a team fail fast." />
-    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/mark-failfast1.png" />
+    <meta name="twitter:image" content="../../../../assets/images/blog/mark-failfast1-076157dd.png" />
 
     <title>Model everything to fail fast | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all.js"></script>
+    <link href="../../../../assets/stylesheets/site-47f6bde5.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-b532d9de.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
   </head>
@@ -23,7 +23,7 @@
   <body class="x2014 x2014_02 x2014_02_24 x2014_02_24_model-everything-fail-fast x2014_02_24_model-everything-fail-fast_index">
     <header class="top">
   <div class="container">
-    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
@@ -77,7 +77,7 @@
 
 <p>Here's a generic but common Build-Test-Release workflow. Each code commit will trigger a new release candidate and run through the gauntlet, left to right. Every workflow step is tasked to find an issue with the version of the software it is building, testing or deploying.</p>
 
-<p><img src="../../../../assets/images/blog/mark-failfast1.png" title="Generic Build-Test-Release workflow" alt="Generic Build-Test-Release workflow" /></p>
+<p><img src="../../../../assets/images/blog/mark-failfast1-076157dd.png" title="Generic Build-Test-Release workflow" alt="Generic Build-Test-Release workflow" /></p>
 
 <p>To shorten the feedback loop:</p>
 
@@ -106,19 +106,19 @@
 
 <p>Let's say a release candidate needs to pass 11 steps (gauntlet) before it can make it to an enduser. Sequence is important. The goal is to fail fast. A flat workflow will return feedback but it's slow since only one step will run at a time.</p>
 
-<p><img src="../../../../assets/images/blog/mark-failfast2.png" title="A flat workflow running one step at a time" alt="A flat workflow running one step at a time" /></p>
+<p><img src="../../../../assets/images/blog/mark-failfast2-39e40b5e.png" title="A flat workflow running one step at a time" alt="A flat workflow running one step at a time" /></p>
 
 <p>If it turns out that a few steps can be run in parallel, you will speed up your workflow.</p>
 
-<p><img src="../../../../assets/images/blog/mark-failfast3.png" title="A workflow running few steps in parallel" alt="A workflow running few steps in parallel" /></p>
+<p><img src="../../../../assets/images/blog/mark-failfast3-3b0c6e47.png" title="A workflow running few steps in parallel" alt="A workflow running few steps in parallel" /></p>
 
 <p>Speed things up even further by increasing the amount of parallelization.</p>
 
-<p><img src="../../../../assets/images/blog/mark-failfast4.png" title="A workflow with increased paralellization" alt="A workflow with increased paralellization" /></p>
+<p><img src="../../../../assets/images/blog/mark-failfast4-af0026ee.png" title="A workflow with increased paralellization" alt="A workflow with increased paralellization" /></p>
 
 <p>Over time you may find other areas in your Build-Test-Release workflow where you can speed up your feedback loop. This workflow will find an issue much faster than the flat one we started with.</p>
 
-<p><img src="../../../../assets/images/blog/mark-failfast5.png" title="Increasing paralellization in multiple areas" alt="Increasing paralellization in multiple areas" /></p>
+<p><img src="../../../../assets/images/blog/mark-failfast5-d9d38b33.png" title="Increasing paralellization in multiple areas" alt="Increasing paralellization in multiple areas" /></p>
 
 <h4 id="sequencing-and-parallelization-in-gocd">Sequencing and parallelization in GoCD</h4>
 

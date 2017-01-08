@@ -10,12 +10,12 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Add performance testing to your Continuous Delivery pipeline | GoCD Blog" />
     <meta name="twitter:description" content="The intent of this article is to provide you with some pointers on the types of testing you can do on a regular basis, and to give some strategies for implementation." />
-    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/add-performance-testing/add-performance-testing-to-your-continuous-delivery-pipeline.jpg" />
+    <meta name="twitter:image" content="../../../../assets/images/blog/add-performance-testing/add-performance-testing-to-your-continuous-delivery-pipeline-f09d6a66.jpg" />
 
     <title>Add performance testing to your Continuous Delivery pipeline | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all.js"></script>
+    <link href="../../../../assets/stylesheets/site-47f6bde5.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-b532d9de.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
   </head>
@@ -23,7 +23,7 @@
   <body class="x2016 x2016_06 x2016_06_08 x2016_06_08_Add-performance-testing-to-your-Continuous-Delivery-pipeline x2016_06_08_Add-performance-testing-to-your-Continuous-Delivery-pipeline_index">
     <header class="top">
   <div class="container">
-    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
@@ -61,7 +61,7 @@
     <div class="container blog-post">
     <div class="post-banner">
       <figure>
-  <img src="../../../../assets/images/blog/add-performance-testing/add-performance-testing-to-your-continuous-delivery-pipeline.jpg" alt="Add performance testing to your Continuous Delivery pipeline" />
+  <img src="../../../../assets/images/blog/add-performance-testing/add-performance-testing-to-your-continuous-delivery-pipeline-f09d6a66.jpg" alt="Add performance testing to your Continuous Delivery pipeline" />
 </figure>
 
     </div>
@@ -102,7 +102,7 @@
 <p>Performance tests often take longer than other types of tests, so be sure to use a CD server that allows you to run different pipelines in parallel while still enforcing their success before a release candidate goes too far.</p>
 
 <figure>
-  <img src="../../../../assets/images/blog/add-performance-testing/load-test.jpg" alt="Load Testing" title="Load Testing" />
+  <img src="../../../../assets/images/blog/add-performance-testing/load-test-4a8d0de7.jpg" alt="Load Testing" title="Load Testing" />
 </figure>
 
 <h3 id="spike-testing">Spike testing</h3>
@@ -110,7 +110,7 @@
 <p>Spike testing is done by suddenly increasing the load on a system and seeing what happens. This is the type of testing I've seen the least of in the wild, but seems incredibly important in this world of dynamic containers and such. Your system is supposed to start a new container in milliseconds when the load requires it. Does it?</p>
 
 <figure>
-  <img src="../../../../assets/images/blog/add-performance-testing/spike-test.jpg" alt="Spike Testing" title="Spike Testing" />
+  <img src="../../../../assets/images/blog/add-performance-testing/spike-test-4b37b4b6.jpg" alt="Spike Testing" title="Spike Testing" />
 </figure>
 
 <h3 id="stress-testing">Stress testing</h3>
@@ -120,7 +120,7 @@
 <p>With stress testing in a pipeline, you may not want to always have downstream dependencies which require a "pass" all of the time. It's certainly important to know what your failure point is, but that isn't necessarily a reason not to ship during "normal" business.</p>
 
 <figure>
-  <img src="../../../../assets/images/blog/add-performance-testing/stress-test.jpg" alt="Load Testing" title="Load Testing" />
+  <img src="../../../../assets/images/blog/add-performance-testing/stress-test-3a7430f8.jpg" alt="Load Testing" title="Load Testing" />
 </figure>
 
 <h3 id="soak-testing">Soak testing</h3>
@@ -128,7 +128,7 @@
 <p>Soak testing makes sure that your system keeps running under a sustained load. I saw a system once that seemed to be performing well on a short performance test, but growing message queues added up over time making it slower and slower. Memory leaks are also a common cause of issues on soak tests.</p>
 
 <figure>
-  <img src="../../../../assets/images/blog/add-performance-testing/soak-test.jpg" alt="Soak Testing" title="Soak Testing" />
+  <img src="../../../../assets/images/blog/add-performance-testing/soak-test-4502bd56.jpg" alt="Soak Testing" title="Soak Testing" />
 </figure>
 
 <h2 id="run-them-on-every-build">Run them on every build</h2>

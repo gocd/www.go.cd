@@ -10,12 +10,12 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Hello World with GoCD | GoCD Blog" />
     <meta name="twitter:description" content="GoCD is open source continuous delivery software. This is a basic introduction to how GoCD works and a simple one stage pipeline in GoCD." />
-    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/hello-world-with-go/media_1394063534943.png" />
+    <meta name="twitter:image" content="../../../../assets/images/blog/hello-world-with-go/media_1394063534943-251780ef.png" />
 
     <title>Hello World with GoCD | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all.js"></script>
+    <link href="../../../../assets/stylesheets/site-47f6bde5.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-b532d9de.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
   </head>
@@ -23,7 +23,7 @@
   <body class="x2014 x2014_03 x2014_03_06 x2014_03_06_hello-world-with-go x2014_03_06_hello-world-with-go_index">
     <header class="top">
   <div class="container">
-    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
@@ -76,13 +76,13 @@
 
 <h3 id="give-it-a-name">Give it a name</h3>
 
-<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063203663.png" title="Name the Pipeline" alt="Name the Pipeline" /></p>
+<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063203663-defb74a5.png" title="Name the Pipeline" alt="Name the Pipeline" /></p>
 
 <p>Pipelines have names, and they go into groups which are related. For example, you might have <em>Project_1</em> and <em>Project_2</em> in the <em>Development</em> pipeline group. Note that there can't be any spaces in these names.</p>
 
 <h3 id="where-is-your-code">Where is your code?</h3>
 
-<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063238598.png" title="Add Materials details" alt="Add Materials details" /></p>
+<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063238598-cc4cd6e6.png" title="Add Materials details" alt="Add Materials details" /></p>
 
 <p>GoCD has a concept of <em>materials</em>. This is the stuff that goes into your application. This is mostly likely in a version control system. There are other material types, but for the moment let's stick with a VCS. I have selected Subversion for this example, but GoCD also supports Git, Mercurial, Perforce and TFS.</p>
 
@@ -90,7 +90,7 @@
 
 <h3 id="make-it-do-something">Make it do something.</h3>
 
-<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063327989.png" title="Use stages and jobs to manage work" alt="Use stages and jobs to manage work" /></p>
+<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063327989-43ac29c7.png" title="Use stages and jobs to manage work" alt="Use stages and jobs to manage work" /></p>
 
 <p>GoCD uses <em>stages</em> and <em>jobs</em> to manage work. Make sure you check out the help doc linked above for definitions of both. Give your sample step a name, and then choose the <em>Task Type</em>. Go knows how to execute Ant, nAnt and Rake, by default so you'll see those called out specifically in the drop down. If you choose <em>More</em> you can provide any command which can be executed from the command line. This could be a shell script, batch file, maven command, chef recipe etc.</p>
 
@@ -98,13 +98,13 @@
 
 <h3 id="initial-pipeline-created">Initial pipeline created</h3>
 
-<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063391538.png" title="Paused Pipeline" alt="Paused Pipeline" /></p>
+<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063391538-70cbaf26.png" title="Paused Pipeline" alt="Paused Pipeline" /></p>
 
 <p>We now have a very simple pipeline created. It doesn't do a whole lot (like the automated testing I'm sure you'll want) but it does do some real work. You'll note the big blue "pause" symbol at the top. This means that GoCD has your pipeline on hold while you're working on it. If you're ready to let GoCD work, just click that button to unpause.</p>
 
 <h3 id="success">Success!</h3>
 
-<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063534943.png" title="One stage Pipeline created" alt="One stage Pipeline created" /></p>
+<p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063534943-251780ef.png" title="One stage Pipeline created" alt="One stage Pipeline created" /></p>
 
 <p>And there we have it. A simple one step pipeline that will run in GoCD. Of course you'll want to add more stages to run tests and such. You'll probably also want to add more pipelines to actually deploy your software. (Note: doing everything in one long pattern is often considered an anti-pattern - see <a href="http://continuousdelivery.com/2010/09/deployment-pipeline-anti-patterns/">Jez Humble's article</a> )</p>
 

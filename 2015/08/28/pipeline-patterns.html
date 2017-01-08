@@ -10,12 +10,12 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="5 Key Deployment Pipeline Patterns | GoCD Blog" />
     <meta name="twitter:description" content="In 2007 GoCD introduced build pipelines to the masses. This article walks through 5 key patterns to setting up a successful deployment pipeline." />
-    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/pipeline-patterns/infrastructure-as-code.png" />
+    <meta name="twitter:image" content="../../../assets/images/blog/pipeline-patterns/infrastructure-as-code-f02b950c.png" />
 
     <title>5 Key Deployment Pipeline Patterns | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all.js"></script>
+    <link href="../../../assets/stylesheets/site-47f6bde5.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-b532d9de.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
   </head>
@@ -23,7 +23,7 @@
   <body class="x2015 x2015_08 x2015_08_28 x2015_08_28_pipeline-patterns">
     <header class="top">
   <div class="container">
-    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
@@ -86,12 +86,12 @@ that you deploy the exact same thing you've tested.</p>
 
 <p>Once you've built a binary, you should upload that back to your CD server or artifact repository for later use.</p>
 
-<p><img src="../../../assets/images/blog/pipeline-patterns/upload-artifact.png" title="Upload Artifacts" alt="Upload Artifacts" /></p>
+<p><img src="../../../assets/images/blog/pipeline-patterns/upload-artifact-9e796eb7.png" title="Upload Artifacts" alt="Upload Artifacts" /></p>
 
 <p>When you're ready to deploy to a downstream system, you should fetch and install that build artifact. This way you make
 sure that you're running your functional tests on the exact thing you built and that you're going to deploy.</p>
 
-<p><img src="../../../assets/images/blog/pipeline-patterns/fetch-artifact.png" title="Fetch Artifacts" alt="Fetch Artifacts" /></p>
+<p><img src="../../../assets/images/blog/pipeline-patterns/fetch-artifact-a8a9593d.png" title="Fetch Artifacts" alt="Fetch Artifacts" /></p>
 
 <h2 id="run-tests-in-parallel">2. Run tests in parallel</h2>
 
@@ -105,12 +105,12 @@ wait a couple days before you know the state of your software.</p>
 <p>What you should do is split those tests up into manageable size chunks and run them in parallel. In the case of the Mingle
 team those tests run on 65 GoCD agents at the same time.</p>
 
-<p><img src="../../../assets/images/blog/pipeline-patterns/testing-jobs.png" title="Jobs overview displaying parallel tests" alt="Jobs overview displaying parallel tests" /></p>
+<p><img src="../../../assets/images/blog/pipeline-patterns/testing-jobs-e35ab17e.png" title="Jobs overview displaying parallel tests" alt="Jobs overview displaying parallel tests" /></p>
 
 <p>Of course it's also vitally important that you're able to quickly determine what went wrong if something fails, so you
 should make sure the tests results from all of the jobs can be viewed in one consolidated place.</p>
 
-<p><img src="../../../assets/images/blog/pipeline-patterns/testing-failures.png" title="Tests tab showing failed tests" alt="Tests tab showing failed tests" /></p>
+<p><img src="../../../assets/images/blog/pipeline-patterns/testing-failures-f00335a2.png" title="Tests tab showing failed tests" alt="Tests tab showing failed tests" /></p>
 
 <h2 id="design-parallel-workflows">3. Design parallel workflows</h2>
 
@@ -127,7 +127,7 @@ user acceptance. We want to make it easy for the team responsible to do a one cl
 they may not look at it immediately. There's really no reason we can't run the automated acceptance tests while that is
 going on.</p>
 
-<p><img src="../../../assets/images/blog/pipeline-patterns/parallel-pipelines.png" title="Parallel Pipelines" alt="Parallel Pipelines" /></p>
+<p><img src="../../../assets/images/blog/pipeline-patterns/parallel-pipelines-c881369f.png" title="Parallel Pipelines" alt="Parallel Pipelines" /></p>
 
 <p>Hopefully you noticed one other really important thing about the image above. The production pipelines have <em>not</em> run. If
 you're doing things in parallel it's important that your Continuous Delivery system is smart about handling
@@ -163,7 +163,7 @@ software.</p>
 Application_Environments pipeline builds our container, verifies is and then stores it on our registry. That change kicks
 off the rest of our build / test / deploy pipelines in exactly the same way an application code change would.</p>
 
-<p><img src="../../../assets/images/blog/pipeline-patterns/infrastructure-as-code.png" title="Environment changes submitted as code" alt="Environment changes submitted as code" /></p>
+<p><img src="../../../assets/images/blog/pipeline-patterns/infrastructure-as-code-f02b950c.png" title="Environment changes submitted as code" alt="Environment changes submitted as code" /></p>
 
 <h2 id="conclusion">Conclusion</h2>
 

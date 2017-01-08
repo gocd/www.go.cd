@@ -10,12 +10,12 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Distributed Test Execution with TLB | GoCD Blog" />
     <meta name="twitter:description" content="GoCD is open source continuous delivery software. Read about using Test Load Balancer to create an intelligent test distribution to increase efficiency." />
-    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/distrubuted-test-execution/summary_image.png" />
+    <meta name="twitter:image" content="../../../../assets/images/blog/distrubuted-test-execution/summary_image-8bed632c.png" />
 
     <title>Distributed Test Execution with TLB | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all.js"></script>
+    <link href="../../../../assets/stylesheets/site-47f6bde5.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-b532d9de.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
   </head>
@@ -23,7 +23,7 @@
   <body class="x2014 x2014_10 x2014_10_09 x2014_10_09_Distributed-Test-Execution x2014_10_09_Distributed-Test-Execution_index">
     <header class="top">
   <div class="container">
-    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
@@ -125,23 +125,23 @@ $ ./server.sh start
 
 <p>Setup a pipeline with material (SCM) that contains your tests.</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/1.png" style="width: 100%; border: 1px solid;" title="Pipeline setup with materials" alt="Pipeline setup with materials" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/1-021212d2.png" style="width: 100%; border: 1px solid;" title="Pipeline setup with materials" alt="Pipeline setup with materials" /></p>
 
 <p>Setup Job to spawn required number of instances (run instance count).</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/3.png" style="width: 100%; border: 1px solid;" title="Job Settings configured for three instances" alt="Job Settings configured for three instances" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/3-41b700d0.png" style="width: 100%; border: 1px solid;" title="Job Settings configured for three instances" alt="Job Settings configured for three instances" /></p>
 
 <p>Setup TLB related environment variables at Environment / Pipeline / Stage / Job level.</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/2.png" style="width: 100%; border: 1px solid;" title="Environment Variables Tab" alt="Environment Variables Tab" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/2-9cb7bf31.png" style="width: 100%; border: 1px solid;" title="Environment Variables Tab" alt="Environment Variables Tab" /></p>
 
 <p>Setup the task to consume <code>GO_PIPELINE_NAME</code>, <code>GO_STAGE_NAME</code>, <code>GO_PIPELINE_COUNTER</code>, <code>GO_STAGE_COUNTER</code>, <code>GO_JOB_RUN_INDEX</code> &amp; <code>GO_JOB_RUN_COUNT</code> environment variables that GoCD exposes.</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/4.png" style="width: 100%; border: 1px solid;" title="Tasks Tab" alt="Tasks Tab" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/4-9650ff39.png" style="width: 100%; border: 1px solid;" title="Tasks Tab" alt="Tasks Tab" /></p>
 
 <p>Upload junit xmls as test artifacts.</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/4-2.png" style="width: 100%; border: 1px solid;" title="Artifacts Tab" alt="Artifacts Tab" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/4-2-53ddc6c0.png" style="width: 100%; border: 1px solid;" title="Artifacts Tab" alt="Artifacts Tab" /></p>
 
 <p><strong>Sample Pipeline Configuration</strong></p>
 
@@ -202,34 +202,34 @@ $ ./server.sh start
 
 <p>GoCD's modeling capability gives it the ability to run jobs in parallel but wait for all of them to finish before the next Stage / downstream Pipelines are triggered.</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/6.png" style="width: 100%; border: 1px solid;" title="Viewing Jobs progress in Jobs Tab" alt="Viewing Jobs progress in Jobs Tab" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/6-40adc5ae.png" style="width: 100%; border: 1px solid;" title="Viewing Jobs progress in Jobs Tab" alt="Viewing Jobs progress in Jobs Tab" /></p>
 
 <h4 id="stop-the-downstream-flow">Stop the downstream flow</h4>
 
 <p>If any of the tests (and as a result the Job running the test) fails, the Stage is considered as failed. This causes the flow to stop as expected.</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/5.png" style="width: 100%; border: 1px solid;" title="Failed Stage" alt="Failed Stage" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/5-6da0dd74.png" style="width: 100%; border: 1px solid;" title="Failed Stage" alt="Failed Stage" /></p>
 
 <h4 id="consolidated-test-report">Consolidated Test Report</h4>
 
 <p>Once all the Jobs are done running, GoCD consolidates test reports &amp; shows the result at stage level for easy consumption.</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/7.png" style="width: 100%; border: 1px solid;" title="Consolidated Reports in Tests Tab" alt="Consolidated Reports in Tests Tab" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/7-016f6a36.png" style="width: 100%; border: 1px solid;" title="Consolidated Reports in Tests Tab" alt="Consolidated Reports in Tests Tab" /></p>
 
 <h4 id="drill-down">Drill down</h4>
 
 <p>You can drill down at job level to know more information like 'test count', 'console output' for the Job (test) etc.</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/8.png" style="width: 100%; border: 1px solid;" title="Drilled Down view of Passed Test 1" alt="Drilled Down view of Passed Test 1" />
-<img src="../../../../assets/images/blog/run-x-instance/10.png" style="width: 100%; border: 1px solid;" title="Drilled Down view of Failed Test" alt="Drilled Down view of Failed Test" />
-<img src="../../../../assets/images/blog/run-x-instance/9.png" style="width: 100%; border: 1px solid;" title="Drilled Down view of Passed Test 2" alt="Drilled Down view of Passed Test 2" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/8-b478f0af.png" style="width: 100%; border: 1px solid;" title="Drilled Down view of Passed Test 1" alt="Drilled Down view of Passed Test 1" />
+<img src="../../../../assets/images/blog/run-x-instance/10-fe33e252.png" style="width: 100%; border: 1px solid;" title="Drilled Down view of Failed Test" alt="Drilled Down view of Failed Test" />
+<img src="../../../../assets/images/blog/run-x-instance/9-9d8fd047.png" style="width: 100%; border: 1px solid;" title="Drilled Down view of Passed Test 2" alt="Drilled Down view of Passed Test 2" /></p>
 
 <h4 id="partition-re-run">Partition re-run</h4>
 
 <p>GoCD also provides ability to re-run a Job of a stage. This provides ability to run the partition that could have failed due to flaky test etc. The best part is, TLB runs the exact tests that it ran the last time making sure no test is missed out!</p>
 
-<p><img src="../../../../assets/images/blog/run-x-instance/11-1.png" style="width: 100%; border: 1px solid;" title="Option to Rerun Jobs" alt="Option to Rerun Jobs" />
-<img src="../../../../assets/images/blog/run-x-instance/11-2.png" style="width: 100%; border: 1px solid;" title="State of Rerun Tests" alt="State of Rerun Tests" /></p>
+<p><img src="../../../../assets/images/blog/run-x-instance/11-1-b8855dee.png" style="width: 100%; border: 1px solid;" title="Option to Rerun Jobs" alt="Option to Rerun Jobs" />
+<img src="../../../../assets/images/blog/run-x-instance/11-2-19aa7f49.png" style="width: 100%; border: 1px solid;" title="State of Rerun Tests" alt="State of Rerun Tests" /></p>
 
 <h4 id="tlb-correctness-check">TLB Correctness Check</h4>
 

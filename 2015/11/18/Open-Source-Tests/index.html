@@ -10,12 +10,12 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Open Source Tests | GoCD Blog" />
     <meta name="twitter:description" content="GoCD is open source continuous delivery software. Testing open source projects has its own set of problems. This post talks about some of these and how we overcome them." />
-    <meta name="twitter:image" content="https://www.gocd.io/assets/images/go-gauge-report.png" />
+    <meta name="twitter:image" content="../../../../assets/images/go-gauge-report-54cc286b.png" />
 
     <title>Open Source Tests | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all.js"></script>
+    <link href="../../../../assets/stylesheets/site-47f6bde5.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-b532d9de.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
   </head>
@@ -23,7 +23,7 @@
   <body class="x2015 x2015_11 x2015_11_18 x2015_11_18_Open-Source-Tests x2015_11_18_Open-Source-Tests_index">
     <header class="top">
   <div class="container">
-    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
         <li class="dropdown">
@@ -83,7 +83,7 @@ However to be confident about a release we need end to end tests. To maintain th
 
 <p>Let's take a brief tour of how GoCD does continuous testing. GoCD is built, tested and deployed using GoCD itself. Here's a snapshot of the GoCD build pipeline.</p>
 
-<p><img src="../../../../assets/images/go-cd-QA-pipeline.png" style="width: 1000px" title="GoCD value stream map" alt="GoCD value stream map" /></p>
+<p><img src="../../../../assets/images/go-cd-QA-pipeline-64230cf5.png" style="width: 1000px" title="GoCD value stream map" alt="GoCD value stream map" /></p>
 
 <p>GoCD is tested using "Server in-the-box" model. In this model we define the system under test - its scope and its boundaries.
 External dependencies for the system under test (SUT) say git or yum repo are stubbed out or built into the SUT itself.
@@ -132,13 +132,13 @@ Moving to Gauge now helps us open source these tests (Twist was a commercial pro
 
 <p>Gauge specifications are in markdown language making it more readable. Gauge specs intend to be live documents of the system behavior</p>
 
-<p><img src="../../../../assets/images/go-gauge-specs.png" title="Gauge specifications" alt="Gauge specifications" /></p>
+<p><img src="../../../../assets/images/go-gauge-specs-3d290b06.png" title="Gauge specifications" alt="Gauge specifications" /></p>
 
 <h1 id="gauge-reports">Gauge Reports</h1>
 
 <p>Gauge produces reports in an easily readable format and provides specification execution details like steps executed, time for each spec execution, overall test execution time, steps and specs  passed, what failed and the screen shot of the failure page.</p>
 
-<p><img src="../../../../assets/images/go-gauge-report.png" style="width: 1000px" title="Gauge Reports" alt="Gauge Reports" /></p>
+<p><img src="../../../../assets/images/go-gauge-report-54cc286b.png" style="width: 1000px" title="Gauge Reports" alt="Gauge Reports" /></p>
 
 <h1 id="conclusion">Conclusion</h1>
 
