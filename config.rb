@@ -71,6 +71,8 @@ activate :s3_sync do |s3_sync|
   s3_sync.prefer_gzip  = false
 end
 
+default_caching_policy      max_age: 600, must_revalidate: true
+
 # Build-specific configuration
 configure :build do
   # Minify CSS on build
