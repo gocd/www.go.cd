@@ -15,6 +15,9 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 <div class="demos">
   <div class="container">
     <h3>Webinars and Demos</h3>
+    <p>
+      The learning sessions are designed to help you get an overall view of the capabilities of GoCD and answer questions around how to configure your GoCD instance.
+    </p>
     <ul class="demo-list">
       <% data.webinars.each do |webinar| %>
       <li>
@@ -49,6 +52,38 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
           <p><%= event.description %></p>
           <ul class="dates">
             <% event.details.each do |detail| %>
+            <li>
+              <div class="date"><i class="fa fa-calendar"></i> <%= detail.date %></div>
+              <div class="location"><i class="fa fa-map-marker"></i> <%= detail.location %></div>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="workshop">
+  <div class="container">
+    <h3 class="page-headings">Workshops and Presentations</h3>
+    <p>
+    </p>
+    <ul class="workshops-list">
+      <% data.workshops_presentations.each do |workshop| %>
+      <li>
+        <div class="details">
+          <a href="<%= workshop.url %>" class="title"><%= workshop.title %></a>
+          <div>
+            <div class='workshop-topic'>
+              <i class="fa fa-list-alt" aria-hidden="true"></i> <%= workshop.topic %>
+            </div>
+            <div class='workshop-presenter'>
+              <i class="fa fa-user" aria-hidden="true"></i> <%= workshop.speaker %>
+            </div>
+          </div>
+          <ul class="dates">
+            <% workshop.details.each do |detail| %>
             <li>
               <div class="date"><i class="fa fa-calendar"></i> <%= detail.date %></div>
               <div class="location"><i class="fa fa-map-marker"></i> <%= detail.location %></div>
