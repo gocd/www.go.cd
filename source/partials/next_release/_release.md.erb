@@ -1,15 +1,28 @@
+#### Performance Improvement
+
+* <%= link_to_commit '2ae7fdb72e31b2868cee8a3d757402e2e0e40456', 'Full config save optimization', 2912 %>
+
 #### API Enhancements
 
-* <%= link_to_commit 'f47d054171b07e2ce9c2efa9e02dde6979fc9c8f', "#{link_to_api 'encryption'} to encrypt secrets.", 1829 %>
+- <%= link_to_commit '467cf5f1c602144ab3e19fb95f5ab512c309d2de', "#{link_to_api 'encryption', 'Encryption API'} to encrypt plain text.", 3031 %>
+- <%= link_to_commit '2789aa8f691a860c7908aabb42cacc99a7333031', "Allow template admin to view and edit templates via #{link_to_api 'template-config'}", 2967 %>
+
+#### Plugin enhancements
+
+- <%= link_to_commit '3c001b1d376263e964495723fb76a4771ca8a705', 'V2 of Notification endpoint.', 3030 %>
 
 #### Other Improvements
 
-* <%= link_to_commit 'xxx', 'YYY.', 123 %>
+* <%= link_to_commit 'c094e900f4e097f49fc9bb87147598b9e579c104', 'Added environment variables to the server api page.',3073 %>
+* <%= link_to_commit '0802c7ede115efd5c71bfcf5f5056261918f43e7', 'Adding CPU time in api/support for the threads.', 3006 %>
+* <%= link_to_commit 'c749c47a12df283c2e333b9cc918e161aa6c1803', 'Add a link to pipeline settings in the pipeline history page. ', 2939 %>
 
 #### Bug Fixes
 
-* <%= link_to_commit 'e9611f83798bd5eddd62326f0827e5055519bd4a', 'OS Detection failing for elastic agents.', 3060 %>
 * Multiple UI fixes and tweaks on the new theme that was introduced in 16.12.
+* <%= link_to_commit 'e9611f83798bd5eddd62326f0827e5055519bd4a', 'Refresh ElasticAgent-OperatingSystem and ElasticAgent-UsableSpace while initializing the runtimeInfo.', 3078 %>
+* <%= link_to_commit 'b66bddc26b130e15e46f9cb7a838b01d28014945', 'Refactor agent controller to switch between http and websockets.', 2864 %>
+* <%= link_to_commit 'c26f118dfb555ef489f0e595423f6ebc008b61f0', 'Mask password entered for materials of type svn, tfs, perforce. ', 2937 %>
 
 #### Breaking changes
 
@@ -35,6 +48,7 @@
 
 - <%= link_to_commit 'f2ac6b182c03413e8c6cdbae26c47fe944a11897', 'Removed support for text based API support log.', 2975 %>
 
+- <%= link_to_commit 'da61c2bd7ee7e95dcf35d67867d5336efee76c83', 'Remove old agents page', 3015 %>
 
 #### Deprecations
 
@@ -42,14 +56,15 @@ Features that become superseded or irrelevant become *deprecated*, and are sched
 
 The following features have been deprecated, along with the timeframe when they will be removed.
 
-* We shall be stopping support for git versions older than 1.9 in three months time (Feb 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to [this](https://www.softwarecollections.org/en/scls/rhscl/git19/) and/or [this](http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633) to upgrade git.
+* As of release 16.12, git versions older than 1.9 are deprecated. Support for git versions older than 1.9 will be stopped in 17.2 (scheduled to be released in February 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to [this](https://www.softwarecollections.org/en/scls/rhscl/git19/) and/or [this](http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633) to upgrade git.
 * As of release 16.12, version 1 of the <%= link_to_api 'get-all-plugin-info', 'Plugin Info API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.
+* As of release 17.1, version 2 of the <%= link_to_api 'template-config', 'Templates API' %> is deprecated. This version of the API will be removed in 17.4 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.
 * As of release 16.12, version 2 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.
-* As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017). Plugin developers are encouraged to upgrade their plugins to use [JSON message based plugin API.](https://plugin-api.gocd.io/current/tasks) to build plugins.
+* As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.2 (scheduled to be released in February 2017). Plugin developers are encouraged to upgrade their plugins to use [JSON message based plugin API.](https://plugin-api.gocd.io/current/tasks) to build plugins.
 
-    Below is the list of plugins that will stop working in 17.1.
+    Below is the list of plugins that will stop working in 17.2.
 
-    **Note:** The GoCD team has built a [shim](https://github.com/aresok/go-maven-poller/compare/master...arvindsv:make-it-work-with-gocd-17-1) that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.1.
+    **Note:** The GoCD team has built a [shim](https://github.com/aresok/go-maven-poller/compare/master...arvindsv:make-it-work-with-gocd-17-1) that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.2.
 
     **Package plugins**
 
