@@ -31,9 +31,13 @@
 
 - <%= link_to_commit '920b7ee2bd7fb5a614f9e7540e59bf38c60ee92b', 'Removed support for Java 7.' %>
 
-  Java 7 is no longer supported. Users **MUST** upgrade the Java version on agent and server to use Java 8.
+  Starting with the 17.1 release of GoCD, Server and Agents will only run with Java 8. Users are encouraged to upgrade to the latest release of GoCD with Java 8.
 
   Windows installations of GoCD need not install Java 8 separately since the Windows installer comes bundled with a JRE. However this *may* require users to upgrade the agent installer on Windows.
+
+  If you have trouble while upgrading to Go version 17.1, please take a look at the
+          <%= link_to 'troubleshooting page', 'https://docs.gocd.io/current/installation/troubleshoot_installer.html' %> in the
+          documentation.
 
 - <%= link_to_commit '7a48c1af2d0d2300654ea45d2dec7cf1299738ba', 'Remove gadget rendering server and the GoCD OpenSocial Gadget.', 1908 %>
 
