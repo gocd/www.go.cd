@@ -77,7 +77,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
                   <li>
                     <span class="logo"></span>
                     <div class="details">
-                      <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled %>
+                      <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled || p.paid %>
                       <h5 class="name"> <%= escape_html(p.name) %> </h5>
                       <p class="more-details">
                         <%= escape_html(p.description) %>
