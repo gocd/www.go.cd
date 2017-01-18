@@ -2,7 +2,7 @@
 
 - <%= link_to_commit '2ae7fdb72e31b2868cee8a3d757402e2e0e40456', 'Full config save optimization', 2912 %>
 
-  Optimisation to full config save through UI and API to give significant improvements in the config save time. Our performance runs show full config save times reduced by half.
+  Optimization to full config save through UI and API to give significant improvements in the config save time. Our performance runs show full config save times reduced by half.
 
 #### API Enhancements
 
@@ -15,8 +15,8 @@
 #### Other Improvements
 
 - <%= link_to_commit 'c094e900f4e097f49fc9bb87147598b9e579c104', 'Added environment variables to the server api page.',3073 %>
-- <%= link_to_commit '0802c7ede115efd5c71bfcf5f5056261918f43e7', 'Adding CPU time in api/support for the threads.', 3006 %>
-- <%= link_to_commit 'c749c47a12df283c2e333b9cc918e161aa6c1803', 'Add a link to pipeline settings in the pipeline history page. ', 2939 %>
+- <%= link_to_commit '0802c7ede115efd5c71bfcf5f5056261918f43e7', 'Added CPU time in api/support for the threads.', 3006 %>
+- <%= link_to_commit 'c749c47a12df283c2e333b9cc918e161aa6c1803', 'Added a link to pipeline settings in the pipeline history page. ', 2939 %>
 
 #### Bug Fixes
 
@@ -39,15 +39,15 @@
            <%= link_to 'troubleshooting page', 'https://docs.gocd.io/current/installation/troubleshoot_installer.html' %> in the
            documentation.
 
-- <%= link_to_commit '7a48c1af2d0d2300654ea45d2dec7cf1299738ba', 'Remove gadget rendering server and the GoCD OpenSocial Gadget.', 1908 %>
+- <%= link_to_commit '7a48c1af2d0d2300654ea45d2dec7cf1299738ba', 'Removed GoCD OpenSocial Gadget (Card activity tab) and Pipeline Dashboard Widget in Mingle.', 1908 %>
 
   As of release 16.12, the [OpenSocial gadgets](https://en.wikipedia.org/wiki/OpenSocial) was deprecated. This feature is now removed because of a couple of reasons —
     (a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
-    (b) the underlying implementation framework ([Apache Shindig](https://shindig.apache.org/)) hasn't been maintained for quite some time and contain several security vulnerabilities.
+    (b) the underlying implementation framework ([Apache Shindig](https://shindig.apache.org/)) hasn't been maintained for quite some time and contained several security vulnerabilities.
 
-- <%= link_to_commit '7274d233c1895d3364ce73575dc32cb7f60bbf55', 'Removed version 2 and 3 of the agents api.', 2984 %>
+- <%= link_to_commit '7274d233c1895d3364ce73575dc32cb7f60bbf55', 'Removed Version 2 and 3 of the Agents API.', 2984 %>
 
-  As of release 16.12, version 2 and version 3 of the <%= link_to_api 'agents', 'Agents API' %> was deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API have been removed in favor of version 4 of this API. This api is backward compatible, and users are encouraged to use it.
+  As of release 16.12, version 2 and version 3 of the <%= link_to_api 'agents', 'Agents API' %> was deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API have been removed in favor of version 4 of this API. This API is backward compatible, and users are encouraged to use it.
 
 - <%= link_to_commit '1e48c421c8e416941a57815689e8555ad7ba5def', 'Removed Templates API Version 1' %>
 
@@ -55,11 +55,9 @@
 
 - <%= link_to_commit 'f2ac6b182c03413e8c6cdbae26c47fe944a11897', 'Removed support for text based API support log.', 2975 %>
 
-- <%= link_to_commit 'da61c2bd7ee7e95dcf35d67867d5336efee76c83', 'Remove old agents page', 3015 %>
+- <%= link_to_commit 'da61c2bd7ee7e95dcf35d67867d5336efee76c83', 'Removed old Agents page', 3015 %>
 
 #### Deprecations
-
-Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
 
 The following features have been deprecated, along with the timeframe when they will be removed.
 
@@ -71,7 +69,7 @@ The following features have been deprecated, along with the timeframe when they 
 
     Below is the list of plugins that will stop working in 17.2.
 
-    **Note:** The GoCD team has built a [shim](https://github.com/aresok/go-maven-poller/compare/master...arvindsv:make-it-work-with-gocd-17-1) that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.2.
+    **Note:** The GoCD team has built a [shim](https://github.com/gocd-contrib/gocd-package-material-plugin-shim) that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.2.
 
     **Package plugins**
 
@@ -125,6 +123,6 @@ The following features have been deprecated, along with the timeframe when they 
 
 A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.1' %>
 
-Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.
 
 Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
