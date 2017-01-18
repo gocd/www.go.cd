@@ -14,7 +14,7 @@
 
     <title>Next release of GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-47f6bde5.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-26b0c875.css" rel="stylesheet" />
     <script src="assets/javascripts/all-b532d9de.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -85,7 +85,7 @@
           <h4 id="api-enhancements">API Enhancements</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/xxxx">xxxx</a></code> - Lorem ipsum <a href="https://api.gocd.io/current/#plugin-info">API</a> dolor sit amet</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/f47d054171b07e2ce9c2efa9e02dde6979fc9c8f">f47d054</a></code> - <a href="https://api.gocd.io/current/#encryption">API</a> to encrypt secrets. (<a href="https://github.com/gocd/gocd/issues/1829">#1829</a>)</li>
 </ul>
 
 <h4 id="other-improvements">Other Improvements</h4>
@@ -97,21 +97,14 @@
 <h4 id="bug-fixes">Bug Fixes</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/xxx">xxx</a></code> - yyy.</li>
-</ul>
-
-<h4 id="library-upgrades">Library upgrades</h4>
-
-<ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/f4bce94a14e088caf7baf6dd9979cf69e0681146">f4bce94</a></code> - Upgrading JGit to 4.5.0.201609210915-r.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e9611f83798bd5eddd62326f0827e5055519bd4a">e9611f8</a></code> - OS Detection failing for elastic agents. (<a href="https://github.com/gocd/gocd/issues/3060">#3060</a>)</li>
+  <li>Multiple UI fixes and tweaks on the new theme that was introduced in 16.12.</li>
 </ul>
 
 <h4 id="breaking-changes">Breaking changes</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/920b7ee2bd7fb5a614f9e7540e59bf38c60ee92b">920b7ee</a></code> - Removed support for Java 7.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/f2ac6b182c03413e8c6cdbae26c47fe944a11897">f2ac6b1</a></code> - Removed support for text based API support log (<a href="https://github.com/gocd/gocd/issues/2975">#2975</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/7274d233c1895d3364ce73575dc32cb7f60bbf55">7274d23</a></code> - Removed version 2 and 3 of the agents api (<a href="https://github.com/gocd/gocd/issues/2984">#2984</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/xxx">xxx</a></code> - YYY. (<a href="https://github.com/gocd/gocd/issues/456">#456</a>)</li>
 </ul>
 
 <h4 id="deprecations">Deprecations</h4>
@@ -122,11 +115,7 @@
 
 <ul>
   <li>We shall be stopping support for git versions older than 1.9 in three months time (Feb 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to <a href="https://www.softwarecollections.org/en/scls/rhscl/git19/">this</a> and/or <a href="http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633">this</a> to upgrade git.</li>
-  <li>As of release 16.12, the <a href="https://en.wikipedia.org/wiki/OpenSocial">OpenSocial gadgets</a> have been deprecated. This feature will be removed in 17.1 (scheduled to be released in Jan 2017). This has been done for a few of reasons —
-(a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
-(b) the underlying implementation framework (<a href="https://shindig.apache.org/">Apache Shindig</a>) hasn't been maintained for quite some time and contain several security vulnerabilities.</li>
   <li>As of release 16.12, version 1 of the <a href="https://api.gocd.io/current/#get-all-plugin-info">Plugin Info API</a> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.</li>
-  <li>As of release 16.11, version 1 of the <a href="https://api.gocd.io/current/#template-config">Templates API</a> is deprecated. This version of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 2 of the API is available, and users are encouraged to use it.</li>
   <li>As of release 16.12, version 2 of the <a href="https://api.gocd.io/current/#pipeline-config">Pipeline Config API</a> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.</li>
   <li>
     <p>As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017). Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.gocd.io/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
@@ -164,7 +153,7 @@
 
 <h4 id="contributors">Contributors</h4>
 
-<p>Alison Polton-Simon, Aravind SV, Bhupendrakumar Piprava, ByteFlinger, Ganesh S Patil, Jyoti Singh, Ketan Padegaonkar, Mahesh Panchaksharaiah, Markandan R, Naveen Bhaskar, Padma Mullagiri, Rajiesh Narayanan, Sallie Walecka, Sumanth Kumar Mora, Tomasz Setkowski, Varsha Varadarajan, Walmyr (wlsf82 on GitHub), Zabil Cheriya Maliackal</p>
+<p>Alison Polton-Simon, Aravind SV, Bhupendrakumar Piprava, Ganesh S Patil, Jyoti Singh, Ketan Padegaonkar, Mahesh Panchaksharaiah, Markandan R, Naveen Bhaskar, Padma Mullagiri, Rajiesh Narayanan, Sallie Walecka, Sumanth Kumar Mora, Tomasz Setkowski, Varsha Varadarajan, Zabil Cheriya Maliackal</p>
 
 <h4 id="security-researchers">Security researchers</h4>
 
