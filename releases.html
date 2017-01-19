@@ -114,7 +114,7 @@
   <li>
     <p><code><a href="https://github.com/gocd/gocd/commit/2ae7fdb72e31b2868cee8a3d757402e2e0e40456">2ae7fdb</a></code> - Full config save optimization. (<a href="https://github.com/gocd/gocd/issues/2912">#2912</a>)</p>
 
-    <p>Optimisation to full config save through UI and API to give significant improvements in the config save time. Our performance runs show full config save times reduced by half.</p>
+    <p>Optimization to full config save through UI and API to give significant improvements in the config save time. Our performance runs show full config save times reduced by half.</p>
   </li>
 </ul>
 
@@ -134,8 +134,8 @@
 
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/c094e900f4e097f49fc9bb87147598b9e579c104">c094e90</a></code> - Added environment variables to the server api page. (<a href="https://github.com/gocd/gocd/issues/3073">#3073</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/0802c7ede115efd5c71bfcf5f5056261918f43e7">0802c7e</a></code> - Adding CPU time in api/support for the threads. (<a href="https://github.com/gocd/gocd/issues/3006">#3006</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/c749c47a12df283c2e333b9cc918e161aa6c1803">c749c47</a></code> - Add a link to pipeline settings in the pipeline history page. (<a href="https://github.com/gocd/gocd/issues/2939">#2939</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/0802c7ede115efd5c71bfcf5f5056261918f43e7">0802c7e</a></code> - Added CPU time in api/support for the threads. (<a href="https://github.com/gocd/gocd/issues/3006">#3006</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/c749c47a12df283c2e333b9cc918e161aa6c1803">c749c47</a></code> - Added a link to pipeline settings in the pipeline history page. (<a href="https://github.com/gocd/gocd/issues/2939">#2939</a>)</li>
 </ul>
 
 <h4 id="bug-fixes">Bug Fixes</h4>
@@ -164,16 +164,16 @@
          documentation.</p>
   </li>
   <li>
-    <p><code><a href="https://github.com/gocd/gocd/commit/7a48c1af2d0d2300654ea45d2dec7cf1299738ba">7a48c1a</a></code> - Remove gadget rendering server and the GoCD OpenSocial Gadget. (<a href="https://github.com/gocd/gocd/issues/1908">#1908</a>)</p>
+    <p><code><a href="https://github.com/gocd/gocd/commit/7a48c1af2d0d2300654ea45d2dec7cf1299738ba">7a48c1a</a></code> - Removed GoCD OpenSocial Gadget (Card activity tab) and Pipeline Dashboard Widget in Mingle. (<a href="https://github.com/gocd/gocd/issues/1908">#1908</a>)</p>
 
     <p>As of release 16.12, the <a href="https://en.wikipedia.org/wiki/OpenSocial">OpenSocial gadgets</a> was deprecated. This feature is now removed because of a couple of reasons —
   (a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
-  (b) the underlying implementation framework (<a href="https://shindig.apache.org/">Apache Shindig</a>) hasn't been maintained for quite some time and contain several security vulnerabilities.</p>
+  (b) the underlying implementation framework (<a href="https://shindig.apache.org/">Apache Shindig</a>) hasn't been maintained for quite some time and contained several security vulnerabilities.</p>
   </li>
   <li>
-    <p><code><a href="https://github.com/gocd/gocd/commit/7274d233c1895d3364ce73575dc32cb7f60bbf55">7274d23</a></code> - Removed version 2 and 3 of the agents api. (<a href="https://github.com/gocd/gocd/issues/2984">#2984</a>)</p>
+    <p><code><a href="https://github.com/gocd/gocd/commit/7274d233c1895d3364ce73575dc32cb7f60bbf55">7274d23</a></code> - Removed Version 2 and 3 of the Agents API. (<a href="https://github.com/gocd/gocd/issues/2984">#2984</a>)</p>
 
-    <p>As of release 16.12, version 2 and version 3 of the <a href="https://api.gocd.io/current/#agents">Agents API</a> was deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API have been removed in favor of version 4 of this API. This api is backward compatible, and users are encouraged to use it.</p>
+    <p>As of release 16.12, version 2 and version 3 of the <a href="https://api.gocd.io/current/#agents">Agents API</a> was deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API have been removed in favor of version 4 of this API. This API is backward compatible, and users are encouraged to use it.</p>
   </li>
   <li>
     <p><code><a href="https://github.com/gocd/gocd/commit/1e48c421c8e416941a57815689e8555ad7ba5def">1e48c42</a></code> - Removed Templates API Version 1.</p>
@@ -184,13 +184,11 @@
     <p><code><a href="https://github.com/gocd/gocd/commit/f2ac6b182c03413e8c6cdbae26c47fe944a11897">f2ac6b1</a></code> - Removed support for text based API support log. (<a href="https://github.com/gocd/gocd/issues/2975">#2975</a>)</p>
   </li>
   <li>
-    <p><code><a href="https://github.com/gocd/gocd/commit/da61c2bd7ee7e95dcf35d67867d5336efee76c83">da61c2b</a></code> - Remove old agents page. (<a href="https://github.com/gocd/gocd/issues/3015">#3015</a>)</p>
+    <p><code><a href="https://github.com/gocd/gocd/commit/da61c2bd7ee7e95dcf35d67867d5336efee76c83">da61c2b</a></code> - Removed old Agents page. (<a href="https://github.com/gocd/gocd/issues/3015">#3015</a>)</p>
   </li>
 </ul>
 
 <h4 id="deprecations">Deprecations</h4>
-
-<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 
 <p>The following features have been deprecated, along with the timeframe when they will be removed.</p>
 
@@ -204,7 +202,7 @@
 
     <p>Below is the list of plugins that will stop working in 17.2.</p>
 
-    <p><strong>Note:</strong> The GoCD team has built a <a href="https://github.com/aresok/go-maven-poller/compare/master...arvindsv:make-it-work-with-gocd-17-1">shim</a> that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.2.</p>
+    <p><strong>Note:</strong> The GoCD team has built a <a href="https://github.com/gocd-contrib/gocd-package-material-plugin-shim">shim</a> that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.2.</p>
 
     <p><strong>Package plugins</strong></p>
 
@@ -245,7 +243,7 @@
 
 <p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.1%22">here.</a></p>
 
-<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.</p>
 
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
 
