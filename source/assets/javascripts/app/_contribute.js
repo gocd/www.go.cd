@@ -81,7 +81,7 @@ $(function () {
 
   $(".mapcontainer").mapael({
     map: {
-      name: "world_countries",
+      name: "world_countries_miller",
       zoom : {
         enabled : true,
         maxLevel : 15
