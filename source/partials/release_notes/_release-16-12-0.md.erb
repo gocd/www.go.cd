@@ -1,4 +1,4 @@
-#### UI Refresh
+<h4>UI Refresh</h4>
 
 The entire application has been refreshed to sport a flat look.
 
@@ -8,7 +8,7 @@ If you have feedback or issues with the new look please log them at [GitHub](htt
   <%= image_tag 'releases/16.12/new-theme.png', alt: 'New Theme' %>
 </figure>
 
-#### Agents Page
+<h4>Agents Page</h4>
 
 A brand new snappy and light-weight replacement for viewing and managing agents!
 
@@ -19,7 +19,7 @@ If you have feedback or issues with the new agents page please log them at [GitH
   <%= image_tag 'releases/16.12/agents-page.png', alt: 'Agents Page' %>
 </figure>
 
-#### Elastic Agents
+<h4>Elastic Agents</h4>
 
 Elastic agents is now a fully supported feature in GoCD.
 
@@ -29,21 +29,21 @@ To be able to use elastic agents, you should install an existing [elastic-agent 
   <%= image_tag 'releases/16.12/elastic-profiles-add-new.png', alt: 'Create Elastic Profile' %>
 </figure>
 
-#### TFS Upgrade
+<h4>TFS Upgrade</h4>
 
 We have upgraded to [TEE](https://github.com/Microsoft/team-explorer-everywhere) SDK 14.0.3. Users will now be able to use GoCD with TFS 2012, 2013, 2015 and [Visual Studio Team Services](https://www.visualstudio.com/team-services/). Please file an issue if you're having issues connecting to TFS repositories. Earlier versions of TFS are no longer supported and may not work.
 
-#### Pipeline Edit Link
+<h4>Pipeline Edit Link</h4>
 
 Users can now directly navigate to the pipeline settings page from the stage and job detail page.
 
-#### API Enhancements
+<h4>API Enhancements</h4>
 
 * <%= link_to_commit '8952af2168feca77c1e2115d0300ae1e521fa5ff', "#{link_to_api 'packages'} to manage packages." %>
 * <%= link_to_commit 'e599a230697f26ad51596d50c7d38ec851aa00c6', "#{link_to_api 'package-repositories'} to manage package repositories." %>
 * <%= link_to_commit '9aabf482c593a3b54ceac05aac8b6a3ba1d4889c', "Introduced version 2 of Plugin Info #{link_to_api 'plugin-info'} to provide complete metadata for plugin type `package-repository` and icons for plugins that provide it." %>
 
-#### Other Improvements
+<h4>Other Improvements</h4>
 
 * <%= link_to_commit 'fddc9fe2187a87720c0bb2a222af95d7029312c2', 'Improve performance of downloading of agent jars on a server upgrade.', 2813 %>
 * <%= link_to_commit '5387e2171ff4bd9aff68d3649f1e3ad5b13b44d5', 'Handling cleanup of agent and launcher jars from previous version of agent during an upgrade', 2789 %>
@@ -57,24 +57,24 @@ Users can now directly navigate to the pipeline settings page from the stage and
 
     Any new installations of GoCD will generate a SHA-256 certificate. For existing installations, users should remove the file `config/keystore` to allow GoCD to regenerate a new server certificate. Depending on your [end-to-end transport security](https://docs.gocd.io/current/installation/ssl_tls/end_to_end_transport_security.html) settings you may need to configure the `-rootCertFile` argument to the GoCD agent.
 
-#### Bug Fixes
+<h4>Bug Fixes</h4>
 
 * <%= link_to_commit 'b34da2d28d6d0ba4e5d36a0a2d314e67b25d41a7', 'Bug fixes to ensure that `git gc` on the config repository works as expected.' %>
 * <%= link_to_commit 'a34c6dcc4dd3c5869b72e976af70779536511b07', 'Allow dots in the repository and package id', 2844 %>
 * Miscellaneous fixes to the new quick edit and agents pages.
 
-#### Library upgrades
+<h4>Library upgrades</h4>
 
 * <%= link_to_commit '4aa1c562e6c055bf18a32df87e4d54be3f267c21', 'Bump JRuby to 1.7.26 from 1.7.11.' %>
 * <%= link_to_commit 'f4bce94a14e088caf7baf6dd9979cf69e0681146', 'Upgrading JGit to 4.5.0.201609210915-r.' %>
 
-#### Breaking changes
+<h4>Breaking changes</h4>
 
 - <%= link_to_commit '5052154a4fed53d884d40b0114b9efc06b20434f', 'Removed Pipeline Config API V1. This API was deprecated since 16.7 and has been replaced with version 3. Version 3 of the API is available, and users are encouraged to use it.' %>
 
 - Microsoft Internet Explorer versions older than 11 are no longer supported. Please use IE 11 or higher. [Microsoft Edge](https://www.microsoft.com/en-in/windows/microsoft-edge) is recommended.
 
-#### Deprecations
+<h4>Deprecations</h4>
 
 Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
 
@@ -122,7 +122,7 @@ The following features have been deprecated, along with the timeframe when they 
     * [Publish to Artifactory](https://github.com/tusharm/go-artifactory-plugin)
 
 
-#### Contributors
+<h4>Contributors</h4>
 
 <%= [
   'Alison Polton-Simon',
@@ -146,11 +146,11 @@ The following features have been deprecated, along with the timeframe when they 
 ].sort.uniq.join(', ')
 %>
 
-#### Security researchers
+<h4>Security researchers</h4>
 
 <%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
 
-#### Note
+<h4>Note</h4>
 
 A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 16.12' %>
 
