@@ -1,24 +1,24 @@
-#### Performance Improvement
+<h4>Performance Improvement</h4>
 
 - <%= link_to_commit '2ae7fdb72e31b2868cee8a3d757402e2e0e40456', 'Full config save optimization', 2912 %>
 
   Optimization to full config save through UI and API to give significant improvements in the config save time. Our performance runs show full config save times reduced by half.
 
-#### API Enhancements
+<h4>API Enhancements</h4>
 
 - <%= link_to_commit '467cf5f1c602144ab3e19fb95f5ab512c309d2de', "#{link_to_api 'encryption', 'Encryption API'} to encrypt plain text.", 3031 %>
 - <%= link_to_commit '2789aa8f691a860c7908aabb42cacc99a7333031', "Allow template admin to view and edit templates via #{link_to_api 'template-config'}", 2967 %>
 
-#### Plugin enhancements
+<h4>Plugin enhancements</h4>
 - <%= link_to_commit '3c001b1d376263e964495723fb76a4771ca8a705', "V2 of #{link_to_plugin_api 'notifications', 'Notification endpoint'}.", 3030 %>
 
-#### Other Improvements
+<h4>Other Improvements</h4>
 
 - <%= link_to_commit 'c094e900f4e097f49fc9bb87147598b9e579c104', 'Added environment variables to the server api page.',3073 %>
 - <%= link_to_commit '0802c7ede115efd5c71bfcf5f5056261918f43e7', 'Added CPU time in api/support for the threads.', 3006 %>
 - <%= link_to_commit 'c749c47a12df283c2e333b9cc918e161aa6c1803', 'Added a link to pipeline settings in the pipeline history page. ', 2939 %>
 
-#### Bug Fixes
+<h4>Bug Fixes</h4>
 
 - Multiple UI fixes and tweaks on the new theme that was introduced in 16.12.
 - <%= link_to_commit 'e9611f83798bd5eddd62326f0827e5055519bd4a', 'Refresh ElasticAgent-OperatingSystem and ElasticAgent-UsableSpace while initializing the runtimeInfo.', 3078 %>
@@ -27,7 +27,7 @@
 - <%= link_to_commit '4b684ee70f8fb042cd8c874502a116133b75ce0e', 'Provide template admin authorization to users within a role.', 2989 %>
 - <%= link_to_commit 'df85694747d156655c5b8f2342afaef2c9751050', "Additional validations for #{link_to_api 'template-config', 'templates API'}", 3035 %>
 
-#### Breaking changes
+<h4>Breaking changes</h4>
 
 - <%= link_to_commit '920b7ee2bd7fb5a614f9e7540e59bf38c60ee92b', 'Removed support for Java 7.' %>
 
@@ -57,7 +57,7 @@
 
 - <%= link_to_commit 'da61c2bd7ee7e95dcf35d67867d5336efee76c83', 'Removed old Agents page', 3015 %>
 
-#### Deprecations
+<h4>Deprecations</h4>
 
 The following features have been deprecated, along with the timeframe when they will be removed.
 
@@ -92,7 +92,7 @@ The following features have been deprecated, along with the timeframe when they 
     * [Publish to Artifactory](https://github.com/tusharm/go-artifactory-plugin)
 
 
-#### Contributors
+<h4>Contributors</h4>
 
 <%= [
   'Alison Polton-Simon',
@@ -114,11 +114,11 @@ The following features have been deprecated, along with the timeframe when they 
 ].sort.uniq.join(', ')
 %>
 
-#### Security researchers
+<h4>Security researchers</h4>
 
 <%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
 
-#### Note
+<h4>Note</h4>
 
 A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.1' %>
 
