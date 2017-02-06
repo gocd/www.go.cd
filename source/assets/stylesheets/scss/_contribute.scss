@@ -103,13 +103,25 @@
       }
 
     }
+    div{
 
+      @media (min-width: $screen-tablet) and (max-width: $screen-lg-desktop){
+        min-height: 350px;
+      }
+    }
     img {
       width: 100px;
       &.watermark{
-        width: 75%;
-        margin-left: 12%;
-        margin-top: 12%;
+        width: 50%;
+        margin-left: 25%;
+        margin-top: 20%;
+        display: none;
+        @media (min-width: $screen-desktop) and (max-width: $screen-lg-desktop){
+          margin-top: 10%;
+        }
+        @media (min-width: $screen-tablet){
+          display: block;
+        }
       }
     }
 
