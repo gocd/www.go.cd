@@ -6,13 +6,28 @@
     location: Charlotte
   - date: April 26 - 27
     location: Seattle
-  
+
+- title: "Lead Developer Conference"
+      url: http://theleaddeveloper-ny.com/
+      description: "The conference for technical leads."
+      details:
+      - date: February 21
+        location: New York
+
 - title: "PIPELINE: The Continuous Delivery Conference"
   url: https://web.pipelineconf.info/
   description: "PIPELINE is a one-day, not-for-profit, 'unconference' event focused on Continuous Delivery."
   details:
     - date: March 21
       location: London, UK
+
+- title: "O'Reilly Software Architecture"
+  url: https://conferences.oreilly.com/software-architecture/sa-ny
+  description: "A conference for veteran and aspiring software architects, engineers, and senior developers to stay current with emerging technologies, hone their leadership skills, and support the success of their businesses."
+  details:
+    - date: April 3 - 5
+      location: New York
+
 
 - title: "QCon"
   url: https://qconferences.com/
