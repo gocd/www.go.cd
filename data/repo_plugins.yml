@@ -131,3 +131,12 @@
   releases_url: https://github.com/1and1/go-maven-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=1and1&repo=go-maven-poller&type=watch&count=true
   first_available_date: 04/2015
+
+- name: Artifactory Package
+  description: Plugin that lets you download latest version of an artifact from Artifactory. Uses new go-json-api.
+  readmore_url: https://github.com/cnenning/go-artifactory-scm-plugin
+  author_url: https://github.com/cnenning/
+  author_name: Christoph Nenning
+  releases_url: https://github.com/cnenning/go-artifactory-scm-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=cnenning&repo=go-artifactory-scm-plugin&type=watch&count=true
+  first_available_date: 12/2016
