@@ -1,0 +1,127 @@
+<h4>Performance Improvement</h4>
+
+- <%= link_to_commit '2ae7fdb72e31b2868cee8a3d757402e2e0e40456', 'Full config save optimization', 2912 %>
+
+  Optimization to full config save through UI and API to give significant improvements in the config save time. Our performance runs show full config save times reduced by half.
+
+<h4>API Enhancements</h4>
+
+- <%= link_to_commit '467cf5f1c602144ab3e19fb95f5ab512c309d2de', "#{link_to_api 'encryption', 'Encryption API'} to encrypt plain text.", 3031 %>
+- <%= link_to_commit '2789aa8f691a860c7908aabb42cacc99a7333031', "Allow template admin to view and edit templates via #{link_to_api 'template-config'}", 2967 %>
+
+<h4>Plugin enhancements</h4>
+- <%= link_to_commit '3c001b1d376263e964495723fb76a4771ca8a705', "V2 of #{link_to_plugin_api 'notifications', 'Notification endpoint'}.", 3030 %>
+
+<h4>Other Improvements</h4>
+
+- <%= link_to_commit 'c094e900f4e097f49fc9bb87147598b9e579c104', 'Added environment variables to the server api page.',3073 %>
+- <%= link_to_commit '0802c7ede115efd5c71bfcf5f5056261918f43e7', 'Added CPU time in api/support for the threads.', 3006 %>
+- <%= link_to_commit 'c749c47a12df283c2e333b9cc918e161aa6c1803', 'Added a link to pipeline settings in the pipeline history page. ', 2939 %>
+
+<h4>Bug Fixes</h4>
+
+- Multiple UI fixes and tweaks on the new theme that was introduced in 16.12.
+- <%= link_to_commit 'e9611f83798bd5eddd62326f0827e5055519bd4a', 'Refresh ElasticAgent-OperatingSystem and ElasticAgent-UsableSpace while initializing the runtimeInfo.', 3078 %>
+- <%= link_to_commit 'b66bddc26b130e15e46f9cb7a838b01d28014945', 'Refactor agent controller to switch between http and websockets.', 2864 %>
+- <%= link_to_commit 'c26f118dfb555ef489f0e595423f6ebc008b61f0', 'Mask password entered for materials of type svn, tfs, perforce. ', 2937 %>
+- <%= link_to_commit '4b684ee70f8fb042cd8c874502a116133b75ce0e', 'Provide template admin authorization to users within a role.', 2989 %>
+- <%= link_to_commit 'df85694747d156655c5b8f2342afaef2c9751050', "Additional validations for #{link_to_api 'template-config', 'templates API'}", 3035 %>
+
+<h4>Breaking changes</h4>
+
+- <%= link_to_commit '920b7ee2bd7fb5a614f9e7540e59bf38c60ee92b', 'Removed support for Java 7.' %>
+
+  Starting with the 17.1 release of GoCD, Server and Agents will only run with Java 8. Users are encouraged to upgrade to the latest release of GoCD with Java 8.
+
+  Windows installations of GoCD need not install Java 8 separately since the Windows installer comes bundled with a JRE. However this *may* require users to upgrade the agent installer on Windows.
+
+  If you have trouble while upgrading to Go version 17.1, please take a look at the
+           <%= link_to 'troubleshooting page', 'https://docs.gocd.io/current/installation/troubleshoot_installer.html' %> in the
+           documentation.
+
+- <%= link_to_commit '7a48c1af2d0d2300654ea45d2dec7cf1299738ba', 'Removed GoCD OpenSocial Gadget (Card activity tab) and Pipeline Dashboard Widget in Mingle.', 1908 %>
+
+  As of release 16.12, the [OpenSocial gadgets](https://en.wikipedia.org/wiki/OpenSocial) was deprecated. This feature is now removed because of a couple of reasons —
+    (a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
+    (b) the underlying implementation framework ([Apache Shindig](https://shindig.apache.org/)) hasn't been maintained for quite some time and contained several security vulnerabilities.
+
+- <%= link_to_commit '7274d233c1895d3364ce73575dc32cb7f60bbf55', 'Removed Version 2 and 3 of the Agents API.', 2984 %>
+
+  As of release 16.12, version 2 and version 3 of the <%= link_to_api 'agents', 'Agents API' %> was deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API have been removed in favor of version 4 of this API. This API is backward compatible, and users are encouraged to use it.
+
+- <%= link_to_commit '1e48c421c8e416941a57815689e8555ad7ba5def', 'Removed Templates API Version 1' %>
+
+  As of release 16.11, version 1 of the <%= link_to_api 'template-config', 'Templates API' %> was deprecated. Users are encouraged to use Version 3 of the API which is backward compatible with Version 1.
+
+- <%= link_to_commit 'f2ac6b182c03413e8c6cdbae26c47fe944a11897', 'Removed support for text based API support log.', 2975 %>
+
+- <%= link_to_commit 'da61c2bd7ee7e95dcf35d67867d5336efee76c83', 'Removed old Agents page', 3015 %>
+
+<h4>Deprecations</h4>
+
+The following features have been deprecated, along with the timeframe when they will be removed.
+
+* As of release 16.12, git versions older than 1.9 are deprecated. Support for git versions older than 1.9 will be stopped in 17.2 (scheduled to be released in February 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to [this](https://www.softwarecollections.org/en/scls/rhscl/git19/) and/or [this](http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633) to upgrade git.
+* As of release 16.12, version 1 of the <%= link_to_api 'get-all-plugin-info', 'Plugin Info API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.
+* As of release 17.1, version 2 of the <%= link_to_api 'template-config', 'Templates API' %> is deprecated. This version of the API will be removed in 17.4 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.
+* As of release 16.12, version 2 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.
+* As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.2 (scheduled to be released in February 2017). Plugin developers are encouraged to upgrade their plugins to use [JSON message based plugin API.](https://plugin-api.gocd.io/current/tasks) to build plugins.
+
+    Below is the list of plugins that will stop working in 17.2.
+
+    **Note:** The GoCD team has built a [shim](https://github.com/gocd-contrib/gocd-package-material-plugin-shim) that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.2.
+
+    **Package plugins**
+
+    * [Maven (Nexus) repository poller](https://github.com/aresok/go-maven-poller)
+    * [Docker Registry Poller - 1](https://github.com/hammerdr/go-docker-registry-poller)
+    * [Docker Registry Poller - 2](https://github.com/decoomanj/gocd-docker-material-poller)
+    * [Puppet Forge repository poller](https://github.com/drrb/go-puppet-forge-poller)
+    * [Debian repository poller](https://github.com/gocd-contrib/deb-repo-poller)
+
+    **Task plugins**
+
+    * [MSBuild Task](https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md)
+    * [XUnit Converter](https://github.com/gocd-contrib/xunit-converter-task)
+    * [Publish to S3](https://github.com/indix-eng/gocd-s3-artifacts)
+    * [Fetch from S3](https://github.com/indix-eng/gocd-s3-artifacts)
+    * [Powershell Task](https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md)
+    * [RapidDeploy Package Builder](https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin)
+    * [RapidDeploy Job Runner](https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin)
+    * [Maven Task Plugin](https://github.com/ruckc/gocd-maven-plugin)
+    * [Publish to Artifactory](https://github.com/tusharm/go-artifactory-plugin)
+
+
+<h4>Contributors</h4>
+
+<%= [
+  'Alison Polton-Simon',
+  'Aravind SV',
+  'Bhupendrakumar Piprava',
+  'Ganesh S Patil',
+  'Jyoti Singh',
+  'Ketan Padegaonkar',
+  'Mahesh Panchaksharaiah',
+  'Markandan R',
+  'Naveen Bhaskar',
+  'Padma Mullagiri',
+  'Rajiesh Narayanan',
+  'Sallie Walecka',
+  'Sumanth Kumar Mora',
+  'Tomasz Setkowski',
+  'Varsha Varadarajan',
+  'Zabil Cheriya Maliackal',
+].sort.uniq.join(', ')
+%>
+
+<h4>Security researchers</h4>
+
+<%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.1' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>

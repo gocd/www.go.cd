@@ -4,13 +4,13 @@ var showDownloadLinks = (function($) {
 
     var settingsForAllTypes = {
       stable: {
-        download_info_url : 'https://download.go.cd/releases.json',
-        download_prefix   : 'https://download.go.cd/binaries/',
+        download_info_url : 'https://download.gocd.io/releases.json',
+        download_prefix   : 'https://download.gocd.io/binaries/',
         version_to_show   : function(release) { return release['go_version']; }
       },
       experimental: {
-        download_info_url : 'https://download.go.cd/experimental/releases.json',
-        download_prefix   : 'https://download.go.cd/experimental/binaries/',
+        download_info_url : 'https://download.gocd.io/experimental/releases.json',
+        download_prefix   : 'https://download.gocd.io/experimental/binaries/',
         version_to_show   : function(release) { return release['go_full_version']; }
       }
     };
@@ -32,7 +32,7 @@ var showDownloadLinks = (function($) {
       });
 
       return R.evolve({
-        win:     {server: addDetailsFrom(release, 'Windows-Server'),  agent: addDetailsFrom(release, 'Windows-Agent')},
+        win:     {server: addDetailsFrom(release, 'Windows-Server'), agent: addDetailsFrom(release, 'Windows-Agent'),  server32bit: addDetailsFrom(release, 'Windows-Server-32bit'), agent32bit: addDetailsFrom(release, 'Windows-Agent-32bit')},
         osx:     {server: addDetailsFrom(release, 'Mac-Server'),      agent: addDetailsFrom(release, 'Mac-Agent')},
         deb:     {server: addDetailsFrom(release, 'LinuxDeb-Server'), agent: addDetailsFrom(release, 'LinuxDeb-Agent')},
         rpm:     {server: addDetailsFrom(release, 'LinuxRpm-Server'), agent: addDetailsFrom(release, 'LinuxRpm-Agent')},

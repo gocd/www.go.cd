@@ -17,14 +17,14 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
         <p>
           Below is a list of currently supported plugins for GoCD. These include plugins contributed by the community
           (that are not bundled with the GoCD Server). Please refer
-          the <a href="https://docs.go.cd/current/extension_points/plugin_user_guide.html">plugin user
+          the <a href="https://docs.gocd.io/current/extension_points/plugin_user_guide.html">plugin user
           guide</a> to know more about plugin
           installation etc.
         </p>
 
         <p>
           If there is a plugin that you want but do not see, write your own using
-          the <a href="https://developer.go.cd/current/writing_go_plugins/go_plugins_basics.html">GoCD plugin
+          the <a href="https://developer.gocd.io/current/writing_go_plugins/go_plugins_basics.html">GoCD plugin
           API</a>. Let us know if you are working on a plugin, and we will include it on this page.
         </p>
 
@@ -33,7 +33,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
           extension point defines the interface and the lifecycle that governs the respective plugin. At present only
           java-based extension points and plugins are supported by GoCD. Details about available extension points and
           their lifecycle can be obtained
-          from <a href="https://developer.go.cd/current/writing_go_plugins/go_plugins_basics.html">GoCD plugin API
+          from <a href="https://developer.gocd.io/current/writing_go_plugins/go_plugins_basics.html">GoCD plugin API
           documentation</a>.
         </p>
       </div>
@@ -48,7 +48,10 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
       {kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.task_plugins},
       {kind: "Notification plugins", plugins: data.notification_plugins},
       {kind: "SCM plugins", plugins: data.scm_plugins},
-      {kind: "Authentication plugins", plugins: data.auth_plugins}
+      {kind: "Authentication plugins", plugins: data.auth_plugins},
+      {kind: "Elastic agents plugins", version_info: ">= GoCD v16.8", plugins: data.elastic_agent_plugins},
+      {kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.config_repo_plugins},
+      {kind: "Advanced Deployments", plugins: data.paid_plugins}
     ] %>
     <div class="v-tabs all-plugins">
       <ul class="tabs">
@@ -74,7 +77,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
                   <li>
                     <span class="logo"></span>
                     <div class="details">
-                      <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled %>
+                      <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled || p.paid %>
                       <h5 class="name"> <%= escape_html(p.name) %> </h5>
                       <p class="more-details">
                         <%= escape_html(p.description) %>
@@ -87,6 +90,10 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
                     <div class="actions">
                       <% if p.bundled %>
                         <span class="with-go">Bundled with GoCD</span>
+                      <% elsif p.paid %>
+                        <div class='contactus-plugin'>
+                          <%= link_to('Contact us for more info', p.contact_url) %>
+                        </div>
                       <% else %>
                         <div class="download-plugin">
                           <i class="fa fa-download"></i>
@@ -102,7 +109,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 
                     <i class="fa fa-star"></i>
                     <h5>Want to contribute?</h5>
-                    <a href="https://developer.go.cd/current/writing_go_plugins/overview.html">Write a plugin</a>
+                    <a href="https://developer.gocd.io/current/writing_go_plugins/overview.html">Write a plugin</a>
                   </div>
                 </li>
               </ul>
@@ -116,8 +123,8 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
       <div class="col-md-12">
         <p class="note">
           <strong>Note:</strong> Plugins for GoCD are distributed under license from the copyright holder. In addition,
-          notwithstanding who the copyright holder is, all plugins on this page are made available for download “as is
-          and as available” without support or warranties of any kind, either express or implied, including but not
+          notwithstanding who the copyright holder is, all plugins on this page are made available for download "as is
+          and as available" without support or warranties of any kind, either express or implied, including but not
           limited to the implied warranties of merchantability, satisfactory quality, and fitness for a particular
           purpose.
         </p>

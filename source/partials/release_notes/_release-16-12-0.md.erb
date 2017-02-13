@@ -1,0 +1,159 @@
+<h4>UI Refresh</h4>
+
+The entire application has been refreshed to sport a flat look.
+
+If you have feedback or issues with the new look please log them at [GitHub](https://github.com/gocd/gocd/issues).
+
+<figure>
+  <%= image_tag 'releases/16.12/new-theme.png', alt: 'New Theme' %>
+</figure>
+
+<h4>Agents Page</h4>
+
+A brand new snappy and light-weight replacement for viewing and managing agents!
+
+The old page is still available as a toggle.
+If you have feedback or issues with the new agents page please log them at [GitHub](https://github.com/gocd/gocd/issues).
+
+<figure>
+  <%= image_tag 'releases/16.12/agents-page.png', alt: 'Agents Page' %>
+</figure>
+
+<h4>Elastic Agents</h4>
+
+Elastic agents is now a fully supported feature in GoCD.
+
+To be able to use elastic agents, you should install an existing [elastic-agent plugin](https://www.gocd.io/plugins), or [write your own](https://plugin-api.gocd.io/current/elastic-agents). Once the plugin is installed you must configure an "elastic agent profile" that you can associate with the jobs that require elastic agents.
+
+<figure class='shrink-figure-70'>
+  <%= image_tag 'releases/16.12/elastic-profiles-add-new.png', alt: 'Create Elastic Profile' %>
+</figure>
+
+<h4>TFS Upgrade</h4>
+
+We have upgraded to [TEE](https://github.com/Microsoft/team-explorer-everywhere) SDK 14.0.3. Users will now be able to use GoCD with TFS 2012, 2013, 2015 and [Visual Studio Team Services](https://www.visualstudio.com/team-services/). Please file an issue if you're having issues connecting to TFS repositories. Earlier versions of TFS are no longer supported and may not work.
+
+<h4>Pipeline Edit Link</h4>
+
+Users can now directly navigate to the pipeline settings page from the stage and job detail page.
+
+<h4>API Enhancements</h4>
+
+* <%= link_to_commit '8952af2168feca77c1e2115d0300ae1e521fa5ff', "#{link_to_api 'packages'} to manage packages." %>
+* <%= link_to_commit 'e599a230697f26ad51596d50c7d38ec851aa00c6', "#{link_to_api 'package-repositories'} to manage package repositories." %>
+* <%= link_to_commit '9aabf482c593a3b54ceac05aac8b6a3ba1d4889c', "Introduced version 2 of Plugin Info #{link_to_api 'plugin-info'} to provide complete metadata for plugin type `package-repository` and icons for plugins that provide it." %>
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_commit 'fddc9fe2187a87720c0bb2a222af95d7029312c2', 'Improve performance of downloading of agent jars on a server upgrade.', 2813 %>
+* <%= link_to_commit '5387e2171ff4bd9aff68d3649f1e3ad5b13b44d5', 'Handling cleanup of agent and launcher jars from previous version of agent during an upgrade', 2789 %>
+* <%= link_to_commit 'b97b6359ea4cbbab6a6a396c5d6a62a8fe3cc5b4', 'Generate additional windows installers to be able to package 32 bit and 64 bit JRE.' %>
+
+  There are two flavors of Server and Agent installers for Windows, one packaged with 64 bit JRE and the other with 32 bit JRE. 32-bit JREs only allow up-to 2GB of memory. Because large GoCD servers usually need more than 2GB of heap size, we recommend using a Server with 64 bit JRE. Agents should continue to use 32 bit JRE unless required.
+
+* <%= link_to_commit 'b763d3144b8e3139facc1dbad1226c258e2a32f7', 'Generate SHA-256 webserver certs instead of SHA-1.', 2842 %>
+
+    The self-signed web-server certificate that GoCD generates is now a SHA-256 certificate instead of a SHA-1 certificate. SHA1 certificates have been [deprecated](https://blog.qualys.com/ssllabs/2014/09/09/sha1-deprecation-what-you-need-to-know) by most browser vendors and users will start to see a warning in their browsers.
+
+    Any new installations of GoCD will generate a SHA-256 certificate. For existing installations, users should remove the file `config/keystore` to allow GoCD to regenerate a new server certificate. Depending on your [end-to-end transport security](https://docs.gocd.io/current/installation/ssl_tls/end_to_end_transport_security.html) settings you may need to configure the `-rootCertFile` argument to the GoCD agent.
+
+<h4>Bug Fixes</h4>
+
+* <%= link_to_commit 'b34da2d28d6d0ba4e5d36a0a2d314e67b25d41a7', 'Bug fixes to ensure that `git gc` on the config repository works as expected.' %>
+* <%= link_to_commit 'a34c6dcc4dd3c5869b72e976af70779536511b07', 'Allow dots in the repository and package id', 2844 %>
+* Miscellaneous fixes to the new quick edit and agents pages.
+
+<h4>Library upgrades</h4>
+
+* <%= link_to_commit '4aa1c562e6c055bf18a32df87e4d54be3f267c21', 'Bump JRuby to 1.7.26 from 1.7.11.' %>
+* <%= link_to_commit 'f4bce94a14e088caf7baf6dd9979cf69e0681146', 'Upgrading JGit to 4.5.0.201609210915-r.' %>
+
+<h4>Breaking changes</h4>
+
+- <%= link_to_commit '5052154a4fed53d884d40b0114b9efc06b20434f', 'Removed Pipeline Config API V1. This API was deprecated since 16.7 and has been replaced with version 3. Version 3 of the API is available, and users are encouraged to use it.' %>
+
+- Microsoft Internet Explorer versions older than 11 are no longer supported. Please use IE 11 or higher. [Microsoft Edge](https://www.microsoft.com/en-in/windows/microsoft-edge) is recommended.
+
+<h4>Deprecations</h4>
+
+Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
+
+The following features have been deprecated, along with the timeframe when they will be removed.
+
+* We shall be stopping support for git versions older than 1.9 in three months time (Feb 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to [this](https://www.softwarecollections.org/en/scls/rhscl/git19/) and/or [this](http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633) to upgrade git.
+* The GoCD api support page `http://your-server:8153/go/api/support` supports JSON and plain-text outputs. JSON has been the default since release 16.6. We will be removing the plain-text output in release 17.1 (scheduled to be released in Jan 2017). It is much simpler to consume the JSON output than the plain-text output.
+* As of release 16.12, the [OpenSocial gadgets](https://en.wikipedia.org/wiki/OpenSocial) have been deprecated. This feature will be removed in 17.1 (scheduled to be released in Jan 2017). This has been done for a few of reasons —
+  (a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
+  (b) the underlying implementation framework ([Apache Shindig](https://shindig.apache.org/)) hasn't been maintained for quite some time and contain several security vulnerabilities.
+* As of release 16.12, version 1 of the <%= link_to_api 'get-all-plugin-info', 'Plugin Info API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.
+* As of release 16.11, version 1 of the <%= link_to_api 'template-config', 'Templates API' %> is deprecated. This version of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 2 of the API is available, and users are encouraged to use it.
+* As of release 16.12, version 2 and version 3 of the <%= link_to_api 'agents', 'Agents API' %> is deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 4 of this API is backward compatible, and users are encouraged to use it.
+* As of release 16.5, Java 7 support was deprecated. Java 7 support will be removed in 17.1 release (scheduled to be released in January 2017). GoCD works great with Java 8, and users are encouraged to use it.
+* As of release 16.12, version 2 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.
+* As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017). Plugin developers are encouraged to upgrade their plugins to use [JSON message based plugin API.](https://plugin-api.gocd.io/current/tasks) to build plugins.
+
+
+    Below is the list of plugins that will stop working in 17.1.
+
+    **Note:** The GoCD team has built a [shim](https://github.com/gocd-contrib/gocd-package-material-plugin-shim) that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.1.
+
+    **Package plugins**
+
+    * [Maven (Nexus) repository poller](https://github.com/aresok/go-maven-poller) [[PR submitted](https://github.com/aresok/go-maven-poller/pull/10)]
+    * [Docker Registry Poller - 1](https://github.com/hammerdr/go-docker-registry-poller)
+    * [Docker Registry Poller - 2](https://github.com/decoomanj/gocd-docker-material-poller)
+    * [Puppet Forge repository poller](https://github.com/drrb/go-puppet-forge-poller) [[PR submitted](https://github.com/drrb/go-puppet-forge-poller/pull/3)]
+    * [Debian repository poller](https://github.com/gocd-contrib/deb-repo-poller) [[PR submitted](https://github.com/gocd-contrib/deb-repo-poller/pull/10)]
+    * [Cloud Foundry poller](https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md) [[PR submitted](https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/pull/1)]
+    * [Nuget repository poller](https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/) [[Rewritten - New release available](https://github.com/gocd-contrib/go-nuget-poller-plugin-2.0/releases)]
+    * [Generic Artifactory poller](https://github.com/varchev/go-generic-artifactory-poller) [[New release available](https://github.com/varchev/go-generic-artifactory-poller/releases)]
+    * [NPM repository poller](https://github.com/varchev/go-npm-poller) [[New release available](https://github.com/varchev/go-npm-poller/releases)]
+
+    **Task plugins**
+
+    * [MSBuild Task](https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md)
+    * [XUnit Converter](https://github.com/gocd-contrib/xunit-converter-task)
+    * [Publish to S3](https://github.com/indix-eng/gocd-s3-artifacts)
+    * [Fetch from S3](https://github.com/indix-eng/gocd-s3-artifacts)
+    * [Powershell Task](https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md)
+    * [RapidDeploy Package Builder](https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin)
+    * [RapidDeploy Job Runner](https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin)
+    * [Maven Task Plugin](https://github.com/ruckc/gocd-maven-plugin)
+    * [Publish to Artifactory](https://github.com/tusharm/go-artifactory-plugin)
+
+
+<h4>Contributors</h4>
+
+<%= [
+  'Alison Polton-Simon',
+  'Aravind SV',
+  'Bhupendrakumar Piprava',
+  'ByteFlinger',
+  'Ganesh S Patil',
+  'Jyoti Singh',
+  'Ketan Padegaonkar',
+  'Mahesh Panchaksharaiah',
+  'Markandan R',
+  'Naveen Bhaskar',
+  'Padma Mullagiri',
+  'Rajiesh Narayanan',
+  'Sallie Walecka',
+  'Sumanth Kumar Mora',
+  'Tomasz Setkowski',
+  'Varsha Varadarajan',
+  'Walmyr (wlsf82 on GitHub)',
+  'Zabil Cheriya Maliackal',
+].sort.uniq.join(', ')
+%>
+
+<h4>Security researchers</h4>
+
+<%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 16.12' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>

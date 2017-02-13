@@ -42,3 +42,12 @@
   releases_url: https://github.com/danielsomerfield/go-strong-auth-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=danielsomerfield&repo=go-strong-auth-plugin&type=watch&count=true
   first_available_date: 03/2016
+
+- name: Guest Login
+  description: Allow guest users to login, without having to enter a username or password
+  readmore_url: https://github.com/gocd-contrib/gocd_auth_plugin_guest_user
+  author_url: https://github.com/arvindsv
+  author_name: Aravind SV
+  releases_url: https://github.com/gocd-contrib/gocd_auth_plugin_guest_user/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd_auth_plugin_guest_user&type=watch&count=true
+  first_available_date: 03/2016

@@ -1,6 +1,6 @@
 - name: Yum repository poller
   description: Bundled plugin to poll a Yum repository.
-  readmore_url: https://docs.go.cd/current/extension_points/yum_repository_poller.html
+  readmore_url: https://docs.gocd.io/current/extension_points/yum_repository_poller.html
   author_url: http://www.thoughtworks.com/products/
   author_name: ThoughtWorks Inc.
   github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=go-plugins&type=watch&count=true
@@ -15,14 +15,14 @@
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=deb-repo-poller&type=watch&count=true
   first_available_date: 02/2014
 
-- name: Nuget repository poller
-  description: A package material plugin for GoCD. It is currently capable...
-  readmore_url: https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/
-  author_url: http://www.sriramnarayan.com/
-  author_name: Sriram Narayan
-  releases_url: https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=ThoughtWorksInc&repo=go-nuget-poller-plugin&type=watch&count=true
-  first_available_date: 10/2013
+- name: NuGet repository poller
+  description: A NuGet poller plugin for GoCD.
+  readmore_url: https://github.com/gocd-contrib/go-nuget-poller-plugin-2.0
+  author_url: http://www.thoughtworks.com/products/
+  author_name: Alison Polton-Simon and Sallie Walecka
+  releases_url: https://github.com/gocd-contrib/go-nuget-poller-plugin-2.0/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=go-nuget-poller-plugin-2.0&type=watch&count=true
+  first_available_date: 12/2016
 
 - name: Maven (Nexus) repository poller
   description: A plugin for polling Nexus repositories...

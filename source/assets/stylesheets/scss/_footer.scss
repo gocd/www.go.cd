@@ -103,24 +103,8 @@ footer {
 		&:hover {
 			.icon {
 				transform: scale(1.1);
+				color: #FFFFFF;
 			}
-
-			.join-us {
-				background: url('/assets/images/go.cd_jc-joinus-hover.svg');
-			}
-
-			.watch-us {
-				background: url('/assets/images/go.cd_jc-watchus-hover.svg');
-			}
-
-			.develop-with-us {
-				background: url('/assets/images/go.cd_jc-jitter-hover.svg');
-			}
-
-			.follow-us {
-				background: url('/assets/images/go.cd_jc-twitter-hover.svg');
-			}
-
 		}
 
 	}
@@ -142,7 +126,7 @@ footer {
 		display: block;
 		width: 40px;
 		height: 56px;
-
+		color: #00BFC0;
 		&:hover {
 			transform: scale(1.1);
 		}
@@ -159,20 +143,4 @@ footer {
 		text-decoration: none;
 	}
 
-}
-
-.join-us {
-	background: url('/assets/images/go.cd_jc-joinus.svg');
-}
-
-.watch-us {
-	background: url('/assets/images/go.cd_jc-watchus.svg');
-}
-
-.develop-with-us {
-	background: url('/assets/images/go.cd_jc-jitter.svg');
-}
-
-.follow-us {
-	background: url('/assets/images/go.cd_jc-twitter.svg');
 }
