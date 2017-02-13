@@ -1,0 +1,42 @@
+.campaignpages{
+  .campaign-header{
+    position: relative;
+    text-align: center;
+    img{
+      width: 100%;
+    }
+    h1{
+      @media (min-width:$screen-desktop) {
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        background: rgba(0,0,0,0.63);
+        color: #FFF;
+        position: absolute;
+        top: 50%;
+        width: 50%;
+        left: 50%;
+      }
+    }
+  }
+  .campaign-body{
+    @media (min-width:$screen-desktop) {
+      display: flex;
+      align-items: center;
+    }
+  }
+    .main-features{
+      background: #f5f5f5;
+      margin-top: 30px;
+    }
+    .btn-download{
+      position: static;
+      width: 100%;
+      font-size: 14px;
+      margin: 0;
+    }
+    .feature-title{
+      text-align: center;
+      border-bottom: 1px solid #CCC;
+      padding: 10px;
+    }
+}

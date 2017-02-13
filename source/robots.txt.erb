@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
-Sitemap: https://<%= config.cname %>/sitemap.xml
+
+Disallow: /next-release
+Disallow: /next-release/index.html
+Disallow: /next-release.html
+
+Sitemap: <%= config.base_url %>/sitemap.xml

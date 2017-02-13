@@ -1,0 +1,94 @@
+<h4>API enhancements</h4>
+
+<p><%= link_to_commit('fb24522', "Added new #{link_to_api 'elastic-agent-profiles'} to manage elastic agent profiles.") %></p>
+
+<h4>Quick Edit (Beta) Changes/Fixes</h4>
+
+<p><%= link_to_commit('1a345c0', 'Working directory validation on the new pipeline config page.') %></p>
+<p><%= link_to_commit('e116274', 'Added tooltip for material filter input.') %></p>
+<p><%= link_to_commit('761b411', 'Show server side timer validation on new pipeline config page.') %></p>
+
+<h4>Bug fixes</h4>
+
+<p><%= link_to_commit('ec51570', 'Do not raise an exception when duplicate modifications are seen in the database.') %></p>
+<p><%= link_to_commit('40999af', 'Improve handling of weak etags with deflate.') %></p>
+<p><%= link_to_commit('c69c1c4', 'Having fixed-delay does not honour the git gc cron.') %></p>
+<p><%= link_to_commit('4509fe7', 'Fixing VSM show more link.') %></p>
+<p><%= link_to_commit('e3d3360', 'Allow pipeline group admins to create or update SCMs.') %></p>
+<p><%= link_to_commit('d646cfc', "Added a blank check for build tasks' attributes.") %></p>
+<p><%= link_to_commit('5a54b2b', "Change current directory of agent's batch file in windows 8.") %></p>
+<p><%= link_to_commit('008f4f4', 'Fix the checkbox to allow known users to login in server configuration page.') %></p>
+<p><%= link_to_commit('e49cac1', 'Handling empty responses from package material plugins.') %></p>
+
+<h4>Breaking changes</h4>
+
+<p>No breaking changes in this release.</p>
+
+<h4>Deprecations</h4>
+<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>The following features have been deprecated, along with the timeframe when they will be removed</p>
+
+<ul>
+  <li><p>
+    As of release 16.11, version 1 of the Templates API is deprecated.
+    This version of the API will be removed in 17.1 release (scheduled to be released in January 2017).
+    Version 2 of the API is available, and users are encouraged to use it.
+  </p></li>
+  <li><p>
+    As of release 16.5, Java 7 support was deprecated.
+    Java 7 support will be removed in 17.1 release (scheduled to be released in January 2017).
+    GoCD works great with Java 8, and users are encouraged to use it.
+  </p></li>
+  <li><p>
+    As of release 16.7, version 1 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> was deprecated.
+    This version of the API will be removed in 16.10 release (scheduled to be released in Oct 2016).
+    Version 2 of this API is backward compatible, and users are encouraged to use it.
+  </p></li>
+  <li><p>
+    As of release 16.7, Java API based Go Plugins have been deprecated.
+    Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017).
+    Plugin developers are encouraged to upgrade their plugins to use <%= link_to('JSON message based plugin API.', 'https://plugin-api.gocd.io/current/tasks') %> to build plugins.</p>
+
+    <p>Below is the list of plugins that will stop working in 17.1, unless those changes are made.</p>
+
+    <h5>Package plugins</h5>
+    <ul>
+      <li><p><%= link_to('Maven (Nexus) repository poller', 'https://github.com/aresok/go-maven-poller') %></p></li>
+      <li><p><%= link_to('Docker Registry Poller - 1', 'https://github.com/hammerdr/go-docker-registry-poller') %></p></li>
+      <li><p><%= link_to('Docker Registry Poller - 2', 'https://github.com/decoomanj/gocd-docker-material-poller') %></p></li>
+      <li><p><%= link_to('Puppet Forge repository poller', 'https://github.com/drrb/go-puppet-forge-poller') %></p></li>
+      <li><p><%= link_to('Debian repository poller', 'https://github.com/gocd-contrib/deb-repo-poller') %></p></li>
+      <li><p><%= link_to('Cloud Foundry poller', 'https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md') %></p></li>
+      <li><p><%= link_to('Nuget repository poller', 'https://github.com/ThoughtWorksInc/go-nuget-poller-plugin/') %></p></li>
+      <li><p><%= link_to('Generic Artifactory poller', 'https://github.com/varchev/go-generic-artifactory-poller') %></p></li>
+      <li><p><%= link_to('NPM repository poller', 'https://github.com/varchev/go-npm-poller') %></p></li>
+    </ul>
+
+    <h5>Task plugins</h5>
+    <ul>
+      <li><p><%= link_to('MSBuild Task', 'https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md') %></p></li>
+      <li><p><%= link_to('XUnit Converter', 'https://github.com/gocd-contrib/xunit-converter-task') %></p></li>
+      <li><p><%= link_to('Publish to S3', 'https://github.com/indix/gocd-s3-artifacts') %></p></li>
+      <li><p><%= link_to('Fetch from S3', 'https://github.com/indix/gocd-s3-artifacts') %></p></li>
+      <li><p><%= link_to('Powershell Task', 'https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md') %></p></li>
+      <li><p><%= link_to('RapidDeploy Package Builder', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin') %></p></li>
+      <li><p><%= link_to('RapidDeploy Job Runner', 'https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin') %></p></li>
+      <li><p><%= link_to('Maven Task Plugin', 'https://github.com/ruckc/gocd-maven-plugin') %></p></li>
+      <li><p><%= link_to('Publish to Artifactory', 'https://github.com/tusharm/go-artifactory-plugin') %></p></li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Alison Polton-Simon, Aravind SV, ByteFlinger, Ganesh S Patil, Ketan Padegaonkar, Mahesh Panchaksharaiah, Naveen Bhaskar, Rajiesh Narayanan, Sallie Walecka, Sumanth Kumar Mora, Tomasz Sętkowski, Varsha Varadarajan, Zabil Cheriya Maliackal</p>
+
+<h4>Security researchers</h4>
+
+<%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
+
+<h4>Note</h4>
+<p>A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 16.11' %></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.</p>
+<p>Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %></p>

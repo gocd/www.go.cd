@@ -7,17 +7,15 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 <div class="banner">
   <div class="banner-content">
     <h1 class="caption">
-    <span>Ready.</span>
-    <span>Set.</span>
-    <span>Deliver!</span>
-         
+    <span>Simplify Continuous Delivery</span>
+
     </h1>
     <p class="subcaption">
-      Open source continuous delivery server specializing in advanced workflow modeling and visualization
+      Open source continuous delivery server to model and visualize complex workflows with ease
     </p>
     <%= link_to 'Download Now', "/download/index.html", {:class => "btn btn-primary btn-download", "analytics-label" => "home-download-cta"} %>
   </div>
-  
+
 </div>
 <p class="bigtxt">Automate and streamline your build-test-release cycle for reliable, continuous delivery of your product.
 </p>
@@ -25,34 +23,13 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
   <div class="container">
     <div class="row features">
       <div class=" col-sm-12 col-md-4">
-        <div class="feature-box">
-          <h3>Model complex workflows</h3>
-          <figure>
-            <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows and dependency management", :alt => "Model complex workflows and dependency management"} %>
-          </figure>
-          <p>With its parallel and sequential execution, GoCD can easily configure dependencies for fast feedback and on-demand deployment. Its fan-in/fan-out dependency management always does the "right thing," avoiding spurious builds.
-          </p>
-        </div>
+        <%= partial "partials/whygocdfeature1" %>
       </div>
       <div class=" col-sm-12 col-md-4">
-        <div class="feature-box">
-          <h3>Easily compare builds</h3>
-          <figure>
-            <%= image_tag "icons/go.cd_compare-builds.svg", {:title => "Compare builds - continuous delivery deployment pipelines", :alt => "Compare builds - continuous delivery deployment pipelines"} %>
-          </figure>
-          <p> GoCD's ability to compare content - both files and commit messages - across any two arbitrary builds, makes it invaluable when troubleshooting a broken pipeline.
-          </p>
-        </div>
+        <%= partial "partials/whygocdfeature2" %>
       </div>
       <div class="col-sm-12 col-md-4">
-        <div class="feature-box">
-          <h3>Clearly visualize your workflow</h3>
-          <figure>
-            <%= image_tag "icons/go.cd_see-how-things-really-work.svg", {:title => "Visualize your workflow with continuous delivery value stream map", :alt => "Visualize your workflow with continuous delivery value stream map"} %>
-          </figure>
-          <p>GoCD's Value Stream Map visualizes your end-to-end workflow in real time. Every change can be tracked from commit to deploy and back again.
-          </p>
-        </div>
+        <%= partial "partials/whygocdfeature3" %>
       </div>
     </div>
     <%= link_to 'See more GoCD features', '/why-gocd/index.html', :class => 'btn btn-default see-all-features', "analytics-label" => "link_homepage_see_more_gocd_features" %>
@@ -72,8 +49,8 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
             <h3>Plugins</h3>
             <p>
               GoCD has extension points for which plugins can be created. There are
-              <%= link_to 'numerous plugins', '/plugins/index.html', "analytics-label" => "link_homepage_plugins" %> already available, or if you don’t see
-              what you need, you can <%= link_to 'write your own', 'https://developer.go.cd/current/writing_go_plugins/go_plugins_basics.html',
+              <%= link_to 'numerous plugins', '/plugins/index.html', "analytics-label" => "link_homepage_plugins" %> already available, or if you don't see
+              what you need, you can <%= link_to 'write your own', 'https://developer.gocd.io/current/writing_go_plugins/go_plugins_basics.html',
                                          "analytics-label" => "link_homepage_plugin_writing_docs" %>.
             </p>
           </div>
@@ -89,7 +66,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
           <div class="col-xs-9 col-sm-9 col-md-9">
             <h3>Community</h3>
             <p>
-              GoCD's community is 1000 members strong and growing. Through our active forum, users and contributors share best practices and 
+              GoCD's community is 1000 members strong and growing. Through our active forum, users and contributors share best practices and
               openly discuss a wide range of topics including product how-tos. To join in the
               conversation visit <a href="https://groups.google.com/forum/#!forum/go-cd" analytics-label="link_homepage_google_group" >our Google group.</a>
             </p>
@@ -99,11 +76,4 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     </div>
   </div>
 </div>
-<div class="support">
-  <div class="container">
-    <div class="go-support">
-      <p>ThoughtWorks offers commercial support for <span class="go">Go</span>CD. Sign up for expert support and access to enterprise add-ons.</p>
-      <a href="https://www.thoughtworks.com/go/" analytics-label="professional-support">Get Support</a>
-    </div>
-  </div>
-</div>
+<%= partial "partials/supportbanner" %>

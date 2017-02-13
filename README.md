@@ -1,7 +1,7 @@
-# go.cd - website [![Build Status](https://snap-ci.com/gocd/www.go.cd/branch/master/build_image)](https://snap-ci.com/gocd/www.go.cd/branch/master)
+# gocd.io - website [![Build Status](https://snap-ci.com/gocd/www.go.cd/branch/master/build_image)](https://snap-ci.com/gocd/www.go.cd/branch/master)
 
 
-This repository hosts code for the website at [https://go.cd](https://go.cd).
+This repository hosts code for the website at [https://gocd.io](https://gocd.io).
 
 ## Build instructions
 
@@ -26,8 +26,8 @@ Then, the site will be available at build/ and can be served locally, if you cho
 ## Contributing
 
 We encourage you to contribute to GoCD. For information on contributing to this project, please see our
-[contributor's guide](http://www.go.cd/contribute).  A lot of useful information like links to user documentation,
-design documentation, mailing lists etc. can be found in the [resources](https://www.go.cd/resources/)
+[contributor's guide](http://www.gocd.io/contribute).  A lot of useful information like links to user documentation,
+design documentation, mailing lists etc. can be found in the [resources](https://www.gocd.io/resources/)
 section.
 
 
