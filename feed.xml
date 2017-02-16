@@ -5,10 +5,21 @@
   <id>https://www.gocd.io/blog</id>
   <link href="https://www.gocd.io/blog"/>
   <link href="https://www.gocd.io/feed.xml" rel="self"/>
-  <updated>2017-01-05T00:00:00Z</updated>
+  <updated>2017-02-16T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Migrating from Snap CI to GoCD</title>
+    <link rel="alternate" href="https://www.gocd.io/2017/02/16/migrating-snapci-to-gocd.html"/>
+    <id>https://www.gocd.io/2017/02/16/migrating-snapci-to-gocd.html</id>
+    <published>2017-02-16T00:00:00Z</published>
+    <updated>2017-02-16T00:00:00Z</updated>
+    <author>
+      <name>Suzie Prince - Product Manager at Snap CI</name>
+    </author>
+    <content type="html">Many Snap CI users are now looking for a replacement CI CD tool. In the end of life announcement we recommended that Snap CI users take a look at GoCD and consider it as an alternative.</content>
+  </entry>
   <entry>
     <title>Why we've moved from go.cd to gocd.io</title>
     <link rel="alternate" href="https://www.gocd.io/2017/01/05/why-we-moved-from-go-cd-to-gocd-io.html"/>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">I hear people say all the time that they're practicing continuous delivery. This declaration is often followed by something like, &amp;ldquo;I can let the security team know anytime&amp;rdquo;, or &amp;ldquo;I just have to run the performance tests&amp;rdquo;. If you can't push your software to production right now, you're not done with your continuous delivery journey.</content>
-  </entry>
-  <entry>
-    <title>Guest post: GoCD - Continuous Delivery through pipelines</title>
-    <link rel="alternate" href="https://www.gocd.io/2015/12/28/gocd-continuous-delivery-through-pipelines.html"/>
-    <id>https://www.gocd.io/2015/12/28/gocd-continuous-delivery-through-pipelines.html</id>
-    <published>2015-12-28T00:00:00Z</published>
-    <updated>2015-12-28T00:00:00Z</updated>
-    <author>
-      <name>Nenad Bozic</name>
-    </author>
-    <content type="html">GoCD has the pipeline abstraction at its core and that is a reason why we like it. Read why we have chosen it as our build tool in SmartCat ...</content>
   </entry>
 </feed>
