@@ -2,8 +2,8 @@
 layout: post
 title: "Migrating from Snap CI to GoCD"
 type: post
-author: Suzie Prince, Product Manager, Snap CI
-excerpt: "Many Snap CI users are now looking for a replacement CI/CD tool. In the end of life announcement we recommended that Snap CI users take a look at GoCD and consider it as an alternative."
+author: Suzie Prince - Product Manager at Snap CI
+excerpt: "Many Snap CI users are now looking for a replacement CI CD tool. In the end of life announcement we recommended that Snap CI users take a look at GoCD and consider it as an alternative."
 title_tag_of_header: "Migrating from Snap CI to GoCD | GoCD Blog"
 meta_description: "Snap CI is going away. GoCD is the recommended replacement for your Continuous Delivery Pipelines"
 meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go"
@@ -32,30 +32,15 @@ Here is the obligatory comparison table. Read on ahead for our opinions.
 | Hosted software as a service |  Run on your own servers, on-premise or on the cloud   |
 | Github integration | GoCD is universal (not platform or tool specific) and extensible through plugins. |
 | Built with pipelines at the core | Built with pipelines at the core |
-| Some support for fan in and fan out pipelines capabilities | First class support for fan-in/fan-out (to chain multiple pipelines) and value stream map.
-
-GoCD works great when it comes to modeling and visualizing workflows spanning across multiple repositories and pipelines.
-
-GoCD pipelines can be configured to support:
-
-multiple source repositories
-multiple pipelines
-multiple ways of getting builds
-multiple outputs |
+| Some support for fan in and fan out pipelines capabilities | First class support for fan-in/fan-out (to chain multiple pipelines) and value stream map. GoCD works great when it comes to modeling and visualizing workflows spanning across multiple repositories and pipelines. GoCD pipelines can be configured to support: multiple source repositories, multiple pipelines, multiple ways of getting builds, multiple outputs |
 | Configuration via UI | Configuration via source code, API and UI |
-| Ruby/JRuby, Python, Node.js/io.js, PHP, Java, Groovy/Gradle, Scala/SBT, Clojure/Leiningen, C/C++, Android |
-GoCD will execute tests and perform deployments written using any language or frameworks |
+| Ruby/JRuby, Python, Node.js/io.js, PHP, Java, Groovy/Gradle, Scala/SBT, Clojure/Leiningen, C/C++, Android | GoCD will execute tests and perform deployments written using any language or frameworks |
 | CentOS, Ubuntu | Windows, Mac OSX and Linux (Debian/Ubuntu CentOS/RedHat) |
 | Out of the box support for docker | Users required to setup and configure docker on GoCD agents |
 | Test parallelization up to 5 workers | Test parallelization and flexibility to scale from one machine to many machines using multiple GoCD agents |
 | Automatic branch tracking and pull request integration | Plugin support |
-| First class professional support for all users |
-Community based support for all users
-- [Google Group](https://gitter.im/gocd/gocd)
-- [Gitter Chat](https://groups.google.com/forum/#!forum/go-cd)
-[Professional support](https://www.thoughtworks.com/go/) for paid GoCD users |
-| APIs to trigger pipelines and get pipeline history |
-Rich API to configure GoCD, trigger pipelines and get read historical data from GoCD |
+| First class professional support for all users | Community based support for all users like [Google Group](https://gitter.im/gocd/gocd) and [Gitter Chat](https://groups.google.com/forum/#!forum/go-cd). [Professional support](https://www.thoughtworks.com/go/) for paid GoCD users |
+| APIs to trigger pipelines and get pipeline history | Rich API to configure GoCD, trigger pipelines and get read historical data from GoCD |
 
 <a name="is-gocd-for-me"></a>
 
