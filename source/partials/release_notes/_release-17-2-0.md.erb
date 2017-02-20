@@ -1,0 +1,124 @@
+#### Authorization Plugin Endpoint (beta)
+
+Currently GoCD provides multiple ways of Authentication, GoCD can be configured to use File based Authentication, LDAP/Active Directory Authentication and Plugin Based Authentication.
+
+Apart from Authentication, GoCD also provides ability to restrict certain operations to specific users and roles, additionally it also provides an ability to create and manage roles which is just a group of users.
+
+Currently, roles can be managed only through GoCD and it does not provide an ability to use roles defined in systems used for authentication e.g GoCD cannot use groups defined in LDAP for authorization. With this limitation, administrators need to configure roles in multiples places.
+
+With the introduction of Authorization Plugin Endpoint(Beta)  GoCD is moving in a direction where authentication/authorization is moved out of GoCD into plugins. With this, the Authorization Plugins would be responsible to provide identity service. Plugin developers will have the flexibility to use any identity service providers like LDAP/AD, Github etc to build their plugins.
+
+Authorization Plugin Endpoint (beta) [documentation](https://plugin-api.gocd.io/current/authorization) is available. We have built [LDAP Authentication plugin](https://github.com/gocd/gocd-ldap-authentication-plugin) using the Authorization Plugin Endpoint, this plugin supports only authentication. We would recommend developers to write plugins which support both authentication and authorization and provide us feedback to enhance this endpoint.
+
+#### Feature Enhancements
+
+* <%= link_to_commit 'c08843512b494ef1c483ebb699c615170dd13cf0', "Template Authorization UI and API enhancements" %>
+
+    - All pipeline group admins by default provided view permission to templates. Super admin can restrict this access.
+    - Super admin can provide template view access to users/roles.
+    - Allow template admins to delete templates via UI and API
+
+    <figure>
+      <%= image_tag 'releases/17.2.0/template-permissions.png', alt: 'Template Permissions' %>
+    </figure>
+
+
+#### Other Improvements
+
+- <%= link_to_commit '3b9f54b863c8df762c7927d859a9b4b45fdc4c7c', 'Go server/agent services do not get started on a new installation for debian and rpm based installations in order to allow users to make configuration changes before starting them up', 3119 %>
+
+#### Bug Fixes
+
+* <%= link_to_commit '7ddf84eaaf813546aa1f8eb684ef9cf3187f6617', 'User search functionality - Search through plugins implementing AuthenticationExtension.', 3107 %>
+* <%= link_to_commit 'ad1a1188d15839ac4a41c91c84c631612e49bf60', 'Sort resources and environments alphabetically on agents page selector dropdown.', 3134 %>
+* Multiple UI fixes on the old and new themes.
+
+
+#### Security Fixes
+
+* <%= link_to_commit 'a837fc05cca60a9bbb8dcd7d3a3c7b1228a51358', "Ensures passwords in git or hg material url's is masked before logging or using in server health message.", 3171 %>
+
+#### Breaking changes
+
+* <%= link_to_commit '8f88269fd8165246820ad1c27685485dd3fe0627', 'Removed support for API based plugins', 3102 %>
+
+  Below is the list of plugins that will stop working in 17.2.0
+
+  **Package plugins**
+
+  * [Maven (Nexus) repository poller](https://github.com/aresok/go-maven-poller)
+  * [Docker Registry Poller - 1](https://github.com/hammerdr/go-docker-registry-poller)
+  * [Docker Registry Poller - 2](https://github.com/decoomanj/gocd-docker-material-poller)
+  * [Puppet Forge repository poller](https://github.com/drrb/go-puppet-forge-poller)
+
+  **Task plugins**
+
+  * [MSBuild Task](https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md)
+  * [XUnit Converter](https://github.com/gocd-contrib/xunit-converter-task)
+  * [Publish to S3](https://github.com/indix-eng/gocd-s3-artifacts)
+  * [Fetch from S3](https://github.com/indix-eng/gocd-s3-artifacts)
+  * [Powershell Task](https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md)
+  * [RapidDeploy Package Builder](https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin)
+  * [RapidDeploy Job Runner](https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin)
+  * [Maven Task Plugin](https://github.com/ruckc/gocd-maven-plugin)
+  * [Publish to Artifactory](https://github.com/tusharm/go-artifactory-plugin)
+
+
+
+
+
+* <%= link_to_commit 'a6f1fac8231a5ee90aedc0395d6c31cd3a451021', 'Removed Pipeline Config API V2', 3174 %>
+
+  As of release 16.12, version 2 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> was deprecated. Version 3 of the API is available going forward. Users are encouraged to use it.
+
+* <%= link_to_commit '5a208ba9fa537157fd58e2417a35333b927d0edf', 'Removed Plugin Info API V1', 3143 %>
+
+  As of release 16.12, version 1 of the <%= link_to_api 'get-all-plugin-info', 'Plugin Info API' %> was deprecated. Version 2 of the API is available going forward. Users are encouraged to use it.
+
+* Stopped support for git versions older than 1.9.
+
+  As of release 16.12, git versions older than 1.9 were deprecated. Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to [this](https://www.softwarecollections.org/en/scls/rhscl/git19/) and/or [this](http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633) to upgrade git.
+
+#### Deprecations
+
+Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
+
+The following features have been deprecated, along with the timeframe when they will be removed.
+
+* As of release 17.1, version 2 of the <%= link_to_api 'template-config', 'Templates API' %> was deprecated. This version of the API will be removed in 17.4 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.
+
+#### Contributors
+
+<%= [
+        'Aravind SV',
+        'Bhupendrakumar Piprava',
+        'Dmitry Ledentsov',
+        'Ganesh S Patil',
+        'Isabelle Carter',
+        'Jyoti Singh',
+        'Ketan Padegaonkar',
+        'Kyle Olivo',
+        'Mahesh Panchaksharaiah',
+        'NaveenBhaskar',
+        'Sumanth Kumar Mora',
+        'Varsha Varadarajan',
+        'Lubaina R',
+        'Markandan R',
+        'Stephen Gran',
+        'cnenning',
+        'Rajiesh Narayanan',
+
+    ].sort.uniq.join(', ')
+%>
+
+#### Security researchers
+
+<%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
+
+#### Note
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.2' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
