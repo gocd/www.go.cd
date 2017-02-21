@@ -80,7 +80,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-17-1-0" class="active">17.1.0 (latest)</li>
+      <li rel="tab-17-2-0" class="active">17.2.0 (latest)</li>
+      <li rel="tab-17-1-0">17.1.0</li>
       <li rel="tab-16-12-0">16.12.0</li>
       <li rel="tab-16-11-0">16.11.0</li>
       <li rel="tab-16-10-0">16.10.0</li>
@@ -105,7 +106,136 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-17-1-0">17.1.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-17-2-0">17.2.0 (latest)</h3>
+      <div id="tab-17-2-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4 id="authorization-plugin-endpoint-beta">Authorization Plugin Endpoint (beta)</h4>
+
+<p>GoCD currently supports password-file, LDAP and plugin based authentication.</p>
+
+<p>In addition to authentication, GoCD offers authorization by restricting certain operations to specific users and groups of users ("roles").</p>
+
+<p>Without the use of authorization plugins, roles can only be managed through GoCD and it does not provide an ability to use roles defined in systems used for authentication (for example in LDAP groups). With this limitation, administrators need to configure roles in multiples places.</p>
+
+<p>The introduction of the authorization plugin endpoint (Beta) allows GoCD to delegate both authentication and authorization of users to plugins. The plugins will have the flexibility to use any identity service providers like LDAP, Google, GitHub etc.</p>
+
+<p>Authorization Plugin Endpoint (beta) <a href="https://plugin-api.gocd.io/current/authorization">documentation</a> is available. We have built <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">LDAP Authentication plugin</a> using the Authorization Plugin Endpoint, this plugin supports only authentication. We would recommend developers to write plugins which support both authentication and authorization and provide us feedback to enhance this endpoint.</p>
+
+<h4 id="feature-enhancements">Feature Enhancements</h4>
+
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/c08843512b494ef1c483ebb699c615170dd13cf0">c088435</a></code> - Template Authorization UI and API enhancements.</p>
+
+    <ul>
+      <li>All pipeline group admins by default provided view permission to templates. Super admin can restrict this access.</li>
+      <li>Super admin can provide template view access to users/roles.</li>
+      <li>Allow template admins to delete templates via UI and API</li>
+    </ul>
+
+    <figure>
+    <img src="assets/images/releases/17.2.0/template-permissions-73dc5171.png" alt="Template Permissions" />
+  </figure>
+  </li>
+</ul>
+
+<h4 id="other-improvements">Other Improvements</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/3b9f54b863c8df762c7927d859a9b4b45fdc4c7c">3b9f54b</a></code> - Go server/agent services do not get started on a new installation for debian and rpm based installations in order to allow users to make configuration changes before starting them up. (<a href="https://github.com/gocd/gocd/issues/3119">#3119</a>)</li>
+</ul>
+
+<h4 id="bug-fixes">Bug Fixes</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/7ddf84eaaf813546aa1f8eb684ef9cf3187f6617">7ddf84e</a></code> - User search functionality - Search through plugins implementing AuthenticationExtension. (<a href="https://github.com/gocd/gocd/issues/3107">#3107</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ad1a1188d15839ac4a41c91c84c631612e49bf60">ad1a118</a></code> - Sort resources and environments alphabetically on agents page selector dropdown. (<a href="https://github.com/gocd/gocd/issues/3134">#3134</a>)</li>
+  <li>Multiple UI fixes on the old and new themes.</li>
+</ul>
+
+<h4 id="security-fixes">Security Fixes</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/a837fc05cca60a9bbb8dcd7d3a3c7b1228a51358">a837fc0</a></code> - Ensures passwords in git or hg material url's is masked before logging or using in server health message. (<a href="https://github.com/gocd/gocd/issues/3171">#3171</a>)</li>
+</ul>
+
+<h4 id="breaking-changes">Breaking changes</h4>
+
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/8f88269fd8165246820ad1c27685485dd3fe0627">8f88269</a></code> - Removed support for API based plugins. (<a href="https://github.com/gocd/gocd/issues/3102">#3102</a>)</p>
+
+    <p>Below is the list of plugins that will stop working in 17.2.0</p>
+
+    <p><strong>Package plugins</strong></p>
+
+    <ul>
+      <li><a href="https://github.com/aresok/go-maven-poller">Maven (Nexus) repository poller</a></li>
+      <li><a href="https://github.com/hammerdr/go-docker-registry-poller">Docker Registry Poller - 1</a></li>
+      <li><a href="https://github.com/decoomanj/gocd-docker-material-poller">Docker Registry Poller - 2</a></li>
+      <li><a href="https://github.com/drrb/go-puppet-forge-poller">Puppet Forge repository poller</a></li>
+    </ul>
+
+    <p><strong>Task plugins</strong></p>
+
+    <ul>
+      <li><a href="https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md">MSBuild Task</a></li>
+      <li><a href="https://github.com/gocd-contrib/xunit-converter-task">XUnit Converter</a></li>
+      <li><a href="https://github.com/indix-eng/gocd-s3-artifacts">Publish to S3</a></li>
+      <li><a href="https://github.com/indix-eng/gocd-s3-artifacts">Fetch from S3</a></li>
+      <li><a href="https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md">Powershell Task</a></li>
+      <li><a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">RapidDeploy Package Builder</a></li>
+      <li><a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin">RapidDeploy Job Runner</a></li>
+      <li><a href="https://github.com/ruckc/gocd-maven-plugin">Maven Task Plugin</a></li>
+      <li><a href="https://github.com/tusharm/go-artifactory-plugin">Publish to Artifactory</a></li>
+    </ul>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/a6f1fac8231a5ee90aedc0395d6c31cd3a451021">a6f1fac</a></code> - Removed Pipeline Config API V2. (<a href="https://github.com/gocd/gocd/issues/3174">#3174</a>)</p>
+
+    <p>As of release 16.12, version 2 of the <a href="https://api.gocd.io/current/#pipeline-config">Pipeline Config API</a> was deprecated. Version 3 of the API is available going forward. Users are encouraged to use it.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/5a208ba9fa537157fd58e2417a35333b927d0edf">5a208ba</a></code> - Removed Plugin Info API V1. (<a href="https://github.com/gocd/gocd/issues/3143">#3143</a>)</p>
+
+    <p>As of release 16.12, version 1 of the <a href="https://api.gocd.io/current/#get-all-plugin-info">Plugin Info API</a> was deprecated. Version 2 of the API is available going forward. Users are encouraged to use it.</p>
+  </li>
+  <li>
+    <p>Stopped support for git versions older than 1.9.</p>
+
+    <p>As of release 16.12, git versions older than 1.9 were deprecated. Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to <a href="https://www.softwarecollections.org/en/scls/rhscl/git19/">this</a> and/or <a href="http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633">this</a> to upgrade git.</p>
+  </li>
+</ul>
+
+<h4 id="deprecations">Deprecations</h4>
+
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+
+<p>The following features have been deprecated, along with the timeframe when they will be removed.</p>
+
+<ul>
+  <li>As of release 17.1, version 2 of the <a href="https://api.gocd.io/current/#template-config">Templates API</a> was deprecated. This version of the API will be removed in 17.4 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.</li>
+</ul>
+
+<h4 id="contributors">Contributors</h4>
+
+<p>Aravind SV, Bhupendrakumar Piprava, Dmitry Ledentsov, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Kyle Olivo, Lubaina R, Mahesh Panchaksharaiah, Markandan R, NaveenBhaskar, Rajiesh Narayanan, Stephen Gran, Sumanth Kumar Mora, Varsha Varadarajan, cnenning</p>
+
+<h4 id="security-researchers">Security researchers</h4>
+
+<p><a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a></p>
+
+<h4 id="note">Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.2%22">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-17-1-0">17.1.0</h3>
       <div id="tab-17-1-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Performance Improvement</h4>
