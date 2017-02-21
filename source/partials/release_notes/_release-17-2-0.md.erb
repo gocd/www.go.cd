@@ -1,12 +1,12 @@
 #### Authorization Plugin Endpoint (beta)
 
-Currently GoCD provides multiple ways of Authentication, GoCD can be configured to use File based Authentication, LDAP/Active Directory Authentication and Plugin Based Authentication.
+GoCD currently supports password-file, LDAP and plugin based authentication.
 
-Apart from Authentication, GoCD also provides ability to restrict certain operations to specific users and roles, additionally it also provides an ability to create and manage roles which is just a group of users.
+In addition to authentication, GoCD offers authorization by restricting certain operations to specific users and groups of users ("roles").
 
-Currently, roles can be managed only through GoCD and it does not provide an ability to use roles defined in systems used for authentication e.g GoCD cannot use groups defined in LDAP for authorization. With this limitation, administrators need to configure roles in multiples places.
+Without the use of authorization plugins, roles can only be managed through GoCD and it does not provide an ability to use roles defined in systems used for authentication (for example in LDAP groups). With this limitation, administrators need to configure roles in multiples places.
 
-With the introduction of Authorization Plugin Endpoint(Beta)  GoCD is moving in a direction where authentication/authorization is moved out of GoCD into plugins. With this, the Authorization Plugins would be responsible to provide identity service. Plugin developers will have the flexibility to use any identity service providers like LDAP/AD, Github etc to build their plugins.
+The introduction of the authorization plugin endpoint (Beta) allows GoCD to delegate both authentication and authorization of users to plugins. The plugins will have the flexibility to use any identity service providers like LDAP, Google, GitHub etc.
 
 Authorization Plugin Endpoint (beta) [documentation](https://plugin-api.gocd.io/current/authorization) is available. We have built [LDAP Authentication plugin](https://github.com/gocd/gocd-ldap-authentication-plugin) using the Authorization Plugin Endpoint, this plugin supports only authentication. We would recommend developers to write plugins which support both authentication and authorization and provide us feedback to enhance this endpoint.
 
