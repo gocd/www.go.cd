@@ -7,7 +7,8 @@ excerpt: "The path from commit to production involves numerous moving parts, (li
 title_tag_of_header: "Importance and Principles of CD Pipelines | GoCD Blog"
 meta_description: "You need a way of modeling your workflow so that people can see, understand and talk about it. This is where CD pipelines come in. "
 meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go"
-summary_image: "/assets/images/blog/migrating-snapci-gocd/snapci-migrating-gocd.jpg"
+summary_image: "/assets/images/blog/importance-cd-pipelines/importance_pipelines_hero.jpg"
+
 ---
 In an ideal, magical world, your end-to-end deployment from a commit to production looks like this:
 
@@ -47,6 +48,8 @@ The necessity for a deployment pipeline has been perfectly summed up by [Martin 
 
 Usually, CD pipelines are set up so that the parts which provide fast feedback run first. In practice, quick-running unit tests are usually run earlier in the pipeline than the slower-running functional and performance tests. This ensures quicker feedback by making sure that slower running tests aren’t run unnecessarily taking up resources.
 
+<%= image_tag 'blog/importance-cd-pipelines/Fast-Feedback-First.png', :alt => 'Fast Feedback First', :title => 'Fast Feedback First' %>
+
 ### 2. Most important feedback first {#principle-important-feedback}
 
 Just because something runs quickly doesn’t mean that it needs to be brought ahead in the CD pipeline. It is possible that running something which is slower but much more valuable, will provide better feedback than running something which is quick but doesn’t fail enough to be useful.
@@ -62,6 +65,8 @@ In practice, due to resource constraints, this is not always possible. So, a CD 
 ### 4. Build once and reuse {#principle-build-reuse}
 
 This is one of the bedrock CD principles - the ability to build once, get an artifact and run it through different kinds of tests, so that your confidence in that specific artifact increases over time. Once it goes through the final gate in the CD pipeline successfully, you can be assured that the artifact is safe to be deployed to production and used.
+
+<%= image_tag 'blog/importance-cd-pipelines/build-reuse.jpeg', :alt => 'Build once and reuse', :title => 'Build once and reuse' %>
 
 It is up to the CD pipeline solution you choose to provide a good artifact propagation mechanism, so that, even with multiple instances of the pipeline running, it keeps track of the correct version of the artifact to be used in the rest of the pipeline.
 
@@ -79,7 +84,7 @@ It is not uncommon to need to rerun parts of a CD pipeline. Typically, this happ
 
 <br/>Boiled down to it, a CD pipeline is going to try to, as quickly as possible, do everything possible to stop your change from going to production. It is great when something fails in a CD pipeline because it means that it did not go into production and fail there.
 
-In our next post, we’ll look at some common approaches to build and deployment workflows and how CD pipelines can be modeled to accommodate them. We’ll be describing these using GoCD as the CD tool. To follow along, do get to know some of the basic concepts of GoCD and how to get started with GoCD.
+In our next post, we’ll look at some common approaches to build and deployment workflows and how CD pipelines can be modeled to accommodate them. We’ll be describing these using GoCD as the CD tool. To follow along, do get to know some of the [basic concepts of GoCD](https://gocd.io/getting-started) and how to get started with GoCD.
 
 <sub>Note: In this series of posts, the examples and images shown will be using GoCD but the concepts are generic and can be implemented on your prefered CD solution.</sub>
 
