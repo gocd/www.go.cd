@@ -4,6 +4,10 @@
   details:
     - date: February 6 - 7
       location: Charlotte
+    - date: March 03
+      location: Los Angeles
+    - date: April 10 - 11
+      location: Los Angeles
     - date: April 26 - 27
       location: Seattle
 
@@ -39,3 +43,17 @@
       location: New York
     - date: November 13 - 17
       location: San Francisco
+
+- title: "Craft Conference"
+  url: https://craft-conf.com/
+  description: "CRAFT is about software craftsmanship, presenting which tools, methods, practices should be part of the toolbox of a modern developer and company, and serving as compass on new technologies, trends."
+  details:
+    - date: April 25 - 28
+      location: Budapest
+
+- title: "goto; Conference"
+  url: https://blog.gotocon.com/conferences/
+  description: "Created for developers, by developers, GOTO Conferences are focused on bringing the best minds in the software community and the most interesting topics to light."
+  details:
+    - date: May 01 - 02
+      location: Chicago
