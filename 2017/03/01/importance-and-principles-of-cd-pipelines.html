@@ -1,0 +1,351 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="You need a way of modeling your workflow so that people can see, understand and talk about it. This is where CD pipelines come in. " name="description" />
+    <meta content="GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Importance and Principles of CD Pipelines | GoCD Blog" />
+    <meta name="twitter:description" content="You need a way of modeling your workflow so that people can see, understand and talk about it. This is where CD pipelines come in. " />
+    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/importance-cd-pipelines/importance_pipelines_hero-58d38841.jpg" />
+
+    <title>Importance and Principles of CD Pipelines | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-8fbf31db.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-b532d9de.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+  </head>
+
+  <body class="x2017 x2017_03 x2017_03_01 x2017_03_01_importance-and-principles-of-cd-pipelines">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+  
+
+  <header class="blog-post-header">
+    <h2>Modeling Deployment Pipelines: The Importance and Principles of Continuous Delivery Pipelines</h2>
+    <h4>Aravind S.V, Product Manager at GoCD</h4>
+  </header>
+
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      <h3 id="in-an-ideal-magical-world-your-end-to-end-deployment-from-a-commit-to-production-looks-like-this">In an ideal, magical world, your end-to-end deployment from a commit to production looks like this:</h3>
+
+<p><img src="../../../assets/images/blog/importance-cd-pipelines/magic-364edd88.jpeg" alt="Magical Deployment" title="Magical Deployment Process" /></p>
+
+<p>If this represents your situation (especially if all your tests run quickly enough that you’re confident about deploying to production), you don’t really need a good Continuous Delivery (referred to as CD) solution and you can stop reading this post right here.</p>
+
+<p>However, for most of us, the path from commit to production involves numerous moving parts, (like multiple code and asset repositories, automatic and manual handoffs, unit tests, integration tests, acceptance tests, performance tests, security tests, etc.) and time that it takes to execute all of these elements. When your path to production is not the magical world shown above, you need a way of modeling your workflow so that people can see, understand and talk about it. This is where CD pipelines come in.</p>
+
+<p>In this on-going series, we’ll cover aspects of CD pipelines from why they are important to some of the optimal ways to model them.</p>
+
+<h2 id="what-is-cd-pipeline">What is a Continuous Delivery Pipeline?</h2>
+
+<p>A deployment pipeline is an integral part of Continuous Delivery. It is a way of modeling your software delivery process so that it provides feedback and visibility to the team delivering new features.</p>
+
+<p>Jez Humble, co-author of the book <a href="https://www.amazon.com/dp/0321601912?tag=contindelive-20">Continuous Delivery</a>, in his <a href="https://continuousdelivery.com/">blog</a> says,</p>
+
+<blockquote>
+  <p><em>Deployment pipelines tie together configuration management, continuous integration and test and deployment automation in a holistic, powerful way that works to improve software quality, increase stability, and reduce the time and cost required to make incremental changes to software, whatever domain you’re operating in.</em></p>
+</blockquote>
+
+<p>CD pipelines are incredibly useful in telling you as quickly as possible whether a change is good enough to be taken to production.</p>
+
+<h2 id="why-do-you-need-cd-pipeline">Why do you need a CD pipeline?</h2>
+
+<p>Boiled down to its essence a CD pipeline is a series of feedback loops.</p>
+
+<p>Quick feedback loops are everywhere, including industries apart from software development. Any situation where you can make a change, see its effect, correct the input to make it go towards a desired outcome (and rinse and repeat) is a great opportunity for feedback loops.</p>
+
+<p>In technology, some of the obvious attempts at feedback loops are <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPLs</a> (Read-Eval-Print-Loops for languages) and tests. And in the world of build and deployment, a deployment pipeline satisfies the need for quick feedback.</p>
+
+<p>The necessity for a deployment pipeline has been perfectly summed up by <a href="https://martinfowler.com/bliki/DeploymentPipeline.html">Martin Fowler</a> as this</p>
+
+<blockquote>
+  <p><em>One of the challenges of an automated build and test environment is you want your build to be fast, so that you can get fast feedback, but comprehensive tests take a long time to run. A deployment pipeline is a way to deal with this by breaking up your build into stages. Each stage provides increasing confidence, usually at the cost of extra time. Early stages can find most problems yielding faster feedback, while later stages provide slower and more through probing. Deployment pipelines are a central part of Continuous Delivery.</em></p>
+</blockquote>
+
+<h2 id="principles-cd-pipeline">Some fundamental principles of CD pipelines</h2>
+
+<h3 id="principle-fast-feedback">1. Fast feedback first</h3>
+
+<p>Usually, CD pipelines are set up so that the parts which provide fast feedback run first. In practice, quick-running unit tests are usually run earlier in the pipeline than the slower-running functional and performance tests. This ensures quicker feedback by making sure that slower running tests aren’t run unnecessarily taking up resources.</p>
+
+<p><img src="../../../assets/images/blog/importance-cd-pipelines/Fast-Feedback-First-3e39eb55.png" alt="Fast Feedback First" title="Fast Feedback First" /></p>
+
+<h3 id="principle-important-feedback">2. Most important feedback first</h3>
+
+<p>Just because something runs quickly doesn’t mean that it needs to be brought ahead in the CD pipeline. It is possible that running something which is slower but much more valuable, will provide better feedback than running something which is quick but doesn’t fail enough to be useful.</p>
+
+<p>For instance, installer tests might be valuable and might run quicker than functional tests. However, in a typical project, changes to the installer are much less frequent than changes which might fail functional tests. So, it is reasonable to delay the installer tests till the functional tests have finished.</p>
+
+<h3 id="principle-parallelize">3. Parallelize as much as possible</h3>
+
+<p>Ideally, for every change, you want to be able to run every type of test parallely, so that the overall feedback time is reduced. In the extreme case of being able to run everything parallely, the cycle time becomes as much as the longest running part of the pipeline.</p>
+
+<p>In practice, due to resource constraints, this is not always possible. So, a CD pipeline solution should allow selective parallelization.</p>
+
+<h3 id="principle-build-reuse">4. Build once and reuse</h3>
+
+<p>This is one of the bedrock CD principles - the ability to build once, get an artifact and run it through different kinds of tests, so that your confidence in that specific artifact increases over time. Once it goes through the final gate in the CD pipeline successfully, you can be assured that the artifact is safe to be deployed to production and used.</p>
+
+<p><img src="../../../assets/images/blog/importance-cd-pipelines/build-reuse-83ab8b4a.jpeg" alt="Build once and reuse" title="Build once and reuse" /></p>
+
+<p>It is up to the CD pipeline solution you choose to provide a good artifact propagation mechanism, so that, even with multiple instances of the pipeline running, it keeps track of the correct version of the artifact to be used in the rest of the pipeline.</p>
+
+<h3 id="principle-run-locally">5. Able to run this process locally</h3>
+
+<p>It is recommended to have scripts for your whole build and deployment process, so that changes can be easily tracked and audited. Moreover, this allows you to be independent of the CD tool of your choice. This allows you to treat the CD tool as a script runner which is aware of the workflow of deploying to production but isn’t necessarily the only place where the knowledge of how to build and deploy is. This stops it from being a big single-point-of-failure for the organization.</p>
+
+<h3 id="principle-repeatable">6. Make the process repeatable</h3>
+
+<p>Through a combination of environment variables and isolation mechanisms such as virtual machines or containers, it is recommended to make the build process repeatable so that it is not dependent on being run at a specific time or on a specific set of worker or agent nodes. Using solutions such as Ansible/Chef/Puppet/SaltStack, etc. for provisioning the virtual machines or agent infrastructure can also help towards this.</p>
+
+<h3 id="principle-rerun-pipeline">7. Should be able to run or rerun some parts of the pipeline, potentially with different parameters</h3>
+
+<p>It is not uncommon to need to rerun parts of a CD pipeline. Typically, this happens when tests fail for environment-related reasons and you’re trying to confirm that suspicion. It’s also used to get specific versions of a build into an environment, for testing. Even though, ideally, it’s all automatic and you should never have to do this, it’s useful to be able to.</p>
+
+<p><br />Boiled down to it, a CD pipeline is going to try to, as quickly as possible, do everything possible to stop your change from going to production. It is great when something fails in a CD pipeline because it means that it did not go into production and fail there.</p>
+
+<p>In our next post, we’ll look at some common approaches to build and deployment workflows and how CD pipelines can be modeled to accommodate them. We’ll be describing these using GoCD as the CD tool. To follow along, do get to know some of the <a href="https://gocd.io/getting-started">basic concepts of GoCD</a> and how to get started with GoCD.</p>
+
+<p><sub>Note: In this series of posts, the examples and images shown will be using GoCD but the concepts are generic and can be implemented on your prefered CD solution.</sub></p>
+
+<div class="row">
+  <div class="downloadbanner">
+  <div class="container">
+    <div class="banner-with-cta">
+      <p>Get started with simplifying continuous delivery. Download and use <span class="go">Go</span>CD for free</p>
+      <a href="../../../download/">Download</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Mar  1</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="importance-and-principles-of-cd-pipelines/">Modeling Deployment Pipelines: The Importance and Principles of Continuous Delivery Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Feb 16</span>
+              <span class="post-author">Suzie Prince - Product Manager at Snap CI</span>
+              <a href="../../02/16/migrating-snapci-to-gocd/">Migrating from Snap CI to GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jan  5</span>
+              <span class="post-author">GoCD team</span>
+              <a href="../../01/05/why-we-moved-from-go-cd-to-gocd-io/">Why we've moved from go.cd to gocd.io</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 13</span>
+              <span class="post-author">Jason Rowe</span>
+              <a href="../../../2016/07/13/DotNet-Core-and-GoCD/">.NET Core and GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 21</span>
+              <span class="post-author">Jeff Norris</span>
+              <a href="../../../2016/06/21/dont-let-sunk-costs-sink-your-project/">Don't let sunk costs sink your project</a>
+            </li>
+            <li>
+              <span class="post-date">Jun  8</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline/">Add performance testing to your Continuous Delivery pipeline</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 24</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../2016/03/24/how-to-avoid-brittle-code/">How to Avoid Brittle Code</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 15</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">Are you ready for Continuous Delivery? Part 2: Feedback loops</a>
+            </li>
+            <li>
+              <span class="post-date">Feb  8</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../2016/02/08/not-done-unless-its-done-security/">Add Security Testing to Your Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 25</span>
+              <span class="post-author">David Rice and Aravind SV</span>
+              <a href="../../../2016/01/25/are-you-ready-for-continuous-delivery/">Are you ready for Continuous Delivery?</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2017 (3)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/03/01/importance-and-principles-of-cd-pipelines.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        <li>
+          <a href="../../../subscribe/"><i class='icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

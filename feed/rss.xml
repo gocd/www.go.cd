@@ -5,10 +5,21 @@
   <id>https://www.gocd.io/blog</id>
   <link href="https://www.gocd.io/blog"/>
   <link href="https://www.gocd.io/feed/rss.xml" rel="self"/>
-  <updated>2017-02-16T00:00:00Z</updated>
+  <updated>2017-03-01T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Modeling Deployment Pipelines: The Importance and Principles of Continuous Delivery Pipelines</title>
+    <link rel="alternate" href="https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines.html"/>
+    <id>https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines.html</id>
+    <published>2017-03-01T00:00:00Z</published>
+    <updated>2017-03-01T00:00:00Z</updated>
+    <author>
+      <name>Aravind S.V, Product Manager at GoCD</name>
+    </author>
+    <content type="html">The path from commit to production involves numerous moving parts, (like multiple code and asset repositories, automatic and manual handoffs, unit tests, integration tests, acceptance tests, performance tests, security tests, etc.) and time that it takes to execute all of these elements. You need a way of modeling your workflow so that people can see, understand and talk about it. This is where CD pipelines come in.</content>
+  </entry>
   <entry>
     <title>Migrating from Snap CI to GoCD</title>
     <link rel="alternate" href="https://www.gocd.io/2017/02/16/migrating-snapci-to-gocd.html"/>
@@ -107,16 +118,5 @@
       <name>David Rice and Aravind SV</name>
     </author>
     <content type="html">This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this first post, we'll present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for Continuous Delivery.</content>
-  </entry>
-  <entry>
-    <title>It's not Continuous Delivery if you can't deploy right now.</title>
-    <link rel="alternate" href="https://www.gocd.io/2016/01/17/not-done-unless-its-done.html"/>
-    <id>https://www.gocd.io/2016/01/17/not-done-unless-its-done.html</id>
-    <published>2016-01-17T00:00:00Z</published>
-    <updated>2016-01-17T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">I hear people say all the time that they're practicing continuous delivery. This declaration is often followed by something like, &amp;ldquo;I can let the security team know anytime&amp;rdquo;, or &amp;ldquo;I just have to run the performance tests&amp;rdquo;. If you can't push your software to production right now, you're not done with your continuous delivery journey.</content>
   </entry>
 </feed>
