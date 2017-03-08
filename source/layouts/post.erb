@@ -11,6 +11,13 @@
   <header class="blog-post-header">
     <h2><%= put_gocd_in_span(current_article.title) %></h2>
     <h4><%= current_article.data["author"] %></h4>
+    <p class='tags'>
+      <% current_article.tags.each do |tag, current_article| %>
+        <% link_to tag_path(tag), :class => 'tag' do %>
+          <%= tag %>
+        <% end %>
+      <% end %>
+    </p>
   </header>
 
   <div class="row">
