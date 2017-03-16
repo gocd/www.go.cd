@@ -17,13 +17,13 @@ summary_image: "/assets/images/blog/beginnings-real-pipeline/beginnings_pipeline
 </figure>
 <% end %>
 
-This is the second post in the series - Modeling Deployment Pipelines. In <%= link_to 'the first part of series', '/2017/03/01/importance-and-principles-of-cd-pipelines/' %>, we covered what continuous delivery pipelines were, why they were important and some of the fundamental principles behind them. In this post, we’ll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized.
+This is the second post in the series - Modeling Deployment Pipelines. In <%= link_to 'the first part of the series', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html' %>, we covered what continuous delivery pipelines were, why they were important and some of the fundamental principles behind them. In this post, we’ll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized.
 
 ## Typical small app, with some tests
 
 Consider a small, cross-platform desktop application, with unit, integration and functional tests. Let’s assume that the goal of the process is to create an installer which can be downloaded.
 
-A typical approach to automate this process would be to have a build script (using Rake, Make, Ant, etc. or even a batch file or a shell script) which has all the individual steps of the process automated so that they can be run locally (<%= link_to 'Principle 5', '/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-run-locally' %>). Having this, you can now create a GoCD pipeline with a single stage which has a single job which has a single task which calls “make all” (for instance). It’ll look like this:
+A typical approach to automate this process would be to have a build script (using Rake, Make, Ant, etc. or even a batch file or a shell script) which has all the individual steps of the process automated so that they can be run locally (<%= link_to 'Principle 5', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-run-locally' %>). Having this, you can now create a GoCD pipeline with a single stage which has a single job which has a single task which calls “make all” (for instance). It’ll look like this:
 
 <%= image_tag 'blog/beginnings-real-pipeline/pipeline-01.jpg', :alt => 'Pipeline', :title => 'Simple Pipeline' %>
 
@@ -55,7 +55,7 @@ What we really need is some ordering of the different stages of this build proce
 
 ## The beginnings of a real pipeline
 
-When we think about the different parts of this build process, we see that the first one is “make build”, which presumably compiles and builds necessary artifacts such as images or generated pages. If this fails, we want to get that feedback quickly (see <%= link_to 'Principle 1', '/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-fast-feedback' %>). Once this passes (and only when it passes) do we want to run the unit and integration tests, preferably parallely (see <%= link_to 'Principle 3', '/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-parallelize' %>). Moreover, we want to use the same artifact built by the “make build” part of the process, while running these tests (see <%= link_to 'Principle 4', '/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-build-reuse' %>). Once the tests are complete, we want to build the installer and then run functional tests on the built installer. Very conveniently, GoCD’s stage concept allows this kind of a serial handoff and the artifact concept allows us to use the same artifact across the pipeline.
+When we think about the different parts of this build process, we see that the first one is “make build”, which presumably compiles and builds necessary artifacts such as images or generated pages. If this fails, we want to get that feedback quickly (see <%= link_to 'Principle 1', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-fast-feedback' %>). Once this passes (and only when it passes) do we want to run the unit and integration tests, preferably parallely (see <%= link_to 'Principle 3', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-parallelize' %>). Moreover, we want to use the same artifact built by the “make build” part of the process, while running these tests (see <%= link_to 'Principle 4', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-build-reuse' %>). Once the tests are complete, we want to build the installer and then run functional tests on the built installer. Very conveniently, GoCD’s stage concept allows this kind of a serial handoff and the artifact concept allows us to use the same artifact across the pipeline.
 
 A setup such as the one described above might look like this:
 
