@@ -56,7 +56,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     <div class="v-tabs all-plugins">
       <ul class="tabs">
         <% plugin_categories.each_with_index do |category, index| %>
-          <li rel="tab<%= index + 1 %>">
+          <li rel="tab-<%= index + 1 %>" id="<%= category[:kind].downcase.gsub(' ','-')%>">
             <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
           </li>
         <% end %>
@@ -64,7 +64,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 
       <div class="tab_container">
         <% plugin_categories.each_with_index do |category, index| %>
-          <% tab_id = "tab#{index + 1}" %>
+          <% tab_id = "tab-#{index + 1}" %>
           <h3 class="tab-accordion_heading" rel="<%= tab_id %>">
             <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
           </h3>
@@ -136,5 +136,10 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 <script>
  jQuery(document).ready(function($) {
    startTabContainer($);
+
+   if(window.location.hash) {
+       var id = window.location.hash.substring(1).replace(/\./g,'-');
+       $('#'+id).click();
+   }
  });
 </script>
