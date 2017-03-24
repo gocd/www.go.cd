@@ -80,7 +80,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-17-2-0" class="active">17.2.0 (latest)</li>
+      <li rel="tab-17-3-0" class="active">17.3.0 (latest)</li>
+      <li rel="tab-17-2-0">17.2.0</li>
       <li rel="tab-17-1-0">17.1.0</li>
       <li rel="tab-16-12-0">16.12.0</li>
       <li rel="tab-16-11-0">16.11.0</li>
@@ -106,7 +107,107 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-17-2-0">17.2.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-17-3-0">17.3.0 (latest)</h3>
+      <div id="tab-17-3-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4 id="ui-enhancements">UI Enhancements</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/320f2236c9eec058d5a8dd35b17e021e56dac44c">320f223</a></code> - Enhanched job/stage status accessibility with addition of symbols to signify stage and job statuses. (<a href="https://github.com/gocd/gocd/issues/3233">#3233</a>)
+    <figure>
+    <img src="../assets/images/releases/17.3.0/stage_with_symbols-4c8d52df.png" alt="Stage and Task Symbols" />
+  </figure>
+  </li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/cfc778edfcf6c4b0b557e31ce1dd2fa9804ca63c">cfc778e</a></code> - Build status indicator moved from build summary to breadcrumb toolbar. (<a href="https://github.com/gocd/gocd/issues/3270">#3270</a>)
+    <figure>
+    <img src="../assets/images/releases/17.3.0/build_status-96febef4.png" alt="Build Status" />
+  </figure>
+  </li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/5478a5460cd4fcb1a7380eb0e4ab3fbbeacb4166">5478a54</a></code> - Agents page improvement for better identification of elastic agents by addition of icon related to the type of agent in use. (<a href="https://github.com/gocd/gocd/issues/3276">#3276</a>)
+    <figure>
+    <img src="../assets/images/releases/17.3.0/elastic_agent_icon-1e562032.png" alt="Elastic Agent Icon" />
+  </figure>
+  </li>
+</ul>
+
+<h4 id="api-enhancements">API Enhancements</h4>
+
+<p><code><a href="https://github.com/gocd/gocd/commit/6986dcc97d544d3087eb66423c70e21d6e77893c">6986dcc</a></code> - Added v2 of <a href="https://api.gocd.io/current/#environment-config">Environment Config API</a> with support to PATCH environment-variables. (<a href="https://github.com/gocd/gocd/issues/3080">#3080</a>)</p>
+
+<h4 id="authorization-plugin-beta">Authorization Plugin (Beta)</h4>
+
+<p>There has been more work done around fine tuning the Authorization Plugin endpoints, as part of this some of the plugin API calls have changed.  Action required: Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading Go. Refer Authorization Plugin Endpoint <a href="https://plugin-api.gocd.io/current/authorization">documentation</a> for the latest changes.</p>
+
+<h4 id="other-improvements">Other Improvements</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/262c107a8e8358214a6cf57c9395c315aa12fc12">262c107</a></code> - Pipeline Quick Edit, disable edit until save completes. (<a href="https://github.com/gocd/gocd/issues/3266">#3266</a>)</li>
+</ul>
+
+<h4 id="bug-fixes">Bug Fixes</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/8224568b0df3500525f16f4ff2bd81541f67d663">8224568</a></code> - This fixes 17.2.0 upgrade failures in cases where cruise_config xml had encrypted values with spaces. (<a href="https://github.com/gocd/gocd/issues/3244">#3244</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/4db05504d05ab5f88e7891a3cd7b4eac2f3ebcd5">4db0550</a></code> - Agents page retain sort order across page refresh. (<a href="https://github.com/gocd/gocd/issues/3226">#3226</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/73e0292e753900caa4edf085463e1b270b1628b2">73e0292</a></code> - Elastic Agents, fixed reduntant agent creation calls to the plugin. (<a href="https://github.com/gocd/gocd/issues/3193">#3193</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/5d75f45c5229f48697beee3ec4e9d404c899e82f">5d75f45</a></code> - Agents page memory leak fix. (<a href="https://github.com/gocd/gocd/issues/3217">#3217</a>)</li>
+</ul>
+
+<h4 id="breaking-changes">Breaking Changes</h4>
+
+<p>On GoCD servers installed on windows or if using the zip installers, logs will now be written to logs directory instead of the working directory. This would be a breaking change only if there are custom scripts relying on the logs location.</p>
+
+<h4 id="deprecations">Deprecations</h4>
+
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+
+<p>The following features have been deprecated, along with the timeframe when they will be removed.</p>
+
+<ul>
+  <li>
+    <p>As of release 17.1, version 2 of the <a href="https://api.gocd.io/current/#template-config">Templates API</a> was deprecated. This version of the API will be removed in 17.4 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.</p>
+  </li>
+  <li>
+    <p>As of release 17.3, version 1 of the <a href="https://api.gocd.io/current/#environment-config">Environment Config API</a> is deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.</p>
+  </li>
+</ul>
+
+<h4 id="docker-images-and-amis">Docker Images and AMIs</h4>
+
+<ul>
+  <li>The <a href="https://hub.docker.com/r/gocd/gocd-server/">GoCD server</a> docker image is now alpine based with support for volume mounts, with this going forward there will be no more support for phusion based images.</li>
+  <li>You can download the docker images for GoCD agents across the following operating systems - Centos <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></li>
+  <li>We have also introduced an Amazon Linux based AMI for the GoCD Server making it very simple to launch GoCD server on your AWS EC2 instance.</li>
+  <li>The old phusion based images have been moved, they can found under <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">gocd-server-deprecated</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">gocd-agent-deprecated</a>.</li>
+</ul>
+
+<p>Feedback is appreciated. Please log your feedback or issues on github for the following -</p>
+
+<ul>
+  <li>GoCD Server - https://github.com/gocd/docker-gocd-server</li>
+  <li>GoCD Agent - https://github.com/gocd/docker-gocd-agent</li>
+  <li>GoCD AMI - https://github.com/gocd/gocd-cloud</li>
+</ul>
+
+<h4 id="contributors">Contributors</h4>
+
+<p>Ankit Srivastava, Aravind SV, Barrow KwanBhupendrakumar Piprava, Etienne Dysli Metref, Ganesh S Patil, Isabelle Carter, Junaid Shah, Jyoti Singh, Karel Bemelmans, Ketan Padegaonkar, Kiera Radman, Kyle Olivo, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Rajiesh Narayanan, Varsha Varadarajan</p>
+
+<h4 id="security-researchers">Security researchers</h4>
+
+<p><a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a></p>
+
+<h4 id="note">Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.3%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-17-2-0">17.2.0</h3>
       <div id="tab-17-2-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4 id="authorization-plugin-endpoint-beta">Authorization Plugin Endpoint (beta)</h4>
@@ -227,7 +328,7 @@
 
 <h4 id="note">Note</h4>
 
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.2%22">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.2%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.</p>
 
@@ -370,7 +471,7 @@
 
 <h4>Note</h4>
 
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.1%22">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.1%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.</p>
 
@@ -537,7 +638,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 
 <h4>Note</h4>
 
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.12%22">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.12%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 
@@ -638,7 +739,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 <a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
 
 <h4>Note</h4>
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.11%22">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.11%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
@@ -757,7 +858,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 <a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
 
 <h4>Note</h4>
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.10%22">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.10%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
@@ -887,7 +988,7 @@ and Materials</p></li>
 <a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
 
 <h4>Note</h4>
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.9%22">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.9%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
@@ -962,7 +1063,7 @@ Aravind SV, Ganesh Patil, Jyoti Singh, Ken Mugrage, Ketan Padegaonkar, Mahesh Pa
 <h4>Security researchers</h4>
 <p><a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a></p>
 <h4>Note</h4>
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.8%22">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.8%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
@@ -1081,7 +1182,7 @@ Aravind SV, Ganesh Patil, Jyoti Singh, Ken Mugrage, Ketan Padegaonkar, Mahesh Pa
 <a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
 
 <h4>Note</h4>
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.7%22">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.7%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
@@ -1134,7 +1235,7 @@ This feature is still in development and more details can be found
 
 <h4>Note</h4>
 <p>
-  A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.6%22">here.</a>
+  A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.6%22+is%3Aclosed">here.</a>
 </p>
 
 <h4>Contributors</h4>
@@ -1206,7 +1307,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 
 <h4>Note</h4>
 <p>
-  A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.5%22">here.</a>
+  A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.5%22+is%3Aclosed">here.</a>
 </p>
 
 <h4>Contributors</h4>
@@ -1248,7 +1349,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 <h4>Note</h4>
 
 <p>
-  A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.4%22">here.</a>
+  A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+16.4%22+is%3Aclosed">here.</a>
 </p>
 
 <h4>Contributors</h4>

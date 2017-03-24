@@ -99,38 +99,38 @@
 
     <div class="v-tabs all-plugins">
       <ul class="tabs">
-          <li rel="tab1">
+          <li rel="tab-1" id="package-repository-plugins">
             Package repository plugins <span class="plugin-info">>= GoCD v13.3</span>
           </li>
-          <li rel="tab2">
+          <li rel="tab-2" id="task-plugins">
             Task plugins <span class="plugin-info">>= GoCD v14.1</span>
           </li>
-          <li rel="tab3">
+          <li rel="tab-3" id="notification-plugins">
             Notification plugins 
           </li>
-          <li rel="tab4">
+          <li rel="tab-4" id="scm-plugins">
             SCM plugins 
           </li>
-          <li rel="tab5">
+          <li rel="tab-5" id="authentication-plugins">
             Authentication plugins 
           </li>
-          <li rel="tab6">
+          <li rel="tab-6" id="elastic-agents-plugins">
             Elastic agents plugins <span class="plugin-info">>= GoCD v16.8</span>
           </li>
-          <li rel="tab7">
+          <li rel="tab-7" id="configuration-repository">
             Configuration Repository <span class="plugin-info">>= GoCD v16.7</span>
           </li>
-          <li rel="tab8">
+          <li rel="tab-8" id="advanced-deployments">
             Advanced Deployments 
           </li>
       </ul>
 
       <div class="tab_container">
-          <h3 class="tab-accordion_heading" rel="tab1">
+          <h3 class="tab-accordion_heading" rel="tab-1">
             Package repository plugins <span class="plugin-info">>= GoCD v13.3</span>
           </h3>
 
-          <div id="tab1" class="tab_content">
+          <div id="tab-1" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -463,11 +463,11 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab2">
+          <h3 class="tab-accordion_heading" rel="tab-2">
             Task plugins <span class="plugin-info">>= GoCD v14.1</span>
           </h3>
 
-          <div id="tab2" class="tab_content">
+          <div id="tab-2" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -943,11 +943,11 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab3">
+          <h3 class="tab-accordion_heading" rel="tab-3">
             Notification plugins 
           </h3>
 
-          <div id="tab3" class="tab_content">
+          <div id="tab-3" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -1163,11 +1163,11 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab4">
+          <h3 class="tab-accordion_heading" rel="tab-4">
             SCM plugins 
           </h3>
 
-          <div id="tab4" class="tab_content">
+          <div id="tab-4" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -1323,11 +1323,11 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab5">
+          <h3 class="tab-accordion_heading" rel="tab-5">
             Authentication plugins 
           </h3>
 
-          <div id="tab5" class="tab_content">
+          <div id="tab-5" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -1463,11 +1463,11 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab6">
+          <h3 class="tab-accordion_heading" rel="tab-6">
             Elastic agents plugins <span class="plugin-info">>= GoCD v16.8</span>
           </h3>
 
-          <div id="tab6" class="tab_content">
+          <div id="tab-6" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -1543,11 +1543,11 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab7">
+          <h3 class="tab-accordion_heading" rel="tab-7">
             Configuration Repository <span class="plugin-info">>= GoCD v16.7</span>
           </h3>
 
-          <div id="tab7" class="tab_content">
+          <div id="tab-7" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -1603,11 +1603,11 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab8">
+          <h3 class="tab-accordion_heading" rel="tab-8">
             Advanced Deployments 
           </h3>
 
-          <div id="tab8" class="tab_content">
+          <div id="tab-8" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -1681,6 +1681,11 @@
 <script>
  jQuery(document).ready(function($) {
    startTabContainer($);
+
+   if(window.location.hash) {
+       var id = window.location.hash.substring(1).replace(/\./g,'-');
+       $('#'+id).click();
+   }
  });
 </script>
 

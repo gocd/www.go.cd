@@ -5,10 +5,21 @@
   <id>https://www.gocd.io/blog</id>
   <link href="https://www.gocd.io/blog"/>
   <link href="https://www.gocd.io/feed/rss.xml" rel="self"/>
-  <updated>2017-03-01T00:00:00Z</updated>
+  <updated>2017-03-08T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Modeling Deployment Pipelines: The beginnings of a real CD pipeline</title>
+    <link rel="alternate" href="https://www.gocd.io/2017/03/08/beginnings-of-a-real-pipeline.html"/>
+    <id>https://www.gocd.io/2017/03/08/beginnings-of-a-real-pipeline.html</id>
+    <published>2017-03-08T00:00:00Z</published>
+    <updated>2017-03-08T00:00:00Z</updated>
+    <author>
+      <name>Aravind S.V, Product Manager at GoCD</name>
+    </author>
+    <content type="html">This is the second post in the series - Modeling Deployment Pipelines. In this post, we'll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized. </content>
+  </entry>
   <entry>
     <title>Modeling Deployment Pipelines: The Importance and Principles of Continuous Delivery Pipelines</title>
     <link rel="alternate" href="https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines.html"/>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">Releasing with confidence means including things like security tests in your deployment pipeline</content>
-  </entry>
-  <entry>
-    <title>Are you ready for Continuous Delivery?</title>
-    <link rel="alternate" href="https://www.gocd.io/2016/01/25/are-you-ready-for-continuous-delivery.html"/>
-    <id>https://www.gocd.io/2016/01/25/are-you-ready-for-continuous-delivery.html</id>
-    <published>2016-01-25T00:00:00Z</published>
-    <updated>2016-01-25T00:00:00Z</updated>
-    <author>
-      <name>David Rice and Aravind SV</name>
-    </author>
-    <content type="html">This is the first part of a series of posts about Continuous Delivery infrastructure, culture, and process. In this first post, we'll present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for Continuous Delivery.</content>
   </entry>
 </feed>

@@ -1,232 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.gocd.io/getting-started/part-1/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/getting-started/part-3/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/getting-started/part-2/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/roadmap/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/events/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/resources/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/why-gocd/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/download/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/videos/go-command-repo/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/videos/go-value-stream-map/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/videos/go-pipeline-visibility/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/videos/go-failed-smoke-test/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/videos/go-fundamental-concepts/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/videos/go-linking-dependencies/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/videos/go-fan-out-fan/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/help/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/releases/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/videos/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/contributor-license-agreement/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/contribute/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/campaignpages/demo/</loc>
+    <loc>https://www.gocd.io/googlebac7590bd2b477d8/</loc>
   </url>
   <url>
     <loc>https://www.gocd.io/misc/generate-patched-jar-for-deserialization-vulnerability/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/partners/</loc>
+    <loc>https://www.gocd.io/events/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/campaignpages/demo/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/roadmap/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/why-gocd/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/plugins/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/contributor-license-agreement/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/resources/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/download/</loc>
   </url>
   <url>
     <loc>https://www.gocd.io/subscribe/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/2016/01/17/not-done-unless-its-done/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2016/06/21/dont-let-sunk-costs-sink-your-project/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/04/24/agent-bootstrapper-upgrade-for-plugins/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/12/17/Go_14_4_announced/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/05/18/manage-agents-with-docker/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/11/18/Open-Source-Tests/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/04/27/Feature-Branch-Support/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/12/28/gocd-continuous-delivery-through-pipelines/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/05/01/set-up-a-go-dev-environment/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/02/24/build-promotion-go/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/07/09/stopping-support-for-java-jdk-6/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/07/01/What-would-help-you/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/06/18/plugin-settings/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/10/09/Distributed-Test-Execution/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2016/01/25/are-you-ready-for-continuous-delivery/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/11/21/go-webinar-recording/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/08/07/go-webinar-recording/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/06/23/hardly-anyone-knows-cd/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/02/24/model-everything-fail-fast/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/06/05/using-go-cd-with-custom-certificates/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/05/07/go-webinar-recording/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/03/10/go-webinar-recording/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/10/29/go-webinar-recording/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/11/11/Go_14_3_announced/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/06/13/using-windows-powershell-tasks/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/02/24/how-peg-your-pipeline-dependency-version/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/02/25/go-moving-to-open-source/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2016/03/24/how-to-avoid-brittle-code/</loc>
-  </url>
-  <url>
     <loc>https://www.gocd.io/2015/11/09/deserialization-vulnerability-commons-collections/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2016/02/08/not-done-unless-its-done-security/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2016/07/13/DotNet-Core-and-GoCD/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/05/06/Getting-Started-Resources/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/02/24/tracing-our-path-production/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/12/22/gocd-in-2016/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/04/29/Go_15_1_announced/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/02/24/go-template-permissions/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/04/24/source-code-for-go-now-available/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/06/18/authentication-end-point/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/06/17/Upcoming-API-Changes/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/03/06/hello-world-with-go/</loc>
   </url>
   <url>
     <loc>https://www.gocd.io/2015/07/07/GitHub-Integration/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/2015/10/19/gocd-snap-at-devops-enterprise-summit/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2014/02/24/deploy-package-not-just-tag-branch-or-binary/</loc>
-  </url>
-  <url>
     <loc>https://www.gocd.io/2015/08/28/pipeline-patterns/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/2014/04/24/Go_14_1_announced/</loc>
+    <loc>https://www.gocd.io/2014/02/24/build-promotion-go/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/2015/09/01/visibility-is-opportunity/</loc>
+    <loc>https://www.gocd.io/2015/05/06/Getting-Started-Resources/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/2014/08/19/cloning-templates/</loc>
+    <loc>https://www.gocd.io/2014/07/01/What-would-help-you/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/2014/02/25/why-we-need-to-practice-cd/</loc>
+    <loc>https://www.gocd.io/2015/04/23/Go_15_1_jdk7_announcement/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/02/24/model-everything-fail-fast/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2017/03/08/beginnings-of-a-real-pipeline/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/10/29/go-webinar-recording/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/10/09/Distributed-Test-Execution/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/04/27/Feature-Branch-Support/</loc>
   </url>
   <url>
     <loc>https://www.gocd.io/2015/08/05/Go-Sample-Virtualbox/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/2017/01/05/why-we-moved-from-go-cd-to-gocd-io/</loc>
+    <loc>https://www.gocd.io/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/09/01/visibility-is-opportunity/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/11/21/go-webinar-recording/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/03/10/go-webinar-recording/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/10/19/gocd-snap-at-devops-enterprise-summit/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/06/05/using-go-cd-with-custom-certificates/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/12/22/gocd-in-2016/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/12/28/gocd-continuous-delivery-through-pipelines/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2017/02/16/migrating-snapci-to-gocd/</loc>
   </url>
   <url>
     <loc>https://www.gocd.io/2014/11/14/Go_14_3_issue_with_uploading_compressed_artifacts/</loc>
@@ -235,25 +109,154 @@
     <loc>https://www.gocd.io/2014/02/24/how-implement-continuous-delivery-enterprise-java-middleware/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2015/04/23/Go_15_1_jdk7_announcement/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.io/2017/02/16/migrating-snapci-to-gocd/</loc>
+    <loc>https://www.gocd.io/2014/02/25/why-we-need-to-practice-cd/</loc>
   </url>
   <url>
     <loc>https://www.gocd.io/2015/07/14/Go_15_2_announced/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/plugins/</loc>
+    <loc>https://www.gocd.io/2014/02/24/deploy-package-not-just-tag-branch-or-binary/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/11/18/Open-Source-Tests/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/06/17/Upcoming-API-Changes/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/04/24/source-code-for-go-now-available/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/06/23/hardly-anyone-knows-cd/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/02/25/go-moving-to-open-source/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/03/06/hello-world-with-go/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2016/06/21/dont-let-sunk-costs-sink-your-project/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/04/24/agent-bootstrapper-upgrade-for-plugins/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/05/01/set-up-a-go-dev-environment/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/06/18/authentication-end-point/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/12/17/Go_14_4_announced/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/07/09/stopping-support-for-java-jdk-6/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/02/24/go-template-permissions/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/05/18/manage-agents-with-docker/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/05/07/go-webinar-recording/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/08/19/cloning-templates/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/06/13/using-windows-powershell-tasks/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2016/01/17/not-done-unless-its-done/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/11/11/Go_14_3_announced/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2017/01/05/why-we-moved-from-go-cd-to-gocd-io/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2016/03/24/how-to-avoid-brittle-code/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/04/29/Go_15_1_announced/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2016/07/13/DotNet-Core-and-GoCD/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2016/02/08/not-done-unless-its-done-security/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/04/24/Go_14_1_announced/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/02/24/tracing-our-path-production/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2016/01/25/are-you-ready-for-continuous-delivery/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2015/06/18/plugin-settings/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/02/24/how-peg-your-pipeline-dependency-version/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2014/08/07/go-webinar-recording/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/releases/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/partners/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/videos/</loc>
   </url>
   <url>
     <loc>https://www.gocd.io/blog/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.io/googlebac7590bd2b477d8/</loc>
+    <loc>https://www.gocd.io/getting-started/part-3/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/getting-started/part-1/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/getting-started/part-2/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/contribute/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/help/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/videos/go-failed-smoke-test/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/videos/go-command-repo/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/videos/go-linking-dependencies/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/videos/go-pipeline-visibility/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/videos/go-fan-out-fan/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/videos/go-value-stream-map/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/videos/go-fundamental-concepts/</loc>
   </url>
   <url>
     <loc>https://www.gocd.io/2014/02/25/go-is-now-open-source/</loc>
@@ -323,6 +326,9 @@
   </url>
   <url>
     <loc>https://www.gocd.io/2017/03/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.io/2017/03/08/</loc>
   </url>
   <url>
     <loc>https://www.gocd.io/2017/03/01/</loc>

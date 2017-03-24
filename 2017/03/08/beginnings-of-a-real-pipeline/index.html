@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="In this post, we'll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized. " name="description" />
+    <meta content="GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Importance and Principles of CD Pipelines | GoCD Blog" />
+    <meta name="twitter:description" content="In this post, we'll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized. " />
+    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/beginnings-real-pipeline/beginnings_pipelines_hero-7731201b.jpg" />
+
+    <title>Importance and Principles of CD Pipelines | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-8fbf31db.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-b532d9de.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+  </head>
+
+  <body class="x2017 x2017_03 x2017_03_08 x2017_03_08_beginnings-of-a-real-pipeline x2017_03_08_beginnings-of-a-real-pipeline_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+    <div class="post-banner">
+      <figure>
+  <img src="../../../../assets/images/blog/beginnings-real-pipeline/beginnings_pipelines_hero-7731201b.jpg" alt="The beginnings of a real pipeline" />
+</figure>
+
+    </div>
+
+  
+
+  <header class="blog-post-header">
+    <h2>Modeling Deployment Pipelines: The beginnings of a real CD pipeline</h2>
+    <h4>Aravind S.V, Product Manager at GoCD</h4>
+  </header>
+
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      
+<p>This is the second post in the series - Modeling Deployment Pipelines. In <a href="../../01/importance-and-principles-of-cd-pipelines.html">the first part of the series</a>, we covered what continuous delivery pipelines were, why they were important and some of the fundamental principles behind them. In this post, we'll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized.</p>
+
+<h2 id="typical-small-app-with-some-tests">Typical small app, with some tests</h2>
+
+<p>Consider a small, cross-platform desktop application, with unit, integration and functional tests. Let's assume that the goal of the process is to create an installer which can be downloaded.</p>
+
+<p>A typical approach to automate this process would be to have a build script (using Rake, Make, Ant, etc. or even a batch file or a shell script) which has all the individual steps of the process automated so that they can be run locally (<a href="../../01/importance-and-principles-of-cd-pipelines.html#principle-run-locally">Principle 5</a>). Having this, you can now create a GoCD <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#pipeline"><em>pipeline</em></a> with a single <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#stage"><em>stage</em></a> which has a single <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#job"><em>job</em></a> which has a single <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#task"><em>task</em></a> which calls "make all" (for instance). It'll look like this:</p>
+
+<p><img src="../../../../assets/images/blog/beginnings-real-pipeline/pipeline-01-0a8bc1cc.jpg" alt="Pipeline" title="Simple Pipeline" /></p>
+
+<p>While this approach works, it's not very flexible. It doesn't make it easy to run different parts of the process on different agents, makes it hard to track progress and hard to parallelize. Even though it's inside a pipeline, it doesn't use any advantages of the <em>pipeline</em> concept and its modeling capabilities. This is no different from using a standard CI tool and making it run commands.</p>
+
+<p>A slightly better approach is to break apart the individual pieces into separate GoCD <em>tasks</em>, like so:</p>
+
+<p><img src="../../../../assets/images/blog/beginnings-real-pipeline/pipeline-02-9de498c9.jpg" alt="Pipeline" title="Pipeline" /></p>
+
+<p>This approach makes the individual tasks and the order in which they are run, more explicit. It can be argued that this comes at the expense of tying the order of the processes to the CD tool. However, we think that this orchestration is the job of the CD tool and entrusting it to the CD tool allows better flexibility in modeling the processes.</p>
+
+<p>Let's see how that can work.</p>
+
+<h2 id="does-breaking-it-up-into-parallelizable-jobs-help">Does breaking it up into parallelizable jobs help?</h2>
+
+<p>In the current setup, all the tasks still run one after the other and still run on the same agent. Assuming that the tests can be run separately, we can try and use GoCD's <em>jobs</em> to parallelize these. The assumption, at this time, is that the "make build" task creates some <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#artifacts"><em>artifact</em></a> which is necessary for the tests to run.</p>
+
+<p>So, we can try to split up the single job into multiple jobs like this:</p>
+
+<p><img src="../../../../assets/images/blog/beginnings-real-pipeline/pipeline-03-634955aa.jpg" alt="Pipeline" title="Pipeline" /></p>
+
+<p>However this approach has some disadvantages:</p>
+
+<ul>
+  <li>Since jobs run in parallel and are independent of each other, the "make build" is run 4 times, on potentially different agents.</li>
+  <li>The build (<em>artifact</em>) that the unit tests ran with cannot be guaranteed to be the same as the one that was run with the functional tests and cannot be guaranteed to be the one which the installer was built from.</li>
+  <li>Apart from this, if the "make build" task fails, it'll fail on all the jobs, complicating efforts to debug the failure.</li>
+</ul>
+
+<p>What we really need is some ordering of the different stages of this build process.</p>
+
+<h2 id="the-beginnings-of-a-real-pipeline">The beginnings of a real pipeline</h2>
+
+<p>When we think about the different parts of this build process, we see that the first one is "make build", which presumably compiles and builds necessary artifacts such as images or generated pages. If this fails, we want to get that feedback quickly (see <a href="../../01/importance-and-principles-of-cd-pipelines.html#principle-fast-feedback">Principle 1</a>). Once this passes (and only when it passes) do we want to run the unit and integration tests, preferably parallely (see <a href="../../01/importance-and-principles-of-cd-pipelines.html#principle-parallelize">Principle 3</a>). Moreover, we want to use the same artifact built by the "make build" part of the process, while running these tests (see <a href="../../01/importance-and-principles-of-cd-pipelines.html#principle-build-reuse">Principle 4</a>). Once the tests are complete, we want to build the installer and then run functional tests on the built installer. Very conveniently, GoCD's <em>stage</em> concept allows this kind of a serial handoff and the <em>artifact</em> concept allows us to use the same artifact across the pipeline.</p>
+
+<p>A setup such as the one described above might look like this:</p>
+
+<p><img src="../../../../assets/images/blog/beginnings-real-pipeline/pipeline-04-f39a15e1.jpg" alt="Pipeline" title="Pipeline" /></p>
+
+<p>Hopefully, that change didn't feel like the ["How to draw an owl"image] (http://sethgodin.typepad.com/seths_blog/2014/01/how-to-draw-an-owl.html)!</p>
+
+<p>Since stages run one after another, only if Stage 1 passes does it go to Stage 2 and so on. Also, since jobs run parallelly (assuming agents are available), the two jobs which run tests in Stage 2 can potentially run parallelly and provide quicker feedback than when run serially. Also, if both unit tests and integration tests fail for a changeset, then both parts of that feedback will be available simultaneously (in a single pipeline run). This is different from when they were all run serially as tasks in a single job.</p>
+
+<h2 id="more-jobs-vs-more-pipelines">More Jobs vs More Pipelines</h2>
+
+<p>We did mention earlier that our application was cross-platform. So, let's assume that the functional tests need to be run on three different operating systems - Mac OS X, Windows and Linux. We could start to approach this by adding jobs in Stage 4 and use GoCD's <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#resources"><em>resource</em></a> concept to make sure that the jobs are picked up by <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#agent"><em>agents</em></a> with the right operating system. This will involve running agents on the different operating systems and tagging them with resources "mac", "windows" and "linux". Once that's done, we could setup our pipeline to look like this:</p>
+
+<p><img src="../../../../assets/images/blog/beginnings-real-pipeline/pipeline-05-ab3745c8.jpg" alt="Pipeline" title="Pipeline" /></p>
+
+<p>However, this approach isn't the most optimal.</p>
+
+<ul>
+  <li>An obvious disadvantage here  is the duplication between the three jobs.</li>
+  <li>Another problem is the lack of extensibility of this approach. It is usual practice to run a set of "smoke" tests before running the full set of functional tests - so that any obvious issues in core functionality are found earlier rather than later. It is also possible that functional tests might need to be run in parallel. So, having a job for each OS's functional tests ends up being limiting. The only way to extend within the job would be to add more tasks which run one after the other.</li>
+</ul>
+
+<p>To get around this, we can use GoCD's powerful <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#pipeline_dependency">pipeline chaining mechanism</a>, where a stage of a pipeline can be setup as a dependency for another pipeline. We can create one pipeline per operating system's functional test. Let's see how that looks:</p>
+
+<p><img src="../../../../assets/images/blog/beginnings-real-pipeline/pipeline-06-b2394c18.jpg" alt="Pipeline" title="Pipeline" /></p>
+
+<p>This change brings in three new GoCD pipelines and also shows that moving the functional tests to their own pipeline enables better orchestration and control. In this case, there's a "smoke" test stage at the beginning of each pipeline and the functional tests themselves are split into two parallel jobs, which can execute on different agents, potentially improving the end-to-end time. As soon as the installer stage of the "Build" pipeline finishes successfully, all three downstream pipelines are triggered.</p>
+
+<p>GoCD provides the same strong guarantees related to artifacts across pipelines and not just within a pipeline. A stage in a downstream pipeline can confidently fetch an artifact published in any of its upstream pipelines and it will get the correct version of that artifact.</p>
+
+<p>It is not atypical (though it is changing slowly) to deploy a build which has gone through all of these tests onto a set of deployment environments such as a UAT, pre-production and production environment. We'll look at how you can model these in your deployment pipelines in our next post.</p>
+
+<div class="row">
+  <div class="downloadbanner">
+  <div class="container">
+    <div class="banner-with-cta">
+      <p>Get started with simplifying continuous delivery. Download and use <span class="go">Go</span>CD for free</p>
+      <a href="../../../../download/">Download</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Mar  8</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="./">Modeling Deployment Pipelines: The beginnings of a real CD pipeline</a>
+            </li>
+            <li>
+              <span class="post-date">Mar  1</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../01/importance-and-principles-of-cd-pipelines/">Modeling Deployment Pipelines: The Importance and Principles of Continuous Delivery Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Feb 16</span>
+              <span class="post-author">Suzie Prince - Product Manager at Snap CI</span>
+              <a href="../../../02/16/migrating-snapci-to-gocd/">Migrating from Snap CI to GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jan  5</span>
+              <span class="post-author">GoCD team</span>
+              <a href="../../../01/05/why-we-moved-from-go-cd-to-gocd-io/">Why we've moved from go.cd to gocd.io</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 13</span>
+              <span class="post-author">Jason Rowe</span>
+              <a href="../../../../2016/07/13/DotNet-Core-and-GoCD/">.NET Core and GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 21</span>
+              <span class="post-author">Jeff Norris</span>
+              <a href="../../../../2016/06/21/dont-let-sunk-costs-sink-your-project/">Don't let sunk costs sink your project</a>
+            </li>
+            <li>
+              <span class="post-date">Jun  8</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline/">Add performance testing to your Continuous Delivery pipeline</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 24</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../../2016/03/24/how-to-avoid-brittle-code/">How to Avoid Brittle Code</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 15</span>
+              <span class="post-author">David Rice</span>
+              <a href="../../../../2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">Are you ready for Continuous Delivery? Part 2: Feedback loops</a>
+            </li>
+            <li>
+              <span class="post-date">Feb  8</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2016/02/08/not-done-unless-its-done-security/">Add Security Testing to Your Deployment Pipelines</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2017 (4)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/03/08/beginnings-of-a-real-pipeline.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        <li>
+          <a href="../../../../subscribe/"><i class='icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
