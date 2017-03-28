@@ -361,14 +361,15 @@
   margin:0 -10px;
   padding:0;
   .item{
-    float:left;
+    display: inline-block;
+    vertical-align: top;
     padding:0 10px;
     width:100%;
     @media (min-width:$screen-sm) {
-    width:50%;
+    width:calc(50% - 10px);
     }
     @media (min-width:$screen-md) {
-    width:33.3%;
+    width: calc(33.3% - 10px);
     }
   }
 }
@@ -432,4 +433,53 @@
 
 .blog_index .go, .blog-post .go {
   text-transform: none;
+}
+
+.tags{
+  margin-bottom: 0px;
+  font-size: 11px;
+}
+.tag{
+  display: inline-block;
+  position: relative;
+  background: #ccc;
+  border-radius: 3px 0 0 3px;
+  color: #000;
+  padding: 0 20px 0 23px;
+  margin-right: 5px;
+  text-decoration: none;
+  max-width: 220px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  &:before {
+    background: #fff;
+    border-radius: 10px;
+    content: '';
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px;
+  }
+
+  &:after {
+    background: #fff;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #ccc;
+    border-top: 13px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &:hover {
+    background-color: #94399E;
+    color: white;
+    &:after{
+      border-left-color: #94399E;
+    }
+  }
 }
