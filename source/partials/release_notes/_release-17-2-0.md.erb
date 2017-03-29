@@ -1,4 +1,4 @@
-#### Authorization Plugin Endpoint (beta)
+<h4>Authorization Plugin Endpoint (beta)</h4>
 
 GoCD currently supports password-file, LDAP and plugin based authentication.
 
@@ -10,7 +10,7 @@ The introduction of the authorization plugin endpoint (Beta) allows GoCD to dele
 
 Authorization Plugin Endpoint (beta) [documentation](https://plugin-api.gocd.io/current/authorization) is available. We have built [LDAP Authentication plugin](https://github.com/gocd/gocd-ldap-authentication-plugin) using the Authorization Plugin Endpoint, this plugin supports only authentication. We would recommend developers to write plugins which support both authentication and authorization and provide us feedback to enhance this endpoint.
 
-#### Feature Enhancements
+<h4> Feature Enhancements</h4>
 
 * <%= link_to_commit 'c08843512b494ef1c483ebb699c615170dd13cf0', "Template Authorization UI and API enhancements" %>
 
@@ -23,22 +23,22 @@ Authorization Plugin Endpoint (beta) [documentation](https://plugin-api.gocd.io/
     </figure>
 
 
-#### Other Improvements
+<h4>Other Improvements</h4>
 
 - <%= link_to_commit '3b9f54b863c8df762c7927d859a9b4b45fdc4c7c', 'Go server/agent services do not get started on a new installation for debian and rpm based installations in order to allow users to make configuration changes before starting them up', 3119 %>
 
-#### Bug Fixes
+<h4>Bug Fixes</h4>
 
 * <%= link_to_commit '7ddf84eaaf813546aa1f8eb684ef9cf3187f6617', 'User search functionality - Search through plugins implementing AuthenticationExtension.', 3107 %>
 * <%= link_to_commit 'ad1a1188d15839ac4a41c91c84c631612e49bf60', 'Sort resources and environments alphabetically on agents page selector dropdown.', 3134 %>
 * Multiple UI fixes on the old and new themes.
 
 
-#### Security Fixes
+<h4>Security Fixes</h4>
 
 * <%= link_to_commit 'a837fc05cca60a9bbb8dcd7d3a3c7b1228a51358', "Ensures passwords in git or hg material url's is masked before logging or using in server health message.", 3171 %>
 
-#### Breaking changes
+<h4>Breaking changes</h4>
 
 * <%= link_to_commit '8f88269fd8165246820ad1c27685485dd3fe0627', 'Removed support for API based plugins', 3102 %>
 
@@ -79,7 +79,7 @@ Authorization Plugin Endpoint (beta) [documentation](https://plugin-api.gocd.io/
 
   As of release 16.12, git versions older than 1.9 were deprecated. Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to [this](https://www.softwarecollections.org/en/scls/rhscl/git19/) and/or [this](http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633) to upgrade git.
 
-#### Deprecations
+<h4>Deprecations</h4>
 
 Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
 
@@ -87,7 +87,7 @@ The following features have been deprecated, along with the timeframe when they 
 
 * As of release 17.1, version 2 of the <%= link_to_api 'template-config', 'Templates API' %> was deprecated. This version of the API will be removed in 17.4 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.
 
-#### Contributors
+<h4>Contributors</h4>
 
 <%= [
         'Aravind SV',
@@ -111,11 +111,11 @@ The following features have been deprecated, along with the timeframe when they 
     ].sort.uniq.join(', ')
 %>
 
-#### Security researchers
+<h4>Security researchers</h4>
 
 <%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
 
-#### Note
+<h4>Note</h4>
 
 A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.2' %>
 

@@ -80,7 +80,11 @@ However, this approach isn't the most optimal.
 
 To get around this, we can use GoCD's powerful [pipeline chaining mechanism](https://docs.gocd.io/current/introduction/concepts_in_go.html#pipeline_dependency), where a stage of a pipeline can be setup as a dependency for another pipeline. We can create one pipeline per operating system's functional test. Let's see how that looks:
 
+<<<<<<< HEAD
 <%= image_tag 'blog/beginnings-real-pipeline/pipeline-06.jpg', :alt => 'Pipeline', :title => 'Pipeline' :data => {:imagezoom => 'true'}%>
+=======
+<%= image_tag 'blog/beginnings-real-pipeline/pipeline-06.jpg', :alt => 'Pipeline', :title => 'Pipeline', :data => {:imagezoom => 'true'}%>
+>>>>>>> gocd/master
 <span class='info_txt'>Rollover image to zoom in</span>
 
 This change brings in three new GoCD pipelines and also shows that moving the functional tests to their own pipeline enables better orchestration and control. In this case, there's a "smoke" test stage at the beginning of each pipeline and the functional tests themselves are split into two parallel jobs, which can execute on different agents, potentially improving the end-to-end time. As soon as the installer stage of the "Build" pipeline finishes successfully, all three downstream pipelines are triggered.
