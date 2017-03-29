@@ -14,8 +14,8 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-913cb6b9.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-b532d9de.js"></script>
+    <link href="../assets/stylesheets/site-2503b18e.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all-1681eb1d.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
   </head>
@@ -110,7 +110,7 @@
       <h3 class="tab-accordion_heading d_active" rel="tab-17-3-0">17.3.0 (latest)</h3>
       <div id="tab-17-3-0" class="tab_content" style="display: block;">
         <div class="content">
-          <h4 id="ui-enhancements">UI Enhancements</h4>
+          <h4>UI Enhancements </h4>
 
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/320f2236c9eec058d5a8dd35b17e021e56dac44c">320f223</a></code> - Enhanched job/stage status accessibility with addition of symbols to signify stage and job statuses. (<a href="https://github.com/gocd/gocd/issues/3233">#3233</a>)
@@ -130,21 +130,21 @@
   </li>
 </ul>
 
-<h4 id="api-enhancements">API Enhancements</h4>
+<h4> API Enhancements </h4>
 
 <p><code><a href="https://github.com/gocd/gocd/commit/6986dcc97d544d3087eb66423c70e21d6e77893c">6986dcc</a></code> - Added v2 of <a href="https://api.gocd.io/current/#environment-config">Environment Config API</a> with support to PATCH environment-variables. (<a href="https://github.com/gocd/gocd/issues/3080">#3080</a>)</p>
 
-<h4 id="authorization-plugin-beta">Authorization Plugin (Beta)</h4>
+<h4> Authorization Plugin (Beta)</h4>
 
 <p>There has been more work done around fine tuning the Authorization Plugin endpoints, as part of this some of the plugin API calls have changed.  Action required: Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading Go. Refer Authorization Plugin Endpoint <a href="https://plugin-api.gocd.io/current/authorization">documentation</a> for the latest changes.</p>
 
-<h4 id="other-improvements">Other Improvements</h4>
+<h4> Other Improvements</h4>
 
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/262c107a8e8358214a6cf57c9395c315aa12fc12">262c107</a></code> - Pipeline Quick Edit, disable edit until save completes. (<a href="https://github.com/gocd/gocd/issues/3266">#3266</a>)</li>
 </ul>
 
-<h4 id="bug-fixes">Bug Fixes</h4>
+<h4> Bug Fixes</h4>
 
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/8224568b0df3500525f16f4ff2bd81541f67d663">8224568</a></code> - This fixes 17.2.0 upgrade failures in cases where cruise_config xml had encrypted values with spaces. (<a href="https://github.com/gocd/gocd/issues/3244">#3244</a>)</li>
@@ -153,11 +153,11 @@
   <li><code><a href="https://github.com/gocd/gocd/commit/5d75f45c5229f48697beee3ec4e9d404c899e82f">5d75f45</a></code> - Agents page memory leak fix. (<a href="https://github.com/gocd/gocd/issues/3217">#3217</a>)</li>
 </ul>
 
-<h4 id="breaking-changes">Breaking Changes</h4>
+<h4> Breaking Changes</h4>
 
 <p>On GoCD servers installed on windows or if using the zip installers, logs will now be written to logs directory instead of the working directory. This would be a breaking change only if there are custom scripts relying on the logs location.</p>
 
-<h4 id="deprecations">Deprecations</h4>
+<h4> Deprecations</h4>
 
 <p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 
@@ -172,7 +172,7 @@
   </li>
 </ul>
 
-<h4 id="docker-images-and-amis">Docker Images and AMIs</h4>
+<h4> Docker Images and AMIs</h4>
 
 <ul>
   <li>The <a href="https://hub.docker.com/r/gocd/gocd-server/">GoCD server</a> docker image is now alpine based with support for volume mounts, with this going forward there will be no more support for phusion based images.</li>
@@ -189,15 +189,15 @@
   <li>GoCD AMI - <a href="https://github.com/gocd/gocd-cloud">https://github.com/gocd/gocd-cloud</a></li>
 </ul>
 
-<h4 id="contributors">Contributors</h4>
+<h4> Contributors</h4>
 
 <p>Ankit Srivastava, Aravind SV, Barrow KwanBhupendrakumar Piprava, Etienne Dysli Metref, Ganesh S Patil, Isabelle Carter, Junaid Shah, Jyoti Singh, Karel Bemelmans, Ketan Padegaonkar, Kiera Radman, Kyle Olivo, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Rajiesh Narayanan, Varsha Varadarajan</p>
 
-<h4 id="security-researchers">Security researchers</h4>
+<h4> Security researchers</h4>
 
 <p><a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a></p>
 
-<h4 id="note">Note</h4>
+<h4> Note</h4>
 
 <p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.3%22+is%3Aclosed">here.</a></p>
 
@@ -210,7 +210,7 @@
       <h3 class="tab-accordion_heading" rel="tab-17-2-0">17.2.0</h3>
       <div id="tab-17-2-0" class="tab_content" style="display: block;">
         <div class="content">
-          <h4 id="authorization-plugin-endpoint-beta">Authorization Plugin Endpoint (beta)</h4>
+          <h4>Authorization Plugin Endpoint (beta)</h4>
 
 <p>GoCD currently supports password-file, LDAP and plugin based authentication.</p>
 
@@ -222,7 +222,7 @@
 
 <p>Authorization Plugin Endpoint (beta) <a href="https://plugin-api.gocd.io/current/authorization">documentation</a> is available. We have built <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">LDAP Authentication plugin</a> using the Authorization Plugin Endpoint, this plugin supports only authentication. We would recommend developers to write plugins which support both authentication and authorization and provide us feedback to enhance this endpoint.</p>
 
-<h4 id="feature-enhancements">Feature Enhancements</h4>
+<h4> Feature Enhancements</h4>
 
 <ul>
   <li>
@@ -240,13 +240,13 @@
   </li>
 </ul>
 
-<h4 id="other-improvements">Other Improvements</h4>
+<h4>Other Improvements</h4>
 
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/3b9f54b863c8df762c7927d859a9b4b45fdc4c7c">3b9f54b</a></code> - Go server/agent services do not get started on a new installation for debian and rpm based installations in order to allow users to make configuration changes before starting them up. (<a href="https://github.com/gocd/gocd/issues/3119">#3119</a>)</li>
 </ul>
 
-<h4 id="bug-fixes">Bug Fixes</h4>
+<h4>Bug Fixes</h4>
 
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/7ddf84eaaf813546aa1f8eb684ef9cf3187f6617">7ddf84e</a></code> - User search functionality - Search through plugins implementing AuthenticationExtension. (<a href="https://github.com/gocd/gocd/issues/3107">#3107</a>)</li>
@@ -254,13 +254,13 @@
   <li>Multiple UI fixes on the old and new themes.</li>
 </ul>
 
-<h4 id="security-fixes">Security Fixes</h4>
+<h4>Security Fixes</h4>
 
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/a837fc05cca60a9bbb8dcd7d3a3c7b1228a51358">a837fc0</a></code> - Ensures passwords in git or hg material url's is masked before logging or using in server health message. (<a href="https://github.com/gocd/gocd/issues/3171">#3171</a>)</li>
 </ul>
 
-<h4 id="breaking-changes">Breaking changes</h4>
+<h4>Breaking changes</h4>
 
 <ul>
   <li>
@@ -308,7 +308,7 @@
   </li>
 </ul>
 
-<h4 id="deprecations">Deprecations</h4>
+<h4>Deprecations</h4>
 
 <p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 
@@ -318,15 +318,15 @@
   <li>As of release 17.1, version 2 of the <a href="https://api.gocd.io/current/#template-config">Templates API</a> was deprecated. This version of the API will be removed in 17.4 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.</li>
 </ul>
 
-<h4 id="contributors">Contributors</h4>
+<h4>Contributors</h4>
 
 <p>Aravind SV, Bhupendrakumar Piprava, Dmitry Ledentsov, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Kyle Olivo, Lubaina R, Mahesh Panchaksharaiah, Markandan R, NaveenBhaskar, Rajiesh Narayanan, Stephen Gran, Sumanth Kumar Mora, Varsha Varadarajan, cnenning</p>
 
-<h4 id="security-researchers">Security researchers</h4>
+<h4>Security researchers</h4>
 
 <p><a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a></p>
 
-<h4 id="note">Note</h4>
+<h4>Note</h4>
 
 <p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.2%22+is%3Aclosed">here.</a></p>
 
