@@ -55,13 +55,14 @@ What we really need is some ordering of the different stages of this build proce
 
 ## The beginnings of a real pipeline
 
-When we think about the different parts of this build process, we see that the first one is "make build", which presumably compiles and builds necessary artifacts such as images or generated pages (*Stage 1*). If this fails, we want to get that feedback quickly (see <%= link_to 'Principle 1', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-fast-feedback' %>). Once this passes (and only when it passes) do we want to run the unit and integration tests, preferably parallely (see <%= link_to 'Principle 3', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-parallelize' %>) (*Stage 2*). Moreover, we want to use the same artifact built by the "make build" part of the process, while running these tests (see <%= link_to 'Principle 4', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-build-reuse' %>). Once the tests are complete, we want to build the installer (*Stage 3*) and then run functional tests on the built installer (*Stage 4*). Very conveniently, GoCD's *stage* concept allows this kind of a serial handoff and the *artifact* concept allows us to use the same artifact across the pipeline.
+When we think about the different parts of this build process, we see that the first one is "make build", which presumably compiles and builds necessary artifacts such as images or generated pages. If this fails, we want to get that feedback quickly (see <%= link_to 'Principle 1', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-fast-feedback' %>). Once this passes (and only when it passes) do we want to run the unit and integration tests, preferably parallely (see <%= link_to 'Principle 3', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-parallelize' %>). Moreover, we want to use the same artifact built by the "make build" part of the process, while running these tests (see <%= link_to 'Principle 4', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-build-reuse' %>). Once the tests are complete, we want to build the installer and then run functional tests on the built installer. Very conveniently, GoCD's *stage* concept allows this kind of a serial handoff and the *artifact* concept allows us to use the same artifact across the pipeline.
 
 A setup such as the one described above might look like this:
 
-<%= image_tag 'blog/beginnings-real-pipeline/pipeline-04.jpg', :alt => 'Pipeline', :title => 'Pipeline' %>
+<%= image_tag 'blog/beginnings-real-pipeline/pipeline-04.jpg', :alt => 'Pipeline', :title => 'Pipeline' :data => {:imagezoom => 'true'}%>
+<span class='info_txt'>Rollover image to zoom in</span>
 
-Hopefully, that change didn't feel like the "How to draw an owl" [image](http://sethgodin.typepad.com/seths_blog/2014/01/how-to-draw-an-owl.html)!
+Hopefully, that change didn't feel like the ["How to draw an owl"image] (http://sethgodin.typepad.com/seths_blog/2014/01/how-to-draw-an-owl.html)!
 
 Since stages run one after another, only if Stage 1 passes does it go to Stage 2 and so on. Also, since jobs run parallelly (assuming agents are available), the two jobs which run tests in Stage 2 can potentially run parallelly and provide quicker feedback than when run serially. Also, if both unit tests and integration tests fail for a changeset, then both parts of that feedback will be available simultaneously (in a single pipeline run). This is different from when they were all run serially as tasks in a single job.
 
@@ -69,7 +70,8 @@ Since stages run one after another, only if Stage 1 passes does it go to Stage 2
 
 We did mention earlier that our application was cross-platform. So, let's assume that the functional tests need to be run on three different operating systems - Mac OS X, Windows and Linux. We could start to approach this by adding jobs in Stage 4 and use GoCD's [*resource*](https://docs.gocd.io/current/introduction/concepts_in_go.html#resources) concept to make sure that the jobs are picked up by [*agents*](https://docs.gocd.io/current/introduction/concepts_in_go.html#agent) with the right operating system. This will involve running agents on the different operating systems and tagging them with resources "mac", "windows" and "linux". Once that's done, we could setup our pipeline to look like this:
 
-<%= image_tag 'blog/beginnings-real-pipeline/pipeline-05.jpg', :alt => 'Pipeline', :title => 'Pipeline' %>
+<%= image_tag 'blog/beginnings-real-pipeline/pipeline-05.jpg', :alt => 'Pipeline', :title => 'Pipeline' :data => {:imagezoom => 'true'}%>
+<span class='info_txt'>Rollover image to zoom in</span>
 
 However, this approach isn't the most optimal.
 
@@ -78,10 +80,10 @@ However, this approach isn't the most optimal.
 
 To get around this, we can use GoCD's powerful [pipeline chaining mechanism](https://docs.gocd.io/current/introduction/concepts_in_go.html#pipeline_dependency), where a stage of a pipeline can be setup as a dependency for another pipeline. We can create one pipeline per operating system's functional test. Let's see how that looks:
 
-<%= image_tag 'blog/beginnings-real-pipeline/pipeline-06.jpg', :alt => 'Pipeline', :title => 'Pipeline', :data => {:imagezoom => 'true'}%>
+<%= image_tag 'blog/beginnings-real-pipeline/pipeline-06.jpg', :alt => 'Pipeline', :title => 'Pipeline' :data => {:imagezoom => 'true'}%>
 <span class='info_txt'>Rollover image to zoom in</span>
 
-This change brings in three new GoCD pipelines and also shows that moving the functional tests to their own pipeline enables better orchestration and control. In this case, there's a "smoke" test stage at the beginning of each pipeline and the functional tests themselves are split into two parallel jobs, which can execute on different agents, potentially improving the end-to-end time. As soon as the installer stage of the "Build" pipeline finishes successfully, all three downstream pipelines are triggered. At this stage, it might occur as if we've replaced duplications that arise with many jobs with multiple pipelines. We'll address how this can be optimized with Pipeline Templates in a later post.
+This change brings in three new GoCD pipelines and also shows that moving the functional tests to their own pipeline enables better orchestration and control. In this case, there's a "smoke" test stage at the beginning of each pipeline and the functional tests themselves are split into two parallel jobs, which can execute on different agents, potentially improving the end-to-end time. As soon as the installer stage of the "Build" pipeline finishes successfully, all three downstream pipelines are triggered.
 
 GoCD provides the same strong guarantees related to artifacts across pipelines and not just within a pipeline. A stage in a downstream pipeline can confidently fetch an artifact published in any of its upstream pipelines and it will get the correct version of that artifact.
 
