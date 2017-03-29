@@ -234,3 +234,17 @@ $btn-dark-border: #333;
 .btn-dark {
 	@include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
 }
+
+//override for imagezoom
+.imagezoom-view {
+	border: 2px solid !important;
+	width: 400px !important;
+	height: 400px !important;
+		img{
+		width: auto !important;
+		max-width: none;
+	}
+}
+.imagezoom-cursor{
+	background: rgba(0,0,0,0.3) !important;
+}
