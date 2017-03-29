@@ -81,15 +81,15 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         $(".get-start-btn").removeClass("fixed")
         $(".getting-started-nav").slideToggle();
-      });          
+      });
 
-      
-    },  
+
+    },
     unmatch : function() {
         // Hide the sidebar
       }
     });
-}); 
+});
 
 
 // back to top
@@ -125,18 +125,18 @@ $(document).ready(function(){
 jQuery(document).ready(function($) {
 
 
-  $(document).on('click', '.btn-release', function(){ 
+  $(document).on('click', '.btn-release', function(){
     $(this).closest('.tab_content').find('.old-release').slideToggle('fast');
     $(this).text(function(i, text){
           return text === "Show old releases" ? "Hide old releases" : "Show old releases";
       });
-   
+
   });
 
-  $(document).on('click', '.close-message, .verify-checksum-message', function(e){ 
+  $(document).on('click', '.close-message, .verify-checksum-message', function(e){
     if (e.target !== this)
     return;
     $('.verify-checksum-message').hide();
       $('body').removeClass("o-h");
-     });  
+     });
 });
