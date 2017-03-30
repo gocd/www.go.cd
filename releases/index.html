@@ -155,7 +155,11 @@
 
 <h4> Breaking Changes</h4>
 
-<p>On GoCD servers installed on windows or if using the zip installers, logs will now be written to logs directory instead of the working directory. This would be a breaking change only if there are custom scripts relying on the logs location.</p>
+<ul>
+  <li>On GoCD servers installed on windows or if using the zip installers, logs will now be written to logs directory instead of the working directory. This would be a breaking change only if there are custom scripts relying on the logs location.</li>
+  <li>The <a href="https://hub.docker.com/r/gocd/gocd-server/">gocd/gocd-server</a> docker image no longer recognizes the <code>latest</code> tag. Please use <code>docker pull gocd/gocd-server:v17.3.0</code> instead.</li>
+  <li>The <code>gocd/gocd-agent</code> docker image no longer exists. We have a variety of agent images for different distributions. If you wish to continue  with the old agent image, please use <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">gocd-agent-deprecated</a> instead.</li>
+</ul>
 
 <h4> Deprecations</h4>
 
