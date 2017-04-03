@@ -8,10 +8,14 @@
       location: Los Angeles
     - date: April 10 - 11
       location: Denver
+    - date: April 18 - 19
+      location: Atlanta
     - date: April 26 - 27
       location: Seattle
     - date: May 03 - 04
       location: Zurich
+    - date: May 08 - 09
+      location: Stockholm
    
 - title: "Lead Developer Conference"
   url: http://theleaddeveloper-ny.com/
@@ -59,3 +63,12 @@
   details:
     - date: May 01 - 02
       location: Chicago
+    - date: June 13 - 14
+      location: Amsterdam
+      
+- title: "Chef Conf"
+  url: https://chefconf.chef.io/2017/
+  description: "Chef Conf present an invigorating blend of technology and local Austin experiences to engage and energize both technical practitioners and corporate leaders."
+  details:
+    - date: May 22 - 24
+      location: Austin
