@@ -3,7 +3,6 @@
 //= require 'lib/_masonry.pkgd'
 //= require 'lib/_handlebars-v4.0.5'
 //= require 'lib/_ramda'
-//= require 'lib/_imagezoom'
 //= require 'bootstrap-sprockets'
 
 //= require 'app/_main'

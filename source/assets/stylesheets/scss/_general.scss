@@ -235,16 +235,57 @@ $btn-dark-border: #333;
 	@include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
 }
 
-//override for imagezoom
-.imagezoom-view {
-	border: 2px solid !important;
-	width: 400px !important;
-	height: 400px !important;
-		img{
-		width: auto !important;
-		max-width: none;
-	}
+//image zoom
+.imagezoom{
+  position: relative;
+  cursor: pointer;
+  &:after{
+    position: absolute;
+    right: 0px;
+    bottom: 10px;
+    content: "\f00e";
+    font-weight: bold;
+    font-size: 2em;
+    cursor: pointer;
+    font-family: "FontAwesome";
+  }
 }
-.imagezoom-cursor{
-	background: rgba(0,0,0,0.3) !important;
+.imagemodal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  background: rgba(1,1,1, 0.3);
+  display: none;
+  .imagemodalcontent{
+    width: 75%;
+    height: 75%;
+    max-height: 450px;
+    overflow: auto;
+    background: #FFF;
+    margin: 0 auto;
+    margin-top: 120px;
+  }
+  img{
+    width: auto;
+    max-width: none;
+    transform: scale(2);
+    transform-origin: top left;
+		@media (max-width:$screen-tablet) {
+			transform: scale(1);
+		}
+  }
+  .close{
+    position: absolute;
+    top: 90px;
+    right: 12.5%;
+    background: #FFF;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1;
+  }
 }

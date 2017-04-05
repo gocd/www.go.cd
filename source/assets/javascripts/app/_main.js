@@ -139,4 +139,18 @@ jQuery(document).ready(function($) {
     $('.verify-checksum-message').hide();
       $('body').removeClass("o-h");
      });
+
+     //image zoom popup
+
+   $(".imagezoom").click(function(evt){
+     var src = $(evt.currentTarget).children('img').attr('src');
+     var imagecontent = $(".imagemodalcontent");
+     imagecontent.html("<img src='" + src + "' alt='fuller image' />" )
+     $(".imagemodal").show();
+     imagecontent.scrollTop(0).scrollLeft(0);
+   });
+   $(".imagemodal .close").click(function(){
+     $(".imagemodal").hide();
+   });
+
 });
