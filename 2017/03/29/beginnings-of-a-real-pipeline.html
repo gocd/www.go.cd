@@ -14,8 +14,8 @@
 
     <title>The beginnings of a real CD Pipeline | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-2503b18e.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-1681eb1d.js"></script>
+    <link href="../../../assets/stylesheets/site-539e3339.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-240a21c3.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
   </head>
@@ -121,8 +121,10 @@
 
 <p>A setup such as the one described above might look like this:</p>
 
-<p><img src="../../../assets/images/blog/beginnings-real-pipeline/pipeline-04-60925b1e.jpg" alt="Pipeline" title="Pipeline" data-imagezoom="true" />
-<span class="info_txt">Rollover image to zoom in</span></p>
+<div class="imagezoom">
+  <img src="../../../assets/images/blog/beginnings-real-pipeline/pipeline-04-60925b1e.jpg" alt="Pipeline" title="Pipeline" />
+  <span class="info_txt">Click image to zoom in</span>
+</div>
 
 <p>Hopefully, that change didn't feel like the "How to draw an owl" <a href="http://sethgodin.typepad.com/seths_blog/2014/01/how-to-draw-an-owl.html">image</a>!</p>
 
@@ -132,9 +134,10 @@
 
 <p>We did mention earlier that our application was cross-platform. So, let's assume that the functional tests need to be run on three different operating systems - Mac OS X, Windows and Linux. We could start to approach this by adding jobs in Stage 4 and use GoCD's <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#resources"><em>resource</em></a> concept to make sure that the jobs are picked up by <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#agent"><em>agents</em></a> with the right operating system. This will involve running agents on the different operating systems and tagging them with resources "mac", "windows" and "linux". Once that's done, we could setup our pipeline to look like this:</p>
 
-<p><img src="../../../assets/images/blog/beginnings-real-pipeline/pipeline-05-c73cf40f.jpg" alt="Pipeline" title="Pipeline" data-imagezoom="true" />
-<span class="info_txt">Rollover image to zoom in</span></p>
-
+<div class="imagezoom">
+  <img src="../../../assets/images/blog/beginnings-real-pipeline/pipeline-05-c73cf40f.jpg" alt="Pipeline" title="Pipeline" />
+  <span class="info_txt">Click image to zoom in</span>
+</div>
 <p>However, this approach isn't the most optimal.</p>
 
 <ul>
@@ -144,8 +147,10 @@
 
 <p>To get around this, we can use GoCD's powerful <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#pipeline_dependency">pipeline chaining mechanism</a>, where a stage of a pipeline can be setup as a dependency for another pipeline. We can create one pipeline per operating system's functional test. Let's see how that looks:</p>
 
-<p><img src="../../../assets/images/blog/beginnings-real-pipeline/pipeline-06-1243d084.jpg" alt="Pipeline" title="Pipeline" data-imagezoom="true" />
-<span class="info_txt">Rollover image to zoom in</span></p>
+<div class="imagezoom">
+  <img src="../../../assets/images/blog/beginnings-real-pipeline/pipeline-06-1243d084.jpg" alt="Pipeline" title="Pipeline" />
+  <span class="info_txt">Click image to zoom in</span>
+</div>
 
 <p>This change brings in three new GoCD pipelines and also shows that moving the functional tests to their own pipeline enables better orchestration and control. In this case, there's a "smoke" test stage at the beginning of each pipeline and the functional tests themselves are split into two parallel jobs, which can execute on different agents, potentially improving the end-to-end time. As soon as the installer stage of the "Build" pipeline finishes successfully, all three downstream pipelines are triggered. At this stage, it might occur as if we've replaced duplications that arise with many jobs with multiple pipelines. We'll address how this can be optimized with Pipeline Templates in a later post.</p>
 
@@ -314,6 +319,13 @@
   </div>
 </footer>
 <a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
 
   </body>
 
