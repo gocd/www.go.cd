@@ -259,18 +259,18 @@ $btn-dark-border: #333;
   background: rgba(1,1,1, 0.3);
   display: none;
   .imagemodalcontent{
-    width: 75%;
-    height: 75%;
-    max-height: 450px;
+    width: 80%;
+    height: 80%;
+    max-height: 650px;
     overflow: auto;
     background: #FFF;
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 90px;
   }
   img{
     width: auto;
     max-width: none;
-    transform: scale(2);
+    transform: scale(1);
     transform-origin: top left;
 		@media (max-width:$screen-tablet) {
 			transform: scale(1);
@@ -279,13 +279,13 @@ $btn-dark-border: #333;
   .close{
     position: absolute;
     top: 90px;
-    right: 12.5%;
+    right: 11.5%;
     background: #FFF;
     padding: 5px;
-    width: 30px;
+    width: 10px;
     height: 30px;
     text-align: center;
     cursor: pointer;
-    line-height: 1;
+    line-height: 2;
   }
 }
