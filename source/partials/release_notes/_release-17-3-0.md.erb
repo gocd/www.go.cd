@@ -35,6 +35,7 @@ There has been more work done around fine tuning the Authorization Plugin endpoi
 <h4> Breaking Changes</h4>
 
 * On GoCD servers installed on windows or if using the zip installers, logs will now be written to logs directory instead of the working directory. This would be a breaking change only if there are custom scripts relying on the logs location.
+* The [gocd/gocd-server](https://hub.docker.com/r/gocd/gocd-server/) docker image now uses alpine as the base image. The phusion images are still supported for GoCD 17.3.0 and can be found at [gocd-server-deprecated](https://hub.docker.com/r/gocd/gocd-server-deprecated/) should you wish to use it.
 * The [gocd/gocd-server](https://hub.docker.com/r/gocd/gocd-server/) docker image no longer recognizes the `latest` tag. Please use `docker pull gocd/gocd-server:v17.3.0` instead.
 * The `gocd/gocd-agent` docker image no longer exists. We have a variety of agent images for different distributions. If you wish to continue  with the old agent image, please use [gocd-agent-deprecated](https://hub.docker.com/r/gocd/gocd-agent-deprecated/) instead.
 
