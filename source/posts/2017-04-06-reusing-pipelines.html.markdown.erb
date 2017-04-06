@@ -1,0 +1,60 @@
+---
+layout: post
+title: "Modeling Deployment Pipelines: Part 3 - Reusing Pipelines"
+type: post
+author: Aravind S.V, Product Manager at GoCD
+excerpt: "This is the third post in the series - Modeling Deployment Pipelines. In this post, we'll look at some of the ways to reduce the duplication found between pipelines using templates."
+title_tag_of_header: "Reusing Pipelines | GoCD Blog"
+meta_description: "In this post, we'll look at some of the ways to reduce the duplication found between pipelines using templates."
+meta_keywords: "GoCD, reusing pipelines, remove duplicates, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go"
+summary_image: "/assets/images/blog/reusing-pipelines/reusing-pipelines-hero.jpg"
+draft: true
+---
+
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/reusing-pipelines/reusing-pipelines-hero.jpg" alt="The beginnings of a real pipeline" />
+</figure>
+<% end %>
+
+This is the third post in the series - Modeling Deployment Pipelines. In our <%= link_to 'previous post', '/posts/2017-03-29-beginnings-of-a-real-pipeline.html' %>, we looked at reducing duplication in jobs by using multiple pipelines. This approach of using multiple pipelines enabled better control, but did not reduce the duplication found between the pipelines.
+
+Having duplicate pipelines increases the time and effort to create and update your pipelines. Ideally, we want to create a reusable pipeline “stencil” that could be used to easily create other similar pipelines by updating certain variables. This makes creation of a new pipeline, that is similar to one already created, much easier & faster. It also means that updating pipelines can be a single update rather than multiple updates. When creating builds that test the same things on different platform or browsers (as in our examples below) this kind of reusability can be very powerful and efficient.
+
+## Reusing Pipelines
+
+Enter pipeline templates! A *template* is a concept in GoCD which helps reduce duplication between similar pipelines. It allows stages and jobs to be defined at the template level and through configurable parameters, allows each pipeline which is based off of that template, to set the parameters which make sense for it. Let’s see how a pipeline template can help in this case:
+
+<div class='imagezoom'>
+<%= image_tag 'blog/reusing-pipelines/introducing-template.jpeg', :alt => 'Introducing Pipeline Template', :title => 'Pipeline Template' %>
+<span class='info_txt'>Click image to zoom in</span>
+</div>
+
+There are still 4 pipelines in this image, but because we’ve used a template, all stage and job information has been moved into it. The only parameter used in this template is “OS” and it is shown in the template as “#{OS}”. Any number of parameters can be used in a template. Also, a template in GoCD is “live”, in the sense that any change to the template will automatically apply to all pipelines which are based off of it.
+
+Here’s a look at what we’ve been able to achieve so far:
+
+* We have a three stage “Build” pipeline, which builds, then runs unit and integration tests in parallel and then builds an installer.
+* As soon as the installer stage in this pipeline succeeds, all three downstream functional test pipelines get triggered.
+* Based on the template and their own parameters substituted into it, they run a “smoke” stage each and then run functional tests split into two parts.
+* Owing to the specified resources, GoCD makes sure that only those agents tagged with the resources specified pick up the jobs, thereby running the tests on different operating systems.
+
+All of this is just orchestrated through GoCD (or your chosen CD solution), but the actual scripts which do all of this are safely checked into your source control repository, thereby ensuring that you can easily run this locally if you need (see <%= link_to 'Principle 5', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-run-locally' %>).
+
+Not bad at all!
+
+Before we look at moving a build to your deployment environment, here is a simplified version of our CD pipeline, which will help with continuing to extend it.
+
+<div class='imagezoom'>
+<%= image_tag 'blog/reusing-pipelines/simplified-version.jpeg', :alt => 'Simplified Version of Pipeline', :title => 'Simplified Version of Pipeline' %>
+<span class='info_txt'>Click image to zoom in</span>
+</div>
+
+Typically, once a build has gone through the various tests (functional, unit, integration etc.), it is deployed onto a set of environments<sup>(^1)</sup> such as UAT, pre-production and production (for example). This is called “Build Propagation”.  We’ll cover in more detail how to implement Build Propagation in your deployment pipeline in our next post.
+
+<sub>^1 - These “deployment environments” are different from the concept of an “Environment” in GoCD. More on that in a later post.
+</sub>
+
+<div class='row'>
+  <%= partial "partials/downloadbanner" %>
+</div>
