@@ -16,7 +16,7 @@ namespace :static_checks do
     :disable_external     => should_not_run_external_url_checks?,
     :url_ignore           => ['http://localhost:8153'],
     :allow_hash_href      => true,
-
+    :href_ignore          => ['/https:\/\/www\.youtube\.com\/.*/'],
     :check_html           => true,
     :validation           => {
       :report_invalid_tags  => false,
