@@ -17,7 +17,7 @@ draft: true
 </figure>
 <% end %>
 
-This is the third post in the series - Modeling Deployment Pipelines. In our <%= link_to 'previous post', '/posts/2017-03-29-beginnings-of-a-real-pipeline.html' %>, we looked at reducing duplication in jobs by using multiple pipelines. This approach of using multiple pipelines enabled better control, but did not reduce the duplication found between the pipelines.
+This is the third post in the series - Modeling Deployment Pipelines. In our <%= link_to 'previous post', '/posts/2017-03-29-beginnings-of-a-real-pipeline.html' %>, we looked at the initial stages of modeling a deployment pipeline and ways to reduce duplication in jobs by using multiple pipelines. This approach of using multiple pipelines enabled better control, but introduced duplication between the pipelines.
 
 Having duplicate pipelines increases the time and effort to create and update your pipelines. Ideally, we want to create a reusable pipeline “stencil” that could be used to easily create other similar pipelines by updating certain variables. This makes creation of a new pipeline, that is similar to one already created, much easier & faster. It also means that updating pipelines can be a single update rather than multiple updates. When creating builds that test the same things on different platform or browsers (as in our examples below) this kind of reusability can be very powerful and efficient.
 
