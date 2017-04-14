@@ -47,7 +47,6 @@ For the sake of completeness, we added these dependencies in and this is what th
 <span class='info_txt'>Click image to zoom in</span>
 </div>
 
-
 As you can see, it complicates the image quite a bit and so, has been omitted from other images. Owing to GoCD’s fan-in ability, adding that dependency doesn’t change how and when the pipelines are triggered. If a commit is made to the code repository, it does not mean that the functional test pipelines are triggered. Since each functional test pipeline has two dependencies now, both of them have to be compatible (i.e. be the same version) before it triggers.
 
 For example, if a commit was made in the repository, the “Build” pipeline would build first with that commit. If the "Build" pipeline is successful, then both the materials of the functional test pipelines are compatible and the functional test pipelines will run.
