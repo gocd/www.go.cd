@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Modeling Deployment Pipelines: Part 4 - Build Propagation"
+title: "Modeling Deployment Pipelines: Part 4 - Build Propagation using Fan-in/Fan-out"
 type: post
 author: Aravind S.V, Product Manager at GoCD
 excerpt: "This is the fourth post in the series - Modeling Deployment Pipelines. In this post, we’ll dive into ways to move your build through the deployment pipeline."
@@ -8,15 +8,12 @@ title_tag_of_header: "Build Propagation | GoCD Blog"
 meta_description: "In this post, we'll look at some of the ways to move your build through the deployment pipeline."
 meta_keywords: "GoCD, build, build propagation, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go"
 summary_image: "/assets/images/blog/build-propagation/build-propagation-hero.jpg"
-draft: true
 ---
 This is the fourth post in the series - Modeling Deployment Pipelines. In our <%= link_to 'previous post', '/posts/2017-04-06-reusing-pipelines.html' %>, we saw the advantages of reusing pipelines (using Templates). In this post, we’ll dive into ways to move your build through the deployment pipeline. Typically, once a build has gone through the various tests, it is deployed onto a set of environments such as UAT, pre-production and production (for example). This concept is called **“Build Propagation”**.
 
 ## Fan-in/ Fan-out
 
 To implement the idea of build propagation in your pipeline, we can use a concept called *fan-out / fan-in*. In the image below, there is a “fan-out” from the end of the “Build” pipeline. It fans out into three functional test pipelines. The opposite of a fan-out is “fan-in”, where multiple (upstream) pipelines lead into a single (downstream) pipeline.
-
-In the case of GoCD,  it will trace the graph upstream and will ensure that the downstream pipeline will start only when all upstream pipelines are consistent and have run with the same revision of the upstream material.
 
 Here’s how that looks:
 
@@ -31,11 +28,11 @@ In this scenario, the “UAT” pipeline will wait for all three of its upstream
 
 In practice, this means that if one or more of the functional test pipelines fails, then the UAT pipeline doesn’t get triggered. This makes sense since that changeset is not “good enough” to go to UAT.
 
-> That’s the real beauty of a CD pipeline - it prevents bad changes from reaching important environments (such as production).
+> **That’s the real beauty of a CD pipeline - it prevents bad changes from reaching important environments (such as production).**
 
 The green arrow in the image represents “Build Propagation” in the pipeline. The installer artifact from the “Build installer” stage is fetched and used. This is the same installer artifact used by the functional test pipelines as well. So, the same artifact, built once, is being pushed further along in the pipeline.
 
-## What about scripts for deployment and running functional tests?
+## Highlighting Dependencies
 
 What we don’t see in the image above, are the dependencies between
 
@@ -51,9 +48,9 @@ For the sake of completeness, we added these dependencies in and this is what th
 </div>
 
 
-As you can see, it complicates the image quite a bit and so, has been omitted from other images. Owing to GoCD’s fan-in ability, adding that dependency doesn’t change how and when the pipelines are triggered. If a commit is made to the code repository, it does not mean that the functional test pipelines are triggered. Since each functional test pipeline has two dependencies now, both of them have to be compatible before it triggers.
+As you can see, it complicates the image quite a bit and so, has been omitted from other images. Owing to GoCD’s fan-in ability, adding that dependency doesn’t change how and when the pipelines are triggered. If a commit is made to the code repository, it does not mean that the functional test pipelines are triggered. Since each functional test pipeline has two dependencies now, both of them have to be compatible (i.e. be the same version) before it triggers.
 
-For example, if a commit was made with ID 2 in the repository, the “Build” pipeline would build first with that commit. Only when it is successful, then both the materials of the “functional_tests_mac” pipeline result in being compatible. If not, an old run of the “Build” pipeline would have run with a new commit of the repository (incompatible).
+For example, if a commit was made in the repository, the “Build” pipeline would build first with that commit. If the "Build" pipeline is successful, then both the materials of the functional test pipelines are compatible and the functional test pipelines will run.
 
 Unlike the example in the image above, maybe your repositories are structured so that functional tests and deployment scripts are in their own repositories. If so, they can be modeled as shown below:
 
