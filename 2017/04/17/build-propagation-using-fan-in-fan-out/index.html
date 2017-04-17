@@ -72,14 +72,14 @@
       <main id="main" role="main">
       <p>This is the fourth post in the series - Modeling Deployment Pipelines. In our <a href="../../06/reusing-pipelines.html">previous post</a>, we saw the advantages of reusing pipelines (using Templates). In this post, we’ll dive into ways to move your build through the deployment pipeline. Typically, once a build has gone through the various tests, it is deployed onto a set of environments such as UAT, pre-production and production (for example). This concept is called <strong>“Build Propagation”</strong>.</p>
 
-<h2 id="fan-in-fan-out">Fan-in/ Fan-out</h2>
+<h2 id="fan-in--fan-out">Fan-in / Fan-out</h2>
 
-<p>To implement the idea of build propagation in your pipeline, we can use a concept called <em>fan-out / fan-in</em>. In the image below, there is a “fan-out” from the end of the “Build” pipeline. It fans out into three functional test pipelines. The opposite of a fan-out is “fan-in”, where multiple (upstream) pipelines lead into a single (downstream) pipeline.</p>
+<p>To implement the idea of build propagation in your pipeline, we can use a concept called <em>fan-in / fan-out</em>. In the image below, there is a “fan-out” from the end of the “Build” pipeline. It fans out into three functional test pipelines. The opposite of a fan-out is “fan-in”, where multiple (upstream) pipelines lead into a single (downstream) pipeline.</p>
 
 <p>Here’s how that looks:</p>
 
 <div class="imagezoom">
-<img src="../../../../assets/images/blog/build-propagation/fan-in-fan-out-774eac6e.jpeg" alt="Fan-out Fan-in" title="Fan-out Fan-in" />
+<img src="../../../../assets/images/blog/build-propagation/fan-in-fan-out-774eac6e.jpeg" alt="Fan-in Fan-out" title="Fan-in Fan-out" />
 <span class="info_txt">Click image to zoom in</span>
 </div>
 
