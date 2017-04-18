@@ -25,7 +25,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     <div class="blog-list-item latest-blog">
     <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => latest_post } %>
   </div>
-
+  <%= partial 'partials/_subscribe_to_blog.html.erb' %>
     <ul class="blogs">
     <% articles.select.with_index do |article| %>
         <li class="item">
