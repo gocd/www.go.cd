@@ -10,7 +10,7 @@
     <name>GoCD Team</name>
   </author>
   <entry>
-    <title>Modeling Deployment Pipelines: Part 4 - Build Propagation using Fan-in/Fan-out</title>
+    <title>Part 4 - Build Propagation using Fan-in/Fan-out: Modeling Deployment Pipelines</title>
     <link rel="alternate" href="https://www.gocd.io/2017/04/17/build-propagation-using-fan-in-fan-out.html"/>
     <id>https://www.gocd.io/2017/04/17/build-propagation-using-fan-in-fan-out.html</id>
     <published>2017-04-17T00:00:00Z</published>
@@ -21,7 +21,7 @@
     <content type="html">This is the fourth post in the series - Modeling Deployment Pipelines. In this post, we’ll dive into ways to move your build through the deployment pipeline and introducing fan-in/fan-out.</content>
   </entry>
   <entry>
-    <title>Modeling Deployment Pipelines: Part 3 - Reusing Pipelines</title>
+    <title>Part 3 - Reusing Pipelines: Modeling Deployment Pipelines</title>
     <link rel="alternate" href="https://www.gocd.io/2017/04/06/reusing-pipelines.html"/>
     <id>https://www.gocd.io/2017/04/06/reusing-pipelines.html</id>
     <published>2017-04-06T00:00:00Z</published>
@@ -32,7 +32,7 @@
     <content type="html">This is the third post in the series - Modeling Deployment Pipelines. In this post, we'll look at some of the ways to reduce the duplication found between pipelines using templates.</content>
   </entry>
   <entry>
-    <title>Modeling Deployment Pipelines: Part 2 - The beginnings of a real CD pipeline</title>
+    <title>Part 2 - The beginnings of a real CD pipeline: Modeling Deployment Pipelines</title>
     <link rel="alternate" href="https://www.gocd.io/2017/03/29/beginnings-of-a-real-pipeline.html"/>
     <id>https://www.gocd.io/2017/03/29/beginnings-of-a-real-pipeline.html</id>
     <published>2017-03-29T00:00:00Z</published>
@@ -43,7 +43,7 @@
     <content type="html">This is the second post in the series - Modeling Deployment Pipelines. In this post, we'll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized. </content>
   </entry>
   <entry>
-    <title>Modeling Deployment Pipelines: Part 1 - The Importance and Principles of Continuous Delivery Pipelines</title>
+    <title>Part 1 - The Importance and Principles of Continuous Delivery Pipelines: Modeling Deployment Pipelines</title>
     <link rel="alternate" href="https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines.html"/>
     <id>https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines.html</id>
     <published>2017-03-01T00:00:00Z</published>
