@@ -1,25 +1,28 @@
 ---
-pageable: true
-per_page: 12
+title: GoCD - Tagged Blog posts
+pageable: false
+title_tag_of_header: "Continuous Delivery | GoCD"
+meta_description: "GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD."
+meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software development"
 ---
-<h1>Articles tagged '<%= tagname %>'</h1>
-
-<% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
-
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
-<% end %>
-
-<ul>
-  <% selected_articles_for_display_in(page_articles).each_with_index do |article, i| %>
-    <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
-  <% end %>
-</ul>
-
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
-<% end %>
+<div class="inner-banner blog-banner">
+   <div class="container">
+     <div class="banner-content">
+       <h1 class="caption">Articles in '<%= tagname %>'</h1>
+     </div>
+   </div>
+ </div>
+ <main class="main blog-list" >
+   <div class="container">
+     <div class="blog-list-item latest-blog"></div>
+     <ul class="blogs">
+     <% selected_articles_for_display_in(page_articles).each_with_index.reverse_each do |article, i| %>
+         <li class="item">
+             <div class="blog-list-item">
+               <%= partial 'partials/_blog_post_summary.html.erb', :locals => { :article => article } %>
+            </div>
+         </li>
+     <% end %>
+     </ul>
+   </div>
+ </main>
