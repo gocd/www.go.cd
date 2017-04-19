@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "It's not Continuous Delivery if you can't deploy right now."
+title: "Part 1 - It's not Continuous Delivery if you can't deploy right now"
 type: post
 author: Ken Mugrage
 excerpt: "I hear people say all the time that they're practicing continuous delivery. This declaration is often followed by something like, &ldquo;I can let the security team know anytime&rdquo;, or &ldquo;I just have to run the performance tests&rdquo;. If you can't push your software to production right now, you're not done with your continuous delivery journey."
@@ -8,6 +8,7 @@ summary_image: "/assets/images/blog/deploy-now/but_it_just_needs_oven.png"
 title_tag_of_header: "It's not CD if you can't deploy right now | GoCD Blog"
 meta_description: "GoCD is open source continuous delivery software. This is the first in a series of articles that will help ensure your software is production-ready at any time."
 meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, production, ready, release any time"
+tags: It's Not CD if You Can't Deploy Right Now
 ---
 
 <div>
@@ -17,11 +18,11 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 
   <div class="float-article float-left">
     <p>
-      This is the first in a series of articles that will cover the types of pipelines you should implement to ensure your software is truly ready for production at any time. The culture changes required in most organizations are incredibly important, but I'm going to focus on some technical practices in this series.
+      This is the first in a <%= link_to 'series of articles', '/tags/it-s-not-cd-if-you-can-t-deploy-right-now.html' %> that will cover the types of pipelines you should implement to ensure your software is truly ready for production at any time. The culture changes required in most organizations are incredibly important, but I'm going to focus on some technical practices in this series.
     </p>
 
     <p>
-      Years ago, when I was in management, I had a favorite rule. If asked "is something done?" the answer could not include the word "except" or any of its synonyms. 
+      Years ago, when I was in management, I had a favorite rule. If asked "is something done?" the answer could not include the word "except" or any of its synonyms.
     </p>
 
     <p>
@@ -96,9 +97,9 @@ One of the biggest objections I hear to running all of these types of pipelines 
 
 The other objection I hear the most is that people simply lack the automation around these areas. This is certainly valid, and I don't want to pretend that any of this is easy to do. Don't be afraid to start with what you can, and then add other things your pipeline as your capabilities grow. A continuous delivery pipeline is a bit of a living system it should be evolving along with your processes.
 
-### What are the other big ones? 
+### What are the other big ones?
 
-I'm very interested in hearing other types of pipelines that you find useful. 
+I'm very interested in hearing other types of pipelines that you find useful.
 
 <style type="text/css">
 .float-image {
