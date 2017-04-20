@@ -492,3 +492,48 @@
   width: 100%;
   display: block;
 }
+
+.subscribe-to-blog{
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding: 30px;
+    text-align: center;
+    .subscribe-title{
+      p {
+        font-weight: bold;
+        font-size: 1.3em;
+      }
+    }
+    // Marketo form overrides
+    #mktoForm_5414{
+      width: auto !important;
+      text-align: center;
+      margin-top: 10px;
+      .mktoFormRow{
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .mktoButtonWrap.mktoSimple{
+        margin: 0 !important;
+        margin-left: 20px !important;
+      }
+      .mktoFormCol{
+        margin-bottom: 0px !important;
+      }
+    }
+ }
+
+ .post{
+    .subscribe-to-blog{
+      #mktoForm_5414{
+        .mktoButtonWrap.mktoSimple{
+          display: block;
+          margin: 10px !important;
+        }
+        .mktoEmailField{
+          width: 100% !important;
+        }
+      }
+    }
+ }
