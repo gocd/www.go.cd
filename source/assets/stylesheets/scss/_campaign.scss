@@ -1,42 +1,82 @@
-.campaign{
-  .campaign-header{
-    position: relative;
+.campaign-banner{
+  position:relative;
+    .banner-content {
+    padding:10px;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    min-width: 300px;
+    max-width: 300px;
+    left: 50%;
     text-align: center;
-    img{
-      width: 100%;
+    transform: translate(-50%, -62%);
+    background: rgba(0, 0, 0, 0.63);
+    font-weight: 400;
+
+    @media (min-width:$screen-tablet) {
+      transform: translate(-50%, -50%);
+      width: 575px;
+      max-width: 575px;
+      padding:40px;
     }
-    h1{
-      @media (min-width:$screen-desktop) {
-        transform: translate(-50%, -50%);
-        padding: 10px;
-        background: rgba(0,0,0,0.63);
-        color: #FFF;
-        position: absolute;
-        top: 50%;
-        width: 50%;
-        left: 50%;
-      }
-    }
-  }
-  .campaign-body{
+
     @media (min-width:$screen-desktop) {
-      display: flex;
-      align-items: center;
+      width: 775px;
+      max-width: 775px;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (min-width:$screen-lg-desktop) {
+      width: 880px;
+      max-width: 880px;
+      transform: translate(-50%, -50%);
+    }
+
+  }
+  h1{
+    color:#fff;
+    margin:0;
+    font-size:20px;
+    line-height:27px;
+    @media (min-width:$screen-tablet) {
+     font-size:34px;
+    line-height:40px;
+    }
+
+    @media (min-width:$screen-desktop) {
+     
+    }
+
+    @media (min-width:$screen-lg-desktop) {
+     
     }
   }
-    .main-features{
-      background: #f5f5f5;
-      margin-top: 30px;
+}
+
+.campaign-btn-download {
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 30px;
+    @media (min-width:$screen-tablet) {
+     
     }
-    .btn-download{
-      position: static;
-      width: 100%;
-      font-size: 14px;
-      margin: 0;
+
+    @media (min-width:$screen-desktop) {
+     
     }
-    .feature-title{
-      text-align: center;
-      border-bottom: 1px solid #CCC;
-      padding: 10px;
+
+    @media (min-width:$screen-lg-desktop) {
+     
     }
+}
+
+h2.campaign-feature-title {
+    margin: 20px 0 30px;
+    text-align: center;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
+}
+.row.campaign-body {
+    margin: 50px 0;
 }
