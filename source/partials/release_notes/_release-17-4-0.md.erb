@@ -1,0 +1,116 @@
+<h4>UI Enhancements </h4>
+
+* <%= link_to_commit 'd6d59fb4a589acb7ef24416d8bb2eadea324bc3d', 'Enhanced console log view with an option to expand/collapse outputs of comamnds.', '3199' %>
+  <figure>
+      <%= image_tag 'releases/17.4.0/expand_logs.gif', alt: 'Foldable Console Logs' %>
+  </figure>
+
+* <%= link_to_commit 'a4d669c79d21af2d1d1512737692678bd9bb2cb8', 'Full screen mode for console logs', '3293' %>
+
+  <figure>
+      <%= image_tag 'releases/17.4.0/fullscreen.png', alt: 'Full screen mode' %>
+  </figure>
+
+* <%= link_to_commit '8bcc3c70d888f3864dd3bfdf4e6edadbca01b1a2', 'Add toggles to timestamps.', '3199' %>
+
+  <figure>
+      <%= image_tag 'releases/17.4.0/timestamp.png', alt: 'Timestamp toggle' %>
+  </figure>
+
+* <%= link_to_commit 'f4a3b0792be67db8ec01210e6f6a3ff8c33c2b82', 'Job run history dropdown', '3299' %>
+
+  <figure>
+      <%= image_tag 'releases/17.4.0/job_history.gif', alt: 'Job Run History dropdown' %>
+  </figure>
+
+* <%= link_to_commit '87b223c9c1128d4e8228034f21fb7367e0694772', 'Errors/warnings box in the header', '3378' %>
+
+  <figure>
+    <%= image_tag 'releases/17.4.0/errors.png', alt: 'Errors/warnings box' %>
+  </figure>
+
+* <%= link_to_commit 'b9e1c209ac7f74c6ef93b3bdc323c5856fe6a880', 'Colored border to bottom of job details header', '3408' %>
+
+  <figure>
+    <%= image_tag 'releases/17.4.0/border.png', alt: 'Job Deail header border' %>
+  </figure>
+
+<h4>Authorization Plugin (Beta)</h4>
+
+There has been more work done around fine tuning the Authorization Plugin endpoints, as part of this some of the plugin API calls have changed.  Action required: Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading Go. Refer Authorization Plugin Endpoint [documentation](https://plugin-api.gocd.io/current/authorization) for the latest changes.
+
+* <%= link_to_commit 'eddecb73ca504f19c9137af321fd4d3d2b0e4d3e', 'Verify Connection API response has `status`, `message` and `errors`.', '3395' %>
+
+<h4>Performance Improvements</h4>
+
+* <%= link_to_commit '11f19dbcb1006223b27afc34c749f85c5344f244', 'Moving pipeline state to a separate table which for now contains locked information about the pipeline. Read locks is held only if we are loading the state from db.', '3204' %>
+
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_commit '0ac7678b70109ff9d84973b49072d7aa3f529068', 'Displaying pipeline schedule time as localtime on dashboard, environments page and pipeline-history page. Users can hover over it to see timezone information.', '3417' %>
+* <%= link_to_commit 'd13f81a51740028f07c59c8ba7ca4990275ed1ad', 'Switch agent-bootstrapper to use the new logging mechanism. The bootstrapper now has its own agent-bootstrapper-log4j.properties file under the config directory.', '3267'  %>
+* <%= link_to_commit '567820cb2c68e88f989debdb6edd32d6a5822e32', 'Switch agent-launcher to use the new logging mechanism. The launcher now has its own agent-launcher-log4j.properties file under the config directory.' %>
+* <%= link_to_commit 'b1af25f3a8fdaf851f1b6029784076b84928b7c9', 'Display plugin name instead of plugin id in the dropdown in the elastic agent profiles page.', '3324' %>
+
+<h4>Bug Fixes</h4>
+
+* <%= link_to_commit 'ba510ad0103cffc669d162dbf8e3863db27619b2', 'Server now checks if the elastic agent is brought up by the same plugin as was expected by the scheduled elastic job during assignment.', '3418' %>
+* <%= link_to_commit 'b0f43597644901c0eb8ccf401c451a25d4157be4', 'Handle pluggable task view when task plugin is missing.', '3320' %>
+* <%= link_to_commit '404002eacd5cbf9de15d686f08b23cb79fde003f', 'Render the elastic agent icon only if the plugin info exists for the elastic agent.', '3314' %>
+
+
+<h4>Security Fixes </h4>
+
+* <%= link_to_commit '51de8bcd0cb5dcca398d0672cbf31323db988de3', 'Encrypting secure variables for Elastic Agent plugin settings.', '3356' %>
+
+<h4>Breaking Changes</h4>
+
+* <%= link_to_pull_request '3267', 'On GoCD agents installed on windows or if using the zip installers, logs will now be written to logs directory instead of the working directory. This would be a breaking change only if there are custom scripts relying on the logs location.' %>
+
+<h4>Deprecations</h4>
+
+Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
+
+The following features have been deprecated, along with the timeframe when they will be removed.
+
+* As of release 17.1, version 2 of the <%= link_to_api 'template-config', 'Templates API' %> was deprecated. This version of the API will be removed in 17.5 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.
+
+* As of release 17.3, version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.
+
+<h4>Docker Images and AMIs</h4>
+
+* The [GoCD server](https://hub.docker.com/r/gocd/gocd-server/) docker image is now alpine based with support for volume mounts.
+  - To find out what changed in the docker server image, please refer to the [changelog](https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md).
+
+* You can download the docker images for GoCD agents across the following operating systems - Centos [6](https://hub.docker.com/r/gocd/gocd-agent-centos-6/) & [7](https://hub.docker.com/r/gocd/gocd-agent-centos-7/) , Debian [7](https://hub.docker.com/r/gocd/gocd-agent-debian-7/) & [8](https://hub.docker.com/r/gocd/gocd-agent-debian-8/), Ubuntu [12.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/), [14.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/) & [16.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/)
+  - To find out what changed in the docker agent images, please refer to the [changelog](https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md).
+
+* The old phusion based docker images have been moved, they can found under [gocd-server-deprecated](https://hub.docker.com/r/gocd/gocd-server-deprecated/) and [gocd-agent-deprecated](https://hub.docker.com/r/gocd/gocd-agent-deprecated/). We shall stop support for these images in release 17.7 (scheduled to be released in July 2017).
+
+* We have an Amazon Linux based [AMI](https://gocd.io/cloud) for the GoCD Server making it very simple to launch GoCD server on your AWS EC2 instance.
+* We have an Amazon Linux based [AMI](https://gocd.io/cloud) for a demo GoCD Server and Agent making it very simple to get started with GoCD on your AWS EC2 instance.
+
+Feedback is appreciated. Please log your feedback or issues on github for the following -
+
+* GoCD Server - <%= link_to 'https://github.com/gocd/docker-gocd-server', 'https://github.com/gocd/docker-gocd-server' %>
+* GoCD Agent - <%= link_to 'https://github.com/gocd/docker-gocd-agent', 'https://github.com/gocd/docker-gocd-agent' %>
+* GoCD AMI - <%= link_to 'https://github.com/gocd/gocd-cloud', 'https://github.com/gocd/gocd-cloud' %>
+
+<h4>Contributors</h4>
+
+<%= [
+"Ankit Srivastava", "Aravind SV", "Badri Janakiraman", "Bhupendrakumar Piprava", "Ganesh S Patil", "Isabelle Carter", "Jyoti Singh", "Ketan Padegaonkar", "Kiera Radman", "Lubaina R", "Mahesh Panchaksharaiah", "Marques Lee", "Markandan R", "Rajiesh N", "Suzie Prince", "Varsha Varadarajan"
+].sort.uniq.join(', ') %>
+
+<h4>Security researchers</h4>
+
+<%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.4' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
