@@ -1,17 +1,33 @@
-<div class="container">
+<% split = per_release.each_slice(7).to_a%>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <tr>
+        <th>Region</th>
+        <th>AMI ID</th>
+      </tr>
+      <% split[0].each do |ami| %>
+          <tr>
+            <td><%= ami.region %></td>
+            <td><%= link_to("#{ami.ami_id}", ami.href) %></td>
+          </tr>
+      <% end %>
+
+    </table>
+  </div>
+  <div class="col-md-6">
   <table class="table">
     <tr>
       <th>Name</th>
       <th>Region</th>
-      <th>AMI ID</th>
     </tr>
-    <% data.amis.each do |ami| %>
+    <% split[1].each do |ami| %>
         <tr>
-          <td><%= ami.image_name %></td>
           <td><%= ami.region %></td>
           <td><%= link_to("#{ami.ami_id}", ami.href) %></td>
         </tr>
     <% end %>
 
   </table>
+</div>
 </div>
