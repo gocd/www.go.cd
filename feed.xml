@@ -5,10 +5,21 @@
   <id>https://www.gocd.io/blog</id>
   <link href="https://www.gocd.io/blog"/>
   <link href="https://www.gocd.io/feed.xml" rel="self"/>
-  <updated>2017-04-17T00:00:00Z</updated>
+  <updated>2017-04-25T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Why GoCD over Jenkins</title>
+    <link rel="alternate" href="https://www.gocd.io/2017/04/25/gocd-over-jenkins.html"/>
+    <id>https://www.gocd.io/2017/04/25/gocd-over-jenkins.html</id>
+    <published>2017-04-25T00:00:00Z</published>
+    <updated>2017-04-25T00:00:00Z</updated>
+    <author>
+      <name>David Rice, Managing Director - ThoughtWorks Products</name>
+    </author>
+    <content type="html">We often get asked by potential GoCD users why pick GoCD over Jenkins. In this post, we share why by comparing philosophy, getting started, continuous delivery, and plugins across the tools.</content>
+  </entry>
   <entry>
     <title>Part 4 - Build Propagation using Fan-in/Fan-out: Modeling Deployment Pipelines</title>
     <link rel="alternate" href="https://www.gocd.io/2017/04/17/build-propagation-using-fan-in-fan-out.html"/>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">Performance testing as part of a Continuous Delivery (CD) pipeline is rare. The intent of this article is to provide you with some pointers on the types of testing you can do on a regular basis, and to give some strategies for implementation.</content>
-  </entry>
-  <entry>
-    <title>How to Avoid Brittle Code</title>
-    <link rel="alternate" href="https://www.gocd.io/2016/03/24/how-to-avoid-brittle-code.html"/>
-    <id>https://www.gocd.io/2016/03/24/how-to-avoid-brittle-code.html</id>
-    <published>2016-03-24T00:00:00Z</published>
-    <updated>2016-03-24T00:00:00Z</updated>
-    <author>
-      <name>David Rice</name>
-    </author>
-    <content type="html">The most common problem with legacy code is brittleness. A brittle codebase is one that a team cannot change without great pain. In ThoughtWorks' 10 years of building products we've learned some hard lessons while trying to keep fairly large codebases malleable.</content>
   </entry>
 </feed>
