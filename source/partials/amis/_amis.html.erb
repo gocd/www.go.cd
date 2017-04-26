@@ -1,4 +1,4 @@
-<% split = per_release.each_slice(7).to_a%>
+<% split = per_release.each_slice(7).to_a %>
 <div class="row">
   <div class="col-md-6">
     <table class="table">
@@ -15,19 +15,21 @@
 
     </table>
   </div>
-  <div class="col-md-6">
-  <table class="table">
-    <tr>
-      <th>Region</th>
-      <th>AMI ID</th>
-    </tr>
-    <% split[1].each do |ami| %>
-        <tr>
-          <td><%= ami.region %></td>
-          <td><%= link_to("#{ami.ami_id}", ami.href) %></td>
-        </tr>
-    <% end %>
+  <% if split[1] %>
+      <div class="col-md-6">
+        <table class="table">
+          <tr>
+            <th>Region</th>
+            <th>AMI ID</th>
+          </tr>
+          <% split[1].each do |ami| %>
+              <tr>
+                <td><%= ami.region %></td>
+                <td><%= link_to("#{ami.ami_id}", ami.href) %></td>
+              </tr>
+          <% end %>
 
-  </table>
-</div>
+        </table>
+      </div>
+  <% end %>
 </div>
