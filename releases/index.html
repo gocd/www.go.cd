@@ -14,7 +14,7 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-fdd452b1.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/site-4d3e4e1b.css" rel="stylesheet" />
     <script src="../assets/javascripts/all-240a21c3.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
@@ -80,7 +80,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-17-3-0" class="active">17.3.0 (latest)</li>
+      <li rel="tab-17-4-0" class="active">17.4.0 (latest)</li>
+      <li rel="tab-17-3-0">17.3.0</li>
       <li rel="tab-17-2-0">17.2.0</li>
       <li rel="tab-17-1-0">17.1.0</li>
       <li rel="tab-16-12-0">16.12.0</li>
@@ -107,7 +108,159 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-17-3-0">17.3.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-17-4-0">17.4.0 (latest)</h3>
+      <div id="tab-17-4-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>UI Enhancements </h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/d6d59fb4a589acb7ef24416d8bb2eadea324bc3d">d6d59fb</a></code> - Enhanced console log view with an option to expand/collapse outputs of comamnds. (<a href="https://github.com/gocd/gocd/issues/3199">#3199</a>)
+    <figure>
+    <img src="../assets/images/releases/17.4.0/expand_logs-49fa414c.gif" alt="Foldable Console Logs" />
+</figure>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/a4d669c79d21af2d1d1512737692678bd9bb2cb8">a4d669c</a></code> - Full screen mode for console logs. (<a href="https://github.com/gocd/gocd/issues/3293">#3293</a>)</p>
+
+    <figure>
+    <img src="../assets/images/releases/17.4.0/fullscreen-9ad2d6eb.png" alt="Full screen mode" />
+</figure>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/8bcc3c70d888f3864dd3bfdf4e6edadbca01b1a2">8bcc3c7</a></code> - Add toggles to timestamps. (<a href="https://github.com/gocd/gocd/issues/3199">#3199</a>)</p>
+
+    <figure>
+    <img src="../assets/images/releases/17.4.0/timestamp-99c7c6d3.png" alt="Timestamp toggle" />
+</figure>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/f4a3b0792be67db8ec01210e6f6a3ff8c33c2b82">f4a3b07</a></code> - Job run history dropdown. (<a href="https://github.com/gocd/gocd/issues/3299">#3299</a>)</p>
+
+    <figure>
+    <img src="../assets/images/releases/17.4.0/job_history-cb7e5a4e.gif" alt="Job Run History dropdown" />
+</figure>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/87b223c9c1128d4e8228034f21fb7367e0694772">87b223c</a></code> - Errors/warnings box in the header. (<a href="https://github.com/gocd/gocd/issues/3378">#3378</a>)</p>
+
+    <figure>
+  <img src="../assets/images/releases/17.4.0/errors-a3128474.png" alt="Errors/warnings box" />
+</figure>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/b9e1c209ac7f74c6ef93b3bdc323c5856fe6a880">b9e1c20</a></code> - Colored border to bottom of job details header. (<a href="https://github.com/gocd/gocd/issues/3408">#3408</a>)</p>
+
+    <figure>
+  <img src="../assets/images/releases/17.4.0/border-31151e37.png" alt="Job Deail header border" />
+</figure>
+  </li>
+</ul>
+
+<h4>Authorization Plugin (Beta)</h4>
+
+<p>There has been more work done around fine tuning the Authorization Plugin endpoints, as part of this some of the plugin API calls have changed.  Action required: Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading Go. Refer Authorization Plugin Endpoint <a href="https://plugin-api.gocd.io/current/authorization">documentation</a> for the latest changes.</p>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/eddecb73ca504f19c9137af321fd4d3d2b0e4d3e">eddecb7</a></code> - Verify Connection API response has <code>status</code>, <code>message</code> and <code>errors</code>. (<a href="https://github.com/gocd/gocd/issues/3395">#3395</a>)</li>
+</ul>
+
+<h4>Performance Improvements</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/11f19dbcb1006223b27afc34c749f85c5344f244">11f19db</a></code> - Moving pipeline state to a separate table which for now contains locked information about the pipeline. Read locks is held only if we are loading the state from db. (<a href="https://github.com/gocd/gocd/issues/3204">#3204</a>)</li>
+</ul>
+
+<h4>Other Improvements</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/0ac7678b70109ff9d84973b49072d7aa3f529068">0ac7678</a></code> - Displaying pipeline schedule time as localtime on dashboard, environments page and pipeline-history page. Users can hover over it to see timezone information. (<a href="https://github.com/gocd/gocd/issues/3417">#3417</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/d13f81a51740028f07c59c8ba7ca4990275ed1ad">d13f81a</a></code> - Switch agent-bootstrapper to use the new logging mechanism. The bootstrapper now has its own agent-bootstrapper-log4j.properties file under the config directory. (<a href="https://github.com/gocd/gocd/issues/3267">#3267</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/567820cb2c68e88f989debdb6edd32d6a5822e32">567820c</a></code> - Switch agent-launcher to use the new logging mechanism. The launcher now has its own agent-launcher-log4j.properties file under the config directory.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/b1af25f3a8fdaf851f1b6029784076b84928b7c9">b1af25f</a></code> - Display plugin name instead of plugin id in the dropdown in the elastic agent profiles page. (<a href="https://github.com/gocd/gocd/issues/3324">#3324</a>)</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ba510ad0103cffc669d162dbf8e3863db27619b2">ba510ad</a></code> - Server now checks if the elastic agent is brought up by the same plugin as was expected by the scheduled elastic job during assignment. (<a href="https://github.com/gocd/gocd/issues/3418">#3418</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/b0f43597644901c0eb8ccf401c451a25d4157be4">b0f4359</a></code> - Handle pluggable task view when task plugin is missing. (<a href="https://github.com/gocd/gocd/issues/3320">#3320</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/404002eacd5cbf9de15d686f08b23cb79fde003f">404002e</a></code> - Render the elastic agent icon only if the plugin info exists for the elastic agent. (<a href="https://github.com/gocd/gocd/issues/3314">#3314</a>)</li>
+</ul>
+
+<h4>Security Fixes </h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/51de8bcd0cb5dcca398d0672cbf31323db988de3">51de8bc</a></code> - Encrypting secure variables for Elastic Agent plugin settings. (<a href="https://github.com/gocd/gocd/issues/3356">#3356</a>)</li>
+</ul>
+
+<h4>Breaking Changes</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/pull/3267">#3267</a> - On GoCD agents installed on windows or if using the zip installers, logs will now be written to logs directory instead of the working directory. This would be a breaking change only if there are custom scripts relying on the logs location.</li>
+</ul>
+
+<h4>Deprecations</h4>
+
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+
+<p>The following features have been deprecated, along with the timeframe when they will be removed.</p>
+
+<ul>
+  <li>
+    <p>As of release 17.1, version 2 of the <a href="https://api.gocd.io/current/#template-config">Templates API</a> was deprecated. This version of the API will be removed in 17.5 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.</p>
+  </li>
+  <li>
+    <p>As of release 17.3, version 1 of the <a href="https://api.gocd.io/current/#environment-config">Environment Config API</a> was deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.</p>
+  </li>
+</ul>
+
+<h4>Docker Images and AMIs</h4>
+
+<ul>
+  <li>The <a href="https://hub.docker.com/r/gocd/gocd-server/">GoCD server</a> docker image is now alpine based with support for volume mounts.
+    <ul>
+      <li>To find out what changed in the docker server image, please refer to the <a href="https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md">changelog</a>.</li>
+    </ul>
+  </li>
+  <li>You can download the docker images for GoCD agents across the following operating systems - Centos <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a>
+    <ul>
+      <li>To find out what changed in the docker agent images, please refer to the <a href="https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md">changelog</a>.</li>
+    </ul>
+  </li>
+  <li>
+    <p>The old phusion based docker images have been moved, they can found under <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">gocd-server-deprecated</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">gocd-agent-deprecated</a>. We shall stop support for these images in release 17.7 (scheduled to be released in July 2017).</p>
+  </li>
+  <li>We have an Amazon Linux based <a href="https://gocd.io/cloud">AMI</a> for the GoCD Server making it very simple to launch GoCD server on your AWS EC2 instance.</li>
+  <li>We have an Amazon Linux based <a href="https://gocd.io/cloud">AMI</a> for a demo GoCD Server and Agent making it very simple to get started with GoCD on your AWS EC2 instance.</li>
+</ul>
+
+<p>Feedback is appreciated. Please log your feedback or issues on github for the following -</p>
+
+<ul>
+  <li>GoCD Server - <a href="https://github.com/gocd/docker-gocd-server">https://github.com/gocd/docker-gocd-server</a></li>
+  <li>GoCD Agent - <a href="https://github.com/gocd/docker-gocd-agent">https://github.com/gocd/docker-gocd-agent</a></li>
+  <li>GoCD AMI - <a href="https://github.com/gocd/gocd-cloud">https://github.com/gocd/gocd-cloud</a></li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Ankit Srivastava, Aravind SV, Badri Janakiraman, Bhupendrakumar Piprava, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Lubaina R, Mahesh Panchaksharaiah, Markandan R, Marques Lee, Rajiesh N, Suzie Prince, Varsha Varadarajan</p>
+
+<h4>Security researchers</h4>
+
+<p><a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a></p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.4%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/forum/#!forum/go-cd">Reach out to us</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-17-3-0">17.3.0</h3>
       <div id="tab-17-3-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>UI Enhancements </h4>
