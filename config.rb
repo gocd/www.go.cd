@@ -44,6 +44,7 @@ REDIRECTS = {
   "SEdaily/index.html"                         => "/index.html?utm_campaign=sedaily_2017_podcast&utm_medium=sedaily_podcast&utm_source=sedaily_podcast&utm_content=sed_podcast&utm_term=",
   "govsjenkins/index.html"                      => "/2017/04/25/gocd-over-jenkins/index.html",
   "gocdvsjenkins/index.html"                    => "/2017/04/25/gocd-over-jenkins/index.html",
+  "jenkins/index.html"                          => "/2017/04/25/gocd-over-jenkins/index.html",
 
   }
 #To ignore HtmlCheck for URL's with &, update file_ignore options in lib/tasks/static_checks.rake
