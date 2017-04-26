@@ -59,6 +59,7 @@ activate :blog do |blog|
   blog.tag_template      = "posts/tag.html"
   blog.calendar_template = "posts/calendar.html"
   blog.paginate          = true
+  blog.publish_future_dated = true if deploy_environment != 'live'
 end
 activate :directory_indexes
 activate :fallback_for_directory_indexes
