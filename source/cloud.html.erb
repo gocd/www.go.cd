@@ -25,8 +25,12 @@ title_tag_of_header: "AMIs for GoCD"
         <%  data.amis.keys.each_with_index do |release, index| %>
             <h3 class="tab-accordion_heading<%= ' d_active' if index == 0 %>" rel="tab-<%= release.gsub('.', '-')%>"><%= release %><%= ' (latest)' if index == 0 %></h3>
             <div id="tab-<%= release.gsub('.', '-')%>" class="tab_content" style="display: block;">
-              <div class="content">
-                <%= partial "partials/amis/amis", locals: {per_release: data.amis[release] }%>
+              <div class="content amis">
+                <h2>Demo AMI</h2>
+                <p>This AMI is for users to get started with GoCD. It contains both GoCD server and agent with an existing configuration.</p>
+                <%= partial "partials/amis/amis", locals: {per_release: data.amis[release]['demo'] }%>
+                <h2 class="server-amis">Server AMIs</h2>
+                <%= partial "partials/amis/amis", locals: {per_release: data.amis[release]['server'] }%>
               </div>
             </div>
         <% end %>
