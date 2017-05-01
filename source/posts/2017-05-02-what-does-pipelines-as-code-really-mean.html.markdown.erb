@@ -56,7 +56,7 @@ Travis CI mainstreamed build as code. Note that we aren’t talking about utiliz
 
 ## Pipelines as code
 
-Today, we see deployment pipelines and “CI/CD Servers” are mainstream. And Pipelines as code requiring a full programming language is the de facto assumption. In fact, Jenkins has clearly set out to own the term “Pipelines as Code,” including popularizing that the configuration of pipelines should only be done via a programming language.
+Today, we see deployment pipelines and “CI/CD Servers” are mainstream. And pipelines as code requiring a full programming language is the de facto assumption. In fact, Jenkins has clearly set out to own the term “Pipelines as Code,” including popularizing that the configuration of pipelines should only be done via a programming language.
 
 We can understand why equating pipelines as code with configuration via a programming language has happened. Deployment pipelines have more complex workflows. A typical microservice architecture will require many deployment pipelines that are for the most part identical. These are problems that are in fact well-solved by most programming languages. And “Pipelines as Code” makes for some great marketing.
 
@@ -64,7 +64,7 @@ But infrastructure as code doesn’t demand a programming language. Nor should p
 
 ## Is configuring via a general purpose language wrong?
 
-No! Absolutely not. We just don’t want it to be the starting point. It brings more complexity. More complexity brings more errors. And in the same way that complex Chef repositories need test-kitchen based unit tests to make sure that they are doing the right thing, a complex and programmed build configuration needs tests itself. Quis custodiet ipsos custodes?
+No! Absolutely not. We just don’t want it to be the starting point. It brings more complexity. More complexity brings more errors. And in the same way that complex Chef repositories need test-kitchen based unit tests to make sure that they are doing the right thing, a complex and programmed build configuration needs tests itself. *Quis custodiet ipsos custodes?*
 
 GoCD tries very hard to support deployment pipelines in such a way that you only need to declare definitions to define your pipelines. But there are scenarios where GoCD’s limits are hit and then something like [Gomatic](https://github.com/SpringerSBM/gomatic), allowing configuration of pipelines via Python scripts, is useful. As with everything in software, you need to understand the trade-offs and choose the right tools.
 
@@ -78,7 +78,7 @@ We believe teams should have choices about how they configure their pipelines. S
 
 It’s great that we all are demanding builds and pipelines as code. Pipelines as code need not always be via a programming language. Don’t awkwardly force your build and pipeline config into your main source repository when it’s not the right thing to do.
 
-We hope this post post helped clear up the confusion surrounding Pipelines as code . Do let us know by commenting below or tweet us at [@david_j_rice](https://twitter.com/@david_j_rice) and [@badrij](https://twitter.com/@badrij).
+We hope this post helped clear up some of the confusion surrounding pipelines as code. Do let us know by commenting below or tweet to us at [@david_j_rice](https://twitter.com/@david_j_rice) and [@badrij](https://twitter.com/@badrij).
 
 <div class='row'>
   <%= partial "partials/downloadbanner" %>
