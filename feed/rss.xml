@@ -5,10 +5,21 @@
   <id>https://www.gocd.io/blog</id>
   <link href="https://www.gocd.io/blog"/>
   <link href="https://www.gocd.io/feed/rss.xml" rel="self"/>
-  <updated>2017-04-25T00:00:00Z</updated>
+  <updated>2017-05-02T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>What Does Pipelines as Code Really Mean?</title>
+    <link rel="alternate" href="https://www.gocd.io/2017/05/02/what-does-pipelines-as-code-really-mean.html"/>
+    <id>https://www.gocd.io/2017/05/02/what-does-pipelines-as-code-really-mean.html</id>
+    <published>2017-05-02T00:00:00Z</published>
+    <updated>2017-05-02T00:00:00Z</updated>
+    <author>
+      <name>Badri Janakiraman and David Rice</name>
+    </author>
+    <content type="html">There has been increasing interest in defining builds and pipelines as code. We see a rise in the assumption that defining pipelines as code requires the use of a full programming language. This post will  break down how we got to build and pipelines as code and challenge some of the assumptions.</content>
+  </entry>
   <entry>
     <title>Why GoCD over Jenkins</title>
     <link rel="alternate" href="https://www.gocd.io/2017/04/25/gocd-over-jenkins.html"/>
@@ -107,16 +118,5 @@
       <name>Jeff Norris</name>
     </author>
     <content type="html">When we develop software projects, we can get into situations where we are also high-centered, places where it is difficult to make progress either forwards or backwards.</content>
-  </entry>
-  <entry>
-    <title>Part 3 - Add performance testing to your Continuous Delivery pipeline</title>
-    <link rel="alternate" href="https://www.gocd.io/2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline.html"/>
-    <id>https://www.gocd.io/2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline.html</id>
-    <published>2016-06-08T00:00:00Z</published>
-    <updated>2016-06-08T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">Performance testing as part of a Continuous Delivery (CD) pipeline is rare. The intent of this article is to provide you with some pointers on the types of testing you can do on a regular basis, and to give some strategies for implementation.</content>
   </entry>
 </feed>
