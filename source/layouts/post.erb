@@ -29,6 +29,9 @@
     <div class="col-md-3">
       <aside class="post-sidebar">
         <section  class="recent-ariticles">
+          <section class='post'>
+ -            <%= partial 'partials/_subscribe_to_blog.html.erb' %>
+ -          </section>
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <% blog.articles[0...10].each do |article| %>
