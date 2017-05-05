@@ -5,8 +5,8 @@ type: post
 author: Jason Rowe
 excerpt: "GoCD is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it. This post documents setting up a .NET core project in GoCD in a minimal way for demo purposes."
 title_tag_of_header: ".NET Core and GoCD | GoCD Blog"
-meta_description: "GoCD is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it. This post documents setting up a .NET core project in GoCD in a minimal way for demo purposes."
-meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go, dotnet, .NET, .NET core, pipeline"
+meta_description: "Set up a .NET core project in GoCD in a minimal way with this Hello World demo."
+meta_keywords: "gocd, .net core, .net, continuous delivery, delivery pipeline, deployment pipeline"
 summary_image: "/assets/images/blog/dotnet-core-gocd/dotnet_core_masthead.png"
 ---
 <% content_for :banner do %>
@@ -167,33 +167,33 @@ Now that the test environment is setup we can start adding a pipeline.
 
 Initial setup of the "HwPackagePipeline" pipeline which will contain the stage/job/tasks to do the build, test, and package.
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/pipeline.png" alt="Pipeline" />
+  <img src="/assets/images/blog/dotnet-core-gocd/pipeline.png" alt="GoCD Pipeline" />
 </figure>
 
 
 The second page is how you setup the material in GoCD. Here I've added my git repo endpoint and tested the connection.
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/pipeline-material.png" alt="Pipeline Material" />
+  <img src="/assets/images/blog/dotnet-core-gocd/pipeline-material.png" alt="GoCD Pipeline Material" />
 </figure>
 
 The third page sets up the stage/job. I've used the custom build.cmd I created in the setup.
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/pipeline-stage-job.png" alt="Pipeline Stage Job" />
+  <img src="/assets/images/blog/dotnet-core-gocd/pipeline-stage-job.png" alt="GoCD Pipeline Stage Job" />
 </figure>
 
 After adding the build task, I un-paused the pipeline to make sure everything is wired up. GoCD will show the status go to orange and then green after the pipeline has finished.
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/pipeline-passed-build.png" alt="Pipeline Passed Build" />
+  <img src="/assets/images/blog/dotnet-core-gocd/pipeline-passed-build.png" alt="GoCD Pipeline Passed Build" />
 </figure>
 
 Now I can go setup the unit test and package tasks in this pipeline. I did this by going to the admin navigation and clicking on pipelines. Then clicked on the edit of the pipeline I created above. Then clicked on the defaultstage and defaultjob. Then I added in the unit test task which just calls test.cmd. The package task is a little different because I want to pass in the build number as a variable to the package.cmd.
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/package_cmd_label.png" alt="Pipeline Label" />
+  <img src="/assets/images/blog/dotnet-core-gocd/package_cmd_label.png" alt="GoCD Pipeline Label" />
 </figure>
 
 Here is a view of all the tasks I setup in the default job.
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/tasks.png" alt="Tasks" />
+  <img src="/assets/images/blog/dotnet-core-gocd/tasks.png" alt="GoCD Tasks" />
 </figure>
 
 From the pipeline view if you click on the green bar you can view the job console ouput. I confirmed the label was updated correctly during the package task.
@@ -227,24 +227,24 @@ Now via the admin tab and selecting pipelines, I can click on "Create a new pipe
 For step two the material will be "Pipeline" and the stage will be the stage we created earlier. GoCD has autocomplete text boxes. I didn't have to type the stage name in the screenshot below.
 
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/pipeline-as-material.png" alt="Pipeline as Material" />
+  <img src="/assets/images/blog/dotnet-core-gocd/pipeline-as-material.png" alt="GoCD Pipeline as Material" />
 </figure>
 
 In step three, I setup a manual stage and a task that represents acceptance tests were performed. If a step in your pipeline is not yet automated this could be a way to incrementally work towards automation.
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/manualAcceptanceTestExample.png" alt="Manual Acceptance Test Example" />
+  <img src="/assets/images/blog/dotnet-core-gocd/manualAcceptanceTestExample.png" alt="GoCD Manual Acceptance Test Example" />
 </figure>
 
 Now I can save the new pipeline and unpause it. If we now go back to the main pipeline page and trigger the build we will see the first pipeline build and the second one will wait to be manually triggered. Once you click into the second pipeline and click on the purple arrow button it will run.
 
 The value stream will look like this after both pipelines complete. You can view value stream map for any build by clicking on the build label.
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/value-stream-map.png" alt="Value Stream Map" />
+  <img src="/assets/images/blog/dotnet-core-gocd/value-stream-map.png" alt="GoCD Value Stream Map" />
 </figure>
 
 Now we can setup a task that fetches the artifacts from the first pipeline and another task to deploy. Here is what setting up a fetch task would look like. The "pkg" folder name came from the artifacts configuration from the first pipeline.
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/fetch_artifacts.png" alt="Fetch Artifacts" />
+  <img src="/assets/images/blog/dotnet-core-gocd/fetch_artifacts.png" alt="GoCD Fetch Artifacts" />
 </figure>
 
 Now if we trigger the first pipeline again and manually trigger the second one we can see the agent was able to fetch the build output from the first pipeline.
@@ -255,7 +255,7 @@ Now if we trigger the first pipeline again and manually trigger the second one w
     21:31:32.052 [go] Current job status: passed.
 
 <figure>
-  <img src="/assets/images/blog/dotnet-core-gocd/agent-pkg.png" alt="Agent Pkg" />
+  <img src="/assets/images/blog/dotnet-core-gocd/agent-pkg.png" alt="GoCD Agent Pkg" />
 </figure>
 
 ### Review
