@@ -1,3 +1,7 @@
+<% content_for :extra_headers do %>
+<link rel="canonical" href="<%= canonical_link_to_blog_post current_article %>" />
+<% end %>
+
 <% wrap_layout :layout do %>
 <div class="container blog-post">
   <% if content_for?(:banner) %>
