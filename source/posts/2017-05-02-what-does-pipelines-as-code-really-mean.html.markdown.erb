@@ -69,15 +69,19 @@ GoCD tries very hard to support deployment pipelines in such a way that you only
 
 ## Storing build and pipeline config in the main project repository
 
-Lastly, there is great confusion between the concept of defining builds and pipelines as code and the concept of storing the configuration in the team’s main repository. While the two are often in play together, they are in fact separate concerns. A pipeline, or set of pipelines, can obviously be defined in code and be stored in version control outside of a team’s repository. And in a scenario where multiple teams are working together but in separate repositories, with many up and downstream dependencies, it’s a good thing for the deployment pipelines to be stored outside the team’s main repositories. This is the scenario where the Travis CI model -- everything belongs to the dev team -- starts to breaks down.
+Lastly, there is great confusion between the concept of pipelines as code and the concept of storing the configuration in the team’s main code repository. While the two concepts are often in play together, they are in fact separate concerns. That the pipeline is stored in version control is non-negotiable. But storing pipeline config in the team’s main application repository is not a requirement of pipeline as code.
 
-We believe teams should have choices about how they configure their pipelines. Storing pipeline config in the team’s main project repository is not a requirement of pipelines as code. This is why GoCD supports configuration via a central file, your project repository, or a repository external to your project.
+In the simple scenarios, where a single team owns everything, by all means store the pipeline config in your main application repository. But in a more complex system, with multiple repositories, multiple dependencies, or other intricacies, there is not enough information in any of the application code repositories to reason how the full pipeline should work. Here you will want to store your pipeline configuration in its own repository.
+
+GoCD supports pipeline configuration via your application code repository, a repository external to your application code, or a central file that GoCD itself manages under git version control. 
 
 ## Summary
 
 It’s great that we all are demanding builds and pipelines as code. Pipelines as code need not always be via a programming language. Don’t awkwardly force your build and pipeline config into your main source repository when it’s not the right thing to do.
 
 We hope this post helped clear up some of the confusion surrounding pipelines as code. Do let us know by commenting below or tweet to us at [@david_j_rice](https://twitter.com/@david_j_rice) and [@badrij](https://twitter.com/@badrij).
+
+_Thanks to Paul Hammant for pushing us to offer more prescriptive guidance on where to store the pipeline configuration._ 
 
 <div class='row'>
   <%= partial "partials/downloadbanner" %>
