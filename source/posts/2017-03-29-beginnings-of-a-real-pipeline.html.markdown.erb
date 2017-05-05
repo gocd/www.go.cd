@@ -5,8 +5,8 @@ type: post
 author: Aravind S.V, Product Manager at GoCD
 excerpt: "This is the second post in the series - Modeling Deployment Pipelines. In this post, we'll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized. "
 title_tag_of_header: "The beginnings of a real CD Pipeline | GoCD Blog"
-meta_description: "In this post, we'll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized. "
-meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go"
+meta_description: "Ways to model a deployment pipeline for an application and how to optimize them."
+meta_keywords: "continuous delivery, deployment pipeline, modeling pipeline, jobs vs pipelines, pipeline chaining, pipeline templates"
 summary_image: "/assets/images/blog/beginnings-real-pipeline/beginnings_pipelines_hero.jpg"
 tags: Modeling Deployment Pipelines
 ---
@@ -19,13 +19,13 @@ Consider a small, cross-platform desktop application, with unit, integration and
 
 A typical approach to automate this process would be to have a build script (using Rake, Make, Ant, etc. or even a batch file or a shell script) which has all the individual steps of the process automated so that they can be run locally (<%= link_to 'Principle 5', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-run-locally' %>). Having this, you can now create a GoCD [*pipeline*](https://docs.gocd.io/current/introduction/concepts_in_go.html#pipeline) with a single [*stage*](https://docs.gocd.io/current/introduction/concepts_in_go.html#stage) which has a single [*job*](https://docs.gocd.io/current/introduction/concepts_in_go.html#job) which has a single [*task*](https://docs.gocd.io/current/introduction/concepts_in_go.html#task) which calls "make all" (for instance). It'll look like this:
 
-<%= image_tag 'blog/beginnings-real-pipeline/pipeline-01.jpg', :alt => 'Pipeline', :title => 'Simple Pipeline' %>
+<%= image_tag 'blog/beginnings-real-pipeline/pipeline-01.jpg', :alt => 'Pipeline with a single task', :title => 'Pipeline with a single task' %>
 
 While this approach works, it's not very flexible. It doesn't make it easy to run different parts of the process on different agents, makes it hard to track progress and hard to parallelize. Even though it's inside a pipeline, it doesn't use any advantages of the *pipeline* concept and its modeling capabilities. This is no different from using a standard CI tool and making it run commands.
 
 A slightly better approach is to break apart the individual pieces into separate GoCD *tasks*, like so:
 
-<%= image_tag 'blog/beginnings-real-pipeline/pipeline-02.jpg', :alt => 'Pipeline', :title => 'Pipeline' %>
+<%= image_tag 'blog/beginnings-real-pipeline/pipeline-02.jpg', :alt => 'Pipeline with multiple tasks', :title => 'Pipeline with multiple tasks' %>
 
 This approach makes the individual tasks and the order in which they are run, more explicit. It can be argued that this comes at the expense of tying the order of the processes to the CD tool. However, we think that this orchestration is the job of the CD tool and entrusting it to the CD tool allows better flexibility in modeling the processes.
 
@@ -37,7 +37,7 @@ In the current setup, all the tasks still run one after the other and still run 
 
 So, we can try to split up the single job into multiple jobs like this:
 
-<%= image_tag 'blog/beginnings-real-pipeline/pipeline-03.jpg', :alt => 'Pipeline', :title => 'Pipeline' %>
+<%= image_tag 'blog/beginnings-real-pipeline/pipeline-03.jpg', :alt => 'Pipeline with multiple jobs', :title => 'Pipeline with multiple jobs' %>
 
 However this approach has some disadvantages:
 
@@ -54,7 +54,7 @@ When we think about the different parts of this build process, we see that the f
 A setup such as the one described above might look like this:
 
 <div class='imagezoom'>
-  <%= image_tag 'blog/beginnings-real-pipeline/pipeline-04.jpg', :alt => 'Pipeline', :title => 'Pipeline'%>
+  <%= image_tag 'blog/beginnings-real-pipeline/pipeline-04.jpg', :alt => 'Pipeline with multiple stages', :title => 'Pipeline with multiple stages'%>
   <span class='info_txt'>Click image to zoom in</span>
 </div>
 
@@ -67,7 +67,7 @@ Since stages run one after another, only if Stage 1 passes does it go to Stage 2
 We did mention earlier that our application was cross-platform. So, let's assume that the functional tests need to be run on three different operating systems - Mac OS X, Windows and Linux. We could start to approach this by adding jobs in Stage 4 and use GoCD's [*resource*](https://docs.gocd.io/current/introduction/concepts_in_go.html#resources) concept to make sure that the jobs are picked up by [*agents*](https://docs.gocd.io/current/introduction/concepts_in_go.html#agent) with the right operating system. This will involve running agents on the different operating systems and tagging them with resources "mac", "windows" and "linux". Once that's done, we could setup our pipeline to look like this:
 
 <div class='imagezoom'>
-  <%= image_tag 'blog/beginnings-real-pipeline/pipeline-05.jpg', :alt => 'Pipeline', :title => 'Pipeline'%>
+  <%= image_tag 'blog/beginnings-real-pipeline/pipeline-05.jpg', :alt => 'Pipeline with duplicate jobs', :title => 'Pipeline with duplicate jobs'%>
   <span class='info_txt'>Click image to zoom in</span>
 </div>
 However, this approach isn't the most optimal.
@@ -78,7 +78,7 @@ However, this approach isn't the most optimal.
 To get around this, we can use GoCD's powerful [pipeline chaining mechanism](https://docs.gocd.io/current/introduction/concepts_in_go.html#pipeline_dependency), where a stage of a pipeline can be setup as a dependency for another pipeline. We can create one pipeline per operating system's functional test. Let's see how that looks:
 
 <div class='imagezoom'>
-  <%= image_tag 'blog/beginnings-real-pipeline/pipeline-06.jpg', :alt => 'Pipeline', :title => 'Pipeline'%>
+  <%= image_tag 'blog/beginnings-real-pipeline/pipeline-06.jpg', :alt => 'Setting up Pipeline Dependencies', :title => 'Setting up Pipeline Dependencies'%>
   <span class='info_txt'>Click image to zoom in</span>
 </div>
 
