@@ -6,8 +6,8 @@ author: Ken Mugrage
 excerpt: "Teams have been automating the build, test and deploy processes of their software for many years, but usually in a very specific \"one off\" manner. This article walks through 5 key patterns to setting up a successful deployment pipeline, including designing parallel workflows, running tests in parallel, and more."
 summary_image: "/assets/images/blog/pipeline-patterns/infrastructure-as-code.png"
 title_tag_of_header: "5 Key Deployment Pipeline Patterns | GoCD Blog"
-meta_description: "In 2007 GoCD introduced build pipelines to the masses. This article walks through 5 key patterns to setting up a successful deployment pipeline."
-meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, patters, pipelines, deployment pipeline"
+meta_description: "This article walks through 5 key patterns to setting up a successful deployment pipeline."
+meta_keywords: "GoCD, continuous delivery, continuous delivery software, deployment pipelines, deployment pipeline patterns"
 ---
 
 Teams have been automating the build, test and deploy processes of their software for many years, but usually in a very
@@ -26,12 +26,12 @@ that you deploy the exact same thing you've tested.
 
 Once you've built a binary, you should upload that back to your CD server or artifact repository for later use.
 
-<%= image_tag "blog/pipeline-patterns/upload-artifact.png", {:title => "Upload Artifacts", :alt => "Upload Artifacts"} %>
+<%= image_tag "blog/pipeline-patterns/upload-artifact.png", {:title => "Upload Artifacts", :alt => "GoCD Upload Artifacts"} %>
 
 When you're ready to deploy to a downstream system, you should fetch and install that build artifact. This way you make
 sure that you're running your functional tests on the exact thing you built and that you're going to deploy.
 
-<%= image_tag "blog/pipeline-patterns/fetch-artifact.png", {:title => "Fetch Artifacts", :alt => "Fetch Artifacts"} %>
+<%= image_tag "blog/pipeline-patterns/fetch-artifact.png", {:title => "Fetch Artifacts", :alt => "GoCD Fetch Artifacts"} %>
 
 ##2. Run tests in parallel
 
@@ -45,12 +45,12 @@ Too often this leads to teams only running part of their tests.
 What you should do is split those tests up into manageable size chunks and run them in parallel. In the case of the Mingle
 team those tests run on 65 GoCD agents at the same time.
 
-<%= image_tag "blog/pipeline-patterns/testing-jobs.png", {:title => "Jobs overview displaying parallel tests", :alt => "Jobs overview displaying parallel tests"} %>
+<%= image_tag "blog/pipeline-patterns/testing-jobs.png", {:title => "Jobs overview displaying parallel tests", :alt => "GoCD Jobs overview displaying parallel tests"} %>
 
 Of course it's also vitally important that you're able to quickly determine what went wrong if something fails, so you
 should make sure the tests results from all of the jobs can be viewed in one consolidated place.
 
-<%= image_tag "blog/pipeline-patterns/testing-failures.png", {:title => "Tests tab showing failed tests", :alt => "Tests tab showing failed tests"} %>
+<%= image_tag "blog/pipeline-patterns/testing-failures.png", {:title => "Tests tab showing failed tests", :alt => "GoCD Tests tab showing failed tests"} %>
 
 ##3. Design parallel workflows
 
@@ -67,7 +67,7 @@ user acceptance. We want to make it easy for the team responsible to do a one cl
 they may not look at it immediately. There's really no reason we can't run the automated acceptance tests while that is
 going on.
 
-<%= image_tag "blog/pipeline-patterns/parallel-pipelines.png", {:title => "Parallel Pipelines", :alt => "Parallel Pipelines"} %>
+<%= image_tag "blog/pipeline-patterns/parallel-pipelines.png", {:title => "Parallel Pipelines", :alt => "GoCD Parallel Pipelines"} %>
 
 Hopefully you noticed one other really important thing about the image above. The production pipelines have _not_ run. If
 you're doing things in parallel it's important that your Continuous Delivery system is smart about handling
@@ -105,7 +105,7 @@ In the value stream map below you'll see that changes to our environments are su
 Application_Environments pipeline builds our container, verifies is and then stores it on our registry. That change kicks
 off the rest of our build / test / deploy pipelines in exactly the same way an application code change would.
 
-<%= image_tag "blog/pipeline-patterns/infrastructure-as-code.png", {:title => "Environment changes submitted as code", :alt => "Environment changes submitted as code"} %>
+<%= image_tag "blog/pipeline-patterns/infrastructure-as-code.png", {:title => "Environment changes submitted as code", :alt => "GoCD Environment changes submitted as code"} %>
 
 ##Conclusion
 
