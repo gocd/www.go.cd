@@ -4,13 +4,14 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="The intent of this article is to provide you with some pointers on the types of testing you can do on a regular basis, and to give some strategies for implementation." name="description" />
-    <meta content="GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, videos, Go, performance testing, pipeline" name="keywords" />
+    <meta content="Types of performance testing you can do on a regular basis, and strategies for implementation." name="description" />
+    <meta content="performance testing, delivery pipelines, deployment pipelines, continuous delivery, types of performance testing, load testing, spike testing, stress testing, soak testing, memory leaks, software testing" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Add performance testing to your Continuous Delivery pipeline | GoCD Blog" />
-    <meta name="twitter:description" content="The intent of this article is to provide you with some pointers on the types of testing you can do on a regular basis, and to give some strategies for implementation." />
+    <meta name="twitter:description" content="Types of performance testing you can do on a regular basis, and strategies for implementation." />
     <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/add-performance-testing/add-performance-testing-to-your-continuous-delivery-pipeline-f09d6a66.jpg" />
+    <link rel="canonical" href="https://www.gocd.io/2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline.html" />
 
     <title>Add performance testing to your Continuous Delivery pipeline | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
@@ -105,7 +106,7 @@
 <p>Performance tests often take longer than other types of tests, so be sure to use a CD server that allows you to run different pipelines in parallel while still enforcing their success before a release candidate goes too far.</p>
 
 <figure>
-  <img src="../../../assets/images/blog/add-performance-testing/load-test-4a8d0de7.jpg" alt="Load Testing" title="Load Testing" />
+  <img src="../../../assets/images/blog/add-performance-testing/load-test-4a8d0de7.jpg" alt="Parallel Pipeline for Load Testing" title="Load Testing" />
 </figure>
 
 <h3 id="spike-testing">Spike testing</h3>
@@ -113,7 +114,7 @@
 <p>Spike testing is done by suddenly increasing the load on a system and seeing what happens. This is the type of testing I've seen the least of in the wild, but seems incredibly important in this world of dynamic containers and such. Your system is supposed to start a new container in milliseconds when the load requires it. Does it?</p>
 
 <figure>
-  <img src="../../../assets/images/blog/add-performance-testing/spike-test-4b37b4b6.jpg" alt="Spike Testing" title="Spike Testing" />
+  <img src="../../../assets/images/blog/add-performance-testing/spike-test-4b37b4b6.jpg" alt="Parallel Pipeline for Spike Testing" title="Spike Testing" />
 </figure>
 
 <h3 id="stress-testing">Stress testing</h3>
@@ -123,7 +124,7 @@
 <p>With stress testing in a pipeline, you may not want to always have downstream dependencies which require a "pass" all of the time. It's certainly important to know what your failure point is, but that isn't necessarily a reason not to ship during "normal" business.</p>
 
 <figure>
-  <img src="../../../assets/images/blog/add-performance-testing/stress-test-3a7430f8.jpg" alt="Load Testing" title="Load Testing" />
+  <img src="../../../assets/images/blog/add-performance-testing/stress-test-3a7430f8.jpg" alt="Parallel Pipeline for Stress Testing" title="Stress Testing" />
 </figure>
 
 <h3 id="soak-testing">Soak testing</h3>
@@ -131,7 +132,7 @@
 <p>Soak testing makes sure that your system keeps running under a sustained load. I saw a system once that seemed to be performing well on a short performance test, but growing message queues added up over time making it slower and slower. Memory leaks are also a common cause of issues on soak tests.</p>
 
 <figure>
-  <img src="../../../assets/images/blog/add-performance-testing/soak-test-4502bd56.jpg" alt="Soak Testing" title="Soak Testing" />
+  <img src="../../../assets/images/blog/add-performance-testing/soak-test-4502bd56.jpg" alt="Parallel Pipeline for Soak Testing" title="Soak Testing" />
 </figure>
 
 <h2 id="run-them-on-every-build">Run them on every build</h2>

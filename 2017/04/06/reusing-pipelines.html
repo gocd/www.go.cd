@@ -4,15 +4,16 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="In this post, we'll look at some of the ways to reduce the duplication found between pipelines using templates." name="description" />
-    <meta content="GoCD, reusing pipelines, remove duplicates, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go" name="keywords" />
+    <meta content="A look at some of the ways to reduce the duplication found between pipelines using templates." name="description" />
+    <meta content="GoCD, reusing pipelines, remove duplicates, continuous delivery, cd pipeline template, reduce duplication, build pipelines, build propogation" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
-    <meta name="twitter:title" content="Reusing Pipelines | GoCD Blog" />
-    <meta name="twitter:description" content="In this post, we'll look at some of the ways to reduce the duplication found between pipelines using templates." />
+    <meta name="twitter:title" content="Reusing Pipelines - Modeling Deployment Pipelines | GoCD Blog" />
+    <meta name="twitter:description" content="A look at some of the ways to reduce the duplication found between pipelines using templates." />
     <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/reusing-pipelines/reusing-pipelines-hero-6de82f68.jpg" />
+    <link rel="canonical" href="https://www.gocd.io/2017/04/06/reusing-pipelines.html" />
 
-    <title>Reusing Pipelines | GoCD Blog</title>
+    <title>Reusing Pipelines - Modeling Deployment Pipelines | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../../../assets/stylesheets/site-105e0c2d.css" rel="stylesheet" />
     <script src="../../../assets/javascripts/all-240a21c3.js"></script>
@@ -82,7 +83,7 @@
 <p>Enter pipeline templates! A <em>template</em> is a concept in GoCD which helps reduce duplication between similar pipelines. It allows stages and jobs to be defined at the template level and through configurable parameters, allows each pipeline which is based off of that template, to set the parameters which make sense for it. Let’s see how a pipeline template can help in this case:</p>
 
 <div class="imagezoom">
-<img src="../../../assets/images/blog/reusing-pipelines/introducing-template-2a3da5c1.jpeg" alt="Introducing Pipeline Template" title="Pipeline Template" />
+<img src="../../../assets/images/blog/reusing-pipelines/introducing-template-2a3da5c1.jpeg" alt="Introducing CD build Pipeline Templates" title="Pipeline Template" />
 <span class="info_txt">Click image to zoom in</span>
 </div>
 
@@ -104,7 +105,7 @@
 <p>Before we look at moving a build to your deployment environment, here is a simplified version of our CD pipeline, which will help with continuing to extend it.</p>
 
 <div class="imagezoom">
-<img src="../../../assets/images/blog/reusing-pipelines/simplified-version-62879135.jpeg" alt="Simplified Version of Pipeline" title="Simplified Version of Pipeline" />
+<img src="../../../assets/images/blog/reusing-pipelines/simplified-version-62879135.jpeg" alt="Simplified Version of CD build Pipeline" title="Simplified Version of Pipeline" />
 <span class="info_txt">Click image to zoom in</span>
 </div>
 

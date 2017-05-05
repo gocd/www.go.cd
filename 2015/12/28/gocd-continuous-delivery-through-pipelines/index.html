@@ -4,13 +4,14 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="GoCD is open source continuous delivery software. This is a guest post by Nenad Bozic about why the team switched from Jenkins to GoCD." name="description" />
-    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, guest post, deployment pipeline, Jenkins, pipeline dependencies, fan-in fan-out" name="keywords" />
+    <meta content="Nenad Bozic's team switched from Jenkins to GoCD in part because of GoCD's first-class pipelines." name="description" />
+    <meta content="continuous delivery, delivery pipelines, deployment pipelines, software delivery, pipeline dependencies" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Continuous delivery through pipelines | GoCD Blog" />
-    <meta name="twitter:description" content="GoCD is open source continuous delivery software. This is a guest post by Nenad Bozic about why the team switched from Jenkins to GoCD." />
+    <meta name="twitter:description" content="Nenad Bozic's team switched from Jenkins to GoCD in part because of GoCD's first-class pipelines." />
     <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem-6c3b1401.png" />
+    <link rel="canonical" href="https://www.gocd.io/2015/12/28/gocd-continuous-delivery-through-pipelines" />
 
     <title>Continuous delivery through pipelines | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
@@ -150,7 +151,7 @@ application and have functional tests on the client's side, which depend on the 
 being updated, you can make a client functional test pipeline which will trigger on commit
 on client and successful build and deploy of server side.</p>
 
-<p><img src="../../../../assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-fanIn-4f7b1e3b.png" title="Pipeline dependencies tab showing fan-in" alt="Pipeline dependencies tab showing fan-in" /></p>
+<p><img src="../../../../assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-fanIn-4f7b1e3b.png" title="Pipeline dependencies tab showing fan-in" alt="GoCD pipeline dependencies tab showing fan-in" /></p>
 
 <p>The additional challenge here is a diamond-like dependency, where it is not enough for both
 upstream dependencies to finish but to have right versions. The following diagram depicts

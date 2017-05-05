@@ -4,13 +4,14 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="You need a way of modeling your workflow so that people can see, understand and talk about it. This is where CD pipelines come in. " name="description" />
-    <meta content="GoCD, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go" name="keywords" />
+    <meta content="In this series, we’ll cover aspects of CD pipelines, why they are important, and optimal ways to model them." name="description" />
+    <meta content="GoCD, continuous delivery, deployment pipelines, modeling workflows, feedback loops, paralellization, concepts of gocd" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Importance and Principles of CD Pipelines | GoCD Blog" />
-    <meta name="twitter:description" content="You need a way of modeling your workflow so that people can see, understand and talk about it. This is where CD pipelines come in. " />
+    <meta name="twitter:description" content="In this series, we’ll cover aspects of CD pipelines, why they are important, and optimal ways to model them." />
     <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/importance-cd-pipelines/importance_pipelines_hero-58d38841.jpg" />
+    <link rel="canonical" href="https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines" />
 
     <title>Importance and Principles of CD Pipelines | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
@@ -75,7 +76,7 @@
       <main id="main" role="main">
       <h3 id="in-an-ideal-magical-world-your-end-to-end-deployment-from-a-commit-to-production-looks-like-this">In an ideal, magical world, your end-to-end deployment from a commit to production looks like this:</h3>
 
-<p><img src="../../../../assets/images/blog/importance-cd-pipelines/magic-364edd88.jpeg" alt="Magical Deployment" title="Magical Deployment Process" /></p>
+<p><img src="../../../../assets/images/blog/importance-cd-pipelines/magic-364edd88.jpeg" alt="Magic Deployment Pipeline" title="Magical Deployment Process" /></p>
 
 <p>If this represents your situation (especially if all your tests run quickly enough that you’re confident about deploying to production), you don’t really need a good Continuous Delivery (referred to as CD) solution and you can stop reading this post right here.</p>
 
@@ -115,7 +116,7 @@
 
 <p>Usually, CD pipelines are set up so that the parts which provide fast feedback run first. In practice, quick-running unit tests are usually run earlier in the pipeline than the slower-running functional and performance tests. This ensures quicker feedback by making sure that slower running tests aren’t run unnecessarily taking up resources.</p>
 
-<p><img src="../../../../assets/images/blog/importance-cd-pipelines/Fast-Feedback-First-3e39eb55.png" alt="Fast Feedback First" title="Fast Feedback First" /></p>
+<p><img src="../../../../assets/images/blog/importance-cd-pipelines/Fast-Feedback-First-3e39eb55.png" alt="Fast Feedback Loop" title="Fast Feedback First" /></p>
 
 <h3 id="principle-important-feedback">2. Most important feedback first</h3>
 
@@ -133,7 +134,7 @@
 
 <p>This is one of the bedrock CD principles - the ability to build once, get an artifact and run it through different kinds of tests, so that your confidence in that specific artifact increases over time. Once it goes through the final gate in the CD pipeline successfully, you can be assured that the artifact is safe to be deployed to production and used.</p>
 
-<p><img src="../../../../assets/images/blog/importance-cd-pipelines/build-reuse-83ab8b4a.jpeg" alt="Build once and reuse" title="Build once and reuse" /></p>
+<p><img src="../../../../assets/images/blog/importance-cd-pipelines/build-reuse-83ab8b4a.jpeg" alt="Build artifact once and reuse in deployment pipeline" title="Build once and reuse" /></p>
 
 <p>It is up to the CD pipeline solution you choose to provide a good artifact propagation mechanism, so that, even with multiple instances of the pipeline running, it keeps track of the correct version of the artifact to be used in the rest of the pipeline.</p>
 
