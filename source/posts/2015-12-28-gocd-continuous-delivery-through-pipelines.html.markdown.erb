@@ -6,8 +6,8 @@ author: Nenad Bozic
 excerpt: "GoCD has the pipeline abstraction at its core and that is a reason why we like it. Read why we have chosen it as our build tool in SmartCat ..."
 summary_image: "/assets/images/blog/go-cd-continuous-delivery-through-pipelines/dieamond-problem.png"
 title_tag_of_header: "Continuous delivery through pipelines | GoCD Blog"
-meta_description: "GoCD is open source continuous delivery software. This is a guest post by Nenad Bozic about why the team switched from Jenkins to GoCD."
-meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, guest post, deployment pipeline, Jenkins, pipeline dependencies, fan-in fan-out"
+meta_description: "Nenad Bozic's team switched from Jenkins to GoCD in part because of GoCD's first-class pipelines."
+meta_keywords: "continuous delivery, delivery pipelines, deployment pipelines, software delivery, pipeline dependencies"
 ---
 
 In order to compete in today's IT market, you must be truly agile, you must listen
@@ -86,7 +86,7 @@ application and have functional tests on the client's side, which depend on the 
 being updated, you can make a client functional test pipeline which will trigger on commit
 on client and successful build and deploy of server side.
 
-<img src="/assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-fanIn.png" title="Pipeline dependencies tab showing fan-in" alt="Pipeline dependencies tab showing fan-in"/>
+<img src="/assets/images/blog/go-cd-continuous-delivery-through-pipelines/goCD-fanIn.png" title="Pipeline dependencies tab showing fan-in" alt="GoCD pipeline dependencies tab showing fan-in"/>
 
 The additional challenge here is a diamond-like dependency, where it is not enough for both
 upstream dependencies to finish but to have right versions. The following diagram depicts
