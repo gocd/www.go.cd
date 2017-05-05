@@ -4,9 +4,9 @@ title: "Part 3 - Reusing Pipelines: Modeling Deployment Pipelines"
 type: post
 author: Aravind S.V, Product Manager at GoCD
 excerpt: "This is the third post in the series - Modeling Deployment Pipelines. In this post, we'll look at some of the ways to reduce the duplication found between pipelines using templates."
-title_tag_of_header: "Reusing Pipelines | GoCD Blog"
-meta_description: "In this post, we'll look at some of the ways to reduce the duplication found between pipelines using templates."
-meta_keywords: "GoCD, reusing pipelines, remove duplicates, continuous delivery, goforcd, open source, software, contribute to open source, agile continuous delivery, code contribution, Go"
+title_tag_of_header: "Reusing Pipelines - Modeling Deployment Pipelines | GoCD Blog"
+meta_description: "A look at some of the ways to reduce the duplication found between pipelines using templates."
+meta_keywords: "GoCD, reusing pipelines, remove duplicates, continuous delivery, cd pipeline template, reduce duplication, build pipelines, build propogation"
 summary_image: "/assets/images/blog/reusing-pipelines/reusing-pipelines-hero.jpg"
 tags: Modeling Deployment Pipelines
 ---
@@ -19,7 +19,7 @@ Having duplicate pipelines increases the time and effort to create and update yo
 Enter pipeline templates! A *template* is a concept in GoCD which helps reduce duplication between similar pipelines. It allows stages and jobs to be defined at the template level and through configurable parameters, allows each pipeline which is based off of that template, to set the parameters which make sense for it. Let’s see how a pipeline template can help in this case:
 
 <div class='imagezoom'>
-<%= image_tag 'blog/reusing-pipelines/introducing-template.jpeg', :alt => 'Introducing Pipeline Template', :title => 'Pipeline Template' %>
+<%= image_tag 'blog/reusing-pipelines/introducing-template.jpeg', :alt => 'Introducing CD build Pipeline Templates', :title => 'Pipeline Template' %>
 <span class='info_txt'>Click image to zoom in</span>
 </div>
 
@@ -39,7 +39,7 @@ Not bad at all!
 Before we look at moving a build to your deployment environment, here is a simplified version of our CD pipeline, which will help with continuing to extend it.
 
 <div class='imagezoom'>
-<%= image_tag 'blog/reusing-pipelines/simplified-version.jpeg', :alt => 'Simplified Version of Pipeline', :title => 'Simplified Version of Pipeline' %>
+<%= image_tag 'blog/reusing-pipelines/simplified-version.jpeg', :alt => 'Simplified Version of CD build Pipeline', :title => 'Simplified Version of Pipeline' %>
 <span class='info_txt'>Click image to zoom in</span>
 </div>
 
