@@ -86,10 +86,10 @@ module GoCDHelpers
     articles.reject do |article| !should_show_drafts? && is_draft?(article) end
   end
 
-  def canonical_link_to_blog_post(article)
-    overridden_canonical_url = article.data[:overridden_canonical_url]
+  def canonical_link_for(page_or_article)
+    overridden_canonical_url = page_or_article.data[:overridden_canonical_url]
 
     return overridden_canonical_url unless overridden_canonical_url.nil?
-    "#{config.base_url}/#{article.destination_path.sub(%r{/index.html}, '')}"
+    "#{config.base_url}/#{page_or_article.destination_path.sub(%r{/index.html}, '')}"
   end
 end
