@@ -11,6 +11,7 @@
     <meta name="twitter:title" content="<%= twitter_card_property(:twitter_card_title, :title_tag_of_header) %>" />
     <meta name="twitter:description" content="<%= twitter_card_property(:twitter_card_description, :meta_description) %>" />
     <meta name="twitter:image" content="<%= twitter_card_image('gocd_continuous_delivery_thoughtworks_twitter.jpg') %>" />
+    <link rel="canonical" href="<%= canonical_link_for(current_article || current_page) %>" />
 
     <title><%= value_or_title_as_default(:title_tag_of_header) %></title>
     <link href="<%= url_for '/assets/images/favicon.ico' %>" rel="shortcut icon" />
