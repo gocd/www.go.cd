@@ -82,7 +82,14 @@ module GoCDHelpers
     article.data["draft"] == true
   end
 
-  def selected_articles_for_display_in articles
+  def selected_articles_for_display_in(articles)
     articles.reject do |article| !should_show_drafts? && is_draft?(article) end
+  end
+
+  def canonical_link_for(page_or_article)
+    overridden_canonical_url = page_or_article.data[:overridden_canonical_url]
+
+    return overridden_canonical_url unless overridden_canonical_url.nil?
+    "#{config.base_url}/#{page_or_article.destination_path.sub(%r{/index.html}, '')}"
   end
 end
