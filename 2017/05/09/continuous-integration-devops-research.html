@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="This blog post elaborates the results of our most recent contextual research study, how we conducted the study and our main findings. Our goal was to identify what users know about continuous integration (CI) and continuous delivery (CD) practices." name="description" />
+    <meta content="GoCD, continuous delivery, devops research, CD research, continuous delivery research, CI research, continuous integration research, goforcd, open source, software, contribute to open source, agile continuous delivery, Go" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="No One Agrees How to Define CI or CD | GoCD Blog" />
+    <meta name="twitter:description" content="This blog post elaborates the results of our most recent contextual research study, how we conducted the study and our main findings. Our goal was to identify what users know about continuous integration (CI) and continuous delivery (CD) practices." />
+    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/no-one-agrees-define-ci-cd/no-one-can-agree-ci-cd-hero-693779a7.jpg" />
+    <link rel="canonical" href="https://www.gocd.io/2017/05/09/continuous-integration-devops-research.html" />
+
+    <title>No One Agrees How to Define CI or CD | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-105e0c2d.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-240a21c3.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+  </head>
+
+  <body class="x2017 x2017_05 x2017_05_09 x2017_05_09_continuous-integration-devops-research">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+    <div class="post-banner">
+      <figure>
+  <img src="../../../assets/images/blog/no-one-agrees-define-ci-cd/no-one-can-agree-ci-cd-hero-693779a7.jpg" alt="No one  agree on CI and CD" />
+</figure>
+
+    </div>
+
+  
+
+  <header class="blog-post-header">
+    <h2>No One Agrees How to Define CI or CD</h2>
+    <h4>Emily Luke (Head of Experience) and Suzie Prince (Head of Product), ThoughtWorks Products</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      
+<p>Our product teams care deeply about understanding what our users want. We spend a lot of time listening to feedback, chatting with users and seeking their input. Unlike the more customary feedback sessions, Intercom-style chat, and usability studies that we see in most organizations, one type of user research that we do on an ongoing basis is contextual inquiry.</p>
+
+<p>Contextual inquiry research combines a directed interview with an observation session to understand what a user is saying and feeling, as well as what they do and how they behave on a daily basis. This kind of research helps us to learn more about our community members - how they work, how they want to work, what could be better and what is already pretty great. We learn a lot from this kind of research and use our findings to help us build better products.</p>
+
+<p>As supporters of open source and promoters of <a href="http://martinfowler.com/bliki/ThreePillars.html">software excellence</a>, we also know that our findings can be helpful to others in our space and so we want to share them with you. This blog post will outline our goals for our most recent contextual research study, how we conducted the study and our main findings. We hope it’s helpful to you and your team! – <em>Emily Luke and Suzie Prince</em></p>
+
+<h1 id="goals">Goals</h1>
+
+<p>The two main goals for our study were to:</p>
+
+<ul>
+  <li>Identify what users know about continuous integration (CI) and continuous delivery practices and principles.</li>
+  <li>Identify pain points around practicing continuous delivery on a daily basis.</li>
+</ul>
+
+<h2 id="the-study"><em>The Study</em></h2>
+
+<p>We conducted this study using contextual inquiry — a research methodology that takes a combined interview and observation approach. We set up calls, video chats, and in-person conversations with software engineers at varying organizations and with varying levels of expertise to understand how they work, what their big pains are, and the nuances of their days. In most cases, we did a Q&amp;A for part of the session and then asked users to share their screens to show us the CI/continuous delivery tools they currently use and how they use them.</p>
+
+<p><img src="../../../assets/images/blog/no-one-agrees-define-ci-cd/affinitywall-3a2cf6af.jpg" alt="Contextual Inquiry Study" title="Contextual Inquiry Study" /></p>
+
+<p>After gathering the research, we used a variety of qualitative and quantitative techniques such as an affinity wall, word analysis and data counts to look for trends and meaning.</p>
+
+<h2 id="who"><em>Who</em></h2>
+
+<p>The study took place between February and June 2016. There were 20 participants from 20 different organizations from North America and Europe. The majority of the participants were practicing software engineers whose experience ranged from three years to 20 years. Some participants were also in supporting roles such as engineering managers, founders, data analysts and QAs. Most participants were not users of our products and were selected for their current role and responsibilities rather than familiarity with specific products.</p>
+
+<p><img src="../../../assets/images/blog/no-one-agrees-define-ci-cd/tools-5f584a98.jpg" alt="CI CD Tools Used" title="CI CD Tools Used" /></p>
+
+<h1 id="findings">Findings</h1>
+
+<p>There were four key findings we want to share from this study. They are separated out below into the following categories: <strong>Definitions, Development Practices, Speed, and Stickiness</strong>.</p>
+
+<h2 id="definitions">1. Definitions</h2>
+
+<p>A key focus of our study was learning about what people know about continuous integration and continuous delivery practices and principles. In order to assess this we asked each participant to define continuous integration, continuous deployment, deployment pipelines, continuous delivery and DevOps. We then further explored their understanding by hearing about their current practices and processes as well as future goals.</p>
+
+<h3 id="terminology-confusion">Terminology confusion</h3>
+
+<p>There was no consensus on the definitions of CI, continuous delivery, or continuous deployment… at all. Participants confused the definitions of continuous integration, continuous deployment and continuous delivery, often repeating the same definitions for all three terms.</p>
+
+<blockquote>
+  <p>“I honestly don’t really know what the difference between that [continuous delivery] and continuous deployment would be.”</p>
+</blockquote>
+
+<h3 id="continuous-integration">Continuous Integration</h3>
+
+<p>Most participants were unable to comprehensively define CI.[^1] However, many of those who gave an incomplete definition (specifically missing the need to integrate to master/trunk/mainline daily) said they were practicing CI. In particular, of those who said they were using long-lived branches and not regularly checking into a master branch, 90% also said they were practicing continuous integration. With the exception of just more than 10%, everyone using a CI tool said they were practicing CI. It appears that the use of a CI server or tool is fairly synonymous with doing CI.</p>
+
+<h3 id="continuous-integration-and-continuous-deployment-vs-continuous-delivery">Continuous integration and continuous deployment vs. continuous delivery</h3>
+
+<p>Participants are far better able to define continuous deployment than continuous delivery. When describing continuous delivery many would repeat the definition they used to describe continuous deployment. This was exemplified by the use of the phase “continuous deployment” which appeared four times more frequently when describing “continuous delivery” than “continuous delivery” did when describing “continuous deployment”. Likewise, it was clear to us from this study that people were way more likely to use the terms “continuous integration” and “continuous deployment” to explain how they worked (or would like to work) than continuous delivery.</p>
+
+<p>Continuous deployment was seen as an aspiration for many surveyed, but most believed that they were currently only practicing CI.</p>
+
+<p><img src="../../../assets/images/blog/no-one-agrees-define-ci-cd/delivery-wordcloud-6fd91655.jpg" alt="Continuous Delievery Wordcloud" title="Continuous Delievery Wordcloud" /></p>
+
+<p><img src="../../../assets/images/blog/no-one-agrees-define-ci-cd/deployment-wordcloud-5df3e112.jpg" alt="Continuous Deployment Wordcloud" title="Continuous Deployment Wordcloud" /></p>
+
+<h3 id="definitions-vs-practises-and-aspirations">Definitions vs practises and aspirations</h3>
+
+<p>Interestingly, many people are still deploying fairly frequently (daily or weekly) and with relative ease even if they didn’t know or could not define the terms surrounding these practices or if they didn’t think they were practicing these things at all. Likewise, some participants unable to define continuous delivery and/or who said they were not practicing continuous delivery did describe a process that was close to our definition of continuous delivery.</p>
+
+<h3 id="devops">DevOps</h3>
+
+<p>This was almost universally remarked as “hard to define”. The confusion of “ops” with “DevOps” also led some people to remark that it was hard for them to see how anyone could work without DevOps (meaning without operations at all).</p>
+
+<blockquote>
+  <p>“A lot of people have different definitions of it over the years. What I think it boils down to is the organizational practices that allow various teams to come together and successfully deliver software.”</p>
+</blockquote>
+
+<p>These results were more surprising than we had thought they would be. Most people could not define continuous delivery, CI, continuous deployment, and DevOps - even those who said that they were practicing these things. Although we were already aware from a previous quantitative survey that users of our products (Snap CI and GoCD) were statistically more likely to understand continuous delivery than those using other CI/continuous delivery tools, we were not expecting the confusion between continuous integration, continuous deployment and continuous delivery to be so pronounced.</p>
+
+<h2 id="development-practices">2. Development Practices</h2>
+
+<h3 id="agile">Agile</h3>
+
+<p>With all the <a href="http://www.forbes.com/sites/stevedenning/2015/06/14/coding-agile-scrum-go-mainstream">talk of agile</a> in many parts of the software community we were surprised to find that the majority of people are not self identifying as agile practitioners. Some remain unaware of agile, some identify that they are not agile (“we are waterfall”) and the majority of those that remained recognize agile influences and spoke of specific agile practices that they use (such as iterations or sprints or two week cycles, stories or tasks and standups) when helpful. Agile has become a defacto a choose-your-own-adventure for a lot of software development teams.</p>
+
+<h3 id="branches-code-reviews-and-pairing">Branches, code reviews and pairing</h3>
+
+<p>Of those surveyed, over 60% described their practices as using branches or branch-based development. In those cases participants regularly used branches for feature development or had long-lived (~ over a day or two) branches of some kind.</p>
+
+<p>There were particular sets of practices that we recognized occurred frequently together, e.g. branched-based development was often accompanied by code reviews and low levels of pairing. In particular, even with the small sample size, we were able to see that there was statistical significance (at 80% confidence) that people who used branch-based development were likely not to be pairing on a daily basis and that those not pairing regularly were likely to practice code reviews. In many cases, code reviews were highlighted as a painful practice.</p>
+
+<blockquote>
+  <p>“Code review tends to be fairly brutal. The idea being the code should be well formed and if it’s not well formed it just doesn’t pass code review, so people learn very quickly not to get precious about their code.”</p>
+</blockquote>
+
+<p>Likewise, it was very interesting to see that pair programming was not considered to be a crucial development practice, even for those who considered themselves to be doing agile development. Only 13% of participants paired on a daily basis. While not practicing pairing regularly, some remarked that it was used when necessary, such as when training new team members, when there were hard problems or when someone asked for support.</p>
+
+<h2 id="speed">3. Speed</h2>
+
+<p>When asked what the #1 thing most teams could do better, multiple answers hinged on doing things quickly. Even individuals in teams who were used to deploying very regularly - as needed, daily or weekly rather than monthly or yearly - expressed a desire to be quicker. Sometimes the urgency was explained as a frustration with slow tools or slow processes but other times it was a desire and need for urgency and to “be better”. It is clear that software teams in many organizations are feeling the push to deliver quickly and being faster becomes an important goal for many.</p>
+
+<blockquote>
+  <p>“I think we make pretty good software. I think we can make it faster. I think that we have a lot of pain around iteration cycles. I make a change and I want to see that it passed tests and it takes me a long time for that to happen.”</p>
+</blockquote>
+
+<p>External research such as <a href="https://puppet.com/resources/white-paper/2016-state-of-devops-report">Puppet’s State of DevOps survey</a> supports these findings and show us what’s driving this urgency on engineering teams. In the 2016 survey, Humble, et. al. concluded that high performers deploy 200 times more frequently than low performers, with 2,555 times faster lead times. It is therefore easy to understand that many teams are striving for these more frequent deployments and faster lead times.</p>
+
+<h2 id="stickiness">4. Stickiness</h2>
+
+<blockquote>
+  <p>“Once something is ingrained, it’s hard to replace it but if we think it’s causing us more pain, we’re willing to do the investigation to determine what it would take to replace it.“</p>
+</blockquote>
+
+<p>CI/continuous delivery tools are sticky… even when they are painful. Despite frequently hearing about frustrations with CI/continuous delivery tools, we also found that participants in our study seem to stick with their current CI/continuous delivery tools even if they recognized pain with them. People recognized that CI/continuous delivery tools need to be reliable but also continued to use tools that were embedded in their process even if they had prior reliability problems. Participants also expressed numerous times that moving tools was not easy and that although new tools were described as desirable, people also seemed reluctant to undergo the change for limited or unknown new value.</p>
+
+<hr />
+
+<p>We see immense value in understanding customers, users and the software community in general. As highlighted by findings in this study, users of specific technologies are not necessarily a good indication of the market at large. Similarly, in-depth conversations and observations can reveal nuances that surveys and/or shallow conversations can obscure. We highly recommend that all creators of software for developers use techniques such as contextual inquiry research to learn more. We also encourage you all to add to our growing knowledge about software by sharing your findings publicly.</p>
+
+<p>In future blog posts we hope to share more findings from other research studies we do, share tips and tricks for conducting contextual research and details about other methods of ethnographic research that could be useful to you.</p>
+
+<p>We are also open to your feedback. Let us know how we can improve our tools, techniques, and how we share information. You can comment below or tweet us at <a href="https://twitter.com/@emilyeatskale">@emilyeatskale</a> and <a href="https://twitter.com/@pm_suzie">@pm_suzie</a>.</p>
+
+<p><em>Footnote: [^1]: Our standard definition for continuous integration in this study was set as “Everyone merges to mainline/master/trunk at least once a day. Each merge is built and tested on an integration machine.”</em></p>
+
+<p><sub><strong>Note: This post was originally published on the SnapCI Blog.</strong></sub></p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+ -            <div class='subscribe-to-blog'>
+   <div class='subscribe-title'>
+     <p>Subscribe to the GoCD blog</p>
+   </div>
+   <div>
+     Subscribe and stay connected with the GoCD Blog. We send a monthly update of what's new in the world of continuous delivery, devops and software development practices.
+   </div>
+   <div>
+     <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+     <form id="mktoForm_5414"></form>
+     <script>MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);</script>
+   </div>
+</div>
+
+ -          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">May  9</span>
+              <span class="post-author">Emily Luke (Head of Experience) and Suzie Prince (Head of Product), ThoughtWorks Products</span>
+              <a href="continuous-integration-devops-research/">No One Agrees How to Define CI or CD</a>
+            </li>
+            <li>
+              <span class="post-date">May  2</span>
+              <span class="post-author">Badri Janakiraman and David Rice</span>
+              <a href="../02/what-does-pipelines-as-code-really-mean/">What Does Pipelines as Code Really Mean?</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 25</span>
+              <span class="post-author">David Rice, Managing Director - ThoughtWorks Products</span>
+              <a href="../../04/25/gocd-over-jenkins/">Why GoCD over Jenkins</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 17</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../04/17/build-propagation-using-fan-in-fan-out/">Part 4 - Build Propagation using Fan-in/Fan-out: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Apr  6</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../04/06/reusing-pipelines/">Part 3 - Reusing Pipelines: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 29</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../03/29/beginnings-of-a-real-pipeline/">Part 2 - The beginnings of a real CD pipeline: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Mar  1</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../03/01/importance-and-principles-of-cd-pipelines/">Part 1 - The Importance and Principles of Continuous Delivery Pipelines: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Feb 16</span>
+              <span class="post-author">Suzie Prince - Product Manager at Snap CI</span>
+              <a href="../../02/16/migrating-snapci-to-gocd/">Migrating from Snap CI to GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jan  5</span>
+              <span class="post-author">GoCD team</span>
+              <a href="../../01/05/why-we-moved-from-go-cd-to-gocd-io/">Why we've moved from go.cd to gocd.io</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 13</span>
+              <span class="post-author">Jason Rowe</span>
+              <a href="../../../2016/07/13/DotNet-Core-and-GoCD/">.NET Core and GoCD</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2017 (9)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/05/09/continuous-integration-devops-research.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        <li>
+          <a href="../../../subscribe/"><i class='icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

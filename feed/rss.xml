@@ -5,10 +5,21 @@
   <id>https://www.gocd.io/blog</id>
   <link href="https://www.gocd.io/blog"/>
   <link href="https://www.gocd.io/feed/rss.xml" rel="self"/>
-  <updated>2017-05-02T00:00:00Z</updated>
+  <updated>2017-05-09T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>No One Agrees How to Define CI or CD</title>
+    <link rel="alternate" href="https://www.gocd.io/2017/05/09/continuous-integration-devops-research.html"/>
+    <id>https://www.gocd.io/2017/05/09/continuous-integration-devops-research.html</id>
+    <published>2017-05-09T00:00:00Z</published>
+    <updated>2017-05-09T00:00:00Z</updated>
+    <author>
+      <name>Emily Luke (Head of Experience) and Suzie Prince (Head of Product), ThoughtWorks Products</name>
+    </author>
+    <content type="html">This blog post elaborates the results of our most recent contextual research study, how we conducted the study and our main findings. Our goal was to identify what users know about continuous integration (CI) and continuous delivery (CD) practices.</content>
+  </entry>
   <entry>
     <title>What Does Pipelines as Code Really Mean?</title>
     <link rel="alternate" href="https://www.gocd.io/2017/05/02/what-does-pipelines-as-code-really-mean.html"/>
@@ -107,16 +118,5 @@
       <name>Jason Rowe</name>
     </author>
     <content type="html">GoCD is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it. This post documents setting up a .NET core project in GoCD in a minimal way for demo purposes.</content>
-  </entry>
-  <entry>
-    <title>Don't let sunk costs sink your project</title>
-    <link rel="alternate" href="https://www.gocd.io/2016/06/21/dont-let-sunk-costs-sink-your-project.html"/>
-    <id>https://www.gocd.io/2016/06/21/dont-let-sunk-costs-sink-your-project.html</id>
-    <published>2016-06-21T00:00:00Z</published>
-    <updated>2016-06-21T00:00:00Z</updated>
-    <author>
-      <name>Jeff Norris</name>
-    </author>
-    <content type="html">When we develop software projects, we can get into situations where we are also high-centered, places where it is difficult to make progress either forwards or backwards.</content>
   </entry>
 </feed>
