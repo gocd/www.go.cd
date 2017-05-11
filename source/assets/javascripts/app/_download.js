@@ -16,12 +16,16 @@ var showDownloadLinks = (function($) {
     };
 
     var settings = settingsForAllTypes[typeOfInstallersToShow];
+    var showArchives = R.any(R.equals('archive=true'), window.location.search.substr(1).split('&'));
 
-    var isNewerThanAYearOld = R.curry(function(timeInSecondsSinceEpoch) {
+    var dateFilter = R.curry(function(timeInSecondsSinceEpoch) {
+      if (showArchives) {
+        return true;
+      }
       return (new Date() - new Date(timeInSecondsSinceEpoch * 1000)) < 3600 * 24 * 366 * 1000;
     });
 
-    var releasesLessThanAYearOld = R.filter(R.where({release_time: isNewerThanAYearOld}));
+    var releasesLessThanAYearOld = R.filter(R.where({release_time: dateFilter}));
 
     var addURLToFiles = function(release) {
       var addDetailsFrom = R.curry(function(release, analyticsIDPrefix, o) {
