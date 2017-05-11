@@ -20,7 +20,7 @@ The [ThoughtWorks tech radar](https://www.thoughtworks.com/radar/techniques/ci-t
 
 ## Continuous Integration
 
-First, my favorite definition of [CI comes from Jez Humble](http://continuousdelivery.com) on continuousdelivery.com
+My favorite definition of [CI comes from Jez Humble](http://continuousdelivery.com) on continuousdelivery.com
 
 >"CI developers integrate all their work into trunk (also known as mainline or master) on a regular basis (at least daily)."
 
@@ -46,7 +46,7 @@ In David’s story, not checking into master on a daily basis was a sign of “C
 
 * Feel anxiety and fatigue when merging branches
 
-True continuous integration distributes code ownership. This changes the perspective of people within the team and their attitude towards broken builds. It’s no longer "my precious branch” or “my fault the build is broken”, but “our code” and “our failure”. The fact that David experienced anxiety and fatigue is a clear indication that he were missing one important benefit of CI: continuous feedback and collective ownership.
+True continuous integration distributes code ownership. This changes the perspective of people within the team and their attitude towards broken builds. It’s no longer "my precious branch” or “my fault the build is broken”, but “our code” and “our failure”. The fact that David experienced anxiety and fatigue is a clear indication that he was missing one important benefit of CI: continuous feedback and collective ownership.
 
 There are more *signs of CI theater* that we found to be less common but still challenging and problematic like,
 
@@ -59,15 +59,15 @@ Although David’s team had a well respected CI tool in place and practised comm
 
 ## How to avoid, combat and resolve CI theatre?
 
-If you have identified that you  might be suffering from CI theatre, here are three ways to combat the problem and make lasting change.
+If you have identified that you might be suffering from CI theatre, here are three ways to combat the problem and make lasting change.
 
 ### 1. Commit more often
 
-Go back to basics. Commit more often. At least daily is the minimum you should be aiming for. Aim for hourly. If you are not doing CI, this is where you can get started and even if you are “doing CI” there is always room to improve. I love the saying “Frequency reduces difficulty”. In doing something more often, the task becomes smaller, making it easier to achieve. Continuous integration is a key example of something becoming easier the more often you do it. My advice is commit code to your repos more often and integrate branches to ‘master’ at least daily.
+Go back to basics. Commit more often. Committing at least daily, is the minimum you should be aiming for. If you are not doing CI, this is where you can get started and even if you are “doing CI” there is always room to improve. I love the saying “Frequency reduces difficulty”. In doing something more often, the task becomes smaller, making it easier to achieve. Continuous integration is a key example of something becoming easier the more often you do it. My advice is commit code to your repos more often and integrate branches to ‘master’ at least daily.
 
 ### 2. Trunk based development
 
-There are many forums for discussion about trunk based development vs branch based development and I don’t want to get into the gory details of this holy war now. However, in our research when we talked to people who experienced pain with their CI process, the teams that didn’t practice trunk based development, experienced it the most. Trunk based development certainly has its own challenges, but it brings the pain forward rather than storing it up for merges, code reviews or delaying  releases.
+There are many forums for discussion about trunk based development vs branch based development and I don’t want to get into the gory details of this now. However, in our research when we talked to people who experienced pain with their CI process, the teams that didn’t practice trunk based development, experienced it the most. Trunk based development certainly has its own challenges, but it brings the pain forward rather than storing it up for merges, code reviews or delaying  releases.
 
 I recommend doing trunk based development if you want to do CI better, or if you prefer , use short lived branches.
 
