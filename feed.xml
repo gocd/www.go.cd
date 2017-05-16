@@ -5,10 +5,21 @@
   <id>https://www.gocd.io/blog</id>
   <link href="https://www.gocd.io/blog"/>
   <link href="https://www.gocd.io/feed.xml" rel="self"/>
-  <updated>2017-05-09T00:00:00Z</updated>
+  <updated>2017-05-16T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>It’s not CI, it’s just CI theater</title>
+    <link rel="alternate" href="https://www.gocd.io/2017/05/16/its-not-CI-its-CI-theatre.html"/>
+    <id>https://www.gocd.io/2017/05/16/its-not-CI-its-CI-theatre.html</id>
+    <published>2017-05-16T00:00:00Z</published>
+    <updated>2017-05-16T00:00:00Z</updated>
+    <author>
+      <name>Suzie Prince (Head of Product), ThoughtWorks Products</name>
+    </author>
+    <content type="html">CI theatre describes the illusion of practising continuous integration while not really practising it. Based on our continuous integration research, we share what CI Theatre looks like, why we recommend you Hold on that, and ways to combat CI theatre.</content>
+  </entry>
   <entry>
     <title>No One Agrees How to Define CI or CD</title>
     <link rel="alternate" href="https://www.gocd.io/2017/05/09/continuous-integration-devops-research.html"/>
@@ -107,16 +118,5 @@
       <name>GoCD team</name>
     </author>
     <content type="html">If you've been following us on twitter, our community forum, or tried to access our website in the past two weeks, you'll know that we've moved from https://go.cd to https://gocd.io. Learn more about it.</content>
-  </entry>
-  <entry>
-    <title>.NET Core and GoCD</title>
-    <link rel="alternate" href="https://www.gocd.io/2016/07/13/DotNet-Core-and-GoCD.html"/>
-    <id>https://www.gocd.io/2016/07/13/DotNet-Core-and-GoCD.html</id>
-    <published>2016-07-13T00:00:00Z</published>
-    <updated>2016-07-13T00:00:00Z</updated>
-    <author>
-      <name>Jason Rowe</name>
-    </author>
-    <content type="html">GoCD is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it. This post documents setting up a .NET core project in GoCD in a minimal way for demo purposes.</content>
   </entry>
 </feed>

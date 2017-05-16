@@ -1,0 +1,379 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Ar you practising CI or CI theatre? This post helps you identify the signs of CI theatre and how to combat them." name="description" />
+    <meta content="GoCD, continuous delivery, continuous integration, continuous isolation, CI, CI Theatre, What is CI theatre, signs of CI theatre" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="It's not CI, it's just CI Theatre | GoCD Blog" />
+    <meta name="twitter:description" content="Ar you practising CI or CI theatre? This post helps you identify the signs of CI theatre and how to combat them." />
+    <meta name="twitter:image" content="https://www.gocd.io/assets/images/blog/ci-theatre/ci-theatre-hero-ee863baa.jpg" />
+    <link rel="canonical" href="https://www.gocd.io/2017/05/16/its-not-CI-its-CI-theatre.html" />
+
+    <title>It's not CI, it's just CI Theatre | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-105e0c2d.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-544c7d52.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+  </head>
+
+  <body class="x2017 x2017_05 x2017_05_16 x2017_05_16_its-not-CI-its-CI-theatre">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+    <div class="post-banner">
+      <figure>
+  <img src="../../../assets/images/blog/ci-theatre/ci-theatre-hero-ee863baa.jpg" alt="CI Theatre" />
+</figure>
+
+    </div>
+
+  
+
+  <header class="blog-post-header">
+    <h2>It’s not CI, it’s just CI theater</h2>
+    <h4>Suzie Prince (Head of Product), ThoughtWorks Products</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      
+<p>The <a href="https://www.thoughtworks.com/radar/techniques/ci-theatre">ThoughtWorks tech radar</a> recently recommended putting a “Hold” on the  tech team antipattern, “CI Theatre”. “CI theatre” describes the illusion of practising continuous integration (CI) while not <em>really</em> practising it. Based on continuous integration research <a href="https://www.gocd.io/2017/05/09/continuous-integration-devops-research/">my colleague, Emily Luke, and I conducted</a>, I will share what CI Theatre looks like, why we recommend you “Hold” on that, and ways to combat CI theatre.</p>
+
+<h2 id="continuous-integration">Continuous Integration</h2>
+
+<p>My favorite definition of <a href="http://continuousdelivery.com">CI comes from Jez Humble</a> on continuousdelivery.com</p>
+
+<blockquote>
+  <p>"CI developers integrate all their work into trunk (also known as mainline or master) on a regular basis (at least daily)."</p>
+</blockquote>
+
+<p>There are two fundamental principles of the CI practice hiding in this quote. The first is “integrate all their work into trunk” and the second, “at least daily”.</p>
+
+<p>There are also a whole host of other principles and practices that make CI, such as checking everything into your source repository, building every commit, automating the build, keeping the build fast, having self testing code, showing visible failures and fixing failures immediately <a href="https://martinfowler.com/articles/continuousIntegration.html">as detailed by Martin Fowler in his reference post on Continuous Integration</a>. Personally I believe that <strong>checking into master at least once daily</strong> is a fundamental cornerstone to good CI. And without it, you are not practising CI but CI theatre.</p>
+
+<h2 id="what-does-ci-theatre-look-like">What does CI theatre look like?</h2>
+
+<p>Here’s a story from our research. An experienced developer, (let’s call him David) is from a medium sized startup in the Bay Area and delivers to production twice a week. David described his organization as practising CI by saying, "Yeah, we use Circle CI.", He described a challenging situation where he worked on a branch for a while, changed 100 files and 7000 lines of code, entered a code review and became overwhelmed explaining all his changes to his colleagues.</p>
+
+<p>"The most challenging thing is when you end up with a lot of features piled together in one commit because they're all part of one story", he said "I wish there was a nicer way to decompose commits because it's hard to keep everything in your head."</p>
+
+<p>If this situation sounds familiar to you, you  have a case of CI theater. You have CI Theatre if you:</p>
+
+<ul>
+  <li>Say  “we have a CI server” and “we use x tool” when asked  “are you practising CI?”</li>
+</ul>
+
+<p>In our study only 10% of participants acknowledged that having a CI server was not the same as practising CI. Conversely, 90% of individuals said they were practising CI regardless of whether they were specifically practising the fundamentals of CI or not. Therefore, thinking that simply by having a CI server is “doing CI” is a clear indicator of  “CI theatre”.</p>
+
+<ul>
+  <li>Use  long-lived branches and do not regularly check into your master branch</li>
+</ul>
+
+<p>In David’s story, not checking into master on a daily basis was a sign of “CI Theatre”. It’s a pattern we saw in our research where teams ran CI against the master but with infrequent, less than daily commits. Or they ran CI against their branches without integrating to master frequently. Running CI against feature branches leads to a different definition of CI called <a href="https://paulhammant.com/2017/02/14/fake-news-via-continuous-isolation/">continuous isolation</a>.</p>
+
+<ul>
+  <li>Feel anxiety and fatigue when merging branches</li>
+</ul>
+
+<p>True continuous integration distributes code ownership. This changes the perspective of people within the team and their attitude towards broken builds. It’s no longer "my precious branch” or “my fault the build is broken”, but “our code” and “our failure”. The fact that David experienced anxiety and fatigue is a clear indication that he was missing one important benefit of CI: continuous feedback and collective ownership.</p>
+
+<p>There are more <em>signs of CI theater</em> that we found to be less common but still challenging and problematic like,</p>
+
+<ul>
+  <li>running a build with poor test coverage <em>and</em></li>
+  <li>allowing the build to stay red for long periods.</li>
+</ul>
+
+<p>Although David’s team had a well respected CI tool in place and
+ common processes such as feature branching and code reviews, they were not practising the full set of CI practices and therefore missed many of its benefits. We sadly find that it’s happened in 90% of organisations in our research.</p>
+
+<blockquote>
+  <p>Key benefits missed by organizations practising CI Theatre are - fast feedback, collective ownership and being ready to move to continuous delivery.</p>
+</blockquote>
+
+<h2 id="how-to-avoid-combat-and-resolve-ci-theatre">How to avoid, combat and resolve CI theatre?</h2>
+
+<p>If you have identified that you might be suffering from CI theatre, here are three ways to combat the problem and make lasting change.</p>
+
+<h3 id="commit-more-often">1. Commit more often</h3>
+
+<p>Go back to basics. Commit more often. Committing at least daily, is the minimum you should be aiming for. If you are not doing CI, this is where you can get started and even if you are “doing CI” there is always room to improve. I love the saying “Frequency reduces difficulty”. In doing something more often, the task becomes smaller, making it easier to achieve. Continuous integration is a key example of something becoming easier the more often you do it. My advice is commit code to your repos more often and integrate branches to ‘master’ at least daily.</p>
+
+<h3 id="trunk-based-development">2. Trunk based development</h3>
+
+<p>There are many forums for discussion about trunk based development vs branch based development and I don’t want to get into the gory details. However, in our research when we talked to people who experienced pain with their CI process, the teams that didn’t practice trunk based development, experienced it the most. <a href="https://puppet.com/resources/whitepaper/2016-state-of-devops-report">The State of DevOps report 2016</a> also found that practising trunk based development and continuous integration were important aspects of continuous delivery contributed to higher performance of teams.</p>
+
+<p>Trunk based development certainly has its own challenges, but it brings the pain forward rather than storing it up for merges, code reviews or delaying releases. I recommend doing trunk based development if you want to do better CI and CD, or if you prefer, use short lived branches with very short lifetimes (less than a day before merging to master), and have less than three active branches in total.</p>
+
+<h3 id="automate">3. Automate</h3>
+
+<p>Automation is a cornerstone of strong continuous integration so if you haven’t automated everything already, now is a good time to start. If you think you have automated all you can, then every time anyone on the team does anything manually more than once, ask yourself “Why can’t this be automated?”. I’ve seen that not only does automation help you get better at CI, it helps you to start practising continuous delivery as well.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Now you know what  CI theatre is, if your team is practising it and ways you can avoid it. If you are still confused I recommend you check out the tongue in cheek “<a href="https://martinfowler.com/bliki/ContinuousIntegrationCertification.html">CI Certification test</a>” on Martin Fowler’s blog to confirm  if your organisation is doing credible CI or not. And if you passed the CI test, great. Now it’s time to consider whether you are ready for Continuous Delivery.</p>
+
+<div class="row">
+  <div class="downloadbanner">
+  <div class="container">
+    <div class="banner-with-cta">
+      <p>BEFORE YOU PICK YOUR CD TOOL, FIND OUT IF YOU ARE TRULY READY FOR CONTINUOUS DELIVERY.</p>
+      <a href="../../../tags/are-you-ready-for-continuous-delivery.html">FIND OUT NOW</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+ -            <div class='subscribe-to-blog'>
+   <div class='subscribe-title'>
+     <p>Subscribe to the GoCD blog</p>
+   </div>
+   <div>
+     Subscribe and stay connected with the GoCD Blog. We send a monthly update of what's new in the world of continuous delivery, devops and software development practices.
+   </div>
+   <div>
+     <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+     <form id="mktoForm_5414"></form>
+     <script>MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);</script>
+   </div>
+</div>
+
+ -          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">May 16</span>
+              <span class="post-author">Suzie Prince (Head of Product), ThoughtWorks Products</span>
+              <a href="its-not-CI-its-CI-theatre/">It’s not CI, it’s just CI theater</a>
+            </li>
+            <li>
+              <span class="post-date">May  9</span>
+              <span class="post-author">Emily Luke (Head of Experience) and Suzie Prince (Head of Product), ThoughtWorks Products</span>
+              <a href="../09/continuous-integration-devops-research/">No One Agrees How to Define CI or CD</a>
+            </li>
+            <li>
+              <span class="post-date">May  2</span>
+              <span class="post-author">Badri Janakiraman and David Rice</span>
+              <a href="../02/what-does-pipelines-as-code-really-mean/">What Does Pipelines as Code Really Mean?</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 25</span>
+              <span class="post-author">David Rice, Managing Director - ThoughtWorks Products</span>
+              <a href="../../04/25/gocd-over-jenkins/">Why GoCD over Jenkins</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 17</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../04/17/build-propagation-using-fan-in-fan-out/">Part 4 - Build Propagation using Fan-in/Fan-out: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Apr  6</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../04/06/reusing-pipelines/">Part 3 - Reusing Pipelines: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 29</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../03/29/beginnings-of-a-real-pipeline/">Part 2 - The beginnings of a real CD pipeline: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Mar  1</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../03/01/importance-and-principles-of-cd-pipelines/">Part 1 - The Importance and Principles of Continuous Delivery Pipelines: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Feb 16</span>
+              <span class="post-author">Suzie Prince - Product Manager at Snap CI</span>
+              <a href="../../02/16/migrating-snapci-to-gocd/">Migrating from Snap CI to GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jan  5</span>
+              <span class="post-author">GoCD team</span>
+              <a href="../../01/05/why-we-moved-from-go-cd-to-gocd-io/">Why we've moved from go.cd to gocd.io</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2017 (10)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/05/16/its-not-CI-its-CI-theatre.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        <li>
+          <a href="../../../subscribe/"><i class='icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
