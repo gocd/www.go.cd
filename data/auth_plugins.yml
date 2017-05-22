@@ -51,3 +51,12 @@
   releases_url: https://github.com/gocd-contrib/gocd_auth_plugin_guest_user/releases
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd_auth_plugin_guest_user&type=watch&count=true
   first_available_date: 03/2016
+
+- name: Okta authorization plugin for GoCD
+  description: Allows user to login using Okta
+  readmore_url: https://github.com/gocd-contrib/okta-authorization-plugin
+  author_url: https://github.com/bdpiparva
+  author_name: Bhupendrakumar Piprava
+  releases_url: https://github.com/gocd-contrib/okta-authorization-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=okta-authorization-plugin&type=watch&count=true
+  first_available_date: 05/2017
