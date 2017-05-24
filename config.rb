@@ -79,8 +79,19 @@ activate :s3_sync do |s3_sync|
   s3_sync.prefer_gzip  = false
 end
 
-caching_policy 'text/html', max_age: 600, must_revalidate: true
-default_caching_policy      max_age:(60 * 60 * 24 * 365)
+# these files have long lived cache haaders
+assets = []
+assets += %w(css js)
+assets += %w(png svg gif jpg jpeg ico)
+assets += %w(eot ttf woff woff2)
+assets += %w(mov avi)
+assets.each do |file_type|
+  MIME::Types.type_for(file_type).each do |mime|
+    caching_policy mime.content_type, max_age: (60 * 60 * 24 * 365)
+  end
+end
+
+default_caching_policy  max_age: 600, must_revalidate: true
 
 # Build-specific configuration
 configure :build do
