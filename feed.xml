@@ -5,10 +5,21 @@
   <id>https://www.gocd.io/blog</id>
   <link href="https://www.gocd.io/blog"/>
   <link href="https://www.gocd.io/feed.xml" rel="self"/>
-  <updated>2017-05-16T00:00:00Z</updated>
+  <updated>2017-05-23T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Part 5 - Control deployments using Manual Gates: Modeling Deployment Pipelines</title>
+    <link rel="alternate" href="https://www.gocd.io/2017/05/23/control-deployments-manual-approvals.html"/>
+    <id>https://www.gocd.io/2017/05/23/control-deployments-manual-approvals.html</id>
+    <published>2017-05-23T00:00:00Z</published>
+    <updated>2017-05-23T00:00:00Z</updated>
+    <author>
+      <name>Aravind S.V, Product Manager at GoCD</name>
+    </author>
+    <content type="html">In this post, we will show you how to use a manual approval process to propagate your build which is especially useful for critical deployments. It not only gives you more control, but also prevents human error in complex pipelines thereby making your deployments safer.</content>
+  </entry>
   <entry>
     <title>It’s not CI, it’s just CI theatre</title>
     <link rel="alternate" href="https://www.gocd.io/2017/05/16/its-not-CI-its-CI-theatre.html"/>
@@ -107,16 +118,5 @@
       <name>Suzie Prince - Product Manager at Snap CI</name>
     </author>
     <content type="html">Many Snap CI users are now looking for a replacement CI CD tool. In the end of life announcement we recommended that Snap CI users take a look at GoCD and consider it as an alternative.</content>
-  </entry>
-  <entry>
-    <title>Why we've moved from go.cd to gocd.io</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/01/05/why-we-moved-from-go-cd-to-gocd-io.html"/>
-    <id>https://www.gocd.io/2017/01/05/why-we-moved-from-go-cd-to-gocd-io.html</id>
-    <published>2017-01-05T00:00:00Z</published>
-    <updated>2017-01-05T00:00:00Z</updated>
-    <author>
-      <name>GoCD team</name>
-    </author>
-    <content type="html">If you've been following us on twitter, our community forum, or tried to access our website in the past two weeks, you'll know that we've moved from https://go.cd to https://gocd.io. Learn more about it.</content>
   </entry>
 </feed>
