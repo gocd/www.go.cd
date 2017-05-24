@@ -1,0 +1,62 @@
+---
+layout: post
+title: "Part 5 - Control deployments using Manual Approvals: Modeling Deployment Pipelines"
+type: post
+author: Aravind S.V, Product Manager at GoCD
+excerpt: "In this post, we will show you how to use a manual approval process to propagate your build which is especially useful for critical deployments. It not only gives you more control, but also prevents human error in complex pipelines thereby making your deployments safer."
+title_tag_of_header: "Control deployments using Manual Approvals | GoCD Blog"
+meta_description: "How to use a manual approval process to propagate your build which gives you more control over deployments."
+meta_keywords: "GoCD, continuous delivery, deployment control, manual approvals, manual gate, control build propagation, manual stages, manual pipeline"
+summary_image: "/assets/images/blog/manual-gates/manual-approval-hero.jpg"
+tags: Modeling Deployment Pipelines
+draft: true
+---
+
+This is the fifth post in the series - <%= link_to 'Modeling Deployment Pipelines', '/tags/modeling-deployment-pipelines.html' %>. In our <%= link_to 'previous post', '/posts/2017-04-17-build-propagation-using-fan-in-fan-out.html' %>, we talked about how using Fan-in/Fan-out helps build propagation. In this post, we will show you how to use a manual approval process to propagate your build which is especially useful for critical deployments.
+
+## The Importance of Manual Approvals
+
+To deploy into environments such as production, and often pre-production, it’s often important to have a manual approval process. This way, you can also make sure that your deployment happens only when you're ready for it (be it in terms of the time of the day, or in terms of other dependencies you need to wait for). We refer to this approval process as a “gate” since it works as one to control the build propagation by either stopping or allowing the build to go through. (Note: Manual gates are supported by GoCD, out of the box, by marking a stage as manual.) Here’s an image which shows the environments that the build is propagated through by using pipelines with manual gates.
+
+<div class='imagezoom'>
+<%= image_tag 'blog/manual-gates/pipeline-environments.jpeg', :alt => 'Pipeline with Environments', :title => 'Pipeline with Environments' %>
+<span class='info_txt'>Click image to zoom in</span>
+</div>
+
+_To see how we came up with this deployment pipeline diagram, <%= link_to 'click here', '/posts/2017-03-29-beginnings-of-a-real-pipeline.html' %>._
+
+
+## Types of Manual Approvals
+
+There are three manual gates (or manual stages) shown as little red boxes in this image. The one between the two stages of the “UAT” pipeline is often used as a pass/fail gate. This is to help control which builds go to “Test” stage. In this case, if the testing is manual and someone needs to approve a “build”, this kind of a gate is useful. The “Test” stage can also just be a dummy stage. If the deployed build is deemed to be a failure, no one approves it and the “Test” stage for that pipeline never gets run. So, that build never shows up as a candidate for the “Pre_Prod” environment.
+
+The second and the third gates shown are before the first stage of both the “Pre_Prod” and “Production” pipelines. When the first stage of a pipeline is marked manual, the whole pipeline is also called a “manual pipeline”. In this case, you don't want the pipeline to  automatically trigger when one of its dependencies finishes successfully. Instead, you want to have the ability to select the upstream dependencies of the pipeline and then trigger it. It’s also quite useful for manual stages to have their own “approvers”. Therefore you can allow only a subset of people to see and approve it.(Note: If you’d like to know how manual stages can be set up in GoCD, read this. You can use the “trigger with options” feature to decide what to run when the first stage is manual.) We highly recommend this to be used where you need to limit access.
+
+Build propagation continues to be shown in green and works equally well with manual gates. Even if you take multiple days before you approve a stage, the correct artifact will be fetched from the correct upstream pipeline. *Important: Please make sure that the old artifacts are not purged before they’re fetched.* When using GoCD, you can choose to never purge artifacts for a stage, so that it is always available for downstream pipelines to use.
+
+## A GoCD pro tip for Manual Pipelines
+
+When using GoCD, it’s more convenient to have a dummy first stage and a gate after it, instead of making a pipeline’s first stage manual (like the third manual gate shown in the image above). This prevents a user from having to trigger with options and making a mistake in choosing the available upstream dependencies. More importantly, the pipeline history page in GoCD can then be used to see all available builds and choose one to take further. In the configuration, it looks like this:
+
+<%= image_tag 'blog/manual-gates/dummy-stage.jpeg', :alt => 'Pipeline with Dummy Stage', :title => 'Pipeline with Dummy Stage' %>
+
+In the pipeline history page in GoCD, it will look like this:
+
+<div class='imagezoom'>
+<%= image_tag 'blog/manual-gates/pipeline-history.png', :alt => 'Pipeline History', :title => 'Pipeline History' %>
+<span class='info_txt'>Click image to zoom in</span>
+</div>
+
+This approach becomes even more important in a fan-in scenario. Without this (having the first stage be manual), it is more prone to human error - Eg. A user can pick upstream dependencies which are not compatible like using a run of “Upstream_1” pipeline which ran with SVN revision 1 combined with a run of “Upstream_2” pipeline which ran with SVN revision 2. By using the dummy stage approach, fan-in will apply to the pipeline first and an incompatible combination of the two upstream pipelines will not lead to the “Dummy stage” being triggered at all.
+
+We recommend using this approach to model manual pipelines in GoCD. It not only gives you more control, but also prevents human error in complex pipelines thereby making your deployments safer.
+
+____
+
+So far throughout the series, we have a defined process of taking a set of changes through a set of tests, automated and manual, and based on the result, through a set of environments coming closer and closer to production, with increasing confidence.
+
+In our next post, we’ll look at “Where does all of this run?” and and talk in more detail about workers, or in GoCD terms, GoCD <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#agent">Agents</a>. If you haven’t already, I recommend you to have your <%= link_to 'GoCD server setup', '/help/index.html' %> to better follow our upcoming posts.
+
+<div class='row'>
+  <%= partial "partials/downloadbanner" %>
+</div>
