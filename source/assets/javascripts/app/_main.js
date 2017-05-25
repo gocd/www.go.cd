@@ -154,3 +154,9 @@ jQuery(document).ready(function($) {
    });
 
 });
+
+//why go-cd lightbox
+
+$(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
