@@ -1,6 +1,6 @@
 <h4>Authorization Plugin</h4>
 
-There has been more work done around fine tuning the Authorization Plugin endpoints, as part of this some of the plugin API calls have changed.
+There has been more work done around fine tuning the Authorization Plugin endpoints and as part of this some of the plugin API calls have changed.
 
 Action required: Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading Go. Refer to the Authorization Plugin Endpoint [documentation](https://plugin-api.gocd.io/current/authorization) for the latest changes.
 
@@ -14,7 +14,7 @@ The built-in LDAP and password file based authentication mechanisms have been de
 
   The bundled [Password File Authentication Plugin](https://github.com/gocd/filebased-authentication-plugin) currently supports only SHA1 hashed passwords, but support for other hashing functions is [on its way](https://github.com/gocd/filebased-authentication-plugin/issues/13).
 
-There are 2 new sets of pages that allows configuring the authentication plugins and how GoCD roles map to users.
+There are 2 new sets of pages that allows configuring the authentication plugins and mapping of GoCD roles to users.
 
   <figure>
     <%= image_tag 'releases/17.5.0/security-menu.png', alt: 'GoCD Security Menu' %>
@@ -51,7 +51,7 @@ There are 2 new sets of pages that allows configuring the authentication plugins
 
 Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
 
-The following features have been deprecated, along with the timeframe when they will be removed.
+The following features have been deprecated. Please note the timeframe of when they will be removed.
 
 * As of release 17.3, version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.
 
