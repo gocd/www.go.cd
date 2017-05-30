@@ -1,0 +1,16 @@
+- name: File based plugin
+  description: Bundled plugin to support password file based authentication.
+  readmore_url: https://github.com/gocd/filebased-authentication-plugin
+  author_url: http://www.thoughtworks.com/products/
+  author_name: ThoughtWorks Inc.
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=filebased-authentication-plugin&type=watch&count=true
+  bundled: true
+
+- name: LDAP/AD plugin
+  description: Bundled plugin to support LDAP/AD authentication.
+  readmore_url: https://github.com/gocd/gocd-ldap-authentication-plugin
+  author_url: http://www.thoughtworks.com/products/
+  author_name: ThoughtWorks Inc.
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=gocd-ldap-authentication-plugin&type=watch&count=true 
+  bundled: true
+
