@@ -121,7 +121,10 @@
           <li rel="tab-7" id="configuration-repository">
             Configuration Repository <span class="plugin-info">>= GoCD v16.7</span>
           </li>
-          <li rel="tab-8" id="advanced-deployments">
+          <li rel="tab-8" id="authorization-plugins">
+            Authorization plugins <span class="plugin-info">>= GoCD v17.5</span>
+          </li>
+          <li rel="tab-9" id="advanced-deployments">
             Advanced Deployments 
           </li>
       </ul>
@@ -1370,6 +1373,7 @@
 
           <div id="tab-5" class="tab_content">
             <div class="plugins-container">
+                <p class="alert warning">Authentication plugins are deprecated from GoCD v17.5.0</p>
               <ul class="plugins-list">
 
                   <li>
@@ -1645,10 +1649,64 @@
             </div>
           </div>
           <h3 class="tab-accordion_heading" rel="tab-8">
-            Advanced Deployments 
+            Authorization plugins <span class="plugin-info">>= GoCD v17.5</span>
           </h3>
 
           <div id="tab-8" class="tab_content">
+            <div class="plugins-container">
+              <ul class="plugins-list">
+
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      <img src="../assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
+                      <h5 class="name"> File based plugin </h5>
+                      <p class="more-details">
+                        Bundled plugin to support password file based authentication.
+                        <a href="https://github.com/gocd/filebased-authentication-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <span class="with-go">Bundled with GoCD</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      <img src="../assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
+                      <h5 class="name"> LDAP&#x2F;AD plugin </h5>
+                      <p class="more-details">
+                        Bundled plugin to support LDAP&#x2F;AD authentication.
+                        <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <span class="with-go">Bundled with GoCD</span>
+                    </div>
+                  </li>
+
+                <li class=" contribute_tile">
+                  <div class="contribute-plugin">
+
+                    <i class="fa fa-star"></i>
+                    <h5>Want to contribute?</h5>
+                    <a href="https://developer.gocd.io/current/writing_go_plugins/overview.html">Write a plugin</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="tab-accordion_heading" rel="tab-9">
+            Advanced Deployments 
+          </h3>
+
+          <div id="tab-9" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -1662,7 +1720,7 @@
                         <a href="https://www.thoughtworks.com/go/">Read more</a>
                       </p>
                       <span class="created-by">by
-                        <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+                        <a href="https://extensions-docs.gocd.org/postgresql/current/">ThoughtWorks Inc.</a>
                       </span>
                     </div>
                     <div class="actions">
@@ -1678,7 +1736,7 @@
                       <h5 class="name"> Business Continuity </h5>
                       <p class="more-details">
                         Add-on helps ensure you can deliver even when your machine is down
-                        <a href="https://www.thoughtworks.com/go/">Read more</a>
+                        <a href="https://extensions-docs.gocd.org/business-continuity/current/">Read more</a>
                       </p>
                       <span class="created-by">by
                         <a href="https://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
@@ -1697,7 +1755,7 @@
                       <h5 class="name"> ECS Elastic Agent (beta) </h5>
                       <p class="more-details">
                         GoCD Elastic Agent Plugin for Amazon Elastic Container Service
-                        <a href="https://www.thoughtworks.com/go/">Read more</a>
+                        <a href="https://extensions-docs.gocd.org/ecs/current/">Read more</a>
                       </p>
                       <span class="created-by">by
                         <a href="https://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
@@ -1706,6 +1764,25 @@
                     <div class="actions">
                         <div class='contactus-plugin'>
                           <a href="mailto:support@thoughtworks.com?subject=Info%20about%20ECS%20Elastic%20Agent%20Plugin">Contact us for more info</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      <img src="../assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
+                      <h5 class="name"> LDAP&#x2F;AD Authorization Plugin </h5>
+                      <p class="more-details">
+                        GoCD LDAP&#x2F;AD Plugin provides authentication and authorization services
+                        <a href="https://extensions-docs.gocd.org/ldap/current/">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class='contactus-plugin'>
+                          <a href="mailto:support@thoughtworks.com?subject=Info%20about%20LDAP/AD%20Authentication%20Plugin">Contact us for more info</a>
                         </div>
                     </div>
                   </li>
