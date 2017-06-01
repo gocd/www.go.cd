@@ -48,9 +48,10 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
       {kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.task_plugins},
       {kind: "Notification plugins", plugins: data.notification_plugins},
       {kind: "SCM plugins", plugins: data.scm_plugins},
-      {kind: "Authentication plugins", plugins: data.auth_plugins},
+      {kind: "Authentication plugins", plugins: data.auth_plugins, deprecated: true, deprecation_message: "Authentication plugins are deprecated from GoCD v17.5.0"},
       {kind: "Elastic agents plugins", version_info: ">= GoCD v16.8", plugins: data.elastic_agent_plugins},
       {kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.config_repo_plugins},
+      {kind: "Authorization plugins", version_info: ">= GoCD v17.5", plugins: data.authorization_plugins},
       {kind: "Advanced Deployments", plugins: data.paid_plugins}
     ] %>
     <div class="v-tabs all-plugins">
@@ -71,6 +72,9 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
 
           <div id="<%= tab_id %>" class="tab_content">
             <div class="plugins-container">
+              <% if category[:deprecated]%>
+                <p class="alert warning"><%= category[:deprecation_message]%></p>
+              <% end %>
               <ul class="plugins-list">
 
                 <% category[:plugins].each do |p| %>
