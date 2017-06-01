@@ -2,17 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>GoCD</title>
   <subtitle>Continuous Delivery</subtitle>
-  <id>https://www.gocd.io/blog</id>
-  <link href="https://www.gocd.io/blog"/>
-  <link href="https://www.gocd.io/feed.xml" rel="self"/>
-  <updated>2017-05-23T00:00:00Z</updated>
+  <id>https://www.gocd.org/blog</id>
+  <link href="https://www.gocd.org/blog"/>
+  <link href="https://www.gocd.org/feed.xml" rel="self"/>
+  <updated>2017-06-01T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
   <entry>
     <title>Part 5 - Control deployments using Manual Gates: Modeling Deployment Pipelines</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/05/23/control-deployments-manual-approvals.html"/>
-    <id>https://www.gocd.io/2017/05/23/control-deployments-manual-approvals.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/05/23/control-deployments-manual-approvals.html"/>
+    <id>https://www.gocd.org/2017/05/23/control-deployments-manual-approvals.html</id>
     <published>2017-05-23T00:00:00Z</published>
     <updated>2017-05-23T00:00:00Z</updated>
     <author>
@@ -22,8 +22,8 @@
   </entry>
   <entry>
     <title>It’s not CI, it’s just CI theatre</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/05/16/its-not-CI-its-CI-theatre.html"/>
-    <id>https://www.gocd.io/2017/05/16/its-not-CI-its-CI-theatre.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html"/>
+    <id>https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html</id>
     <published>2017-05-16T00:00:00Z</published>
     <updated>2017-05-16T00:00:00Z</updated>
     <author>
@@ -33,8 +33,8 @@
   </entry>
   <entry>
     <title>No One Agrees How to Define CI or CD</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/05/09/continuous-integration-devops-research.html"/>
-    <id>https://www.gocd.io/2017/05/09/continuous-integration-devops-research.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/05/09/continuous-integration-devops-research.html"/>
+    <id>https://www.gocd.org/2017/05/09/continuous-integration-devops-research.html</id>
     <published>2017-05-09T00:00:00Z</published>
     <updated>2017-05-09T00:00:00Z</updated>
     <author>
@@ -44,8 +44,8 @@
   </entry>
   <entry>
     <title>What Does Pipelines as Code Really Mean?</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/05/02/what-does-pipelines-as-code-really-mean.html"/>
-    <id>https://www.gocd.io/2017/05/02/what-does-pipelines-as-code-really-mean.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/05/02/what-does-pipelines-as-code-really-mean.html"/>
+    <id>https://www.gocd.org/2017/05/02/what-does-pipelines-as-code-really-mean.html</id>
     <published>2017-05-02T00:00:00Z</published>
     <updated>2017-05-02T00:00:00Z</updated>
     <author>
@@ -55,8 +55,8 @@
   </entry>
   <entry>
     <title>Why GoCD over Jenkins</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/04/25/gocd-over-jenkins.html"/>
-    <id>https://www.gocd.io/2017/04/25/gocd-over-jenkins.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/04/25/gocd-over-jenkins.html"/>
+    <id>https://www.gocd.org/2017/04/25/gocd-over-jenkins.html</id>
     <published>2017-04-25T00:00:00Z</published>
     <updated>2017-04-25T00:00:00Z</updated>
     <author>
@@ -66,8 +66,8 @@
   </entry>
   <entry>
     <title>Part 4 - Build Propagation using Fan-in/Fan-out: Modeling Deployment Pipelines</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/04/17/build-propagation-using-fan-in-fan-out.html"/>
-    <id>https://www.gocd.io/2017/04/17/build-propagation-using-fan-in-fan-out.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/04/17/build-propagation-using-fan-in-fan-out.html"/>
+    <id>https://www.gocd.org/2017/04/17/build-propagation-using-fan-in-fan-out.html</id>
     <published>2017-04-17T00:00:00Z</published>
     <updated>2017-04-17T00:00:00Z</updated>
     <author>
@@ -77,8 +77,8 @@
   </entry>
   <entry>
     <title>Part 3 - Reusing Pipelines: Modeling Deployment Pipelines</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/04/06/reusing-pipelines.html"/>
-    <id>https://www.gocd.io/2017/04/06/reusing-pipelines.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/04/06/reusing-pipelines.html"/>
+    <id>https://www.gocd.org/2017/04/06/reusing-pipelines.html</id>
     <published>2017-04-06T00:00:00Z</published>
     <updated>2017-04-06T00:00:00Z</updated>
     <author>
@@ -88,8 +88,8 @@
   </entry>
   <entry>
     <title>Part 2 - The beginnings of a real CD pipeline: Modeling Deployment Pipelines</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/03/29/beginnings-of-a-real-pipeline.html"/>
-    <id>https://www.gocd.io/2017/03/29/beginnings-of-a-real-pipeline.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/03/29/beginnings-of-a-real-pipeline.html"/>
+    <id>https://www.gocd.org/2017/03/29/beginnings-of-a-real-pipeline.html</id>
     <published>2017-03-29T00:00:00Z</published>
     <updated>2017-03-29T00:00:00Z</updated>
     <author>
@@ -99,8 +99,8 @@
   </entry>
   <entry>
     <title>Part 1 - The Importance and Principles of Continuous Delivery Pipelines: Modeling Deployment Pipelines</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines.html"/>
-    <id>https://www.gocd.io/2017/03/01/importance-and-principles-of-cd-pipelines.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines.html"/>
+    <id>https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines.html</id>
     <published>2017-03-01T00:00:00Z</published>
     <updated>2017-03-01T00:00:00Z</updated>
     <author>
@@ -110,8 +110,8 @@
   </entry>
   <entry>
     <title>Migrating from Snap CI to GoCD</title>
-    <link rel="alternate" href="https://www.gocd.io/2017/02/16/migrating-snapci-to-gocd.html"/>
-    <id>https://www.gocd.io/2017/02/16/migrating-snapci-to-gocd.html</id>
+    <link rel="alternate" href="https://www.gocd.org/2017/02/16/migrating-snapci-to-gocd.html"/>
+    <id>https://www.gocd.org/2017/02/16/migrating-snapci-to-gocd.html</id>
     <published>2017-02-16T00:00:00Z</published>
     <updated>2017-02-16T00:00:00Z</updated>
     <author>
