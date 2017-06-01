@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>We've found our forever home</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/06/01/forever-home.html"/>
+    <id>https://www.gocd.org/2017/06/01/forever-home.html</id>
+    <published>2017-06-01T00:00:00Z</published>
+    <updated>2017-06-01T00:00:00Z</updated>
+    <author>
+      <name>GoCD Team</name>
+    </author>
+    <content type="html">We are happy to have found home at gocd.org! Last year, we moved from go.cd to gocd.io due to an issue with our DNS registrar. This post talks about why we moved again and the impact of this move.</content>
+  </entry>
+  <entry>
     <title>Part 5 - Control deployments using Manual Gates: Modeling Deployment Pipelines</title>
     <link rel="alternate" href="https://www.gocd.org/2017/05/23/control-deployments-manual-approvals.html"/>
     <id>https://www.gocd.org/2017/05/23/control-deployments-manual-approvals.html</id>
@@ -107,16 +118,5 @@
       <name>Aravind S.V, Product Manager at GoCD</name>
     </author>
     <content type="html">The path from commit to production involves numerous moving parts, (like multiple code and asset repositories, automatic and manual handoffs, unit tests, integration tests, acceptance tests, performance tests, security tests, etc.) and time that it takes to execute all of these elements. You need a way of modeling your workflow so that people can see, understand and talk about it. This is where CD pipelines come in.</content>
-  </entry>
-  <entry>
-    <title>Migrating from Snap CI to GoCD</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/02/16/migrating-snapci-to-gocd.html"/>
-    <id>https://www.gocd.org/2017/02/16/migrating-snapci-to-gocd.html</id>
-    <published>2017-02-16T00:00:00Z</published>
-    <updated>2017-02-16T00:00:00Z</updated>
-    <author>
-      <name>Suzie Prince - Product Manager at Snap CI</name>
-    </author>
-    <content type="html">Many Snap CI users are now looking for a replacement CI CD tool. In the end of life announcement we recommended that Snap CI users take a look at GoCD and consider it as an alternative.</content>
   </entry>
 </feed>
