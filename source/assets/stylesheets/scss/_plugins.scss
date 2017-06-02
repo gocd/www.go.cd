@@ -198,6 +198,7 @@ $actions-bg-hover: $primary-color;
 		.created-by {
 			margin-bottom: 10px;
 			display: block;
+			font-size: 12px;
 		}
 
 		.actions {
@@ -266,9 +267,18 @@ $actions-bg-hover: $primary-color;
 			@media (max-width:$screen-xs-max) {
 				width: 100%;
 			}
-
 		}
-
 	}
+}
 
+.paid {
+	background: $primary-color;
+  display: block;
+  font-size: 12px;
+  border-radius: 3px;
+  line-height: 14px;
+  color: #fff;
+  padding: 2px 7px;
+  width: 37px;
+  margin: -6px 0 10px 0;
 }
