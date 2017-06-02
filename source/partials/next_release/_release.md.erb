@@ -4,7 +4,7 @@
 
 <b>Action required:</b> Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading GoCD. Refer to the Authorization Plugin Endpoint [documentation](https://plugin-api.gocd.io/current/authorization) for the latest changes.
 
-The built-in LDAP and password file based authentication mechanisms have been deprecated in favor of separate plugins which implement the new Authorization Plugin extensions that provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users.
+The built-in LDAP and password file based authentication mechanisms have been deprecated in favor of separate plugins which implement the new Authorization Plugin extensions that provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users. Existing passwordFile and ldap configuration would be migrated to make use of these plugins.
 
 * LDAP/AD authentication plugin
 
@@ -33,7 +33,7 @@ There are 2 new sets of pages that allows configuring the authorization plugins 
 <h4>API Enhancements</h4>
 
 * Introduced a <%= link_to_api 'current-user', 'current user API' %> that allows the logged in user to manage their profile.
-* Introduced a <%= link_to_api 'notifcation-filters', 'notification filters API' %> that allows the logged in user to manage their email notification subscriptions.
+* Introduced a <%= link_to_api 'notification-filters', 'notification filters API' %> that allows the logged in user to manage their email notification subscriptions.
 * Introduced a <%= link_to_api 'authorization-configuration', 'authorization configuration API' %> that allows admins to configure Authorization plugins.
 * Introduced a <%= link_to_api 'roles', 'roles API' %> that allows admins to manage user roles.
 
@@ -42,6 +42,10 @@ There are 2 new sets of pages that allows configuring the authorization plugins 
 * <%= link_to_commit '9cec83fd6dda71ea085525354ca201ab7e4d3dec', 'Stop very large file systems (EFS) from being identified as having no space.', 3426 %>
 
   Large filesystems like EFS, have an amount of storage that exceeds what can be addressed with a java `long` type (<code>2<sup>63</sup>-1</code>). Any storage space greater than <code>2<sup>63</sup>-1</code>, will be shown to be <code>2<sup>63</sup>-1</code>.
+
+* <%= link_to_commit '2b06534c76eb40ee63dc0842af6d0bab22da5424', 'Pipeline not getting unlocked upon a successful run.', 3497 %>
+
+  Fixed a issue of pipelines not getting unlocked even upon a successful run of the last stage during a race condition.
 
 <h4>Breaking Changes</h4>
 
