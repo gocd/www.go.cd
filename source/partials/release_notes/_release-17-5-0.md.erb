@@ -51,6 +51,12 @@ There are 2 new sets of pages that allows configuring the authorization plugins 
 
   Fixed an issue to avoid catastrophic regex backtracking during xsd validation of custom task command.
 
+* <%= link_to_commit '2a21e7cfa7296273b4e2843967403e16330f586c', 'Using UTF-8 to read console to fix encoding issue.', 3486 %>
+
+* <%= link_to_commit 'e89fdb669f0663d48fde2510248b7d525d5e9808', 'CCTray permission bug fix.', 3516 %>
+
+  Allow users to see all pipelines in CCTray when no global superadmins are setup to make the behavior consistent with dashboard.
+
 <h4>Breaking Changes</h4>
 
 * <%= link_to_commit 'bd64d11d6d602ca4b0ab2318a3d504d07b472346', 'Removed Templates API v2', 3441 %>
