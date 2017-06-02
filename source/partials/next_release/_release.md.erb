@@ -47,6 +47,10 @@ There are 2 new sets of pages that allows configuring the authorization plugins 
 
   Fixed a issue of pipelines not getting unlocked even upon a successful run of the last stage during a race condition.
 
+* <%= link_to_commit '26bfeab2c8c1821802e89a9baa0f584780f7c273', 'Avoid catastrophic regex backtracking during config save.', 3551 %>
+
+  Fixed an issue to avoid catastrophic regex backtracking during xsd validation of custom task command.
+
 <h4>Breaking Changes</h4>
 
 * <%= link_to_commit 'bd64d11d6d602ca4b0ab2318a3d504d07b472346', 'Removed Templates API v2', 3441 %>
