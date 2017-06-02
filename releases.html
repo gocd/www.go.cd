@@ -119,7 +119,7 @@
 
 <p><b>Action required:</b> Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading GoCD. Refer to the Authorization Plugin Endpoint <a href="https://plugin-api.gocd.io/current/authorization">documentation</a> for the latest changes.</p>
 
-<p>The built-in LDAP and password file based authentication mechanisms have been deprecated in favor of separate plugins which implement the new Authorization Plugin extensions that provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users. Existing passwordFile and ldap configuration would be migrated to make use of these plugins.</p>
+<p>The built-in LDAP and password file based authentication mechanisms have been deprecated and disabled in favor of separate plugins which implement the new Authorization Plugin extensions. The new plugins provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users. Existing passwordFile and ldap configuration would be migrated to make use of these plugins.</p>
 
 <ul>
   <li>
@@ -204,6 +204,9 @@
 <p>The following features have been deprecated. Please note the timeframe of when they will be removed.</p>
 
 <ul>
+  <li>
+    <p>Support for in-built password file and LDAP/AD authentication have been deprecated as of this release. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).</p>
+  </li>
   <li>
     <p>As of release 17.3, version 1 of the <a href="https://api.gocd.org/current/#environment-config">Environment Config API</a> was deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.</p>
   </li>
