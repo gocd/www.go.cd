@@ -33,11 +33,11 @@ module GoCDHelpers
   end
 
   def link_to_api(api_section, text='API')
-    link_to text, "https://api.gocd.io/current/##{api_section}"
+    link_to text, "https://api.gocd.org/current/##{api_section}"
   end
 
   def link_to_plugin_api(api_section, text='PLUGIN API')
-    link_to text, "https://plugin-api.gocd.io/current/#{api_section}"
+    link_to text, "https://plugin-api.gocd.org/current/#{api_section}"
   end
 
   def link_to_issue(number, text='')
