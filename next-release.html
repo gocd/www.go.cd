@@ -15,8 +15,8 @@
 
     <title>Next release of GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-3e6f5111.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-544c7d52.js"></script>
+    <link href="assets/stylesheets/site-12988ab2.css" rel="stylesheet" />
+    <script src="assets/javascripts/all-4d5f4809.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
   </head>
@@ -43,7 +43,7 @@
           <a href="help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
             <li><a href="help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
             <li><a href="resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
@@ -83,87 +83,119 @@
       <h3 class="tab-accordion_heading d_active" rel="tab-next"> (next)</h3>
       <div id="tab-next" class="tab_content" style="display: block;">
         <div class="content">
-          <h4 id="api-enhancements">API Enhancements</h4>
+          <h4>Authorization Plugin</h4>
+
+<p><a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugin</a> extension was released as beta in GoCD 17.2.0, over the last couple of releases there has been more work done around fine tuning the endpoint. With this release we are taking the Authorization Plugin endpoint out of beta.</p>
+
+<p><b>Action required:</b> Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading GoCD. Refer to the Authorization Plugin Endpoint <a href="https://plugin-api.gocd.io/current/authorization">documentation</a> for the latest changes.</p>
+
+<p>The built-in LDAP and password file based authentication mechanisms have been deprecated in favor of separate plugins which implement the new Authorization Plugin extensions that provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users. Existing passwordFile and ldap configuration would be migrated to make use of these plugins.</p>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/f47d054171b07e2ce9c2efa9e02dde6979fc9c8f">f47d054</a></code> - <a href="https://api.gocd.io/current/#encryption">API</a> to encrypt secrets. (<a href="https://github.com/gocd/gocd/issues/1829">#1829</a>)</li>
-</ul>
-
-<h4 id="other-improvements">Other Improvements</h4>
-
-<ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/xxx">xxx</a></code> - YYY. (<a href="https://github.com/gocd/gocd/issues/123">#123</a>)</li>
-</ul>
-
-<h4 id="bug-fixes">Bug Fixes</h4>
-
-<ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/e9611f83798bd5eddd62326f0827e5055519bd4a">e9611f8</a></code> - OS Detection failing for elastic agents. (<a href="https://github.com/gocd/gocd/issues/3060">#3060</a>)</li>
-  <li>Multiple UI fixes and tweaks on the new theme that was introduced in 16.12.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/ad1a1188d15839ac4a41c91c84c631612e49bf60">ad1a118</a></code> - Sort resources and environments alphabetically on agents page selector dropdown. (<a href="https://github.com/gocd/gocd/issues/3134">#3134</a>)</li>
-</ul>
-
-<h4 id="breaking-changes">Breaking changes</h4>
-
-<ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/xxx">xxx</a></code> - YYY. (<a href="https://github.com/gocd/gocd/issues/456">#456</a>)</li>
-</ul>
-
-<h4 id="deprecations">Deprecations</h4>
-
-<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
-
-<p>The following features have been deprecated, along with the timeframe when they will be removed.</p>
-
-<ul>
-  <li>We shall be stopping support for git versions older than 1.9 in three months time (Feb 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to <a href="https://www.softwarecollections.org/en/scls/rhscl/git19/">this</a> and/or <a href="http://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633">this</a> to upgrade git.</li>
-  <li>As of release 16.12, version 1 of the <a href="https://api.gocd.io/current/#get-all-plugin-info">Plugin Info API</a> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.</li>
-  <li>As of release 16.12, version 2 of the <a href="https://api.gocd.io/current/#pipeline-config">Pipeline Config API</a> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.</li>
   <li>
-    <p>As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017). Plugin developers are encouraged to upgrade their plugins to use <a href="https://plugin-api.gocd.io/current/tasks">JSON message based plugin API.</a> to build plugins.</p>
+    <p>LDAP/AD authentication plugin</p>
 
-    <p>Below is the list of plugins that will stop working in 17.1.</p>
+    <p>The bundled <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">LDAP/AD authentication plugin</a> will now allow users to connect to and authenticate with multiple LDAP/AD servers in their organizations. Early adopters of this plugin using the experimental build will have to make changes to their config. Refer to the plugin <a href="https://github.com/gocd/gocd-ldap-authentication-plugin/blob/master/CHANGELOG.md#3601af8---bundled-with-gocd-v1750">changelog</a> to see the changes between experimental release to latest stable release.</p>
+  </li>
+  <li>
+    <p>Password File Authentication Plugin</p>
 
-    <p><strong>Note:</strong> The GoCD team has built a <a href="https://github.com/aresok/go-maven-poller/compare/master...arvindsv:make-it-work-with-gocd-17-1">shim</a> that allows migration of all plugins with minimal change. We are actively working with plugin authors to ensure that these plugins are migrated over in time for 17.1.</p>
-
-    <p><strong>Package plugins</strong></p>
-
-    <ul>
-      <li><a href="https://github.com/aresok/go-maven-poller">Maven (Nexus) repository poller</a></li>
-      <li><a href="https://github.com/hammerdr/go-docker-registry-poller">Docker Registry Poller - 1</a></li>
-      <li><a href="https://github.com/decoomanj/gocd-docker-material-poller">Docker Registry Poller - 2</a></li>
-      <li><a href="https://github.com/drrb/go-puppet-forge-poller">Puppet Forge repository poller</a></li>
-      <li><a href="https://github.com/gocd-contrib/deb-repo-poller">Debian repository poller</a></li>
-      <li><a href="https://github.com/Sounie/springer-gocd-cloudfoundry-plugin/blob/master/README.md">Cloud Foundry poller</a></li>
-    </ul>
-
-    <p><strong>Task plugins</strong></p>
-
-    <ul>
-      <li><a href="https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md">MSBuild Task</a></li>
-      <li><a href="https://github.com/gocd-contrib/xunit-converter-task">XUnit Converter</a></li>
-      <li><a href="https://github.com/indix-eng/gocd-s3-artifacts">Publish to S3</a></li>
-      <li><a href="https://github.com/indix-eng/gocd-s3-artifacts">Fetch from S3</a></li>
-      <li><a href="https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md">Powershell Task</a></li>
-      <li><a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin">RapidDeploy Package Builder</a></li>
-      <li><a href="https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin">RapidDeploy Job Runner</a></li>
-      <li><a href="https://github.com/ruckc/gocd-maven-plugin">Maven Task Plugin</a></li>
-      <li><a href="https://github.com/tusharm/go-artifactory-plugin">Publish to Artifactory</a></li>
-    </ul>
+    <p>The bundled <a href="https://github.com/gocd/filebased-authentication-plugin">Password File Authentication Plugin</a> currently supports only SHA1 hashed passwords, but support for other hashing functions is <a href="https://github.com/gocd/filebased-authentication-plugin/issues/13">on its way</a>.</p>
   </li>
 </ul>
 
-<h4 id="contributors">Contributors</h4>
+<p>There are 2 new sets of pages that allows configuring the authorization plugins and mapping of GoCD roles to users.</p>
 
-<p>Alison Polton-Simon, Aravind SV, Bhupendrakumar Piprava, Ganesh S Patil, Jyoti Singh, Ketan Padegaonkar, Mahesh Panchaksharaiah, Markandan R, Naveen Bhaskar, Padma Mullagiri, Rajiesh Narayanan, Sallie Walecka, Sumanth Kumar Mora, Tomasz Setkowski, Varsha Varadarajan, Zabil Cheriya Maliackal</p>
+<figure>
+    <img src="assets/images/releases/17.5.0/security-menu-d1aed431.png" alt="GoCD Security Menu" />
+  </figure>
 
-<h4 id="security-researchers">Security researchers</h4>
+<figure>
+    <img src="assets/images/releases/17.5.0/auth-config-e288de5a.png" alt="Example LDAP server configuration" />
+    <figcaption>Example LDAP connection configuration</figcaption>
+  </figure>
 
-<p><a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a></p>
+<figure>
+    <img src="assets/images/releases/17.5.0/role-config-4127629c.png" alt="Example GoCD role to LDAP group mapping" />
+    <figcaption>Example GoCD role to LDAP group mapping</figcaption>
+  </figure>
 
-<h4 id="note">Note</h4>
+<h4>API Enhancements</h4>
 
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.1%22+is%3Aclosed">here.</a></p>
+<ul>
+  <li>Introduced a <a href="https://api.gocd.org/current/#current-user">current user API</a> that allows the logged in user to manage their profile.</li>
+  <li>Introduced a <a href="https://api.gocd.org/current/#notification-filters">notification filters API</a> that allows the logged in user to manage their email notification subscriptions.</li>
+  <li>Introduced a <a href="https://api.gocd.org/current/#authorization-configuration">authorization configuration API</a> that allows admins to configure Authorization plugins.</li>
+  <li>Introduced a <a href="https://api.gocd.org/current/#roles">roles API</a> that allows admins to manage user roles.</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/9cec83fd6dda71ea085525354ca201ab7e4d3dec">9cec83f</a></code> - Stop very large file systems (EFS) from being identified as having no space. (<a href="https://github.com/gocd/gocd/issues/3426">#3426</a>)</p>
+
+    <p>Large filesystems like EFS, have an amount of storage that exceeds what can be addressed with a java <code>long</code> type (<code>2<sup>63</sup>-1</code>). Any storage space greater than <code>2<sup>63</sup>-1</code>, will be shown to be <code>2<sup>63</sup>-1</code>.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/2b06534c76eb40ee63dc0842af6d0bab22da5424">2b06534</a></code> - Pipeline not getting unlocked upon a successful run. (<a href="https://github.com/gocd/gocd/issues/3497">#3497</a>)</p>
+
+    <p>Fixed a issue of pipelines not getting unlocked even upon a successful run of the last stage during a race condition.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/26bfeab2c8c1821802e89a9baa0f584780f7c273">26bfeab</a></code> - Avoid catastrophic regex backtracking during config save. (<a href="https://github.com/gocd/gocd/issues/3551">#3551</a>)</p>
+
+    <p>Fixed an issue to avoid catastrophic regex backtracking during xsd validation of custom task command.</p>
+  </li>
+</ul>
+
+<h4>Breaking Changes</h4>
+
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/bd64d11d6d602ca4b0ab2318a3d504d07b472346">bd64d11</a></code> - Removed Templates API v2. (<a href="https://github.com/gocd/gocd/issues/3441">#3441</a>)</p>
+
+    <p>Version 2 of the <a href="https://api.gocd.org/current/#template-config">Templates API</a> was deprecated in 17.1. Version 3 of the API is available, and users are encouraged to use it.</p>
+  </li>
+</ul>
+
+<h4>Deprecations</h4>
+
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+
+<p>The following features have been deprecated. Please note the timeframe of when they will be removed.</p>
+
+<ul>
+  <li>
+    <p>As of release 17.3, version 1 of the <a href="https://api.gocd.org/current/#environment-config">Environment Config API</a> was deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.</p>
+  </li>
+  <li>
+    <p>The <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugin</a> endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this we are deprecating the Authentication Plugin endpoint. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.</p>
+    <h5>Authentication plugins</h5>
+    <ul>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">Google OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitHub OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitLab(CE) OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/cnorthwood/gocd-tls-auth">TLS Client Certificates Login</a></p></li>
+    <li><p><a href="https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin">Strong Auth Plugin</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a></p></li>
+  </ul>
+  </li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Ankit Srivastava, Aravind SV, Badri J, Bhupendrakumar Piprava, Chris Northwood, David Rice, Emily Luke, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Kyle Olivo, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Rajiesh N, Suzie Prince, Varsha Varadarajan</p>
+
+<!--
+<h4>Security researchers</h4>
+
+<a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
+-->
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.5%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 

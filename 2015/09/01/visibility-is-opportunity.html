@@ -15,8 +15,8 @@
 
     <title>Visibility Is Opportunity | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-3e6f5111.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-544c7d52.js"></script>
+    <link href="../../../assets/stylesheets/site-12988ab2.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-4d5f4809.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
   </head>
@@ -43,7 +43,7 @@
           <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
             <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
             <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
@@ -85,8 +85,8 @@ We thought it was a good balance of build time and resources needed.</p>
 <p>2014, we had about 12+K tests, including units, functionals and selenium tests.
 The best build time was 1 hour ran in parallel on 46 VMs.</p>
 
-<p>We ran test in parallel by <a href="https://gocd.io">Go CD</a> jobs and <a href="https://github.com/test-load-balancer/tlb">TLB</a>.
-There were 46 test jobs in one <a href="https://gocd.io">Go CD</a> stage.
+<p>We ran test in parallel by <a href="https://gocd.org">Go CD</a> jobs and <a href="https://github.com/test-load-balancer/tlb">TLB</a>.
+There were 46 test jobs in one <a href="https://gocd.org">Go CD</a> stage.
 Units, functionals and selenium tests were different.
 So We created 3 <a href="https://github.com/test-load-balancer/tlb">TLB</a> tasks to distribute them separately.
 We configured <a href="https://github.com/test-load-balancer/tlb">TLB</a> to distribute tests by test runtime for having similar build time.</p>
@@ -166,7 +166,7 @@ My first hypothesis was <a href="https://github.com/test-load-balancer/tlb">TLB<
 Because tests didn't seem to be distributed well by runtime.
 To verify my hypothesis, I checked out <a href="https://github.com/test-load-balancer/tlb">TLB</a> source code. It was more complex than I thought.
 And there is also no way to output more logs to verify it's correctness.
-But <a href="https://gocd.io">Go CD</a> has good support for APIs, so I wrote <a href="https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/compare_test_runtime.rb">Ruby script</a> to verify my hypothesis.</p>
+But <a href="https://gocd.org">Go CD</a> has good support for APIs, so I wrote <a href="https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/compare_test_runtime.rb">Ruby script</a> to verify my hypothesis.</p>
 
 <p>The following chart shows how the test runtime looks like on build. X-axis is job names; y-axis is job runtime.</p>
 
@@ -184,7 +184,7 @@ Because red bars are similar high across all acceptance (selenium test) jobs.</p
 <p>Blue bars matched what I observed on build time.
 Then I ran same script on more builds. The outputs were similar, just different jobs got longer time to run.</p>
 
-<p>As <a href="https://gocd.io">Go CD</a> random picked up build VMs to run any job, it gave me a clue that maybe its build VM performance issue.
+<p>As <a href="https://gocd.org">Go CD</a> random picked up build VMs to run any job, it gave me a clue that maybe its build VM performance issue.
 So I wrote another <a href="https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/agent_stats.rb">script</a> to build the following chart:</p>
 
 <p><img src="../../../assets/images/vms-build-time-7ae5af26.jpg" title="Graph displaying GoCD build agent runtime" alt="Graph displaying GoCD build agent runtime" /></p>
@@ -198,7 +198,7 @@ After sorted out VM host CPU overload issue, our <strong>build time reduced to 3
 
 <h1 id="you-dont-know-what-you-dont-know">You don't know what you don't know.</h1>
 
-<p><a href="https://gocd.io">Go CD</a> introduced "timestamps in console logs" in release 15.1.
+<p><a href="https://gocd.org">Go CD</a> introduced "timestamps in console logs" in release 15.1.
 It made build task runtime visible.
 I was not pay attention to the timestamps in the console logs until recently.
 The following screenshot shows an example:</p>

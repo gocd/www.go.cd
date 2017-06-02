@@ -15,8 +15,8 @@
 
     <title>Cloning Templates | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-3e6f5111.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-544c7d52.js"></script>
+    <link href="../../../assets/stylesheets/site-12988ab2.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-4d5f4809.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
   </head>
@@ -43,7 +43,7 @@
           <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
             <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
             <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
@@ -75,10 +75,10 @@
       <main id="main" role="main">
       <p>When using GO for Continuous Delivery with multiple teams where you have various security groups, you usually end up with multiple template types. Depending on your application ecosystem you might have different deployment methods depending on the application type, that have some overlapping. At the moment we don't have the ability to have Stage templates, so you need a completely new template when you have differences.</p>
 
-<p>We have decided to have one deployment template separate per application / security group (Pipeline group) so we distribute maintenance, but also reduce the risk of breaking Pipelines of other teams when we change a base template. Having different templates also allows us to allocate <a href="http://www.gocd.io/2014/02/24/go-template-permissions.html">Template Admins</a> specific for the application / team / security group that now can manage most of the needs of a team without requiring GoCD System Admin rights.</p>
+<p>We have decided to have one deployment template separate per application / security group (Pipeline group) so we distribute maintenance, but also reduce the risk of breaking Pipelines of other teams when we change a base template. Having different templates also allows us to allocate <a href="http://www.gocd.org/2014/02/24/go-template-permissions.html">Template Admins</a> specific for the application / team / security group that now can manage most of the needs of a team without requiring GoCD System Admin rights.</p>
 
 <p>As you don't want team to get Admin access across multiple applications but you still want them to have something to start with (a base template), we have created two Basic templates that cover basic needs for an application deployment that we "Clone" for each team. After cloning we assign an Admin from their team so they can start modifying it according to their own flavour. Cloning templates is not available in GO at the moment, so we had to find a way around it. 
-One <a href="https://github.com/oanastoia">contributor</a> created a script that interacts with GO's own <a href="https://docs.gocd.io/current/api/configuration_api.html">Configuration API</a> to allow template cloning.</p>
+One <a href="https://github.com/oanastoia">contributor</a> created a script that interacts with GO's own <a href="https://docs.gocd.org/current/api/configuration_api.html">Configuration API</a> to allow template cloning.</p>
 
 <h3 id="how-to-setup-cloning-in-your-go-server-instance">How to setup cloning in your GO server instance</h3>
 <ol>
@@ -93,14 +93,14 @@ One <a href="https://github.com/oanastoia">contributor</a> created a script that
 <h4 id="create-a-new-template-group">Create a new template group</h4>
 <p>Create a new template group for your "Administrative" tasks that you give permissions only to the persons you want to use the cloning. This will be useful if you decide to have more "configuration" type of pipelines. 
 In our organisation we have a "tooling" repository we use to wrap complex scripts to use in our tasks.
-I will not go into detail on how to achieve this, but you can read more on how to <a href="https://docs.gocd.io/current/configuration/dev_authorization.html#specifying-permissions-for-pipeline-groups">specify permissions for pipeline groups</a>.</p>
+I will not go into detail on how to achieve this, but you can read more on how to <a href="https://docs.gocd.org/current/configuration/dev_authorization.html#specifying-permissions-for-pipeline-groups">specify permissions for pipeline groups</a>.</p>
 
 <h4 id="create-a-new-pipeline-within-this-group">Create a new pipeline within this group</h4>
 <ol>
-  <li>You will need to <a href="https://docs.gocd.io/current/configuration/quick_pipeline_setup.html">create new pipeline</a> within this group.</li>
+  <li>You will need to <a href="https://docs.gocd.org/current/configuration/quick_pipeline_setup.html">create new pipeline</a> within this group.</li>
   <li>You will need to use Git as Material Type and under the URL, use the location of the cloning script (https://github.com/oanastoia/go-config-management.git if you have access to it, or the location where you cloned it). Use "Check Connection" to test it out.</li>
   <li>You will need to add two Environment Variables: SOURCE_TEMPLATE and DESTINATION_TEMPLATE that have some default values</li>
-  <li>You will need to add two Secure Environment Variables: API_USER and API_PASS that contain credentials for a user that has correct permissions to use the <a href="https://docs.gocd.io/current/api/configuration_api.html">Configuration API</a></li>
+  <li>You will need to add two Secure Environment Variables: API_USER and API_PASS that contain credentials for a user that has correct permissions to use the <a href="https://docs.gocd.org/current/api/configuration_api.html">Configuration API</a></li>
 </ol>
 
 <p><img src="../../../assets/images/blog/cloning-templates/environment-variable-view-33c004e5.png" title="Environment Variables view" alt="Environment Variables view" /></p>

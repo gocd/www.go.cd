@@ -15,8 +15,8 @@
 
     <title>Add Security Testing to Your Deployment Pipelines | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-3e6f5111.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-544c7d52.js"></script>
+    <link href="../../../../assets/stylesheets/site-12988ab2.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-4d5f4809.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
   </head>
@@ -43,7 +43,7 @@
           <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
             <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
             <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
@@ -137,7 +137,7 @@
 
 <p>When people ask this question, they are usually trying to decide if security pipelines or stages should be blocking, meaning that the pipeline can't move forward on failures. I definitely think they should block, but that doesn't mean you can't do other types of testing on the same build.</p>
 
-<p>If your continuous delivery server supports <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#fan_in_out">fan-in / fan-out</a>, you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we've decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won't get deployed to our staging environment unless they both pass.</p>
+<p>If your continuous delivery server supports <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#fan_in_out">fan-in / fan-out</a>, you can set tests up as entirely separate pipelines that run while other pipelines (or people) are doing other things. In the example below, we've decided that we can go ahead with User Acceptance while the security scans are in progress. We still know that it won't get deployed to our staging environment unless they both pass.</p>
 
 <p><img src="../../../../assets/images/blog/deploy-now/continuous_delivery_security_testing_pipeline-af8f0e84.png" alt="GoCD value stream map showing fan-in and fan-out" title="continuous delivery security testing pipeline" /></p>
 

@@ -15,8 +15,8 @@
 
     <title>Build Propagation using Fan-in Fan-out | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-3e6f5111.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-544c7d52.js"></script>
+    <link href="../../../../assets/stylesheets/site-12988ab2.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-4d5f4809.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
   </head>
@@ -43,7 +43,7 @@
           <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
             <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
             <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
@@ -115,7 +115,7 @@
 
 <p>As you can see, it complicates the image quite a bit and so, has been omitted from other images. Owing to GoCD’s fan-in ability, adding that dependency doesn’t change how and when the pipelines are triggered. If a commit is made to the code repository, it does not mean that the functional test pipelines are triggered. Since each functional test pipeline has two dependencies now, both of them have to be compatible (i.e. be the same version) before it triggers.</p>
 
-<p>For example, if a commit was made in the repository, the “Build” pipeline would build first with that commit. If the "Build" pipeline is successful, then both the dependencies (often called <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#materials">materials</a>) of the functional test pipelines are compatible and the functional test pipelines will run.</p>
+<p>For example, if a commit was made in the repository, the “Build” pipeline would build first with that commit. If the "Build" pipeline is successful, then both the dependencies (often called <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#materials">materials</a>) of the functional test pipelines are compatible and the functional test pipelines will run.</p>
 
 <p>Unlike the example in the image above, maybe your repositories are structured so that functional tests and deployment scripts are in their own repositories. If so, they can be modeled as shown below:</p>
 

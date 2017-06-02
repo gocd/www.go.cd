@@ -15,8 +15,8 @@
 
     <title>Build Promotion with GoCD | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-3e6f5111.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-544c7d52.js"></script>
+    <link href="../../../../assets/stylesheets/site-12988ab2.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-4d5f4809.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
   </head>
@@ -43,7 +43,7 @@
           <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
             <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
             <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
@@ -115,7 +115,7 @@
 
 <h3 id="model-your-promotion-process-into-the-cd-tool">Model your promotion process into the CD tool</h3>
 
-<p>In general, a build/deployment pipeline is also a promotion pipeline. GoCD's support for pipelines and stages with automatic or manual approvals makes it easy to model and <a href="https://docs.gocd.io/current/navigation/value_stream_map.html">visualize</a> your promotion process into the <a href="http://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-2-pipelines-and-value-streams">CD value stream</a>. A stage runs only when the previous stage has passed - this is like an automatic promotion gate. <a href="https://docs.gocd.io/current/configuration/dev_choose_when_stage_runs.html">Manual</a> stage <a href="https://docs.gocd.io/current/configuration/dev_authorization.html#adding-authorization-to-approvals">approvals</a> may also be used where needed.</p>
+<p>In general, a build/deployment pipeline is also a promotion pipeline. GoCD's support for pipelines and stages with automatic or manual approvals makes it easy to model and <a href="https://docs.gocd.org/current/navigation/value_stream_map.html">visualize</a> your promotion process into the <a href="http://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-2-pipelines-and-value-streams">CD value stream</a>. A stage runs only when the previous stage has passed - this is like an automatic promotion gate. <a href="https://docs.gocd.org/current/configuration/dev_choose_when_stage_runs.html">Manual</a> stage <a href="https://docs.gocd.org/current/configuration/dev_authorization.html#adding-authorization-to-approvals">approvals</a> may also be used where needed.</p>
 
 <p><img src="../../../../assets/images/blog/sriram-buildpromo1-1cbd5825.png" title="Modeling promotion levels into the CD value stream" alt="Modeling promotion levels into the CD value stream" /></p>
 
@@ -123,17 +123,17 @@
 
 <h3 id="gocd-133">GoCD 13.3</h3>
 
-<p><a href="https://docs.gocd.io/current/extension_points/package_repository_extension.html">GoCD 13.3</a> adds more support by letting you store your packages in a first-class external package repository and yet activating different promotion levels within the tool. We now have three ways of activating a promotion level manually or automatically:</p>
+<p><a href="https://docs.gocd.org/current/extension_points/package_repository_extension.html">GoCD 13.3</a> adds more support by letting you store your packages in a first-class external package repository and yet activating different promotion levels within the tool. We now have three ways of activating a promotion level manually or automatically:</p>
 
 <ol>
   <li>Stage n activating stage n+1</li>
-  <li>Pipeline X activating Pipeline Y <a href="https://docs.gocd.io/current/configuration/managing_dependencies.html">(pipeline dependency)</a></li>
+  <li>Pipeline X activating Pipeline Y <a href="https://docs.gocd.org/current/configuration/managing_dependencies.html">(pipeline dependency)</a></li>
   <li>Pipeline Y getting activated by the updation of a package in a package repository (package material dependency)</li>
 </ol>
 
-<p>There are situations when we could use either #2 or #3 above to model a promotion. The <a href="https://docs.gocd.io/current/extension_points/package_repository_extension.html#value-stream-modeling-tip">package material</a> docs has a section on this.</p>
+<p>There are situations when we could use either #2 or #3 above to model a promotion. The <a href="https://docs.gocd.org/current/extension_points/package_repository_extension.html#value-stream-modeling-tip">package material</a> docs has a section on this.</p>
 
-<p>Support for package material has been implemented as an extension point. Plugins written to this extension point can provide support for different types of repositories. A <a href="https://docs.gocd.io/current/extension_points/yum_repository_poller.html">yum plugin</a> is bundled along with GoCD Server 13.3. Other non-bundled package material plugins are <a href="http://thoughtworksinc.github.io/go-external-plugins/">listed here</a>.</p>
+<p>Support for package material has been implemented as an extension point. Plugins written to this extension point can provide support for different types of repositories. A <a href="https://docs.gocd.org/current/extension_points/yum_repository_poller.html">yum plugin</a> is bundled along with GoCD Server 13.3. Other non-bundled package material plugins are <a href="http://thoughtworksinc.github.io/go-external-plugins/">listed here</a>.</p>
 
 <p>Happy packaging and promoting!</p>
 

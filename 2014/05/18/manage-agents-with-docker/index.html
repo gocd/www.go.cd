@@ -15,8 +15,8 @@
 
     <title>Using GoCD and Docker to manage agents | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-3e6f5111.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-544c7d52.js"></script>
+    <link href="../../../../assets/stylesheets/site-12988ab2.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-4d5f4809.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
   </head>
@@ -43,7 +43,7 @@
           <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
             <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
             <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
@@ -122,7 +122,7 @@ program against this file, but I used a shell script so that I could call it fro
 
 <p>Update on 22 June - The Dockerfile has been updated to use wget to download
 the GoCD 14.1 agent debian installer. If you need the RPM version visit 
-www.gocd.io/download and change the Dockerfile to match your system.</p>
+www.gocd.org/download and change the Dockerfile to match your system.</p>
 
 <ul>
   <li><strong>go-agent</strong></li>
@@ -150,7 +150,7 @@ agents for me, they won't be able to connect if you don't make this match your G
 </ul>
 
 <p>This file takes advantage of the autoregister feature in GoCD so that I don't have to manually approve the new agents. You'll 
-need to update the key based on the instructions at <a href="https://docs.gocd.io/current/advanced_usage/agent_auto_register.html">https://docs.gocd.io/current/advanced_usage/agent_auto_register.html</a></p>
+need to update the key based on the instructions at <a href="https://docs.gocd.org/current/advanced_usage/agent_auto_register.html">https://docs.gocd.org/current/advanced_usage/agent_auto_register.html</a></p>
 
 <ul>
   <li><strong>build_docker_image.sh</strong></li>

@@ -15,8 +15,8 @@
 
     <title>Control deployments using Manual Gates | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-3e6f5111.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-544c7d52.js"></script>
+    <link href="../../../assets/stylesheets/site-12988ab2.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-4d5f4809.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
   </head>
@@ -43,7 +43,7 @@
           <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
           <ul  class="level1">
             <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.io/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
             <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
           </ul>
         </li>
@@ -91,7 +91,7 @@
 
 <p>There are three manual gates (or manual stages) shown as little red boxes in this image. The one between the two stages of the “UAT” pipeline is often used as a pass/fail gate. This is to help control which builds go to “Test” stage. In this case, if the testing is manual and someone needs to approve a “build”, this kind of a gate is useful. The “Test” stage can also just be a dummy stage. If the deployed build is deemed to be a failure, no one approves it and the “Test” stage for that pipeline never gets run. So, that build never shows up as a candidate for the “Pre_Prod” environment.</p>
 
-<p>The second and the third gates shown are before the first stage of both the “Pre_Prod” and “Production” pipelines. When the first stage of a pipeline is marked manual, the whole pipeline is also called a “manual pipeline”. In this case, you don't want the pipeline to  automatically trigger when one of its dependencies finishes successfully. Instead, you want to have the ability to select the upstream dependencies of the pipeline and then trigger it. It’s also quite useful for manual stages to have their own “approvers”. Therefore you can allow only a subset of people to see and approve it. (Note: If you’d like to know how manual stages can be set up in GoCD, <a href="https://docs.gocd.io/current/configuration/dev_authorization.html#adding-authorization-to-approvals">read this</a>. You can use the “trigger with options” feature to decide what to run when the first stage is manual). We highly recommend this be used where you need to limit access.</p>
+<p>The second and the third gates shown are before the first stage of both the “Pre_Prod” and “Production” pipelines. When the first stage of a pipeline is marked manual, the whole pipeline is also called a “manual pipeline”. In this case, you don't want the pipeline to  automatically trigger when one of its dependencies finishes successfully. Instead, you want to have the ability to select the upstream dependencies of the pipeline and then trigger it. It’s also quite useful for manual stages to have their own “approvers”. Therefore you can allow only a subset of people to see and approve it. (Note: If you’d like to know how manual stages can be set up in GoCD, <a href="https://docs.gocd.org/current/configuration/dev_authorization.html#adding-authorization-to-approvals">read this</a>. You can use the “trigger with options” feature to decide what to run when the first stage is manual). We highly recommend this be used where you need to limit access.</p>
 
 <p>Build propagation continues to be shown in green and works equally well with manual gates. Even if you take multiple days before you approve a stage, the correct artifact will be fetched from the correct upstream pipeline. <em>Important: Please make sure that the old artifacts are not purged before they’re fetched.</em> When using GoCD, you can choose to never purge artifacts for a stage, so that it is always available for downstream pipelines to use.</p>
 
@@ -116,7 +116,7 @@
 
 <p>So far throughout the series, we have a defined process of taking a set of changes through a set of tests, automated and manual, and based on the result, through a set of environments coming closer and closer to production, with increasing confidence.</p>
 
-<p>In our next post, we’ll look at “Where does all of this run?” and talk in more detail about workers, or in GoCD terms, GoCD <a href="https://docs.gocd.io/current/introduction/concepts_in_go.html#agent">Agents</a>. If you haven’t already, we recommend you to have your <a href="../../../help/">GoCD server setup</a> to better follow our upcoming posts.</p>
+<p>In our next post, we’ll look at “Where does all of this run?” and talk in more detail about workers, or in GoCD terms, GoCD <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#agent">Agents</a>. If you haven’t already, we recommend you to have your <a href="../../../help/">GoCD server setup</a> to better follow our upcoming posts.</p>
 
 <div class="row">
   <div class="downloadbanner">
