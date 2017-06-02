@@ -1,14 +1,14 @@
 <h4>Authorization Plugin</h4>
 
-There has been more work done around fine tuning the Authorization Plugin endpoints and as part of this some of the plugin API calls have changed.
+[Authorization Plugin](https://plugin-api.gocd.org/current/authorization/) extension was released as beta in GoCD 17.2.0, over the last couple of releases there has been more work done around fine tuning the endpoints. With this release we are taking the Authorization Plugin endpoints out of beta.
 
-Action required: Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading Go. Refer to the Authorization Plugin Endpoint [documentation](https://plugin-api.gocd.io/current/authorization) for the latest changes.
+<b>Action required:</b> Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading GoCD. Refer to the Authorization Plugin Endpoint [documentation](https://plugin-api.gocd.io/current/authorization) for the latest changes.
 
-The built-in LDAP and password file based authentication mechanisms have been deprecated in favor of separate plugins that provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users.
+The built-in LDAP and password file based authentication mechanisms have been deprecated in favor of separate plugins which implement the new Authorization Plugin extensions that provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users.
 
-* LDAP authentication plugin
+* LDAP/AD authentication plugin
 
-  The bundled [LDAP authentication plugin](https://github.com/gocd/gocd-ldap-authentication-plugin) will now allow users to connect to and authenticate with multiple LDAP servers in their organizations.
+  The bundled [LDAP/AD authentication plugin](https://github.com/gocd/gocd-ldap-authentication-plugin) will now allow users to connect to and authenticate with multiple LDAP/AD servers in their organizations. Early adopters of this plugin using the experimental build will have to make changes to their config. Refer to the plugin [changelog](https://github.com/gocd/gocd-ldap-authentication-plugin/blob/master/CHANGELOG.md#3601af8---bundled-with-gocd-v1750) to see the changes between experimental release to latest stable release.
 
 * Password File Authentication Plugin
 
@@ -34,6 +34,8 @@ There are 2 new sets of pages that allows configuring the authorization plugins 
 
 * Introduced a <%= link_to_api 'current-user', 'current user API' %> that allows the logged in user to manage their profile.
 * Introduced a <%= link_to_api 'notifcation-filters', 'notification filters API' %> that allows the logged in user to manage their email notification subscriptions.
+* Introduced a <%= link_to_api 'authorization-configuration', 'authorization configuration API' %> that allows admins to configure Authorization plugins.
+* Introduced a <%= link_to_api 'roles', 'roles API' %> that allows admins to manage user roles.
 
 <h4>Bug Fixes</h4>
 
@@ -54,6 +56,17 @@ Features that become superseded or irrelevant become *deprecated*, and are sched
 The following features have been deprecated. Please note the timeframe of when they will be removed.
 
 * As of release 17.3, version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.
+
+* The [Authorization Plugin](https://plugin-api.gocd.org/current/authorization/) endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this we are deprecating the Authentication Plugin endpoint. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.
+    <h5>Authentication plugins</h5>
+    <ul>
+      <li><p><%= link_to('Google OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %></p></li>
+      <li><p><%= link_to('GitHub OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %></p></li>
+      <li><p><%= link_to('GitLab(CE) OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %></p></li>
+      <li><p><%= link_to('TLS Client Certificates Login', 'https://github.com/cnorthwood/gocd-tls-auth') %></p></li>
+      <li><p><%= link_to('Strong Auth Plugin', 'https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin') %></p></li>
+      <li><p><%= link_to('Guest Login', 'https://github.com/gocd-contrib/gocd_auth_plugin_guest_user') %></p></li>
+    </ul>
 
 <h4>Contributors</h4>
 
