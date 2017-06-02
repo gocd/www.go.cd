@@ -4,13 +4,13 @@ var showDownloadLinks = (function($) {
 
     var settingsForAllTypes = {
       stable: {
-        download_info_url : 'https://download.gocd.io/releases.json',
-        download_prefix   : 'https://download.gocd.io/binaries/',
+        download_info_url : 'https://download.gocd.org/releases.json',
+        download_prefix   : 'https://download.gocd.org/binaries/',
         version_to_show   : function(release) { return release['go_version']; }
       },
       experimental: {
-        download_info_url : 'https://download.gocd.io/experimental/releases.json',
-        download_prefix   : 'https://download.gocd.io/experimental/binaries/',
+        download_info_url : 'https://download.gocd.org/experimental/releases.json',
+        download_prefix   : 'https://download.gocd.org/experimental/binaries/',
         version_to_show   : function(release) { return release['go_full_version']; }
       }
     };
