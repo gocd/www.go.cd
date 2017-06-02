@@ -52,7 +52,7 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
       {kind: "Elastic agents plugins", version_info: ">= GoCD v16.8", plugins: data.elastic_agent_plugins},
       {kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.config_repo_plugins},
       {kind: "Authorization plugins", version_info: ">= GoCD v17.5", plugins: data.authorization_plugins},
-      {kind: "Advanced Deployments", plugins: data.paid_plugins}
+      {kind: "Commercial Offerings", plugins: data.paid_plugins}
     ] %>
     <div class="v-tabs all-plugins">
       <ul class="tabs">
@@ -83,6 +83,9 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
                     <div class="details">
                       <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled || p.paid %>
                       <h5 class="name"> <%= escape_html(p.name) %> </h5>
+                      <% if p.paid %>
+                      <span class="paid">Paid</span>
+                      <% end %>
                       <p class="more-details">
                         <%= escape_html(p.description) %>
                         <%= link_to('Read more', p.readmore_url) %>
