@@ -23,7 +23,7 @@ If you have feedback or issues with the new agents page please log them at [GitH
 
 Elastic agents is now a fully supported feature in GoCD.
 
-To be able to use elastic agents, you should install an existing [elastic-agent plugin](https://www.gocd.io/plugins), or [write your own](https://plugin-api.gocd.io/current/elastic-agents). Once the plugin is installed you must configure an "elastic agent profile" that you can associate with the jobs that require elastic agents.
+To be able to use elastic agents, you should install an existing [elastic-agent plugin](https://www.gocd.org/plugins), or [write your own](https://plugin-api.gocd.org/current/elastic-agents). Once the plugin is installed you must configure an "elastic agent profile" that you can associate with the jobs that require elastic agents.
 
 <figure class='shrink-figure-70'>
   <%= image_tag 'releases/16.12/elastic-profiles-add-new.png', alt: 'Create Elastic Profile' %>
@@ -55,7 +55,7 @@ Users can now directly navigate to the pipeline settings page from the stage and
 
     The self-signed web-server certificate that GoCD generates is now a SHA-256 certificate instead of a SHA-1 certificate. SHA1 certificates have been [deprecated](https://blog.qualys.com/ssllabs/2014/09/09/sha1-deprecation-what-you-need-to-know) by most browser vendors and users will start to see a warning in their browsers.
 
-    Any new installations of GoCD will generate a SHA-256 certificate. For existing installations, users should remove the file `config/keystore` to allow GoCD to regenerate a new server certificate. Depending on your [end-to-end transport security](https://docs.gocd.io/current/installation/ssl_tls/end_to_end_transport_security.html) settings you may need to configure the `-rootCertFile` argument to the GoCD agent.
+    Any new installations of GoCD will generate a SHA-256 certificate. For existing installations, users should remove the file `config/keystore` to allow GoCD to regenerate a new server certificate. Depending on your [end-to-end transport security](https://docs.gocd.org/current/installation/ssl_tls/end_to_end_transport_security.html) settings you may need to configure the `-rootCertFile` argument to the GoCD agent.
 
 <h4>Bug Fixes</h4>
 
@@ -90,7 +90,7 @@ The following features have been deprecated, along with the timeframe when they 
 * As of release 16.12, version 2 and version 3 of the <%= link_to_api 'agents', 'Agents API' %> is deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 4 of this API is backward compatible, and users are encouraged to use it.
 * As of release 16.5, Java 7 support was deprecated. Java 7 support will be removed in 17.1 release (scheduled to be released in January 2017). GoCD works great with Java 8, and users are encouraged to use it.
 * As of release 16.12, version 2 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.
-* As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017). Plugin developers are encouraged to upgrade their plugins to use [JSON message based plugin API.](https://plugin-api.gocd.io/current/tasks) to build plugins.
+* As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.1 (scheduled to be released in January 2017). Plugin developers are encouraged to upgrade their plugins to use [JSON message based plugin API.](https://plugin-api.gocd.org/current/tasks) to build plugins.
 
 
     Below is the list of plugins that will stop working in 17.1.
