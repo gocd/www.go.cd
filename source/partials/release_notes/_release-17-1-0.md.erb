@@ -36,7 +36,7 @@
   Windows installations of GoCD need not install Java 8 separately since the Windows installer comes bundled with a JRE. However this *may* require users to upgrade the agent installer on Windows.
 
   If you have trouble while upgrading to Go version 17.1, please take a look at the
-           <%= link_to 'troubleshooting page', 'https://docs.gocd.io/current/installation/troubleshoot_installer.html' %> in the
+           <%= link_to 'troubleshooting page', 'https://docs.gocd.org/current/installation/troubleshoot_installer.html' %> in the
            documentation.
 
 - <%= link_to_commit '7a48c1af2d0d2300654ea45d2dec7cf1299738ba', 'Removed GoCD OpenSocial Gadget (Card activity tab) and Pipeline Dashboard Widget in Mingle.', 1908 %>
@@ -65,7 +65,7 @@ The following features have been deprecated, along with the timeframe when they 
 * As of release 16.12, version 1 of the <%= link_to_api 'get-all-plugin-info', 'Plugin Info API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.
 * As of release 17.1, version 2 of the <%= link_to_api 'template-config', 'Templates API' %> is deprecated. This version of the API will be removed in 17.4 release (scheduled to be released in April 2017). Version 3 of the API is available, and users are encouraged to use it.
 * As of release 16.12, version 2 of the <%= link_to_api 'pipeline-config', 'Pipeline Config API' %> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 3 of this API is backward compatible, and users are encouraged to use it.
-* As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.2 (scheduled to be released in February 2017). Plugin developers are encouraged to upgrade their plugins to use [JSON message based plugin API.](https://plugin-api.gocd.io/current/tasks) to build plugins.
+* As of release 16.7, Java API based Go Plugins have been deprecated. Support for running these plugins will be removed in 17.2 (scheduled to be released in February 2017). Plugin developers are encouraged to upgrade their plugins to use [JSON message based plugin API.](https://plugin-api.gocd.org/current/tasks) to build plugins.
 
     Below is the list of plugins that will stop working in 17.2.
 

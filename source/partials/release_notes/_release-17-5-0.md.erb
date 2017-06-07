@@ -4,7 +4,7 @@
 
 <b>Action required:</b> Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading GoCD. Refer to the Authorization Plugin Endpoint [documentation](https://plugin-api.gocd.io/current/authorization) for the latest changes.
 
-The built-in LDAP and password file based authentication mechanisms have been deprecated in favor of separate plugins which implement the new Authorization Plugin extensions that provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users. Existing passwordFile and ldap configuration would be migrated to make use of these plugins.
+The built-in LDAP and password file based authentication mechanisms have been deprecated and disabled in favor of separate plugins which implement the new Authorization Plugin extensions. The new plugins provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users. Existing passwordFile and ldap configuration would be migrated to make use of these plugins.
 
 * LDAP/AD authentication plugin
 
@@ -51,6 +51,12 @@ There are 2 new sets of pages that allows configuring the authorization plugins 
 
   Fixed an issue to avoid catastrophic regex backtracking during xsd validation of custom task command.
 
+* <%= link_to_commit '2a21e7cfa7296273b4e2843967403e16330f586c', 'Using UTF-8 to read console to fix encoding issue.', 3486 %>
+
+* <%= link_to_commit 'e89fdb669f0663d48fde2510248b7d525d5e9808', 'CCTray permission bug fix.', 3516 %>
+
+  Allow users to see all pipelines in CCTray when no global superadmins are setup to make the behavior consistent with dashboard.
+
 <h4>Breaking Changes</h4>
 
 * <%= link_to_commit 'bd64d11d6d602ca4b0ab2318a3d504d07b472346', 'Removed Templates API v2', 3441 %>
@@ -62,6 +68,8 @@ There are 2 new sets of pages that allows configuring the authorization plugins 
 Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
 
 The following features have been deprecated. Please note the timeframe of when they will be removed.
+
+* Support for in-built password file and LDAP/AD authentication have been deprecated as of this release. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).
 
 * As of release 17.3, version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.
 
