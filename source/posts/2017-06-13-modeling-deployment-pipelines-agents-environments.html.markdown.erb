@@ -1,0 +1,45 @@
+---
+layout: post
+title: "Part 6 - Under the hood of Deployment Pipelines: Modeling Deployment Pipelines"
+type: post
+author: Aravind S.V, Product Manager at GoCD
+excerpt: "This post takes a look at where all the elements of a deployment pipeline actually run. In GoCD almost no part of the deployment process runs on the GoCD server. So, this begs the question - what really powers the deployment pipeline?"
+title_tag_of_header: "Under the hood of Deployment Pipelines | GoCD Blog"
+meta_description: "This post highlights the use of Agents and Environments to run a Deployment Pipeline."
+meta_keywords: "gocd, agents, environments, deployment pipeline power"
+summary_image: "/assets/images/blog/agents-environments/agents-environments-hero.png"
+tags: Modeling Deployment Pipelines
+draft: true
+---
+This is the sixth post in the series, <%= link_to 'Modeling Deployment Pipelines', '/tags/modeling-deployment-pipelines.html' %>. In our <%= link_to 'last post', '/posts/2017-05-23-control-deployments-manual-approvals.html' %> we looked at how having manual approvals or gates through the pipeline can give you more control over your deployments. So now, we have a defined process of taking a set of changes through a series of tests (automated and manual) and based on the results, through multiple environments coming closer to “production”.  In this post, we are going to look at where all these elements of your deployment pipeline actually run.
+
+## Where do the Deployment Pipelines run?
+
+In GoCD almost no part of the deployment process runs on the GoCD server (which mainly waits for changes in repositories). What really powers the deployment pipeline are the GoCD agents. So, the question becomes: Where do the Agents themselves run? Does one need to install GoCD agents on the production box to deploy to production? The answer is, “It depends on what you’re comfortable with”.
+
+If your reaction to installing GoCD agents into production is "Sure, makes sense!", then, it’s fairly straightforward. You can run a GoCD agent on every node you want to deploy to or run anything in. Using resources and possibly GoCD environments (which we will talk about in a moment), you can make sure that only the jobs that need to run on a specific agent (designated “production agents”, for instance) are run there. This is to make sure that something like a functional test job does not end up running in your production GoCD agent.
+
+In the more common scenario where your reaction to running a GoCD agent on production is "OMG! No way. That’s not going to happen!”, then that’s fine too. We understand that there are situations where access to production is tightly controlled and running a GoCD agent in production can be frowned upon. In such cases, you can still designate some agents as “production agents”, but their job will be to use some kind of a remoting mechanism such as OpenSSH to connect to the real production boxes and run a deployment in a controlled fashion. You’ll need to manage SSH keys etc. so that this is possible to be run without any intervention. Since GoCD agents execute commands for the most part, they don’t care what you do. As long as your tasks and jobs are setup properly to execute that part of your process using ssh, everything should work fine.
+
+## Group Pipelines and Agents with Environments
+
+As we’ve seen above, in case of designated “production agents”, we need a way to group and isolate pipelines and agents. This is where [GoCD environments](https://docs.gocd.org/current/introduction/concepts_in_go.html#environment) come in. We could put our UAT and pre-prod pipelines and some of their agents into a “PreProd” environment and do something similar for the “Production” pipeline and its agents. A representation of this can be as shown below:
+
+<div class='imagezoom'>
+    <%= image_tag 'blog/agents-environments/pipeline-with-environment-agents.jpeg', :alt => 'Pipeline with Agents and Environments', :title => 'Pipeline with Agents and Environments' %>
+  <span class='info_txt'>Click image to zoom in</span>
+  </div>
+
+
+In this particular example, there are a set of 6 agents and 4 pipelines (“Build” and three functional test pipelines), which make up the “Development” GoCD environment. Similarly, 4 agents and 2 pipelines make up the “Pre-production” environment. 2 designated agents and the “Production” pipeline make up the “Production” environment. Now that they’re all in their own environments, only the designated agents of that environment will be used to run jobs of pipelines in that environment.
+
+## Dynamically allocate your Agent Machines
+
+In an ideal world, you’d have unlimited machines to allow you to scale whenever you need. But in reality, your infrastructure resource is never unlimited. Imagine that you have an automated performance test which runs occasionally but needs a lot of machines to run. Rather than having agents dedicated to this (which would be idle when the tests are not running), you want agent machines to be started at the beginning of the performance test, possibly using some cloud service, and then be brought down when not needed. These on-demand agents are called Elastic Agents ([supported in GoCD](https://plugin-api.gocd.org/current/elastic-agents/)) and can optimize utilization and reduce costs.
+
+---
+Sometimes, despite our best intentions in defining a workable process, an emergency may arise which requires us to bypass this very process or undo a change that was made. The rigidity of your deployment pipeline can be a limitation in these situations. It’s important then to have flexibility in your pipeline. Enter Hotfixes! A hotfix is essentially a pass to go directly into production. Stay tuned for our next post on incorporating roll-backs and modeling a hotfix into your deployment pipeline.
+
+<div class='row'>
+  <%= partial "partials/downloadbanner" %>
+</div>
