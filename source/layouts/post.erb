@@ -34,7 +34,7 @@
  -          </section>
           <h2 class="section-title">Recent Articles</h2>
           <ol>
-            <% blog.articles[0...10].each do |article| %>
+            <% blog.articles[0...5].each do |article| %>
             <li>
               <span class="post-date"><%= article.date.strftime('%b %e') %></span>
               <span class="post-author"><%= article.data["author"] %></span>
