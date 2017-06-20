@@ -67,10 +67,10 @@ In practice, due to resource constraints, this is not always possible. So, a CD 
 This is one of the bedrock CD principles - the ability to build once, get an artifact and run it through different kinds of tests, so that your confidence in that specific artifact increases over time. Once it goes through the final gate in the CD pipeline successfully, you can be assured that the artifact is safe to be deployed to production and used.
 
 <%= image_tag 'blog/importance-cd-pipelines/build-reuse.jpeg', :alt => 'Build artifact once and reuse in deployment pipeline', :title => 'Build once and reuse' %>
-
+{#principle-run-locally}
 It is up to the CD pipeline solution you choose to provide a good artifact propagation mechanism, so that, even with multiple instances of the pipeline running, it keeps track of the correct version of the artifact to be used in the rest of the pipeline.
 
-### 5. Able to run this process locally {#principle-run-locally}
+### 5. Able to run this process locally 
 
 It is recommended to have scripts for your whole build and deployment process, so that changes can be easily tracked and audited. Moreover, this allows you to be independent of the CD tool of your choice. This allows you to treat the CD tool as a script runner which is aware of the workflow of deploying to production but isn’t necessarily the only place where the knowledge of how to build and deploy is. This stops it from being a big single-point-of-failure for the organization.
 
