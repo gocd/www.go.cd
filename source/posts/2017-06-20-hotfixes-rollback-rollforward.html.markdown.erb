@@ -24,7 +24,7 @@ While it’s best not to rely on them, when used in rare cases hotfixes can be a
 
 ## What is the best way to model a “Hotfix”?
 
-The above image is just one of the ways you could model hotfixes. As these are not truly certified builds you’re putting into production, it would be wise to keep these pipelines paused and have strict controls over who can trigger them. Hotfixes can be modeled this way because of [the recommendation](https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-run-locally) to move the actual deployment logic into scripts which are checked-in locally. In this case, the “Hotfix” pipeline is almost exactly the same as the “Production” pipeline. The only real change is that it fetches its deployment artifact directly from the “Build installer” stage.
+The above image is just one of the ways you could model hotfixes. As these are not truly certified builds you’re putting into production, it would be wise to keep these pipelines paused and have strict controls over who can trigger them. Hotfixes can be modeled this way because of <%= link_to 'the recommendation', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-run-locally' %> to move the actual deployment logic into scripts which are checked-in locally. In this case, the “Hotfix” pipeline is almost exactly the same as the “Production” pipeline. The only real change is that it fetches its deployment artifact directly from the “Build installer” stage.
 
 ## Rollback or Roll-forward
 
