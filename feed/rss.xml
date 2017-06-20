@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-06-13T00:00:00Z</updated>
+  <updated>2017-06-20T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Part 7 - Preparing for emergency deployments and rollbacks: Modeling Deployment Pipelines</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward.html"/>
+    <id>https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward.html</id>
+    <published>2017-06-20T00:00:00Z</published>
+    <updated>2017-06-20T00:00:00Z</updated>
+    <author>
+      <name>Aravind S.V, Product Manager at GoCD</name>
+    </author>
+    <content type="html">This post shows how to introduce Hotfixes and Rollbacks into your deployment pipeline. These techniques make your pipeline more flexible and can help you bypass process during emergencies.</content>
+  </entry>
   <entry>
     <title>Part 6 - Under the hood of Deployment Pipelines: Modeling Deployment Pipelines</title>
     <link rel="alternate" href="https://www.gocd.org/2017/06/13/modeling-deployment-pipelines-agents-environments.html"/>
@@ -107,16 +118,5 @@
       <name>Aravind S.V, Product Manager at GoCD</name>
     </author>
     <content type="html">This is the third post in the series - Modeling Deployment Pipelines. In this post, we'll look at some of the ways to reduce the duplication found between pipelines using templates.</content>
-  </entry>
-  <entry>
-    <title>Part 2 - The beginnings of a real CD pipeline: Modeling Deployment Pipelines</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/03/29/beginnings-of-a-real-pipeline.html"/>
-    <id>https://www.gocd.org/2017/03/29/beginnings-of-a-real-pipeline.html</id>
-    <published>2017-03-29T00:00:00Z</published>
-    <updated>2017-03-29T00:00:00Z</updated>
-    <author>
-      <name>Aravind S.V, Product Manager at GoCD</name>
-    </author>
-    <content type="html">This is the second post in the series - Modeling Deployment Pipelines. In this post, we'll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized. </content>
   </entry>
 </feed>
