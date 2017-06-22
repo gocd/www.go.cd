@@ -1,61 +1,42 @@
-<h4>Authorization Plugin</h4>
+<h4>Improvements</h4>
 
-[Authorization Plugin](https://plugin-api.gocd.org/current/authorization/) extension was released as beta in GoCD 17.2.0, over the last couple of releases there has been more work done around fine tuning the endpoint. With this release we are taking the Authorization Plugin endpoint out of beta.
+* <%= link_to_commit '42c681d1585db99747877830c2b1fdc2ca3e80b1', 'Added option to skip agent startup on windows.', 3577 %>
 
-<b>Action required:</b> Early adopters of this extension will have to update their plugins to handle the updated API calls before upgrading GoCD. Refer to the Authorization Plugin Endpoint [documentation](https://plugin-api.gocd.io/current/authorization) for the latest changes.
+  This adds a `/START_AGENT=NO` to prevent the agent service from starting up when performing a headless installation on windows. See the [documentation](https://docs.gocd.org/current/installation/install/agent/windows.html) for more details.
 
-The built-in LDAP and password file based authentication mechanisms have been deprecated in favor of separate plugins which implement the new Authorization Plugin extensions that provide more functionality, with the benefit of allowing users to customize the behavior of these plugins. These plugins are bundled with the GoCD server, so no action will be required from users. Existing passwordFile and ldap configuration would be migrated to make use of these plugins.
+* <%= link_to_commit '2c95a107fe31e1df6c7cd648be2fb0f6476c973f', 'Improve timestamp rendering on some pages.', 3574 %>
 
-* LDAP/AD authentication plugin
+  This improves the timestamp rendering on the job details, stage details and pipeline compare pages. You will now see timestamps in your local timezone.
 
-  The bundled [LDAP/AD authentication plugin](https://github.com/gocd/gocd-ldap-authentication-plugin) will now allow users to connect to and authenticate with multiple LDAP/AD servers in their organizations. Early adopters of this plugin using the experimental build will have to make changes to their config. Refer to the plugin [changelog](https://github.com/gocd/gocd-ldap-authentication-plugin/blob/master/CHANGELOG.md#3601af8---bundled-with-gocd-v1750) to see the changes between experimental release to latest stable release.
-
-* Password File Authentication Plugin
-
-  The bundled [Password File Authentication Plugin](https://github.com/gocd/filebased-authentication-plugin) currently supports only SHA1 hashed passwords, but support for other hashing functions is [on its way](https://github.com/gocd/filebased-authentication-plugin/issues/13).
-
-There are 2 new sets of pages that allows configuring the authorization plugins and mapping of GoCD roles to users.
-
-  <figure>
-    <%= image_tag 'releases/17.5.0/security-menu.png', alt: 'GoCD Security Menu' %>
+  <figure class='shrink-figure-50'>
+    <%= image_tag 'releases/17.6.0/improve-timestamp-rendering-1.png', alt: 'Improve timestamp rendering' %>
   </figure>
 
-  <figure>
-    <%= image_tag 'releases/17.5.0/auth-config.png', alt: 'Example LDAP server configuration' %>
-    <figcaption>Example LDAP connection configuration</figcaption>
+  <figure class='shrink-figure-70'>
+    <%= image_tag 'releases/17.6.0/improve-timestamp-rendering-2.png', alt: 'Improve timestamp rendering' %>
   </figure>
 
-  <figure>
-    <%= image_tag 'releases/17.5.0/role-config.png', alt: 'Example GoCD role to LDAP group mapping' %>
-    <figcaption>Example GoCD role to LDAP group mapping</figcaption>
+* <%= link_to_commit '9450dba3b22b82f9fc9154d0be875b222a3a722a', 'Add a "Rerun Failed" button to rerun failed jobs.', 3570 %>
+
+  <figure class='shrink-figure-50'>
+    <%= image_tag 'releases/17.6.0/rerun-failed-jobs.png', alt: 'Rerun failed jobs' %>
   </figure>
 
 <h4>API Enhancements</h4>
 
-* Introduced a <%= link_to_api 'current-user', 'current user API' %> that allows the logged in user to manage their profile.
-* Introduced a <%= link_to_api 'notification-filters', 'notification filters API' %> that allows the logged in user to manage their email notification subscriptions.
-* Introduced a <%= link_to_api 'authorization-configuration', 'authorization configuration API' %> that allows admins to configure Authorization plugins.
-* Introduced a <%= link_to_api 'roles', 'roles API' %> that allows admins to manage user roles.
+* Introduced a <%= link_to_api 'github-webhook', 'GitHub webhook API' %> to accept push events on a GitHub repository or repositories in a GitHub organization.
 
 <h4>Bug Fixes</h4>
 
-* <%= link_to_commit '9cec83fd6dda71ea085525354ca201ab7e4d3dec', 'Stop very large file systems (EFS) from being identified as having no space.', 3426 %>
+* <%= link_to_commit '88f1678f95a69d1e57ed2e8d6a6190da0de798af', 'Disable trigger with options button for view user in the environments page.', 3602 %>
 
-  Large filesystems like EFS, have an amount of storage that exceeds what can be addressed with a java `long` type (<code>2<sup>63</sup>-1</code>). Any storage space greater than <code>2<sup>63</sup>-1</code>, will be shown to be <code>2<sup>63</sup>-1</code>.
+* <%= link_to_commit '30615dcc7c5d40a4a4b7f4599d39fcfd8c99cb75', 'Reduce the amount of plugins that an agent downloads and initializes', 3584 %>
 
-* <%= link_to_commit '2b06534c76eb40ee63dc0842af6d0bab22da5424', 'Pipeline not getting unlocked upon a successful run.', 3497 %>
-
-  Fixed a issue of pipelines not getting unlocked even upon a successful run of the last stage during a race condition.
-
-* <%= link_to_commit '26bfeab2c8c1821802e89a9baa0f584780f7c273', 'Avoid catastrophic regex backtracking during config save.', 3551 %>
-
-  Fixed an issue to avoid catastrophic regex backtracking during xsd validation of custom task command.
+  This should reduce the amount of data an agent downloads when a plugin is installed, or the server is upgraded. This will also help reduce the amount of memory used by the GoCD agent process.
 
 <h4>Breaking Changes</h4>
 
-* <%= link_to_commit 'bd64d11d6d602ca4b0ab2318a3d504d07b472346', 'Removed Templates API v2', 3441 %>
-
-  Version 2 of the <%= link_to_api 'template-config', 'Templates API' %> was deprecated in 17.1. Version 3 of the API is available, and users are encouraged to use it.
+* Version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated in 17.3. Version 2 of the API is available, and users are encouraged to use it.
 
 <h4>Deprecations</h4>
 
@@ -63,7 +44,7 @@ Features that become superseded or irrelevant become *deprecated*, and are sched
 
 The following features have been deprecated. Please note the timeframe of when they will be removed.
 
-* As of release 17.3, version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.
+* Support for in-built password file and LDAP/AD authentication have been deprecated as of this release. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).
 
 * The [Authorization Plugin](https://plugin-api.gocd.org/current/authorization/) endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this we are deprecating the Authentication Plugin endpoint. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.
     <h5>Authentication plugins</h5>
@@ -81,37 +62,26 @@ The following features have been deprecated. Please note the timeframe of when t
 <%= [
   "Ankit Srivastava",
   "Aravind SV",
-  "Badri J",
   "Bhupendrakumar Piprava",
-  "Chris Northwood",
-  "David Rice",
-  "Emily Luke",
-  "Huimin Li",
-  "Isabelle Carter",
-  "Jen Marley",
+  "Drew Sonne",
   "Jyoti Singh",
+  "Kerry Wilson",
   "Ketan Padegaonkar",
-  "Kiera Radman",
-  "Kyle Olivo",
-  "Louda Peña",
   "Lubaina R",
   "Mahesh Panchaksharaiah",
-  "Marques Lee",
   "Rajiesh N",
-  "Suzie Prince",
-  "Varsha Varadarajan"
+  "Stephen Murby",
+  "Varsha Varadarajan",
 ].sort.uniq.join(', ')
 %>
 
-<!--
 <h4>Security researchers</h4>
 
 <%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
--->
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.5' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.6' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
