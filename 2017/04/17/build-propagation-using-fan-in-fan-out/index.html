@@ -126,7 +126,7 @@
 
 <p>The advantage of this approach is that a commit to the functional test repository does not trigger the “Build” pipeline (which makes sense). The latest successful instance of the “Build” pipeline will be verified using the new functional test code. In this case, fan-in does not apply, since the two dependencies of the functional test pipelines do not trace back to the same repository or repositories. Similarly, a change to the deployment scripts will not trigger the build and functional tests.</p>
 
-<p>Depending on your business case, you might find it necessary to have a manual approval process, especially to deploy into sensitive environments such as production, and often pre-production (mostly because it is being used by several people and needs co-ordination). We’ll dive into how to create a manual approval process to propagate your build in our next post. Stay tuned.</p>
+<p>Depending on your business case, you might find it necessary to have a manual approval process, especially to deploy into sensitive environments such as production, and often pre-production (mostly because it is being used by several people and needs co-ordination). We’ll dive into how to create a manual approval process to propagate your build in <a href="../../../05/23/control-deployments-manual-approvals.html">our next post</a>. Stay tuned.</p>
 
 <div class="row">
   <div class="downloadbanner">
@@ -164,6 +164,11 @@
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <li>
+              <span class="post-date">Jun 22</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../06/22/deployment-pipeline-patterns-infographic/">Infographic: 5 Key Patterns for your Deployment Pipeline</a>
+            </li>
+            <li>
               <span class="post-date">Jun 20</span>
               <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
               <a href="../../../06/20/hotfixes-rollback-rollforward/">Part 7 - Preparing for emergency deployments and rollbacks: Modeling Deployment Pipelines</a>
@@ -183,17 +188,12 @@
               <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
               <a href="../../../05/23/control-deployments-manual-approvals/">Part 5 - Control deployments using Manual Gates: Modeling Deployment Pipelines</a>
             </li>
-            <li>
-              <span class="post-date">May 16</span>
-              <span class="post-author">Suzie Prince (Head of Product), ThoughtWorks Products</span>
-              <a href="../../../05/16/its-not-CI-its-CI-theatre/">It’s not CI, it’s just CI theatre</a>
-            </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../../">2017 (14)</a></li>
+            <li><a href="../../../">2017 (15)</a></li>
             <li><a href="../../../../2016/">2016 (8)</a></li>
             <li><a href="../../../../2015/">2015 (21)</a></li>
             <li><a href="../../../../2014/">2014 (26)</a></li>
