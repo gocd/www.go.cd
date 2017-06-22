@@ -63,7 +63,7 @@ Unlike the example in the image above, maybe your repositories are structured so
 
 The advantage of this approach is that a commit to the functional test repository does not trigger the “Build” pipeline (which makes sense). The latest successful instance of the “Build” pipeline will be verified using the new functional test code. In this case, fan-in does not apply, since the two dependencies of the functional test pipelines do not trace back to the same repository or repositories. Similarly, a change to the deployment scripts will not trigger the build and functional tests.
 
-Depending on your business case, you might find it necessary to have a manual approval process, especially to deploy into sensitive environments such as production, and often pre-production (mostly because it is being used by several people and needs co-ordination). We’ll dive into how to create a manual approval process to propagate your build in our next post. Stay tuned.
+Depending on your business case, you might find it necessary to have a manual approval process, especially to deploy into sensitive environments such as production, and often pre-production (mostly because it is being used by several people and needs co-ordination). We’ll dive into how to create a manual approval process to propagate your build in <%= link_to 'our next post', '/posts/2017-05-23-control-deployments-manual-approvals.html' %>. Stay tuned.
 
 <div class='row'>
   <%= partial "partials/downloadbanner" %>
