@@ -22,6 +22,8 @@
     <%= image_tag 'releases/17.6.0/rerun-failed-jobs.png', alt: 'Rerun failed jobs' %>
   </figure>
 
+* The in-built password file authentication plugin now supports `bcrypt`, which is a stronger password hashing function. GoCD server adminstrators should migrate `SHA1` passwords to use `bcrypt` instead.
+
 <h4>API Enhancements</h4>
 
 * Introduced a <%= link_to_api 'github-webhook', 'GitHub webhook API' %> to accept push events on a GitHub repository or repositories in a GitHub organization.
