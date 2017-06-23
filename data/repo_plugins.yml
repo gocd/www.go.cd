@@ -24,15 +24,6 @@
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=go-nuget-poller-plugin-2.0&type=watch&count=true
   first_available_date: 12/2016
 
-- name: Maven (Nexus) repository poller
-  description: A plugin for polling Nexus repositories...
-  readmore_url: https://github.com/aresok/go-maven-poller
-  author_url: https://github.com/aresok
-  author_name: Arkadiusz Sokołowski
-  releases_url: https://github.com/aresok/go-maven-poller/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=aresok&repo=go-maven-poller&type=watch&count=true
-  first_available_date: 10/2013
-
 - name: Generic Artifactory poller
   description: A plugin for polling Artifactory repositories...
   readmore_url: https://github.com/varchev/go-generic-artifactory-poller
@@ -41,15 +32,6 @@
   releases_url: https://github.com/varchev/go-generic-artifactory-poller/releases
   github_stars: http://ghbtns.com/github-btn.html?user=varchev&repo=go-generic-artifactory-poller&type=watch&count=true
   first_available_date: 10/2014
-
-- name: Puppet Forge repository poller
-  description: A plugin for polling a Puppet forge...
-  readmore_url: https://github.com/drrb/go-puppet-forge-poller
-  author_url: https://github.com/drrb
-  author_name: drrb
-  releases_url: https://github.com/drrb/go-puppet-forge-poller/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=drrb&repo=go-puppet-forge-poller&type=watch&count=true
-  first_available_date: 05/2014
 
 - name: NPM repository poller
   description: A plugin for polling Npm registries.
@@ -68,24 +50,6 @@
   releases_url: https://github.com/MidVision/go-rapiddeploy/releases/
   github_stars: http://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true
   first_available_date: 07/2014
-
-- name: Docker Registry Poller - 1
-  description: Plugin to poll Docker Registry.
-  readmore_url: https://github.com/hammerdr/go-docker-registry-poller
-  author_url: https://github.com/hammerdr
-  author_name: Derek Hammer
-  releases_url: https://github.com/hammerdr/go-docker-registry-poller/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=hammerdr&repo=go-docker-registry-poller&type=watch&count=true
-  first_available_date: 11/2014
-
-- name: Docker Registry Poller - 2
-  description: Plugin to poll Docker Registry.
-  readmore_url: https://github.com/decoomanj/gocd-docker-material-poller
-  author_url: https://github.com/decoomanj
-  author_name: Jan De Cooman
-  releases_url: https://github.com/decoomanj/gocd-docker-material-poller/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=decoomanj&repo=gocd-docker-material-poller&type=watch&count=true
-  first_available_date: 12/2014
 
 - name: Gem repository poller
   description: Plugin to poll Ruby Gem repository.
