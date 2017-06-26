@@ -7,10 +7,10 @@ excerpt: "Serverless Architectures and Continuous Delivery"
 title_tag_of_header: "Serverless Architectures and Continuous Delivery | GoCD Blog"
 meta_description: "Serverless Architectures and Continuous Delivery"
 meta_keywords: "serverless, continuous delivery, serverless architecture, deployment, continuous deployment serverless, what is serverless, functions as a service"
-summary_image: "/assets/images/blog/serverless-continuous-delivery/serverless-continuous-delivery-hero.png"
+summary_image: "/assets/images/blog/serverless-continuous-delivery/serverless-continuous-delivery-hero.jpg"
 draft: true
 ---
-At PipelineConf this year, I [spoke about my experiences](https://vimeo.com/channels/pipelineconf/209686484) with serverless architectures and how I think they play well with the patterns and practices of continuous delivery. This post explains what a serverless architecture is, their benefits and how they can enable continuous delivery.
+At PipelineConf this year, I [spoke about my experiences](https://vimeo.com/channels/pipelineconf/209686484) with serverless architectures and how they play well with the patterns and practices of continuous delivery. This post explains what a serverless architecture is, their benefits and how they can enable continuous delivery.
 
 ## What is serverless?
 
@@ -29,9 +29,9 @@ There are many immediate benefits to not managing your own servers:
 
 - You don't have to worry about them randomly rebooting or going down.
 - You don't end up with snowflake servers, where you don't know quite what's installed on them but they are mission-critical to your organisation.
-- You're not responsible for installing software on them. Even if you use configuration management tools such as Chef or Ansible to automate this, that’s still extra extra code you have to maintain over time.
+- You're not responsible for installing software on them. Even if you use configuration management tools such as Chef or Ansible to automate this, that’s still extra code you have to maintain over time.
 
-By “third-party services”, we mean hosted databases like an AWS Elasticsearch cluster or Microsoft SQL Azure, or authentication services like Auth0 or AWS Cognito. You’re essentially outsourcing capabilities to specialised providers.
+By “third-party services”, I mean hosted databases like an AWS Elasticsearch cluster or Microsoft SQL Azure, or authentication services like Auth0 or AWS Cognito. You’re essentially outsourcing capabilities to specialised providers.
 
 Client-side logic typically refers to rich client applications such as single-page web apps or native mobile apps.
 
@@ -41,41 +41,41 @@ Let’s take a deeper look at Functions as a Service (FaaS) since they are newer
 
 Functions as a Service have six key properties:
 
-### 1. Independent, server-side, logical functions
+### Independent, server-side, logical functions
 
 FaaS are much like the functions you’re used to writing in conventional programming languages; small, separate, units of logic that take input arguments, process them in some manner, then return the result.
 
-### 2. Stateless
+### Stateless
 
-As you're not in control of the underlying server infrastructure, you can’t save file to disk on one run of your function and expect it to be there the next. Any two invocations of the same function could potentially run on completely different servers under the hood.
+As you're not in control of the underlying server infrastructure, you can’t save a file to disk on one run of your function and expect it to be there the next. Any two invocations of the same function could potentially run on completely different servers under the hood.
 
-### 3. Ephemeral
+### Ephemeral
 
 FaaS are designed to spin up quickly, do their work and then shut down again.
 
-### 4. Event-triggered
+### Event-triggered
 
 Although functions can be invoked directly, they are typically triggered by events in other cloud services, such as incoming HTTP requests, new database data or inbound message notifications. FaaS are often used and thought of as the glue between services in a cloud environment.
 
-### 5. Scalable by default
+### Scalable by default
 
-This takes advantage of the earlier FaaS properties, allowing as many functions to be run (in parallel, if necessary) as needed to continually service all incoming event triggers.
+This takes advantage of the FaaS properties mentioned above, allowing as many functions to be run (in parallel, if necessary) as needed to continually service all incoming event triggers.
 
-### 6. Fully managed by a third party
+### Fully managed by a third party
 
 Examples are AWS Lambda, Azure Functions, Auth0 Webtasks or Google Cloud Functions. Each offering typically supports a range of languages and runtimes e.g. Node.js, .NET Core, Java.
 
-## 4 key ways that Serverless Architectures enable Continuous Delivery
+## Four key ways that Serverless Architectures enable Continuous Delivery
 
-### #1 Naturally small deployable units
+### 1. Naturally small deployable units
 
 You really can't get a smaller unit of functionality than a function, and this forces you to think small from the outset. In Continuous Delivery we want to be deploying the smallest thing that adds value to our business. When you have all these small, granular functions that can be deployed independently, you can start to ask interesting questions such as “Do we need to deploy more than one at a time?”, “Could we just deploy that one function?”, “Does that deliver value on it's own?”.
 
-### #2 Simple deployment model
+### 2. Simple deployment model
 
 Thanks to the small size of deployment artifacts, in general, deployments are simple and quick. Deployment artifacts are typically idiomatic of the chosen runtime e.g. NuGet packages, npm packages, JAR files. This, coupled with the growth of open source FaaS tooling (such as the Serverless Application Framework and ClaudiaJS), make it simple to build an artifact and move it through a continuous delivery pipeline to production.
 
-### #3 No more “works on my machine”
+### 3. No more “works on my machine”
 
 As you will recall, FaaS are fully managed by a third party. This means that in many cases you cannot test your application in the same way as a traditional application. What I have found useful is for each developer to have their own cloud-hosted sandbox. Developers will run a script that will deploy their functions and associated services (e.g. HTTP API endpoints) to that sandbox, then execute tests against the deployed system in situ. You might think, "oh, the feedback loop is going to be slow" but as deployments of FaaS are so quick this usually doesn’t cause too many problems.
 
@@ -83,7 +83,7 @@ And the fact that you **can’t** run tests locally forces you to push testing c
 
 This production-like testing cycle, coupled with a greater focus on monitoring and operability, gives you much greater confidence in the quality of your system, and removes a lot of barriers that can typically be found on the path to continuous delivery.
 
-### #4 Serverless enables focus on business value
+### 4. Serverless enables focus on business value
 
 It's always worth remembering that our goal as software engineers is not to continuously deliver code to production, but to instead continuously deliver working software that provides value to our users. Serverless architectures really allow you to focus on your core competencies, while offloading capabilities you don't want to care about.
 
