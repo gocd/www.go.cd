@@ -1,0 +1,101 @@
+<h4>Security Fixes</h4>
+
+This release has critical security fixes to prevent CSRF, XSS and Session hijacking exploits. We highly recommend users to upgrade to keep your GoCD server and agent secure.
+Thanks [4cad](https://hackerone.com/4cad) for reporting these issues. 
+
+<h4>Improvements</h4>
+
+* <%= link_to_commit '42c681d1585db99747877830c2b1fdc2ca3e80b1', 'Added option to skip agent startup on windows.', 3577 %>
+
+  This adds a `/START_AGENT=NO` to prevent the agent service from starting up when performing a headless installation on windows. See the [documentation](https://docs.gocd.org/current/installation/install/agent/windows.html) for more details.
+
+* <%= link_to_commit '2c95a107fe31e1df6c7cd648be2fb0f6476c973f', 'Improve timestamp rendering on some pages.', 3574 %>
+
+  This improves the timestamp rendering on the job details, stage details and pipeline compare pages. You will now see timestamps in your local timezone.
+
+  <figure class='shrink-figure-50'>
+    <%= image_tag 'releases/17.6.0/improve-timestamp-rendering-1.png', alt: 'Improve timestamp rendering' %>
+  </figure>
+
+  <figure class='shrink-figure-70'>
+    <%= image_tag 'releases/17.6.0/improve-timestamp-rendering-2.png', alt: 'Improve timestamp rendering' %>
+  </figure>
+
+* <%= link_to_commit '9450dba3b22b82f9fc9154d0be875b222a3a722a', 'Add a "Rerun Failed" button to rerun failed jobs.', 3570 %>
+
+  <figure class='shrink-figure-50'>
+    <%= image_tag 'releases/17.6.0/rerun-failed-jobs.png', alt: 'Rerun failed jobs' %>
+  </figure>
+
+* The in-built password file authentication plugin now supports `bcrypt`, which is a stronger password hashing function. GoCD server adminstrators should migrate `SHA1` passwords to use `bcrypt` instead.
+
+<h4>API Enhancements</h4>
+
+* Introduced a <%= link_to_api 'github-webhook', 'GitHub webhook API' %> to accept push events on a GitHub repository or repositories in a GitHub organization.
+
+<h4>Bug Fixes</h4>
+
+* <%= link_to_commit '88f1678f95a69d1e57ed2e8d6a6190da0de798af', 'Disable trigger with options button for view user in the environments page.', 3602 %>
+
+* <%= link_to_commit 'dba8212c29e188e85be76c2a731e02a28c0ab330', 'Javascript error when saving user preferences', 3576 %>
+
+* <%= link_to_commit '30615dcc7c5d40a4a4b7f4599d39fcfd8c99cb75', 'Reduce the amount of plugins that an agent downloads and initializes', 3584 %>
+
+  This should reduce the amount of data an agent downloads when a plugin is installed, or the server is upgraded. This will also help reduce the amount of memory used by the GoCD agent process.
+
+<h4>Breaking Changes</h4>
+
+* <%= link_to_commit '8dfb1a9a16d11ed814d16c47d55b8dc283d6044d', 'Removed Environments Config API v1', 3606 %>
+  
+  Version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated in 17.3. Version 2 of the API is available, and users are encouraged to use it.
+
+<h4>Deprecations</h4>
+
+Features that become superseded or irrelevant become *deprecated*, and are scheduled to be removed in some timeframe.
+
+The following features have been deprecated. Please note the timeframe of when they will be removed.
+
+* Support for in-built password file and LDAP/AD authentication have been deprecated as of 17.5.0. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).
+
+* The [Authorization Plugin](https://plugin-api.gocd.org/current/authorization/) endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this Authentication Plugin endpoint were deprecated as of 17.5.0. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.
+    <h5>Authentication plugins</h5>
+    <ul>
+      <li><p><%= link_to('Google OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %></p></li>
+      <li><p><%= link_to('GitHub OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %></p></li>
+      <li><p><%= link_to('GitLab(CE) OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %></p></li>
+      <li><p><%= link_to('TLS Client Certificates Login', 'https://github.com/cnorthwood/gocd-tls-auth') %></p></li>
+      <li><p><%= link_to('Strong Auth Plugin', 'https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin') %></p></li>
+      <li><p><%= link_to('Guest Login', 'https://github.com/gocd-contrib/gocd_auth_plugin_guest_user') %></p></li>
+    </ul>
+
+<h4>Contributors</h4>
+
+<%= [
+  "Ankit Srivastava",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Drew Sonne",
+  "Jyoti Singh",
+  "Kerry Wilson",
+  "Ketan Padegaonkar",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Naveen Bhaskar",
+  "Rajiesh N",
+  "Sean Escriva",
+  "Stephen Murby",
+  "Varsha Varadarajan",
+].sort.uniq.join(', ')
+%>
+
+<h4>Security researchers</h4>
+
+<%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.6' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
