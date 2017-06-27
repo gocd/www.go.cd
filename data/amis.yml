@@ -187,3 +187,66 @@
       :ami_id: ami-c7beead1
       :image_name: GoCD Demo 17.5.0
       :href: https://console.aws.amazon.com/ec2/home?region=us-east-1#launchAmi=ami-c7beead1
+:17.6.0:
+  :server:
+  - :region: ap-northeast-1
+    :ami_id: ami-ff3f2e98
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#launchAmi=ami-ff3f2e98
+  - :region: ap-northeast-2
+    :ami_id: ami-5136e93f
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=ap-northeast-2#launchAmi=ami-5136e93f
+  - :region: ap-south-1
+    :ami_id: ami-f96b1596
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=ap-south-1#launchAmi=ami-f96b1596
+  - :region: ap-southeast-1
+    :ami_id: ami-0d67e96e
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=ap-southeast-1#launchAmi=ami-0d67e96e
+  - :region: ap-southeast-2
+    :ami_id: ami-486a792b
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=ap-southeast-2#launchAmi=ami-486a792b
+  - :region: ca-central-1
+    :ami_id: ami-e5a71881
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=ca-central-1#launchAmi=ami-e5a71881
+  - :region: eu-central-1
+    :ami_id: ami-4b07a124
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=eu-central-1#launchAmi=ami-4b07a124
+  - :region: eu-west-1
+    :ami_id: ami-e2ea0f9b
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=eu-west-1#launchAmi=ami-e2ea0f9b
+  - :region: eu-west-2
+    :ami_id: ami-fe0e189a
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=eu-west-2#launchAmi=ami-fe0e189a
+  - :region: sa-east-1
+    :ami_id: ami-116c067d
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=sa-east-1#launchAmi=ami-116c067d
+  - :region: us-east-1
+    :ami_id: ami-35784923
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=us-east-1#launchAmi=ami-35784923
+  - :region: us-east-2
+    :ami_id: ami-db4e6fbe
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=us-east-2#launchAmi=ami-db4e6fbe
+  - :region: us-west-1
+    :ami_id: ami-a81a36c8
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=us-west-1#launchAmi=ami-a81a36c8
+  - :region: us-west-2
+    :ami_id: ami-2f809756
+    :image_name: GoCD Server 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=us-west-2#launchAmi=ami-2f809756
+  :demo:
+  - :region: us-east-1
+    :ami_id: ami-6d68597b
+    :image_name: GoCD Demo 17.6.0
+    :href: https://console.aws.amazon.com/ec2/home?region=us-east-1#launchAmi=ami-6d68597b
