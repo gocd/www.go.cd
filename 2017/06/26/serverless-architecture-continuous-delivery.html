@@ -1,0 +1,350 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="This post explains what a serverless architecture and Function as a Service is and how they can enable continuous delivery." name="description" />
+    <meta content="serverless, continuous delivery, serverless architecture, deployment, continuous deployment serverless, what is serverless, functions as a service" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Serverless Architectures and Continuous Delivery | GoCD Blog" />
+    <meta name="twitter:description" content="This post explains what a serverless architecture and Function as a Service is and how they can enable continuous delivery." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/serverless-continuous-delivery/serverless-continuous-delivery-hero-4a1b2ac1.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2017/06/26/serverless-architecture-continuous-delivery.html" />
+
+    <title>Serverless Architectures and Continuous Delivery | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-58402f5f.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-4d5f4809.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+  </head>
+
+  <body class="x2017 x2017_06 x2017_06_26 x2017_06_26_serverless-architecture-continuous-delivery">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+  
+
+  <header class="blog-post-header">
+    <h1>Serverless Architectures and Continuous Delivery</h1>
+    <h4>Robin Weston</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      <p>At PipelineConf this year, I <a href="https://vimeo.com/channels/pipelineconf/209686484">spoke about my experiences</a> with serverless architectures and how they play well with the patterns and practices of continuous delivery. This post explains what a serverless architecture is, their benefits and how they can enable continuous delivery.</p>
+
+<h2 id="what-is-serverless">What is serverless?</h2>
+
+<div align="center">
+<img src="../../../assets/images/blog/serverless-continuous-delivery/traditional-vs-serverless-c070306b.jpeg" alt="Traditional vs Serverless" title="Traditional vs Serverless" />
+</div>
+
+<p>We're in buzzword bingo land here so it's important that we start with a common definition of what serverless is:</p>
+
+<blockquote>
+  <p>Serverless architectures are internet-based systems where the application development does <strong>not use the usual server process</strong>. Instead, they rely solely on a combination of <strong>third-party services, client-side logic</strong> and service-hosted remote procedure calls <strong>(Functions as a Service)</strong>.</p>
+</blockquote>
+
+<p>“Not the usual server process” means that your software isn't running on a server that you have access to. You don't own those servers. You can't log in to them, even if you wanted to.
+They are abstracted away and managed for you by someone else, typically a cloud provider.</p>
+
+<p>There are many immediate benefits to not managing your own servers:</p>
+
+<ul>
+  <li>You don't have to worry about them randomly rebooting or going down.</li>
+  <li>You don't end up with snowflake servers, where you don't know quite what's installed on them but they are mission-critical to your organisation.</li>
+  <li>You're not responsible for installing software on them. Even if you use configuration management tools such as Chef or Ansible to automate this, that’s still extra code you have to maintain over time.</li>
+</ul>
+
+<p>By “third-party services”, I mean hosted databases like an AWS Elasticsearch cluster or Microsoft SQL Azure, or authentication services like Auth0 or AWS Cognito. You’re essentially outsourcing capabilities to specialised providers.</p>
+
+<p>Client-side logic typically refers to rich client applications such as single-page web apps or native mobile apps.</p>
+
+<h2 id="functions-as-a-service">Functions as a service</h2>
+
+<p>Let’s take a deeper look at Functions as a Service (FaaS) since they are newer, have significant differences to how we typically think about technical architecture, and have been driving a lot of the recent serverless hype.</p>
+
+<p>Functions as a Service have six key properties:</p>
+
+<h3 id="independent-server-side-logical-functions">Independent, server-side, logical functions</h3>
+
+<p>FaaS are much like the functions you’re used to writing in conventional programming languages; small, separate, units of logic that take input arguments, process them in some manner, then return the result.</p>
+
+<h3 id="stateless">Stateless</h3>
+
+<p>As you're not in control of the underlying server infrastructure, you can’t save a file to disk on one run of your function and expect it to be there the next. Any two invocations of the same function could potentially run on completely different servers under the hood.</p>
+
+<h3 id="ephemeral">Ephemeral</h3>
+
+<p>FaaS are designed to spin up quickly, do their work and then shut down again.</p>
+
+<h3 id="event-triggered">Event-triggered</h3>
+
+<p>Although functions can be invoked directly, they are typically triggered by events from other cloud services, such as incoming HTTP requests, new database data or inbound message notifications. FaaS are often used and thought of as the glue between services in a cloud environment.</p>
+
+<h3 id="scalable-by-default">Scalable by default</h3>
+
+<p>This takes advantage of the FaaS properties mentioned above, allowing as many functions to be run (in parallel, if necessary) as needed to continually service all incoming event triggers.</p>
+
+<h3 id="fully-managed-by-a-third-party">Fully managed by a third party</h3>
+
+<p>Examples are AWS Lambda, Azure Functions, Auth0 Webtasks or Google Cloud Functions. Each offering typically supports a range of languages and runtimes e.g. Node.js, .NET Core, Java.</p>
+
+<h2 id="four-key-ways-that-serverless-architectures-enable-continuous-delivery">Four key ways that Serverless Architectures enable Continuous Delivery</h2>
+
+<h3 id="naturally-small-deployable-units">1. Naturally small deployable units</h3>
+
+<p>You really can't get a smaller unit of functionality than a function, and this forces you to think small from the outset. In Continuous Delivery we want to be deploying the smallest thing that adds value to our business. When you have all these small, granular functions that can be deployed independently, you can start to ask interesting questions such as “Do we need to deploy more than one at a time?”, “Could we just deploy that one function?”, “Does that deliver value on it's own?”.</p>
+
+<h3 id="simple-deployment-model">2. Simple deployment model</h3>
+
+<p>Thanks to the small size of deployment artifacts, in general, deployments are simple and quick. Deployment artifacts are typically idiomatic of the chosen runtime e.g. NuGet packages, npm packages, JAR files. This, coupled with the growth of open source FaaS tooling (such as the Serverless Application Framework and ClaudiaJS), make it simple to build an artifact and move it through a continuous delivery pipeline to production.</p>
+
+<h3 id="no-more-works-on-my-machine">3. No more “works on my machine”</h3>
+
+<p>As you will recall, FaaS are fully managed by a third party. This means that in many cases you cannot test your application in the same way as a traditional application. What I have found useful is for each developer to have their own cloud-hosted sandbox. Developers will run a script that will deploy their functions and associated services (e.g. HTTP API endpoints) to that sandbox, then execute tests against the deployed system in situ. You might think, "oh, the feedback loop is going to be slow" but as deployments of FaaS are so quick this usually doesn’t cause too many problems.</p>
+
+<p>And the fact that you <strong>can’t</strong> run tests locally forces you to push testing closer to production. Every time developers deploy to their local sandboxes, they are exercising the same deployment scripts that run as part of their main deployment pipeline. Therefore, you are getting continuous feedback on the effectiveness of your pipeline steps.</p>
+
+<p>This production-like testing cycle, coupled with a greater focus on monitoring and operability, gives you much greater confidence in the quality of your system, and removes a lot of barriers that can typically be found on the path to continuous delivery.</p>
+
+<h3 id="serverless-enables-focus-on-business-value">4. Serverless enables focus on business value</h3>
+
+<p>It's always worth remembering that our goal as software engineers is not to continuously deliver code to production, but to instead continuously deliver working software that provides value to our users. Serverless architectures really allow you to focus on your core competencies, while offloading capabilities you don't want to care about.</p>
+
+<p>For example, to implement log shipping and aggregation for a system, your team could spend a number of weeks developing and deploying a custom solution to managed servers (whether on premise or in the cloud). Even by choosing mature products, e.g. Splunk or the ELK stack, and implementing good practices such as Infrastructure as Code, you will suffer an initial implementation cost (in both time and money) as well as an ongoing penalty in terms of maintenance and operability.  Alternatively, if your system was built using AWS Lambda and the Node.js runtime, then a simple console.log statement will send your logs to AWS Cloudwatch and store them for up to 15 months. This gets you a long way towards a sustainable solution for a much reduced set of upfront and ongoing costs.</p>
+
+<p>This reasoning can be applied to many other examples. The key point here is that by using serverless architectures, you can get a lot of functionality “out of the box”. This allows you to focus on work that directly benefits your users and can give you a distinct advantage over your competitors who are having to spread their efforts over a greater technical surface area.</p>
+
+<hr />
+
+<p>This article covered some of the key components of serverless architecture and focussed in particular on Functions as a Service (FaaS). We examined that serverless architectures can be great enablers of Continuous Delivery by combining a focus on value with small, quick-to-deploy, independent units of functionality. While of course there are downsides (which we have deliberately avoided discussing here), implementing a serverless architecture helps support these fundamentals of Continuous Delivery, and could well be a game changer for you and your business.</p>
+
+<p><em><a href="https://twitter.com/robinweston">Robin Weston</a> is a Lead Consultant at ThoughtWorks. Robin has worked in technology for over 10 years and has been at ThoughtWorks since 2014. He cares passionately about helping deliver value to clients through simple, effective software.</em></p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+ -            <div class='subscribe-to-blog'>
+   <div class='subscribe-title'>
+     <p>Subscribe to the GoCD blog</p>
+   </div>
+   <div>
+     Subscribe and stay connected with the GoCD Blog. We send a monthly update of what's new in the world of continuous delivery, devops and software development practices.
+   </div>
+   <div>
+     <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+     <form id="mktoForm_5414"></form>
+     <script>MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);</script>
+   </div>
+</div>
+
+ -          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Jun 26</span>
+              <span class="post-author">Robin Weston</span>
+              <a href="serverless-architecture-continuous-delivery/">Serverless Architectures and Continuous Delivery</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 22</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../22/deployment-pipeline-patterns-infographic/">Infographic: 5 Key Patterns for your Deployment Pipeline</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 20</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../20/hotfixes-rollback-rollforward/">Part 7 - Preparing for emergency deployments and rollbacks: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 13</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../13/modeling-deployment-pipelines-agents-environments/">Part 6 - Under the hood of Deployment Pipelines: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Jun  1</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../01/forever-home/">We've found our forever home</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2017 (16)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/06/26/serverless-architecture-continuous-delivery.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        <li>
+          <a href="../../../subscribe/"><i class='icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

@@ -15,7 +15,7 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-12988ab2.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-58402f5f.css" rel="stylesheet" />
     <script src="assets/javascripts/all-4d5f4809.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -81,7 +81,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-17-5-0" class="active">17.5.0 (latest)</li>
+      <li rel="tab-17-6-0" class="active">17.6.0 (latest)</li>
+      <li rel="tab-17-5-0">17.5.0</li>
       <li rel="tab-17-4-0">17.4.0</li>
       <li rel="tab-17-3-0">17.3.0</li>
       <li rel="tab-17-2-0">17.2.0</li>
@@ -110,7 +111,122 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-17-5-0">17.5.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-17-6-0">17.6.0 (latest)</h3>
+      <div id="tab-17-6-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Security Fixes</h4>
+
+<p>This release has critical security fixes to prevent CSRF, XSS and Session hijacking exploits. We highly recommend users to upgrade to keep your GoCD server and agent secure.
+Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.</p>
+
+<h4>Improvements</h4>
+
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/42c681d1585db99747877830c2b1fdc2ca3e80b1">42c681d</a></code> - Added option to skip agent startup on windows. (<a href="https://github.com/gocd/gocd/issues/3577">#3577</a>)</p>
+
+    <p>This adds a <code>/START_AGENT=NO</code> to prevent the agent service from starting up when performing a headless installation on windows. See the <a href="https://docs.gocd.org/current/installation/install/agent/windows.html">documentation</a> for more details.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/2c95a107fe31e1df6c7cd648be2fb0f6476c973f">2c95a10</a></code> - Improve timestamp rendering on some pages. (<a href="https://github.com/gocd/gocd/issues/3574">#3574</a>)</p>
+
+    <p>This improves the timestamp rendering on the job details, stage details and pipeline compare pages. You will now see timestamps in your local timezone.</p>
+
+    <figure class="shrink-figure-50">
+  <img src="assets/images/releases/17.6.0/improve-timestamp-rendering-1-5a8314bf.png" alt="Improve timestamp rendering" />
+</figure>
+
+    <figure class="shrink-figure-70">
+  <img src="assets/images/releases/17.6.0/improve-timestamp-rendering-2-41be5dda.png" alt="Improve timestamp rendering" />
+</figure>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/9450dba3b22b82f9fc9154d0be875b222a3a722a">9450dba</a></code> - Add a "Rerun Failed" button to rerun failed jobs. (<a href="https://github.com/gocd/gocd/issues/3570">#3570</a>)</p>
+
+    <figure class="shrink-figure-50">
+  <img src="assets/images/releases/17.6.0/rerun-failed-jobs-182f21d2.png" alt="Rerun failed jobs" />
+</figure>
+  </li>
+  <li>
+    <p>The in-built password file authentication plugin now supports <code>bcrypt</code>, which is a stronger password hashing function. GoCD server adminstrators should migrate <code>SHA1</code> passwords to use <code>bcrypt</code> instead.</p>
+  </li>
+</ul>
+
+<h4>API Enhancements</h4>
+
+<ul>
+  <li>Introduced a <a href="https://api.gocd.org/current/#github-webhook">GitHub webhook API</a> to accept push events on a GitHub repository or repositories in a GitHub organization.</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/88f1678f95a69d1e57ed2e8d6a6190da0de798af">88f1678</a></code> - Disable trigger with options button for view user in the environments page. (<a href="https://github.com/gocd/gocd/issues/3602">#3602</a>)</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/dba8212c29e188e85be76c2a731e02a28c0ab330">dba8212</a></code> - Javascript error when saving user preferences. (<a href="https://github.com/gocd/gocd/issues/3576">#3576</a>)</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/30615dcc7c5d40a4a4b7f4599d39fcfd8c99cb75">30615dc</a></code> - Reduce the amount of plugins that an agent downloads and initializes. (<a href="https://github.com/gocd/gocd/issues/3584">#3584</a>)</p>
+
+    <p>This should reduce the amount of data an agent downloads when a plugin is installed, or the server is upgraded. This will also help reduce the amount of memory used by the GoCD agent process.</p>
+  </li>
+</ul>
+
+<h4>Breaking Changes</h4>
+
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/8dfb1a9a16d11ed814d16c47d55b8dc283d6044d">8dfb1a9</a></code> - Removed Environments Config API v1. (<a href="https://github.com/gocd/gocd/issues/3606">#3606</a>)</p>
+
+    <p>Version 1 of the <a href="https://api.gocd.org/current/#environment-config">Environment Config API</a> was deprecated in 17.3. Version 2 of the API is available, and users are encouraged to use it.</p>
+  </li>
+</ul>
+
+<h4>Deprecations</h4>
+
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+
+<p>The following features have been deprecated. Please note the timeframe of when they will be removed.</p>
+
+<ul>
+  <li>
+    <p>Support for in-built password file and LDAP/AD authentication have been deprecated as of 17.5.0. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).</p>
+  </li>
+  <li>
+    <p>The <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugin</a> endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this Authentication Plugin endpoint were deprecated as of 17.5.0. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.</p>
+    <h5>Authentication plugins</h5>
+    <ul>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">Google OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitHub OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitLab(CE) OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/cnorthwood/gocd-tls-auth">TLS Client Certificates Login</a></p></li>
+    <li><p><a href="https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin">Strong Auth Plugin</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a></p></li>
+  </ul>
+  </li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Drew Sonne, Jyoti Singh, Kerry Wilson, Ketan Padegaonkar, Lubaina R, Mahesh Panchaksharaiah, Naveen Bhaskar, Rajiesh N, Sean Escriva, Stephen Murby, Varsha Varadarajan</p>
+
+<h4>Security researchers</h4>
+
+<p><a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a></p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.6%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-17-5-0">17.5.0</h3>
       <div id="tab-17-5-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Authorization Plugin</h4>

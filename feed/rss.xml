@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-06-22T00:00:00Z</updated>
+  <updated>2017-06-26T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Serverless Architectures and Continuous Delivery</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/06/26/serverless-architecture-continuous-delivery.html"/>
+    <id>https://www.gocd.org/2017/06/26/serverless-architecture-continuous-delivery.html</id>
+    <published>2017-06-26T00:00:00Z</published>
+    <updated>2017-06-26T00:00:00Z</updated>
+    <author>
+      <name>Robin Weston</name>
+    </author>
+    <content type="html">Serverless architectures can be great enablers of Continuous Delivery by combining a focus on value with small, quick-to-deploy, independent units of functionality. This post explains what a serverless architecture is, their benefits with a deeper look at Functions as a Service (FaaS).</content>
+  </entry>
   <entry>
     <title>Infographic: 5 Key Patterns for your Deployment Pipeline</title>
     <link rel="alternate" href="https://www.gocd.org/2017/06/22/deployment-pipeline-patterns-infographic.html"/>
@@ -107,16 +118,5 @@
       <name>David Rice, Managing Director - ThoughtWorks Products</name>
     </author>
     <content type="html">We often get asked by potential GoCD users why pick GoCD over Jenkins. In this post, we share why by comparing philosophy, getting started, continuous delivery, and plugins across the tools.</content>
-  </entry>
-  <entry>
-    <title>Part 4 - Build Propagation using Fan-in/Fan-out: Modeling Deployment Pipelines</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/04/17/build-propagation-using-fan-in-fan-out.html"/>
-    <id>https://www.gocd.org/2017/04/17/build-propagation-using-fan-in-fan-out.html</id>
-    <published>2017-04-17T00:00:00Z</published>
-    <updated>2017-04-17T00:00:00Z</updated>
-    <author>
-      <name>Aravind S.V, Product Manager at GoCD</name>
-    </author>
-    <content type="html">This is the fourth post in the series - Modeling Deployment Pipelines. In this post, we’ll dive into ways to move your build through the deployment pipeline and introducing fan-in/fan-out.</content>
   </entry>
 </feed>
