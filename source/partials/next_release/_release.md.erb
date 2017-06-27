@@ -1,3 +1,8 @@
+<h4>Security Fixes</h4>
+
+This release has critical security fixes to prevent CSRF, XSS and Session hijacking exploits. We highly recommend users to upgrade to keep your GoCD server and agent secure.
+Thanks [4cad](https://hackerone.com/4cad) for reporting these issues. 
+
 <h4>Improvements</h4>
 
 * <%= link_to_commit '42c681d1585db99747877830c2b1fdc2ca3e80b1', 'Added option to skip agent startup on windows.', 3577 %>
@@ -22,6 +27,8 @@
     <%= image_tag 'releases/17.6.0/rerun-failed-jobs.png', alt: 'Rerun failed jobs' %>
   </figure>
 
+* The in-built password file authentication plugin now supports `bcrypt`, which is a stronger password hashing function. GoCD server adminstrators should migrate `SHA1` passwords to use `bcrypt` instead.
+
 <h4>API Enhancements</h4>
 
 * Introduced a <%= link_to_api 'github-webhook', 'GitHub webhook API' %> to accept push events on a GitHub repository or repositories in a GitHub organization.
@@ -29,6 +36,8 @@
 <h4>Bug Fixes</h4>
 
 * <%= link_to_commit '88f1678f95a69d1e57ed2e8d6a6190da0de798af', 'Disable trigger with options button for view user in the environments page.', 3602 %>
+
+* <%= link_to_commit 'dba8212c29e188e85be76c2a731e02a28c0ab330', 'Javascript error when saving user preferences', 3576 %>
 
 * <%= link_to_commit '30615dcc7c5d40a4a4b7f4599d39fcfd8c99cb75', 'Reduce the amount of plugins that an agent downloads and initializes', 3584 %>
 
@@ -69,7 +78,9 @@ The following features have been deprecated. Please note the timeframe of when t
   "Ketan Padegaonkar",
   "Lubaina R",
   "Mahesh Panchaksharaiah",
+  "Naveen Bhaskar",
   "Rajiesh N",
+  "Sean Escriva",
   "Stephen Murby",
   "Varsha Varadarajan",
 ].sort.uniq.join(', ')
