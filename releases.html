@@ -81,7 +81,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-17-6-0" class="active">17.6.0 (latest)</li>
+      <li rel="tab-17-7-0" class="active">17.7.0 (latest)</li>
+      <li rel="tab-17-6-0">17.6.0</li>
       <li rel="tab-17-5-0">17.5.0</li>
       <li rel="tab-17-4-0">17.4.0</li>
       <li rel="tab-17-3-0">17.3.0</li>
@@ -111,10 +112,24 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-17-6-0">17.6.0 (latest)</h3>
-      <div id="tab-17-6-0" class="tab_content" style="display: block;">
+      <h3 class="tab-accordion_heading d_active" rel="tab-17-7-0">17.7.0 (latest)</h3>
+      <div id="tab-17-7-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Security Fixes</h4>
+
+<p><strong>Important:</strong> This release comes on the back of 17.6.0 as we have identified an extremely critical security vulnerability with 17.5.0 and 17.6.0. If you are on 17.5.0 or 17.6.0, please upgrade immediately to this version to keep your GoCD server secure. We want to give sometime for users to upgrade before disclosing the details of the vulnerability.</p>
+
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-17-6-0">17.6.0</h3>
+      <div id="tab-17-6-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Important</h4>
+
+<p>There has been a critical security vulnerabilty identified with this release, fixes for the same have been provided in 17.7.0. If you are on 17.6.0, please upgrade immediately to 17.7.0 to keep your GoCD sever and agent secure.</p>
+
+<h4>Security Fixes</h4>
 
 <p>This release has critical security fixes to prevent CSRF, XSS and Session hijacking exploits. We highly recommend users to upgrade to keep your GoCD server and agent secure.
 Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.</p>
@@ -229,7 +244,11 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
       <h3 class="tab-accordion_heading" rel="tab-17-5-0">17.5.0</h3>
       <div id="tab-17-5-0" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Authorization Plugin</h4>
+          <h4>Important</h4>
+
+<p>There has been a critical security vulnerabilty identified with this release, fixes for the same have been provided in 17.7.0. If you are on 17.5.0, please upgrade immediately to 17.7.0 to keep your GoCD sever and agent secure.</p>
+
+<h4>Authorization Plugin</h4>
 
 <p><a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugin</a> extension was released as beta in GoCD 17.2.0, over the last couple of releases there has been more work done around fine tuning the endpoint. With this release we are taking the Authorization Plugin endpoint out of beta.</p>
 
