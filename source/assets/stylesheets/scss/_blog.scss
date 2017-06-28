@@ -94,15 +94,15 @@
 
   .latest-blog & {
     @media (min-width:$screen-tablet) {
-      @include ellipsis-txt(680px, 16px, 1.4, 2);
+      @include ellipsis-txt(680px, 16px, 1.4, 4);
     }
 
     @media (min-width:$screen-desktop) {
-      @include ellipsis-txt(720px, 16px, 1.4, 2);
+      @include ellipsis-txt(720px, 16px, 1.4, 5);
     }
 
     @media (min-width:$screen-lg-desktop) {
-      @include ellipsis-txt(1140px, 16px, 1.4, 2);
+      @include ellipsis-txt(1140px, 16px, 1.4, 5);
     }
 
   }
