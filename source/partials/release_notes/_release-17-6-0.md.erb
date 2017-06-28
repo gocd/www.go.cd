@@ -45,7 +45,9 @@ Thanks [4cad](https://hackerone.com/4cad) for reporting these issues.
 
 <h4>Breaking Changes</h4>
 
-* Version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated in 17.3. Version 2 of the API is available, and users are encouraged to use it.
+* <%= link_to_commit '8dfb1a9a16d11ed814d16c47d55b8dc283d6044d', 'Removed Environments Config API v1', 3606 %>
+  
+  Version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated in 17.3. Version 2 of the API is available, and users are encouraged to use it.
 
 <h4>Deprecations</h4>
 
@@ -53,9 +55,9 @@ Features that become superseded or irrelevant become *deprecated*, and are sched
 
 The following features have been deprecated. Please note the timeframe of when they will be removed.
 
-* Support for in-built password file and LDAP/AD authentication have been deprecated as of this release. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).
+* Support for in-built password file and LDAP/AD authentication have been deprecated as of 17.5.0. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).
 
-* The [Authorization Plugin](https://plugin-api.gocd.org/current/authorization/) endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this we are deprecating the Authentication Plugin endpoint. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.
+* The [Authorization Plugin](https://plugin-api.gocd.org/current/authorization/) endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this Authentication Plugin endpoint were deprecated as of 17.5.0. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.
     <h5>Authentication plugins</h5>
     <ul>
       <li><p><%= link_to('Google OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %></p></li>
