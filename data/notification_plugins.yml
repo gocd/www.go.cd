@@ -1,3 +1,12 @@
+- name: AWS SNS Notifier
+  description: Plugin that sends build notifications to AWS SNS (Simple Notification Service)
+  readmore_url: https://github.com/paullalonde/gocd-sns-notification-plugin
+  author_url: https://github.com/paullalonde
+  author_name: Paul Lalonde
+  releases_url: https://github.com/paullalonde/gocd-sns-notification-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=paullalonde&repo=gocd-sns-notification-plugin&type=watch&count=true
+  first_available_date: 06/2017
+
 - name: Build-Watcher Slack&Email Notifier
   description: Plugin that sends direct emails and Slack messages to the person who breaks a build
   readmore_url: https://github.com/gmazzo/gocd-build-watcher-plugin
