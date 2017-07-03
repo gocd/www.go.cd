@@ -94,15 +94,15 @@
 
   .latest-blog & {
     @media (min-width:$screen-tablet) {
-      @include ellipsis-txt(680px, 16px, 1.4, 4);
+      @include ellipsis-txt(680px, 16px, 1.4, 2);
     }
 
     @media (min-width:$screen-desktop) {
-      @include ellipsis-txt(720px, 16px, 1.4, 5);
+      @include ellipsis-txt(720px, 16px, 1.4, 2);
     }
 
     @media (min-width:$screen-lg-desktop) {
-      @include ellipsis-txt(1140px, 16px, 1.4, 5);
+      @include ellipsis-txt(1140px, 16px, 1.4, 2);
     }
 
   }
@@ -348,7 +348,7 @@
 
   .post-summary-image {
     border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
 
     img {
       transform: scale(1);
@@ -359,30 +359,6 @@
 
   .blog-details {
     background: #fff;
-  }
-  .latest-blog &{
-   > .post-link{
-      float:left;
-      @media (min-width:$screen-tablet) {
-      width:60%;
-
-      }
-      @media (min-width:$screen-lg-desktop) {
-        width:66%
-      }
-    }
-    .blog-details{
-      float:left;
-      @media (min-width:$screen-tablet) {
-      width:40%;
-
-      }
-      @media (min-width:$screen-lg-desktop) {
-        width:34%
-      }      
-
-    }
-
   }
 
 }
@@ -395,12 +371,12 @@
     display: inline-block;
     vertical-align: top;
     padding:0 10px;
-    width:100%; 
+    width:100%;
     @media (min-width:$screen-sm) {
-    width:calc(50% - 3px);
+    width:calc(50% - 10px);
     }
     @media (min-width:$screen-md) {
-    width: calc(33.3% - 3px);
+    width: calc(33.3% - 10px);
     }
   }
 }
@@ -445,15 +421,15 @@
       height: 114px;
 
       @media (min-width:$screen-tablet) {
-        height: 215px;
+        height: 353px;
       }
 
       @media (min-width:$screen-desktop) {
-        height: 280px;
+        height: 460px;
       }
 
       @media (min-width:$screen-lg-desktop) {
-        height: 375px;
+        height: 560px;
       }
 
     }
@@ -521,3 +497,48 @@
   width: 100%;
   display: block;
 }
+
+.subscribe-to-blog{
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding: 20px;
+    text-align: center;
+    .subscribe-title{
+      p {
+        font-weight: bold;
+        font-size: 1.3em;
+      }
+    }
+    // Marketo form overrides
+    #mktoForm_5414{
+      width: auto !important;
+      text-align: center;
+      margin-top: 10px;
+      .mktoFormRow{
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .mktoButtonWrap.mktoSimple{
+        margin: 0 !important;
+        margin-left: 20px !important;
+      }
+      .mktoFormCol{
+        margin-bottom: 0px !important;
+      }
+    }
+ }
+
+ .post{
+    .subscribe-to-blog{
+      #mktoForm_5414{
+        .mktoButtonWrap.mktoSimple{
+          display: block;
+          margin: 10px !important;
+        }
+        .mktoEmailField{
+          width: 100% !important;
+        }
+      }
+    }
+ }
