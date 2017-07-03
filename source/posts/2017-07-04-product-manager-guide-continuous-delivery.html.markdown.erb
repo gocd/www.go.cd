@@ -1,0 +1,166 @@
+---
+layout: post
+title: "The Product Managers’ Guide to Continuous Delivery and DevOps"
+type: post
+author: Suzie Prince
+excerpt: "If you're in tech, a product manager or an MBA and are curious about what continuous delivery is and what a DevOps culture looks like, this beginner's guide is for you."
+title_tag_of_header: "The Product Managers’ Guide to Continuous Delivery and DevOps | GoCD Blog"
+meta_description: "A guide to learning about what and how DevOps and Continuous Delivery means to Product Managers."
+meta_keywords: "devops, continuous delivery, product manager, beginner guide, guide to continuous delivery, "
+summary_image: "/assets/images/blog/serverless-continuous-delivery/serverless-continuous-delivery-hero.jpg"
+draft: true
+---
+
+## A beginner's guide to Continuous Delivery
+
+This guide is for you if,
+
+- You’re in tech, you’re a product manager or an MBA. Your team A/B tests, feature toggles, and you have a dog in the office! Of course you understand what feature branches are, what CD is and what a DevOps culture looks like. Right? Uh … sure.
+- You’ve gone Agile. Engineering teams now meet with your product people every week to discuss stories and iterations. They collaborate well and what they’re building feels better than ever. But your customers still don’t get those features any faster. You still have to wait for the release train to leave the station. You’ve heard about companies like Etsy, Flickr and Google who deliver a 100 times a day. How do they do it?
+- Your development team wants to “do CD”. You’ve heard some good things but you’re also concerned about changes going to production without them being properly tested or not being able to market the changes properly. What is this CD thing?
+
+I am here to demystify these practices, tell you just how important they are to you “on the business side” and help you get involved. It’s not that complicated, we have pictures and everything.
+
+Let’s start with some definitions and examples
+
+### Continuous Integration (CI)
+
+In traditional software development the process of integration generally took place at the end of a project after each person had completed their work. Integration generally took weeks or months and could be very painful. Continuous integration is a practice that puts the integration phase earlier in the development cycle so that building, testing and integrating code happens on a more regular basis.
+
+CI means that one developer (hi Steve!) who writes code on his laptop at home, and another dev (hey Annie!) who codes on her desktop in the office can both write software for the same product separately, integrate their changes together in a place called the source repository. They can then build the combined software from the bits they each wrote and test that it works the way they expect.
+
+Developers generally use a tool called the CI Server to do the building and the integration for them. CI requires that Steve and Annie have self-testing code. This is code that tests itself to ensure that it is working as expected, and these tests are often called unit tests. When all the unit tests pass after the code is integrated Steve and Annie will get a green build. This indicates that they have verified that their changes are successfully integrated together, and the code is working as expected by the tests. However, while the integrated code is successfully working together, it not yet ready for production because it has not been tested and verified as working in production-like environments. You can read more about what happens after CI in the Continuous Delivery section below.
+
+<div align = "center">
+<%= image_tag 'blog/product-manager-guide/go-cd-continuous-integration.png', :alt => 'GoCD Continuous Integration', :title => 'GoCD Continuous Integration' %>
+</div>
+
+To be considered to be practicing CI, Steve and Annie must check-in to the main source repository, integrate and test their code frequently and often. Usually many times an hour, but at a minimum once a day.
+
+The benefit of CI is that integration becomes a non-event. Software is written and integrated all the time. Before CI, integration happened at the end of the creation process, all at once, and took an unknown amount of time; now with CI, it happens everyday, takes minutes and is just “the way we work”.
+
+It’s most likely the your team is doing CI (or at least they believe they are). You can confirm by asking them whether they integrated code once a day :) CI is the first practice that is required to do Continuous Delivery. In fact, if you’ve ever checked in help text, documentation or images, then you may have been continuously integrating!
+
+### Continuous Delivery (CD)
+
+Let’s go back to our two developers, Steve and Annie. Continuous Delivery means that each time Steve or Annie makes changes to the code, integrates and builds the code, that they also automatically test this code on environments that are very similar to production. We call this progression of deploying to – and testing on – different environments a deployment pipeline. Often the deployment pipeline has a development environment, a test environment, and a staging environment, but these stages vary by the team, product and organization. For example, [our Mingle team](https://www.thoughtworks.com/mingle/) has a stage called “Cupcake” which is a staging environment, and [Etsy’s staging environment is called “Princess”](https://codeascraft.com/2010/05/20/quantum-of-deployment/).
+
+<div align = "center">
+<%= image_tag 'blog/product-manager-guide/go-cd-continuous-delivery.png', :alt => 'GoCD Continuous Delivery', :title => 'GoCD Continuous Delivery' %>
+</div>
+
+In each different environment, the code that Annie or Steve wrote is tested differently. This gives more and more confidence to them, and to you, that the code will work on the production environment when the code is deployed there. Crucially, the code is only promoted to (tested on) the next environment in the deployment pipeline if it passes the tests of the previous environment. This way Annie and Steve get new feedback from the tests in each environment and, if there is a failure, they can understand more easily where the issue might be and get it fixed before the code gets to the production environment.
+
+### Continuously Learning
+
+This process is very empowering for those of us in the business. It means that if Annie’s tests pass on all the environments, you know that her code is likely to be work as intended when it gets to production. Once the tests pass in all environments, you get to decide whether your end users get it or not, right away. Do we want this green build in production now? Yes! And with that, new, fully tested, working software is readily available for customers as soon as your developers finished building it. Woot!
+
+### Continuous Deployment
+
+This is a practice where every change that Steve or Annie makes, and which passes all the test stages, automatically goes to production. [Tim Fitz has a great explanation of it as it was first coined](http://www.paulhammond.org/2010/06/trunk/alwaysshiptrunk.pdf). Some companies do this and others do not. To achieve continuous deployment you first need to get to continuous delivery, so it’s not a priority to decide which is better for you until you’ve starting practicing CD. Either way, I’m of the opinion that continuous delivery is about empowering the business as a whole, and so at the very least you should be involved in deciding if you should use continuous deployment or not. After all, if you’re reading this then you’re probably on the “business side”.
+
+<div align = "center">
+<%= image_tag 'blog/product-manager-guide/go-cd-continuous-deployment.png', :alt => 'GoCD Continuous Deployment', :title => 'GoCD Continuous Deployment' %>
+</div>
+
+### DevOps
+
+The word ‘DevOps’ comes from the combination of the words ‘development’ and ‘operations’. DevOps is a culture that promotes collaboration between developers (hey Steve and Annie, you’re back) and other technology professionals, often called operations or just ops (high-five ops star Joey!). Specifically, communication and collaboration during the software delivery and deployment process, with the goal of releasing better quality software more quickly and more reliably.
+
+Common traits of organizations who have a so-called DevOps culture are: autonomous poly-skilled teams (Steve, Annie and Joey are all on the same team), high levels of test and release automation (a la continuous delivery) and common goals between the poly-skilled members.
+
+<div align = "center">
+<%= image_tag 'blog/product-manager-guide/go-cd-before-devops.png', :alt => 'Before DevOps', :title => 'Before DevOps' %>
+</div>
+
+One way you may see this working in your organizations is that our developer friends Steve and Annie will work with ops people like Joey to deliver software into production, rather than just “hand off” their code to Joey for release when they’re done with it. Likewise Steve, Annie and Joey will all act as part of a common product or service team who will all be responsible for the support and maintenance of the product, rather than support being a solely ops-team responsibility.
+
+You will also see automation of activities becoming increasingly important to an organization doing CD and DevOps. This is because, in order to achieve the repeatable, regular and successful process of releasing software that we expect from CD and DevOps, organizations must move to an automated process. Manual processes are simply too error prone and inefficient.
+
+<div align = "center">
+<%= image_tag 'blog/product-manager-guide/go-cd-after-devops.png', :alt => 'After DevOps', :title => 'After DevOps' %>
+</div>
+
+DevOps culture is commonly associated with Continuous Delivery because they both aim to increase collaboration between developers and operations teams, and both use automatic processes to build, test and release software more quickly, frequently and reliably. All things that people like us want.
+
+### What’s Next?
+
+While development teams often see the most immediate benefits of process improvements, there are lots of benefits of CI, CD and DevOps to the rest of us. Put simply, I believe that organizations practicing CD and embracing a DevOps culture will deliver more valuable, reliable software to their customers, more often. That’s got to be good, right? Especially if you’re on “the business side.”
+
+Next time I will talk more about why you should care about these concepts. I’ll address the impact it can have on your business and how to get involved. If you have any questions, talk to me in the comments. The whole point of these posts is to empower you and inform you about technical practices that are meant to be business-relevant. Questions are great!
+
+---
+
+### Useful Terminology
+
+#### Checking in
+
+The process of pushing local development code changes to the common source repository.
+
+#### CI server
+
+A tool used to build and test source code. The CI server will tell a developer if their latest code builds were successful and if they continue to pass tests.
+
+#### Development environment
+
+Where developers create, integrate, build and test code.
+
+#### Deployment pipeline / pipeline
+
+This is a set of stages that Steve and Annie’s code changes go through before they are done and ready to be delivered to production. Commonly these will be “build”, “unit test”, “functional tests”, “performance test” and “deploy”. Different automated tests will be run at different stages. Only once the code goes through the entire deployment pipeline can the software be delivered to production.
+
+#### Green build
+
+Green is an indication of success. A green version or build is one where it has passed the tests for that particular stage of the development and delivery process. Generally a build or version of the software will not be promoted to the next stage of the deployment pipeline unless it is “green”. The opposite of a green build is a red build (see below).
+
+#### Incremental development
+
+Not to be confused with iterative development (see below). Incremental development is where a little bit of the product gets built at a time until it is all complete. Pieces are added on in each increment, and those increments may be small or large. You can use CI with incremental development but it can be harder to achieve Continuous Delivery or Continuous Deployment with incremental development, as you must wait until all increments are completed to deliver value. A great illustration of the difference between Incremental and Iterative development is Jeff Paton’s Mona Lisa.
+
+#### Integration
+
+All code that is written by individuals or teams needs to be combined. We call this integration. In continuous integration, we generally mean software from individuals needs to be consolidated on a regular basis. In continuous delivery, we often mean software from different teams is integrated together to create the whole product.
+
+#### Iterative development
+
+Not to be confused with incremental development (see above). Iterative development is where a little bit of the product gets built at a time and is refined until it is complete. The product is built iteratively where the same pieces are reworked each iteration. Change is expected and planned between features in different iterations. You can use CI, Continuous Delivery or Continuous Deployment with iterative development. A great illustration of the difference between incremental and iterative development is Jeff Paton’s Mona Lisa.
+
+#### Master/trunk/mainline
+
+The “master”, “trunk” or “mainline” branch is the main branch of the source repository. Most people do trunk-based development, meaning that they will always integrate their changes to main line. Others do branch-based development when individually developers will have their own branches, or teams will have branches for different features.
+
+#### Production environment
+
+This is the place where software gets deployed or released. Customers using your product or website are most likely using this environment. Also referred to as “in production”, “in prod” or “live”.
+
+#### Red build
+
+Red is an indication of failure. A red version or build is one where it has not passed the tests for that particular stage of the development and delivery process. Generally a build or version of the software will not be promoted to the next stage of the deployment pipeline if it is “red”. The opposite of a red build is a green build (see above).
+
+#### Source repository
+
+This is where the source code lives. Steve and Annie have their own local version of the code that they are working on (meaning on their own machines), but the source repository will contain all the code after developers check in their changes to it.
+
+#### Test automation
+
+High quality test automation is needed to do continuous integration and continuous delivery. Tests are ways to check that the software will work as expected. Automated tests are tests that are coded and automatically run once code is checked into the common source repositories.
+
+In the CI world, the unit tests are run each time the software gets integrated and built. If the tests don’t pass, that version of your software is determined as “not working”, “red” or “broken”. In some workplaces “red lights” or sad sounds occur when this happens.
+
+In the case of a broken build, Steve or Annie (whoever committed the malfunctioning code) need to “fix it”, “make it green” or “get it working”. They can either do this by making a change to the code to fix it, or removing the prior change that broke it.
+
+#### Unit tests
+
+Unit tests are automated tests in code that test low-level, single pieces of code to ensure that they are usable and working as expected. Unit tests are considered a prerequisite for practicing CI and CD.
+
+### Further reading
+
+Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation - [Link](http://martinfowler.com/books/continuousDelivery.html)
+
+Martin Fowler’s easy to read guide on CI – [Link](http://www.martinfowler.com/articles/continuousIntegration.html)
+
+The Phoenix Project: A Novel about IT, DevOps, and helping your business win – [Link](http://itrevolution.com/books/phoenix-project-devops-book/)
+
+---
+
+*This article was first published on [Mind the Product](http://www.mindtheproduct.com/2016/02/what-the-hell-are-ci-cd-and-devops-a-cheatsheet-for-the-rest-of-us/) and the SnapCI Blog.*
