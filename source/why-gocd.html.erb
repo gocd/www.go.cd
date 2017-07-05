@@ -57,7 +57,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
         <p>
           GoCD's real power is in the visibility it provides over your end-to-end workflow. GoCD's Value Stream Map
           lets you track a change from commit to deploy at a glance. And when things go wrong, it's easy to see both
-          the upstream cause and the downstream effects.
+          the upstream cause and the downstream effects. p
         </p>
       </div>
       <hr/>
@@ -164,6 +164,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
       <div class="col-sm-push-8 col-sm-4">
         <figure>
           <%= image_tag "icons/go.cd_plugins.svg", {:title => "GoCD open source plugins", :alt => "GoCD open source plugins"} %>
+          
         </figure>
       </div>
       <div class="col-sm-pull-4 col-sm-8">
@@ -175,8 +176,47 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
       <hr/>
     </div>
   </div>
-  <div class='row'>
-    <%= partial "partials/eventsbanner" %>
-  </div>
-</div>
-</main>
+  <div class="screenshots chocolat-parent"  data-chocolat-title="set title">
+    <h2 class="features__title">Screenshots</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <figure>
+          <a href="../assets/images/screenshots/dashboard-one-red-dpr-2.png" class="chocolat-image" title="Dashboard">
+            <%= image_tag "screenshots/thumb/dashboard-one-red-dpr-2.jpg", {:title => "Dashboard", :alt => "Dashboard"} %>
+          </a>
+          
+          <h5>Dashboard</h5>
+        </figure>
+      </div>
+      <div class="col-sm-6">
+        <figure>
+          <a href="../assets/images/screenshots/console-with-timestamps-dpr-2.png"  class="chocolat-image" title="caption image 2">
+            <%= image_tag "screenshots/thumb/console-with-timestamps-dpr-2.jpg", {:title => "Console with timestamp", :alt => "Console with timestamp"} %>
+          </a>
+          <h5>Console with timestamp</h5>
+        </figure>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <figure>
+          <a href="../assets/images/screenshots/agent-dpr-2.png" class="chocolat-image"  title="caption image 3">
+            <%= image_tag "screenshots/thumb/agent-dpr-2.jpg", {:title => "Agents", :alt => "Agents"} %>
+            <h5>Agents</h5>
+          </figure>
+        </div>
+        <div class="col-sm-6">
+          <figure>
+            <a href="../assets/images/screenshots/vsm-dpr-2.png" class="chocolat-image"  title="caption image 4">
+              <%= image_tag "screenshots/thumb/vsm-dpr-2.jpg", {:title => "Value stream map", :alt => "Value stream map"} %>
+              </a>
+              <h5>Value stream map</h5>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <%= partial "partials/eventsbanner" %>
+      </div>
+    </div>
+    </main>
