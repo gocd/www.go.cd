@@ -1,0 +1,415 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="A guide to learning about what and how DevOps and Continuous Delivery means to Product Managers." name="description" />
+    <meta content="devops, continuous delivery, product manager, beginner guide, guide to continuous delivery, " name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="The Product Managers’ Guide to Continuous Delivery and DevOps | GoCD Blog" />
+    <meta name="twitter:description" content="A guide to learning about what and how DevOps and Continuous Delivery means to Product Managers." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/product-manager-guide/product-manager-guide-hero-1fa7eb6b.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2017/07/05/product-manager-guide-continuous-delivery.html" />
+
+    <title>The Product Managers’ Guide to Continuous Delivery and DevOps | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-58402f5f.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-4d5f4809.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+  </head>
+
+  <body class="x2017 x2017_07 x2017_07_05 x2017_07_05_product-manager-guide-continuous-delivery">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+  
+
+  <header class="blog-post-header">
+    <h1>The Product Managers’ Guide to Continuous Delivery and DevOps</h1>
+    <h4>Suzie Prince</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+  <div class="row">
+    <div class="col-md-9">
+      <main id="main" role="main">
+      <h2 id="a-beginners-guide-to-continuous-delivery">A beginner's guide to Continuous Delivery</h2>
+
+<p>This guide is for you if,</p>
+
+<ul>
+  <li>You’re in tech, you’re a product manager or an MBA. Your team A/B tests, feature toggles, and you have a dog in the office! Of course you understand what feature branches are, what CD is and what a DevOps culture looks like. Right? Uh … sure.</li>
+  <li>You’ve gone Agile. Engineering teams now meet with your product people every week to discuss stories and iterations. They collaborate well and what they’re building feels better than ever. But your customers still don’t get those features any faster. You still have to wait for the release train to leave the station. You’ve heard about companies like Etsy, Flickr and Google who deliver a 100 times a day. How do they do it?</li>
+  <li>Your development team wants to “do CD”. You’ve heard some good things but you’re also concerned about changes going to production without them being properly tested or not being able to market the changes properly. What is this CD thing?</li>
+</ul>
+
+<p>I am here to demystify these practices, tell you just how important they are to you “on the business side” and help you get involved. It’s not that complicated, we have pictures and everything.</p>
+
+<p>Let’s start with some definitions and examples</p>
+
+<h3 id="continuous-integration-ci">Continuous Integration (CI)</h3>
+
+<p>In traditional software development the process of integration generally took place at the end of a project after each person had completed their work. Integration generally took weeks or months and could be very painful. Continuous integration is a practice that puts the integration phase earlier in the development cycle so that building, testing and integrating code happens on a more regular basis.</p>
+
+<p>CI means that one developer (hi Steve!) who writes code on his laptop at home, and another dev (hey Annie!) who codes on her desktop in the office can both write software for the same product separately, integrate their changes together in a place called the source repository. They can then build the combined software from the bits they each wrote and test that it works the way they expect.</p>
+
+<p>Developers generally use a tool called the CI Server to do the building and the integration for them. CI requires that Steve and Annie have self-testing code. This is code that tests itself to ensure that it is working as expected, and these tests are often called unit tests. When all the unit tests pass after the code is integrated Steve and Annie will get a green build. This indicates that they have verified that their changes are successfully integrated together, and the code is working as expected by the tests. However, while the integrated code is successfully working together, it not yet ready for production because it has not been tested and verified as working in production-like environments. You can read more about what happens after CI in the Continuous Delivery section below.</p>
+
+<div align="center">
+<img src="../../../assets/images/blog/product-manager-guide/go-cd-continuous-integration-0f4a50c1.png" alt="GoCD Continuous Integration" title="GoCD Continuous Integration" />
+</div>
+
+<p>To be considered to be practicing CI, Steve and Annie must check-in to the main source repository, integrate and test their code frequently and often. Usually many times an hour, but at a minimum once a day.</p>
+
+<p>The benefit of CI is that integration becomes a non-event. Software is written and integrated all the time. Before CI, integration happened at the end of the creation process, all at once, and took an unknown amount of time; now with CI, it happens everyday, takes minutes and is just “the way we work”.</p>
+
+<p>It’s most likely the your team is doing CI (or at least they believe they are). You can confirm by asking them whether they integrated code once a day :) CI is the first practice that is required to do Continuous Delivery. In fact, if you’ve ever checked in help text, documentation or images, then you may have been continuously integrating!</p>
+
+<h3 id="continuous-delivery-cd">Continuous Delivery (CD)</h3>
+
+<p>Let’s go back to our two developers, Steve and Annie. Continuous Delivery means that each time Steve or Annie makes changes to the code, integrates and builds the code, that they also automatically test this code on environments that are very similar to production. We call this progression of deploying to – and testing on – different environments a deployment pipeline. Often the deployment pipeline has a development environment, a test environment, and a staging environment, but these stages vary by the team, product and organization. For example, <a href="https://www.thoughtworks.com/mingle/">our Mingle team</a> has a stage called “Cupcake” which is a staging environment, and <a href="https://codeascraft.com/2010/05/20/quantum-of-deployment/">Etsy’s staging environment is called “Princess”</a>.</p>
+
+<div align="center">
+<img src="../../../assets/images/blog/product-manager-guide/go-cd-continuous-delivery-6041ff84.png" alt="GoCD Continuous Delivery" title="GoCD Continuous Delivery" />
+</div>
+
+<p>In each different environment, the code that Annie or Steve wrote is tested differently. This gives more and more confidence to them, and to you, that the code will work on the production environment when the code is deployed there. Crucially, the code is only promoted to (tested on) the next environment in the deployment pipeline if it passes the tests of the previous environment. This way Annie and Steve get new feedback from the tests in each environment and, if there is a failure, they can understand more easily where the issue might be and get it fixed before the code gets to the production environment.</p>
+
+<h3 id="continuously-learning">Continuously Learning</h3>
+
+<p>This process is very empowering for those of us in the business. It means that if Annie’s tests pass on all the environments, you know that her code is likely to be work as intended when it gets to production. Once the tests pass in all environments, you get to decide whether your end users get it or not, right away. Do we want this green build in production now? Yes! And with that, new, fully tested, working software is readily available for customers as soon as your developers finished building it. Woot!</p>
+
+<h3 id="continuous-deployment">Continuous Deployment</h3>
+
+<p>This is a practice where every change that Steve or Annie makes, and which passes all the test stages, automatically goes to production. <a href="http://www.paulhammond.org/2010/06/trunk/alwaysshiptrunk.pdf">Tim Fitz has a great explanation of it as it was first coined</a>. Some companies do this and others do not. To achieve continuous deployment you first need to get to continuous delivery, so it’s not a priority to decide which is better for you until you’ve starting practicing CD. Either way, I’m of the opinion that continuous delivery is about empowering the business as a whole, and so at the very least you should be involved in deciding if you should use continuous deployment or not. After all, if you’re reading this then you’re probably on the “business side”.</p>
+
+<div align="center">
+<img src="../../../assets/images/blog/product-manager-guide/go-cd-continuous-deployment-4d9c957d.png" alt="GoCD Continuous Deployment" title="GoCD Continuous Deployment" />
+</div>
+
+<h3 id="devops">DevOps</h3>
+
+<p>The word ‘DevOps’ comes from the combination of the words ‘development’ and ‘operations’. DevOps is a culture that promotes collaboration between developers (hey Steve and Annie, you’re back) and other technology professionals, often called operations or just ops (high-five ops star Joey!). Specifically, communication and collaboration during the software delivery and deployment process, with the goal of releasing better quality software more quickly and more reliably.</p>
+
+<p>Common traits of organizations who have a so-called DevOps culture are: autonomous poly-skilled teams (Steve, Annie and Joey are all on the same team), high levels of test and release automation (a la continuous delivery) and common goals between the poly-skilled members.</p>
+
+<div align="center">
+<img src="../../../assets/images/blog/product-manager-guide/go-cd-before-devops-e2b4d0e9.png" alt="Before DevOps" title="Before DevOps" />
+</div>
+
+<p>One way you may see this working in your organizations is that our developer friends Steve and Annie will work with ops people like Joey to deliver software into production, rather than just “hand off” their code to Joey for release when they’re done with it. Likewise Steve, Annie and Joey will all act as part of a common product or service team who will all be responsible for the support and maintenance of the product, rather than support being a solely ops-team responsibility.</p>
+
+<p>You will also see automation of activities becoming increasingly important to an organization doing CD and DevOps. This is because, in order to achieve the repeatable, regular and successful process of releasing software that we expect from CD and DevOps, organizations must move to an automated process. Manual processes are simply too error prone and inefficient.</p>
+
+<div align="center">
+<img src="../../../assets/images/blog/product-manager-guide/go-cd-after-devops-a582c350.png" alt="After DevOps" title="After DevOps" />
+</div>
+
+<p>DevOps culture is commonly associated with Continuous Delivery because they both aim to increase collaboration between developers and operations teams, and both use automatic processes to build, test and release software more quickly, frequently and reliably. All things that people like us want.</p>
+
+<h3 id="whats-next">What’s Next?</h3>
+
+<p>While development teams often see the most immediate benefits of process improvements, there are lots of benefits of CI, CD and DevOps to the rest of us. Put simply, I believe that organizations practicing CD and embracing a DevOps culture will deliver more valuable, reliable software to their customers, more often. That’s got to be good, right? Especially if you’re on “the business side.”</p>
+
+<p>Next time I will talk more about why you should care about these concepts. I’ll address the impact it can have on your business and how to get involved. If you have any questions, talk to me in the comments. The whole point of these posts is to empower you and inform you about technical practices that are meant to be business-relevant. Questions are great!</p>
+
+<hr />
+
+<h3 id="useful-terminology">Useful Terminology</h3>
+
+<h4 id="checking-in">Checking in</h4>
+
+<p>The process of pushing local development code changes to the common source repository.</p>
+
+<h4 id="ci-server">CI server</h4>
+
+<p>A tool used to build and test source code. The CI server will tell a developer if their latest code builds were successful and if they continue to pass tests.</p>
+
+<h4 id="development-environment">Development environment</h4>
+
+<p>Where developers create, integrate, build and test code.</p>
+
+<h4 id="deployment-pipeline--pipeline">Deployment pipeline / pipeline</h4>
+
+<p>This is a set of stages that Steve and Annie’s code changes go through before they are done and ready to be delivered to production. Commonly these will be “build”, “unit test”, “functional tests”, “performance test” and “deploy”. Different automated tests will be run at different stages. Only once the code goes through the entire deployment pipeline can the software be delivered to production.</p>
+
+<h4 id="green-build">Green build</h4>
+
+<p>Green is an indication of success. A green version or build is one where it has passed the tests for that particular stage of the development and delivery process. Generally a build or version of the software will not be promoted to the next stage of the deployment pipeline unless it is “green”. The opposite of a green build is a red build (see below).</p>
+
+<h4 id="incremental-development">Incremental development</h4>
+
+<p>Not to be confused with iterative development (see below). Incremental development is where a little bit of the product gets built at a time until it is all complete. Pieces are added on in each increment, and those increments may be small or large. You can use CI with incremental development but it can be harder to achieve Continuous Delivery or Continuous Deployment with incremental development, as you must wait until all increments are completed to deliver value. A great illustration of the difference between Incremental and Iterative development is Jeff Paton’s Mona Lisa.</p>
+
+<h4 id="integration">Integration</h4>
+
+<p>All code that is written by individuals or teams needs to be combined. We call this integration. In continuous integration, we generally mean software from individuals needs to be consolidated on a regular basis. In continuous delivery, we often mean software from different teams is integrated together to create the whole product.</p>
+
+<h4 id="iterative-development">Iterative development</h4>
+
+<p>Not to be confused with incremental development (see above). Iterative development is where a little bit of the product gets built at a time and is refined until it is complete. The product is built iteratively where the same pieces are reworked each iteration. Change is expected and planned between features in different iterations. You can use CI, Continuous Delivery or Continuous Deployment with iterative development. A great illustration of the difference between incremental and iterative development is Jeff Paton’s Mona Lisa.</p>
+
+<h4 id="mastertrunkmainline">Master/trunk/mainline</h4>
+
+<p>The “master”, “trunk” or “mainline” branch is the main branch of the source repository. Most people do trunk-based development, meaning that they will always integrate their changes to main line. Others do branch-based development when individually developers will have their own branches, or teams will have branches for different features.</p>
+
+<h4 id="production-environment">Production environment</h4>
+
+<p>This is the place where software gets deployed or released. Customers using your product or website are most likely using this environment. Also referred to as “in production”, “in prod” or “live”.</p>
+
+<h4 id="red-build">Red build</h4>
+
+<p>Red is an indication of failure. A red version or build is one where it has not passed the tests for that particular stage of the development and delivery process. Generally a build or version of the software will not be promoted to the next stage of the deployment pipeline if it is “red”. The opposite of a red build is a green build (see above).</p>
+
+<h4 id="source-repository">Source repository</h4>
+
+<p>This is where the source code lives. Steve and Annie have their own local version of the code that they are working on (meaning on their own machines), but the source repository will contain all the code after developers check in their changes to it.</p>
+
+<h4 id="test-automation">Test automation</h4>
+
+<p>High quality test automation is needed to do continuous integration and continuous delivery. Tests are ways to check that the software will work as expected. Automated tests are tests that are coded and automatically run once code is checked into the common source repositories.</p>
+
+<p>In the CI world, the unit tests are run each time the software gets integrated and built. If the tests don’t pass, that version of your software is determined as “not working”, “red” or “broken”. In some workplaces “red lights” or sad sounds occur when this happens.</p>
+
+<p>In the case of a broken build, Steve or Annie (whoever committed the malfunctioning code) need to “fix it”, “make it green” or “get it working”. They can either do this by making a change to the code to fix it, or removing the prior change that broke it.</p>
+
+<h4 id="unit-tests">Unit tests</h4>
+
+<p>Unit tests are automated tests in code that test low-level, single pieces of code to ensure that they are usable and working as expected. Unit tests are considered a prerequisite for practicing CI and CD.</p>
+
+<h3 id="further-reading">Further reading</h3>
+
+<p>Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation - <a href="http://martinfowler.com/books/continuousDelivery.html">Link</a></p>
+
+<p>Martin Fowler’s easy to read guide on CI – <a href="http://www.martinfowler.com/articles/continuousIntegration.html">Link</a></p>
+
+<p>The Phoenix Project: A Novel about IT, DevOps, and helping your business win – <a href="http://itrevolution.com/books/phoenix-project-devops-book/">Link</a></p>
+
+<hr />
+
+<p><em>This article was first published on <a href="http://www.mindtheproduct.com/2016/02/what-the-hell-are-ci-cd-and-devops-a-cheatsheet-for-the-rest-of-us/">Mind the Product</a> and the SnapCI Blog.</em></p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+ -            <div class='subscribe-to-blog'>
+   <div class='subscribe-title'>
+     <p>Subscribe to the GoCD blog</p>
+   </div>
+   <div>
+     Subscribe and stay connected with the GoCD Blog. We send a monthly update of what's new in the world of continuous delivery, devops and software development practices.
+   </div>
+   <div>
+     <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+     <form id="mktoForm_5414"></form>
+     <script>MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);</script>
+   </div>
+</div>
+
+ -          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Jul  5</span>
+              <span class="post-author">Suzie Prince</span>
+              <a href="product-manager-guide-continuous-delivery/">The Product Managers’ Guide to Continuous Delivery and DevOps</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 26</span>
+              <span class="post-author">Robin Weston</span>
+              <a href="../../06/26/serverless-architecture-continuous-delivery/">Serverless Architectures and Continuous Delivery</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 22</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../06/22/deployment-pipeline-patterns-infographic/">Infographic: 5 Key Patterns for your Deployment Pipeline</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 20</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../06/20/hotfixes-rollback-rollforward/">Part 7 - Preparing for emergency deployments and rollbacks: Modeling Deployment Pipelines</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 13</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../06/13/modeling-deployment-pipelines-agents-environments/">Part 6 - Under the hood of Deployment Pipelines: Modeling Deployment Pipelines</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2017 (17)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/07/05/product-manager-guide-continuous-delivery.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        <li>
+          <a href="../../../subscribe/"><i class='icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="back-top"><i class="fa fa-arrow-circle-up"></i></a>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
