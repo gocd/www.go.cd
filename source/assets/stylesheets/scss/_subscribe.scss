@@ -84,10 +84,6 @@
       margin-top: 0px;
     }
 
-    &:hover {
-      border: 0;
-    }
-
   }
 
 }
@@ -108,6 +104,10 @@
       margin-left: 0px !important;
     }
 
+  }
+
+  .mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
+    border: 0;
   }
 
 }
