@@ -15,10 +15,16 @@
 
     <title>Features and Benefits | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-3bd8d6b1.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-4d5f4809.js"></script>
+    <link href="assets/stylesheets/site-e7c33984.css" rel="stylesheet" />
+    <script src="assets/javascripts/all-ebf21de5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
   </head>
 
   <body class="why-gocd">
@@ -67,91 +73,90 @@
   </div>
 </div>
 <main>
-<div class="container">
-  <div class="go-features">
-    <div class="row">
-      <div class="col-sm-4">
-        <figure>
-          <img src="assets/images/icons/go.cd_model-complex-workflows-9b181d3c.svg" title="Model complex workflows, dependency management and deployment pipelines" alt="Model complex workflows and deployment pipelines" />
-        </figure>
+  <div class="container">
+    <div class="go-features">
+      <div class="row">
+        <div class="col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_model-complex-workflows-9b181d3c.svg" title="Model complex workflows, dependency management and deployment pipelines" alt="Model complex workflows and deployment pipelines" />
+          </figure>
+        </div>
+        <div class="col-sm-8">
+          <h2 class="features__title"> Model complex workflows</h2>
+          <p>
+            With its parallel and sequential execution, GoCD can easily configure dependencies for fast feedback and
+            on-demand deployment. Its fan-in/fan-out dependency management always does the "right thing," avoiding
+            spurious builds.
+          </p>
+        </div>
+        <hr/>
       </div>
-      <div class="col-sm-8">
-        <h2 class="features__title"> Model complex workflows</h2>
-        <p>
-          With its parallel and sequential execution, GoCD can easily configure dependencies for fast feedback and
-          on-demand deployment. Its fan-in/fan-out dependency management always does the "right thing," avoiding
-          spurious builds.
-        </p>
+      <div class="row">
+        <div class="col-sm-push-8 col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_promote-trusted-artifacts-5d5fc8ae.svg" title="Promote trusted artifacts in deployment pipelines and stages" alt="Promote trusted artifacts" />
+          </figure>
+        </div>
+        <div class="col-sm-pull-4 col-sm-8">
+          <h2 class="features__title">Promote trusted artifacts</h2>
+          <p>
+            Every pipeline instance is anchored to a particular changeset. GoCD makes it easy to pass once-built
+            binaries between stages so you know exactly what's being deployed and that the binary has been tested.
+          </p>
+        </div>
+        <hr/>
       </div>
-      <hr/>
-    </div>
-    <div class="row">
-      <div class="col-sm-push-8 col-sm-4">
-        <figure>
-          <img src="assets/images/icons/go.cd_promote-trusted-artifacts-5d5fc8ae.svg" title="Promote trusted artifacts in deployment pipelines and stages" alt="Promote trusted artifacts" />
-        </figure>
+      <div class="row">
+        <div class="col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_see-how-things-really-work-d44e8c48.svg" title="Visualize your workflow with continuous delivery value stream map" alt="Visualize your workflow" />
+          </figure>
+        </div>
+        <div class="col-sm-8">
+          <h2 class="features__title">See how your workflow really works </h2>
+          <p>
+            GoCD's real power is in the visibility it provides over your end-to-end workflow. GoCD's Value Stream Map
+            lets you track a change from commit to deploy at a glance. And when things go wrong, it's easy to see both
+            the upstream cause and the downstream effects. p
+          </p>
+        </div>
+        <hr/>
       </div>
-      <div class="col-sm-pull-4 col-sm-8">
-        <h2 class="features__title">Promote trusted artifacts</h2>
-        <p>
-          Every pipeline instance is anchored to a particular changeset. GoCD makes it easy to pass once-built
-          binaries between stages so you know exactly what's being deployed and that the binary has been tested.
-        </p>
+      <div class="row">
+        <div class=" col-sm-push-8 col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_deploy-any-version-anytime-b7041220.svg" title="Continuous Delivery, deploy any version, any time" alt="Deploy any version at any time" />
+          </figure>
+        </div>
+        <div class="col-sm-pull-4 col-sm-8">
+          <h2 class="features__title">Deploy any version, any time</h2>
+          <p>
+            GoCD's manual triggers allow you to deploy any known good version of your application to wherever you
+            like. This increases reliability of pushing to production, and empowers QA teams with self-service
+            environments. And, if necessary, it's securable and auditable.
+          </p>
+        </div>
+        <hr/>
       </div>
-      <hr/>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <figure>
-          <img src="assets/images/icons/go.cd_see-how-things-really-work-d44e8c48.svg" title="Visualize your workflow with continuous delivery value stream map" alt="Visualize your workflow" />
-        </figure>
+      <div class="row">
+        <div class="col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_run-and-grok-your-tests-f25e60ad.svg" title="Run and grok your automated tests" alt="Run and grok your tests" />
+          </figure>
+        </div>
+        <div class="col-sm-8">
+          <h2 class="features__title">Run and grok your tests</h2>
+          <p>
+            Verification is a key piece of any deployment pipeline. GoCD will execute tests written in most languages or
+            frameworks. GoCD's agent grid provides parallel and cross-platform execution. GoCD's test reporting will tell
+            you in exactly which changeset and on which platform a test started breaking, which comes in extremely handy
+            when fixing a complex broken build.
+          </p>
+        </div>
+        <hr/>
       </div>
-      <div class="col-sm-8">
-        <h2 class="features__title">See how your workflow really works
-        </h2>
-        <p>
-          GoCD's real power is in the visibility it provides over your end-to-end workflow. GoCD's Value Stream Map
-          lets you track a change from commit to deploy at a glance. And when things go wrong, it's easy to see both
-          the upstream cause and the downstream effects.
-        </p>
-      </div>
-      <hr/>
-    </div>
-    <div class="row">
-      <div class=" col-sm-push-8 col-sm-4">
-        <figure>
-          <img src="assets/images/icons/go.cd_deploy-any-version-anytime-b7041220.svg" title="Continuous Delivery, deploy any version, any time" alt="Deploy any version at any time" />
-        </figure>
-      </div>
-      <div class="col-sm-pull-4 col-sm-8">
-        <h2 class="features__title">Deploy any version, any time</h2>
-        <p>
-          GoCD's manual triggers allow you to deploy any known good version of your application to wherever you
-          like. This increases reliability of pushing to production, and empowers QA teams with self-service
-          environments. And, if necessary, it's securable and auditable.
-        </p>
-      </div>
-      <hr/>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <figure>
-          <img src="assets/images/icons/go.cd_run-and-grok-your-tests-f25e60ad.svg" title="Run and grok your automated tests" alt="Run and grok your tests" />
-        </figure>
-      </div>
-      <div class="col-sm-8">
-        <h2 class="features__title">Run and grok your tests</h2>
-        <p>
-          Verification is a key piece of any deployment pipeline. GoCD will execute tests written in most languages or
-          frameworks. GoCD's agent grid provides parallel and cross-platform execution. GoCD's test reporting will tell
-          you in exactly which changeset and on which platform a test started breaking, which comes in extremely handy
-          when fixing a complex broken build.
-        </p>
-      </div>
-      <hr/>
-    </div>
-    <div class='row'>
-      <div class="downloadbanner">
+      <div class='row'>
+        <div class="downloadbanner">
   <div class="container">
     <div class="banner-with-cta">
       <p>Get started with simplifying continuous delivery. Download and use <span class="go">Go</span>CD for free</p>
@@ -160,82 +165,121 @@
   </div>
 </div>
 
+      </div>
+      <div class="row">
+        <div class="col-sm-push-8 col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_compare-builds-a87196c2.svg" title="Compare builds - continuous delivery deployment pipelines" alt="Compare builds" />
+          </figure>
+        </div>
+        <div class="col-sm-pull-4 col-sm-8">
+          <h2 class="features__title">Compare builds</h2>
+          <p>
+            GoCD's compare builds feature can provide a simple bill of materials for any deployment. Perhaps more
+            powerful is its ability to compare the content - both files and commit messages - across any two arbitrary
+            builds. This is invaluable when troubleshooting a broken pipeline.
+          </p>
+        </div>
+        <hr/>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_eliminate-bottlenecks-c1266c2a.svg" title="Eliminate bottlenecks" alt="Eliminate bottlenecks" />
+          </figure>
+        </div>
+        <div class="col-sm-8">
+          <h2 class="features__title">Eliminate bottlenecks</h2>
+          <p>
+            GoCD's agent grid eliminates bottlenecks, providing trivial parallel execution across pipelines, platforms,
+            versions, branches, etc.
+          </p>
+        </div>
+        <hr/>
+      </div>
+      <div class="row">
+        <div class="col-sm-push-8 col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_keep-configuration-tidy-2129d3db.svg" title="Keep pipeline configuration tidy" alt="Keep pipeline configuration tidy" />
+          </figure>
+        </div>
+        <div class="col-sm-pull-4 col-sm-8">
+          <h2 class="features__title">Keep configuration tidy</h2>
+          <p>
+            Easily reuse pipeline configurations via GoCD's template system. This makes managing pipelines for versions
+            and branches easy as pie.
+          </p>
+        </div>
+        <hr/>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_trust-your-team-f21f86c3.svg" title="Trust your team - be responsible" alt="Trust your team" />
+          </figure>
+        </div>
+        <div class="col-sm-8">
+          <h2 class="features__title">Trust your team; be responsible</h2>
+          <p>
+            While most enterprise applications go overboard with their permission model, GoCD seeks to provide just
+            enough. In particular, GoCD supports auditable deployment and can delegate the configuration of pipelines to
+            users without full-blown admin privileges.
+          </p>
+        </div>
+        <hr/>
+      </div>
+      <div class="row">
+        <div class="col-sm-push-8 col-sm-4">
+          <figure>
+            <img src="assets/images/icons/go.cd_plugins-d2b1494a.svg" title="GoCD open source plugins" alt="GoCD open source plugins" />
+          </figure>
+        </div>
+        <div class="col-sm-pull-4 col-sm-8">
+          <h2 class="features__title">Plugins</h2>
+          <p>
+            GoCD has extension points for which plugins can be created. There are <a href="plugins/" analytics-label="link_whygocd_plugins">numerous plugins</a> already available, or if you don't see what you need, you can <a href="https://developer.gocd.org/current/writing_go_plugins/go_plugins_basics.html" analytics-label="link_whygocd_plugin_writing_docs">write your own</a>.
+          </p>
+        </div>
+        <hr/>
+      </div>
     </div>
+  <div class="screenshots chocolat-parent"  data-chocolat-title="set title">
+    <h2 class="features__title">Screenshots</h2>
     <div class="row">
-      <div class="col-sm-push-8 col-sm-4">
+      <div class="col-sm-6">
         <figure>
-          <img src="assets/images/icons/go.cd_compare-builds-a87196c2.svg" title="Compare builds - continuous delivery deployment pipelines" alt="Compare builds" />
+          <a href="assets/images/screenshots/dashboard-one-red-dpr-2-47786f31.png" class="chocolat-image" title="Dashboard">
+            <img src="assets/images/screenshots/thumb/dashboard-one-red-dpr-2-78e13058.jpg" title="Dashboard" alt="Dashboard" />
+          </a>
+          <h5>Dashboard</h5>
         </figure>
       </div>
-      <div class="col-sm-pull-4 col-sm-8">
-        <h2 class="features__title">Compare builds</h2>
-        <p>
-          GoCD's compare builds feature can provide a simple bill of materials for any deployment. Perhaps more
-          powerful is its ability to compare the content - both files and commit messages - across any two arbitrary
-          builds. This is invaluable when troubleshooting a broken pipeline.
-        </p>
-      </div>
-      <hr/>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <figure>
-          <img src="assets/images/icons/go.cd_eliminate-bottlenecks-c1266c2a.svg" title="Eliminate bottlenecks" alt="Eliminate bottlenecks" />
+          <a href="assets/images/screenshots/console-with-timestamps-dpr-2-bdff4d74.png"  class="chocolat-image" title="caption image 2">
+            <img src="assets/images/screenshots/thumb/console-with-timestamps-dpr-2-e88885c9.jpg" title="Console with timestamp" alt="Console with timestamp" />
+          </a>
+          <h5>Console with timestamp</h5>
         </figure>
       </div>
-      <div class="col-sm-8">
-        <h2 class="features__title">Eliminate bottlenecks</h2>
-        <p>
-          GoCD's agent grid eliminates bottlenecks, providing trivial parallel execution across pipelines, platforms,
-          versions, branches, etc.
-        </p>
-      </div>
-      <hr/>
     </div>
     <div class="row">
-      <div class="col-sm-push-8 col-sm-4">
+      <div class="col-sm-6">
         <figure>
-          <img src="assets/images/icons/go.cd_keep-configuration-tidy-2129d3db.svg" title="Keep pipeline configuration tidy" alt="Keep pipeline configuration tidy" />
+          <a href="assets/images/screenshots/agent-dpr-2-aca2697a.png" class="chocolat-image"  title="caption image 3">
+            <img src="assets/images/screenshots/thumb/agent-dpr-2-48865502.jpg" title="Agents" alt="Agents" />
+          </a>
+          <h5>Agents</h5>
         </figure>
       </div>
-      <div class="col-sm-pull-4 col-sm-8">
-        <h2 class="features__title">Keep configuration tidy</h2>
-        <p>
-          Easily reuse pipeline configurations via GoCD's template system. This makes managing pipelines for versions
-          and branches easy as pie.
-        </p>
-      </div>
-      <hr/>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <figure>
-          <img src="assets/images/icons/go.cd_trust-your-team-f21f86c3.svg" title="Trust your team - be responsible" alt="Trust your team" />
+          <a href="assets/images/screenshots/vsm-dpr-2-53771298.png" class="chocolat-image"  title="caption image 4">
+            <img src="assets/images/screenshots/thumb/vsm-dpr-2-26160f09.jpg" title="Value stream map" alt="Value stream map" />
+          </a>
+          <h5>Value stream map</h5>
         </figure>
       </div>
-      <div class="col-sm-8">
-        <h2 class="features__title">Trust your team; be responsible</h2>
-        <p>
-          While most enterprise applications go overboard with their permission model, GoCD seeks to provide just
-          enough. In particular, GoCD supports auditable deployment and can delegate the configuration of pipelines to
-          users without full-blown admin privileges.
-        </p>
-      </div>
-      <hr/>
-    </div>
-    <div class="row">
-      <div class="col-sm-push-8 col-sm-4">
-        <figure>
-          <img src="assets/images/icons/go.cd_plugins-d2b1494a.svg" title="GoCD open source plugins" alt="GoCD open source plugins" />
-        </figure>
-      </div>
-      <div class="col-sm-pull-4 col-sm-8">
-        <h2 class="features__title">Plugins</h2>
-        <p>
-          GoCD has extension points for which plugins can be created. There are <a href="plugins/" analytics-label="link_whygocd_plugins">numerous plugins</a> already available, or if you don't see what you need, you can <a href="https://developer.gocd.org/current/writing_go_plugins/go_plugins_basics.html" analytics-label="link_whygocd_plugin_writing_docs">write your own</a>.
-        </p>
-      </div>
-      <hr/>
     </div>
   </div>
   <div class='row'>
@@ -311,7 +355,6 @@
     </div>
 
   </body>
-
   <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
