@@ -7,15 +7,17 @@
   }
 
 }
-.subscribe-title{
-  margin:0;
-  font-size:18px;
-  font-weight: 600;
-  @media (min-width:$screen-tablet) {
-  font-size:22px;
-  font-weight: 300;
 
+.subscribe-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+
+  @media (min-width:$screen-tablet) {
+    font-size: 22px;
+    font-weight: 300;
   }
+
 }
 
 .subscribe-content {
@@ -25,16 +27,8 @@
 
 }
 
-.mktoButtonWrap.mktoSimple {
-  margin: 0 !important;
-
-  @media (min-width:$screen-tablet) {
-    margin-left: 0px !important;
-  }
-
-}
-
-.subscribe-form, .subscribe-to-blog {
+.subscribe-form,
+.subscribe-to-blog {
   padding: 20px;
   margin-top: 30px;
 
@@ -43,12 +37,13 @@
     margin-bottom: 30px;
   }
 
-  form{
-    margin-top: 20px!important;
-    @media (min-width:$screen-desktop) {
-    margin-top: 0!important;
+  form {
+    margin-top: 20px !important;
 
+    @media (min-width:$screen-desktop) {
+      margin-top: 0 !important;
     }
+
   }
 
   .mktoForm input[type=text],
@@ -81,64 +76,103 @@
     background-image: -moz-linear-gradient(top, #99c47c, #75ae4c);
     background-image: none;
     margin-top: 20px;
-    border:0;
+    border: 0;
     position: relative;
-    top:2px;
+    top: 2px;
+
     @media (min-width:$screen-tablet) {
-      margin-top: 0px ;
+      margin-top: 0px;
     }
+
+    &:hover {
+      border: 0;
+    }
+
   }
 
 }
-.subscribe-to-blog #mktoForm_5414 .mktoButtonWrap.mktoSimple{
-  margin-left: -15px !important;
+
+.subscribe-to-blog {
+  #mktoForm_5414 .mktoButtonWrap.mktoSimple {
+    margin-left: -15px !important;
+  }
+
+  .mktoForm .mktoRequiredField label.mktoLabel {
+    width: 100px !important;
+  }
+
+  .mktoButtonWrap.mktoSimple {
+    margin: 0 !important;
+
+    @media (min-width:$screen-tablet) {
+      margin-left: 0px !important;
+    }
+
+  }
+
 }
 
-.mktoForm .mktoRequiredField label.mktoLabel{
-  width:100px!important;
-}
+.subscribe-to-blog {
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 30px;
+  padding: 20px;
+  text-align: center;
 
-.subscribe-to-blog{
-    border-top: 1px solid #CCC;
-    border-bottom: 1px solid #CCC;
-    margin-bottom: 30px;
-    padding: 20px;
+  // Marketo form overrides
+  #mktoForm_5414 {
+    width: 250px !important;
     text-align: center;
+    margin: 10px auto;
 
-    // Marketo form overrides
-    #mktoForm_5414{
-      width: 250px !important;
-      text-align: center;
-      margin: 10px auto;
-      @media (min-width:$screen-tablet) {
-        width:auto !important;
-      }
-      @media (min-width:$screen-desktop) {
-        margin: 0 auto;
-      }      
-      .mktoFormRow{
-        display: inline-block;
-        vertical-align: middle;
-      }
-      .mktoButtonWrap.mktoSimple{
-        margin: 0 !important;
-      }
-      .mktoFormCol{
-        margin-bottom: 0px !important;
-      }
+    @media (min-width:$screen-tablet) {
+      width: auto !important;
     }
- }
 
- .post{
-    .subscribe-to-blog{
-      #mktoForm_5414{
-        .mktoButtonWrap.mktoSimple{
-          display: block;
-          margin: 10px !important;
-        }
-        .mktoEmailField{
-          width: 100% !important;
-        }
-      }
+    @media (min-width:$screen-desktop) {
+      margin: 0 auto;
     }
- }
+
+    .mktoFormRow {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .mktoButtonWrap.mktoSimple {
+      margin: 0 !important;
+    }
+
+    .mktoFormCol {
+      margin-bottom: 0px !important;
+    }
+
+  }
+
+}
+
+.post {
+  .subscribe-to-blog {
+    #mktoForm_5414 {
+      .mktoButtonWrap.mktoSimple {
+        display: block;
+        margin: 10px !important;
+      }
+
+      .mktoEmailField {
+        width: 100% !important;
+      }
+
+    }
+
+  }
+
+}
+
+//subscribe page
+
+.subscribe {
+  .mktoButtonWrap.mktoSimple {
+    margin-left: 165px !important;
+  }
+
+}
