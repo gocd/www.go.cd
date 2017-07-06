@@ -1,22 +1,21 @@
 .blog-list {
   padding: 0;
-
 }
 
 .rss-feed {
   background: url(/assets/images/rss-icon.png) no-repeat 0 0;
   color: #fff;
   height: 32px;
-  display:block;
+  display: block;
   line-height: 32px;
   font-size: 16px;
   padding-left: 40px;
   margin-top: 10px;
 
   @media (min-width:$screen-tablet) {
-  margin-top: 0;
-  bottom: 10px;
-  position: absolute;
+    margin-top: 0;
+    bottom: 10px;
+    position: absolute;
     right: 30px;
     top: 50%;
     transform: translateY(-50%);
@@ -63,6 +62,11 @@
   transition: all 0.3s ease-in-out;
   top: 0;
   box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.75);
+
+  @media (min-width:$screen-tablet) {
+    height: 239px;
+  }
+
 }
 
 .post-title {
@@ -250,6 +254,7 @@
     color: white;
     padding: 3px;
   }
+
 }
 
 .blog-post-header {
@@ -360,26 +365,31 @@
   .blog-details {
     background: #fff;
   }
-  .latest-blog &{
-   > .post-link{
-      float:left;
-      @media (min-width:$screen-tablet) {
-      width:60%;
 
+  .latest-blog & {
+    > .post-link {
+      float: left;
+
+      @media (min-width:$screen-tablet) {
+        width: 60%;
       }
+
       @media (min-width:$screen-lg-desktop) {
-        width:66%
+        width: 66%
       }
+
     }
-    .blog-details{
-      float:left;
-      @media (min-width:$screen-tablet) {
-      width:40%;
 
+    .blog-details {
+      float: left;
+
+      @media (min-width:$screen-tablet) {
+        width: 40%;
       }
+
       @media (min-width:$screen-lg-desktop) {
-        width:34%
-      }      
+        width: 34%
+      }
 
     }
 
@@ -387,22 +397,27 @@
 
 }
 
-.blogs{
+.blogs {
   list-style-type: none;
-  margin:0 -10px;
-  padding:0;
-  .item{
+  margin: 0 -10px;
+  padding: 0;
+
+  .item {
     display: inline-block;
     vertical-align: top;
-    padding:0 10px;
-    width:100%; 
+    padding: 0 10px;
+    width: 100%;
+
     @media (min-width:$screen-sm) {
-    width:calc(50% - 3px);
+      width: calc(50% - 3px);
     }
+
     @media (min-width:$screen-md) {
-    width: calc(33.3% - 3px);
+      width: calc(33.3% - 3px);
     }
+
   }
+
 }
 
 .blog-list-item {
@@ -462,60 +477,66 @@
 
 }
 
-.blog_index .go, .blog-post .go {
+.blog_index .go,
+.blog-post .go {
   text-transform: none;
 }
 
- .tags{
-   margin-bottom: 0px;
+.tags {
+  margin-bottom: 0px;
   font-size: 13px;
- }
- .tag{
-   display: inline-block;
-   position: relative;
-   background: #ccc;
-   border-radius: 3px 0 0 3px;
-   color: #000;
-   padding: 0 20px 0 23px;
-   margin-right: 5px;
-   text-decoration: none;
-   max-width: 520px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    cursor: pointer;
-    &:before {
-      background: #fff;
-      border-radius: 10px;
-      content: '';
-      height: 6px;
-      left: 10px;
-      position: absolute;
-      width: 6px;
-      top: 10px;
-    }
+}
 
-    &:after {
-      background: #fff;
-      border-bottom: 13px solid transparent;
-      border-left: 10px solid #ccc;
-      border-top: 13px solid transparent;
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
+.tag {
+  display: inline-block;
+  position: relative;
+  background: #ccc;
+  border-radius: 3px 0 0 3px;
+  color: #000;
+  padding: 0 20px 0 23px;
+  margin-right: 5px;
+  text-decoration: none;
+  max-width: 520px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
 
-    &:hover {
-      background-color: #94399E;
-      color: white;
-      &:after{
-        border-left-color: #94399E;
-      }
-    }
+  &:before {
+    background: #fff;
+    border-radius: 10px;
+    content: '';
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px;
   }
 
-.info_txt{
+  &:after {
+    background: #fff;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #ccc;
+    border-top: 13px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &:hover {
+    background-color: #94399E;
+    color: white;
+
+    &:after {
+      border-left-color: #94399E;
+    }
+
+  }
+
+}
+
+.info_txt {
   font-size: 0.75em;
   text-align: center;
   width: 100%;
