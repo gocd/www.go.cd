@@ -15,10 +15,16 @@
 
     <title>.NET Core and GoCD | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-58402f5f.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-4d5f4809.js"></script>
+    <link href="../../../../assets/stylesheets/site-e7c33984.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-ebf21de5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
   </head>
 
   <body class="x2016 x2016_07 x2016_07_13 x2016_07_13_DotNet-Core-and-GoCD x2016_07_13_DotNet-Core-and-GoCD_index">
@@ -364,22 +370,26 @@ package.cmd %GO_PIPELINE_LABEL%
         <section  class="recent-ariticles">
           <section class='post'>
  -            <div class='subscribe-to-blog'>
-   <div class='subscribe-title'>
-     <p>Subscribe to the GoCD blog</p>
-   </div>
-   <div>
-     Subscribe and stay connected with the GoCD Blog. We send a monthly update of what's new in the world of continuous delivery, devops and software development practices.
-   </div>
-   <div>
+<div class="row">
+  <div class="col-md-4">
+   <h3 class='subscribe-title'> Subscribe to the GoCD blog</h3> 
+  </div>
+  <div class="col-md-8">
      <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
      <form id="mktoForm_5414"></form>
      <script>MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);</script>
-   </div>
+  </div>
+</div>
 </div>
 
  -          </section>
           <h2 class="section-title">Recent Articles</h2>
           <ol>
+            <li>
+              <span class="post-date">Jul  6</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2017/07/06/introduction-continuous-delivery-101/">An introduction to continuous delivery - CD 101</a>
+            </li>
             <li>
               <span class="post-date">Jul  5</span>
               <span class="post-author">Suzie Prince</span>
@@ -400,17 +410,12 @@ package.cmd %GO_PIPELINE_LABEL%
               <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
               <a href="../../../../2017/06/20/hotfixes-rollback-rollforward/">Part 7 - Preparing for emergency deployments and rollbacks: Modeling Deployment Pipelines</a>
             </li>
-            <li>
-              <span class="post-date">Jun 13</span>
-              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
-              <a href="../../../../2017/06/13/modeling-deployment-pipelines-agents-environments/">Part 6 - Under the hood of Deployment Pipelines: Modeling Deployment Pipelines</a>
-            </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../../../2017/">2017 (17)</a></li>
+            <li><a href="../../../../2017/">2017 (18)</a></li>
             <li><a href="../../../">2016 (8)</a></li>
             <li><a href="../../../../2015/">2015 (21)</a></li>
             <li><a href="../../../../2014/">2014 (26)</a></li>
@@ -507,7 +512,6 @@ package.cmd %GO_PIPELINE_LABEL%
     </div>
 
   </body>
-
   <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
