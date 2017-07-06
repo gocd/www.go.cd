@@ -30,11 +30,11 @@
       <aside class="post-sidebar">
         <section  class="recent-ariticles">
           <section class='post'>
- -            <%= partial 'partials/_subscribe_to_blog.html.erb' %>
- -          </section>
+            <%= partial 'partials/_subscribe_to_blog.html.erb' %>
+          </section>
           <h2 class="section-title">Recent Articles</h2>
           <ol>
-            <% blog.articles[0...5].each do |article| %>
+            <% selected_articles_for_display_in(blog.articles)[0...5].each do |article| %>
             <li>
               <span class="post-date"><%= article.date.strftime('%b %e') %></span>
               <span class="post-author"><%= article.data["author"] %></span>
@@ -46,7 +46,7 @@
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
+            <% selected_articles_for_display_in(blog.articles).group_by {|a| a.date.year }.each do |year, articles| %>
             <li><%= link_to "#{year} (#{articles.size})", blog_year_path(year).sub(/\.html$/, '/index.html') %></li>
             <% end %>
           </ol>
