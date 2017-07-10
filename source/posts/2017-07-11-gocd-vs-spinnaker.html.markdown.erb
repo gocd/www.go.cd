@@ -11,19 +11,19 @@ summary_image: "/assets/images/blog/gocd-vs-spinnaker/gocd-vs-spinnaker-hero.jpg
 draft: true
 ---
 
-With Continuous Delivery adoption on the rise, tools that help teams with CD are becoming popular too. GoCD and Spinnaker are two sought after tools in this space. We are often asked how they compare - “GoCD or Spinnaker?”  and the truth is that these tools solve different problems and are not interchangeable. Before we delve further, here’s a quick refresher on Continuous Delivery.
+With Continuous Delivery (CD) adoption on the rise, tools that help teams with CD are becoming popular too. GoCD and Spinnaker are two sought after tools in this space. We are often asked how they compare - “GoCD or Spinnaker?”  and the truth is that these tools solve different problems and are not interchangeable. Before we delve further, here’s a quick refresher on Continuous Delivery.
 
 ## Continuous Delivery
 
 > Continuous Delivery is the ability to get changes of all types—including new features, configuration changes, bug fixes and experiments—into production, or into the hands of users, safely and quickly in a sustainable way - Jez Humble
 
-Continuous Delivery (CD) is an overarching practice that includes Build Automation or Continuous Integration, Test Automation and Deployment Automation. By automating these concerns in a Continuous Delivery pipeline you are enabling your software to be releasable to production at any time. A CD workflow is incomplete if it doesn’t address all of these concerns.  
+Continuous Delivery is an overarching practice that includes Build Automation or Continuous Integration, Test Automation and Deployment Automation. By automating these concerns in a Continuous Delivery pipeline you are enabling your software to be releasable to production at any time. A CD workflow is incomplete if it doesn’t address all of these concerns.  
 
 <div align = "center">
 <%= image_tag 'blog/gocd-vs-spinnaker/concerns-CD-workflow.jpeg', :alt => 'Concerns addressed in a CD workflow', :title => 'Concerns addressed in a CD workflow' %>
 </div>
 
-Continuous Delivery has its roots in the lean principle of <%= link_to 'value stream mapping', 'https://en.wikipedia.org/wiki/Value_stream_mapping' %> to improve the efficiency of software delivery, by identifying and eliminating waste in the process. An efficient software release process must model this value stream effectively. A good visualization of the current state goes a long way in finding and removing bottlenecks.
+Continuous Delivery has its roots in the lean principle of <a href="https://en.wikipedia.org/wiki/Value_stream_mapping" target="_blank">value stream mapping</a> to improve the efficiency of software delivery, by identifying and eliminating waste in the process. For organizations looking to introduce efficiency in their release engineering with CD, an understanding of their value stream is crucial. An efficient software release process must model this value stream effectively. A good visualization of the current state goes a long way in finding and removing bottlenecks.
 
 As Continuous Delivery becomes more popular as a practice, so do some of the tools that enable this practice. GoCD and Spinnaker are two of the popular tools in this space.
 
@@ -46,7 +46,7 @@ GoCD is open source and provides a plugin architecture that lets you extend its 
 
 ## Spinnaker
 
-Spinnaker is a best-in-class multi-cloud deployment automation tool built at Netflix to handle deployments to large clusters on AWS. Spinnaker does not model the end to end Continuous Delivery workflow. You have to integrate with a Continuous Integration tool like <%= link_to 'Jenkins', '/posts/2017-04-25-gocd-over-jenkins.html' %> to automate the build and test automation stages for your CD workflow.
+Spinnaker is a best-in-class multi-cloud deployment automation tool built at Netflix to handle deployments to large clusters on AWS. Spinnaker does not model the end to end Continuous Delivery workflow. You have to integrate with a Continuous Integration tool like <a href="/2017/04/25/gocd-over-jenkins/" target="_blank">Jenkins</a> to automate the build and test automation stages for your CD workflow.
 
 Spinnaker provides cloud abstractions such as applications, deployments and clusters out of the box. These abstractions enable you to automate deployments relatively quickly and without the need for much scripting. Though Spinnaker has the concept of pipelines, they are specific to deployments and don’t model a complete Continuous Delivery workflow, from commit to production.
 
@@ -65,6 +65,6 @@ Spinnaker doesn’t support a plugin model but provides extension points to supp
 
 ## Summary
 
-In summary, GoCD is a best-in-class Continuous Delivery server that allows you to represent complex CD workflows to any environment. If you are looking to represent your end-to-end CD workflow with good visualizations of your value stream, artifact lineage and pipeline current state, consider GoCD.
+In summary, GoCD is a best-in-breed Continuous Delivery server that allows you to represent complex CD workflows to any environment. If you are looking to represent your end-to-end CD workflow with good visualizations of your value stream, artifact lineage and pipeline current state, consider GoCD.
 
 If you are managing large scale clusters and can benefit from the Netflix style deployment patterns and cloud native abstractions, consider Spinnaker. Spinnaker focuses on one thing, deployments, and does it well. You will have to use additional tools to design an end-to-end CD workflow.
