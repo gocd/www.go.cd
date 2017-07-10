@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-07-06T00:00:00Z</updated>
+  <updated>2017-07-10T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Continuous Delivery: GoCD vs Spinnaker</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/07/10/gocd-vs-spinnaker.html"/>
+    <id>https://www.gocd.org/2017/07/10/gocd-vs-spinnaker.html</id>
+    <published>2017-07-10T00:00:00Z</published>
+    <updated>2017-07-10T00:00:00Z</updated>
+    <author>
+      <name>Sheroy Marker (Head of Technology), ThoughtWorks Products</name>
+    </author>
+    <content type="html">This post is an overview of GoCD and Spinnaker, why they are different from each other and which problems you should use them to solve.</content>
+  </entry>
   <entry>
     <title>The Product Managers’ Guide to Continuous Delivery and DevOps</title>
     <link rel="alternate" href="https://www.gocd.org/2017/07/05/product-manager-guide-continuous-delivery.html"/>
@@ -16,7 +27,7 @@
     <published>2017-07-05T00:00:00Z</published>
     <updated>2017-07-05T00:00:00Z</updated>
     <author>
-      <name>Suzie Prince</name>
+      <name>Suzie Prince (Head of Product), ThoughtWorks Products</name>
     </author>
     <content type="html">If you're in tech, a product manager or an MBA and are curious about what continuous delivery is and what a DevOps culture looks like, this beginner's guide is for you.</content>
   </entry>
@@ -107,16 +118,5 @@
       <name>Emily Luke (Head of Experience) and Suzie Prince (Head of Product), ThoughtWorks Products</name>
     </author>
     <content type="html">This blog post elaborates the results of our most recent contextual research study, how we conducted the study and our main findings. Our goal was to identify what users know about continuous integration (CI) and continuous delivery (CD) practices.</content>
-  </entry>
-  <entry>
-    <title>What Does Pipelines as Code Really Mean?</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/05/02/what-does-pipelines-as-code-really-mean.html"/>
-    <id>https://www.gocd.org/2017/05/02/what-does-pipelines-as-code-really-mean.html</id>
-    <published>2017-05-02T00:00:00Z</published>
-    <updated>2017-05-02T00:00:00Z</updated>
-    <author>
-      <name>Badri Janakiraman and David Rice</name>
-    </author>
-    <content type="html">There has been increasing interest in defining builds and pipelines as code. We see a rise in the assumption that defining pipelines as code requires the use of a full programming language. This post will  break down how we got to build and pipelines as code and challenge some of the assumptions.</content>
   </entry>
 </feed>

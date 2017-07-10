@@ -4,16 +4,16 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="Part One of this video series CD 101 explains history of CD and helps you get started with continuous delivery." name="description" />
-    <meta content="continuous delivery, CD 101, Continuous delivery 101, getting started with CD, what is continuous delivery, video series, history of cd" name="keywords" />
+    <meta content="This post is an overview of GoCD and Spinnaker, why they are different from each other and which problems you should use them to solve." name="description" />
+    <meta content="continuous delivery, gocd vs spinnaker, gocd, spinnaker, automated deployment spinnaker, gocd continuous delivery, spinnaker cloud abstractions, gocd pipeline" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
-    <meta name="twitter:title" content="An introduction to continuous delivery - CD 101 | GoCD Blog" />
-    <meta name="twitter:description" content="Part One of this video series CD 101 explains history of CD and helps you get started with continuous delivery." />
-    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/continuous-delivery-101/continuous-delivery-101-part1-hero-16be1e69.jpg" />
-    <link rel="canonical" href="https://www.gocd.org/2017/07/06/introduction-continuous-delivery-101.html" />
+    <meta name="twitter:title" content="GoCD vs Spinnaker | GoCD Blog" />
+    <meta name="twitter:description" content="This post is an overview of GoCD and Spinnaker, why they are different from each other and which problems you should use them to solve." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/gocd-vs-spinnaker/gocd-vs-spinnaker-hero-66a667cb.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2017/07/10/gocd-vs-spinnaker.html" />
 
-    <title>An introduction to continuous delivery - CD 101 | GoCD Blog</title>
+    <title>GoCD vs Spinnaker | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../../../assets/stylesheets/site-58402f5f.css" rel="stylesheet" />
     <script src="../../../assets/javascripts/all-4d5f4809.js"></script>
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
   </head>
 
-  <body class="x2017 x2017_07 x2017_07_06 x2017_07_06_introduction-continuous-delivery-101">
+  <body class="x2017 x2017_07 x2017_07_10 x2017_07_10_gocd-vs-spinnaker">
     <header class="top">
   <div class="container">
     <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
@@ -64,49 +64,74 @@
   
 
   <header class="blog-post-header">
-    <h1>An introduction to continuous delivery - CD 101</h1>
-    <h4>Ken Mugrage</h4>
+    <h1>Continuous Delivery: <span class="go">Go</span>CD vs Spinnaker</h1>
+    <h4>Sheroy Marker (Head of Technology), ThoughtWorks Products</h4>
     <p class='tags'>
-<a href="../../../tags/cd-101.html" class="tag">        CD 101
-</a>     </p>
+     </p>
   </header>
 
   <div class="row">
     <div class="col-md-9">
       <main id="main" role="main">
-      <h2 id="what-is-continuous-delivery-101">What is Continuous Delivery 101?</h2>
+      <p>With Continuous Delivery (CD) adoption on the rise, tools that help teams with CD are becoming popular too. GoCD and Spinnaker are two sought after tools in this space. We are often asked how they compare - “GoCD or Spinnaker?”  and the truth is that these tools solve different problems and are not interchangeable. Before we delve further, here’s a quick refresher on Continuous Delivery.</p>
 
-<p>This is a video series to help you get started on your CD journey. <a href="https://kenmugrage.com">Ken Mugrage</a>, an advocate for continuous delivery, will walk you through a collection of 5 short videos. This series will cover the history of CD, basic concepts, best practices, how to get started and popular tools. We will also introduce in-depth readings as we go through these basic concepts with you.</p>
+<h2 id="continuous-delivery">Continuous Delivery</h2>
 
-<p>By the end of the video series, you'll have a holistic view of continuous delivery and a deeper understanding and appreciation of critical concepts.</p>
+<blockquote>
+  <p>Continuous Delivery is the ability to get changes of all types—including new features, configuration changes, bug fixes and experiments—into production, or into the hands of users, safely and quickly in a sustainable way - Jez Humble</p>
+</blockquote>
 
-<h2 id="why-should-you-watch-it">Why should you watch it?</h2>
+<p>Continuous Delivery is an overarching practice that includes Build Automation or Continuous Integration, Test Automation and Deployment Automation. By automating these concerns in a Continuous Delivery pipeline you are enabling your software to be releasable to production at any time. A CD workflow is incomplete if it doesn’t address all of these concerns.</p>
 
-<p>These videos can help you and more specifically, your team, learn to adopt best practices of Continuous Delivery, understand the core concepts of a deployment pipeline, and the history of how Agile and Lean drove these technical practices.</p>
-
-<p>This series is for you if you:</p>
-
-<ul>
-  <li>are looking to get an overview of continuous delivery for yourself</li>
-  <li>are championing DevOps transformation in your organization and need a concise 'getting started' guide for your team</li>
-  <li>think your team are doing continuous delivery but not quite there yet and want to take as step back to refresh the fundamentals</li>
-</ul>
-
-<h2 id="cd-101---part-1---history-and-introduction-to-the-deployment-pipeline">CD 101 - Part 1 - History and Introduction to the deployment pipeline</h2>
-
-<p>In the first part of this series, Ken covers</p>
-
-<ul>
-  <li>a brief history of continuous delivery</li>
-  <li>the difference between continuous delivery and continuous deployment (Yes, they are different)</li>
-  <li>a brief introduction of a 'deployment pipeline'
-<br /></li>
-</ul>
 <div align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HnWuIjUw_Q8" frameborder="0" allowfullscreen=""></iframe>
+<img src="../../../assets/images/blog/gocd-vs-spinnaker/concerns-CD-workflow-b113290e.jpeg" alt="Concerns addressed in a CD workflow" title="Concerns addressed in a CD workflow" />
 </div>
-<p><br />
-Stay tuned for Part 2 of the Continuous Delivery 101 series which talks about the deployment pipeline in more detail.</p>
+
+<p>Continuous Delivery has its roots in the lean principle of <a href="https://en.wikipedia.org/wiki/Value_stream_mapping" target="_blank">value stream mapping</a> to improve the efficiency of software delivery, by identifying and eliminating waste in the process. For organizations looking to introduce efficiency in their release engineering with CD, an understanding of their value stream is crucial. An efficient software release process must model this value stream effectively. A good visualization of the current state goes a long way in finding and removing bottlenecks.</p>
+
+<p>As Continuous Delivery becomes more popular as a practice, so do some of the tools that enable this practice. GoCD and Spinnaker are two of the popular tools in this space.</p>
+
+<h2 id="gocd">GoCD</h2>
+
+<p>GoCD is a best-of-breed Continuous Delivery tool that allows you to orchestrate complex Continuous Delivery workflows. It was the first Continuous Delivery server to provide <em>built-in abstractions</em> to create CD pipelines, <em>along with value stream visualizations</em> for you to be able to truly take stock of the efficiencies (or lack of) in your release process.</p>
+
+<p>GoCD provides the <em>flexibility</em> to introduce the levels of parallelism and manual stages that specific workflows may require. The tool allows you to introduce the right mix of controls such as role based access control for critical stages, and leaves the implementation of the steps to the user.</p>
+
+<p>GoCD does not think of Continuous Integration and Continuous Delivery as disconnected processes. When designing a Continuous Delivery workflow for a non-trivial software system, representing the end to end process, from a developer commit to a production deployment is key.</p>
+
+<div class="imagezoom">
+<img src="../../../assets/images/blog/gocd-vs-spinnaker/gocd-vsm-e76668b8.png" alt="GoCD Value Stream Map" title="GoCD Value Stream Map" />
+<span class="info_txt">GoCD's Value Stream Map</span>
+</div>
+
+<p>With GoCD, you can define your build, test, and deploy stages in the same pipeline with end to end visualization of the process. The value stream view in GoCD gives you the complete picture of your deployment pipeline including <em>traceability and lineage of artifacts</em> that are currently deployed on environments.</p>
+
+<p>GoCD is open source and provides a plugin architecture that lets you extend its ecosystem.</p>
+
+<h2 id="spinnaker">Spinnaker</h2>
+
+<p>Spinnaker is a best-in-class multi-cloud deployment automation tool built at Netflix to handle deployments to large clusters on AWS. Spinnaker does not model the end to end Continuous Delivery workflow. You have to integrate with a Continuous Integration tool like <a href="../../04/25/gocd-over-jenkins.html" target="_blank">Jenkins</a> to automate the build and test automation stages for your CD workflow.</p>
+
+<p>Spinnaker provides cloud abstractions such as applications, deployments and clusters out of the box. These abstractions enable you to automate deployments relatively quickly and without the need for much scripting. Though Spinnaker has the concept of pipelines, they are specific to deployments and don’t model a complete Continuous Delivery workflow, from commit to production.</p>
+
+<p>Spinnaker is prescriptive about deployment patterns with it’s built-in abstractions such as out-of-the-box stage types, immutable images, and deployment strategies. The opinionated nature of the tool is  beneficial for teams that are looking for industry standard solutions to some of these deployment concerns and don’t really want to implement these patterns themselves.</p>
+
+<div class="imagezoom">
+<img src="../../../assets/images/blog/gocd-vs-spinnaker/spinnaker-pipeline-bee01f81.png" alt="Spinnaker’s Pipeline View" title="Spinnaker’s Pipeline View" />
+<span class="info_txt">Spinnaker’s Pipeline View. Image from: https://www.spinnaker.io/guides/tutorials/codelabs/hello-deployment/</span>
+</div>
+
+<p>Spinnaker is designed to handle deployments to popular cloud environments and allows you to define workflows for these deployments. For large software systems, at scales close to the Netflix service, deployment is in itself a complex problem. When you are releasing software to tens of thousands of nodes, concerns such as <em>automated deployment and rollback strategies</em> become key. A tool that provides these abstractions out of the box can be hugely beneficial.</p>
+
+<p>Spinnaker doesn’t support a plugin model but provides extension points to support deployments to new cloud providers. These cloud provider implementations exist for most of the popular cloud providers.</p>
+
+<hr />
+
+<h2 id="summary">Summary</h2>
+
+<p>In summary, GoCD is a best-in-breed Continuous Delivery server that allows you to represent complex CD workflows to any environment. If you are looking to represent your end-to-end CD workflow with good visualizations of your value stream, artifact lineage and pipeline current state, consider GoCD.</p>
+
+<p>If you are managing large scale clusters and can benefit from the Netflix style deployment patterns and cloud native abstractions, consider Spinnaker. Spinnaker focuses on one thing, deployments, and does it well. You will have to use additional tools to design an end-to-end CD workflow.</p>
 
       </main>
     </div>
@@ -132,8 +157,13 @@ Stay tuned for Part 2 of the Continuous Delivery 101 series which talks about th
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <li>
+              <span class="post-date">Jul 10</span>
+              <span class="post-author">Sheroy Marker (Head of Technology), ThoughtWorks Products</span>
+              <a href="gocd-vs-spinnaker/">Continuous Delivery: GoCD vs Spinnaker</a>
+            </li>
+            <li>
               <span class="post-date">Jul  5</span>
-              <span class="post-author">Suzie Prince</span>
+              <span class="post-author">Suzie Prince (Head of Product), ThoughtWorks Products</span>
               <a href="../05/product-manager-guide-continuous-delivery/">The Product Managers’ Guide to Continuous Delivery and DevOps</a>
             </li>
             <li>
@@ -151,17 +181,12 @@ Stay tuned for Part 2 of the Continuous Delivery 101 series which talks about th
               <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
               <a href="../../06/20/hotfixes-rollback-rollforward/">Part 7 - Preparing for emergency deployments and rollbacks: Modeling Deployment Pipelines</a>
             </li>
-            <li>
-              <span class="post-date">Jun 13</span>
-              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
-              <a href="../../06/13/modeling-deployment-pipelines-agents-environments/">Part 6 - Under the hood of Deployment Pipelines: Modeling Deployment Pipelines</a>
-            </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../">2017 (17)</a></li>
+            <li><a href="../../">2017 (18)</a></li>
             <li><a href="../../../2016/">2016 (8)</a></li>
             <li><a href="../../../2015/">2015 (21)</a></li>
             <li><a href="../../../2014/">2014 (26)</a></li>
@@ -178,7 +203,7 @@ Stay tuned for Part 2 of the Continuous Delivery 101 series which talks about th
       <script>
         var disqus_config = function () {
           /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2017/07/06/introduction-continuous-delivery-101.html";
+          this.page.url = "https://www.go.cd/2017/07/10/gocd-vs-spinnaker.html";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
         };
