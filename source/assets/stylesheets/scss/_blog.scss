@@ -60,8 +60,16 @@
   top: 0;
   box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.75);
 
-  @media (min-width:$screen-tablet) {
+    @media (min-width:$screen-tablet) {
     height: 239px;
+  }
+  .latest-blog & {
+      @media (min-width:$screen-tablet) {
+    height: 197px;
+  }
+     @media (min-width:$screen-desktop) {
+        height: 258px;
+      }
   }
 
 }
@@ -74,15 +82,13 @@
   @include ellipsis-txt(460px, 16px, 1.4, 2);
 
   .latest-blog & {
-    margin: 0 0 0px 0;
     @include ellipsis-txt(460px, 16px, 1.4, 2);
-
     @media (min-width:$screen-tablet) {
-      @include ellipsis-txt(680px, 20px, 1.4, 1);
+      @include ellipsis-txt(680px, 16px, 1.4, 2);
     }
 
     @media (min-width:$screen-desktop) {
-      @include ellipsis-txt(720px, 22px, 1.4, 1);
+      @include ellipsis-txt(720px, 17px, 1.4, 2);
     }
 
   }
@@ -95,15 +101,15 @@
 
   .latest-blog & {
     @media (min-width:$screen-tablet) {
-      @include ellipsis-txt(680px, 16px, 1.4, 2);
+      @include ellipsis-txt(680px, 14px, 1.4, 3);
     }
 
     @media (min-width:$screen-desktop) {
-      @include ellipsis-txt(720px, 16px, 1.4, 2);
+      @include ellipsis-txt(720px, 16px, 1.4, 4);
     }
 
     @media (min-width:$screen-lg-desktop) {
-      @include ellipsis-txt(1140px, 16px, 1.4, 2);
+      @include ellipsis-txt(1140px, 16px, 1.4, 5);
     }
 
   }
@@ -144,7 +150,7 @@
         height: 114px;
 
         @media (min-width:$screen-tablet) {
-          height: 303px;
+          height: 197px;
         }
 
         @media (min-width:$screen-desktop) {
@@ -364,17 +370,20 @@
   }
 
   .latest-blog & {
-     .post-summary-image {
-      float: left;
-       border-top-right-radius:0;
-
+    > .post-link{
+       float: left;
       @media (min-width:$screen-tablet) {
-        width: 60%;
+        width: 55%;
       }
 
       @media (min-width:$screen-lg-desktop) {
         width: 66%
       }
+    }
+
+     .post-summary-image {
+       border-top-right-radius:0;
+
 
     }
     >a{
@@ -386,7 +395,7 @@
       float: left;
 
       @media (min-width:$screen-tablet) {
-        width: 40%;
+        width: 45%;
       }
 
       @media (min-width:$screen-lg-desktop) {
@@ -462,11 +471,11 @@
       height: 114px;
 
       @media (min-width:$screen-tablet) {
-        height: 215px;
+        height: 197px;
       }
 
       @media (min-width:$screen-desktop) {
-        height: 280px;
+        height: 258px;
       }
 
       @media (min-width:$screen-lg-desktop) {
