@@ -21,4 +21,12 @@
   author_name: ThoughtWorks Inc.
   contact_url: mailto:support@thoughtworks.com?subject=Info about LDAP/AD Authentication Plugin
   paid: true
-
+  
+- name: Atlassian Crowd Authentication Plugin
+  description: Delegates authentication services to Atlasian Crowd
+  readmore_url: https://github.com/mgambini/crowd-integration-plugin
+  author_url: http://www.ditechonline.it/
+  author_name: Di.Tech S.p.A.
+  releases_url: https://github.com/mgambini/crowd-integration-plugin/releases
+  contact_url: mailto:marco.gambini@ditechspa.it?subject=Info about Crowd Authentication Plugin
+  paid: false
