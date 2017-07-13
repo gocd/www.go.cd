@@ -60,3 +60,12 @@
   releases_url: https://github.com/TWChennai/gocd-git-path-material-plugin/releases
   github_stars: https://ghbtns.com/github-btn.html?user=TWChennai&repo=gocd-git-path-material-plugin&type=star&count=true
   first_available_data: 10/2016
+  
+- name: Phabricator Staging Area Material
+  description: Plugin to properly handle Phabricator staging areas as a SCM material.
+  readmore_url: https://github.com/kszatan/gocd-phabricator-staging-material
+  author_url: https://kszatan.github.io/
+  author_name: Krzysztof Szatan
+  releases_url: https://github.com/kszatan/gocd-phabricator-staging-material/releases
+  github_stars: https://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-phabricator-staging-material&type=star&count=true
+  first_available_data: 07/2017
