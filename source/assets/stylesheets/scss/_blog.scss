@@ -27,29 +27,6 @@
 
 }
 
-.blog-list-item {
-  @media (min-width:$screen-lg-desktop) {
-    &:hover {
-      .blog-details {
-        top: -5px;
-        transition: all 0.3s ease-in-out;
-        -webkit-box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.75);
-        -moz-box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.75);
-        box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.75);
-      }
-    }
-
-  }
-  &.latest-blog{
-    &:hover{
-      .blog-details{
-        border:0;
-      }
-    }
-  }
-
-}
-
 .blog-details {
   background: $gray-lighter;
   border-top: 5px solid #fff;
