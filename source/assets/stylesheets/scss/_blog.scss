@@ -79,16 +79,21 @@
   text-transform: uppercase;
   margin: 0 0 10px 0;
   color: #333;
-  @include ellipsis-txt(460px, 16px, 1.4, 2);
+  font-size: 15px;
+  line-height: 22px;
+  // @include ellipsis-txt(460px, 16px, 1.4, 2);
 
   .latest-blog & {
-    @include ellipsis-txt(460px, 16px, 1.4, 2);
+    // @include ellipsis-txt(460px, 16px, 1.4, 2);
+    font-size: 16px;
     @media (min-width:$screen-tablet) {
-      @include ellipsis-txt(680px, 16px, 1.4, 2);
+      // @include ellipsis-txt(680px, 16px, 1.4, 2);
+      font-size: 16px;
     }
 
     @media (min-width:$screen-desktop) {
-      @include ellipsis-txt(720px, 17px, 1.4, 2);
+      // @include ellipsis-txt(720px, 17px, 1.4, 2);
+      font-size: 17px;
     }
 
   }
@@ -96,20 +101,20 @@
 }
 
 .excerpt {
-  @include ellipsis-txt(460px, 14px, 1.4, 4);
+  @include ellipsis-txt(460px, 14px, 1.4, 3);
   color: #333;
 
   .latest-blog & {
     @media (min-width:$screen-tablet) {
-      @include ellipsis-txt(680px, 14px, 1.4, 3);
+      @include ellipsis-txt(680px, 14px, 1.4, 2);
     }
 
     @media (min-width:$screen-desktop) {
-      @include ellipsis-txt(720px, 16px, 1.4, 4);
+      @include ellipsis-txt(720px, 16px, 1.4, 2);
     }
 
     @media (min-width:$screen-lg-desktop) {
-      @include ellipsis-txt(1140px, 16px, 1.4, 5);
+      @include ellipsis-txt(1140px, 16px, 1.4, 2);
     }
 
   }
