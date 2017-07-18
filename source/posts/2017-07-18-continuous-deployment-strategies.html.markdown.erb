@@ -11,7 +11,7 @@ summary_image: "/assets/images/blog/continuous-deployment-strategies/continuous-
 tags: Continuous Deployment Strategies
 ---
 
-Not very long ago, during the days of Perl/CGI and PHP (and even today); deployments involved ftp-ing your files to the webserver directory and running a bunch of migrations by shelling into the webserver.
+Not very long ago, during the days of Perl/CGI and PHP (and even today); deployments involved 'ftp-ing' your files to the webserver directory and running a bunch of migrations by shelling into the webserver.
 
 Modern webapps and application servers have evolved quite a bit since then, but many developers continue to use similar strategies to perform deployments. FTP has been replaced by git pull followed by bundle install or npm install and then restarting the appserver that you use.
 
@@ -25,9 +25,9 @@ It is generally difficult to set up a new server if your existing server has pro
 
 Over time, one loses track of the magic configuration files, packages and services that are installed on the production machines.
 
-## [Phoenix servers](http://martinfowler.com/bliki/PhoenixServer.html)
+## Phoenix servers
 
-Some of these issues can be addressed by using a bit of configuration management tools like [chef](https://www.chef.io/), [puppet](https://puppetlabs.com/), or [ansible](http://www.ansible.com/home) among a few others.
+Some of these issues [can be addressed](http://martinfowler.com/bliki/PhoenixServer.html) by using a bit of configuration management tools like [chef](https://www.chef.io/), [puppet](https://puppetlabs.com/), or [ansible](http://www.ansible.com/home) among a few others.
 
 These tools help avoid configuration drift, the sort of one-off changes that go unnoticed and undocumented.
 
