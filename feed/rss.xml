@@ -5,12 +5,23 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-07-13T00:00:00Z</updated>
+  <updated>2017-07-18T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
   <entry>
-    <title>An introduction to continuous delivery - CD 101</title>
+    <title>Part 1 - Continuous Deployment Strategies</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/07/18/continuous-deployment-strategies.html"/>
+    <id>https://www.gocd.org/2017/07/18/continuous-deployment-strategies.html</id>
+    <published>2017-07-18T00:00:00Z</published>
+    <updated>2017-07-18T00:00:00Z</updated>
+    <author>
+      <name>Ketan Padegaonkar</name>
+    </author>
+    <content type="html">Modern webapps and application servers have evolved, but many developers continue to use similar strategies to perform deployments. This post looks some of the continuous deployment strategies.</content>
+  </entry>
+  <entry>
+    <title>Part 1 - An introduction to continuous delivery: CD 101</title>
     <link rel="alternate" href="https://www.gocd.org/2017/07/13/introduction-continuous-delivery-101.html"/>
     <id>https://www.gocd.org/2017/07/13/introduction-continuous-delivery-101.html</id>
     <published>2017-07-13T00:00:00Z</published>
@@ -107,16 +118,5 @@
       <name>Aravind S.V, Product Manager at GoCD</name>
     </author>
     <content type="html">In this post, we will show you how to use a manual approval process to propagate your build which is especially useful for critical deployments. It not only gives you more control, but also prevents human error in complex pipelines thereby making your deployments safer.</content>
-  </entry>
-  <entry>
-    <title>It’s not CI, it’s just CI theatre</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html"/>
-    <id>https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html</id>
-    <published>2017-05-16T00:00:00Z</published>
-    <updated>2017-05-16T00:00:00Z</updated>
-    <author>
-      <name>Suzie Prince (Head of Product), ThoughtWorks Products</name>
-    </author>
-    <content type="html">CI theatre describes the illusion of practising continuous integration while not really practising it. Based on our continuous integration research, we share what CI Theatre looks like, why we recommend you Hold on that, and ways to combat CI theatre.</content>
   </entry>
 </feed>
