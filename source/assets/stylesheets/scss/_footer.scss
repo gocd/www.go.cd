@@ -114,9 +114,12 @@ footer {
 		text-align: center;
 		color: #fff;
 		text-transform: uppercase;
-		font-size: 11px;
+		font-size: 9px;
 		font-weight: 400;
 		line-height: normal;
+		@media (min-width:$screen-tablet) {
+			font-size: 11px;
+		}
 	}
 
 	.icon {
@@ -125,8 +128,12 @@ footer {
 		transition: all .2s ease-in-out;
 		display: block;
 		width: 40px;
-		height: 56px;
+		height: 30px;
 		color: #00BFC0;
+		@media (min-width:$screen-tablet) {
+			height: 56px;
+		
+		}
 		&:hover {
 			transform: scale(1.1);
 		}
@@ -134,7 +141,12 @@ footer {
 	}
 
 }
-
+.fa-4x{
+font-size:3em;
+@media (min-width:$screen-tablet) {
+	font-size:4em;
+}	
+}
 .help-us-improve {
 	a {
 		background: #fff;

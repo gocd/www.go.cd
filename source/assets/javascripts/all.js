@@ -7,6 +7,8 @@
 //= require 'bootstrap-sprockets'
 
 //= require 'app/_main'
+//= require 'app/_download_new'
 //= require 'app/_download'
 //= require 'app/_getting_started'
 //= require 'app/_tabs'
+//= require 'app/_dropdown'

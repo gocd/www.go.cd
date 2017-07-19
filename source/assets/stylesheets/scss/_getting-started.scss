@@ -8,7 +8,7 @@ $link-color: #666;
 $link-hover-color: #000;
 $link-hover-bg: $primary-color;
 
-.get-start-btn {
+.get-start-btn  {
   display: block;
   border: 0;
   width: 36px;
@@ -56,7 +56,7 @@ $link-hover-bg: $primary-color;
 
 }
 
-nav.getting-started-nav {
+nav.sidebar-nav {
   @media (max-width:$screen-sm-max) {
     position: fixed;
     left: 0px;

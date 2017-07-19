@@ -90,7 +90,7 @@
 }
 
 .subscribe-to-blog {
-  #mktoForm_5414 .mktoButtonWrap.mktoSimple {
+  #mktoForm_5414 .mktoButtonWrap.mktoSimple, #mktoForm_6699 .mktoButtonWrap.mktoSimple {
     margin-left: -15px !important;
   }
 
@@ -129,7 +129,7 @@ p{
     margin-top: 9px;
 }
   // Marketo form overrides
-  #mktoForm_5414 {
+  #mktoForm_5414, #mktoForm_6699 {
     width: 250px !important;
     text-align: center;
     margin: 10px auto;
@@ -161,7 +161,7 @@ p{
 
 .post {
   .subscribe-to-blog {
-    #mktoForm_5414 {
+    #mktoForm_5414, #mktoForm_6699 {
       .mktoButtonWrap.mktoSimple {
         display: block;
         margin: 10px !important;
