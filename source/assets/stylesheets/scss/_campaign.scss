@@ -80,3 +80,121 @@ h2.campaign-feature-title {
 .row.campaign-body {
     margin: 50px 0;
 }
+
+
+
+// main-features
+
+
+.main-features {
+  figure {
+    margin-bottom: 30px;
+
+    @media (min-width:$screen-tablet) and (max-width:$screen-sm-max) {
+      float: left;
+      margin: 0;
+      width: 40%;
+    }
+
+    @media (min-width:$screen-desktop) {
+      margin-bottom: 30px;
+    }
+
+    img {
+      max-width: 276px;
+      max-height: 140px;
+      min-height: 140px;
+
+      @media (min-width:$screen-tablet) {
+        width: 240px;
+      }
+
+    }
+
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px 0;
+    text-align: center;
+
+    @media (min-width:$screen-tablet) and (max-width:$screen-sm-max) {
+      float: right;
+      width: 55%;
+      text-align: left;
+      margin: 0 0 20px 0;
+    }
+
+    @media (min-width:$screen-desktop) {
+      height: 50px;
+      margin: 0 0 20px 0;
+      float: none;
+      width: auto;
+    }
+
+  }
+
+  p {
+    @media (min-width:$screen-tablet) and (max-width:$screen-sm-max) {
+      text-align: left;
+      float: right;
+      width: 55%;
+    }
+
+  }
+
+  .features {
+    // text-align: center;
+
+    .feature-box {
+      @media (min-width:$screen-tablet) and (max-width:$screen-md-min) {
+        border-bottom: 1px dashed $border;
+        width: 100%;
+        float: left;
+        padding: 30px 0;
+      }
+
+    }
+
+    p {
+      border-bottom: 1px dashed $border;
+      padding-bottom: 20px;
+
+      @media (min-width:$screen-tablet) {
+        // text-align: left;
+        border: 0;
+      }
+
+    }
+
+  }
+
+  .see-all-features {
+    width: 230px;
+    margin: 30px auto 40px;
+    display: block;
+
+    @media (min-width:$screen-tablet) {
+      margin: 30px auto;
+    }
+
+  }
+
+}
+
+
+
+
+.section{
+  padding:40px 0 60px;
+  h1.main-caption{
+        font-size: 28px;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 0 30px 0;
+  }
+  .main-desc{
+    text-align: center;
+  }
+}
