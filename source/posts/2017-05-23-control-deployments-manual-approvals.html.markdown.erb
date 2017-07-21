@@ -11,6 +11,12 @@ summary_image: "/assets/images/blog/manual-gates/manual-approval-hero.jpg"
 tags: Modeling Deployment Pipelines
 ---
 
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/manual-gates/manual-approval-hero.jpg" alt="Part 5 - Control deployments using Manual Gates: Modeling Deployment Pipelines" />
+</figure>
+<% end %>
+
 This is the fifth post in the series - <%= link_to 'Modeling Deployment Pipelines', '/tags/modeling-deployment-pipelines.html' %>. In our <%= link_to 'previous post', '/posts/2017-04-17-build-propagation-using-fan-in-fan-out.html' %>, we talked about how using Fan-in/Fan-out helps build propagation. In this post, we will show you how to use a manual approval process to propagate your build which is especially useful for critical deployments.
 
 ## The Importance of Manual Approvals
