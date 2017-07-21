@@ -15,49 +15,61 @@ show_features: true
 <% end %>
 <% content_for :maincontent do %>
 <% if current_page.data.show_features %>
-
-
 <div class="section">
   <div class="container">
     <h1 class="main-caption">GoCD’s Elastic Agent - gives you the flexibility and savings you need</h1>
     <p class="main-desc">Agents are the workers in the GoCD ecosystem. Rather than having dedicated idle agents at all times, elastic agents allow you to scale up, with on-demand agents, based on the need of the task being executed. This saves you both time and costs.</p>
   </div>
-
 </div>
-
 <!-- three column area -->
-
 <div class='main-features'>
   <div class="container">
     <div class="row features">
       <!-- <h2 class='campaign-feature-title'></h2> -->
       <div class=" col-sm-12 col-md-4">
-        <%= partial "_feature1" %>
+        <div class="feature-box">
+          <h3>Optimize Utilization & Save Costs</h3>
+          <figure>
+            <%= image_tag "campaign/elastic-agents/icons_tick.svg", {:title => "Optimize Utilization & Save Costs", :alt => "Optimize Utilization & Save Costs"} %>
+          </figure>
+          <p>Use the Elastic Agent capability to spawn and terminate Agents to tailor to your individual projects. Scale flexibly to optimize your utilization and reduce costs.
+          </p>
+        </div>
       </div>
       <div class=" col-sm-12 col-md-4">
-        <%= partial "_feature2" %>
+        <div class="feature-box">
+          <h3>Elastic Agent API Endpoint</h3>
+          <figure>
+            <%= image_tag "campaign/elastic-agents/icons_plug.svg", {:title => "Elastic Agent API Endpoint", :alt => "Elastic Agent API Endpoint"} %>
+          </figure>
+          <p><a href="https://plugin-api.gocd.org/current/elastic-agents/">GoCD’s Elastic Agent extension </a> allows plugin developers to write plugins that allow GoCD to leverage technologies like Docker, AWS, GCE, Kubernetes.</p>
+        </div>
       </div>
       <div class="col-sm-12 col-md-4">
-        <%= partial "_feature3" %>
+        <div class="feature-box">
+          <h3>Community & Commercial Plugins</h3>
+          <figure>
+            <%= image_tag "campaign/elastic-agents/icons_plug-point.svg", {:title => "Community & Commercial Plugins", :alt => "Community & Commercial Plugins"} %>
+          </figure>
+          <p>GoCD has community supported and commercial <a href="https://www.gocd.org/plugins/">Elastic Agent plugins</a>for Docker, Docker Swarm, Marathon and AWS. </p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <% end %>
-
 <!-- description and download -->
-
 <div class="container">
   <div class='row campaign-body'>
     <div class='col-sm-12 col-md-9'>
-    <h4>Great reasons to use GoCD’s Elastic Agent feature:</h4>
+      <h4>Great reasons to use GoCD’s Elastic Agent feature:</h4>
       <p>If you’re a GoCD user: <br/>
-We have a whole bunch of plugins for you to use Elastic Agents. If you're running builds on OpenStack, Docker, Docker Swarm or AWS, we've got you covered. Get started by installing the plugins and start saving! 
-</p>
-<p>If you want to build your own plugin:  <br/>
-You can also start building your own elastic agent plugins by forking the skeleton plugin and looking at a <a href="https://github.com/gocd-contrib/docker-elastic-agents">sample docker plugin  </a> as an example reference implementation.
-</p>
-<p>For more information about our Commercial Plugins, visit our commercial support website.</p>
+        We have a whole bunch of plugins for you to use Elastic Agents. If you're running builds on OpenStack, Docker, Docker Swarm or AWS, we've got you covered. Get started by installing the plugins and start saving!
+      </p>
+      <p>If you want to build your own plugin:  <br/>
+        You can also start building your own elastic agent plugins by forking the skeleton plugin and looking at a <a href="https://github.com/gocd-contrib/docker-elastic-agents">sample docker plugin  </a> as an example reference implementation.
+      </p>
+      <p>For more information about our Commercial Plugins, visit our commercial support website.</p>
     </div>
     <div class='col-sm-12 col-md-3'>
       <!-- call to action -->
