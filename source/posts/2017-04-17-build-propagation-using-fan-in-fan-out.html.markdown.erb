@@ -10,6 +10,12 @@ meta_keywords: "GoCD, build, build propagation, fan-in, fan-out, continuous deli
 summary_image: "/assets/images/blog/build-propagation/build-propagation-hero.jpg"
 tags: Modeling Deployment Pipelines
 ---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/build-propagation/build-propagation-hero.jpg" alt="Part 4 - Build Propagation using Fan-in/Fan-out: Modeling Deployment Pipelines" />
+</figure>
+<% end %>
+
 This is the fourth post in the series - <%= link_to 'Modeling Deployment Pipelines', '/tags/modeling-deployment-pipelines.html' %>. In our <%= link_to 'previous post', '/posts/2017-04-06-reusing-pipelines.html' %>, we saw the advantages of reusing pipelines (using Templates). In this post, we’ll dive into ways to move your build through the deployment pipeline. Typically, once a build has gone through the various tests, it is deployed onto a set of environments such as UAT, pre-production and production (for example). This concept is called **“Build Propagation”**.
 
 ## Fan-in / Fan-out

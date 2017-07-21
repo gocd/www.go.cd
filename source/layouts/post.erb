@@ -1,12 +1,20 @@
 <% wrap_layout :layout do %>
 <div class="container blog-post">
-  <% if content_for?(:banner) %>
+
+
+  <%= '<div class="draft-banner">This is a draft. It will not show up on the live site.</div>' if (should_show_drafts? && is_draft?(current_article)) %>
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+      <% if content_for?(:banner) %>
     <div class="post-banner">
       <%= yield_content :banner %>
     </div>
   <% end %>
 
-  <%= '<div class="draft-banner">This is a draft. It will not show up on the live site.</div>' if (should_show_drafts? && is_draft?(current_article)) %>
 
   <header class="blog-post-header">
     <h1><%= put_gocd_in_span(current_article.title) %></h1>
@@ -20,9 +28,7 @@
      </p>
   </header>
 
-  <div class="row">
-    <div class="col-md-9">
-      <main id="main" role="main">
+      <main id="main" role="main" class="blog-post-main-container">
       <%= yield %>
       </main>
     </div>
