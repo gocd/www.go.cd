@@ -1,0 +1,67 @@
+---
+layout: campaignlanding
+title: "Elastic Agents on GoCD"
+title_tag_of_header: "GoCD"
+page_caption: Elastic Agents on GoCD
+meta_description: "-----------"
+meta_keywords: "GoCD, continuous delivery, chef, chef automate, partner cookbook, official partner cookbook, gocd cookbook"
+show_features: true
+---
+<!-- banner image goes here -->
+<% content_for :banner do %>
+<figure>
+  <%= image_tag 'campaign/elastic-agents/elastic-agents-banner.jpg', alt: 'GoCD and Chef', title: "GoCD and Chef" %>
+</figure>
+<% end %>
+<% content_for :maincontent do %>
+<% if current_page.data.show_features %>
+
+
+<div class="section">
+  <div class="container">
+    <h1 class="main-caption">GoCD’s Elastic Agent - gives you the flexibility and savings you need</h1>
+    <p class="main-desc">Agents are the workers in the GoCD ecosystem. Rather than having dedicated idle agents at all times, elastic agents allow you to scale up, with on-demand agents, based on the need of the task being executed. This saves you both time and costs.</p>
+  </div>
+
+</div>
+
+<!-- three column area -->
+
+<div class='main-features'>
+  <div class="container">
+    <div class="row features">
+      <!-- <h2 class='campaign-feature-title'></h2> -->
+      <div class=" col-sm-12 col-md-4">
+        <%= partial "_feature1" %>
+      </div>
+      <div class=" col-sm-12 col-md-4">
+        <%= partial "_feature2" %>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <%= partial "_feature3" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<!-- description and download -->
+
+<div class="container">
+  <div class='row campaign-body'>
+    <div class='col-sm-12 col-md-9'>
+    <h4>Great reasons to use GoCD’s Elastic Agent feature:</h4>
+      <p>If you’re a GoCD user: <br/>
+We have a whole bunch of plugins for you to use Elastic Agents. If you're running builds on OpenStack, Docker, Docker Swarm or AWS, we've got you covered. Get started by installing the plugins and start saving! 
+</p>
+<p>If you want to build your own plugin:  <br/>
+You can also start building your own elastic agent plugins by forking the skeleton plugin and looking at a <a href="https://github.com/gocd-contrib/docker-elastic-agents">sample docker plugin  </a> as an example reference implementation.
+</p>
+<p>For more information about our Commercial Plugins, visit our commercial support website.</p>
+    </div>
+    <div class='col-sm-12 col-md-3'>
+      <!-- call to action -->
+    </div>
+  </div>
+</div>
+<% end %>
