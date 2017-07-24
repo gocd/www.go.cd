@@ -9,36 +9,6 @@
   </header>
 
   <main role="main">
-    <% if current_page.data.show_features %>
-    <div class='main-features'>
-      <div class="container">
-        <div class="row features">
-          <h2 class='campaign-feature-title'>Get started with GoCD on Chef</h2>
-          <div class=" col-sm-12 col-md-4">
-            <%= partial "partials/chef/_chef-feature1" %>
-          </div>
-          <div class=" col-sm-12 col-md-4">
-            <%= partial "partials/chef/_chef-feature2" %>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <%= partial "partials/chef/_chef-feature3" %>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <% end %>
-
-    <div class="container">
-      <div class='row campaign-body'>
-        <div class='col-sm-12 col-md-9'>
-          <%= yield %>
-        </div>
-        <div class='col-sm-12 col-md-3'>
-          <%= link_to 'Download the Cookbook', "https://supermarket.chef.io/cookbooks/gocd", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
-        </div>
-      </div>
-    </div>
-
+   <%= yield_content :maincontent %>
 </main>
 <% end %>
