@@ -18,9 +18,7 @@ show_features: true
         <div class="section">
           <div class="container">
             <h1 class="main-caption">Optimize Utilization and Costs Savings with Elastic Agents</h1>
-            <p class="main-desc">Agents are the workers in the GoCD ecosystem. Rather than having dedicated idle agents
-              at all times, elastic agents allow you to scale up, with on-demand agents, based on the need of the task
-              being executed. This saves you both time and costs.</p>
+            <p class="main-desc">GoCD operates on a server-agent model where a server communicates with many agents. Agents are the workers in GoCD ecosystem. Rather than having dedicated idle agents at all times, elastic agents allow you to scale up, with on-demand agents, based on the need of the task being executed. This saves you both time and costs.</p>
           </div>
         </div>
         <!-- three column area -->
@@ -40,17 +38,6 @@ show_features: true
               </div>
               <div class=" col-sm-12 col-md-4">
                 <div class="feature-box">
-                  <h3>Elastic Agent API Endpoint</h3>
-                  <figure>
-                    <%= image_tag "campaign/elastic-agents/771-spot_illo_2.png", {:title => "Elastic Agent API Endpoint", :alt => "Elastic Agent API Endpoint"} %>
-                  </figure>
-                  <p><a href="https://plugin-api.gocd.org/current/elastic-agents/">GoCD’s Elastic Agent extension </a>
-                    allows plugin developers to write plugins that allow GoCD to leverage technologies like Docker, AWS,
-                    GCE, Kubernetes.</p>
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-4">
-                <div class="feature-box">
                   <h3>Community &amp; Commercial Plugins</h3>
                   <figure>
                     <%= image_tag "campaign/elastic-agents/771-spot_illo_3.png", {:title => "Community &amp; Commercial Plugins", :alt => "Community &amp; Commercial Plugins"} %>
@@ -58,6 +45,16 @@ show_features: true
                   <p>GoCD has community supported and commercial
                     <a href="https://www.gocd.org/plugins/">Elastic Agent plugins</a> for Docker, Docker Swarm, Marathon
                     and AWS. </p>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-4">
+                <div class="feature-box">
+                    <h3>Elastic Agent API Endpoint</h3>
+                    <figure>
+                      <%= image_tag "campaign/elastic-agents/771-spot_illo_2.png", {:title => "Elastic Agent API Endpoint", :alt => "Elastic Agent API Endpoint"} %>
+                    </figure>
+                    <p><a href="https://plugin-api.gocd.org/current/elastic-agents/">GoCD’s Elastic Agent extension </a>
+                      allows plugin developers to write plugins that allow GoCD to leverage technologies like Docker (<a href="https://github.com/gocd-contrib/docker-elastic-agents">Reference</a>), AWS, GCE, Kubernetes.</p>
                 </div>
               </div>
             </div>
@@ -68,19 +65,9 @@ show_features: true
     <div class="container">
       <div class='row campaign-body'>
         <div class='col-sm-12 col-md-9'>
-          <h4>Great reasons to use GoCD’s Elastic Agent feature</h4>
-
-          <p>If you’re a GoCD user<br/>
-            We have a whole bunch of plugins for you to use Elastic Agents. If you're running builds on OpenStack,
-            Docker, Docker Swarm or AWS, we've got you covered. Get started by installing the plugins and start saving!
-          </p>
-
-          <p>If you want to build your own plugin<br/>
-            You can also start building your own elastic agent plugins by forking the skeleton plugin and looking at a
-            <a href="https://github.com/gocd-contrib/docker-elastic-agents"> sample docker plugin </a> as an example
-            reference implementation.
-          </p>
-
+          <h4>Get started by installing your prefered Elastic Agent plugin and start saving!</h4>
+          <p>A guiding principle for GoCD is to keep it as agnostic as possible. We'd like, you, the user to choose what technology you want to use and provision agents there. Therefore, we put a lot of time and effort into our API, so you can just plug in any cloud provider you have or build your own plugin. </p>
+          <p>We have a whole bunch of plugins for you to use Elastic Agents. If you're running builds on OpenStack, Docker, Docker Swarm or AWS, we've got you covered.</p>
           <p>For more information about our Commercial Plugins, visit our <a href="https://thoughtworks.com/go">website for commercial support</a></p>
         </div>
         <div class='col-sm-12 col-md-3'>
