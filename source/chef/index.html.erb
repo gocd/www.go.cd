@@ -8,11 +8,37 @@ meta_keywords: "GoCD, continuous delivery, chef, chef automate, partner cookbook
 show_features: true
 ---
 <% content_for :banner do %>
-   <figure>
-    <%= image_tag 'campaign/chef/chef-hero.jpg', alt: 'GoCD and Chef', title: "GoCD and Chef" %>
-  </figure>
+<figure>
+  <%= image_tag 'campaign/chef/chef-hero.jpg', alt: 'GoCD and Chef', title: "GoCD and Chef" %>
+</figure>
 <% end %>
-
-<!-- actual content comes below Can use markup language -->
-
-Get started on GoCD with your Chef configurations quickly with our official partner cookbook. This cookbook will help you setup Go servers and agents in a fully automated way. Choose your preferred method of installation, configure your server and agents to suit the needs of your team and run the recipes to install your GoCD server and agents.
+<% content_for :maincontent do %>
+<% if current_page.data.show_features %>
+<div class='main-features'>
+  <div class="container">
+    <div class="row features">
+      <h2 class='campaign-feature-title'>Get started with GoCD on Chef</h2>
+      <div class=" col-sm-12 col-md-4">
+        <%= partial "partials/chef/_chef-feature1" %>
+      </div>
+      <div class=" col-sm-12 col-md-4">
+        <%= partial "partials/chef/_chef-feature2" %>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <%= partial "partials/chef/_chef-feature3" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<div class="container">
+  <div class='row campaign-body'>
+    <div class='col-sm-12 col-md-9'>
+      <p>Get started on GoCD with your Chef configurations quickly with our official partner cookbook. This cookbook will help you setup Go servers and agents in a fully automated way. Choose your preferred method of installation, configure your server and agents to suit the needs of your team and run the recipes to install your GoCD server and agents.</p>
+    </div>
+    <div class='col-sm-12 col-md-3'>
+      <%= link_to 'Download the Cookbook', "https://supermarket.chef.io/cookbooks/gocd", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
+    </div>
+  </div>
+</div>
+<% end %>

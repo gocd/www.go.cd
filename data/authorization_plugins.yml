@@ -30,3 +30,21 @@
   releases_url: https://github.com/mgambini/crowd-integration-plugin/releases
   contact_url: mailto:marco.gambini@ditechspa.it?subject=Info about Crowd Authentication Plugin
   paid: false
+
+- name: GitHub OAuth authorization plugin
+  description: The plugin allows user to login in GoCD using GitHub(or GitHub Enterprise).
+  readmore_url: https://github.com/gocd-contrib/github-oauth-authorization-plugin
+  author_url: https://github.com/gocd-contrib
+  author_name: GoCD Contributors
+  releases_url: https://github.com/gocd-contrib/github-oauth-authorization-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=github-oauth-authorization-plugin&type=watch&count=true
+  paid: false
+
+- name: Google OAuth authorization plugin
+  description: The plugin allows user to login in GoCD using a Google account.
+  readmore_url: https://github.com/gocd-contrib/google-oauth-authorization-plugin
+  author_url: https://github.com/gocd-contrib
+  author_name: GoCD Contributors
+  releases_url: https://github.com/gocd-contrib/google-oauth-authorization-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=google-oauth-authorization-plugin&type=watch&count=true
+  paid: false
