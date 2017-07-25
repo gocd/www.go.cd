@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-07-20T00:00:00Z</updated>
+  <updated>2017-07-25T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Part 2 - Blue/Green Deployments: Continuous Deployment Strategies</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/07/25/blue-green-deployments.html"/>
+    <id>https://www.gocd.org/2017/07/25/blue-green-deployments.html</id>
+    <published>2017-07-25T00:00:00Z</published>
+    <updated>2017-07-25T00:00:00Z</updated>
+    <author>
+      <name>Ketan Padegaonkar</name>
+    </author>
+    <content type="html">This Continuous Deployment Strategy article describes some of the implementation techniques for performing blue/green deployments.</content>
+  </entry>
   <entry>
     <title>Part 2 - Deployment pipeline and types of automated testing: CD 101</title>
     <link rel="alternate" href="https://www.gocd.org/2017/07/20/deployment-pipeline-automated-testing.html"/>
@@ -18,7 +29,7 @@
     <author>
       <name>Ken Mugrage</name>
     </author>
-    <content type="html">CD 101 is a video series to help you get started on your CD journey. Part Two of this series covers the deployment pipeline in more detail, types of automated testing and common misconceptions in DevOps and Continuous Delivery.</content>
+    <content type="html">CD 101 is a video series to help you get started on your CD journey. Part One of this series covers the history of continuous delivery, difference between continuous delivery and continuous deployment and a brief introduction of a deployment pipeline.</content>
   </entry>
   <entry>
     <title>Part 1 - Continuous Deployment Strategies</title>
@@ -107,16 +118,5 @@
       <name>Aravind S.V, Product Manager at GoCD</name>
     </author>
     <content type="html">This post takes a look at where all the elements of a deployment pipeline actually run. In GoCD almost no part of the deployment process runs on the GoCD server. So, this begs the question - what really powers the deployment pipeline?</content>
-  </entry>
-  <entry>
-    <title>We've found our forever home</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/06/01/forever-home.html"/>
-    <id>https://www.gocd.org/2017/06/01/forever-home.html</id>
-    <published>2017-06-01T00:00:00Z</published>
-    <updated>2017-06-01T00:00:00Z</updated>
-    <author>
-      <name>GoCD Team</name>
-    </author>
-    <content type="html">We are happy to have found home at gocd.org! Last year, we moved from go.cd to gocd.io due to an issue with our DNS registrar. This post talks about why we moved again and the impact of this move.</content>
   </entry>
 </feed>
