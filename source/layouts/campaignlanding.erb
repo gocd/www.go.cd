@@ -1,13 +1,14 @@
 <% wrap_layout :layout do %>
-<header class="campaign-header">
-  <div class="campaign-banner">
-    <div class="banner-content">
-      <h1 class="caption"><%= current_page.data.page_caption %></h1>
+  <header class="campaign-header">
+    <div class="campaign-banner">
+        <div class="banner-content">
+          <h1 class="caption"><%= current_page.data.page_caption %></h1>
+        </div>
+        <%= yield_content :banner %>
     </div>
-    <%= yield_content :banner %>
-  </div>
-</header>
-<main role="main">
-  <%= yield_content :maincontent %>
+  </header>
+
+  <main role="main">
+   <%= yield_content :maincontent %>
 </main>
 <% end %>
