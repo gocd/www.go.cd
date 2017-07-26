@@ -79,6 +79,7 @@
     border: 0;
     position: relative;
     top: 2px;
+    font-family: 'Open Sans', sans-serif;
 
     @media (min-width:$screen-tablet) {
       margin-top: 0px;
@@ -94,7 +95,8 @@
   }
 
   .mktoForm .mktoRequiredField label.mktoLabel {
-    width: 100px !important;
+    width: 105px !important;
+    font-family: 'Open Sans', sans-serif;
   }
 
   .mktoButtonWrap.mktoSimple {
@@ -118,6 +120,7 @@
   margin-bottom: 30px;
   padding: 20px;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
 
   // Marketo form overrides
   #mktoForm_5414 {
@@ -179,8 +182,9 @@
 
 //post page
 
-.blogpost{
-  .subscribe-title{
-    font-size:17px;
+.blogpost {
+  .subscribe-title {
+    font-size: 17px;
   }
+
 }
