@@ -10,7 +10,7 @@
     <name>GoCD Team</name>
   </author>
   <entry>
-    <title>Part 2 - Blue/Green Deployments: Continuous Deployment Strategies</title>
+    <title>Part 2 - Continuous Deployment Strategies: Blue/Green Deployments</title>
     <link rel="alternate" href="https://www.gocd.org/2017/07/25/blue-green-deployments.html"/>
     <id>https://www.gocd.org/2017/07/25/blue-green-deployments.html</id>
     <published>2017-07-25T00:00:00Z</published>
@@ -21,7 +21,7 @@
     <content type="html">This Continuous Deployment Strategy article describes some of the implementation techniques for performing blue/green deployments.</content>
   </entry>
   <entry>
-    <title>Part 2 - Deployment pipeline and types of automated testing: CD 101</title>
+    <title>Part 2 - CD 101: Deployment pipeline and types of automated testing</title>
     <link rel="alternate" href="https://www.gocd.org/2017/07/20/deployment-pipeline-automated-testing.html"/>
     <id>https://www.gocd.org/2017/07/20/deployment-pipeline-automated-testing.html</id>
     <published>2017-07-20T00:00:00Z</published>
@@ -43,7 +43,7 @@
     <content type="html">Modern webapps and application servers have evolved, but many developers continue to use similar strategies to perform deployments. This post looks some of the continuous deployment strategies.</content>
   </entry>
   <entry>
-    <title>Part 1 - An introduction to continuous delivery: CD 101</title>
+    <title>Part 1 - CD 101: An introduction to continuous delivery</title>
     <link rel="alternate" href="https://www.gocd.org/2017/07/13/introduction-continuous-delivery-101.html"/>
     <id>https://www.gocd.org/2017/07/13/introduction-continuous-delivery-101.html</id>
     <published>2017-07-13T00:00:00Z</published>
@@ -98,7 +98,7 @@
     <content type="html">This infographic walks through 5 key patterns to setting up a successful deployment pipeline, including designing parallel workflows, running tests in parallel, and more.</content>
   </entry>
   <entry>
-    <title>Part 7 - Preparing for emergency deployments and rollbacks: Modeling Deployment Pipelines</title>
+    <title>Part 7 - Modeling Deployment Pipelines: Preparing for emergency deployments and rollbacks</title>
     <link rel="alternate" href="https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward.html"/>
     <id>https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward.html</id>
     <published>2017-06-20T00:00:00Z</published>
@@ -109,7 +109,7 @@
     <content type="html">This post shows how to introduce Hotfixes and Rollbacks into your deployment pipeline. These techniques make your pipeline more flexible and can help you bypass process during emergencies.</content>
   </entry>
   <entry>
-    <title>Part 6 - Under the hood of Deployment Pipelines: Modeling Deployment Pipelines</title>
+    <title>Part 6 - Modeling Deployment Pipelines: Under the hood of Deployment Pipelines</title>
     <link rel="alternate" href="https://www.gocd.org/2017/06/13/modeling-deployment-pipelines-agents-environments.html"/>
     <id>https://www.gocd.org/2017/06/13/modeling-deployment-pipelines-agents-environments.html</id>
     <published>2017-06-13T00:00:00Z</published>
