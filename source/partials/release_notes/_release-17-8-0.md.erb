@@ -1,12 +1,17 @@
-<h4>Bundled Plugins</h4>
+<h4>Pipeline as Code</h4>
 
-With this release GoCD provides support for [Pipleine as code](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html) through [JSON config repo plugin](https://github.com/tomzo/gocd-json-config-plugin) and the [YAML config repo plugin](https://github.com/tomzo/gocd-yaml-config-plugin). These plugins maintained by our core contributor [Tomasz Sętkowski](https://github.com/tomzo) will be bundled by default.
+With this release, GoCD supports [Pipleine as code](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html), out of the box. We've bundled the [JSON config repo plugin](https://github.com/tomzo/gocd-json-config-plugin) and the [YAML config repo plugin](https://github.com/tomzo/gocd-yaml-config-plugin) with the GoCD server.
+A shout out to our core contributor [Tomasz Sętkowski](https://github.com/tomzo) for maintaining these plugins.
+
+<h4>Amazon ECS Elastic Agent Plugin</h4>
+
+ThoughtWorks now offers a new commercial elastic agents plugin which allows for flexible use of EC2 instances (with support for ECS Docker containers). For more information about the plugin, [click here](https://www.thoughtworks.com/go/).
 
 <h4>Improvements</h4>
 
-* <%= link_to_commit '1ccb0294265b4baea091c9068d7813fdde5009b4', 'Ensure order of auth_config in config xml is used to derive the order in which plugins are used for authentication.', 3608 %>
-* <%= link_to_commit '36d546e680aa43c31bf29d2a586ca31e57739bde', 'Remove tfs-impl-10' %>
-* <%= link_to_commit 'd7c4d167fc10101b03af4cd6676c806cef244747', 'Paused pipelines shows the pause reason on the history page.', 2784 %>
+* <%= link_to_commit '1ccb0294265b4baea091c9068d7813fdde5009b4', 'Ensure order of auth_config is used to authenticate users', 3608 %>
+* <%= link_to_commit '36d546e680aa43c31bf29d2a586ca31e57739bde', 'Removed support for Team Foundation Server 2010. Users can continue to use GoCD with TFS 2012, 2013, 2015 and Visual Studio Team Services.' %>
+* <%= link_to_commit 'd7c4d167fc10101b03af4cd6676c806cef244747', 'Display pause text in pipeline history', 2784 %>
 * <%= link_to_commit '52ac924aad78ad2795c088199eb4c70f14b8205a', 'Save agent hostname and ip address as part of build history. This information will be displayed on the job details page for all kinds of agents.', 3368 %>
 
 <h4>Docker Images</h4>
@@ -54,6 +59,7 @@ The following features have been deprecated. Please note the timeframe of when t
   "Lubaina R",
   "Mahesh Panchaksharaiah",
   "Marques Lee",
+  "Naveen Bhaskar",
   "Rajiesh N",
   "Senthil R",
   "Suzie Prince",
