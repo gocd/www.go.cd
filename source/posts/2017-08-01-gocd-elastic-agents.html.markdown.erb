@@ -1,0 +1,67 @@
+---
+layout: post
+title: "GoCD elastic agents - Development while Dogfooding"
+type: post
+author: Ketan Padegaonkar
+excerpt: "This post is about GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw."
+title_tag_of_header: "GoCD Elastic Agents | GoCD Blog"
+meta_description: ""
+meta_keywords: ""
+summary_image: "/assets/images/blog/elastic-agents/elastic-agent-hero.jpg"
+draft: true
+---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/elastic-agents/elastic-agent-hero.jpg" alt="GoCD Elastic Agents" />
+</figure>
+<% end %>
+
+This post is about GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw.
+
+## Why elastic agents
+
+GoCD operates on a server-agent model where a server communicates with many agents. The server is responsible for orchestrating various stages, jobs and tasks on the agents. The agents are responsible for their execution in the deployment pipeline. Oftentimes it makes sense to [parallelize stages](https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-parallelize), to speed up build and test execution, get feedback quickly and deploy rapidly. But for some teams, parallelization requires an intense use of hardware resources for brief periods of time. The situation becomes particularly frustrating when different branches of code or environments require different kinds of hardware and software to run on.
+
+In many cases, this leads to:
+
+- excessive provisioning of build machines, leaving a lot of hardware under-utilized when builds and tests are not running.
+- re-provisioning some of the hardware based on need, leading to a significant lead time depending on its availability
+- slower build time when sufficient hardware is not available.
+
+We wanted to help reduce infrastructure costs and improve hardware utilization. We believed that allowing organizations to bring up GoCD agents on-demand will achieve that goal. So we designed elastic agents to allow teams to leverage a combination of their own hardware and the cloud to run their builds.
+
+## Dogfooding our own solution
+
+To better understand the user experience of this new feature, and proactively adapt our solution, we decided to start dogfooding from Day 1! What this meant was, we created a version that could run one build, and started using it internally. This helped us get ahead in identifying gaps in the feature and we built our roadmap and vision this way.
+
+We started using the elastic agents for [Docker plugin](https://github.com/gocd-contrib/docker-elastic-agents ) as it was the first one we built. Automation was one of the most important investments that helped us start dogfooding this. We needed to have automation in place to install and configure all our existing agents. Using the same automation with Docker allowed us to build Docker containers to run our builds. After we had our Docker images and the first version of the plugin in place, we got quick feedback to see what worked and what didn't work and we kept refining over time. We refined both the plugin and the capabilities that GoCD needed to allow the plugin to work in the expected manner.
+
+## How elastic agents improved the way we worked
+
+We observed three benefits from elastic agents since we started to use them.
+
+### Save time, reduce effort
+
+It has saved us hours of wasted developer productivity per week.
+
+Before elastic agents, if we wanted to test something new that needed different hardware or software, we needed to provision build machines, and have the relevant software installed on these agents. Then if we chose to not keep the change, we also had to decommission the machines. It was time consuming  to do all of that, and took the focus away from development.
+
+Using elastic agents, we can apply the idea behind [ImmutableServer](https://martinfowler.com/bliki/ImmutableServer.html) to our build machines. We now build an operating system image with all the required software (with the versions we need). We simply bring up a new agent with everything ready and at the end of this the plugin brings down the agent. Being able to run builds on different environments quickly and at will was also a win for the GoCD core team. This allowed us to operate quickly, and experiment without the worry of managing hardware.
+
+### Less pain and overhead
+
+Every team member feels that our build and deployment process is much easier and less painful.
+
+We can now quickly bring up Docker containers (with all the required software) and kick off the builds within a certain environment without affecting other environments. We completely avoid all the pain we experienced before. Moving to a combination of on-premises hardware and Amazon ECS, the team also moves a lot faster because we are not dependent on hardware being procured, and provisioned with the right set of tools/software version on it, before we start using it.
+
+### Improve utilization of resources
+
+We never had this capability to optimize our resources as we have now.
+
+The real beauty of elastic agents was that it improved our infrastructure utilization. We can now use the same hardware to run and test GoCD on several operating systems improving the overall utilization of our hardware. If someone needs more machines to run builds, we can now terminate existing machines and bring up new ones. And if we still need more, we can overflow our builds on AWS with very little reconfiguring. We never had this capability to optimize our resources before, and it is extremely useful now that we can.
+
+## How can your team benefit from elastic agents?
+
+Several open-source elastic agent plugins are [currently available](https://www.gocd.org/plugins/#elastic-agents-plugins). We already have an ECS plugin which a lot of our users are trying out. A guiding principle for GoCD is to keep it as agnostic as possible. This allows the user to choose what technology they want to use and provision agents there. Therefore, we put a lot of time and effort into [our API](https://plugin-api.gocd.org/current/elastic-agents/ ), so you can just plug in any cloud provider you have or build your own plugin.
+
+Depending on user demand and the popularity of cloud provider among our users we will potentially build support for EC2, Azure and other cloud providers.
