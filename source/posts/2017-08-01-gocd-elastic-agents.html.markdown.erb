@@ -19,7 +19,7 @@ This post is about GoCD team’s journey in building elastic agents, our experie
 
 ## Why elastic agents
 
-GoCD operates on a server-agent model where a server communicates with many agents. The server is responsible for orchestrating various stages, jobs and tasks on the agents. The agents are responsible for their execution in the deployment pipeline. Oftentimes it makes sense to [parallelize stages](https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-parallelize), to speed up build and test execution, get feedback quickly and deploy rapidly. But for some teams, parallelization requires an intense use of hardware resources for brief periods of time. The situation becomes particularly frustrating when different branches of code or environments require different kinds of hardware and software to run on.
+GoCD operates on a server-agent model where a server communicates with many agents. The server is responsible for orchestrating various stages, jobs and tasks on the agents. The agents are responsible for their execution in the deployment pipeline. Oftentimes it makes sense to [parallelize](https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-parallelize), to speed up build and test execution, get feedback quickly and deploy rapidly. But for some teams, parallelization requires an intense use of hardware resources for brief periods of time. The situation becomes particularly frustrating when different branches of code or environments require different kinds of hardware and software to run on.
 
 In many cases, this leads to:
 
@@ -61,7 +61,7 @@ The real beauty of elastic agents was that it improved our infrastructure utiliz
 
 ## How can your team benefit from elastic agents?
 
-Several open-source elastic agent plugins are [currently available](https://www.gocd.org/plugins/#elastic-agents-plugins). We already have an ECS plugin which a lot of our users are trying out. A guiding principle for GoCD is to keep it as agnostic as possible. This allows the user to choose what technology they want to use and provision agents there. Therefore, we put a lot of time and effort into [our API](https://plugin-api.gocd.org/current/elastic-agents/ ), so you can just plug in any cloud provider you have or build your own plugin.
+Several open-source elastic agent plugins are [currently available](https://www.gocd.org/plugins/#elastic-agents-plugins). We already have an ECS plugin which a lot of our users are trying out. A guiding principle for GoCD is to keep it as agnostic as possible. This allows the user to choose what technology they want to use and provision agents there. Therefore, we put a lot of time and effort into [our plugin API](https://plugin-api.gocd.org/current/elastic-agents/ ), so you can just plug in any cloud provider you have or build your own plugin.
 
 Depending on user demand and the popularity of cloud provider among our users we will potentially build support for EC2, Azure and other cloud providers.
 
