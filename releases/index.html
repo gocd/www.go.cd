@@ -87,7 +87,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-17-7-0" class="active">17.7.0 (latest)</li>
+      <li rel="tab-17-8-0" class="active">17.8.0 (latest)</li>
+      <li rel="tab-17-7-0">17.7.0</li>
       <li rel="tab-17-6-0">17.6.0</li>
       <li rel="tab-17-5-0">17.5.0</li>
       <li rel="tab-17-4-0">17.4.0</li>
@@ -118,7 +119,81 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-17-7-0">17.7.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-17-8-0">17.8.0 (latest)</h3>
+      <div id="tab-17-8-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Pipeline as Code</h4>
+
+<p>With this release, GoCD supports <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">Pipeline as code</a>, out of the box. We've bundled the <a href="https://github.com/tomzo/gocd-json-config-plugin">JSON config repo plugin</a> and the <a href="https://github.com/tomzo/gocd-yaml-config-plugin">YAML config repo plugin</a> with the GoCD server.
+A shout out to our core contributor <a href="https://github.com/tomzo">Tomasz Sętkowski</a> for maintaining these plugins.</p>
+
+<h4>Amazon ECS Elastic Agent Plugin</h4>
+
+<p>ThoughtWorks now offers a new commercial elastic agents plugin which allows for flexible use of EC2 instances (with support for ECS Docker containers). For more information about the plugin, <a href="https://extensions-docs.gocd.org/ecs/current/">click here</a>.</p>
+
+<h4>Improvements</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/1ccb0294265b4baea091c9068d7813fdde5009b4">1ccb029</a></code> - Ensure order of auth_config is used to authenticate users. (<a href="https://github.com/gocd/gocd/issues/3608">#3608</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/36d546e680aa43c31bf29d2a586ca31e57739bde">36d546e</a></code> - Removed support for Team Foundation Server 2010. Users can continue to use GoCD with TFS 2012, 2013, 2015 and Visual Studio Team Services.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/d7c4d167fc10101b03af4cd6676c806cef244747">d7c4d16</a></code> - Display pause text in pipeline history. (<a href="https://github.com/gocd/gocd/issues/2784">#2784</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/52ac924aad78ad2795c088199eb4c70f14b8205a">52ac924</a></code> - Save agent hostname and ip address as part of build history. This information will be displayed on the job details page for all kinds of agents. (<a href="https://github.com/gocd/gocd/issues/3368">#3368</a>)</li>
+</ul>
+
+<h4>Docker Images</h4>
+
+<ul>
+  <li>Some improvements have been made to reduce the size of the docker GoCD <a href="https://hub.docker.com/r/gocd/gocd-server/">server image</a>. Please check the changelog <a href="https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md">here</a>.</li>
+  <li>Some improvements have been made to create slimmer docker GoCD agent images. Please check the changelog <a href="https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md">here</a>.
+We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></li>
+</ul>
+
+<h4>Deprecations</h4>
+
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+
+<p>The following features have been deprecated. Please note the timeframe of when they will be removed.</p>
+
+<ul>
+  <li>
+    <p>As of 17.5, support for in-built password file and LDAP/AD authentication have been deprecated. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2017).</p>
+  </li>
+  <li>The <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugin</a> endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this we are deprecating the Authentication Plugin endpoint. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.
+    <h5>Authentication plugins</h5>
+    <ul>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">Google OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitHub OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitLab(CE) OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/cnorthwood/gocd-tls-auth">TLS Client Certificates Login</a></p></li>
+    <li><p><a href="https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin">Strong Auth Plugin</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a></p></li>
+  </ul>
+  </li>
+  <li>As of 17.8, the phusion based docker <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">server</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">agent</a> images are deprecated in favour of the new docker <a href="https://hub.docker.com/r/gocd/gocd-server/">server</a> and agent images. Support for the phusion images will be removed in 17.11.0.
+ We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Emily Luke, Huimin Li, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Kyle Olivo, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Rajiesh N, Senthil R, Suzie Prince, Tomasz Sętkowski, Varsha Varadarajan, Victor Nascimento</p>
+
+<!--
+<h4>Security researchers</h4>
+
+<a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
+-->
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.8%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-17-7-0">17.7.0</h3>
       <div id="tab-17-7-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Security Fixes</h4>
@@ -213,7 +288,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 
 <ul>
   <li>
-    <p>Support for in-built password file and LDAP/AD authentication have been deprecated as of 17.5.0. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).</p>
+    <p>As of 17.5, support for in-built password file and LDAP/AD authentication have been deprecated. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2017).</p>
   </li>
   <li>
     <p>The <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugin</a> endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this Authentication Plugin endpoint were deprecated as of 17.5.0. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.</p>
@@ -346,7 +421,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 
 <ul>
   <li>
-    <p>Support for in-built password file and LDAP/AD authentication have been deprecated as of this release. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).</p>
+    <p>Support for in-built password file and LDAP/AD authentication have been deprecated as of this release. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2017).</p>
   </li>
   <li>
     <p>As of release 17.3, version 1 of the <a href="https://api.gocd.org/current/#environment-config">Environment Config API</a> was deprecated. This version of the API will be removed in 17.6 release (scheduled to be released in June 2017). Version 2 of the API is available, and users are encouraged to use it.</p>
