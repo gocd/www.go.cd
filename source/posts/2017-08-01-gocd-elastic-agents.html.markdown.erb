@@ -8,7 +8,6 @@ title_tag_of_header: "GoCD Elastic Agents | GoCD Blog"
 meta_description: "This post is about GoCD team’s journey in building elastic agents and its benefits."
 meta_keywords: "gocd, elastic agents, gocd elastic agent, continuous delivery, dogfooding, elastic agent, ECS, AWS ECS, EC2, Docker, Dockerswarm, mesosphere, azure"
 summary_image: "/assets/images/blog/elastic-agents/elastic-agent-hero.jpg"
-draft: true
 ---
 <% content_for :banner do %>
 <figure>
@@ -16,7 +15,7 @@ draft: true
 </figure>
 <% end %>
 
-This post is about GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw.
+This post is about the GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw. 
 
 ## Why elastic agents
 
@@ -30,13 +29,11 @@ In many cases, this leads to:
 
 We wanted to help reduce infrastructure costs and improve hardware utilization. We believed that allowing organizations to bring up GoCD agents on-demand will achieve that goal. So we designed elastic agents to allow teams to leverage a combination of their own hardware and the cloud to run their builds.
 
-## Dogfooding our own solution
+## How we started 
 
-To better understand the user experience of this new feature, and proactively adapt our solution, we decided to start dogfooding from Day 1! What this meant was, we created a version that could run one build, and started using it internally. This helped us get ahead in identifying gaps in the feature and we built our roadmap and vision this way.
+We started using the elastic agents for [Docker plugin](https://github.com/gocd-contrib/docker-elastic-agents ) as it was the first one we built. Automation was one of the most important investments that helped us start dogfooding this. We needed to have automation in place to install and configure all our existing agents. Using the same automation with Docker allowed us to build Docker images to run our builds. After we had our Docker images and the first version of the plugin in place, we got quick feedback to see what worked and what didn't work and we kept refining over time. We refined both the plugin and the capabilities that GoCD needed to allow the plugin to work in the expected manner.
 
-We started using the elastic agents for [Docker plugin](https://github.com/gocd-contrib/docker-elastic-agents ) as it was the first one we built. Automation was one of the most important investments that helped us start dogfooding this. We needed to have automation in place to install and configure all our existing agents. Using the same automation with Docker allowed us to build Docker containers to run our builds. After we had our Docker images and the first version of the plugin in place, we got quick feedback to see what worked and what didn't work and we kept refining over time. We refined both the plugin and the capabilities that GoCD needed to allow the plugin to work in the expected manner.
-
-## How elastic agents improved the way we worked
+## Benefits we observed
 
 We observed three benefits from elastic agents since we started to use them.
 
@@ -62,9 +59,9 @@ The real beauty of elastic agents was that it improved our infrastructure utiliz
 
 ## How can your team benefit from elastic agents?
 
-Several open-source elastic agent plugins are [currently available](https://www.gocd.org/plugins/#elastic-agents-plugins). We already have an ECS plugin which a lot of our users are trying out. A guiding principle for GoCD is to keep it as agnostic as possible. This allows the user to choose what technology they want to use and provision agents there. Therefore, we put a lot of time and effort into [our plugin API](https://plugin-api.gocd.org/current/elastic-agents/ ), so you can just plug in any cloud provider you have or build your own plugin.
+Several open-source elastic agent plugins are [currently available](https://www.gocd.org/plugins/#elastic-agents-plugins). We already have an Amazon Elastic Container Service(ECS) plugin which a lot of our users are trying out. A guiding principle for GoCD is to keep it as agnostic as possible. This allows the user to choose what technology they want to use and provision agents there. Therefore, we put a lot of time and effort into [our plugin API](https://plugin-api.gocd.org/current/elastic-agents/ ), so you can just plug in any cloud provider you have or build your own plugin.
 
-Depending on user demand and the popularity of cloud provider among our users we will potentially build support for EC2, Azure and other cloud providers.
+Depending on user demand and the popularity of the cloud providers among our users we will potentially build support for agents running on Amazon EC2 instances, Azure and other cloud providers. 
 
 <div class='row'>
   <%= partial "partials/elasticagents" %>
