@@ -1,19 +1,24 @@
-<h4>Bundled Plugins</h4>
+<h4>Pipeline as Code</h4>
 
-With this release GoCD provides support for [Pipleine as code](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html) through [JSON config repo plugin](https://github.com/tomzo/gocd-json-config-plugin) and the [YAML config repo plugin](https://github.com/tomzo/gocd-yaml-config-plugin). These plugins maintained by our core contributor [Tomasz Sętkowski](https://github.com/tomzo) will be bundled by default.
+With this release, GoCD supports [Pipeline as code](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html), out of the box. We've bundled the [JSON config repo plugin](https://github.com/tomzo/gocd-json-config-plugin) and the [YAML config repo plugin](https://github.com/tomzo/gocd-yaml-config-plugin) with the GoCD server.
+A shout out to our core contributor [Tomasz Sętkowski](https://github.com/tomzo) for maintaining these plugins.
+
+<h4>Amazon ECS Elastic Agent Plugin</h4>
+
+ThoughtWorks now offers a new commercial elastic agents plugin which allows for flexible use of EC2 instances (with support for ECS Docker containers). For more information about the plugin, [click here](https://extensions-docs.gocd.org/ecs/current/).
 
 <h4>Improvements</h4>
 
-* <%= link_to_commit '1ccb0294265b4baea091c9068d7813fdde5009b4', 'Ensure order of auth_config in config xml is used to derive the order in which plugins are used for authentication.', 3608 %>
-* <%= link_to_commit '36d546e680aa43c31bf29d2a586ca31e57739bde', 'Remove tfs-impl-10' %>
-* <%= link_to_commit 'd7c4d167fc10101b03af4cd6676c806cef244747', 'Paused pipelines shows the pause reason on the history page.', 2784 %>
+* <%= link_to_commit '1ccb0294265b4baea091c9068d7813fdde5009b4', 'Ensure order of auth_config is used to authenticate users', 3608 %>
+* <%= link_to_commit '36d546e680aa43c31bf29d2a586ca31e57739bde', 'Removed support for Team Foundation Server 2010. Users can continue to use GoCD with TFS 2012, 2013, 2015 and Visual Studio Team Services.' %>
+* <%= link_to_commit 'd7c4d167fc10101b03af4cd6676c806cef244747', 'Display pause text in pipeline history', 2784 %>
 * <%= link_to_commit '52ac924aad78ad2795c088199eb4c70f14b8205a', 'Save agent hostname and ip address as part of build history. This information will be displayed on the job details page for all kinds of agents.', 3368 %>
 
 <h4>Docker Images</h4>
 
 * Some improvements have been made to reduce the size of the docker GoCD [server image](https://hub.docker.com/r/gocd/gocd-server/). Please check the changelog [here](https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md).
 * Some improvements have been made to create slimmer docker GoCD agent images. Please check the changelog [here](https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md).
-We provide support for the docker images for GoCD agents across the following operating systems - Centos [6](https://hub.docker.com/r/gocd/gocd-agent-centos-6/) & [7](https://hub.docker.com/r/gocd/gocd-agent-centos-7/) , Debian [7](https://hub.docker.com/r/gocd/gocd-agent-debian-7/) & [8](https://hub.docker.com/r/gocd/gocd-agent-debian-8/), Ubuntu [12.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/), [14.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/) & [16.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/)
+We provide support for the docker images for GoCD agents across the following operating systems - Alpine [3.5](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/), CentOS [6](https://hub.docker.com/r/gocd/gocd-agent-centos-6/) & [7](https://hub.docker.com/r/gocd/gocd-agent-centos-7/) , Debian [7](https://hub.docker.com/r/gocd/gocd-agent-debian-7/) & [8](https://hub.docker.com/r/gocd/gocd-agent-debian-8/), Ubuntu [12.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/), [14.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/) & [16.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/)
 
 <h4>Deprecations</h4>
 
@@ -21,7 +26,7 @@ Features that become superseded or irrelevant become *deprecated*, and are sched
 
 The following features have been deprecated. Please note the timeframe of when they will be removed.
 
-* Support for in-built password file and LDAP/AD authentication have been deprecated as of this release. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2018).
+* As of 17.5, support for in-built password file and LDAP/AD authentication have been deprecated. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2017).
 
 * The [Authorization Plugin](https://plugin-api.gocd.org/current/authorization/) endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this we are deprecating the Authentication Plugin endpoint. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.
     <h5>Authentication plugins</h5>
@@ -35,7 +40,7 @@ The following features have been deprecated. Please note the timeframe of when t
     </ul>
 
  * As of 17.8, the phusion based docker [server](https://hub.docker.com/r/gocd/gocd-server-deprecated/) and [agent](https://hub.docker.com/r/gocd/gocd-agent-deprecated/) images are deprecated in favour of the new docker [server](https://hub.docker.com/r/gocd/gocd-server/) and agent images. Support for the phusion images will be removed in 17.11.0.
- We provide support for the docker images for GoCD agents across the following operating systems - Centos [6](https://hub.docker.com/r/gocd/gocd-agent-centos-6/) & [7](https://hub.docker.com/r/gocd/gocd-agent-centos-7/) , Debian [7](https://hub.docker.com/r/gocd/gocd-agent-debian-7/) & [8](https://hub.docker.com/r/gocd/gocd-agent-debian-8/), Ubuntu [12.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/), [14.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/) & [16.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/)
+ We provide support for the docker images for GoCD agents across the following operating systems - Alpine [3.5](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/), CentOS [6](https://hub.docker.com/r/gocd/gocd-agent-centos-6/) & [7](https://hub.docker.com/r/gocd/gocd-agent-centos-7/) , Debian [7](https://hub.docker.com/r/gocd/gocd-agent-debian-7/) & [8](https://hub.docker.com/r/gocd/gocd-agent-debian-8/), Ubuntu [12.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/), [14.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/) & [16.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/)
 
 <h4>Contributors</h4>
 
@@ -54,9 +59,11 @@ The following features have been deprecated. Please note the timeframe of when t
   "Lubaina R",
   "Mahesh Panchaksharaiah",
   "Marques Lee",
+  "Naveen Bhaskar",
   "Rajiesh N",
   "Senthil R",
   "Suzie Prince",
+  "Tomasz Sętkowski",
   "Varsha Varadarajan",
   "Victor Nascimento"
 ].sort.uniq.join(', ')
