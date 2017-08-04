@@ -6,7 +6,7 @@ author: Ketan Padegaonkar
 excerpt: "This article describes some of the implementation techniques for performing Canary Releases."
 title_tag_of_header: "Implementation Techniques for Canary Releases | GoCD Blog"
 meta_description: "This article describes some of the implementation techniques for performing Canary Releases."
-meta_keywords: "gocd, elastic agents, gocd elastic agent, continuous delivery, dogfooding, elastic agent, ECS, AWS ECS, EC2, Docker, Dockerswarm, mesosphere, azure"
+meta_keywords: "gocd, continuous deployment, continuous delivery, continuous integration, canary releases, blue green deployments, continuous deployment strategies"
 summary_image: "/assets/images/blog/elastic-agents/elastic-agent-hero.jpg"
 draft: true
 ---
