@@ -1,7 +1,8 @@
-.campaign-banner{
-  position:relative;
-    .banner-content {
-    padding:10px;
+.campaign-banner {
+  position: relative;
+
+  .banner-content {
+    padding: 10px;
     position: absolute;
     z-index: 10;
     top: 50%;
@@ -10,14 +11,13 @@
     left: 50%;
     text-align: center;
     transform: translate(-50%, -62%);
-    background: rgba(0, 0, 0, 0.63);
     font-weight: 400;
 
     @media (min-width:$screen-tablet) {
       transform: translate(-50%, -50%);
       width: 575px;
       max-width: 575px;
-      padding:40px;
+      padding: 40px;
     }
 
     @media (min-width:$screen-desktop) {
@@ -27,61 +27,61 @@
     }
 
     @media (min-width:$screen-lg-desktop) {
-      width: 880px;
-      max-width: 880px;
+      width: 1000px;
+      max-width: 1000px;
       transform: translate(-50%, -50%);
     }
 
   }
-  h1{
-    color:#fff;
-    margin:0;
-    font-size:20px;
-    line-height:27px;
+
+  h1 {
+    color: #fff;
+    margin: 0;
+    font-size: 20px;
+    line-height: 27px;
+
     @media (min-width:$screen-tablet) {
-     font-size:34px;
-    line-height:40px;
+      font-size: 34px;
+      line-height: 40px;
     }
 
     @media (min-width:$screen-desktop) {
-     
     }
 
     @media (min-width:$screen-lg-desktop) {
-     
     }
+
   }
+
 }
 
 .campaign-btn-download {
-    width: 100%;
-    padding: 15px;
-    font-size: 20px;
-    margin-top: 30px;
-    @media (min-width:$screen-tablet) {
-     
-    }
+  width: 100%;
+  padding: 15px;
+  font-size: 20px;
+  margin-top: 30px;
 
-    @media (min-width:$screen-desktop) {
-     
-    }
+  @media (min-width:$screen-tablet) {
+  }
 
-    @media (min-width:$screen-lg-desktop) {
-     
-    }
+  @media (min-width:$screen-desktop) {
+  }
+
+  @media (min-width:$screen-lg-desktop) {
+  }
+
 }
 
 h2.campaign-feature-title {
-    margin: 20px 0 30px;
-    text-align: center;
-    border-bottom: 1px dotted #ccc;
-    padding-bottom: 10px;
+  margin: 20px 0 30px;
+  text-align: center;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 10px;
 }
+
 .row.campaign-body {
-    margin: 50px 0;
+  margin: 50px 0;
 }
-
-
 
 // main-features
 
@@ -183,19 +183,72 @@ h2.campaign-feature-title {
 
 }
 
+.section {
+  padding: 40px 0 60px;
 
-
-
-.section{
-  padding:40px 0 60px;
-  h1.main-caption{
-        font-size: 28px;
-    font-weight: 300;
-    text-align: center;
-    margin: 0 0 30px 0;
-  }
-  .main-desc{
+  .main-desc {
     text-align: center;
     display: block;
   }
+
+}
+
+h1.main-caption {
+  font-size: 28px;
+  font-weight: 300;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+
+// elastic-agents
+
+.elastic-agents {
+  .campaign-banner h1 {
+    font-style: italic;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+
+    @media (min-width:$screen-lg-desktop) {
+      font-size: 55px;
+      line-height: 60px;
+    }
+
+  }
+
+  h1.main-caption {
+    text-align: left;
+
+    @media (min-width:$screen-tablet) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    @media (min-width:$screen-lg-desktop) {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+  }
+
+  .main-desc {
+    text-align: left;
+  }
+
+  .main-features {
+    padding: 50px 0 30px;
+    background: #f5f5f5;
+  }
+
+  .campaign-body {
+    p {
+      margin-bottom: 30px;
+    }
+
+  }
+
+  .campaign-btn-download {
+    width: 30%;
+    display: block;
+    margin: 30px auto;
+  }
+
 }
