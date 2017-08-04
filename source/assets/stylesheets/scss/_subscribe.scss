@@ -78,7 +78,7 @@
     margin-top: 20px;
     border: 0;
     position: relative;
-    top: 2px;
+    top: 3px;
     font-family: 'Open Sans', sans-serif;
 
     @media (min-width:$screen-tablet) {
@@ -122,6 +122,12 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 
+p{
+  margin-bottom: 0;
+}
+#subscribe-info {
+    margin-top: 9px;
+}
   // Marketo form overrides
   #mktoForm_5414 {
     width: 250px !important;
