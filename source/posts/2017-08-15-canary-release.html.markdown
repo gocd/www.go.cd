@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "The benefits we saw using GoCD elastic agents"
+title: "Implementation Techniques for Canary Releases"
 type: post
 author: Ketan Padegaonkar
-excerpt: "This post is about GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw."
-title_tag_of_header: "GoCD Elastic Agents | GoCD Blog"
-meta_description: "This post is about GoCD team’s journey in building elastic agents and its benefits."
-meta_keywords: "gocd, elastic agents, gocd elastic agent, continuous delivery, dogfooding, elastic agent, ECS, AWS ECS, EC2, Docker, Dockerswarm, mesosphere, azure"
+excerpt: "This article describes some of the implementation techniques for performing Canary Releases."
+title_tag_of_header: "Implementation Techniques for Canary Releases | GoCD Blog"
+meta_description: "This article describes some of the implementation techniques for performing Canary Releases."
+meta_keywords: "gocd, continuous deployment, continuous delivery, continuous integration, canary releases, blue green deployments, continuous deployment strategies"
 summary_image: "/assets/images/blog/elastic-agents/elastic-agent-hero.jpg"
+draft: true
 ---
 <% content_for :banner do %>
 <figure>
