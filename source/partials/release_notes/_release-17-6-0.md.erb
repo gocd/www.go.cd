@@ -59,7 +59,7 @@ Features that become superseded or irrelevant become *deprecated*, and are sched
 
 The following features have been deprecated. Please note the timeframe of when they will be removed.
 
-* As of 17.5, support for in-built password file and LDAP/AD authentication have been deprecated. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2017).
+* As of 17.5, support for in-built password file and LDAP/AD authentication have been deprecated. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2017). Existing configuration will be automatically migrated to use the new in-built password file and LDAP/AD authentication plugins. No other action necessary.
 
 * The [Authorization Plugin](https://plugin-api.gocd.org/current/authorization/) endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this Authentication Plugin endpoint were deprecated as of 17.5.0. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.
     <h5>Authentication plugins</h5>
