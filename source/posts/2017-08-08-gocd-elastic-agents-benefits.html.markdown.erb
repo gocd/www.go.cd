@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The benefits we saw using GoCD elastic agents"
+title: "The benefits of GoCD elastic agents"
 type: post
 author: Ketan Padegaonkar
 excerpt: "This post is about GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw."
@@ -23,6 +23,8 @@ This post is about the GoCD team’s journey in building elastic agents, our exp
 GoCD operates on a server-agent model where a server communicates with many agents. The server is responsible for orchestrating various stages, jobs and tasks on the agents. The agents are responsible for their execution in the deployment pipeline. 
 
 Oftentimes it makes sense to [parallelize](https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-parallelize), to speed up build and test execution, get feedback quickly and deploy rapidly. 
+
+<%= image_tag 'blog/elastic-agents/parallelize.jpeg', :alt => 'Parallelize Workflow', :title => 'Parallelize Workflow' %>
 
 But for some teams, parallelization requires an intense use of hardware resources for brief periods of time. The situation becomes particularly frustrating when different branches of code or environments require different kinds of hardware and software to run on.
 
