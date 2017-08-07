@@ -1,0 +1,45 @@
+---
+layout: post
+title: "Part 2 - Continuous Deployment Strategies: Implementation Techniques for Canary Releases"
+type: post
+author: Ketan Padegaonkar
+excerpt: "This article describes some of the implementation techniques for performing Canary Releases."
+title_tag_of_header: "Implementation Techniques for Canary Releases | GoCD Blog"
+meta_description: "This article describes some of the implementation techniques for performing Canary Releases."
+meta_keywords: "gocd, continuous deployment, continuous delivery, continuous integration, canary releases, blue green deployments, continuous deployment strategies"
+summary_image: "/assets/images/blog/canary-releases/canary-releases-hero.jpg"
+tags: Continuous Deployment Strategies
+draft: true
+---
+
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/canary-releases/canary-releases-hero.jpg" alt="Canary Releases" />
+</figure>
+<% end %>
+
+In the previous article on Continuous Deployment Strategies, we explored techniques of performing <%= link_to 'blue/green deployments', '/posts/2017-07-25-blue-green-deployments.html' %>. In this post, we’ll cover how to perform Canary Releases. We know that
+
+> Canary releases are similar to blue/green, although only a small amount of the servers are upgraded. Then, using a cookie or similar, a fraction of users are directed to the new version.
+
+<%= image_tag 'blog/continuous-deployment-strategies/canary-release.jpeg', :alt => 'Canary Release', :title => 'Canary Release' %>
+
+Just like Blue/Green Deployments, one would start by deploying the application to a small subset of your servers. Once the subset of servers is deployed to, you may then route requests for a few users to the new set of servers.
+
+This strategy lets you do a lot of interesting things:
+
+- test the performance of the application
+- perform A/B tests based on demographics and user profiles, for example "users between the ages of 20-25 living in Iowa"
+- get feedback from a subset of beta testers or users from your company
+
+As your confidence in the deployment improves, you can deploy your application to more and more servers, and route more users to the new servers.
+
+If one or more versions of your application are running in production for some period of time, your application and its components (webservices, microservices, database) needs to be backward-compatible so that it works with at least one or two previous versions of your application. [Parallel-Change Pattern](https://martinfowler.com/bliki/ParallelChange.html) can be an effective way to implement backward-incompatible changes between application interfaces. 
+
+---
+
+## Summary 
+
+In this <%= link_to 'blog series', '/tags/continuous-deployment-strategies.html' %>, we've looked at concepts like Phoenix Servers, Blue/Green Deployments and Canary Releases to help with effective continuous deployment. If you have any feedback or would like to hear about other continuous deployment strategies, leave a comment below. 
+
+*This article was first published on the SnapCI Blog.*
