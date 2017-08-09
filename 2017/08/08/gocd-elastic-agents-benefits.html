@@ -11,11 +11,11 @@
     <meta name="twitter:title" content="GoCD Elastic Agents | GoCD Blog" />
     <meta name="twitter:description" content="This post is about GoCD team’s journey in building elastic agents and its benefits." />
     <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/elastic-agents/elastic-agent-hero-995aca63.jpg" />
-    <link rel="canonical" href="https://www.gocd.org/2017/08/01/gocd-elastic-agents.html" />
+    <link rel="canonical" href="https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits.html" />
 
     <title>GoCD Elastic Agents | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-1f8853f9.css" rel="stylesheet" />
+    <link href="../../../assets/stylesheets/site-8907c130.css" rel="stylesheet" />
     <script src="../../../assets/javascripts/all-ebf21de5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
@@ -27,7 +27,7 @@
 
   </head>
 
-  <body class="x2017 x2017_08 x2017_08_01 x2017_08_01_gocd-elastic-agents">
+  <body class="x2017 x2017_08 x2017_08_08 x2017_08_08_gocd-elastic-agents-benefits">
     <header class="top">
   <div class="container">
     <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
@@ -84,7 +84,7 @@
 
 
   <header class="blog-post-header">
-    <h1><span class="go">Go</span>CD elastic agents - Development while Dogfooding</h1>
+    <h1>The benefits of <span class="go">Go</span>CD elastic agents</h1>
     <h4>Ketan Padegaonkar</h4>
     <p class='tags'>
      </p>
@@ -92,11 +92,17 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>This post is about GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw.</p>
+<p>This post is about the GoCD team’s journey in building elastic agents, our experience while using it in anger and the benefits we saw.</p>
 
 <h2 id="why-elastic-agents">Why elastic agents</h2>
 
-<p>GoCD operates on a server-agent model where a server communicates with many agents. The server is responsible for orchestrating various stages, jobs and tasks on the agents. The agents are responsible for their execution in the deployment pipeline. Oftentimes it makes sense to <a href="https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-parallelize">parallelize</a>, to speed up build and test execution, get feedback quickly and deploy rapidly. But for some teams, parallelization requires an intense use of hardware resources for brief periods of time. The situation becomes particularly frustrating when different branches of code or environments require different kinds of hardware and software to run on.</p>
+<p>GoCD operates on a server-agent model where a server communicates with many agents. The server is responsible for orchestrating various stages, jobs and tasks on the agents. The agents are responsible for their execution in the deployment pipeline.</p>
+
+<p>Oftentimes it makes sense to <a href="https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-parallelize">parallelize</a>, to speed up build and test execution, get feedback quickly and deploy rapidly.</p>
+
+<p><img src="../../../assets/images/blog/elastic-agents/parallelize-9e407871.jpeg" alt="Parallelize Workflow" title="Parallelize Workflow" /></p>
+
+<p>But for some teams, parallelization requires an intense use of hardware resources for brief periods of time. The situation becomes particularly frustrating when different branches of code or environments require different kinds of hardware and software to run on.</p>
 
 <p>In many cases, this leads to:</p>
 
@@ -108,48 +114,48 @@
 
 <p>We wanted to help reduce infrastructure costs and improve hardware utilization. We believed that allowing organizations to bring up GoCD agents on-demand will achieve that goal. So we designed elastic agents to allow teams to leverage a combination of their own hardware and the cloud to run their builds.</p>
 
-<h2 id="dogfooding-our-own-solution">Dogfooding our own solution</h2>
+<h2 id="benefits-we-observed">Benefits we observed</h2>
 
-<p>To better understand the user experience of this new feature, and proactively adapt our solution, we decided to start dogfooding from Day 1! What this meant was, we created a version that could run one build, and started using it internally. This helped us get ahead in identifying gaps in the feature and we built our roadmap and vision this way.</p>
-
-<p>We started using the elastic agents for <a href="https://github.com/gocd-contrib/docker-elastic-agents">Docker plugin</a> as it was the first one we built. Automation was one of the most important investments that helped us start dogfooding this. We needed to have automation in place to install and configure all our existing agents. Using the same automation with Docker allowed us to build Docker containers to run our builds. After we had our Docker images and the first version of the plugin in place, we got quick feedback to see what worked and what didn't work and we kept refining over time. We refined both the plugin and the capabilities that GoCD needed to allow the plugin to work in the expected manner.</p>
-
-<h2 id="how-elastic-agents-improved-the-way-we-worked">How elastic agents improved the way we worked</h2>
-
-<p>We observed three benefits from elastic agents since we started to use them.</p>
+<p>We started using the elastic agents for <a href="https://github.com/gocd-contrib/docker-elastic-agents">Docker plugin</a> as it was the first one we built. We observed these benefits from elastic agents since we started to use them.</p>
 
 <h3 id="save-time-reduce-effort">1. Save time, reduce effort</h3>
 
-<p>It has saved us hours of wasted developer productivity per week.</p>
+<blockquote>
+  <p>It has saved us hours of wasted developer productivity per week.</p>
+</blockquote>
 
 <p>Before elastic agents, if we wanted to test something new that needed different hardware or software, we needed to provision build machines, and have the relevant software installed on these agents. Then if we chose to not keep the change, we also had to decommission the machines. It was time consuming  to do all of that, and took the focus away from development.</p>
 
-<p>Using elastic agents, we can apply the idea behind <a href="https://martinfowler.com/bliki/ImmutableServer.html">ImmutableServer</a> to our build machines. We now <a href="https://hub.docker.com/r/gocdcontrib/gocd-dev-build/builds/">build an operating system image</a> with all the required software (with the versions we need). We simply bring up a new agent with everything ready and at the end of this the plugin brings down the agent. Being able to run builds on different environments quickly and at will was also a win for the GoCD core team. This allowed us to operate quickly, and experiment without the worry of managing hardware.</p>
+<p>Using elastic agents, we can apply the idea behind <a href="https://martinfowler.com/bliki/ImmutableServer.html">ImmutableServer</a> to our build machines. We now <a href="https://hub.docker.com/r/gocdcontrib/gocd-dev-build/builds/">build an operating system image</a> with all the required software (with the versions we need). This allowed us to operate quickly, and experiment without the worry of managing hardware.</p>
 
 <h3 id="less-pain-and-overhead">2. Less pain and overhead</h3>
 
-<p>Every team member feels that our build and deployment process is much easier and less painful.</p>
+<blockquote>
+  <p>Every team member feels that our build and deployment process is much easier and less painful.</p>
+</blockquote>
 
-<p>We can now quickly bring up Docker containers (with all the required software) and kick off the builds within a certain environment without affecting other environments. We completely avoid all the pain we experienced before. Moving to a combination of on-premises hardware and Amazon ECS, the team also moves a lot faster because we are not dependent on hardware being procured, and provisioned with the right set of tools/software version on it, before we start using it.</p>
+<p>We can now quickly bring up Docker containers (with all the required software) and kick off the builds within a certain environment without affecting other environments. We completely avoid all the pain we experienced before. Moving to a combination of on-premises hardware and Amazon ECS has helped the team move a lot faster. We are not dependent on hardware being procured and provisioned with the right set of tools/software version on it, before we start using it.</p>
 
 <h3 id="improve-utilization-of-resources">3. Improve utilization of resources</h3>
 
-<p>We never had this capability to optimize our resources as we have now.</p>
+<blockquote>
+  <p>We never had this capability to optimize our resources as we do now.</p>
+</blockquote>
 
-<p>The real beauty of elastic agents was that it improved our infrastructure utilization. We can now use the same hardware to run and test GoCD on several operating systems improving the overall utilization of our hardware. If someone needs more machines to run builds, we can now terminate existing machines and bring up new ones. And if we still need more, we can overflow our builds on AWS with very little reconfiguring. We never had this capability to optimize our resources before, and it is extremely useful now that we can.</p>
+<p>The real beauty of elastic agents was that it improved our infrastructure utilization. We can now use the same hardware to run and test GoCD on several operating systems improving the overall utilization of our hardware. If someone needs more machines to run builds, we can now terminate existing machines and bring up new ones. And if we still need more, we can overflow our builds on AWS with very little reconfiguring.</p>
 
 <h2 id="how-can-your-team-benefit-from-elastic-agents">How can your team benefit from elastic agents?</h2>
 
-<p>Several open-source elastic agent plugins are <a href="https://www.gocd.org/plugins/#elastic-agents-plugins">currently available</a>. We already have an ECS plugin which a lot of our users are trying out. A guiding principle for GoCD is to keep it as agnostic as possible. This allows the user to choose what technology they want to use and provision agents there. Therefore, we put a lot of time and effort into <a href="https://plugin-api.gocd.org/current/elastic-agents/">our plugin API</a>, so you can just plug in any cloud provider you have or build your own plugin.</p>
+<p>Several open-source elastic agent plugins are <a href="https://www.gocd.org/plugins/#elastic-agents-plugins">currently available</a>. We already have an Amazon Elastic Container Service(ECS) plugin which a lot of our users are trying out. A guiding principle for GoCD is to keep it as agnostic as possible. This allows the user to choose what technology they want to use and provision agents there. Therefore, we put a lot of time and effort into <a href="https://plugin-api.gocd.org/current/elastic-agents/">our plugin API</a>, so you can just plug in any cloud provider you have or build your own plugin.</p>
 
-<p>Depending on user demand and the popularity of cloud provider among our users we will potentially build support for EC2, Azure and other cloud providers.</p>
+<p>Depending on user demand and the popularity of the cloud providers among our users we will potentially build support for agents running on Amazon EC2 instances, Azure and other cloud providers.</p>
 
 <div class="row">
   <div class="downloadbanner">
   <div class="container">
     <div class="banner-with-cta">
-      <p>Get to know all about GoCD Elastic Agents plugins and how you can get started.</p>
-      <a href="../../../elastic-agents.html">Know More</a>
+      <p>GoCD offers several community and commercial plugins as well as a plugin API for Elastic Agents.</p>
+      <a href="../../../elastic-agents.html">Elastic Agent Offerings</a>
     </div>
   </div>
 </div>
@@ -181,6 +187,11 @@
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <li>
+              <span class="post-date">Aug  8</span>
+              <span class="post-author">Ketan Padegaonkar</span>
+              <a href="gocd-elastic-agents-benefits/">The benefits of GoCD elastic agents</a>
+            </li>
+            <li>
               <span class="post-date">Jul 25</span>
               <span class="post-author">Ketan Padegaonkar</span>
               <a href="../../07/25/blue-green-deployments/">Part 2 - Continuous Deployment Strategies: Blue/Green Deployments</a>
@@ -200,17 +211,12 @@
               <span class="post-author">Ken Mugrage</span>
               <a href="../../07/13/introduction-continuous-delivery-101/">Part 1 - CD 101: An introduction to continuous delivery</a>
             </li>
-            <li>
-              <span class="post-date">Jul 10</span>
-              <span class="post-author">Sheroy Marker (Head of Technology), ThoughtWorks Products</span>
-              <a href="../../07/10/gocd-vs-spinnaker/">Continuous Delivery: GoCD vs Spinnaker</a>
-            </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../">2017 (22)</a></li>
+            <li><a href="../../">2017 (23)</a></li>
             <li><a href="../../../2016/">2016 (8)</a></li>
             <li><a href="../../../2015/">2015 (21)</a></li>
             <li><a href="../../../2014/">2014 (26)</a></li>
@@ -227,7 +233,7 @@
       <script>
         var disqus_config = function () {
           /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2017/08/01/gocd-elastic-agents.html";
+          this.page.url = "https://www.go.cd/2017/08/08/gocd-elastic-agents-benefits.html";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
         };

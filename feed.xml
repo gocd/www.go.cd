@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2017-08-01T00:00:00Z</updated>
+  <updated>2017-08-08T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>The benefits of GoCD elastic agents</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits.html"/>
+    <id>https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits.html</id>
+    <published>2017-08-08T00:00:00Z</published>
+    <updated>2017-08-08T00:00:00Z</updated>
+    <author>
+      <name>Ketan Padegaonkar</name>
+    </author>
+    <content type="html">This post is about GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw.</content>
+  </entry>
   <entry>
     <title>Part 2 - Continuous Deployment Strategies: Blue/Green Deployments</title>
     <link rel="alternate" href="https://www.gocd.org/2017/07/25/blue-green-deployments.html"/>
@@ -107,16 +118,5 @@
       <name>Aravind S.V, Product Manager at GoCD</name>
     </author>
     <content type="html">This post shows how to introduce Hotfixes and Rollbacks into your deployment pipeline. These techniques make your pipeline more flexible and can help you bypass process during emergencies.</content>
-  </entry>
-  <entry>
-    <title>Part 6 - Modeling Deployment Pipelines: Under the hood of Deployment Pipelines</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/06/13/modeling-deployment-pipelines-agents-environments.html"/>
-    <id>https://www.gocd.org/2017/06/13/modeling-deployment-pipelines-agents-environments.html</id>
-    <published>2017-06-13T00:00:00Z</published>
-    <updated>2017-06-13T00:00:00Z</updated>
-    <author>
-      <name>Aravind S.V, Product Manager at GoCD</name>
-    </author>
-    <content type="html">This post takes a look at where all the elements of a deployment pipeline actually run. In GoCD almost no part of the deployment process runs on the GoCD server. So, this begs the question - what really powers the deployment pipeline?</content>
   </entry>
 </feed>
