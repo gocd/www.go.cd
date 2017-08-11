@@ -147,16 +147,6 @@ h2.campaign-feature-title {
   .features {
     // text-align: center;
 
-    .feature-box {
-      @media (min-width:$screen-tablet) and (max-width:$screen-md-min) {
-        border-bottom: 1px dashed $border;
-        width: 100%;
-        float: left;
-        padding: 30px 0;
-      }
-
-    }
-
     p {
       border-bottom: 1px dashed $border;
       padding-bottom: 20px;
@@ -179,6 +169,16 @@ h2.campaign-feature-title {
       margin: 30px auto;
     }
 
+  }
+
+}
+
+.feature-box {
+  @media (min-width:$screen-tablet) and (max-width:$screen-md-min) {
+    border-bottom: 1px dashed $border;
+    width: 100%;
+    float: left;
+    padding: 30px 0;
   }
 
 }
@@ -216,6 +216,8 @@ h1.main-caption {
 
   h1.main-caption {
     text-align: left;
+    
+    font-size: 24px;
 
     @media (min-width:$screen-tablet) {
       font-size: 24px;
@@ -234,8 +236,13 @@ h1.main-caption {
   }
 
   .main-features {
+    padding: 0;
+    @media (min-width:$screen-tablet) {
+    padding: 40px 0 0px;
+    }
+@media (min-width:$screen-lg-desktop) {
     padding: 50px 0 30px;
-    background: #f5f5f5;
+    }    
   }
 
   .campaign-body {
@@ -246,9 +253,45 @@ h1.main-caption {
   }
 
   .campaign-btn-download {
-    width: 30%;
+
+        width: 240px;
     display: block;
     margin: 30px auto;
+    @media (min-width:$screen-tablet) {
+        
+    width: 30%;
+  }
+}
+
+  .feature-box {
+    padding: 20px;
+
+    @media (min-width:$screen-tablet) {
+      border: 2px solid #4ad9d9;
+      width: 100%;
+      float: left;
+      padding: 30px;
+      margin-bottom: 10px;
+    }
+
+    @media (min-width:$screen-desktop) {
+      height: 444px;
+    }
+
+    @media (min-width:$screen-lg-desktop) {
+      height: 440px;
+    }
+
+  }
+
+  .section{
+    padding:20px 0;
+    @media (min-width:$screen-tablet) {
+    padding:20px 0 0px 0;
+    }
+    @media (min-width:$screen-lg-desktop) {
+    padding:40px 0 0px 0;
+    }    
   }
 
 }
