@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Part 2 - Continuous Deployment Strategies: Implementation Techniques for Canary Releases"
+title: "Part 3 - Continuous Deployment Strategies: Implementation Techniques for Canary Releases"
 type: post
 author: Ketan Padegaonkar
 excerpt: "This article describes some of the implementation techniques for performing Canary Releases."
@@ -9,7 +9,6 @@ meta_description: "This article describes some of the implementation techniques 
 meta_keywords: "gocd, continuous deployment, continuous delivery, continuous integration, canary releases, blue green deployments, continuous deployment strategies"
 summary_image: "/assets/images/blog/canary-releases/canary-releases-hero.jpg"
 tags: Continuous Deployment Strategies
-draft: true
 ---
 
 <% content_for :banner do %>
@@ -26,7 +25,7 @@ In the previous article on Continuous Deployment Strategies, we explored techniq
 
 Just like Blue/Green Deployments, one would start by deploying the application to a small subset of your servers. Once the subset of servers is deployed to, you may then route requests for a few users to the new set of servers.
 
-This strategy lets you do a lot of interesting things:
+This strategy lets you do a lot of interesting things, like:
 
 - test the performance of the application
 - perform A/B tests based on demographics and user profiles, for example "users between the ages of 20-25 living in Iowa"
