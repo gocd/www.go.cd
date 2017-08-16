@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-08-08T00:00:00Z</updated>
+  <updated>2017-08-15T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Part 3 - Continuous Deployment Strategies: Implementation Techniques for Canary Releases</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/08/15/canary-releases.html"/>
+    <id>https://www.gocd.org/2017/08/15/canary-releases.html</id>
+    <published>2017-08-15T00:00:00Z</published>
+    <updated>2017-08-15T00:00:00Z</updated>
+    <author>
+      <name>Ketan Padegaonkar</name>
+    </author>
+    <content type="html">This article describes some of the implementation techniques for performing Canary Releases.</content>
+  </entry>
   <entry>
     <title>The benefits of GoCD elastic agents</title>
     <link rel="alternate" href="https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits.html"/>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">This infographic walks through 5 key patterns to setting up a successful deployment pipeline, including designing parallel workflows, running tests in parallel, and more.</content>
-  </entry>
-  <entry>
-    <title>Part 7 - Modeling Deployment Pipelines: Preparing for emergency deployments and rollbacks</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward.html"/>
-    <id>https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward.html</id>
-    <published>2017-06-20T00:00:00Z</published>
-    <updated>2017-06-20T00:00:00Z</updated>
-    <author>
-      <name>Aravind S.V, Product Manager at GoCD</name>
-    </author>
-    <content type="html">This post shows how to introduce Hotfixes and Rollbacks into your deployment pipeline. These techniques make your pipeline more flexible and can help you bypass process during emergencies.</content>
   </entry>
 </feed>
