@@ -1,30 +1,29 @@
 /tags/are-you-ready-for-continuous-delivery.html:
   title: Are you ready for Continuous Delivery?
-  meta_description: GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD.
-  meta_keywords: GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software developmentannouncements.html
+  meta_description: This series covers continuous delivery infrastructure, culture, process, and application design. Also learn more about a variety of feedback loops.
+  meta_keywords: continuous delivery, open source continuous delivery, automated testing, feedback loops, version control, trunk based development, continuous integration
 
 /tags/cd-101.html:
-  title: CD 101
-  meta_description: GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD.
-  meta_keywords: GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software developmentannouncements.html
+  title: CD 101 - Introduction to Continuous Delivery
+  meta_description: CD101 video series covers key concepts in continuous delivery, continuous deployment, and more.
+  meta_keywords: continuous delivery, open source continuous delivery, continuous integration, introduction to continuous delivery, automated testing, devops, deployment pipeline, build pipeline
 
 /tags/continuous-deployment-strategies.html:
   title: Continuous Deployment Strategies
-  meta_description: GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD.
-  meta_keywords: GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software developmentannouncements.html
+  meta_description: Learn continuous deployment strategies such as blue/green deployments, canary releases for modern web applications.
+  meta_keywords: continuous deployment, open source continuous delivery, blue green deployments, canary releases, phoenix servers, snowflake servers
 
 /tags/infographic.html:
-  title: Infographic
-  meta_description: GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD.
-  meta_keywords: GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software developmentannouncements.html
+  title: Continuous Delivery Infographics
+  meta_description: Infographics on continuous delivery, continuous integration, and continuous deployment and more.
+  meta_keywords: infographic continuous delivery, deployment pipeline patterns, deployment pipelines, build pipeline
 
 /tags/it-s-not-cd-if-you-can-t-deploy-right-now.html:
   title: It's Not CD if You Can't Deploy Right Now
-  meta_description: GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD.
-  meta_keywords: GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software developmentannouncements.html
+  meta_description: If you can't push your software to production now, you're not done with your CD journey. A series on technical practices required.
+  meta_keywords: open source continuous delivery, introduction to continuous delivery, automated testing, security testing, performance testing, deployment pipeline, build pipeline
 
 /tags/modeling-deployment-pipelines.html:
   title: Modeling Deployment Pipelines
-  meta_description: GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD.
-  meta_keywords: GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software developmentannouncements.html
-
+  meta_description: Modeling deployment pipeline series offers a detailed view on continuous delivery pipelines, rollbacks, build propogation, and more.
+  meta_keywords: deployment pipeline, build pipeline, hotfixes, fan in fan out, manual gates, open source continuous delivery
