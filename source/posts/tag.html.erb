@@ -1,10 +1,12 @@
 ---
-title: GoCD - Tagged Blog posts
 pageable: false
-title_tag_of_header: "Continuous Delivery | GoCD"
-meta_description: "GoCD is open source continuous delivery software. We help organizations deliver high quality software through automation. Read about our journey and experiences building GoCD."
-meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, blog, software development"
 ---
+<% data_for_this_tag = data.tag_page_header_info[tag_path(tagname)] || {} %>
+<% current_page.data.title = data_for_this_tag['title'] %>
+<% current_page.data.title_tag_of_header = data_for_this_tag['title'] %>
+<% current_page.data.meta_description = data_for_this_tag['meta_description'] %>
+<% current_page.data.meta_keywords = data_for_this_tag['meta_keywords'] %>
+
 <div class="inner-banner blog-banner">
    <div class="container">
      <div class="banner-content">
