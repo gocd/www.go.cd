@@ -1,0 +1,81 @@
+---
+layout: campaignlanding
+title: "GoCD vs Jenkins"
+title_tag_of_header: "GoCD vs Jenkins | GoCD"
+page_caption: GoCD vs JENKINS
+meta_description: "The differences between GoCD and Jenkins"
+meta_keywords: "GoCD, continuous delivery, elastic agent, gocd elastic agent, AWS elastic agent, AWS ECS, AWS ECS Elastic Agent, elastic agent plugin"
+show_features: true
+---
+<!-- banner image goes here -->
+<% content_for :banner do %>
+    <figure>
+      <%= image_tag 'campaign/jenkins/go-jenkins-hero.jpg', alt: 'GoCD vs Jenkins', title: "GoCD vs Jenkins" %>
+    </figure>
+<% end %>
+<% content_for :maincontent do %>
+    <% if current_page.data.show_features %>
+        <div class="section">
+          <div class="container">
+            <h1 class="main-caption">The differences between GoCD and Jenkins
+            </h1>
+            <p class="main-desc">If you are doing or want to do CD you should be using GoCD. GoCD will feel good to both beginners and those highly experienced in building deployment pipelines. If you want to utilize a vast plugin catalog to automate “all the things” then Jenkins might be a better fit for you. Here’s a high level comparison between GoCD and Jenkins. 
+              </p>
+          </div>
+        </div>
+        <!-- three column area -->
+        <div class='main-features'>
+          <div class="container">
+            <div class="row features">
+              <div class=" col-sm-12 col-md-4">
+                <div class="feature-box">
+                  <h3>Optimize Utilization &amp; Save Costs</h3>
+                  <figure>
+                    <%= image_tag "campaign/elastic-agents/771-spot_illo_1.png", {:title => "Optimize Utilization &amp; Save Costs", :alt => "Optimize Utilization & Save Costs"} %>
+                  </figure>
+                  <p>Use the Elastic Agent capability to spawn and terminate Agents to tailor to your individual
+                    projects. Scale flexibly to optimize your utilization and reduce costs.
+                  </p>
+                </div>
+              </div>
+              <div class=" col-sm-12 col-md-4">
+                <div class="feature-box">
+                  <h3>Community &amp; Commercial Plugins</h3>
+                  <figure>
+                    <%= image_tag "campaign/elastic-agents/771-spot_illo_3.png", {:title => "Community &amp; Commercial Plugins", :alt => "Community &amp; Commercial Plugins"} %>
+                  </figure>
+                  <p>GoCD has community supported and commercial
+                    <a href="https://www.gocd.org/plugins/">Elastic Agent plugins</a> for Docker, Docker Swarm, Marathon
+                    and AWS. </p>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-4">
+                <div class="feature-box">
+                    <h3>Elastic Agent API Endpoint</h3>
+                    <figure>
+                      <%= image_tag "campaign/elastic-agents/771-spot_illo_2.png", {:title => "Elastic Agent API Endpoint", :alt => "Elastic Agent API Endpoint"} %>
+                    </figure>
+                    <p><a href="https://plugin-api.gocd.org/current/elastic-agents/">GoCD’s Elastic Agent extension </a>
+                      allows plugin developers to write plugins that allow GoCD to leverage technologies like Docker (<a href="https://github.com/gocd-contrib/docker-elastic-agents">Reference</a>), AWS, GCE etc.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <!-- description and download -->
+    <div class="container">
+      <div class='row campaign-body'>
+        <div class='col-sm-12'>
+          <h1 class="main-caption">Get started by installing your prefered Elastic Agent plugin and start saving!</h1>
+          <p>A guiding principle for GoCD is to keep it as agnostic as possible. We'd like, you, the user to choose what technology you want to use and provision agents there. Therefore, we put a lot of time and effort into our API, so you can just plug in any cloud provider you have or build your own plugin. </p>
+          <p>We have a whole bunch of plugins for you to use Elastic Agents. If you're running builds on OpenStack, Docker or Docker Swarm, we've got you covered.</p>
+          <p>Learn more about our <a href="https://thoughtworks.com/go">commercial plugins</a>.</p>
+        </div>
+        <div class='col-sm-12'>
+          <!-- call to action -->
+          <%= link_to 'View Plugins', "https://www.gocd.org/plugins/#elastic-agents-plugins", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
+        </div>
+      </div>
+    </div>
+<% end %>
