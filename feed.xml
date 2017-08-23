@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2017-08-15T00:00:00Z</updated>
+  <updated>2017-08-22T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Part 3 - CD101: Principles and Best Practices for Continuous Delivery</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/08/22/principles-practices-continuous-delivery.html"/>
+    <id>https://www.gocd.org/2017/08/22/principles-practices-continuous-delivery.html</id>
+    <published>2017-08-22T00:00:00Z</published>
+    <updated>2017-08-22T00:00:00Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">CD 101 is a video series to help you get started on your CD journey. Part Three of this series covers the principles and practices in continuous delivery and ways to decrease risk in deployments.</content>
+  </entry>
   <entry>
     <title>Part 3 - Continuous Deployment Strategies: Implementation Techniques for Canary Releases</title>
     <link rel="alternate" href="https://www.gocd.org/2017/08/15/canary-releases.html"/>
@@ -107,16 +118,5 @@
       <name>Robin Weston</name>
     </author>
     <content type="html">Serverless architectures can be great enablers of Continuous Delivery by combining a focus on value with small, quick-to-deploy, independent units of functionality. This post explains what a serverless architecture is, their benefits with a deeper look at Functions as a Service (FaaS).</content>
-  </entry>
-  <entry>
-    <title>Infographic: 5 Key Patterns for your Deployment Pipeline</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/06/22/deployment-pipeline-patterns-infographic.html"/>
-    <id>https://www.gocd.org/2017/06/22/deployment-pipeline-patterns-infographic.html</id>
-    <published>2017-06-22T00:00:00Z</published>
-    <updated>2017-06-22T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">This infographic walks through 5 key patterns to setting up a successful deployment pipeline, including designing parallel workflows, running tests in parallel, and more.</content>
   </entry>
 </feed>
