@@ -45,7 +45,6 @@ REDIRECTS = {
   "SEdaily/index.html"                         => "/index.html?utm_campaign=sedaily_2017_podcast&utm_medium=sedaily_podcast&utm_source=sedaily_podcast&utm_content=sed_podcast&utm_term=",
   "govsjenkins/index.html"                      => "/2017/04/25/gocd-over-jenkins/index.html",
   "gocdvsjenkins/index.html"                    => "/2017/04/25/gocd-over-jenkins/index.html",
-  "jenkins/index.html"                          => "/2017/04/25/gocd-over-jenkins/index.html",
   "arrested/index.html"                         => "/index.html?utm_campaign=arrested_ops_2017&utm_medium=podcast&utm_source=podcast_arrested&utm_content=go_website&utm_term=",
   "spinnaker/index.html"                         => "/2017/07/10/gocd-vs-spinnaker/index.html"
   }
