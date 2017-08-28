@@ -1,0 +1,37 @@
+---
+layout: campaignlanding
+title: "Download the CD101 eBook"
+title_tag_of_header: "Download the CD101 eBook | GoCD"
+page_caption: 
+meta_description: ""
+meta_keywords: ""
+show_features: true
+---
+<!-- banner image goes here -->
+<% content_for :banner do %>
+    <figure>
+      <%= image_tag 'campaign/cd101/cd101-hero.jpg', alt: 'Download the CD101 eBook', title: "Download the CD101 eBook" %>
+    </figure>
+<% end %>
+<% content_for :maincontent do %>
+        <div class="section">
+          <div class="container">
+            <h1 class="main-caption">
+             What are the most crucial items for your team?
+            </h1>
+              <ul>
+                <li>Want to deploy code faster?</li>
+                <li>React to changes quickly?</li>
+                <li>Releasing more frequently?</li>
+              </ul>
+            In this Continuous Delivery 101 eBook, we’ll take you back to the  basics. Inside you’ll find a reference guide with visuals on key concepts. 
+              <ul>
+                <li>What is continuous integration?</li>
+                <li>What is continuous delivery and continuous deployment? Are they different?</li>
+                <li>What is DevOps and how can you benefit from it?</li>
+              </ul>
+            We also explore core development practices that are prerequisites for continuous delivery.  And present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for continuous delivery.     
+            <%= link_to 'Download for free and share with your team', "https://www.gocd.org/getting-started/part-1/", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>       
+          </div>
+        </div>       
+<% end %>
