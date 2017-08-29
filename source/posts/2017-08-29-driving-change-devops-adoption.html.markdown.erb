@@ -1,0 +1,81 @@
+---
+layout: post
+title: "Part 1 - You can’t buy DevOps, but you may need to sell it: DevOps Statistics and Stories"
+type: post
+author: Ken Mugrage
+excerpt: "Part 1 of the series 'You can't buy DevOps, but you may need to sell it' covers facts and statistics to help you drive adoption of a devops culture in your teams and organizations."
+title_tag_of_header: "DevOps Statistics and Stories | GoCD Blog"
+meta_description: "Part 1 of the series 'You can't buy DevOps, but you may need to sell it' covers facts and statistics to help you drive adoption of a devops culture in your teams and organizations."
+meta_keywords: "devops, gocd, continuous delivery, agile devops, devops statistics, devops stories, devops adoption"
+summary_image: "/assets/images/blog/thoughtworks-apax/thoughtworks-apax-hero.jpg"
+tags: You cannot buy DevOps but you may need to sell it
+draft: true
+---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/thoughtworks-apax/thoughtworks-apax-hero.jpg" alt="Part 1 - You can’t buy DevOps, but you may need to sell it: DevOps Statistics and Stories"/>
+</figure>
+<% end %>
+
+Having worked in the continuous delivery and DevOps space for several years, I often get frustrated when I hear "Oh, I’ll buy this tool and then I can do the DevOps." As a tool vendor, I wish it worked like that. In reality, it takes a lot of effort for anyone to drive and socialize change in an organization. 
+    
+In this series, <%= link_to 'You cannot buy DevOps, but you may need to sell it', '/tags/you-cannot-buy-devops-but-you-may-need-to-sell-it.html' %>, I am going to help you get stakeholder buy-in and also clear up some misconceptions about “selling” DevOps.
+    
+## DevOps is driving change
+
+There are many different methodologies, techniques, and architectures promising to make teams better. If you go on Wikipedia and looked up ‘software methodologies’, you will get a really long list. But unless people actually change the way they work, they won’t experience the benefits of these techniques. So in order to do ‘DevOps’ (or implement anything new), your biggest challenge will be to **drive behavior change amongst your team members**.
+    
+I’ve observed that there are usually two reasons that motivate people to ‘do’ anything; 
+- they're trying to make something better or to gain something (the carrot)
+- they’re trying to avoid pain (the stick)  
+    
+## The Carrot: What can DevOps *make better*? 
+
+### 1. Increase performance of your teams
+
+Based on statistics from the [2017 State of DevOps report](https://puppet.com/resources/whitepaper/state-of-devops-report) (authored by Jez Humble, Gene Kim and Nicole Forsgren), we know that teams practicing Devops experience:  
+
+- 24x faster recovery from failures
+- 3x lower change failure rate
+- 22% less time spent on unplanned work and rework
+- 50% less time remediating security issues. 
+
+### 2. Become attractive workplaces to people you’d like to hire
+
+The State of Devops report also points out that employees in high-performing teams were 2.2 times more likely to recommend their organizations as a great place to work. 
+
+*Note: If you are interested in the science behind the report, you can check out the video [Sciencing the Crap Out of DevOps](https://www.youtube.com/watch?v=QqpGyycz7Kk) and the [SSRN paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2681909) on 'The Role of Continuous Delivery in IT and Organizational Performance'.*  
+
+## The Stick: What if you don’t “do DevOps”
+
+If the benefits alone are not enough to convince your audience, then try pointing out the threats of not practicing DevOps.
+
+### 1. Get overtaken by the competition 
+
+> Survival is optional. No one *has* to change.
+
+I like to use this quote to describe the current situation. If you don’t do DevOps, that’s fine. But in all probability, your competitors will do it, get faster, and beat you.
+
+### 2. Slow recovery from inevitable security issues
+
+[Heartbleed](http://heartbleed.com/) is a great example of this. According to their survey, when this SSL issue came out, the average recovery was around 10 days. There were a lot of sites that were fixed in 20 minutes because they had solid continuous delivery pipelines and were able to run through their entire process to get to product very quickly. [Symantec did a survey on vulnerabilities by year](https://www.symantec.com/security-center/threat-report), and the number of vulnerabilities grows every year. 
+
+### 3. Pay the high cost of human errors
+
+Manual deployments is a game of russian roulette. In 2012, trading firm [Knight Capital](https://en.wikipedia.org/wiki/Knight_Capital_Group), used a manual process to deploy their software. They had eight servers to deploy to, but on one occasion, the technician did not copy the new code to one of the eight. This company, with nearly $400 million in assets, went bankrupt in 45 minutes because of a failed deployment.
+
+More recently,  an employee at Amazon typed in a command and unintentionally [brought down a whole lot of servers](https://aws.amazon.com/message/41926/) and a huge part of the Internet with it. It still took them (Amazon!) four and a half hours to recover. 
+
+Here are some numbers about the cost of downtime which you can use to convince your business stakeholder about DevOps. According to Business Insider, during AWS' four-hour disruption downtime, S&P 500 companies lost 150 million, US financial services lost 160 million, but Apple, Walmart, Newegg, Best Buy, Costco, and surprisingly Amazon/Zappos were not affected by the outage. This is because they had processes in place and were able to switch data centers. 
+
+---
+
+## Summary 
+
+These anecdotes and statistics show the merits of adopting a DevOps culture. But these stories and statistics by themselves aren’t enough to bring out a team-wide or an organization-wide change. In my next post, I’ll cover some of the strategies you can use to drive adoption of a DevOps culture (and drive any change) in your teams. 
+
+<div class='row'>
+  <%= partial "partials/subscribeThePipeline" %>
+</div>
+
+
