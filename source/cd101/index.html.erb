@@ -11,32 +11,23 @@ show_features: true
 
   <!-- banner image goes here -->
   <% content_for :banner do %>
-    <div class="section">
-      <div class="container-fluid">
-        <figure>
-          <%= image_tag 'campaign/cd101/cd101-hero.jpg', alt: 'Download the CD101 eBook', title: "Download the CD101 eBook" %>
-        </figure>
-      </div>
-    </div>
+      <%= image_tag 'campaign/cd101/cd101-banner2.png', alt: 'Download the CD101 eBook', title: "Download the CD101 eBook" %>
   <% end %>
 
   <% content_for :maincontent do %>
     <div class="container">
 
       <div class="col-sm-12">
-        <h1> What are the most crucial items for your team?</h1>
+        <h2> What are the most crucial items for your team?</h2>
       </div>
       
       <div class="col-sm-4">
-        <%= image_tag 'campaign/cd101/gocd-continuous-delivery-101-ebook.jpg', alt: 'Download the CD101 eBook', title: "Download the CD101 eBook" %>
+        <%= image_tag 'campaign/cd101/815-booklet-mockup.jpg', alt: 'Download the CD101 eBook', title: "Download the CD101 eBook" %>
       </div>
 
-      <div class="col-sm-8">
-        <ul>
-          <li>Want to deploy code faster?</li>
-          <li>React to changes quickly?</li>
-          <li>Releasing more frequently?</li>
-        </ul>
+      <div class="col-sm-8 content">
+
+        <h3>Want to deploy code faster? React to changes quickly? Release more frequently?</h3>
         
         <p>In this Continuous Delivery 101 eBook, we’ll take you back to the  basics. Inside you’ll find a reference guide with visuals on key concepts.</p>     
       
