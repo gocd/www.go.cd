@@ -319,29 +319,34 @@ h1.main-caption {
 .jenkins {
 
   .campaign-banner {
-    border: 1px solid red;
-    background-size: cover;
-  }
 
-  .banner-content {
-    border: 1px solid green;
-  }
+    .banner-content {
 
-  .test {
-    height: 300px;
-    width: 300px;
-    border: 1px solid blue;
+      h1 {
+        font-size: 4em;
+        line-height: 1.2em;
+
+        @media (max-width:500px) {
+          font-size: 2em;
+        }
+      }
+    }
   }
 
   .intro {
-    padding-bottom: 8em;
+    margin-bottom: 8em;
 
     h1 {
       text-align: center;
+
+      @media (max-width:500px) {
+        font-size: 2em;
+      }
     }
   }
 
   .compare-table {
+    margin-top: 2em;
     border-collapse: collapse;
     border-spacing: 0;
 

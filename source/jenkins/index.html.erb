@@ -2,23 +2,71 @@
 layout: campaignlanding
 title: "The differences between GoCD and Jenkins"
 title_tag_of_header: "The differences between GoCD and Jenkins | GoCD"
-page_caption:
+page_caption: GoCD vs JENKINS
 meta_description: "GoCD is a best of breed continuous delivery tool that is a solid alternative to Jenkins, with no required plugins to do CD."
 meta_keywords: "jenkins alternative, gocd vs jenkins, jenkins plugins, jenkins go, open source continuous delivery"
 show_features: true
 ---
-<!-- banner image goes here -->
-<% content_for :banner do %>
-    <figure>
-      <%= image_tag 'campaign/jenkins/jenkins-hero.jpg', alt: 'GoCD and Jenkins', title: "GoCD and Jenkins" %>
-    </figure>
-<% end %>
 
 <div class="jenkins">
 
+        <% content_for :banner do %>
+         <figure>
+        <%= image_tag 'campaign/jenkins/jenkins-hero-3.jpg', alt: 'GoCD and Jenkins', title: "GoCD and Jenkins" %>
+         </figure>
+        <% end %>
 
 
+    <% content_for :maincontent do %>
+
+    <div class="container">
+        <div class="intro">
+            <h1>The differences between GoCD and Jenkins</h1>
+            <p class="col-xs-10 col-xs-offset-1">If you are doing or want to do continuous delivery, you should be using GoCD, a solid Jenkins alternative. GoCD suits both beginners and those highly experienced in building deployment pipelines. If you want to utilize a vast plugin catalog to automate a variety of things then Jenkins might be a better fit for you. Here’s a high level comparison between GoCD and Jenkins.</p>
         </div>
+    </div>
+
+    <div class="container">
+        <table class="compare-table">
+            <tr>
+                <th><br/></th>
+                    <th class="column-header">GoCD</th>
+                    <th class="column-header">Jenkins</th>
+            </tr>
+
+            <tr>
+                <td class="row-header">Philosophy</td>
+
+                <td>GoCD is a best-of-breed tool for Continuous Delivery (CD).</td>
+                <td>Jenkins is a general purpose automation tool and is built for Continuous Integration(CI).</td>
+            </tr>
+
+            <tr>
+                <td class="row-header">Plugins<br/></td>
+                <td>GoCD aims to support the most common CD scenarios out of the box without any plugin installation.</td>
+                <td>Extensibility is core to Jenkins. Its flexibility attributes itself to plugins being critical to Jenkins’ functionality. So it depends heavily on plugins for pretty much any use case.</td>
+            </tr>
+
+            <tr>
+                <td class="row-header">Continuous Delivery</td>
+                <td>GoCD was built on the principles of Continuous Delivery (link the website). This is visible in its abstractions as pipeline is a first class concept. GoCD also encourages that there be only one way to implement the fundamental CD patterns. When you search for help on how to implement the various deployment pipeline patterns, you will generally find a single, well-known, well-tested answer.</td>
+                <td>With Jenkins 2.0, CD is implemented by the installation of a variety of plugins. Many common CD patterns (build an artifact only once, full traceability up and down stream, and more) are either impossible to implement or can only be cobbled together with fragile combinations of plugins.</td>
+            </tr>
+
+            <tr>
+                <td class="row-header">Continuous Integration</td>
+                <td>Although GoCD is built specifically with CD in mind, it has sophisticated features for continuous integration.</td>
+                <td>Jenkins is built for CI. Anything beyond that, requires plugins.</td>
+            </tr>
+            
+            <tr>
+                <td class="row-header">Getting Started</td>
+                <td>If you are are new to CD and deployment pipelines, GoCD’s getting started tutorial is a big help. It will teach you the key deployment pipeline patterns while you learn how GoCD works.</td>
+                <td>Jenkins 2.0 has a helpful getting started experience by providing a wizard to guide you through plugin installation. This wizard includes a default set of common plugins and prompting you to setup your first build. But this won’t prevent you from needing an in depth understanding of the plugins to create the correct plugin mix for your use case.</td>
+            </tr>
+        </table>
+    </div>
+     
     <!-- description and download -->
     <div class="container">
       <div class='row campaign-body'>
@@ -29,3 +77,5 @@ show_features: true
       </div>
     </div>
 <% end %>
+
+</div>
