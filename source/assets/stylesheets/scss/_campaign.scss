@@ -314,6 +314,73 @@ h1.main-caption {
 
 }
 
+//Jenkins
+
+.jenkins {
+
+  .campaign-banner {
+    border: 1px solid red;
+    background-size: cover;
+  }
+
+  .banner-content {
+    border: 1px solid green;
+  }
+
+  .test {
+    height: 300px;
+    width: 300px;
+    border: 1px solid blue;
+  }
+
+  .intro {
+    padding-bottom: 8em;
+
+    h1 {
+      text-align: center;
+    }
+  }
+
+  .compare-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    tr:nth-child(2n+0) {
+      background-color: #ECF0F1;
+    }
+
+    td {
+      padding: 20px;
+      border: none;
+      overflow: hidden;
+      word-break: normal;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #94399E;
+      color: #FFFFFF;
+      padding: 20px;
+      border: none;
+      overflow: hidden;
+      word-break: normal;
+      vertical-align: top;
+    }
+
+    .column-header {
+      font-weight: 600;
+      font-size: 1.5em;
+      text-align: center;
+      vertical-align: top
+    }
+
+    .row-header {
+      font-weight: 600;
+      text-align: center;
+      vertical-align: top
+    }
+  }
+}
 
 
 
