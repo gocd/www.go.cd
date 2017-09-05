@@ -87,7 +87,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-17-8-0" class="active">17.8.0 (latest)</li>
+      <li rel="tab-17-9-0" class="active">17.9.0 (latest)</li>
+      <li rel="tab-17-8-0">17.8.0</li>
       <li rel="tab-17-7-0">17.7.0</li>
       <li rel="tab-17-6-0">17.6.0</li>
       <li rel="tab-17-5-0">17.5.0</li>
@@ -119,7 +120,105 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-17-8-0">17.8.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-17-9-0">17.9.0 (latest)</h3>
+      <div id="tab-17-9-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Improvements</h4>
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/928c5856c2bc73aa92c1a8eb1a86d8094a9fe806">928c585</a></code> - Grouping elastic profile by plugin-id. (<a href="https://github.com/gocd/gocd/issues/3772">#3772</a>)</p>
+
+    <p>We have created an organized view of the elastic agent profiles. Now, you can view them by the type of elastic agent plugin (Docker Swarm, OpenStack, ECS etc.), making it easier to find a particular profile.</p>
+
+    <figure class="shrink-figure-70">
+    <img src="assets/images/releases/17.9.0/elastic-agent-grouping-by-plugin-id-3f70396b.png" alt="Group elastic profile by plugin-id" />
+</figure>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/1c1f2fe0d4ebda46ddfe0766ce50d580039a3f77">1c1f2fe</a></code> - Administrators can choose to edit a Pipeline with one-click from the Value Stream Map.</p>
+
+    <figure class="shrink-figure-70">
+    <img src="assets/images/releases/17.9.0/edit-pipeline-from-vsm-008fac52.png" alt="Edit pipeline from VSM" />
+</figure>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/ca7c3fa232087b67553e7d30bbfb409ba5aab49d">ca7c3fa</a></code> - Addition of a request processor to allow plugin authors to <a href="https://plugin-api.gocd.org/current/authorization/#get-server-info">query information from the GoCD server</a>. (<a href="https://github.com/gocd/gocd/issues/3401">#3401</a>)</p>
+  </li>
+</ul>
+
+<h4>API Changes</h4>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/0587f21042701d9ee1e64ae698341c495df6c8d8">0587f21</a></code> - Introduction of version 3 of Plugin Info <a href="https://api.gocd.org/current/#plugin-info">API</a> to include extension related information. (<a href="https://github.com/gocd/gocd/issues/3719">#3719</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/d53ed3814f19fa25d05f8f5cb04ba40a66211a07">d53ed38</a></code> - Introduction of <a href="https://api.gocd.org/current/#plugin-settings">Plugin Settings API</a> v1. (<a href="https://github.com/gocd/gocd/issues/3599">#3599</a>)</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/4c9e3c9353f4d0e93fd3365dbc9fe4e891ac4a4e">4c9e3c9</a></code> - Removed memory leaks from agent bootstrapper.</p>
+
+    <p>GoCD agents are designed to automatically upgrade themselves when the GoCD server is upgraded. This requires the currently running agent to release all resources before exiting and handing over control to a newer version of the agent process. There were some file system resource and memory leaks that have been identified which affect versions of go-agent bootstrapper between 17.4 and 17.8. We recommend that users either upgrade their gocd server and agent versions to the latest version, or restart the agent process to release any memory and filesystem resources that may be locked by the agent process.</p>
+  </li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e538ba0032fcdd6cc8c95d202267deeb6c46a979">e538ba0</a></code> - Check if agent is disabled before job assignment.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/d47180f2193239ddd318157c43d3f60b6168d9e0">d47180f</a></code> - Addition of a few more fields to materials form which is used in creation of pipelines.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/8f6cc6c8c52fabecae024600d454e9a094d9fc2a">8f6cc6c</a></code> - Send request headers from server to plugins.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/0eab696075a5bbdf7cd117a1392101559705bab1">0eab696</a></code> - Stage and job related warnings should not be logged for a rerun stage/job. (<a href="https://github.com/gocd/gocd/issues/3753">#3753</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/8f66499e169fdb3b8ff74b40da1f816bab7716dc">8f66499</a></code> - Fixes select all bug on admin edit in environment page. (<a href="https://github.com/gocd/gocd/issues/3737">#3737</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/793d19809f2693028ab40ef83403810ef47a3b1f">793d198</a></code> - Redirect authenticated user to home page on re-authentication.</li>
+</ul>
+
+<h4>Docker Images</h4>
+<ul>
+  <li>GoCD images make logs available to docker by writing them to STDOUT. Users can access the logs anytime by executing   <code>docker logs</code>   in both server and agent containers.</li>
+  <li>We've launched an updated GoCD Agent docker image for the latest version of Alpine (<a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.6/">3.6</a>)</li>
+</ul>
+
+<h4>Breaking Changes</h4>
+<p>If you are using the commercial Amazon ECS Elastic Agent Plugin, upgrading to GoCD 17.9.0 would require a plugin upgrade to <a href="https://extensions-docs.gocd.org/ecs/2.0.0/changelog/">V2.0.0</a>.</p>
+
+<h4>Deprecations</h4>
+<ul>
+  <li>As of release 17.9, version 2 of the plugin info <a href="https://api.gocd.org/current/#plugin-info">API</a> is deprecated. This version of the API will be removed in 17.12.0 release (scheduled to be released in December 2017). Version 3 of the API is available, and users are encouraged to use it.</li>
+  <li>As of release 17.5, authentication plugin endpoints have been deprecated. Support for this plugin will be removed in 18.1 (scheduled to be released in January 2018). Plugin developers are encouraged to migrate their plugins to use the <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugins</a> that were introduced.
+    <h5>Authentication plugins</h5>
+    <ul>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">Google OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitHub OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitLab(CE) OAuth Login</a></p></li>
+    <li><p><a href="https://github.com/cnorthwood/gocd-tls-auth">TLS Client Certificates Login</a></p></li>
+    <li><p><a href="https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin">Strong Auth Plugin</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a></p></li>
+  </ul>
+  </li>
+  <li>
+    <p>As of 17.5, support for in-built password file and LDAP/AD authentication have been deprecated. Support for these authentication mechanisms would be removed in 17.10 release (scheduled to be released in October 2017). Existing configuration will be automatically migrated to use the new in-built password file and LDAP/AD authentication plugins. No other actions necessary.</p>
+  </li>
+  <li>As of 17.8, the phusion based docker <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">server</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">agent</a> images are deprecated in favour of the new docker <a href="https://hub.docker.com/r/gocd/gocd-server/">server</a> and agent images. Support for the phusion images will be removed in 17.11.0 (scheduled to be released in November 2017). We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></li>
+</ul>
+
+<h4>Other Changes</h4>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/dc39953b086ce672a090dcd90e45bd3fe0c3ee76">dc39953</a></code> - Config repo change attribute "plugin" to "pluginId". (<a href="https://github.com/gocd/gocd/issues/3672">#3672</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/3c9a8f1f26e9ff297f506cad572277a6ecb89d65">3c9a8f1</a></code> - Addition of a toggle to make pipeline quick edit page as a default page. (<a href="https://github.com/gocd/gocd/issues/3722">#3722</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/19210e411a45f387ce55a97b513e95323eafdb75">19210e4</a></code> - Always open console tab when job name is clicked. (<a href="https://github.com/gocd/gocd/issues/3742">#3742</a>)</li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Emily Luke, Ganesh S Patil, Jyoti Singh, Ketan Padegaonkar, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Naveen Bhaskar, Pedro Carriço, Rajiesh N, Senthil R, Stephen Murby, Suzie Prince, Tim Brown, Varsha Varadarajan</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.9%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-17-8-0">17.8.0</h3>
       <div id="tab-17-8-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Pipeline as Code</h4>
@@ -158,7 +257,7 @@ We provide support for the docker images for GoCD agents across the following op
   <li>
     <p>As of 17.5, support for in-built password file and LDAP/AD authentication have been deprecated. Support for these authentication mechanisms would be removed in 17.9 release (scheduled to be released in September 2017). Existing configuration will be automatically migrated to use the new in-built password file and LDAP/AD authentication plugins. No other action necessary.</p>
   </li>
-  <li>The <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugin</a> endpoints were introduced as an extension to the existing Authentication Plugin endpoints, with this we are deprecating the Authentication Plugin endpoint. Support for this plugin would be removed in 18.1 (scheduled to be release in January 2018). Plugin developers are encouraged to migrate their plugins to use the new Authorization Plugins.
+  <li>As of 17.5, authentication plugin endpoints have been deprecated. Support for this plugin will be removed in 18.1 (scheduled to be released in January 2018). Plugin developers are encouraged to migrate their plugins to use the <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugins</a> that were introduced.
     <h5>Authentication plugins</h5>
     <ul>
     <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">Google OAuth Login</a></p></li>
