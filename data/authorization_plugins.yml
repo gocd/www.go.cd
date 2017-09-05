@@ -48,3 +48,12 @@
   releases_url: https://github.com/gocd-contrib/google-oauth-authorization-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=google-oauth-authorization-plugin&type=watch&count=true
   paid: false
+
+- name: TLS Client Certificate Authentication plugin
+  description: Using headers set by a TLS-terminating reverse proxy, details from a client certificate are used to log in
+  readmore_url: https://github.com/cnorthwood/gocd-tls-auth
+  author_url: https://cjn.me.uk/
+  author_name: Chris Northwood
+  releases_url: https://github.com/cnorthwood/gocd-tls-auth/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=cnorthwood&repo=gocd-tls-auth&type=watch&count=true
+  paid: false
