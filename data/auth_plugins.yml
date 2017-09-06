@@ -25,6 +25,15 @@
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-oauth-login&type=watch&count=true
   first_available_date: 09/2016
 
+- name: TLS Client Certificates Login
+  description: Plugin to support login using TLS client certificates
+  readmore_url: https://github.com/cnorthwood/gocd-tls-auth
+  author_url: https://twitter.com/cnorthwood
+  author_name: Chris Northwood
+  releases_url: https://github.com/cnorthwood/gocd-tls-auth/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=cnorthwood&repo=gocd-tls-auth&type=watch&count=true
+  first_available_date: 02/2016
+
 - name: Strong Auth Plugin
   description: Password-based auth with salts and configurable hashes
   readmore_url: https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin
