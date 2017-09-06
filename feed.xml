@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>Part 2 - You can’t buy DevOps, but you may need to sell it: Misconceptions and Patterns to drive DevOps Adoption</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/09/05/misconceptions-patterns-devops-adoption.html"/>
+    <id>https://www.gocd.org/2017/09/05/misconceptions-patterns-devops-adoption.html</id>
+    <published>2017-09-05T00:00:00Z</published>
+    <updated>2017-09-05T00:00:00Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">In part 2 of the series, You can’t buy DevOps but you may need to sell it, we’ll look at some of the most commonly held misconceptions about driving change. We’ll also explore some patterns that you can use to help gain acceptance of your ideas.</content>
+  </entry>
+  <entry>
     <title>GoCD and the Impact of the ThoughtWorks Acquisition</title>
     <link rel="alternate" href="https://www.gocd.org/2017/08/31/apax-acquires-thoughtworks.html"/>
     <id>https://www.gocd.org/2017/08/31/apax-acquires-thoughtworks.html</id>
@@ -18,7 +29,7 @@
     <author>
       <name>GoCD Team</name>
     </author>
-    <content type="html">Apax funds acquired ThoughtWorks. This post explains any impact on the GoCD team, product and the open source community.</content>
+    <content type="html">Apax Funds acquired ThoughtWorks. This post explains any impact on the GoCD team, product and the open source community.</content>
   </entry>
   <entry>
     <title>Part 1 - You can’t buy DevOps, but you may need to sell it: DevOps Statistics and Stories</title>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">CD 101 is a video series to help you get started on your CD journey. Part One of this series covers the history of continuous delivery, difference between continuous delivery and continuous deployment and a brief introduction of a deployment pipeline.</content>
-  </entry>
-  <entry>
-    <title>Continuous Delivery: GoCD vs Spinnaker</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/07/10/gocd-vs-spinnaker.html"/>
-    <id>https://www.gocd.org/2017/07/10/gocd-vs-spinnaker.html</id>
-    <published>2017-07-10T00:00:00Z</published>
-    <updated>2017-07-10T00:00:00Z</updated>
-    <author>
-      <name>Sheroy Marker (Head of Technology), ThoughtWorks Products</name>
-    </author>
-    <content type="html">This post is an overview of GoCD and Spinnaker, why they are different from each other and which problems you should use them to solve.</content>
   </entry>
 </feed>
