@@ -1,0 +1,94 @@
+---
+layout: campaignlanding
+title: "Continuous Delivery Dictionary"
+title_tag_of_header: "Continuous Delivery Dictionary | GoCD"
+page_caption: CONTINUOUS DELIVERY DICTIONARY
+meta_description: "Continuous Delivery Dictionary"
+meta_keywords: ""
+show_features: true
+---
+
+<div class="jenkins">
+
+        <% content_for :banner do %>
+         <figure>
+        <%= image_tag 'campaign/jenkins/jenkins-hero-3.jpg', alt: 'GoCD and Jenkins', title: "Continuous Delivery Dictionary" %>
+         </figure>
+        <% end %>
+
+
+    <% content_for :maincontent do %>
+
+    <div class="container">
+        <div class="intro">
+            <h1>Continuous Delivery Dictionary</h1>
+            <p class="col-xs-10 col-xs-offset-1">This is a Continuous Delivery Dictionary.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="compare-table">
+            <tr>
+                <th>Keyword</th>
+                    <th class="column-header">Definition</th>
+            </tr>
+
+            <tr>
+                <td class="row-header">CD pipeline</td>
+                <td>A CD (continuous delivery) pipeline is also known as a deployment pipeline. Different automated tests will be run at different stages. Only once the code goes through the entire deployment pipeline can the software be delivered to production. Deployments can occur manually or automatically (see continuous deployment)</td>
+            </tr>
+            <tr>
+                <td class="row-header">
+                Build pipeline</td>
+                <td>Also known as a deployment pipeline or a CD pipeline.</td>
+            </tr>
+            <tr>
+                <td class="row-header">Deployment pipeline</td>
+                <td>
+                A deployment pipeline consists of multiple stages, each of which will be run in order. If a stage fails, then the pipeline is considered failed and the following stages will not be started. This prevents bugs from being deployed into production.
+                </td>
+            </tr>
+            <tr>
+                <td class="row-header">Pipelines as code</td>
+                <td>Pipelines as code allows you to configure your pipeline outside of your continuous delivery environment.
+                </td>
+            </tr>
+            <tr>
+             <td class="row-header">Continuous deployment</td>
+                <td>Continuous Deployment, often confused with continuous delivery, is simply a deployment that is done automatically.</td>
+            </tr>
+            <tr>
+            <td class="row-header">Trunk based development</td>
+               <td>
+               Trunk based development requires all code changes to always be integrated into their main line, also known as trunk or master, the main branch of the source repository. Others do branch-based development when individually developers will have their own branches, or teams will have branches for different features.
+                </td>
+           </tr>
+           <tr>
+           <td class="row-header">
+           Branch based development</td>
+              <td>
+              Branch based development, also known as feature branching, occurs when individual developers or teams will work on their own isolated branches when building new features. This is an anti-pattern to the best practices of continuous integration.
+              
+              </td>
+          </tr>
+          <tr>
+          <td class="row-header">
+          Value stream map</td>
+             <td>Value Stream Map helps you visualize your CI/CD workflow. It allows you to trace a commit from when it is checked in up to when it is deployed.The Value Stream Map (VSM) is an end-to-end view of a pipeline, its upstream dependencies and the downstream pipelines it triggers.
+             </td>
+         </tr>
+        </table>
+    </div>
+     
+    <!-- description and download -->
+    <div class="container">
+      <div class='row campaign-body'>
+        <div class='col-sm-12'>
+          <!-- call to action -->
+          <%= link_to 'Get Started with GoCD', "https://www.gocd.org/getting-started/part-1/", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+</div>
