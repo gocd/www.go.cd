@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Continuous Delivery Dictionary" name="description" />
+    <meta content="" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Continuous Delivery Dictionary | GoCD" />
+    <meta name="twitter:description" content="Continuous Delivery Dictionary" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/gocd_continuous_delivery_thoughtworks_twitter-519f0dee.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/glossary" />
+
+    <title>Continuous Delivery Dictionary | GoCD</title>
+    <link href="../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../assets/stylesheets/site-274559ff.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all-ebf21de5.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
+  </head>
+
+  <body class="glossary glossary_index">
+    <header class="top">
+  <div class="container">
+    <a href="../" class="logo" analytics-label="logo"><img src="../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+      <header class="campaign-header">
+    <div class="campaign-banner">
+        <div class="banner-content">
+          <h1 class="caption">CONTINUOUS DELIVERY DICTIONARY</h1>
+        </div>
+                 <figure>
+        <img src="../assets/images/campaign/jenkins/jenkins-hero-3-04215858.jpg" alt="GoCD and Jenkins" title="Continuous Delivery Dictionary" />
+         </figure>
+
+    </div>
+  </header>
+
+  <main role="main">
+   
+    <div class="container">
+        <div class="intro">
+            <h1>Continuous Delivery Dictionary</h1>
+            <p class="col-xs-10 col-xs-offset-1">This is a Continuous Delivery Dictionary.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="compare-table">
+            <tr>
+                <th>Keyword</th>
+                    <th class="column-header">Definition</th>
+            </tr>
+
+            <tr>
+                <td class="row-header">CD pipeline</td>
+                <td>A CD (continuous delivery) pipeline is also known as a deployment pipeline. Different automated tests will be run at different stages. Only once the code goes through the entire deployment pipeline can the software be delivered to production. Deployments can occur manually or automatically (see continuous deployment)</td>
+            </tr>
+            <tr>
+                <td class="row-header">
+                Build pipeline</td>
+                <td>Also known as a deployment pipeline or a CD pipeline.</td>
+            </tr>
+            <tr>
+                <td class="row-header">Deployment pipeline</td>
+                <td>
+                A deployment pipeline consists of multiple stages, each of which will be run in order. If a stage fails, then the pipeline is considered failed and the following stages will not be started. This prevents bugs from being deployed into production.
+                </td>
+            </tr>
+            <tr>
+                <td class="row-header">Pipelines as code</td>
+                <td>Pipelines as code allows you to configure your pipeline outside of your continuous delivery environment.
+                </td>
+            </tr>
+            <tr>
+             <td class="row-header">Continuous deployment</td>
+                <td>Continuous Deployment, often confused with continuous delivery, is simply a deployment that is done automatically.</td>
+            </tr>
+            <tr>
+            <td class="row-header">Trunk based development</td>
+               <td>
+               Trunk based development requires all code changes to always be integrated into their main line, also known as trunk or master, the main branch of the source repository. Others do branch-based development when individually developers will have their own branches, or teams will have branches for different features.
+                </td>
+           </tr>
+           <tr>
+           <td class="row-header">
+           Branch based development</td>
+              <td>
+              Branch based development, also known as feature branching, occurs when individual developers or teams will work on their own isolated branches when building new features. This is an anti-pattern to the best practices of continuous integration.
+              
+              </td>
+          </tr>
+          <tr>
+          <td class="row-header">
+          Value stream map</td>
+             <td>Value Stream Map helps you visualize your CI/CD workflow. It allows you to trace a commit from when it is checked in up to when it is deployed.The Value Stream Map (VSM) is an end-to-end view of a pipeline, its upstream dependencies and the downstream pipelines it triggers.
+             </td>
+         </tr>
+        </table>
+    </div>
+     
+    <!-- description and download -->
+    <div class="container">
+      <div class='row campaign-body'>
+        <div class='col-sm-12'>
+          <!-- call to action -->
+          <a href="https://www.gocd.org/getting-started/part-1/" class="btn btn-primary campaign-btn-download" analytics-label="campaign-download-cta">Get Started with GoCD</a>
+        </div>
+      </div>
+    </div>
+
+</main>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        
+        <li>
+        <a href="../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+
+        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('199-QDE-291');</script>
+<!-- End Marketo -->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
