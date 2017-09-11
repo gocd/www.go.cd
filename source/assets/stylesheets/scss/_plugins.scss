@@ -282,3 +282,7 @@ $actions-bg-hover: $primary-color;
   width: 37px;
   margin: -6px 0 10px 0;
 }
+
+#tab-9 .plugins-list li:last-child {
+    display:none;
+}
