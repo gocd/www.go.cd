@@ -1,7 +1,6 @@
-# gocd.org - website [![Build Status](https://snap-ci.com/gocd/www.go.cd/branch/master/build_image)](https://snap-ci.com/gocd/www.go.cd/branch/master)
+# https://www.gocd.org - website
 
-
-This repository hosts code for the website at [https://gocd.org](https://gocd.org).
+This repository hosts code for the website at [https://www.gocd.org](https://www.gocd.org).
 
 ## Build instructions
 
@@ -34,7 +33,7 @@ section.
 ## License
 
 ```plain
-Copyright 2016 ThoughtWorks, Inc.
+Copyright 2017 ThoughtWorks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
