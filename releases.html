@@ -87,7 +87,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs">
-      <li rel="tab-17-9-0" class="active">17.9.0 (latest)</li>
+      <li rel="tab-17-10-0" class="active">17.10.0 (latest)</li>
+      <li rel="tab-17-9-0">17.9.0</li>
       <li rel="tab-17-8-0">17.8.0</li>
       <li rel="tab-17-7-0">17.7.0</li>
       <li rel="tab-17-6-0">17.6.0</li>
@@ -120,7 +121,40 @@
     </ul>
 
     <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-17-9-0">17.9.0 (latest)</h3>
+      <h3 class="tab-accordion_heading d_active" rel="tab-17-10-0">17.10.0 (latest)</h3>
+      <div id="tab-17-10-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <p><strong>Important:</strong> After the 17.9 release, we made an announcement asking users to hold off upgrading their GoCD instance. We found an issue (<a href="https://github.com/gocd/gocd/issues/3834">#3834</a>) affecting a small set of users. This release provides a fix for the same.</p>
+
+<h4>Critical Bug Fixes</h4>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/05598d88fd4dabdde1184faa4fbffc5f9406d0dc">05598d8</a></code> - Unable to start the server after 17.9.0 upgrade. (<a href="https://github.com/gocd/gocd/issues/3834">#3834</a>)</li>
+</ul>
+
+<h4>Other Changes</h4>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/176ebc26438784f50bbdc013ebc704a3a6cd6c8d">176ebc2</a></code> - Fix for no plugins visible after 17.9.0 upgrade. (<a href="https://github.com/gocd/gocd/issues/3829">#3829</a>)</li>
+</ul>
+
+<h4>Docker Images</h4>
+<ul>
+  <li>We have made a few changes to the <a href="https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md">GoCD Server</a> and the <a href="https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md">GoCD Agent</a> Docker images.</li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Emily Luke, Ganesh S Patil, Jyoti Singh, Ketan Padegaonkar, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Naveen Bhaskar, Rajiesh N, Roman Gorodeckij, Senthil R, Suzie Prince, Varsha Varadarajan</p>
+
+<h4>Note</h4>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+
+        </div>
+      </div>
+      <h3 class="tab-accordion_heading" rel="tab-17-9-0">17.9.0</h3>
       <div id="tab-17-9-0" class="tab_content" style="display: block;">
         <div class="content">
           <div class="warning" style="display: block">Sep 11 13:00 UTC 2017: We are investigating an issue (<a href="https://github.com/gocd/gocd/issues/3834">#3834</a>) with upgrades affecting a small number of users. Please hold off on upgrading to 17.9.0 until further notice.</div>
