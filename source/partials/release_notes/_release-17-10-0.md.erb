@@ -1,9 +1,42 @@
-**Important:** On Sep 11th, we made an announcement asking users to hold off upgrading to 17.9.0 because of issue (<%= link_to("#3834", "https://github.com/gocd/gocd/issues/#{3834}") %>). This release provides fix for the same. While the issue affects a small number of users, we think it still warrants a new release.
+**Important:** After the 17.9 release, we made an announcement asking users to hold off upgrading their GoCD instance. We found an issue (<%= link_to("#3834", "https://github.com/gocd/gocd/issues/#{3834}") %>) affecting a small set of users. This release provides a fix for the same.
 
 <h4>Critical Bug Fixes</h4>
 * <%= link_to_commit '05598d88fd4dabdde1184faa4fbffc5f9406d0dc', 'Unable to start the server after 17.9.0 upgrade', 3834%>
 
 <h4>Other Changes</h4>
 * <%= link_to_commit '176ebc26438784f50bbdc013ebc704a3a6cd6c8d', 'Fix for no plugins visible after 17.9.0 upgrade', 3829%>
+
+<h4>Docker Images</h4>
+* Allow users to specify `uid` and `gid` as build args while building a customize docker image from GoCD image (both server and agent).
+* Allow users to specify a volume mount instruction in docker run command.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Ankit Srivastava",
+  "Ankur K",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "David Edmonds",
+  "Emily Luke",
+  "Ganesh S Patil",
+  "Jyoti Singh",
+  "Ketan Padegaonkar",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Naveen Bhaskar",
+  "Rajiesh N",
+  "Senthil R",
+  "Suzie Prince",
+  "Varsha Varadarajan"
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
 
 
