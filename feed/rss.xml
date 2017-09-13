@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>Part 4 - CD101: Getting Started with Value Stream Mapping</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/09/12/value-stream-mapping.html"/>
+    <id>https://www.gocd.org/2017/09/12/value-stream-mapping.html</id>
+    <published>2017-09-12T00:00:00Z</published>
+    <updated>2017-09-12T00:00:00Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">CD 101 is a video series to help you get started on your CD journey. Part Four of this series covers how to get started using value stream mapping.</content>
+  </entry>
+  <entry>
     <title>Part 2 - You can’t buy DevOps, but you may need to sell it: Misconceptions and Patterns to drive DevOps Adoption</title>
     <link rel="alternate" href="https://www.gocd.org/2017/09/05/misconceptions-patterns-devops-adoption.html"/>
     <id>https://www.gocd.org/2017/09/05/misconceptions-patterns-devops-adoption.html</id>
@@ -107,16 +118,5 @@
       <name>Ketan Padegaonkar</name>
     </author>
     <content type="html">Modern webapps and application servers have evolved, but many developers continue to use similar strategies to perform deployments. This post looks some of the continuous deployment strategies.</content>
-  </entry>
-  <entry>
-    <title>Part 1 - CD 101: An introduction to continuous delivery</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/07/13/introduction-continuous-delivery-101.html"/>
-    <id>https://www.gocd.org/2017/07/13/introduction-continuous-delivery-101.html</id>
-    <published>2017-07-13T00:00:00Z</published>
-    <updated>2017-07-13T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">CD 101 is a video series to help you get started on your CD journey. Part One of this series covers the history of continuous delivery, difference between continuous delivery and continuous deployment and a brief introduction of a deployment pipeline.</content>
   </entry>
 </feed>

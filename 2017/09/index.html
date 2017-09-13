@@ -71,6 +71,7 @@
 
 
 <ul>
+    <li><a href="12/value-stream-mapping/">Part 4 - CD101: Getting Started with Value Stream Mapping</a> <span>Sep 12</span></li>
     <li><a href="05/misconceptions-patterns-devops-adoption/">Part 2 - You can’t buy DevOps, but you may need to sell it: Misconceptions and Patterns to drive DevOps Adoption</a> <span>Sep  5</span></li>
 </ul>
 
@@ -150,12 +151,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End Google Tag Manager -->
 
-<!-- Marketo -->
+<!-- Marketo async-->
 <script type="text/javascript">
-document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
 </script>
-<script>Munchkin.init('199-QDE-291');</script>
-<!-- End Marketo -->
+<!-- End Marketo async-->
 
 <!-- Twitter universal website tag code -->
 <script>

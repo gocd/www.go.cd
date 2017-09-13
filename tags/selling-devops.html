@@ -4,16 +4,16 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="GoCD - Continuous Delivery" name="description" />
-    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, automated release management, Go" name="keywords" />
+    <meta content="If you can't push your software to production now, you're not done with your CD journey. A series on technical practices required." name="description" />
+    <meta content="open source continuous delivery, introduction to continuous delivery, automated testing, security testing, performance testing, deployment pipeline, build pipeline" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="" />
+    <meta name="twitter:title" content="It's Not CD if You Can't Deploy Right Now" />
+    <meta name="twitter:description" content="If you can't push your software to production now, you're not done with your CD journey. A series on technical practices required." />
     <meta name="twitter:image" content="https://www.gocd.org/assets/images/gocd_continuous_delivery_thoughtworks_twitter-519f0dee.jpg" />
     <link rel="canonical" href="https://www.gocd.org/tags/selling-devops.html" />
 
-    <title>GoCD - Continuous Delivery</title>
+    <title>It's Not CD if You Can't Deploy Right Now</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../assets/stylesheets/site-274559ff.css" rel="stylesheet" />
     <script src="../assets/javascripts/all-ebf21de5.js"></script>
@@ -211,12 +211,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End Google Tag Manager -->
 
-<!-- Marketo -->
+<!-- Marketo async-->
 <script type="text/javascript">
-document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
 </script>
-<script>Munchkin.init('199-QDE-291');</script>
-<!-- End Marketo -->
+<!-- End Marketo async-->
 
 <!-- Twitter universal website tag code -->
 <script>

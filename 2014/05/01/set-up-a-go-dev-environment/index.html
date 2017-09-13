@@ -119,6 +119,11 @@ shows the process of downloading and setting up the virtual machine.</p>
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <li>
+              <span class="post-date">Sep 12</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../../2017/09/12/value-stream-mapping/">Part 4 - CD101: Getting Started with Value Stream Mapping</a>
+            </li>
+            <li>
               <span class="post-date">Sep  5</span>
               <span class="post-author">Ken Mugrage</span>
               <a href="../../../../2017/09/05/misconceptions-patterns-devops-adoption/">Part 2 - You can’t buy DevOps, but you may need to sell it: Misconceptions and Patterns to drive DevOps Adoption</a>
@@ -138,17 +143,12 @@ shows the process of downloading and setting up the virtual machine.</p>
               <span class="post-author">Ken Mugrage</span>
               <a href="../../../../2017/08/22/principles-practices-continuous-delivery/">Part 3 - CD101: Principles and Best Practices for Continuous Delivery</a>
             </li>
-            <li>
-              <span class="post-date">Aug 15</span>
-              <span class="post-author">Ketan Padegaonkar</span>
-              <a href="../../../../2017/08/15/canary-releases/">Part 3 - Continuous Deployment Strategies: Implementation Techniques for Canary Releases</a>
-            </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../../../2017/">2017 (28)</a></li>
+            <li><a href="../../../../2017/">2017 (29)</a></li>
             <li><a href="../../../../2016/">2016 (8)</a></li>
             <li><a href="../../../../2015/">2015 (21)</a></li>
             <li><a href="../../../">2014 (26)</a></li>
@@ -261,12 +261,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End Google Tag Manager -->
 
-<!-- Marketo -->
+<!-- Marketo async-->
 <script type="text/javascript">
-document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
 </script>
-<script>Munchkin.init('199-QDE-291');</script>
-<!-- End Marketo -->
+<!-- End Marketo async-->
 
 <!-- Twitter universal website tag code -->
 <script>
