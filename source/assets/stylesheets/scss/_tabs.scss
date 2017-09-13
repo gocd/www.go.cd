@@ -255,6 +255,11 @@ ul.tabs {
 
   .tab_content {
     border: 1px solid #fff;
+    padding:20px 0;
+
+    @media (min-width:$screen-tablet) {
+      padding:0;
+    }
   }
 
 }

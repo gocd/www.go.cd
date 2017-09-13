@@ -1,6 +1,7 @@
-var showDownloadLinks = (function ($) {
+var newShowDownloadLinks = (function ($) {
   return function (options) {
     var typeOfInstallersToShow = options.typeOfInstallersToShow;
+    var showArchive = options.archive;
 
     var settingsForAllTypes = {
       stable: {
@@ -20,10 +21,9 @@ var showDownloadLinks = (function ($) {
     };
 
     var settings = settingsForAllTypes[typeOfInstallersToShow];
-    var showArchives = R.any(R.equals('archive=true'), window.location.search.substr(1).split('&'));
 
     var dateFilter = R.curry(function (timeInSecondsSinceEpoch) {
-      if (showArchives) {
+      if (showArchive) {
         return true;
       }
       return (new Date() - new Date(timeInSecondsSinceEpoch * 1000)) < 3600 * 24 * 366 * 1000;
@@ -74,30 +74,37 @@ var showDownloadLinks = (function ($) {
       return segmentsA.length - segmentsB.length;
     }
 
-    var showReleases = function (data) {
-      var releases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(data);
-
+    var showReleases = function (data1, data2) {
+      var releases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(data1[0]);
+      if (typeOfInstallersToShow == 'stable') {
+        var amiReleases = R.sortBy(R.prop('go_version'))(data2[0]).reverse();
+        var latest_cloud_release = R.head(amiReleases);
+        var other_cloud_releases = R.tail(amiReleases);
+      }
       var template = Handlebars.compile($("#download-revisions-template").html());
       $("#downloads").html(template({
         latest_release: R.head(releases),
         all_other_releases: R.tail(releases),
-        latest_version: releases[0].go_version
+        latest_version: releases[0].go_version,
+        latest_cloud_release: latest_cloud_release,
+        all_other_cloud_releases: other_cloud_releases
+
       }));
     };
 
     var showFailureMessage = function (error) {
       $("#downloads").html('<p class="not-loaded">Sorry. Something went wrong and we could not list the download links. \
-        Please report <a href="https://github.com/gocd/www.go.cd/issues">this issue</a>.</p>')
+        Please report <a href="https://github.com/gocd/www.go.cd/issues">this issue</a>.</p>');
       console.log("Error: " + error);
     };
 
-    return $.getJSON(settings.download_info_url)
+    return $.when($.getJSON(settings.download_info_url), $.getJSON('https://download.gocd.org/cloud.json'))
       .done(showReleases)
       .fail(showFailureMessage);
   };
 })(jQuery);
 
-var setupShowVerifyChecksumMessage = (function ($) {
+var newSetupShowVerifyChecksumMessage = (function ($) {
   return function () {
     $("#downloads").on('click', '.verify-checksum', function (evt) {
       var checksumElement = $(evt.currentTarget);
@@ -112,3 +119,36 @@ var setupShowVerifyChecksumMessage = (function ($) {
     });
   };
 })(jQuery);
+
+var determinePackageNameBasedOnOS = function () {
+  var userAgent = navigator.userAgent;
+  var packageName = 'zip';
+
+  if (userAgent.indexOf("Win") !== -1) packageName = "windows";
+  if (userAgent.indexOf("Mac") !== -1) packageName = "osx";
+  if (userAgent.indexOf("Debian") !== -1) packageName = "debian";
+  if (userAgent.indexOf("Ubuntu") !== -1) packageName = "debian";
+  if (userAgent.indexOf("RedHat") !== -1) packageName = "redhat";
+  if (userAgent.indexOf("CentOS") !== -1) packageName = "redhat";
+
+  return packageName
+};
+
+var newHighlightSelectedOs = (function ($) {
+  return function () {
+    $(".download-nav li a").click(function () {
+      $(".tab_content").hide();
+      var activeTab = $(this).attr("href");
+      $(activeTab).fadeIn();
+      $(".download-nav li a").removeClass("active");
+      $(this).addClass("active");
+
+      $(".tab-accordion_heading").removeClass("d_active");
+      $(".tab-accordion_heading[rel^='" + activeTab + "']").addClass("d_active");
+
+    });
+  }
+})(jQuery);
+
+
+
