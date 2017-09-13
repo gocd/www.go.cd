@@ -1,476 +1,478 @@
-.download-area {
-  // background: url(/assets/images/texture-bg.jpg) no-repeat center top;
-  background: url(/assets/images/texture-bg-grey.jpg) no-repeat center top;
-  // background: url(/assets/images/brickwall.png) repeat 0 0;
-  background-size: cover;
-  padding: 50px 0 0;
-  margin-top: 30px;
-  @include clearfix;
+body.download {
+  .download-area {
+    // background: url(/assets/images/texture-bg.jpg) no-repeat center top;
+    background: url(/assets/images/texture-bg-grey.jpg) no-repeat center top;
+    // background: url(/assets/images/brickwall.png) repeat 0 0;
+    background-size: cover;
+    padding: 50px 0 0;
+    margin-top: 30px;
+    @include clearfix;
 
-  @media (min-width:$screen-tablet) {
-    margin-top: 50px;
+    @media (min-width: $screen-tablet) {
+      margin-top: 50px;
+    }
+
+    .sub-title {
+      margin: 0 0 10px;
+      text-align: center;
+    }
+
+    .info {
+
+      text-align: center;
+    }
+
   }
 
-  .sub-title {
-    margin: 0 0 10px;
-    text-align: center;
+  .note {
+    .download & {
+      text-align: center;
+
+      span {
+        font-size: 13px;
+        display: block;
+
+        @media (min-width: $screen-tablet) {
+          display: inline-block;
+        }
+
+        @media (min-width: $screen-desktop) {
+          display: block;
+        }
+
+      }
+
+    }
+
   }
 
-  .info {
+  .warning {
+    padding: 10px;
+    margin: 10px 0 0 0;
+    background: rgba(235, 33, 33, 0.15);
+    position: relative;
+    @extend %flexbox;
+    @include justify-content(flex-start);
+    @include align-items(center);
 
-    text-align: center;
+    .fa {
+      font-size: 20px;
+      margin: 0 10px;
+      color: rgba(255, 0, 0, 0.62);
+    }
+
   }
 
-}
+  .release {
+    border-bottom: 1px solid $border;
 
-.note {
-  .download & {
-    text-align: center;
+    .latest & {
+      border: 0;
+    }
 
-    span {
-      font-size: 13px;
+  }
+
+  .files {
+    overflow: hidden;
+    position: relative;
+
+    @media (min-width: $screen-sm) {
+      padding-top: 16px;
+      width: 500px;
+    }
+
+    @media (min-width: $screen-md) {
+      width: 695px;
+    }
+
+    @media (min-width: $screen-lg) {
+      width: 840px;
+    }
+
+    .file {
+      float: left;
+      margin-bottom: 25px;
+
+      .others & {
+        border-bottom: 1px solid #ccc;
+      }
+
+      .name {
+        float: left;
+      }
+
+      .btn {
+        width: 97px;
+        position: relative;
+      }
+
+      .verify {
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        margin-top: 4px;
+
+        &:active {
+          outline: 0;
+        }
+
+      }
+
+      .verify-checksum {
+        float: left;
+        font-size: 13px;
+      }
+
+    }
+
+    span.bit {
+      position: absolute;
+      top: 102%;
+      color: #333;
+      background: #e6e6e6;
+      padding: 5px 9px;
+      transform: translateX(-50%);
+      font-size: 12px;
+      left: 50%;
+      border-radius: 0px 0px 3px 3px;
+    }
+
+    .server32bit,
+    .server {
+      @media (max-width: $screen-xs-min) {
+        margin-bottom: 50px;
+      }
+
+      @media (min-width: $screen-tablet) {
+        margin-right: 50px;
+      }
+
+      a {
+        .fa {
+          span {
+            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            margin-left: 10px;
+
+            span {
+              background: #fff;
+              color: #000;
+              padding: 3px 5px;
+              font-weight: bold;
+              display: inline-block;
+              margin: 5px 0 0 0;
+              border-radius: 4px;
+              font-size: 9px;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+    .agent32bit,
+    .agent {
+      a {
+        .fa {
+          span {
+            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            margin-left: 10px;
+
+            span {
+              background: #fff;
+              color: #000;
+              padding: 3px 5px;
+              font-weight: bold;
+              display: inline-block;
+              margin: 5px 0 0 0;
+              border-radius: 4px;
+              font-size: 9px;
+            }
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+  .download-files {
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .download-message {
+    font-size: 12px;
+    line-height: 16px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 3px;
+    background: #f5f5f5;
+
+    @media (max-width: $screen-sm-min) {
+      float: left
+    }
+
+    @media (min-width: $screen-md) {
+      position: absolute;
+      top: 16px;
+      right: 0;
+      width: 212px;
+    }
+
+    @media (min-width: $screen-md) {
+      width: 300px;
+    }
+
+  }
+
+  .verify-checksum-message {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 20;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.80);
+    left: 0;
+
+    @media (min-width: $screen-tablet) {
+    }
+
+    .content {
+      @media (max-width: $screen-xs-min) {
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        overflow-y: auto;
+        right: 0;
+      }
+
+      font-size: 14px;
+      border: 1px solid #333;
+      background: #fff;
+      position: absolute;
+      padding: 30px;
+      color: #333;
+
+      @media (min-width: $screen-tablet) {
+        width: 90%;
+        width: 100%;
+        transform: translateY(-50%);
+        left: 0;
+        top: 50%;
+      }
+
+      @media (min-width: $screen-desktop) {
+        width: 90%;
+        width: 800px;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
+
+      .code {
+        width: 735px;
+
+        .commands,
+        .prompts,
+        .results {
+          display: inline-block;
+          font-family: monospace;
+          white-space: normal;
+          background: #000;
+          font-size: 14px;
+          color: #fff;
+        }
+
+        .prompts {
+          color: #777;
+          float: left;
+          width: 14%;
+          margin: 10px 0 0 0;
+          padding: 10px 10px 0 10px;
+        }
+
+        .commands {
+          float: right;
+          width: 86%;
+          margin: 10px 0 0 0;
+          padding: 10px 10px 0 10px;
+        }
+
+        .results {
+          clear: both;
+          margin: 0 0 10px 0;
+          padding: 0 0 0 10px;
+          width: 100%;
+        }
+
+      }
+
+    }
+
+  }
+
+  .close-message {
+    background: #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    line-height: 20px;
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    font-weight: 700;
+    color: #555;
+    cursor: pointer;
+
+    @media (max-width: $screen-xs-min) {
+      position: fixed;
+    }
+
+  }
+
+  .o-h {
+    overflow: hidden;
+  }
+
+  .other-releases {
+    position: relative;
+    margin: 20px auto;
+
+    @media (min-width: $screen-lg-desktop) {
+      width: 100%;
+    }
+
+    .btn-release {
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 12px;
+      padding: 0px 10px;
+      position: relative;
+      // left: 0;
+      margin-left: 0;
+      color: #777;
+      z-index: 1;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
       display: block;
 
-      @media (min-width:$screen-tablet) {
-        display: inline-block;
-      }
-
-      @media (min-width:$screen-desktop) {
-        display: block;
-      }
-
-    }
-
-  }
-
-}
-
-.warning {
-  padding: 10px;
-  margin: 10px 0 0 0;
-  background: rgba(235, 33, 33, 0.15);
-  position: relative;
-  @extend %flexbox;
-  @include justify-content(flex-start);
-  @include align-items(center);
-
-  .fa {
-    font-size: 20px;
-    margin: 0 10px;
-    color: rgba(255, 0, 0, 0.62);
-  }
-
-}
-
-.release {
-  border-bottom: 1px solid $border;
-
-  .latest & {
-    border: 0;
-  }
-
-}
-
-.files {
-  overflow: hidden;
-  position: relative;
-
-  @media (min-width:$screen-sm) {
-    padding-top: 16px;
-    width: 500px;
-  }
-
-  @media (min-width:$screen-md) {
-    width: 695px;
-  }
-
-  @media (min-width:$screen-lg) {
-    width: 840px;
-  }
-
-  .file {
-    float: left;
-    margin-bottom: 25px;
-
-    .others & {
-      border-bottom: 1px solid #ccc;
-    }
-
-    .name {
-      float: left;
-    }
-
-    .btn {
-      width: 97px;
-      position: relative;
-    }
-
-    .verify {
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-      margin-top: 4px;
-
-      &:active {
+      &:active,
+      &:focus {
         outline: 0;
       }
 
+      &.hide-old-release {
+      }
+
     }
 
-    .verify-checksum {
+  }
+
+  .old-release {
+    display: none;
+  }
+
+  .go-releases,
+  .old-release {
+    @media (min-width: $screen-lg-desktop) {
+      width: 100%;
+      margin: 30px auto;
+    }
+
+  }
+
+  .version {
+    position: relative;
+    background: #fff;
+    border: 1px solid #ccc;
+    height: 42px;
+    line-height: 40px;
+    display: block;
+    margin: 16px 0 20px;
+    width: 120px;
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+
+    @media (min-width: $screen-sm) {
       float: left;
-      font-size: 13px;
-    }
-
-  }
-
-  span.bit {
-    position: absolute;
-    top: 102%;
-    color: #333;
-    background: #e6e6e6;
-    padding: 5px 9px;
-    transform: translateX(-50%);
-    font-size: 12px;
-    left: 50%;
-    border-radius: 0px 0px 3px 3px;
-  }
-
-  .server32bit,
-  .server {
-    @media (max-width:$screen-xs-min) {
-      margin-bottom: 50px;
-    }
-
-    @media (min-width:$screen-tablet) {
+      width: 140px;
       margin-right: 50px;
     }
 
-    a {
-      .fa {
-        span {
-          font-size: 16px;
-          font-family: 'Open Sans', sans-serif;
-          color: #fff;
-          margin-left: 10px;
+    @media (min-width: $screen-md) {
+      margin-right: 101px;
+    }
 
-          span {
-            background: #fff;
-            color: #000;
-            padding: 3px 5px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 5px 0 0 0;
-            border-radius: 4px;
-            font-size: 9px;
-          }
+    @media (min-width: $screen-md) {
+      margin-right: 154px;
+    }
 
-        }
+    &:after,
+    &:before {
+      @media (min-width: $screen-tablet) {
+        left: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
 
+    }
+
+    &:after {
+      @media (min-width: $screen-tablet) {
+        border-color: rgba(255, 255, 255, 0);
+        border-left-color: #ffffff;
+        border-width: 20px;
+        margin-top: -20px;
+      }
+
+    }
+
+    &:before {
+      @media (min-width: $screen-tablet) {
+        border-color: rgba(204, 204, 204, 0);
+        border-left-color: #cccccc;
+        border-width: 21px;
+        margin-top: -21px;
       }
 
     }
 
   }
 
-  .agent32bit,
-  .agent {
-    a {
-      .fa {
-        span {
-          font-size: 16px;
-          font-family: 'Open Sans', sans-serif;
-          color: #fff;
-          margin-left: 10px;
+  .not-loaded {
+    text-align: center;
+    margin: 40px 0 0;
+  }
 
-          span {
-            background: #fff;
-            color: #000;
-            padding: 3px 5px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 5px 0 0 0;
-            border-radius: 4px;
-            font-size: 9px;
-          }
-        }
-      }
+  .load-message {
+    text-align: center;
+    margin: 30px 0;
 
+    span {
+      display: block;
     }
 
   }
-
-}
-
-.download-files {
-  float: left;
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-.download-message {
-  font-size: 12px;
-  line-height: 16px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 3px;
-  background: #f5f5f5;
-
-  @media (max-width:$screen-sm-min) {
-    float: left
-  }
-
-  @media (min-width:$screen-md) {
-    position: absolute;
-    top: 16px;
-    right: 0;
-    width: 212px;
-  }
-
-  @media (min-width:$screen-md) {
-    width: 300px;
-  }
-
-}
-
-.verify-checksum-message {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  z-index: 20;
-  padding: 30px;
-  background: rgba(0, 0, 0, 0.80);
-  left: 0;
-
-  @media (min-width:$screen-tablet) {
-  }
-
-  .content {
-    @media (max-width:$screen-xs-min) {
-      width: 100%;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      overflow-y: auto;
-      right: 0;
-    }
-
-    font-size: 14px;
-    border: 1px solid #333;
-    background: #fff;
-    position: absolute;
-    padding: 30px;
-    color: #333;
-
-    @media (min-width:$screen-tablet) {
-      width: 90%;
-      width: 100%;
-      transform: translateY(-50%);
-      left: 0;
-      top: 50%;
-    }
-
-    @media (min-width:$screen-desktop) {
-      width: 90%;
-      width: 800px;
-      transform: translate(-50%, -50%);
-      left: 50%;
-      top: 50%;
-    }
-
-    .code {
-      width: 735px;
-
-      .commands,
-      .prompts,
-      .results {
-        display: inline-block;
-        font-family: monospace;
-        white-space: normal;
-        background: #000;
-        font-size: 14px;
-        color: #fff;
-      }
-
-      .prompts {
-        color: #777;
-        float: left;
-        width: 14%;
-        margin: 10px 0 0 0;
-        padding: 10px 10px 0 10px;
-      }
-
-      .commands {
-        float: right;
-        width: 86%;
-        margin: 10px 0 0 0;
-        padding: 10px 10px 0 10px;
-      }
-
-      .results {
-        clear: both;
-        margin: 0 0 10px 0;
-        padding: 0 0 0 10px;
-        width: 100%;
-      }
-
-    }
-
-  }
-
-}
-
-.close-message {
-  background: #fff;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  line-height: 20px;
-  display: block;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  border: 1px solid #ccc;
-  font-size: 12px;
-  font-weight: 700;
-  color: #555;
-  cursor: pointer;
-
-  @media (max-width:$screen-xs-min) {
-    position: fixed;
-  }
-
-}
-
-.o-h {
-  overflow: hidden;
-}
-
-.other-releases {
-  position: relative;
-  margin: 20px auto;
-
-  @media (min-width:$screen-lg-desktop) {
-    width: 100%;
-  }
-
-  .btn-release {
-    border-radius: 10px;
-    background: #fff;
-    border: 1px solid #ccc;
-    font-size: 12px;
-    padding: 0px 10px;
-    position: relative;
-    // left: 0;
-    margin-left: 0;
-    color: #777;
-    z-index: 1;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    display: block;
-
-    &:active,
-    &:focus {
-      outline: 0;
-    }
-
-    &.hide-old-release {
-    }
-
-  }
-
-}
-
-.old-release {
-  display: none;
-}
-
-.go-releases,
-.old-release {
-  @media (min-width:$screen-lg-desktop) {
-    width: 100%;
-    margin: 30px auto;
-  }
-
-}
-
-.version {
-  position: relative;
-  background: #fff;
-  border: 1px solid #ccc;
-  height: 42px;
-  line-height: 40px;
-  display: block;
-  margin: 16px 0 20px;
-  width: 120px;
-  text-align: center;
-  color: #555;
-  font-size: 16px;
-
-  @media (min-width:$screen-sm) {
-    float: left;
-    width: 140px;
-    margin-right: 50px;
-  }
-
-  @media (min-width:$screen-md) {
-    margin-right: 101px;
-  }
-
-  @media (min-width:$screen-md) {
-    margin-right: 154px;
-  }
-
-  &:after,
-  &:before {
-    @media (min-width:$screen-tablet) {
-      left: 100%;
-      top: 50%;
-      border: solid transparent;
-      content: " ";
-      height: 0;
-      width: 0;
-      position: absolute;
-      pointer-events: none;
-    }
-
-  }
-
-  &:after {
-    @media (min-width:$screen-tablet) {
-      border-color: rgba(255, 255, 255, 0);
-      border-left-color: #ffffff;
-      border-width: 20px;
-      margin-top: -20px;
-    }
-
-  }
-
-  &:before {
-    @media (min-width:$screen-tablet) {
-      border-color: rgba(204, 204, 204, 0);
-      border-left-color: #cccccc;
-      border-width: 21px;
-      margin-top: -21px;
-    }
-
-  }
-
-}
-
-.not-loaded {
-  text-align: center;
-  margin: 40px 0 0;
-}
-
-.load-message {
-  text-align: center;
-  margin: 30px 0;
-
-  span {
-    display: block;
-  }
-
 }
