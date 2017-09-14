@@ -18,7 +18,7 @@
   meta_description: Infographics on continuous delivery, continuous integration, and continuous deployment and more.
   meta_keywords: infographic continuous delivery, deployment pipeline patterns, deployment pipelines, build pipeline
 
-/tags/selling-devops.html:
+/tags/it-s-not-cd-if-you-can-t-deploy-right-now.html:
   title: It's Not CD if You Can't Deploy Right Now
   meta_description: If you can't push your software to production now, you're not done with your CD journey. A series on technical practices required.
   meta_keywords: open source continuous delivery, introduction to continuous delivery, automated testing, security testing, performance testing, deployment pipeline, build pipeline
@@ -27,3 +27,8 @@
   title: Modeling Deployment Pipelines
   meta_description: Modeling deployment pipeline series offers a detailed view on continuous delivery pipelines, rollbacks, build propogation, and more.
   meta_keywords: deployment pipeline, build pipeline, hotfixes, fan in fan out, manual gates, open source continuous delivery
+  
+/tags/selling-devops.html:
+  title: You Can't Buy DevOps, but You May Need to Sell It
+  meta_description: Learn techniques to get your team on board with understanding the value of Devops, and how to begin adopting the culture.
+  meta_keywords: devops, buy devops, sell devops, devops techniques, what is devops, understanding devops, devops team
