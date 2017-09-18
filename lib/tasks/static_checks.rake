@@ -30,7 +30,7 @@ namespace :static_checks do
 
     :empty_alt_ignore     => true,
     :log_level            => :info,
-    :file_ignore          => [/googlebac7590bd2b477d8/, /talkpython/, /changelog/, /infoq/, /recode/, /twit/, /sedaily/, /SEdaily/, /arrested/, /download_new/]
+    :file_ignore          => [/googlebac7590bd2b477d8/, /talkpython/, /changelog/, /infoq/, /recode/, /twit/, /sedaily/, /SEdaily/, /arrested/]
   }
 
   class ProperHTMLCheck < ::HTMLProofer::Check
