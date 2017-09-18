@@ -9,14 +9,16 @@ var newShowDownloadLinks = (function ($) {
         download_prefix: 'https://download.gocd.org/binaries/',
         version_to_show: function (release) {
           return release['go_version'];
-        }
+        },
+        cloud_info_url: 'https://download.gocd.org/cloud.json'
       },
       experimental: {
         download_info_url: 'https://download.gocd.org/experimental/releases.json',
         download_prefix: 'https://download.gocd.org/experimental/binaries/',
         version_to_show: function (release) {
           return release['go_full_version'];
-        }
+        },
+        cloud_info_url: 'https://download.gocd.org/cloud.json'
       }
     };
 
@@ -74,10 +76,10 @@ var newShowDownloadLinks = (function ($) {
       return segmentsA.length - segmentsB.length;
     }
 
-    var showReleases = function (data1, data2) {
-      var releases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(data1[0]);
+    var showReleases = function (releaseData, amiData) {
+      var releases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
       if (typeOfInstallersToShow == 'stable') {
-        var amiReleases = R.sortBy(R.prop('go_version'))(data2[0]).reverse();
+        var amiReleases = R.sortBy(R.prop('go_version'))(amiData[0]).reverse();
         var latest_cloud_release = R.head(amiReleases);
         var other_cloud_releases = R.tail(amiReleases);
       }
@@ -98,7 +100,7 @@ var newShowDownloadLinks = (function ($) {
       console.log("Error: " + error);
     };
 
-    return $.when($.getJSON(settings.download_info_url), $.getJSON('https://download.gocd.org/cloud.json'))
+    return $.when($.getJSON(settings.download_info_url), $.getJSON(settings.cloud_info_url))
       .done(showReleases)
       .fail(showFailureMessage);
   };
