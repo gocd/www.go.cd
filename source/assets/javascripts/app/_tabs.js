@@ -1,11 +1,11 @@
 //horizontal tabs
 var startTabContainer = function ($, packageName) {
   var package_to_rel = {
-    "debian": "#tab-debian",
-    'redhat': '#tab-redhat',
-    "windows": "#tab-windows",
-    'zip': '#tab-zip',
-    'osx': '#tab-osx'
+    "debian": "tab-debian",
+    'redhat': 'tab-redhat',
+    "windows": "tab-windows",
+    'zip': 'tab-zip',
+    'osx': 'tab-osx'
   };
 
   var package_to_os = {
@@ -18,7 +18,7 @@ var startTabContainer = function ($, packageName) {
 
   $(".tab_content").hide();
   $(".tab_content:first").show();
-  $("a[href=\"" + package_to_rel[packageName] + "\"]").addClass("active");
+  $("span[rel=\"" + package_to_rel[packageName] + "\"]").addClass("active");
   $(".tab-accordion_heading[rel^='" + package_to_os[packageName] + "']").addClass("d_active");
   chooseTabContainer($);
 };

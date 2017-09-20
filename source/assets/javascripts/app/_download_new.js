@@ -136,11 +136,11 @@ var determinePackageNameBasedOnOS = function () {
 
 var newHighlightSelectedOs = (function ($) {
   return function () {
-    $(".download-nav li a").click(function () {
+    $(".download-nav li span").click(function () {
       $(".tab_content").hide();
-      var activeTab = $(this).attr("href");
+      var activeTab = $(this).attr("rel");
       $(activeTab).fadeIn();
-      $(".download-nav li a").removeClass("active");
+      $(".download-nav li span").removeClass("active");
       $(this).addClass("active");
 
       $(".tab-accordion_heading").removeClass("d_active");
