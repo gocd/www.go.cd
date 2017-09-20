@@ -15,8 +15,8 @@
 
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-913addff.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-f9f6b887.js"></script>
+    <link href="../assets/stylesheets/site-62878b98.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all-132ae8d1.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -83,18 +83,18 @@
             <li class="dropdown open">
               <span class="head">OS Types</span>
               <ul>
-                <li><a href="#tab-redhat">RPM/YUM</a></li>
-                <li><a href="#tab-debian">Debian/APT</a></li>
-                <li><a href="#tab-zip">Zip</a></li>
-                <li><a href="#tab-windows">Windows</a></li>
-                <li><a href="#tab-osx">OSX</a></li>
+                <li><span rel="tab-redhat">RPM/YUM</span></li>
+                <li><span rel="tab-debian"> Debian/APT</span></li>
+                <li><span rel="tab-zip">Zip</span></li>
+                <li><span rel="tab-windows">Windows</span></li>
+                <li><span rel="tab-osx">OSX</span></li>
               </ul>
             </li>
             <li class="dropdown open">
               <span class="head">Cloud Providers</span>
               <ul>
-                <li><a href="#tab-ami">Amazon AMI</a></li>
-                <li><a href="#tab-docker">Docker</a></li>
+                <li><span rel="tab-ami">Amazon AMI</span></li>
+                <li><span rel="tab-docker">Docker</span></li>
               </ul>
             </li>
           </ul>
@@ -152,7 +152,7 @@
       </div>
       <div class="col-sm-4 col-lg-3 col-md-3">
         <ul class="help-links" id="help-links">
-          <li><a href="../releases" target="_blank">Release notes</a></li>
+          <li><a href="../releases/" target="_blank">Release notes</a></li>
           <li><a href="https://docs.gocd.org/current/installation/system_requirements.html"  target="_blank">System requirements</a></li>
           <li><a href="https://docs.gocd.org/current/installation/install/server/linux.html"  target="_blank">Server Installation
             Instructions</a></li>
@@ -172,7 +172,7 @@
 </main>
 
 <script id="downloads-help-links" type="text/x-handlebars-template">
-  <li><a href="../releases/#latest" target="_blank">Release notes</a></li>
+  <li><a href="../releases/" target="_blank">Release notes</a></li>
   <li><a href="https://docs.gocd.org/current/installation/system_requirements.html"  target="_blank">System requirements</a></li>
   {{#if os}}
   <li>
@@ -435,7 +435,6 @@
         startTabContainer($, packageName);
       }).then(function () {
       $('[rel=tab-' + packageName + ']').click();
-
     });
 
     $('input[type=radio][name=typeOfDownloads]').on('change', function () {
@@ -456,15 +455,16 @@
     });
     $(".download-nav li").on('click', function () {
       var type_of_os = {
-        "#tab-debian": "linux",
-        '#tab-redhat': 'linux',
-        "#tab-windows": "windows",
-        '#tab-zip': 'zip',
-        '#tab-osx': 'osx'
+        "tab-debian": "linux",
+        'tab-redhat': 'linux',
+        "tab-windows": "windows",
+        'tab-zip': 'zip',
+        'tab-osx': 'osx'
       };
       var template = Handlebars.compile($("#downloads-help-links").html());
-      var type = $(this).find('.active').attr('href');
-      packageName = type.split('-')[2];
+      var type = $(this).find('.active').attr('rel');
+      packageName = type.split('-')[1];
+
       $("#help-links").html(template({
         os: type_of_os[type]
       }));

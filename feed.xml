@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>Part 3 - You can’t buy DevOps, but you may need to sell it: Actions to spread DevOps Adoption</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/09/19/actions-spread-devops-adoption.html"/>
+    <id>https://www.gocd.org/2017/09/19/actions-spread-devops-adoption.html</id>
+    <published>2017-09-19T00:00:00Z</published>
+    <updated>2017-09-19T00:00:00Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">In part 3 of the series, You can’t buy DevOps but you may need to sell it, we'll explore some of the actions to spread change.</content>
+  </entry>
+  <entry>
     <title>Part 4 - CD101: Getting Started with Value Stream Mapping</title>
     <link rel="alternate" href="https://www.gocd.org/2017/09/12/value-stream-mapping.html"/>
     <id>https://www.gocd.org/2017/09/12/value-stream-mapping.html</id>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">CD 101 is a video series to help you get started on your CD journey. Part One of this series covers the history of continuous delivery, difference between continuous delivery and continuous deployment and a brief introduction of a deployment pipeline.</content>
-  </entry>
-  <entry>
-    <title>Part 1 - Continuous Deployment Strategies</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/07/18/continuous-deployment-strategies.html"/>
-    <id>https://www.gocd.org/2017/07/18/continuous-deployment-strategies.html</id>
-    <published>2017-07-18T00:00:00Z</published>
-    <updated>2017-07-18T00:00:00Z</updated>
-    <author>
-      <name>Ketan Padegaonkar</name>
-    </author>
-    <content type="html">Modern webapps and application servers have evolved, but many developers continue to use similar strategies to perform deployments. This post looks some of the continuous deployment strategies.</content>
   </entry>
 </feed>
