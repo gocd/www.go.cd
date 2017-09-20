@@ -522,11 +522,16 @@ body.download_new {
         li {
           ul {
             li {
-              a {
+              span {
                 background: #ffffff;
                 border-bottom: 1px solid $border;
                 font-size: 13px;
                 font-weight: 600;
+                cursor: pointer;
+                display:block;
+                padding: 10px 20px;
+                color: $link-color;
+                line-height: 18px;                
 
                 &.active {
                   border-bottom: 5px solid $primary-color;

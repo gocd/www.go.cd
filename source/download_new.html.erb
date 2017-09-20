@@ -22,18 +22,18 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
             <li class="dropdown open">
               <span class="head">OS Types</span>
               <ul>
-                <li><%= link_to "RPM/YUM", "#tab-redhat" %></li>
-                <li><%= link_to "Debian/APT", "#tab-debian" %></li>
-                <li><%= link_to "Zip", "#tab-zip" %></li>
-                <li><%= link_to "Windows", "#tab-windows" %></li>
-                <li><%= link_to "OSX", "#tab-osx" %></li>
+                <li><span rel="tab-redhat">RPM/YUM</span></li>
+                <li><span rel="tab-debian"> Debian/APT</span></li>
+                <li><span rel="tab-zip">Zip</span></li>
+                <li><span rel="tab-windows">Windows</span></li>
+                <li><span rel="tab-osx">OSX</span></li>
               </ul>
             </li>
             <li class="dropdown open">
               <span class="head">Cloud Providers</span>
               <ul>
-                <li><%= link_to "Amazon AMI", "#tab-ami" %></li>
-                <li><%= link_to "Docker", "#tab-docker" %></li>
+                <li><span rel="tab-ami">Amazon AMI</span></li>
+                <li><span rel="tab-docker">Docker</span></li>
               </ul>
             </li>
           </ul>
@@ -91,7 +91,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       </div>
       <div class="col-sm-4 col-lg-3 col-md-3">
         <ul class="help-links" id="help-links">
-          <li><a href="../releases" target="_blank">Release notes</a></li>
+          <li><%= link_to "Release notes", "/releases/index.html", target: '_blank' %></li>
           <li><a href="https://docs.gocd.org/current/installation/system_requirements.html"  target="_blank">System requirements</a></li>
           <li><a href="https://docs.gocd.org/current/installation/install/server/linux.html"  target="_blank">Server Installation
             Instructions</a></li>
@@ -111,7 +111,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 </main>
 
 <script id="downloads-help-links" type="text/x-handlebars-template">
-  <li><a href="../releases/#latest" target="_blank">Release notes</a></li>
+  <li><%= link_to "Release notes", "/releases/index.html", target: '_blank' %></li>
   <li><a href="https://docs.gocd.org/current/installation/system_requirements.html"  target="_blank">System requirements</a></li>
   {{#if os}}
   <li>
@@ -374,7 +374,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         startTabContainer($, packageName);
       }).then(function () {
       $('[rel=tab-' + packageName + ']').click();
-
     });
 
     $('input[type=radio][name=typeOfDownloads]').on('change', function () {
@@ -395,15 +394,16 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     });
     $(".download-nav li").on('click', function () {
       var type_of_os = {
-        "#tab-debian": "linux",
-        '#tab-redhat': 'linux',
-        "#tab-windows": "windows",
-        '#tab-zip': 'zip',
-        '#tab-osx': 'osx'
+        "tab-debian": "linux",
+        'tab-redhat': 'linux',
+        "tab-windows": "windows",
+        'tab-zip': 'zip',
+        'tab-osx': 'osx'
       };
       var template = Handlebars.compile($("#downloads-help-links").html());
-      var type = $(this).find('.active').attr('href');
-      packageName = type.split('-')[2];
+      var type = $(this).find('.active').attr('rel');
+      packageName = type.split('-')[1];
+
       $("#help-links").html(template({
         os: type_of_os[type]
       }));
