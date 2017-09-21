@@ -376,14 +376,19 @@ h1.main-caption {
       font-weight: 600;
       font-size: 1.5em;
       text-align: center;
-      vertical-align: top
+      vertical-align: top;
     }
 
     .row-header {
       font-weight: 600;
       text-align: center;
-      vertical-align: top
+      vertical-align: top;
+
     }
+
+    .go-feature {
+      font-weight: 400;
+    }    
   }
 }
 
