@@ -30,16 +30,6 @@ $(function () {
     $('body').toggleClass('nav-open')
   });
 
-  // fixed header
-
-  $(window).scroll(function () {
-    var sc = $(window).scrollTop();
-    if (sc > 1) {
-      $(".top").addClass("scroll-on")
-    } else {
-      $(".top").removeClass("scroll-on")
-    }
-  });
 });
 
 // Help signup

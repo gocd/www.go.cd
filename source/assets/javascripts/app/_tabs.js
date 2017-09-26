@@ -33,11 +33,6 @@ var chooseTabContainer = function ($) {
 
     $(".tab-accordion_heading").removeClass("d_active");
     $(".tab-accordion_heading[rel^='" + activeTab + "']").addClass("d_active");
-
-    var target = $('.tabs');
-    $('html,body').animate({
-      scrollTop: target.offset().top + -100
-    }, 1000);
   });
 
   /* accordion mode */
@@ -51,12 +46,8 @@ var chooseTabContainer = function ($) {
 
     $("ul.tabs li").removeClass("active");
     $("ul.tabs li[rel^='" + d_activeTab + "']").addClass("active");
-
-    var dtarget = $('.tab_container');
-    $('html,body').animate({
-      scrollTop: dtarget.offset().top + -100
-    }, 1000);
   });
+
   if (window.location.hash) {
     release = window.location.hash.substring(1).replace(/\./g, '-');
     $('[rel=' + release + ']').click();
