@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-09-19T00:00:00Z</updated>
+  <updated>2017-09-26T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Infographic - Are you ready for Continuous Delivery</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/09/26/are-you-ready-for-continuous-delivery-infographic.html"/>
+    <id>https://www.gocd.org/2017/09/26/are-you-ready-for-continuous-delivery-infographic.html</id>
+    <published>2017-09-26T00:00:00Z</published>
+    <updated>2017-09-26T00:00:00Z</updated>
+    <author>
+      <name>Aravind SV</name>
+    </author>
+    <content type="html">A handy list of questions about your own people, teams, and organization to determine your readiness for Continuous Delivery.</content>
+  </entry>
   <entry>
     <title>Part 3 - You can’t buy DevOps, but you may need to sell it: Actions to spread DevOps Adoption</title>
     <link rel="alternate" href="https://www.gocd.org/2017/09/19/actions-spread-devops-adoption.html"/>
@@ -107,16 +118,5 @@
       <name>Ketan Padegaonkar</name>
     </author>
     <content type="html">This Continuous Deployment Strategy article describes some of the implementation techniques for performing blue/green deployments.</content>
-  </entry>
-  <entry>
-    <title>Part 2 - CD 101: Deployment pipeline and types of automated testing</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/07/20/deployment-pipeline-automated-testing.html"/>
-    <id>https://www.gocd.org/2017/07/20/deployment-pipeline-automated-testing.html</id>
-    <published>2017-07-20T00:00:00Z</published>
-    <updated>2017-07-20T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">CD 101 is a video series to help you get started on your CD journey. Part One of this series covers the history of continuous delivery, difference between continuous delivery and continuous deployment and a brief introduction of a deployment pipeline.</content>
   </entry>
 </feed>
