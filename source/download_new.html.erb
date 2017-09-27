@@ -79,8 +79,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
           <label for="stable">Stable</label>
           <input type="radio" id="experimental" name="typeOfDownloads" value="experimental" />
           <label for="experimental">Experimental</label>
-          <input type="radio" id="archive" name="typeOfDownloads" value="archive" />
-          <label for="archive">Archived</label>
         </div>
         <div id="downloads">
           <div class="load-message">
@@ -366,7 +364,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   // <![CDATA[
   jQuery(document).ready(function ($) {
     var typeOfInstallersToShow = "stable";
-    var archive = false;
     var packageName = determinePackageNameBasedOnOS();
 
     /* Switch OSes. */
@@ -378,14 +375,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     /* Switch between stable and experimental. */
     $('input[type=radio][name=typeOfDownloads]').on('change', function () {
       typeOfInstallersToShow = $(this).val();
-      if (typeOfInstallersToShow === "archive") {
-        archive = true;
-        typeOfInstallersToShow = "stable";
-      }
-      else {
-        archive = false;
-      }
-      newShowDownloadLinks({typeOfInstallersToShow: typeOfInstallersToShow, archive: archive})
+      newShowDownloadLinks({typeOfInstallersToShow: typeOfInstallersToShow})
         .done(function () {
           chooseTabContainer($);
         })

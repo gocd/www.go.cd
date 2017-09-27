@@ -1,7 +1,6 @@
 var newShowDownloadLinks = (function ($) {
   return function (options) {
     var typeOfInstallersToShow = options.typeOfInstallersToShow;
-    var showArchive = options.archive;
 
     var settingsForAllTypes = {
       stable: {
@@ -23,15 +22,6 @@ var newShowDownloadLinks = (function ($) {
     };
 
     var settings = settingsForAllTypes[typeOfInstallersToShow];
-
-    var dateFilter = R.curry(function (timeInSecondsSinceEpoch) {
-      if (showArchive) {
-        return true;
-      }
-      return (new Date() - new Date(timeInSecondsSinceEpoch * 1000)) < 3600 * 24 * 366 * 1000;
-    });
-
-    var releasesLessThanAYearOld = R.filter(R.where({release_time: dateFilter}));
 
     var addURLToFiles = function (release) {
       var addDetailsFrom = R.curry(function (release, analyticsIDPrefix, o) {
@@ -77,7 +67,7 @@ var newShowDownloadLinks = (function ($) {
     }
 
     var showReleases = function (releaseData, amiData) {
-      var releases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
+      var releases = R.compose(R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
       if (typeOfInstallersToShow === 'stable') {
         var amiReleases = R.sortBy(R.prop('go_version'))(amiData[0]).reverse();
         var latest_cloud_release = R.head(amiReleases);
