@@ -363,33 +363,33 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 <script>
   // <![CDATA[
   jQuery(document).ready(function ($) {
-    var typeOfInstallersToShow = "stable";
-    var packageName = determinePackageNameBasedOnOS();
+    var currentInstallerType = "stable";
+    var currentOSPackageType = determinePackageNameBasedOnOS();
 
     /* Switch OSes. */
     $(".download-nav li [rel^='tab-']").on('click', function () {
-      packageName = $(this).attr('rel').replace('tab-', '');
-      showHelpLinksFor(packageName);
+      currentOSPackageType = $(this).attr('rel').replace('tab-', '');
+      showHelpLinksFor(currentOSPackageType);
     });
 
     /* Switch between stable and experimental. */
     $('input[type=radio][name=typeOfDownloads]').on('change', function () {
-      typeOfInstallersToShow = $(this).val();
-      newShowDownloadLinks({typeOfInstallersToShow: typeOfInstallersToShow})
+      currentInstallerType = $(this).val();
+      newShowDownloadLinks({typeOfInstallersToShow: currentInstallerType})
         .done(function () {
           chooseTabContainer($);
         })
         .done(function () {
-          $('[rel=tab-' + packageName + ']').click();
+          $('[rel=tab-' + currentOSPackageType + ']').click();
         });
     });
 
-    newShowDownloadLinks({typeOfInstallersToShow: typeOfInstallersToShow})
+    newShowDownloadLinks({typeOfInstallersToShow: currentInstallerType})
       .done(function () {
-        startTabContainer($, packageName);
+        startTabContainer($, currentOSPackageType);
       })
       .done(function () {
-        $('[rel=tab-' + packageName + ']').click();
+        $('[rel=tab-' + currentOSPackageType + ']').click();
       });
 
     newSetupShowVerifyChecksumMessage();
