@@ -100,9 +100,26 @@ var newShowDownloadLinks = (function ($) {
       console.log("Error: " + error);
     };
 
-    return $.when($.getJSON(settings.download_info_url), $.getJSON(settings.cloud_info_url))
+    return $.when(downloadOrGetFromCache(settings.download_info_url), downloadOrGetFromCache(settings.cloud_info_url))
       .done(showReleases)
       .fail(showFailureMessage);
+  };
+})(jQuery);
+
+var downloadOrGetFromCache = (function($) {
+  var storedJSON = {};
+
+  return function (url) {
+    var deferred = $.Deferred();
+
+    if (storedJSON.hasOwnProperty(url)) {
+      deferred.resolve([storedJSON[url], "success"]);
+      return deferred.promise();
+    }
+
+    return $.getJSON(url).done(function (data) {
+      storedJSON[url] = data;
+    });
   };
 })(jQuery);
 
