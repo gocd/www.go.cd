@@ -78,7 +78,7 @@ var newShowDownloadLinks = (function ($) {
 
     var showReleases = function (releaseData, amiData) {
       var releases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
-      if (typeOfInstallersToShow == 'stable') {
+      if (typeOfInstallersToShow === 'stable') {
         var amiReleases = R.sortBy(R.prop('go_version'))(amiData[0]).reverse();
         var latest_cloud_release = R.head(amiReleases);
         var other_cloud_releases = R.tail(amiReleases);

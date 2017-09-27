@@ -369,6 +369,13 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     var archive = false;
     var packageName = determinePackageNameBasedOnOS();
 
+    /* Switch OSes. */
+    $(".download-nav li [rel^='tab-']").on('click', function () {
+      packageName = $(this).attr('rel').replace('tab-', '');
+      showHelpLinksFor(packageName);
+    });
+
+    /* Switch between stable and experimental. */
     $('input[type=radio][name=typeOfDownloads]').on('change', function () {
       typeOfInstallersToShow = $(this).val();
       if (typeOfInstallersToShow === "archive") {
@@ -379,24 +386,19 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         archive = false;
       }
       newShowDownloadLinks({typeOfInstallersToShow: typeOfInstallersToShow, archive: archive})
-        .then(function () {
+        .done(function () {
           chooseTabContainer($);
         })
-        .then(function () {
+        .done(function () {
           $('[rel=tab-' + packageName + ']').click();
         });
     });
 
-    $(".download-nav li").on('click', function () {
-      packageName = $(this).find('.active').attr('rel').replace('tab-', '');
-      showHelpLinksFor(packageName);
-    });
-
     newShowDownloadLinks({typeOfInstallersToShow: typeOfInstallersToShow})
-      .then(function () {
+      .done(function () {
         startTabContainer($, packageName);
       })
-      .then(function () {
+      .done(function () {
         $('[rel=tab-' + packageName + ']').click();
       });
 
