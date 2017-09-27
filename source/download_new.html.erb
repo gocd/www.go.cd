@@ -1,7 +1,7 @@
 ---
 title: GoCD - Download
 title_tag_of_header: "Download for Free - Server and Agent | GoCD"
-meta_description: "Download GoCD's open source continuous delivery server for OS for free. Community and commercial support available."
+meta_description: "Download GoCD - open source continuous delivery server - for free. Community and commercial support available."
 meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 ---
 <div class="inner-banner plugins">
@@ -369,13 +369,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     var archive = false;
     var packageName = determinePackageNameBasedOnOS();
 
-    newShowDownloadLinks({typeOfInstallersToShow: typeOfInstallersToShow})
-      .then(function () {
-        startTabContainer($, packageName);
-      }).then(function () {
-      $('[rel=tab-' + packageName + ']').click();
-    });
-
     $('input[type=radio][name=typeOfDownloads]').on('change', function () {
       typeOfInstallersToShow = $(this).val();
       if (typeOfInstallersToShow === "archive") {
@@ -388,26 +381,25 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       newShowDownloadLinks({typeOfInstallersToShow: typeOfInstallersToShow, archive: archive})
         .then(function () {
           chooseTabContainer($);
-        }).then(function () {
+        })
+        .then(function () {
+          $('[rel=tab-' + packageName + ']').click();
+        });
+    });
+
+    $(".download-nav li").on('click', function () {
+      packageName = $(this).find('.active').attr('rel').replace('tab-', '');
+      showHelpLinksFor(packageName);
+    });
+
+    newShowDownloadLinks({typeOfInstallersToShow: typeOfInstallersToShow})
+      .then(function () {
+        startTabContainer($, packageName);
+      })
+      .then(function () {
         $('[rel=tab-' + packageName + ']').click();
       });
-    });
-    $(".download-nav li").on('click', function () {
-      var type_of_os = {
-        "tab-debian": "linux",
-        'tab-redhat': 'linux',
-        "tab-windows": "windows",
-        'tab-zip': 'zip',
-        'tab-osx': 'osx'
-      };
-      var template = Handlebars.compile($("#downloads-help-links").html());
-      var type = $(this).find('.active').attr('rel');
-      packageName = type.split('-')[1];
 
-      $("#help-links").html(template({
-        os: type_of_os[type]
-      }));
-    });
     newSetupShowVerifyChecksumMessage();
     newHighlightSelectedOs();
   });

@@ -169,5 +169,19 @@ var newHighlightSelectedOs = (function ($) {
   }
 })(jQuery);
 
+var showHelpLinksFor = (function ($) {
+  return function(packageName) {
+    var installer_type_to_help_link_type = {
+      'debian': 'linux',
+      'redhat': 'linux',
+      'windows': 'windows',
+      'zip': 'zip',
+      'osx': 'osx'
+    };
+    var template = Handlebars.compile($("#downloads-help-links").html());
 
-
+    $("#help-links").html(template({
+      os: installer_type_to_help_link_type[packageName]
+    }));
+  };
+})(jQuery);
