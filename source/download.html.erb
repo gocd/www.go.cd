@@ -211,7 +211,7 @@ jQuery(document).ready(function($) {
   var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
   showDownloadLinks({ typeOfInstallersToShow: isExperimental ? "experimental" : "stable"})
     .then(function() {
-      startTabContainer($);
+      startTabContainer();
     }).then(function(){
       var package="zip";
       var appVersion = navigator.appVersion;

@@ -385,7 +385,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 
     newShowDownloadLinks({typeOfInstallersToShow: currentInstallerType})
       .done(function () {
-        startTabContainer($);
+        startTabContainer();
         switchActiveTab('tab-' + currentOSPackageType);
       });
 

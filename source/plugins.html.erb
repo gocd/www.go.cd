@@ -142,11 +142,6 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
 
 <script>
  jQuery(document).ready(function($) {
-   startTabContainer($);
-
-   if(window.location.hash) {
-       var id = window.location.hash.substring(1).replace(/\./g,'-');
-       $('#'+id).click();
-   }
+   startTabContainer();
  });
 </script>
