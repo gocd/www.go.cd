@@ -49,27 +49,29 @@ var newShowDownloadLinks = (function ($) {
       return R.assoc('display_version', settings.version_to_show(release), release);
     });
 
-    function compareVersions(a, b) {
-      var i, diff;
+    var compareVersions = function(propertyToCompareOn) {
+      return function (a, b) {
+        var i, diff;
 
-      var segmentsA = a.go_full_version.replace('-', '.').split('.');
-      var segmentsB = b.go_full_version.replace('-', '.').split('.');
+        var segmentsA = a[propertyToCompareOn].replace('-', '.').split('.');
+        var segmentsB = b[propertyToCompareOn].replace('-', '.').split('.');
 
-      var l = Math.min(segmentsA.length, segmentsB.length);
+        var l = Math.min(segmentsA.length, segmentsB.length);
 
-      for (i = 0; i < l; i++) {
-        diff = parseInt(segmentsB[i], 10) - parseInt(segmentsA[i], 10);
-        if (diff) {
-          return diff;
+        for (i = 0; i < l; i++) {
+          diff = parseInt(segmentsB[i], 10) - parseInt(segmentsA[i], 10);
+          if (diff) {
+            return diff;
+          }
         }
+        return segmentsA.length - segmentsB.length;
       }
-      return segmentsA.length - segmentsB.length;
-    }
+    };
 
     var showReleases = function (releaseData, amiData) {
-      var releases = R.compose(R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
+      var releases = R.compose(R.sort(compareVersions('go_full_version')), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
       if (typeOfInstallersToShow === 'stable') {
-        var amiReleases = R.sortBy(R.prop('go_version'))(amiData[0]).reverse();
+        var amiReleases = R.sort(compareVersions('go_version'))(amiData[0]);
         var latest_cloud_release = R.head(amiReleases);
         var other_cloud_releases = R.tail(amiReleases);
       }
