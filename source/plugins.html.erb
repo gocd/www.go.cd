@@ -55,18 +55,18 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
       {kind: "Commercial Offerings", plugins: data.paid_plugins}
     ] %>
     <div class="v-tabs all-plugins">
-      <ul class="tabs">
+      <ul class="tabs tab-container-marker">
         <% plugin_categories.each_with_index do |category, index| %>
-          <li rel="tab-<%= index + 1 %>" id="<%= category[:kind].downcase.gsub(' ','-')%>">
+          <li class="tab-marker" rel="tab-<%= index + 1 %>" id="<%= category[:kind].downcase.gsub(' ','-')%>">
             <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
           </li>
         <% end %>
       </ul>
 
-      <div class="tab_container">
+      <div class="tab_container tab-container-marker">
         <% plugin_categories.each_with_index do |category, index| %>
           <% tab_id = "tab-#{index + 1}" %>
-          <h3 class="tab-accordion_heading" rel="<%= tab_id %>">
+          <h3 class="tab-marker tab-accordion_heading" rel="<%= tab_id %>">
             <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
           </h3>
 

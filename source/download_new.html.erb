@@ -18,22 +18,22 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         <button class="download-btn"><i class="fa fa-bars"></i></button>
 
         <nav class="sidebar-nav download-nav">
-          <ul class="verticalnav">
+          <ul class="verticalnav tab-container-marker">
             <li class="dropdown open">
               <span class="head">OS Types</span>
               <ul>
-                <li><span rel="tab-redhat">RPM/YUM</span></li>
-                <li><span rel="tab-debian"> Debian/APT</span></li>
-                <li><span rel="tab-zip">Zip</span></li>
-                <li><span rel="tab-windows">Windows</span></li>
-                <li><span rel="tab-osx">OSX</span></li>
+                <li><span class="tab-marker" rel="tab-redhat">RPM/YUM</span></li>
+                <li><span class="tab-marker" rel="tab-debian"> Debian/APT</span></li>
+                <li><span class="tab-marker" rel="tab-zip">Zip</span></li>
+                <li><span class="tab-marker" rel="tab-windows">Windows</span></li>
+                <li><span class="tab-marker" rel="tab-osx">OSX</span></li>
               </ul>
             </li>
             <li class="dropdown open">
               <span class="head">Cloud Providers</span>
               <ul>
-                <li><span rel="tab-ami">Amazon AMI</span></li>
-                <li><span rel="tab-docker">Docker</span></li>
+                <li><span class="tab-marker" rel="tab-ami">Amazon AMI</span></li>
+                <li><span class="tab-marker" rel="tab-docker">Docker</span></li>
               </ul>
             </li>
           </ul>
@@ -341,20 +341,20 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   <div class="download-area">
   </div>
   <div class="os-tab-content">
-    <div class="tab_container">
-      <h3 class="tab-accordion_heading" rel="tab-windows">Windows</h3>
+    <div class="tab_container tab-container-marker">
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-windows">Windows</h3>
       {{> show-releases-for-installer-type installer_type="win" heading="Windows" tab_id="tab-windows"}}
-      <h3 class="tab-accordion_heading" rel="tab-osx">OSX</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-osx">OSX</h3>
       {{> show-releases-for-installer-type installer_type="osx" heading="OSX" tab_id="tab-osx"}}
-      <h3 class="tab-accordion_heading" rel="tab-debian">Debian</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-debian">Debian</h3>
       {{> show-releases-for-installer-type installer_type="deb" heading="Debian" tab_id="tab-debian"}}
-      <h3 class="tab-accordion_heading" rel="tab-redhat">RPM</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-redhat">RPM</h3>
       {{> show-releases-for-installer-type installer_type="rpm" heading="RPM" tab_id="tab-redhat"}}
-      <h3 class="tab-accordion_heading" rel="tab-zip">Zip</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-zip">Zip</h3>
       {{> show-releases-for-installer-type installer_type="generic" heading="Zip" tab_id="tab-zip"}}
-      <h3 class="tab-accordion_heading" rel="tab-ami">AMIs</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-ami">AMIs</h3>
       {{> show-amis installer_type="ami" tab_id="tab-ami"}}
-      <h3 class="tab-accordion_heading" rel="tab-docker">Docker</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-docker">Docker</h3>
       {{> show-docker installer_type="docker" tab_id="tab-docker"}}
     </div>
     <div id="verify-checksum-message"></div>

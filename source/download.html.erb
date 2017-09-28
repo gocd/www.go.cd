@@ -151,7 +151,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 {{/inline}}
 
 {{#*inline "show-tab-header"}}
-<li rel="{{{tab_id}}}">
+<li class="tab-marker" rel="{{{tab_id}}}">
   <span class="os-logo"><img src="{{{image}}}" alt="{{{desc}}}" /></span>
   <span class="desc">{{{desc}}}</span>
 </li>
@@ -177,7 +177,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   <div class="container">
     <h2 class="sub-title">Choose your OS &amp; download</h2>
     <p class="info">Latest supported release (<span id="latest-version">{{latest_version}}</span>) <a href="../releases/#latest" class="btn btn-dark">See what's new</a> </p>
-    <ul class="tabs os">
+    <ul class="tabs os tab-container-marker">
       {{> show-tab-header tab_id="tab-windows" image="<%= image_path "download/windows.png" %>" desc="Windows"}}
       {{> show-tab-header tab_id="tab-osx" image="<%= image_path "download/osx.png" %>" desc="OSX"}}
       {{> show-tab-header tab_id="tab-debian" image="<%= image_path "download/debian.png" %>" desc="Debian"}}
@@ -188,16 +188,16 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 </div>
 <div class="os-tab-content">
   <div class="container">
-    <div class="tab_container">
-      <h3 class="tab-accordion_heading" rel="tab-windows">Windows</h3>
+    <div class="tab_container tab-container-marker">
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-windows">Windows</h3>
       {{> show-releases-for-installer-type installer_type="win"     heading="Windows" tab_id="tab-windows"}}
-      <h3 class="tab-accordion_heading" rel="tab-osx">OSX</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-osx">OSX</h3>
       {{> show-releases-for-installer-type installer_type="osx"     heading="OSX"     tab_id="tab-osx"}}
-      <h3 class="tab-accordion_heading" rel="tab-debian">Debian</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-debian">Debian</h3>
       {{> show-releases-for-installer-type installer_type="deb"     heading="Debian"  tab_id="tab-debian"}}
-      <h3 class="tab-accordion_heading" rel="tab-redhat">RPM</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-redhat">RPM</h3>
       {{> show-releases-for-installer-type installer_type="rpm"     heading="RPM"     tab_id="tab-redhat"}}
-      <h3 class="tab-accordion_heading" rel="tab-zip">Zip</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-zip">Zip</h3>
       {{> show-releases-for-installer-type installer_type="generic" heading="Zip" tab_id="tab-zip"}}
     </div>
   </div>

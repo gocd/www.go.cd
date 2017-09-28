@@ -16,14 +16,14 @@ title_tag_of_header: "AMIs for GoCD"
     <h3 class="subcaption">Amazon Linux based image for <b>GoCD Server</b></h3>
     <h5 class="subcaption">Please log your feedback or issues on <a href="https://github.com/gocd/gocd-cloud">github</a> for the following</h5>
     <div class="v-tabs all-releases">
-      <ul class="tabs">
+      <ul class="tabs tab-container-marker">
         <%  data.amis.keys.reverse.collect(&:to_s).each_with_index do |release, index| %>
-            <li rel="tab-<%= release.gsub('.', '-') %>"<%= ' class="active"' if index == 0 %>><%= release %><%= ' (latest)' if index == 0 %></li>
+            <li rel="tab-<%= release.gsub('.', '-') %>" class="tab-marker<%= index == 0 ? ' active' : '' %>"><%= release %><%= ' (latest)' if index == 0 %></li>
         <% end %>
       </ul>
-      <div class="tab_container">
+      <div class="tab_container tab-container-marker">
         <%  data.amis.keys.sort.reverse.collect(&:to_s).each_with_index do |release, index| %>
-            <h3 class="tab-accordion_heading<%= ' d_active' if index == 0 %>" rel="tab-<%= release.gsub('.', '-')%>"><%= release %><%= ' (latest)' if index == 0 %></h3>
+            <h3 class="tab-marker tab-accordion_heading<%= ' d_active' if index == 0 %>" rel="tab-<%= release.gsub('.', '-')%>"><%= release %><%= ' (latest)' if index == 0 %></h3>
             <div id="tab-<%= release.gsub('.', '-')%>" class="tab_content" style="display: block;">
               <div class="content amis">
                 <h2>Demo AMI</h2>
