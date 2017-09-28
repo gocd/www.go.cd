@@ -18,34 +18,31 @@ var startTabContainer = function ($, packageName) {
 
   $(".tab_content").hide();
   $(".tab_content:first").show();
+  $("ul.tabs li:first").addClass("active");
   $("span[rel=\"" + package_to_rel[packageName] + "\"]").addClass("active");
   $(".tab-accordion_heading[rel^='" + package_to_os[packageName] + "']").addClass("d_active");
   chooseTabContainer($);
 };
 
-var chooseTabContainer = function ($) {
-  $("ul.tabs li , ul.items li").click(function () {
-    $(".tab_content").hide();
-    var activeTab = $(this).attr("rel");
-    $("#" + activeTab).fadeIn();
-    $("ul.tabs li").removeClass("active");
-    $(this).addClass("active");
+var switchActiveTab = function (newElementWhichShouldBeActive, selectorForAllElementsOfThisType, selectorForOtherKindOfTab) {
+  $(".tab_content").hide();
+  var activeTab = $(newElementWhichShouldBeActive).attr("rel");
+  $("#" + activeTab).fadeIn();
 
-    $(".tab-accordion_heading").removeClass("d_active");
-    $(".tab-accordion_heading[rel^='" + activeTab + "']").addClass("d_active");
+  $(selectorForAllElementsOfThisType).removeClass("active");
+  $(newElementWhichShouldBeActive).addClass("active");
+
+  $(selectorForOtherKindOfTab).removeClass("d_active");
+  $(selectorForOtherKindOfTab + "[rel^='" + activeTab + "']").addClass("d_active");
+};
+
+var chooseTabContainer = function ($) {
+  $("ul.tabs li").click(function () {
+    switchActiveTab(this, "ul.tabs li", ".tab-accordion_heading");
   });
 
-  /* accordion mode */
   $(".tab-accordion_heading").click(function () {
-    $(".tab_content").hide();
-    var d_activeTab = $(this).attr("rel");
-    $("#" + d_activeTab).fadeIn();
-
-    $(".tab-accordion_heading").removeClass("d_active");
-    $(this).addClass("d_active");
-
-    $("ul.tabs li").removeClass("active");
-    $("ul.tabs li[rel^='" + d_activeTab + "']").addClass("active");
+    switchActiveTab(this, ".tab-accordion_heading", "ul.tabs li");
   });
 
   if (window.location.hash) {

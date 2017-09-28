@@ -146,15 +146,7 @@ var determinePackageNameBasedOnOS = function () {
 var newHighlightSelectedOs = (function ($) {
   return function () {
     $(".download-nav li span").click(function () {
-      $(".tab_content").hide();
-      var activeTab = $(this).attr("rel");
-      $(activeTab).fadeIn();
-      $(".download-nav li span").removeClass("active");
-      $(this).addClass("active");
-
-      $(".tab-accordion_heading").removeClass("d_active");
-      $(".tab-accordion_heading[rel^='" + activeTab + "']").addClass("d_active");
-
+      switchActiveTab(this, ".download-nav li span", ".tab-accordion_heading")
     });
   }
 })(jQuery);
