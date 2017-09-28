@@ -115,7 +115,7 @@ var downloadOrGetFromCache = (function($) {
 
 var newSetupShowVerifyChecksumMessage = (function ($) {
   return function () {
-    $("#downloads").on('click', '.verify-checksum', function (evt) {
+    $("body").on('click', '#downloads .verify-checksum', function (evt) {
       var checksumElement = $(evt.currentTarget);
       var template = Handlebars.compile($("#verify-checksum-message-template").html());
       $("#verify-checksum-message").html(template({
@@ -142,14 +142,6 @@ var determinePackageNameBasedOnOS = function () {
 
   return packageName
 };
-
-var newHighlightSelectedOs = (function ($) {
-  return function () {
-    $(".download-nav li span").click(function () {
-      switchActiveTab(this, ".download-nav li span", ".tab-accordion_heading")
-    });
-  }
-})(jQuery);
 
 var showHelpLinksFor = (function ($) {
   return function(packageName) {
