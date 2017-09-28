@@ -1,3 +1,19 @@
+/*
+ Expects something like the snippet below. Only the class names and IDs are important. Not the tags:
+
+ <ul class="tab-container-marker">
+   <li><span class="tab-marker" rel="tab-id-1">Tab 1</li>
+   <li><span class="tab-marker" rel="tab-id-2">Tab 2</li>
+ </ul>
+
+ <div>
+   <div id="tab-id-1" class="tab_content">
+   </div>
+   <div id="tab-id-2" class="tab_content">
+   </div>
+ </div>
+ */
+
 var startTabContainer = (function ($) {
   return function () {
     $(".tab_content").hide();
