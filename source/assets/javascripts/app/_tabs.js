@@ -1,5 +1,6 @@
 /*
- Expects something like the snippet below. Only the class names and IDs are important. Not the tags:
+ Expects something like the snippet below. Only the class names and IDs are important. Not the tags. Also, the tab
+ ID should start with "tab-" (assumption):
 
  <ul class="tab-container-marker">
    <li><span class="tab-marker" rel="tab-id-1">Tab 1</li>
@@ -21,7 +22,7 @@ var startTabContainer = (function ($) {
     $(".tab-container-marker .tab-marker:first").addClass("active").addClass("d_active");
 
     $("body").on('click', '.tab-container-marker .tab-marker', function () {
-      switchActiveTab($(this).attr('rel'));
+      switchActiveTab($(this).attr('rel').replace(/^tab-/, ''));
     });
 
     if (window.location.hash) {
@@ -31,9 +32,16 @@ var startTabContainer = (function ($) {
 })(jQuery);
 
 var switchActiveTab = function (tabIdentifier) {
+  const newTabContent = $(".tab_content#tab-" + tabIdentifier);
+  if (newTabContent.size() === 0) {
+    return;
+  }
+
   $(".tab_content").hide();
-  $(".tab_content#" + tabIdentifier).fadeIn();
+  newTabContent.fadeIn();
 
   $(".tab-container-marker .tab-marker").removeClass("active").removeClass("d_active");
-  $(".tab-container-marker .tab-marker[rel='" + tabIdentifier + "']").addClass("active").addClass("d_active");
+  $(".tab-container-marker .tab-marker[rel='tab-" + tabIdentifier + "']").addClass("active").addClass("d_active");
+
+  window.location.hash = tabIdentifier;
 };

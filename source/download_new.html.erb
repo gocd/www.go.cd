@@ -385,14 +385,14 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 
       newShowDownloadLinks({typeOfInstallersToShow: currentInstallerType})
         .done(function () {
-          switchActiveTab('tab-' + currentOSPackageType);
+          switchActiveTab(currentOSPackageType);
         });
     });
 
     newShowDownloadLinks({typeOfInstallersToShow: currentInstallerType})
       .done(function () {
         startTabContainer();
-        switchActiveTab('tab-' + currentOSPackageType);
+        switchActiveTab(currentOSPackageType);
       });
 
     newSetupShowVerifyChecksumMessage();
