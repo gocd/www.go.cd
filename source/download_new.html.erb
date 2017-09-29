@@ -267,13 +267,13 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <div class="latest">
       {{#with latest_cloud_release}}
-      <div class="go-release {{go_version}}">
-        <div class=" col-xs-12 col-sm-2 ">
+      <div class="go-release {{go_version}} row">
+        <div class=" col-xs-12 col-sm-2">
           <span class="version">{{go_version}}</span>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-10 ">
-      {{> show-docker-release server_docker=server_docker agents_docker=agents_docker}}
+        <div class="col-xs-12 col-sm-10">
+          {{> show-docker-release server_docker=server_docker agents_docker=agents_docker}}
+        </div>
       </div>
       {{/with}}
     </div>
