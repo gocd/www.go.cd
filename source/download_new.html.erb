@@ -80,12 +80,15 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
           <input type="radio" id="experimental" name="typeOfDownloads" value="experimental" />
           <label for="experimental">Experimental</label>
         </div>
-        <div id="downloads">
+
+        <div class="loading-message-template" style="display: none">
           <div class="load-message">
             <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
-            <span> Please wait. Fetching information about download ...</span>
+            <span>Please wait. Fetching information about available packages ...</span>
           </div>
         </div>
+
+        <div id="downloads"></div>
       </div>
       <div class="col-sm-4 col-lg-3 col-md-3">
         <ul class="help-links" id="help-links">

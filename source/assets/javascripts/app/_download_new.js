@@ -91,6 +91,8 @@ var newShowDownloadLinks = (function ($) {
       console.log("Error: " + error);
     };
 
+    $("#downloads").html($(".loading-message-template").html());
+
     return $.when(downloadOrGetFromCache(settings.download_info_url), downloadOrGetFromCache(settings.cloud_info_url))
       .done(showReleases)
       .fail(showFailureMessage);
