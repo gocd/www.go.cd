@@ -62,6 +62,10 @@ body.download_new {
     position: relative;
     padding-top: 20px;
 
+    .file-not-available {
+      text-align: center;
+    }
+
     .file {
       float: left;
       margin-bottom: 10px;

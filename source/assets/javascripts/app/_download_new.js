@@ -82,7 +82,6 @@ var newShowDownloadLinks = (function ($) {
         latest_version: releases[0].go_version,
         latest_cloud_release: latest_cloud_release,
         all_other_cloud_releases: other_cloud_releases
-
       }));
     };
 

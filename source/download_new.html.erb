@@ -163,18 +163,21 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         <div class="col-xs-12 col-sm-4 col-lg-3 col-lg-3 ">
           <span class="version">{{display_version}}</span>
         </div>
+        {{#if (lookup . ../installer_type)}}
         {{#with (lookup . ../installer_type)}}
         <div class="col-xs-12 col-sm-8 col-lg-9 ">
           <div class="files">
             {{#if server32bit}}
             {{> show-server-and-agent-32-and-64-bit-installers}}
-          
             {{else}}
             {{> show-server-and-agent-installer}}
             {{/if}}
           </div>
         </div>
         {{/with}}
+        {{else}}
+        <div class="files"><div class="file-not-available">Not available</div></div>
+        {{/if}}
       </div>
       {{/each}}
     </div>
