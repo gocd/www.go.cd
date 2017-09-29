@@ -186,6 +186,8 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     </div>
   </div>
   {{/inline}}
+
+
   {{#*inline "show-amis"}}
   {{#if latest_cloud_release}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
@@ -226,6 +228,8 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   </div>
   {{/if}}
   {{/inline}}
+
+
   {{#*inline "show-ami-release"}}
   <h3>Demo AMI</h3>
   {{> ami-table amis=demo_amis}}
@@ -240,6 +244,8 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     {{> ami-table amis=server_amis}}
   </div>
   {{/inline}}
+
+
   {{#*inline "ami-table"}}
   <table class="table">
     <tr>
@@ -254,14 +260,16 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     {{/each}}
   </table>
   {{/inline}}
+
+
   {{#*inline "show-docker"}}
   {{#if latest_cloud_release}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <div class="latest">
       {{#with latest_cloud_release}}
       <div class="go-release {{go_version}}">
-      <div class=" col-xs-12 col-sm-2 ">
-        <span class="version">{{go_version}}</span>
+        <div class=" col-xs-12 col-sm-2 ">
+          <span class="version">{{go_version}}</span>
         </div>
       </div>
       <div class="col-xs-12 col-sm-10 ">
@@ -291,6 +299,8 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   </div>
   {{/if}}
   {{/inline}}
+
+
   {{#*inline "show-docker-release"}}
   <div class="files">
     <h3>GoCD Server Docker Image</h3>
@@ -307,11 +317,15 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     </ul>
   </div>
   {{/inline}}
+
+
   {{#*inline "show-docker-command"}}
   <li><a href="https://hub.docker.com/r/gocd/{{image_name}}">{{image_name}}</a>
     <span class="command">docker pull gocd/{{image_name}}:v{{version}}</span>
   </li>
   {{/inline}}
+
+
   {{#*inline "show-server-and-agent-32-and-64-bit-installers"}}
   <div class="download-files">
     {{> show-file server type="server" display_name="Server" info="(64 bit JRE)" os=../../installer_type}}
@@ -322,12 +336,16 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     {{> show-file agent32bit type="agent32bit" display_name="Agent" info="(32 bit JRE)" os=../../installer_type}}
   </div>
   {{/inline}}
+
+
   {{#*inline "show-server-and-agent-installer"}}
   <div>
     {{> show-file server type="server" display_name="Server" os=../../installer_type}}
     {{> show-file agent type="agent" display_name="Agent" os=../../installer_type}}
   </div>
   {{/inline}}
+
+
   {{#*inline "show-file"}}
   <div class="{{{type}}} file">
     <div class="name">
@@ -344,6 +362,8 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     </div>
   </div>
   {{/inline}}
+
+
   <div class="download-area">
   </div>
   <div class="os-tab-content">
