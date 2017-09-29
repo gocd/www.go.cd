@@ -1,55 +1,39 @@
-//horizontal tabs
-var startTabContainer = function ($, packageName) {
-  var package_to_rel = {
-    "debian": "tab-debian",
-    'redhat': 'tab-redhat',
-    "windows": "tab-windows",
-    'zip': 'tab-zip',
-    'osx': 'tab-osx'
-  };
+/*
+ Expects something like the snippet below. Only the class names and IDs are important. Not the tags:
 
-  var package_to_os = {
-    "debian": "deb",
-    'redhat': 'rpm',
-    "windows": "win",
-    'zip': 'generic',
-    'osx': 'osx'
-  };
+ <ul class="tab-container-marker">
+   <li><span class="tab-marker" rel="tab-id-1">Tab 1</li>
+   <li><span class="tab-marker" rel="tab-id-2">Tab 2</li>
+ </ul>
 
+ <div>
+   <div id="tab-id-1" class="tab_content">
+   </div>
+   <div id="tab-id-2" class="tab_content">
+   </div>
+ </div>
+ */
+
+var startTabContainer = (function ($) {
+  return function () {
+    $(".tab_content").hide();
+    $(".tab_content:first").show();
+    $(".tab-container-marker .tab-marker:first").addClass("active").addClass("d_active");
+
+    $("body").on('click', '.tab-container-marker .tab-marker', function () {
+      switchActiveTab($(this).attr('rel'));
+    });
+
+    if (window.location.hash) {
+      switchActiveTab(window.location.hash.substring(1).replace(/\./g, '-'));
+    }
+  };
+})(jQuery);
+
+var switchActiveTab = function (tabIdentifier) {
   $(".tab_content").hide();
-  $(".tab_content:first").show();
-  $("span[rel=\"" + package_to_rel[packageName] + "\"]").addClass("active");
-  $(".tab-accordion_heading[rel^='" + package_to_os[packageName] + "']").addClass("d_active");
-  chooseTabContainer($);
-};
+  $(".tab_content#" + tabIdentifier).fadeIn();
 
-var chooseTabContainer = function ($) {
-  $("ul.tabs li , ul.items li").click(function () {
-    $(".tab_content").hide();
-    var activeTab = $(this).attr("rel");
-    $("#" + activeTab).fadeIn();
-    $("ul.tabs li").removeClass("active");
-    $(this).addClass("active");
-
-    $(".tab-accordion_heading").removeClass("d_active");
-    $(".tab-accordion_heading[rel^='" + activeTab + "']").addClass("d_active");
-  });
-
-  /* accordion mode */
-  $(".tab-accordion_heading").click(function () {
-    $(".tab_content").hide();
-    var d_activeTab = $(this).attr("rel");
-    $("#" + d_activeTab).fadeIn();
-
-    $(".tab-accordion_heading").removeClass("d_active");
-    $(this).addClass("d_active");
-
-    $("ul.tabs li").removeClass("active");
-    $("ul.tabs li[rel^='" + d_activeTab + "']").addClass("active");
-  });
-
-  if (window.location.hash) {
-    release = window.location.hash.substring(1).replace(/\./g, '-');
-    $('[rel=' + release + ']').click();
-  }
+  $(".tab-container-marker .tab-marker").removeClass("active").removeClass("d_active");
+  $(".tab-container-marker .tab-marker[rel='" + tabIdentifier + "']").addClass("active").addClass("d_active");
 };

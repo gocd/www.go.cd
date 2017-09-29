@@ -1,7 +1,6 @@
 var newShowDownloadLinks = (function ($) {
   return function (options) {
     var typeOfInstallersToShow = options.typeOfInstallersToShow;
-    var showArchive = options.archive;
 
     var settingsForAllTypes = {
       stable: {
@@ -9,27 +8,20 @@ var newShowDownloadLinks = (function ($) {
         download_prefix: 'https://download.gocd.org/binaries/',
         version_to_show: function (release) {
           return release['go_version'];
-        }
+        },
+        cloud_info_url: 'https://download.gocd.org/cloud.json'
       },
       experimental: {
         download_info_url: 'https://download.gocd.org/experimental/releases.json',
         download_prefix: 'https://download.gocd.org/experimental/binaries/',
         version_to_show: function (release) {
           return release['go_full_version'];
-        }
+        },
+        cloud_info_url: 'https://download.gocd.org/cloud.json'
       }
     };
 
     var settings = settingsForAllTypes[typeOfInstallersToShow];
-
-    var dateFilter = R.curry(function (timeInSecondsSinceEpoch) {
-      if (showArchive) {
-        return true;
-      }
-      return (new Date() - new Date(timeInSecondsSinceEpoch * 1000)) < 3600 * 24 * 366 * 1000;
-    });
-
-    var releasesLessThanAYearOld = R.filter(R.where({release_time: dateFilter}));
 
     var addURLToFiles = function (release) {
       var addDetailsFrom = R.curry(function (release, analyticsIDPrefix, o) {
@@ -57,27 +49,29 @@ var newShowDownloadLinks = (function ($) {
       return R.assoc('display_version', settings.version_to_show(release), release);
     });
 
-    function compareVersions(a, b) {
-      var i, diff;
+    var compareVersions = function(propertyToCompareOn) {
+      return function (a, b) {
+        var i, diff;
 
-      var segmentsA = a.go_full_version.replace('-', '.').split('.');
-      var segmentsB = b.go_full_version.replace('-', '.').split('.');
+        var segmentsA = a[propertyToCompareOn].replace('-', '.').split('.');
+        var segmentsB = b[propertyToCompareOn].replace('-', '.').split('.');
 
-      var l = Math.min(segmentsA.length, segmentsB.length);
+        var l = Math.min(segmentsA.length, segmentsB.length);
 
-      for (i = 0; i < l; i++) {
-        diff = parseInt(segmentsB[i], 10) - parseInt(segmentsA[i], 10);
-        if (diff) {
-          return diff;
+        for (i = 0; i < l; i++) {
+          diff = parseInt(segmentsB[i], 10) - parseInt(segmentsA[i], 10);
+          if (diff) {
+            return diff;
+          }
         }
+        return segmentsA.length - segmentsB.length;
       }
-      return segmentsA.length - segmentsB.length;
-    }
+    };
 
-    var showReleases = function (data1, data2) {
-      var releases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions), R.map(addURLToFiles), R.map(addDisplayVersion))(data1[0]);
-      if (typeOfInstallersToShow == 'stable') {
-        var amiReleases = R.sortBy(R.prop('go_version'))(data2[0]).reverse();
+    var showReleases = function (releaseData, amiData) {
+      var releases = R.compose(R.sort(compareVersions('go_full_version')), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
+      if (typeOfInstallersToShow === 'stable') {
+        var amiReleases = R.sort(compareVersions('go_version'))(amiData[0]);
         var latest_cloud_release = R.head(amiReleases);
         var other_cloud_releases = R.tail(amiReleases);
       }
@@ -88,7 +82,6 @@ var newShowDownloadLinks = (function ($) {
         latest_version: releases[0].go_version,
         latest_cloud_release: latest_cloud_release,
         all_other_cloud_releases: other_cloud_releases
-
       }));
     };
 
@@ -98,15 +91,34 @@ var newShowDownloadLinks = (function ($) {
       console.log("Error: " + error);
     };
 
-    return $.when($.getJSON(settings.download_info_url), $.getJSON('https://download.gocd.org/cloud.json'))
+    $("#downloads").html($(".loading-message-template").html());
+
+    return $.when(downloadOrGetFromCache(settings.download_info_url), downloadOrGetFromCache(settings.cloud_info_url))
       .done(showReleases)
       .fail(showFailureMessage);
   };
 })(jQuery);
 
+var downloadOrGetFromCache = (function($) {
+  var storedJSON = {};
+
+  return function (url) {
+    var deferred = $.Deferred();
+
+    if (storedJSON.hasOwnProperty(url)) {
+      deferred.resolve([storedJSON[url], "success"]);
+      return deferred.promise();
+    }
+
+    return $.getJSON(url).done(function (data) {
+      storedJSON[url] = data;
+    });
+  };
+})(jQuery);
+
 var newSetupShowVerifyChecksumMessage = (function ($) {
   return function () {
-    $("#downloads").on('click', '.verify-checksum', function (evt) {
+    $("body").on('click', '#downloads .verify-checksum', function (evt) {
       var checksumElement = $(evt.currentTarget);
       var template = Handlebars.compile($("#verify-checksum-message-template").html());
       $("#verify-checksum-message").html(template({
@@ -134,21 +146,19 @@ var determinePackageNameBasedOnOS = function () {
   return packageName
 };
 
-var newHighlightSelectedOs = (function ($) {
-  return function () {
-    $(".download-nav li span").click(function () {
-      $(".tab_content").hide();
-      var activeTab = $(this).attr("rel");
-      $(activeTab).fadeIn();
-      $(".download-nav li span").removeClass("active");
-      $(this).addClass("active");
+var showHelpLinksFor = (function ($) {
+  return function(packageName) {
+    var installer_type_to_help_link_type = {
+      'debian': 'linux',
+      'redhat': 'linux',
+      'windows': 'windows',
+      'zip': 'zip',
+      'osx': 'osx'
+    };
+    var template = Handlebars.compile($("#downloads-help-links").html());
 
-      $(".tab-accordion_heading").removeClass("d_active");
-      $(".tab-accordion_heading[rel^='" + activeTab + "']").addClass("d_active");
-
-    });
-  }
+    $("#help-links").html(template({
+      os: installer_type_to_help_link_type[packageName]
+    }));
+  };
 })(jQuery);
-
-
-

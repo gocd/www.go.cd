@@ -1,4 +1,8 @@
 body.download_new {
+  .go {
+    text-transform: none;
+  }
+
   .download-area {
     .info {
       text-align: center;
@@ -61,6 +65,10 @@ body.download_new {
     overflow: hidden;
     position: relative;
     padding-top: 20px;
+
+    .file-not-available {
+      text-align: center;
+    }
 
     .file {
       float: left;
@@ -205,6 +213,7 @@ body.download_new {
         font-size: 16px;
         text-transform: uppercase;
         margin-bottom: 0;
+        font-weight: 400;
       }
       .small {
         font-size: 12px;
@@ -366,7 +375,7 @@ body.download_new {
     }
 
     .btn-release {
-      border-radius: 10px;
+      border-radius: 3px;
       background: #fff;
       border: 1px solid $border;
       font-size: 12px;
@@ -480,18 +489,18 @@ body.download_new {
     overflow: hidden;
 
     .btn-primary {
-      color: $primary-color;
-      background-color: #ffffff;
+      color: #fff;
+      background-color: $primary-color;
       border-color: $primary-color;
       transition: all 0.2s ease-in-out;
 
       &:hover {
-        background: $primary-color;
-        color: #fff;
+        background: #fff;
+        color: $primary-color;
         transition: all 0.2s ease-in-out;
 
         span {
-          color: #fff;
+          color: $primary-color;
 
           &.bit {
             color: #000;
