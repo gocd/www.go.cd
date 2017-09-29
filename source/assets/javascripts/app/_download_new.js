@@ -133,9 +133,14 @@ var newSetupShowVerifyChecksumMessage = (function ($) {
 })(jQuery);
 
 var determinePackageNameBasedOnOS = function () {
+  var userDefinedPackageName = window.location.hash.substr(1);
+  var validPackageNames = ['zip', 'windows', 'osx', 'debian', 'redhat', 'ami', 'docker'];
+  if (userDefinedPackageName !== "" && validPackageNames.includes(userDefinedPackageName)) {
+    return userDefinedPackageName;
+  }
+
   var userAgent = navigator.userAgent;
   var packageName = 'zip';
-
   if (userAgent.indexOf("Win") !== -1) packageName = "windows";
   if (userAgent.indexOf("Mac") !== -1) packageName = "osx";
   if (userAgent.indexOf("Debian") !== -1) packageName = "debian";
