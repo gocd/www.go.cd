@@ -15,8 +15,8 @@
 
     <title>Supported Plugins | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-21f6fce6.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-d2e10da0.js"></script>
+    <link href="assets/stylesheets/site-a0cb725c.css" rel="stylesheet" />
+    <script src="assets/javascripts/all-b01ebaac.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
     <script>
@@ -105,42 +105,616 @@
     </p>
 
     <div class="v-tabs all-plugins">
-      <ul class="tabs">
-          <li rel="tab-1" id="package-repository-plugins">
-            Package repository plugins <span class="plugin-info">>= GoCD v13.3</span>
-          </li>
-          <li rel="tab-2" id="task-plugins">
-            Task plugins <span class="plugin-info">>= GoCD v14.1</span>
-          </li>
-          <li rel="tab-3" id="notification-plugins">
-            Notification plugins 
-          </li>
-          <li rel="tab-4" id="scm-plugins">
-            SCM plugins 
-          </li>
-          <li rel="tab-5" id="authentication-plugins">
-            Authentication plugins 
-          </li>
-          <li rel="tab-6" id="elastic-agents-plugins">
-            Elastic agents plugins <span class="plugin-info">>= GoCD v16.8</span>
-          </li>
-          <li rel="tab-7" id="configuration-repository">
-            Configuration Repository <span class="plugin-info">>= GoCD v16.7</span>
-          </li>
-          <li rel="tab-8" id="authorization-plugins">
+      <ul class="tabs tab-container-marker">
+          <li class="tab-marker" rel="tab-authorization" id="authorization-plugins">
             Authorization plugins <span class="plugin-info">>= GoCD v17.5</span>
           </li>
-          <li rel="tab-9" id="commercial-offerings">
+          <li class="tab-marker" rel="tab-config-repo" id="configuration-repository">
+            Configuration Repository <span class="plugin-info">>= GoCD v16.7</span>
+          </li>
+          <li class="tab-marker" rel="tab-elastic-agents" id="elastic-agents-plugins">
+            Elastic agents plugins <span class="plugin-info">>= GoCD v16.8</span>
+          </li>
+          <li class="tab-marker" rel="tab-notification" id="notification-plugins">
+            Notification plugins 
+          </li>
+          <li class="tab-marker" rel="tab-package-repo" id="package-repository-plugins">
+            Package repository plugins <span class="plugin-info">>= GoCD v13.3</span>
+          </li>
+          <li class="tab-marker" rel="tab-scm" id="scm-plugins">
+            SCM plugins 
+          </li>
+          <li class="tab-marker" rel="tab-task" id="task-plugins">
+            Task plugins <span class="plugin-info">>= GoCD v14.1</span>
+          </li>
+          <li class="tab-marker" rel="tab-authentication" id="authentication-plugins">
+            Authentication plugins 
+          </li>
+          <li class="tab-marker" rel="tab-commercial" id="commercial-offerings">
             Commercial Offerings 
           </li>
       </ul>
 
-      <div class="tab_container">
-          <h3 class="tab-accordion_heading" rel="tab-1">
+      <div class="tab_container tab-container-marker">
+          <h3 class="tab-marker tab-accordion_heading" rel="tab-authorization">
+            Authorization plugins <span class="plugin-info">>= GoCD v17.5</span>
+          </h3>
+
+          <div id="tab-authorization" class="tab_content">
+            <div class="plugins-container">
+              <ul class="plugins-list">
+
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      <img src="assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
+                      <h5 class="name"> File based plugin </h5>
+                      <p class="more-details">
+                        Bundled plugin to support password file based authentication.
+                        <a href="https://github.com/gocd/filebased-authentication-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <span class="with-go">Bundled with GoCD</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      <img src="assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
+                      <h5 class="name"> LDAP&#x2F;AD plugin </h5>
+                      <p class="more-details">
+                        Bundled plugin to support LDAP&#x2F;AD authentication.
+                        <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <span class="with-go">Bundled with GoCD</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      <img src="assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
+                      <h5 class="name"> LDAP&#x2F;AD Authorization Plugin </h5>
+                      <span class="paid">Paid</span>
+                      <p class="more-details">
+                        GoCD LDAP&#x2F;AD Plugin provides authentication and authorization services
+                        <a href="https://extensions-docs.gocd.org/ldap/current/">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class='contactus-plugin'>
+                          <a href="https://www.thoughtworks.com/go/#pricing">Buy from ThoughtWorks</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Atlassian Crowd Authentication Plugin </h5>
+                      <p class="more-details">
+                        Delegates authentication services to Atlasian Crowd
+                        <a href="https://github.com/mgambini/crowd-integration-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="http://www.ditechonline.it/">Di.Tech S.p.A.</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/mgambini/crowd-integration-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> GitHub OAuth authorization plugin </h5>
+                      <p class="more-details">
+                        The plugin allows user to login in GoCD using GitHub(or GitHub Enterprise).
+                        <a href="https://github.com/gocd-contrib/github-oauth-authorization-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/gocd-contrib">GoCD Contributors</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/github-oauth-authorization-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Google OAuth authorization plugin </h5>
+                      <p class="more-details">
+                        The plugin allows user to login in GoCD using a Google account.
+                        <a href="https://github.com/gocd-contrib/google-oauth-authorization-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/gocd-contrib">GoCD Contributors</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/google-oauth-authorization-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> TLS Client Certificate Authentication plugin </h5>
+                      <p class="more-details">
+                        Using headers set by a TLS-terminating reverse proxy, details from a client certificate are used to log in
+                        <a href="https://github.com/cnorthwood/gocd-tls-auth">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://cjn.me.uk/">Chris Northwood</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/cnorthwood/gocd-tls-auth/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+
+                <li class=" contribute_tile">
+                  <div class="contribute-plugin">
+
+                    <i class="fa fa-star"></i>
+                    <h5>Want to contribute?</h5>
+                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="tab-marker tab-accordion_heading" rel="tab-config-repo">
+            Configuration Repository <span class="plugin-info">>= GoCD v16.7</span>
+          </h3>
+
+          <div id="tab-config-repo" class="tab_content">
+            <div class="plugins-container">
+              <ul class="plugins-list">
+
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> gocd-json-config-plugin </h5>
+                      <p class="more-details">
+                        A plugin to keep pipelines and environments configuration in source-control in JSON.
+                        <a href="https://github.com/tomzo/gocd-json-config-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/tomzo">Tomasz Setkowski</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/tomzo/gocd-json-config-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> gocd-yaml-config-plugin </h5>
+                      <p class="more-details">
+                        A plugin to keep pipelines and environments configuration in source-control in YAML.
+                        <a href="https://github.com/tomzo/gocd-yaml-config-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/tomzo">Tomasz Setkowski</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/tomzo/gocd-yaml-config-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+
+                <li class=" contribute_tile">
+                  <div class="contribute-plugin">
+
+                    <i class="fa fa-star"></i>
+                    <h5>Want to contribute?</h5>
+                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="tab-marker tab-accordion_heading" rel="tab-elastic-agents">
+            Elastic agents plugins <span class="plugin-info">>= GoCD v16.8</span>
+          </h3>
+
+          <div id="tab-elastic-agents" class="tab_content">
+            <div class="plugins-container">
+              <ul class="plugins-list">
+
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> GoCD Elastic agent plugin for Docker </h5>
+                      <p class="more-details">
+                        GoCD Elastic agent plugin for Docker
+                        <a href="https://github.com/gocd-contrib/docker-elastic-agents">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/gocd-contrib">GoCD Contributors</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/docker-elastic-agents/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> GoCD Elastic agent plugin for Docker Swarm </h5>
+                      <p class="more-details">
+                        GoCD Elastic agent plugin for Docker Swarm
+                        <a href="https://github.com/gocd-contrib/docker-swarm-elastic-agents">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/gocd-contrib">GoCD Contributors</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/docker-swarm-elastic-agents/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> GoCD Elastic agent plugin for Marathon </h5>
+                      <p class="more-details">
+                        GoCD Elastic agent plugin for Marathon
+                        <a href="https://github.com/pikselpalette/gocd-elastic-agent-marathon">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/pikselpalette">Piksel, Ltd.</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/pikselpalette/gocd-elastic-agent-marathon/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      <img src="assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
+                      <h5 class="name"> ECS Elastic Agent </h5>
+                      <span class="paid">Paid</span>
+                      <p class="more-details">
+                        GoCD Elastic Agent Plugin for Amazon Elastic Container Service
+                        <a href="https://extensions-docs.gocd.org/ecs/current/">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class='contactus-plugin'>
+                          <a href="https://www.thoughtworks.com/go/#pricing">Buy from ThoughtWorks</a>
+                        </div>
+                    </div>
+                  </li>
+
+                <li class=" contribute_tile">
+                  <div class="contribute-plugin">
+
+                    <i class="fa fa-star"></i>
+                    <h5>Want to contribute?</h5>
+                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="tab-marker tab-accordion_heading" rel="tab-notification">
+            Notification plugins 
+          </h3>
+
+          <div id="tab-notification" class="tab_content">
+            <div class="plugins-container">
+              <ul class="plugins-list">
+
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> AWS SNS Notifier </h5>
+                      <p class="more-details">
+                        Plugin that sends build notifications to AWS SNS (Simple Notification Service)
+                        <a href="https://github.com/paullalonde/gocd-sns-notification-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/paullalonde">Paul Lalonde</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/paullalonde/gocd-sns-notification-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Build-Watcher Slack&amp;Email Notifier </h5>
+                      <p class="more-details">
+                        Plugin that sends direct emails and Slack messages to the person who breaks a build
+                        <a href="https://github.com/gmazzo/gocd-build-watcher-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/gmazzo">Guillermo Mazzola</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://bintray.com/gmazzo/maven/gocd-build-watcher-plugin/_latestVersion">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Email Notifier </h5>
+                      <p class="more-details">
+                        A plugin to send email notifications.
+                        <a href="https://github.com/gocd-contrib/email-notifier">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhy</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/email-notifier/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Slack Build Notifier </h5>
+                      <p class="more-details">
+                        Plugin to get build notifications on Slack.
+                        <a href="https://github.com/ashwanthkumar/gocd-slack-build-notifier">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/ashwanthkumar">Ashwanth Kumar</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> WebSockets Build Notifier </h5>
+                      <p class="more-details">
+                        Plugin to publish stage status change notifications via WebSockets.
+                        <a href="https://github.com/matt-richardson/gocd-websocket-notifier">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/matt-richardson">Matt Richardson</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/matt-richardson/gocd-websocket-notifier/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> GitHub Pull Request Status Notifier </h5>
+                      <p class="more-details">
+                        A plugin to update GitHub Pull Requests with build status.
+                        <a href="https://github.com/gocd-contrib/gocd-build-status-notifier">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/gocd-build-status-notifier/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Stash Pull Request Status Notifier </h5>
+                      <p class="more-details">
+                        A plugin to update Stash Pull Requests with build status.
+                        <a href="https://github.com/gocd-contrib/gocd-build-status-notifier">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/gocd-build-status-notifier/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Gerrit Change Set Status Notifier </h5>
+                      <p class="more-details">
+                        A plugin to update Gerrit Change Sets with build status.
+                        <a href="https://github.com/gocd-contrib/gocd-build-status-notifier">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/gocd-build-status-notifier/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> HipChat Notification </h5>
+                      <p class="more-details">
+                        Plugin that sends HipChat notifications on build status
+                        <a href="https://github.com/PagerDuty/gocd-hipchat-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://www.pagerduty.com">PagerDuty</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/PagerDuty/gocd-hipchat-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Gitter Notification </h5>
+                      <p class="more-details">
+                        Plugin that sends Gitter notifications on build status
+                        <a href="https://github.com/gocd-contrib/gitter-notifier">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/gitter-notifier/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Riemann Notification </h5>
+                      <p class="more-details">
+                        Plugin that sends Riemann notifications on build status
+                        <a href="https://github.com/rsr5/gocd-riemann-notifier">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/rsr5">Robin Ridler</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/rsr5/gocd-riemann-notifier/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Gitter Activity Feed </h5>
+                      <p class="more-details">
+                        Plugin that sends Gitter activity feed on build status
+                        <a href="https://github.com/gocd-contrib/gitter-activity-feed-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/bdpiparva">Bhupendrakumar Piprava</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/gocd-contrib/gitter-activity-feed-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+
+                <li class=" contribute_tile">
+                  <div class="contribute-plugin">
+
+                    <i class="fa fa-star"></i>
+                    <h5>Want to contribute?</h5>
+                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="tab-marker tab-accordion_heading" rel="tab-package-repo">
             Package repository plugins <span class="plugin-info">>= GoCD v13.3</span>
           </h3>
 
-          <div id="tab-1" class="tab_content">
+          <div id="tab-package-repo" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -393,11 +967,191 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab-2">
+          <h3 class="tab-marker tab-accordion_heading" rel="tab-scm">
+            SCM plugins 
+          </h3>
+
+          <div id="tab-scm" class="tab_content">
+            <div class="plugins-container">
+              <ul class="plugins-list">
+
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Build Git Feature Branch </h5>
+                      <p class="more-details">
+                        Plugin to poll Git repository.
+                        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Build Github Pull Requests </h5>
+                      <p class="more-details">
+                        Plugin that builds Pull Requests for project from Github.
+                        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/ashwanthkumar">Ashwanth Kumar</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Build Stash Pull Requests </h5>
+                      <p class="more-details">
+                        Plugin that builds Pull Requests for project from Stash.
+                        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Build Gerrit Change Set </h5>
+                      <p class="more-details">
+                        Plugin that builds Change Sets for project from Gerrit.
+                        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Build BitKeeper Pull Requests </h5>
+                      <p class="more-details">
+                        Plugin that polls a BitKeeper repository for pull requests and triggers a build for each of them.
+                        <a href="https://github.com/bdpiparva/bitkeeper-repo-poller">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/bdpiparva">Bhupendrakumar Piprava</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/bdpiparva/bitkeeper-repo-poller/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Artifactory SCM </h5>
+                      <p class="more-details">
+                        Plugin that lets you download several versions of an artifact from Artifactory.
+                        <a href="https://github.com/cnenning/go-artifactory-scm-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/cnenning/">Christoph Nenning</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/cnenning/go-artifactory-scm-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Git Path Material </h5>
+                      <p class="more-details">
+                        Plugin to introduce a material, that watches on a sub-directory of git repository.
+                        <a href="https://github.com/TWChennai/gocd-git-path-material-plugin">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://github.com/TWChennai">ThoughtWorks Opensource</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/TWChennai/gocd-git-path-material-plugin/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="logo"></span>
+                    <div class="details">
+                      
+                      <h5 class="name"> Phabricator Staging Area Material </h5>
+                      <p class="more-details">
+                        Plugin to properly handle Phabricator staging areas as a SCM material.
+                        <a href="https://github.com/kszatan/gocd-phabricator-staging-material">Read more</a>
+                      </p>
+                      <span class="created-by">by
+                        <a href="https://kszatan.github.io/">Krzysztof Szatan</a>
+                      </span>
+                    </div>
+                    <div class="actions">
+                        <div class="download-plugin">
+                          <i class="fa fa-download"></i>
+                          <a href="https://github.com/kszatan/gocd-phabricator-staging-material/releases">Download</a>
+                        </div>
+                    </div>
+                  </li>
+
+                <li class=" contribute_tile">
+                  <div class="contribute-plugin">
+
+                    <i class="fa fa-star"></i>
+                    <h5>Want to contribute?</h5>
+                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="tab-marker tab-accordion_heading" rel="tab-task">
             Task plugins <span class="plugin-info">>= GoCD v14.1</span>
           </h3>
 
-          <div id="tab-2" class="tab_content">
+          <div id="tab-task" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -893,451 +1647,11 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab-3">
-            Notification plugins 
-          </h3>
-
-          <div id="tab-3" class="tab_content">
-            <div class="plugins-container">
-              <ul class="plugins-list">
-
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> AWS SNS Notifier </h5>
-                      <p class="more-details">
-                        Plugin that sends build notifications to AWS SNS (Simple Notification Service)
-                        <a href="https://github.com/paullalonde/gocd-sns-notification-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/paullalonde">Paul Lalonde</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/paullalonde/gocd-sns-notification-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Build-Watcher Slack&amp;Email Notifier </h5>
-                      <p class="more-details">
-                        Plugin that sends direct emails and Slack messages to the person who breaks a build
-                        <a href="https://github.com/gmazzo/gocd-build-watcher-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/gmazzo">Guillermo Mazzola</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://bintray.com/gmazzo/maven/gocd-build-watcher-plugin/_latestVersion">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Email Notifier </h5>
-                      <p class="more-details">
-                        A plugin to send email notifications.
-                        <a href="https://github.com/gocd-contrib/email-notifier">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhy</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/email-notifier/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Slack Build Notifier </h5>
-                      <p class="more-details">
-                        Plugin to get build notifications on Slack.
-                        <a href="https://github.com/ashwanthkumar/gocd-slack-build-notifier">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/ashwanthkumar">Ashwanth Kumar</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> WebSockets Build Notifier </h5>
-                      <p class="more-details">
-                        Plugin to publish stage status change notifications via WebSockets.
-                        <a href="https://github.com/matt-richardson/gocd-websocket-notifier">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/matt-richardson">Matt Richardson</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/matt-richardson/gocd-websocket-notifier/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> GitHub Pull Request Status Notifier </h5>
-                      <p class="more-details">
-                        A plugin to update GitHub Pull Requests with build status.
-                        <a href="https://github.com/gocd-contrib/gocd-build-status-notifier">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/gocd-build-status-notifier/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Stash Pull Request Status Notifier </h5>
-                      <p class="more-details">
-                        A plugin to update Stash Pull Requests with build status.
-                        <a href="https://github.com/gocd-contrib/gocd-build-status-notifier">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/gocd-build-status-notifier/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Gerrit Change Set Status Notifier </h5>
-                      <p class="more-details">
-                        A plugin to update Gerrit Change Sets with build status.
-                        <a href="https://github.com/gocd-contrib/gocd-build-status-notifier">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/gocd-build-status-notifier/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> HipChat Notification </h5>
-                      <p class="more-details">
-                        Plugin that sends HipChat notifications on build status
-                        <a href="https://github.com/PagerDuty/gocd-hipchat-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://www.pagerduty.com">PagerDuty</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/PagerDuty/gocd-hipchat-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Gitter Notification </h5>
-                      <p class="more-details">
-                        Plugin that sends Gitter notifications on build status
-                        <a href="https://github.com/gocd-contrib/gitter-notifier">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/gitter-notifier/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Riemann Notification </h5>
-                      <p class="more-details">
-                        Plugin that sends Riemann notifications on build status
-                        <a href="https://github.com/rsr5/gocd-riemann-notifier">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/rsr5">Robin Ridler</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/rsr5/gocd-riemann-notifier/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Gitter Activity Feed </h5>
-                      <p class="more-details">
-                        Plugin that sends Gitter activity feed on build status
-                        <a href="https://github.com/gocd-contrib/gitter-activity-feed-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/bdpiparva">Bhupendrakumar Piprava</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/gitter-activity-feed-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-
-                <li class=" contribute_tile">
-                  <div class="contribute-plugin">
-
-                    <i class="fa fa-star"></i>
-                    <h5>Want to contribute?</h5>
-                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <h3 class="tab-accordion_heading" rel="tab-4">
-            SCM plugins 
-          </h3>
-
-          <div id="tab-4" class="tab_content">
-            <div class="plugins-container">
-              <ul class="plugins-list">
-
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Build Git Feature Branch </h5>
-                      <p class="more-details">
-                        Plugin to poll Git repository.
-                        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Build Github Pull Requests </h5>
-                      <p class="more-details">
-                        Plugin that builds Pull Requests for project from Github.
-                        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/ashwanthkumar">Ashwanth Kumar</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Build Stash Pull Requests </h5>
-                      <p class="more-details">
-                        Plugin that builds Pull Requests for project from Stash.
-                        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Build Gerrit Change Set </h5>
-                      <p class="more-details">
-                        Plugin that builds Change Sets for project from Gerrit.
-                        <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/srinivasupadhya">Srinivas Upadhya</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Build BitKeeper Pull Requests </h5>
-                      <p class="more-details">
-                        Plugin that polls a BitKeeper repository for pull requests and triggers a build for each of them.
-                        <a href="https://github.com/bdpiparva/bitkeeper-repo-poller">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/bdpiparva">Bhupendrakumar Piprava</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/bdpiparva/bitkeeper-repo-poller/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Artifactory SCM </h5>
-                      <p class="more-details">
-                        Plugin that lets you download several versions of an artifact from Artifactory.
-                        <a href="https://github.com/cnenning/go-artifactory-scm-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/cnenning/">Christoph Nenning</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/cnenning/go-artifactory-scm-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Git Path Material </h5>
-                      <p class="more-details">
-                        Plugin to introduce a material, that watches on a sub-directory of git repository.
-                        <a href="https://github.com/TWChennai/gocd-git-path-material-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/TWChennai">ThoughtWorks Opensource</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/TWChennai/gocd-git-path-material-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Phabricator Staging Area Material </h5>
-                      <p class="more-details">
-                        Plugin to properly handle Phabricator staging areas as a SCM material.
-                        <a href="https://github.com/kszatan/gocd-phabricator-staging-material">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://kszatan.github.io/">Krzysztof Szatan</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/kszatan/gocd-phabricator-staging-material/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-
-                <li class=" contribute_tile">
-                  <div class="contribute-plugin">
-
-                    <i class="fa fa-star"></i>
-                    <h5>Want to contribute?</h5>
-                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <h3 class="tab-accordion_heading" rel="tab-5">
+          <h3 class="tab-marker tab-accordion_heading" rel="tab-authentication">
             Authentication plugins 
           </h3>
 
-          <div id="tab-5" class="tab_content">
+          <div id="tab-authentication" class="tab_content">
             <div class="plugins-container">
                 <p class="alert warning">Authentication plugins are deprecated from GoCD v17.5.0</p>
               <ul class="plugins-list">
@@ -1454,325 +1768,11 @@
               </ul>
             </div>
           </div>
-          <h3 class="tab-accordion_heading" rel="tab-6">
-            Elastic agents plugins <span class="plugin-info">>= GoCD v16.8</span>
-          </h3>
-
-          <div id="tab-6" class="tab_content">
-            <div class="plugins-container">
-              <ul class="plugins-list">
-
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> GoCD Elastic agent plugin for Docker </h5>
-                      <p class="more-details">
-                        GoCD Elastic agent plugin for Docker
-                        <a href="https://github.com/gocd-contrib/docker-elastic-agents">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/gocd-contrib">GoCD Contributors</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/docker-elastic-agents/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> GoCD Elastic agent plugin for Docker Swarm </h5>
-                      <p class="more-details">
-                        GoCD Elastic agent plugin for Docker Swarm
-                        <a href="https://github.com/gocd-contrib/docker-swarm-elastic-agents">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/gocd-contrib">GoCD Contributors</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/docker-swarm-elastic-agents/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> GoCD Elastic agent plugin for Marathon </h5>
-                      <p class="more-details">
-                        GoCD Elastic agent plugin for Marathon
-                        <a href="https://github.com/pikselpalette/gocd-elastic-agent-marathon">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/pikselpalette">Piksel, Ltd.</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/pikselpalette/gocd-elastic-agent-marathon/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      <img src="assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
-                      <h5 class="name"> ECS Elastic Agent </h5>
-                      <span class="paid">Paid</span>
-                      <p class="more-details">
-                        GoCD Elastic Agent Plugin for Amazon Elastic Container Service
-                        <a href="https://extensions-docs.gocd.org/ecs/current/">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class='contactus-plugin'>
-                          <a href="https://www.thoughtworks.com/go/#pricing">Buy from ThoughtWorks</a>
-                        </div>
-                    </div>
-                  </li>
-
-                <li class=" contribute_tile">
-                  <div class="contribute-plugin">
-
-                    <i class="fa fa-star"></i>
-                    <h5>Want to contribute?</h5>
-                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <h3 class="tab-accordion_heading" rel="tab-7">
-            Configuration Repository <span class="plugin-info">>= GoCD v16.7</span>
-          </h3>
-
-          <div id="tab-7" class="tab_content">
-            <div class="plugins-container">
-              <ul class="plugins-list">
-
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> gocd-json-config-plugin </h5>
-                      <p class="more-details">
-                        A plugin to keep pipelines and environments configuration in source-control in JSON.
-                        <a href="https://github.com/tomzo/gocd-json-config-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/tomzo">Tomasz Setkowski</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/tomzo/gocd-json-config-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> gocd-yaml-config-plugin </h5>
-                      <p class="more-details">
-                        A plugin to keep pipelines and environments configuration in source-control in YAML.
-                        <a href="https://github.com/tomzo/gocd-yaml-config-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/tomzo">Tomasz Setkowski</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/tomzo/gocd-yaml-config-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-
-                <li class=" contribute_tile">
-                  <div class="contribute-plugin">
-
-                    <i class="fa fa-star"></i>
-                    <h5>Want to contribute?</h5>
-                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <h3 class="tab-accordion_heading" rel="tab-8">
-            Authorization plugins <span class="plugin-info">>= GoCD v17.5</span>
-          </h3>
-
-          <div id="tab-8" class="tab_content">
-            <div class="plugins-container">
-              <ul class="plugins-list">
-
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      <img src="assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
-                      <h5 class="name"> File based plugin </h5>
-                      <p class="more-details">
-                        Bundled plugin to support password file based authentication.
-                        <a href="https://github.com/gocd/filebased-authentication-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <span class="with-go">Bundled with GoCD</span>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      <img src="assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
-                      <h5 class="name"> LDAP&#x2F;AD plugin </h5>
-                      <p class="more-details">
-                        Bundled plugin to support LDAP&#x2F;AD authentication.
-                        <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="http://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <span class="with-go">Bundled with GoCD</span>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      <img src="assets/images/go-logo-small-0cc554b3.png" class="go-logo" alt="GoCD logo" />
-                      <h5 class="name"> LDAP&#x2F;AD Authorization Plugin </h5>
-                      <span class="paid">Paid</span>
-                      <p class="more-details">
-                        GoCD LDAP&#x2F;AD Plugin provides authentication and authorization services
-                        <a href="https://extensions-docs.gocd.org/ldap/current/">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://www.thoughtworks.com/products/">ThoughtWorks Inc.</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class='contactus-plugin'>
-                          <a href="https://www.thoughtworks.com/go/#pricing">Buy from ThoughtWorks</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Atlassian Crowd Authentication Plugin </h5>
-                      <p class="more-details">
-                        Delegates authentication services to Atlasian Crowd
-                        <a href="https://github.com/mgambini/crowd-integration-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="http://www.ditechonline.it/">Di.Tech S.p.A.</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/mgambini/crowd-integration-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> GitHub OAuth authorization plugin </h5>
-                      <p class="more-details">
-                        The plugin allows user to login in GoCD using GitHub(or GitHub Enterprise).
-                        <a href="https://github.com/gocd-contrib/github-oauth-authorization-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/gocd-contrib">GoCD Contributors</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/github-oauth-authorization-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> Google OAuth authorization plugin </h5>
-                      <p class="more-details">
-                        The plugin allows user to login in GoCD using a Google account.
-                        <a href="https://github.com/gocd-contrib/google-oauth-authorization-plugin">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://github.com/gocd-contrib">GoCD Contributors</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/gocd-contrib/google-oauth-authorization-plugin/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      
-                      <h5 class="name"> TLS Client Certificate Authentication plugin </h5>
-                      <p class="more-details">
-                        Using headers set by a TLS-terminating reverse proxy, details from a client certificate are used to log in
-                        <a href="https://github.com/cnorthwood/gocd-tls-auth">Read more</a>
-                      </p>
-                      <span class="created-by">by
-                        <a href="https://cjn.me.uk/">Chris Northwood</a>
-                      </span>
-                    </div>
-                    <div class="actions">
-                        <div class="download-plugin">
-                          <i class="fa fa-download"></i>
-                          <a href="https://github.com/cnorthwood/gocd-tls-auth/releases">Download</a>
-                        </div>
-                    </div>
-                  </li>
-
-                <li class=" contribute_tile">
-                  <div class="contribute-plugin">
-
-                    <i class="fa fa-star"></i>
-                    <h5>Want to contribute?</h5>
-                    <a href="https://developer.gocd.org/current/writing_go_plugins/overview.html">Write a plugin</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <h3 class="tab-accordion_heading" rel="tab-9">
+          <h3 class="tab-marker tab-accordion_heading" rel="tab-commercial">
             Commercial Offerings 
           </h3>
 
-          <div id="tab-9" class="tab_content">
+          <div id="tab-commercial" class="tab_content">
             <div class="plugins-container">
               <ul class="plugins-list">
 
@@ -1887,12 +1887,7 @@
 
 <script>
  jQuery(document).ready(function($) {
-   startTabContainer($);
-
-   if(window.location.hash) {
-       var id = window.location.hash.substring(1).replace(/\./g,'-');
-       $('#'+id).click();
-   }
+   startTabContainer();
  });
 </script>
 

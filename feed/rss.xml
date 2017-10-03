@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-09-26T00:00:00Z</updated>
+  <updated>2017-10-03T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Part 5 - CD101: Common Tools for Continuous Delivery</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/10/03/introduction-continuous-delivery-deployment-tools.html"/>
+    <id>https://www.gocd.org/2017/10/03/introduction-continuous-delivery-deployment-tools.html</id>
+    <published>2017-10-03T00:00:00Z</published>
+    <updated>2017-10-03T00:00:00Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">CD 101 is a video series to help you get started on your CD journey. In Part 5 we will explore common CD tools.</content>
+  </entry>
   <entry>
     <title>Infographic - Are you ready for Continuous Delivery</title>
     <link rel="alternate" href="https://www.gocd.org/2017/09/26/are-you-ready-for-continuous-delivery-infographic.html"/>
@@ -107,16 +118,5 @@
       <name>Ketan Padegaonkar</name>
     </author>
     <content type="html">This post is about GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw.</content>
-  </entry>
-  <entry>
-    <title>Part 2 - Continuous Deployment Strategies: Blue/Green Deployments</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/07/25/blue-green-deployments.html"/>
-    <id>https://www.gocd.org/2017/07/25/blue-green-deployments.html</id>
-    <published>2017-07-25T00:00:00Z</published>
-    <updated>2017-07-25T00:00:00Z</updated>
-    <author>
-      <name>Ketan Padegaonkar</name>
-    </author>
-    <content type="html">This Continuous Deployment Strategy article describes some of the implementation techniques for performing blue/green deployments.</content>
   </entry>
 </feed>

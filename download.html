@@ -15,8 +15,8 @@
 
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-21f6fce6.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-d2e10da0.js"></script>
+    <link href="assets/stylesheets/site-a0cb725c.css" rel="stylesheet" />
+    <script src="assets/javascripts/all-b01ebaac.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
     <script>
@@ -212,7 +212,7 @@
 {{/inline}}
 
 {{#*inline "show-tab-header"}}
-<li rel="{{{tab_id}}}">
+<li class="tab-marker" rel="{{{tab_id}}}">
   <span class="os-logo"><img src="{{{image}}}" alt="{{{desc}}}" /></span>
   <span class="desc">{{{desc}}}</span>
 </li>
@@ -238,7 +238,7 @@
   <div class="container">
     <h2 class="sub-title">Choose your OS &amp; download</h2>
     <p class="info">Latest supported release (<span id="latest-version">{{latest_version}}</span>) <a href="../releases/#latest" class="btn btn-dark">See what's new</a> </p>
-    <ul class="tabs os">
+    <ul class="tabs os tab-container-marker">
       {{> show-tab-header tab_id="tab-windows" image="assets/images/download/windows-fc098706.png" desc="Windows"}}
       {{> show-tab-header tab_id="tab-osx" image="assets/images/download/osx-f6878654.png" desc="OSX"}}
       {{> show-tab-header tab_id="tab-debian" image="assets/images/download/debian-caaee6dc.png" desc="Debian"}}
@@ -249,16 +249,16 @@
 </div>
 <div class="os-tab-content">
   <div class="container">
-    <div class="tab_container">
-      <h3 class="tab-accordion_heading" rel="tab-windows">Windows</h3>
+    <div class="tab_container tab-container-marker">
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-windows">Windows</h3>
       {{> show-releases-for-installer-type installer_type="win"     heading="Windows" tab_id="tab-windows"}}
-      <h3 class="tab-accordion_heading" rel="tab-osx">OSX</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-osx">OSX</h3>
       {{> show-releases-for-installer-type installer_type="osx"     heading="OSX"     tab_id="tab-osx"}}
-      <h3 class="tab-accordion_heading" rel="tab-debian">Debian</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-debian">Debian</h3>
       {{> show-releases-for-installer-type installer_type="deb"     heading="Debian"  tab_id="tab-debian"}}
-      <h3 class="tab-accordion_heading" rel="tab-redhat">RPM</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-redhat">RPM</h3>
       {{> show-releases-for-installer-type installer_type="rpm"     heading="RPM"     tab_id="tab-redhat"}}
-      <h3 class="tab-accordion_heading" rel="tab-zip">Zip</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-zip">Zip</h3>
       {{> show-releases-for-installer-type installer_type="generic" heading="Zip" tab_id="tab-zip"}}
     </div>
   </div>
@@ -272,7 +272,7 @@ jQuery(document).ready(function($) {
   var isExperimental = R.any(R.equals('experimental=true'), window.location.search.substr(1).split('&'));
   showDownloadLinks({ typeOfInstallersToShow: isExperimental ? "experimental" : "stable"})
     .then(function() {
-      startTabContainer($);
+      startTabContainer();
     }).then(function(){
       var package="zip";
       var appVersion = navigator.appVersion;

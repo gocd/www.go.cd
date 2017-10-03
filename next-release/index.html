@@ -15,8 +15,8 @@
 
     <title>Next release of GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-21f6fce6.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-d2e10da0.js"></script>
+    <link href="../assets/stylesheets/site-a0cb725c.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all-b01ebaac.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -81,12 +81,12 @@
   </p>
 
   <div class="v-tabs all-releases">
-    <ul class="tabs">
-      <li rel="tab-next" class="active"> (latest)</li>
+    <ul class="tabs tab-container-marker">
+      <li rel="tab-next tab-marker" class="active"> (latest)</li>
     </ul>
 
-    <div class="tab_container">
-      <h3 class="tab-accordion_heading d_active" rel="tab-next"> (next)</h3>
+    <div class="tab_container tab-container-marker">
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-next"> (next)</h3>
       <div id="tab-next" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Bundled Plugins</h4>
@@ -162,7 +162,7 @@ We provide support for the docker images for GoCD agents across the following op
 </main>
 <script>
 jQuery(document).ready(function($) {
-  startTabContainer($);
+  startTabContainer();
 });
 </script>
 
