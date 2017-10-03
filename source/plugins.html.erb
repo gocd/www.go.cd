@@ -44,28 +44,28 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
     </p>
 
     <% plugin_categories = [
-      {kind: "Package repository plugins", version_info: ">= GoCD v13.3", plugins: data.repo_plugins},
-      {kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.task_plugins},
-      {kind: "Notification plugins", plugins: data.notification_plugins},
-      {kind: "SCM plugins", plugins: data.scm_plugins},
-      {kind: "Authentication plugins", plugins: data.auth_plugins, deprecated: true, deprecation_message: "Authentication plugins are deprecated from GoCD v17.5.0"},
-      {kind: "Elastic agents plugins", version_info: ">= GoCD v16.8", plugins: data.elastic_agent_plugins},
-      {kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.config_repo_plugins},
-      {kind: "Authorization plugins", version_info: ">= GoCD v17.5", plugins: data.authorization_plugins},
-      {kind: "Commercial Offerings", plugins: data.paid_plugins}
+        {id: 'authorization', kind: "Authorization plugins", version_info: ">= GoCD v17.5", plugins: data.authorization_plugins},
+        {id: 'config-repo', kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.config_repo_plugins},
+        {id: 'elastic-agents', kind: "Elastic agents plugins", version_info: ">= GoCD v16.8", plugins: data.elastic_agent_plugins},
+        {id: 'notification', kind: "Notification plugins", plugins: data.notification_plugins},
+        {id: 'package-repo', kind: "Package repository plugins", version_info: ">= GoCD v13.3", plugins: data.repo_plugins},
+        {id: 'scm', kind: "SCM plugins", plugins: data.scm_plugins},
+        {id: 'task', kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.task_plugins},
+        {id: 'authentication', kind: "Authentication plugins", plugins: data.auth_plugins, deprecated: true, deprecation_message: "Authentication plugins are deprecated from GoCD v17.5.0"},
+        {id: 'commercial', kind: "Commercial Offerings", plugins: data.paid_plugins}
     ] %>
     <div class="v-tabs all-plugins">
       <ul class="tabs tab-container-marker">
-        <% plugin_categories.each_with_index do |category, index| %>
-          <li class="tab-marker" rel="tab-<%= index + 1 %>" id="<%= category[:kind].downcase.gsub(' ','-')%>">
+        <% plugin_categories.each do |category| %>
+          <li class="tab-marker" rel="tab-<%= category[:id] %>" id="<%= category[:kind].downcase.gsub(' ','-')%>">
             <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
           </li>
         <% end %>
       </ul>
 
       <div class="tab_container tab-container-marker">
-        <% plugin_categories.each_with_index do |category, index| %>
-          <% tab_id = "tab-#{index + 1}" %>
+        <% plugin_categories.each do |category| %>
+          <% tab_id = "tab-#{category[:id]}" %>
           <h3 class="tab-marker tab-accordion_heading" rel="<%= tab_id %>">
             <%= category[:kind] %> <% if category[:version_info] %><span class="plugin-info"><%= category[:version_info] %></span><% end %>
           </h3>
