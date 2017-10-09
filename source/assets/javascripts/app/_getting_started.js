@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
   };
 
   setupSidebar();
-  // setupSmoothScrollForSamePageLinks();
+  setupSmoothScrollForSamePageLinks();
   highlightCorrectNavigationSectionBasedOnLocation();
 
   enquire.register("screen and (min-width: 992px) and (min-height: 600px)", {
