@@ -69,15 +69,30 @@ var newShowDownloadLinks = (function ($) {
     };
 
     var showReleases = function (releaseData, amiData) {
+      var addInfo = function (latestRelease) {
+        var notes = {
+          win: 'There are two flavors of Server and Agent installers for Windows, one packaged with 64 bit JRE and the other with 32 bit JRE. We recommend using a Server with 64 bit JRE and an Agent with 32 bit JRE.',
+          deb: 'Note: If you prefer to use the APT repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">instructions</a>.',
+          rpm: 'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.'
+        };
+
+        for(var key in notes) {
+          var installerInfo = R.assoc('info', notes[key], latestRelease[key]);
+          latestRelease = R.assoc(key, installerInfo, latestRelease)
+        }
+        return latestRelease;
+      };
+
       var releases = R.compose(R.sort(compareVersions('go_full_version')), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
       if (typeOfInstallersToShow === 'stable') {
         var amiReleases = R.sort(compareVersions('go_version'))(amiData[0]);
         var latest_cloud_release = R.head(amiReleases);
         var other_cloud_releases = R.tail(amiReleases);
       }
+      var latestRelease = addInfo(R.head(releases));
       var template = Handlebars.compile($("#download-revisions-template").html());
       $("#downloads").html(template({
-        latest_release: R.head(releases),
+        latest_release: latestRelease,
         all_other_releases: R.tail(releases),
         latest_version: releases[0].go_version,
         latest_cloud_release: latest_cloud_release,

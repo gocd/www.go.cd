@@ -146,13 +146,14 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
             <div class="files">
               {{#if server32bit}}
               {{> show-server-and-agent-32-and-64-bit-installers latest=true}}
-              <div class="download-message">
-                There are two flavors of Server and Agent installers for Windows, one packaged with 64 bit JRE and the
-                other
-                with 32 bit JRE. We recommend using a Server with 64 bit JRE and an Agent with 32 bit JRE.
-              </div>
               {{else}}
               {{> show-server-and-agent-installer latest=true}}
+              {{/if}}
+
+              {{#if info }}
+              <div class="download-message">
+                {{{ info }}}
+              </div>
               {{/if}}
             </div>
           </div>
