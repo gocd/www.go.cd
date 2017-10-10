@@ -1,0 +1,450 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="This post describes the architectural themes to model continuous delivery deployment pipelines." name="description" />
+    <meta content="trunk based development, feature toggles, feature flags, continuous integration, deployment pipeline" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Architecting for Continuous Delivery | GoCD Blog" />
+    <meta name="twitter:description" content="This post describes the architectural themes to model continuous delivery deployment pipelines." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/architecting-continuous-delivery/architecting-continuous-delivery-hero-25ac88c4.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2017/10/10/architecting-continuous-delivery.html" />
+
+    <title>Architecting for Continuous Delivery | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-e73b1929.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-b5decb15.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
+  </head>
+
+  <body class="x2017 x2017_10 x2017_10_10 x2017_10_10_architecting-continuous-delivery">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+      <figure>
+  <img src="../../../assets/images/blog/architecting-continuous-delivery/architecting-continuous-delivery-hero-25ac88c4.jpg" alt="Architecting for Continuous Delivery"/>
+</figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Architecting for Continuous Delivery - Themes in CD Enablement</h1>
+    <h4>Vishal Naik</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>When you start on the <a href="../../../tags/are-you-ready-for-continuous-delivery.html">CD journey</a>
+, it is tempting to think of it only as <em>“What tools should I use?”</em>.</p>
+
+<p>While part of it is <a href="../03/introduction-continuous-delivery-deployment-tools.html">selecting the right tools</a>
+for each aspect like version control, CD server, infrastructure configuration tool, monitoring tool and so on, an effective CD implementation doesn't stop at that. For instance, you might use a particular version control tool and have a particular CI server set-up but if you are not checking in code in small batches frequently, or don't have automated tests, it is not Continuous Integration (<a href="../../05/16/its-not-CI-its-CI-theatre.html">it's CI Theatre!</a>).</p>
+
+<blockquote>
+  <p>Continuous Delivery enablement doesn't stop with adopting tools</p>
+</blockquote>
+
+<p>Remember also that the goal of continuous delivery is to be able to release software frequently, and reliably, in a frictionless manner. So, while you start automating your deployment process, it is also important to identify bottlenecks in the deployment process and streamline it over time.</p>
+
+<h2 id="recurring-themes-in-continuous-delivery-enablement"><strong>3 recurring themes in Continuous Delivery enablement</strong></h2>
+
+<p>In this article I am going to talk about three recurring themes in CD enablement that I have seen in my experience as a developer:</p>
+
+<ul>
+  <li>The trouble with monolithic codebases and approaches to break it down</li>
+  <li>Designing the test suite for optimal feedback</li>
+  <li>Setting up a deployment pipeline as the backbone of CD</li>
+</ul>
+
+<h2 id="theme-1-the-trouble-with-monoliths-and-approaches-to-break-it-down">Theme 1: The trouble with monoliths and approaches to break it down</h2>
+
+<p>A common recurring challenge on CD is dealing with large monolithic codebases that show the following immediate symptoms:</p>
+
+<ul>
+  <li>Sluggish build and application start-up time</li>
+  <li>Slow feedback loop with large test suites</li>
+</ul>
+
+<p>Up to some point, you can attack this problem by parallelizing build tasks and test runs. Build tools like <a href="https://gradle.org/">Gradle</a>, <a href="https://github.com/ruby/rake">Rake</a>, and others, support parallel task capabilities that we can take advantage of. Additionally, tools including GoCD support test parallelism with multiple agents.</p>
+
+<p>But for teams working on a monolithic codebase, this is usually not enough. Apart from the aforementioned problems, a large codebase can be difficult to work with and intimidating to new members on the team. When multiple functional teams work on the same codebase, there tends to be less ownership of the code, multiple implementation patterns begin emerging, and it's more difficult to get consensus. Technical debt accumulates and can easily spiral out of control.</p>
+
+<p>A large team working on a monolithic codebase also compounds problems on the continuous integration front. Many teams in this situation find that their build times increase to dangerous lengths. At some point the build is slow enough that developers think twice about running the full test suite locally before checking in. With so many people checking in changes at the same time, the feedback cycle slows down. This, in turn, makes it tricky to diagnose build failures. Broken builds get left for someone else to fix, like dirty dishes in a sink waiting for <em>someone</em> to clean them.</p>
+
+<p>A large monolithic app can also be a significant overhead on your deployment throughput. Cycle times are longer because of the slower builds and automated and manual tests required to validate the entire app. This creates a lot of friction in the pipeline. In short, with a monolith, it becomes increasingly hard to manage technical debt, encourage good engineering practices, and deploy.</p>
+
+<p>We can address the issues with the monolith by decomposing the codebase into smaller components such as libraries or services.</p>
+
+<h3 id="componentization-via-libraries"><strong>Componentization via Libraries</strong></h3>
+
+<p>For a start, shared components (like a pagination UI component or a library to make database or API calls) can be extracted out and added as binary dependencies on the application.</p>
+
+<p>But when there are multiple functional teams working on the same repo, the biggest payoff comes when you can separate out each team's work into components to be managed in their own repos.</p>
+
+<p>One large-scale Open Source project doing this is the <a href="https://wiki.openmrs.org/display/docs/Modules">OpenMRS</a> application where independent modules are wired up together in the application runtime. A component in this case is a binary dependency that includes end-to-end functionality of a module including the UI. Deployment of a component can be managed on the deployment pipeline and means upgrading the component version on the parent application.</p>
+
+<p>On one of our projects where we saw the pains of a large team working on a monolithic content management system (CMS) codebase in Java, we started to break out components under active development into separate repos. For example, the search functionality was separated out. Then, everything related to search - from UI to backend code - could be developed on a much smaller codebase. The binary artifact, in this case a JAR file, could then be plugged in as a runtime dependency on the application. We then had a small test suite on the main application build pipeline to validate that the component worked well within the application boundaries.</p>
+
+<p>Separating out the component enabled the Search feature team to focus on their parts of the code. In addition, the test suite on the new repo was smaller and directly related to what the team was working on, so as a result there was better ownership of the code and better management of technical debt. Furthermore, the savings on the short feedback loop for both application development and on CI were enormous.</p>
+
+<h3 id="componentization-via-services"><strong>Componentization via Services</strong></h3>
+
+<p>Depending on the situation, breaking down the monolith app into a composition of smaller runtime services can provide enormous leverage in terms of the autonomy it affords to the team given that apart from service boundary or API, everything else is completely decoupled from each other. A standalone service can be deployed independently and scaled appropriately based on its requirements. The <a href="https://www.amazon.com/Building-Microservices-Sam-Newman/dp/1491950358"><em>Building Microservices</em> book by Sam Newman</a> is an excellent read on the subject.</p>
+
+<p>But of course, microservices are <a href="http://highscalability.com/blog/2014/4/8/microservices-not-a-free-lunch.html">not a free lunch</a> and your team or organization needs to be <a href="http://martinfowler.com/bliki/MicroservicePrerequisites.html">tall enough</a> to use them effectively. When used appropriately, the microservice approach can help drastically reduce cycle times and simplify the deployment pipeline.</p>
+
+<p>However, by either approach, componentization can be a multi-month effort with no quick wins. In addition, the separation boundaries between components need to be thought through before implementation. But that said, the payoffs in terms of CD impact will more than make up for the time spent setting it up.</p>
+
+<h2 id="theme-2-prune-the-test-suite-for-optimal-feedback">Theme 2: Prune the test suite for optimal feedback</h2>
+
+<p>When you start on a greenfield project, automated GUI tests or acceptance tests seem small and manageable and it is tempting to add as much coverage on that layer as possible. But unless tended to, these tests grow become unmanageable over time.</p>
+
+<p>The ice cream cone anti-pattern for test suites is well described <a href="https://watirmelon.blog/2012/01/31/introducing-the-software-testing-ice-cream-cone/">in this post</a>.</p>
+
+<blockquote>
+  <p>"Tests that run end-to-end through the UI are: brittle, expensive to write, and time consuming to run." - <a href="https://martinfowler.com/bliki/TestPyramid.html">Martin Fowler</a></p>
+</blockquote>
+
+<p>Indeed, teams that are saddled with a large number of acceptance tests end up getting slowed down by the very automation that was supposed to make the application delivery process easier and faster – tests taking many hours to run and producing random failures in the end. Acceptance tests also tend to be brittle and because they are harder to reproduce and fix; these tend to accumulate over time. In many instances, the quality starts being gauged in terms of the percentage of passed tests. “85 percentage pass. Not bad compared to previous run!” This doesn't say anything about the quality of the application.</p>
+
+<p>Therefore, it is advisable to design your test suite to give just the necessary validation with acceptance tests and everything else covered by unit tests and a smaller layer of integration tests. Unit tests are fast to execute, give the right level of feedback about what is broken. As you go up the pyramid, the tests are slower and it becomes harder to point out root cause of failures because the surface area is larger.</p>
+
+<div class="imagezoom">
+<img src="../../../assets/images/blog/architecting-continuous-delivery/ice-cream-test-anti-pattern-32612565.png" alt="Ice cream cone test ani-pattern" title="Ice cream cone test ani-pattern" />
+<span class="info_txt">Click image to zoom in</span>
+</div>
+
+<p>(Adapted from <a href="https://watirmelon.blog/2012/01/31/introducing-the-software-testing-ice-cream-cone/">watirmelon blog</a>)</p>
+
+<p>On a recent project - a single page application on AngularJS talking to a backend API - we knew we had to test the UI layer because there was a lot of conditional logic, formatting, etc., embedded within the UI on AngularJS view templates. But instead of settling with a heavyweight Selenium or a Protractor test suite that would have been prohibitive given the number of test cases we had, <a href="https://github.com/asengupta/">a team member</a> developed a tool called <a href="https://github.com/asengupta/duck-angular">Duck-Angular</a> which could validate AngularJS rendered DOM and simulate DOM interactions using JS tests in-memory.</p>
+
+<p>With that tool, we could write as many UI validation tests as needed as unit tests. In the end, we had comprehensive coverage, with more than 1000 tests that ran in a few seconds. You can read more about <a href="https://kylehodgson.com/2014/04/29/seven-reasons-to-love-duck-angular/">why we love Duck-Angular</a>.</p>
+
+<p>Another project had hundreds of functional tests which were so slow and flaky that they were ignored. We were able to dedicate a couple of weeks as a team exclusively towards replacing acceptance tests with unit and integration level tests and that effort set the impetus to prune the test suite to the desired state.</p>
+
+<h2 id="theme-3-the-deployment-pipeline-as-the-backbone-for-effective-continuous-delivery">Theme 3: The deployment pipeline as the backbone for effective continuous delivery</h2>
+
+<p>The deployment pipeline concept in CD is a huge step change in the the way we build and release software.</p>
+
+<blockquote>
+  <p>Continuous integration is essential but not sufficient for an effective application delivery workflow</p>
+</blockquote>
+
+<p>Automating the deployment procedure is the first step and most CI tools like Jenkins or TeamCity do a good job of providing that capability. For example, you can set up build configurations for each phase - say a build phase or a unit test phase, acceptance tests - and also automate deployments to each environment.</p>
+
+<p>While this is certainly useful, the trouble is that it is very difficult to answer the question:</p>
+
+<blockquote>
+  <p>Do we have confidence to release this version of software to Production?</p>
+</blockquote>
+
+<p>Because deployment process is spread across disconnected build configurations, it is difficult to visualize the entire production flow process and this additionally ends up hiding inefficiencies in the process.</p>
+
+<p>This is where the deployment pipeline helps.</p>
+
+<blockquote>
+  <p><em>A deployment pipeline is, in essence, an automated implementation of your application’s build, deploy, test, and release process. Every organization will have differences in the implementation of their deployment pipelines, depending on their value-stream for releasing software, but the principles that govern them do not vary.</em></p>
+</blockquote>
+
+<p><img src="../../../assets/images/blog/architecting-continuous-delivery/the-deployment-pipeline-6ed8f669.png" alt="The Deployment Pipeline" title="The Deployment Pipeline" /></p>
+
+<p>(Source - The <a href="https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Signature/dp/0321601912">Continuous Delivery</a> book)</p>
+
+<p>I am constantly amazed by how much this idea of the pipeline is similar and inspired from non-software manufacturing workflows like <a href="https://en.wikipedia.org/wiki/Lean_manufacturing">Lean manufacturing</a>.</p>
+
+<p>In his book <em><a href="https://www.amazon.com/High-Output-Management-Andrew-Grove/dp/0679762884">High Output Management</a></em>, Andy Grove talks about modeling the production process and constantly optimizing the steps to achieve better throughput.</p>
+
+<blockquote>
+  <p><em>Automation is certainly one way to improve the leverage of all types of work. Having machines to help them, human beings can create more output. But in both manufacturing and administrative work, something else can also increase the productivity of the black box. This is called work simplification. To get leverage this way, you first need to create a flow chart of the production process as it exists. Every single step must be shown on it; no step should be omitted in order to pretty things up on paper.</em></p>
+</blockquote>
+
+<p>The deployment pipeline in essence represents a flow chart of your production process and enables you to automate and visualize your deployment process from source repo all the way to Production. Each step of your build and deployment process can be modeled into the pipeline to provide high resolution visibility into your deployment workflow.</p>
+
+<p>Below is the view of a simple pipeline in GoCD</p>
+
+<div class="imagezoom">
+<img src="../../../assets/images/blog/architecting-continuous-delivery/gocd-pipeline-3d4714d3.png" alt="GoCD Pipeline" title="GoCD Pipeline" />
+<span class="info_txt">Click image to zoom in</span>
+</div>
+
+<p>Each commit goes through a series of stages that lead all the way to Production. With each passing stage, you get higher confidence with that revision of the code. If something fails, the pipeline stops and you have to fix the build OR revert the commit that caused the failure. If the deploy to Production fails, you can rollback by triggering the last successful stage that deployed to Production.</p>
+
+<div class="imagezoom">
+<img src="../../../assets/images/blog/architecting-continuous-delivery/rollback-deployment-a69c8139.png" alt="Rolling back" title="Rolling Back" />
+<span class="info_txt">Click image to zoom in</span>
+</div>
+
+<p>With this level of visibility, you can not only determine whether the application is releasable any point, but also identify the bottlenecks in your process and set yourself in a position to continuously improve the process over time.</p>
+
+<p>The pipeline abstraction can also support complex build and deploy configurations including component dependencies. The deployment pipeline can also easily support requirements like integration testing microservice dependencies and has the flexibility to support best practices like trunk-based development.</p>
+
+<hr />
+
+<h2 id="summary">Summary</h2>
+
+<p>Continuous Delivery is not just about automating deployments. The goal is to be able to release software reliably and without friction. Architectural choices play a huge role in achieving that state. Adopting the deployment pipeline to model your entire process can provide the visibility required to address gaps sooner rather than later.</p>
+
+<p><em>This article was first published on the SnapCI Blog.</em></p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'> Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">Continuous Delivery news in your inbox</p>
+    <div id="subscribe-info">
+      Send us a mail to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20GoCD%20blog%20notifications">support@thoughtworks.com</a> and we will sign you up for a notification on new blog posts.
+    </div>
+    <script type="text/javascript">
+      function initMarketoForm() {
+        jQuery("#subscribe-info").html("<form id='mktoForm_5414'></form>");
+        MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
+      }
+    </script>
+    <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Oct 10</span>
+              <span class="post-author">Vishal Naik</span>
+              <a href="architecting-continuous-delivery/">Architecting for Continuous Delivery - Themes in CD Enablement</a>
+            </li>
+            <li>
+              <span class="post-date">Oct  3</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../03/introduction-continuous-delivery-deployment-tools/">Part 5 - CD101: Common Tools for Continuous Delivery</a>
+            </li>
+            <li>
+              <span class="post-date">Sep 26</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="../../09/26/are-you-ready-for-continuous-delivery-infographic/">Infographic - Are you ready for Continuous Delivery</a>
+            </li>
+            <li>
+              <span class="post-date">Sep 19</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../09/19/actions-spread-devops-adoption/">Part 3 - You can’t buy DevOps, but you may need to sell it: Actions to spread DevOps Adoption</a>
+            </li>
+            <li>
+              <span class="post-date">Sep 12</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../09/12/value-stream-mapping/">Part 4 - CD101: Getting Started with Value Stream Mapping</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2017 (33)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/10/10/architecting-continuous-delivery.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        
+        <li>
+        <a href="../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+
+        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

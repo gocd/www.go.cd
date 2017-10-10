@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-10-03T00:00:00Z</updated>
+  <updated>2017-10-10T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Architecting for Continuous Delivery - Themes in CD Enablement</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/10/10/architecting-continuous-delivery.html"/>
+    <id>https://www.gocd.org/2017/10/10/architecting-continuous-delivery.html</id>
+    <published>2017-10-10T00:00:00Z</published>
+    <updated>2017-10-10T00:00:00Z</updated>
+    <author>
+      <name>Vishal Naik</name>
+    </author>
+    <content type="html">Continuous Delivery is not just about automating deployments. The goal is to be able to release software reliably and without friction. This post describes the architectural themes to model CD pipelines.</content>
+  </entry>
   <entry>
     <title>Part 5 - CD101: Common Tools for Continuous Delivery</title>
     <link rel="alternate" href="https://www.gocd.org/2017/10/03/introduction-continuous-delivery-deployment-tools.html"/>
@@ -107,16 +118,5 @@
       <name>Ketan Padegaonkar</name>
     </author>
     <content type="html">This article describes some of the implementation techniques for performing Canary Releases.</content>
-  </entry>
-  <entry>
-    <title>The benefits of GoCD elastic agents</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits.html"/>
-    <id>https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits.html</id>
-    <published>2017-08-08T00:00:00Z</published>
-    <updated>2017-08-08T00:00:00Z</updated>
-    <author>
-      <name>Ketan Padegaonkar</name>
-    </author>
-    <content type="html">This post is about GoCD team’s journey in building elastic agents, our experience with iterating over the features while using it in anger and the benefits we saw.</content>
   </entry>
 </feed>
