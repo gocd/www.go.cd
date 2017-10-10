@@ -78,6 +78,7 @@ jQuery(document).ready(function ($) {
 
 jQuery(document).ready(function ($) {
 
+
   enquire.register("screen and (max-width: 800px)", {
     match: function () {
       $("body.download_new .download-btn").click(function () {
@@ -92,6 +93,7 @@ jQuery(document).ready(function ($) {
           $("body.download_new .sidebar-nav.download-nav").removeClass("fixed")
         }
       });
+    },
     unmatch: function () {
       $('body.download_new nav.sidebar-nav').show();
     }
