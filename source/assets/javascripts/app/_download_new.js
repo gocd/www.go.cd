@@ -49,7 +49,7 @@ var newShowDownloadLinks = (function ($) {
       return R.assoc('display_version', settings.version_to_show(release), release);
     });
 
-    var compareVersions = function(propertyToCompareOn) {
+    var compareVersions = function (propertyToCompareOn) {
       return function (a, b) {
         var i, diff;
 
@@ -76,7 +76,7 @@ var newShowDownloadLinks = (function ($) {
           rpm: 'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.'
         };
 
-        for(var key in notes) {
+        for (var key in notes) {
           var installerInfo = R.assoc('info', notes[key], latestRelease[key]);
           latestRelease = R.assoc(key, installerInfo, latestRelease)
         }
@@ -114,7 +114,7 @@ var newShowDownloadLinks = (function ($) {
   };
 })(jQuery);
 
-var downloadOrGetFromCache = (function($) {
+var downloadOrGetFromCache = (function ($) {
   var storedJSON = {};
 
   return function (url) {
@@ -167,7 +167,7 @@ var determinePackageNameBasedOnOS = function () {
 };
 
 var showHelpLinksFor = (function ($) {
-  return function(packageName) {
+  return function (packageName) {
     var installer_type_to_help_link_type = {
       'debian': 'linux',
       'redhat': 'linux',

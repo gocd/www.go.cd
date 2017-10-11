@@ -74,12 +74,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
             </div>
           </div>
         </script>
-        <div class="release-type">
-          <input type="radio" id="stable" name="typeOfDownloads" checked="checked" value="stable" />
-          <label for="stable">Stable</label>
-          <input type="radio" id="experimental" name="typeOfDownloads" value="experimental" />
-          <label for="experimental">Experimental</label>
-        </div>
 
         <div class="loading-message-template" style="display: none">
           <div class="load-message">
@@ -134,7 +128,14 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 <script id="download-revisions-template" type="text/x-handlebars-template">
   {{#*inline "show-releases-for-installer-type"}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
-    <div class=" go-releases">
+    <div class="go-releases">
+    <div class="release-type">
+          <input type="radio" id="stable" name="typeOfDownloads" checked="checked" value="stable" />
+          <label for="stable">Stable</label>
+          <input type="radio" id="experimental" name="typeOfDownloads" value="experimental" />
+          <label for="experimental">Experimental</label>
+        </div>
+
       <div class="latest">
         {{#with latest_release}}
         <div class="go-release {{display_version}} row">
@@ -149,7 +150,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
               {{else}}
               {{> show-server-and-agent-installer latest=true}}
               {{/if}}
-
               {{#if info }}
               <div class="download-message">
                 {{{ info }}}
@@ -408,14 +408,15 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     var currentOSPackageType = determinePackageNameBasedOnOS();
 
     /* Switch OSes. */
-    $("body").on('click', '.tab-container-marker .tab-marker', function () {
+    var target = $("body");
+    target.on('click', '.tab-container-marker .tab-marker', function () {
       currentOSPackageType = $(this).attr('rel').replace('tab-', '');
 
       showHelpLinksFor(currentOSPackageType);
     });
 
     /* Switch between stable and experimental. */
-    $('input[type=radio][name=typeOfDownloads]').on('change', function () {
+    target.on('change', 'input[type=radio][name=typeOfDownloads]', function () {
       currentInstallerType = $(this).val();
 
       newShowDownloadLinks({typeOfInstallersToShow: currentInstallerType})
