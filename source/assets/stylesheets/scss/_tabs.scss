@@ -5,60 +5,66 @@ $accorion-header-bg: #fff;
 $accorion-header-bg-active: #e5e5e5;
 $tab-container-bg: #777777;
 $plugins-tab-container-bg: $gray-lighter;
-
 ul.tabs {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  width: 100%;
-  display: table;
-
-  li {
-    display: table-cell;
     margin: 0;
-    cursor: pointer;
-    padding: 10px 20px;
-    overflow: hidden;
-    position: relative;
-    font-size: 16px;
-    border-bottom: 1px solid  $border;
-    border-left: 1px solid  $border;
-
-    strong {
-      display: block;
-      font-weight: 400;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display: table;
+    li {
+        display: table-cell;
+        margin: 0;
+        cursor: pointer;
+        padding: 10px 20px;
+        overflow: hidden;
+        position: relative;
+        font-size: 16px;
+        border-bottom: 1px solid $border;
+        border-left: 1px solid $border;
+        strong {
+            display: block;
+            font-weight: 400;
+        }
+        &.active {
+            background-color: #fff;
+            color: #333;
+            border-left: 1px solid $border;
+            display: table-cell;
+        }
     }
-
-    &.active {
-      background-color: #fff;
-      color: #333;
-      border-left: 1px solid $border;
-      display: table-cell;
-    }
-
-  }
-
 }
 
 .tab_container {
-  border-top: 0px;
-  float: left;
-  width: 100%;
+    border-top: 0px;
+    float: left;
+    width: 100%;
 }
 
 //accordion styles
-
 .tab-accordion_heading {
-  display: none;
+    display: none;
 }
 
 //mediaquery for screens smaller than ipad
 @media screen and (max-width:$screen-xs-max) {
-  .tabs {
-    display: none;
-  }
+    .tabs {
+        display: none;
+    }
+    .tab_container {
+        .tab-accordion_heading {
+            &:first-child {
+                border-top: 1px solid $border;
+            }
+        }
+    }
+    .d_active {
+        background-color: $primary-color;
+        color: #fff;
+        border-color: $primary-color;
+    }
+}
 
-  .tab-accordion_heading {
+.tab-accordion_heading {
     background-color: $accorion-header-bg;
     border: 1px solid $border-color;
     border-top: 0;
@@ -69,230 +75,166 @@ ul.tabs {
     font-weight: normal;
     color: #666;
     font-size: 16px;
-
-    @media (min-width:$screen-tablet) {
-      font-size: 20px;
+    @media (min-width: $screen-tablet) {
+        display:none;
     }
-
-  }
-
-  .tab_container {
-    .tab-accordion_heading {
-      &:first-child {
-        border-top: 1px solid $border;
-      }
-
-    }
-
-  }
-
-  .d_active {
-    background-color: $primary-color;
-    color: #fff;
-    border-color: $primary-color;
-  }
-
 }
 
 .tab_content {
-  @media (max-width:$screen-xs-max) {
-    border: 1px solid $border;
-  }
-
+    @media (max-width: $screen-xs-max) {
+        border: 1px solid $border;
+    }
 }
 
 // plugins tabs
-
 .v-tabs {
-  ul.tabs {
-    margin: 0;
-    padding: 0;
-    float: left;
-    list-style: none;
-    border-top: 1px solid $plugins-tab-container-bg;
-    display: none;
-    width: 100%;
-
-    @media (min-width:$screen-tablet) {
-      width: 180px;
-      border-right: 0;
-      border-bottom: 0;
-      display: block;
+    ul.tabs {
+        margin: 0;
+        padding: 0;
+        float: left;
+        list-style: none;
+        border-top: 1px solid $plugins-tab-container-bg;
+        display: none;
+        width: 100%;
+        @media (min-width: $screen-tablet) {
+            width: 180px;
+            border-right: 0;
+            border-bottom: 0;
+            display: block;
+        }
+        li {
+            margin: 0;
+            cursor: pointer;
+            padding: 10px 20px;
+            overflow: hidden;
+            position: relative;
+            font-size: 16px;
+            border-bottom: 1px solid $plugins-tab-container-bg;
+            border-left: 1px solid $plugins-tab-container-bg;
+            display: block;
+            transition: all .2s ease-in-out;
+            strong {
+                display: block;
+                font-weight: 400;
+            }
+            &:hover {
+                background-color: $tab-hover-bg;
+                color: #000;
+                transition: all .2s ease-in-out;
+            }
+            &.active {
+                background-color: $plugins-tab-container-bg;
+                color: $primary-color;
+                border-right: 1px solid $plugins-tab-container-bg;
+                display: block;
+                width: 180px;
+                border-left: 5px solid $primary-color;
+            }
+            &:last-child {
+                border-bottom-left-radius: 5px;
+            }
+        }
     }
-
-    li {
-      margin: 0;
-      cursor: pointer;
-      padding: 10px 20px;
-      overflow: hidden;
-      position: relative;
-      font-size: 16px;
-      border-bottom: 1px solid $plugins-tab-container-bg;
-      border-left: 1px solid $plugins-tab-container-bg;
-      display: block;
-      transition: all .2s ease-in-out;
-
-      strong {
-        display: block;
-        font-weight: 400;
-      }
-
-      &:hover {
-        background-color: $tab-hover-bg;
-        color: #000;
-        transition: all .2s ease-in-out;
-      }
-
-      &.active {
+    .tab_container {
         background-color: $plugins-tab-container-bg;
-        color: $primary-color;
-        border-right: 1px solid $plugins-tab-container-bg;
-        display: block;
-        width: 180px;
-        border-left: 5px solid $primary-color;
-      }
-
-      &:last-child {
-        border-bottom-left-radius: 5px;
-      }
-
+        @media (min-width: $screen-tablet) {
+            width: 540px;
+        }
+        @media (min-width:$screen-desktop) {
+            width: 760px;
+        }
+        @media (min-width:$screen-lg-desktop) {
+            width: 960px;
+        }
     }
-
-  }
-
-  .tab_container {
-    background-color: $plugins-tab-container-bg;
-
-    @media (min-width:$screen-tablet) {
-      width: 540px;
-    }
-
-    @media (min-width:$screen-desktop) {
-      width: 760px;
-    }
-
-    @media (min-width:$screen-lg-desktop) {
-      width: 960px;
-    }
-
-  }
-
 }
 
 .tabs.os {
-  margin: 50px auto 10px;
-  border-bottom: 0;
-  display: block;
-
-  li {
-    background: #fff;
-    color: #333;
-    height: 100px;
-    width: calc(100%/5);
-    float: left;
+    margin: 50px auto 10px;
+    border-bottom: 0;
     display: block;
-    transition: all .2s ease-in-out;
-
-    span {
-      display: block;
-      text-align: center;
-      font-weight: 400;
-
-      &.os-logo {
+    li {
+        background: #fff;
+        color: #333;
+        height: 100px;
+        width: calc(100%/5);
+        float: left;
+        display: block;
         transition: all .2s ease-in-out;
-        height: 50px;
-        margin: 0 auto 5px;
-      }
-
+        span {
+            display: block;
+            text-align: center;
+            font-weight: 400;
+            &.os-logo {
+                transition: all .2s ease-in-out;
+                height: 50px;
+                margin: 0 auto 5px;
+            }
+        }
+        &.active {
+            height: 110px;
+            border-bottom: 0;
+        }
+        &:hover {
+            height: 110px;
+            transition: all .2s ease-in-out;
+            span {
+                transition: all .2s ease-in-out;
+                margin-bottom: 10px;
+            }
+        }
     }
-
-    &.active {
-      height: 110px;
-      border-bottom: 0;
+    @media (max-width:$screen-xs-max) {
+        display: none;
     }
-
-    &:hover {
-      height: 110px;
-      transition: all .2s ease-in-out;
-
-      span {
-        transition: all .2s ease-in-out;
-        margin-bottom: 10px;
-      }
-
-    }
-
-  }
-
-  @media (max-width:$screen-xs-max) {
-    display: none;
-  }
-
 }
 
 .tabs.os {
-  li {
-    &:first-child {
-      border-top-left-radius: 5px;
+    li {
+        &:first-child {
+            border-top-left-radius: 5px;
+        }
+        &:last-child {
+            border-top-right-radius: 5px;
+        }
     }
-
-    &:last-child {
-      border-top-right-radius: 5px;
-    }
-
-  }
-
 }
 
 .os-tab-content {
-  margin: 20px 0;
-
-  .tab-accordion_heading {
-    background-color: $green;
-    color: #fff;
-    border-color: #fff;
-  }
-
-  .tab_content {
-    border: 1px solid #fff;
-    padding:20px 0;
-
-    @media (min-width:$screen-tablet) {
-      padding:0;
+    margin: 20px 0;
+    .tab-accordion_heading {
+        background-color: $green;
+        color: #fff;
+        border-color: #fff;
     }
-  }
-
+    .tab_content {
+        border: 1px solid #fff;
+        padding: 20px 0;
+        @media (min-width: $screen-tablet) {
+            padding:0;
+        }
+    }
 }
 
 // releases tabs
-
-
 .all-releases {
-  .tab_container {
-
-    @media (min-width:$screen-tablet) {
-      min-height: 517px;
-      width: 540px;
+    .tab_container {
+        @media (min-width: $screen-tablet) {
+            min-height: 517px;
+            width: 540px;
+        }
+        @media (min-width:$screen-desktop) {
+            width: 760px;
+        }
+        @media (min-width:$screen-lg-desktop) {
+            min-height: 565px;
+            width: 960px;
+        }
+        .content {
+            padding: 20px;
+            @media (min-width: $screen-tablet) {
+                padding: 30px 50px;
+            }
+        }
     }
-
-    @media (min-width:$screen-desktop) {
-      width: 760px;
-    }
-
-    @media (min-width:$screen-lg-desktop) {
-      min-height: 565px;
-      width: 960px;
-    }
-
-    .content {
-      padding: 20px;
-
-      @media (min-width:$screen-tablet) {
-        padding: 30px 50px;
-      }
-
-    }
-
-  }
-
 }

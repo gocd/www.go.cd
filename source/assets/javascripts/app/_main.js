@@ -93,9 +93,20 @@ jQuery(document).ready(function ($) {
           $("body.download_new .sidebar-nav.download-nav").removeClass("fixed")
         }
       });
+
+      // $('body.download_new nav.sidebar-nav  ul.verticalnav > li.dropdown ul li').click(function (e) {
+      //   e.preventDefault();
+      //   $("body.download_new .download-nav ").slideToggle();
+      // });
     },
     unmatch: function () {
       $('body.download_new nav.sidebar-nav').show();
+
+      // $('body.download_new nav.sidebar-nav  ul.verticalnav > li.dropdown ul li').click(function (e) {
+      //   e.preventDefault();
+      //   $("body.download_new nav.sidebar-nav.download-nav ").show();
+      // });
+
     }
   });
 });
@@ -162,5 +173,4 @@ jQuery(document).ready(function ($) {
 
 $(document).ready(function () {
   $('.chocolat-parent').Chocolat();
-
 });

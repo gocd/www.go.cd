@@ -48,7 +48,7 @@ body.download_new {
     .files {
         overflow: hidden;
         position: relative;
-        padding-top: 20px;
+        padding-top: 10px;
         .file-not-available {
             text-align: center;
         }
@@ -335,15 +335,10 @@ body.download_new {
         }
     }
     .version {
-        padding: 0 0 0 10px;
-        height: 30px;
+        display: block;
+        margin-top: 15px;
         font-size: 14px;
-        line-height: 30px;
         font-weight: 500;
-        float: left;
-        @media (min-width: $screen-tablet) {
-            margin-top: 13px;
-        }
     }
     .not-loaded {
         text-align: center;
@@ -497,25 +492,35 @@ body.download_new {
                     border-radius: 0;
                     margin: 0;
                 }
-                @media (min-width: $screen-tablet) {
+                @media (min-width: $screen-desktop) {
                     display: none;
                 }
             }
             .tab-accordion_heading {
                 background: #e2e2e2;
                 color: #666;
-                border-color: #979797;
                 font-size: 14px;
+                border: 1px solid $border-color;
+                border-color: #979797;
+                border-top: 0;
+                margin: 0;
+                padding: 10px 20px;
+                display: block;
+                cursor: pointer;
+                font-weight: normal;
                 &.d_active {
                     background-color: $primary-color;
                     color: #fff;
+                }
+                @media (min-width: $screen-desktop) {
+                    display: none;
                 }
             }
             .tab_content {
                 border: 1px solid #979797;
                 border-top: 0;
                 padding: 20px;
-                @media (min-width: $screen-tablet) {
+                @media (min-width: $screen-desktop) {
                     border: 1px solid #fff;
                     padding: 0;
                 }
@@ -650,27 +655,13 @@ body.download_new {
                 color: #fff;
             }
         }
-        @media (min-width: $screen-tablet) {
-            display: block;
-            top: -83px;
-        }
-        @media (min-width: $screen-desktop) {
-            display: none;
-        }
     }
     nav.sidebar-nav.download-nav {
         @media (min-width: $screen-tablet) {
-            position:absolute;
-            background: transparent;
-            transition: all 0.5s ease-in-out;
-            top: -47px;
-            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
-            bottom: auto;
-            padding: 0;
-            left: auto;
-            right: 10px;
+            display: none;
         }
         @media (min-width: $screen-desktop) {
+            display: block;
             position: relative;
             background: #fff;
             transition: all 0.5s ease-in-out;
