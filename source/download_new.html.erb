@@ -22,10 +22,10 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
             <li class="dropdown open">
               <span class="head">OS Types</span>
               <ul>
-              <li><span class="tab-marker" rel="tab-windows">Windows</span></li>
-              <li><span class="tab-marker" rel="tab-osx">OSX</span></li>
-              <li><span class="tab-marker" rel="tab-debian"> Debian/APT</span></li>
-              <li><span class="tab-marker" rel="tab-zip">Zip</span></li>
+                <li><span class="tab-marker" rel="tab-windows">Windows</span></li>
+                <li><span class="tab-marker" rel="tab-osx">OSX</span></li>
+                <li><span class="tab-marker" rel="tab-debian"> Debian/APT</span></li>
+                <li><span class="tab-marker" rel="tab-zip">Zip</span></li>
                 <li><span class="tab-marker" rel="tab-redhat">RPM/YUM</span></li>
               </ul>
             </li>
@@ -128,14 +128,13 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 <script id="download-revisions-template" type="text/x-handlebars-template">
   {{#*inline "show-releases-for-installer-type"}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
-    <div class="go-releases">
     <div class="release-type">
-          <input type="radio" id="stable" name="typeOfDownloads" checked="checked" value="stable" />
-          <label for="stable">Stable</label>
-          <input type="radio" id="experimental" name="typeOfDownloads" value="experimental" />
-          <label for="experimental">Experimental</label>
-        </div>
-
+      <input type="radio" id="stable-{{installer_type}}" name="typeOfDownloads-{{installer_type}}" checked="checked" value="stable" />
+      <label for="stable-{{installer_type}}">Stable</label>
+      <input type="radio" id="experimental-{{installer_type}}" name="typeOfDownloads-{{installer_type}}" value="experimental" />
+      <label for="experimental-{{installer_type}}">Experimental</label>
+    </div>
+    <div class="go-releases">
       <div class="latest">
         {{#with latest_release}}
         <div class="go-release {{display_version}} row">
@@ -416,7 +415,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     });
 
     /* Switch between stable and experimental. */
-    target.on('change', 'input[type=radio][name=typeOfDownloads]', function () {
+    target.on('change', 'input[type=radio][name=typeOfDownloads-rpm], input[type=radio][name=typeOfDownloads-deb], input[type=radio][name=typeOfDownloads-osx], input[type=radio][name=typeOfDownloads-win], input[type=radio][name=typeOfDownloads-generic]', function () {
       currentInstallerType = $(this).val();
 
       newShowDownloadLinks({typeOfInstallersToShow: currentInstallerType})
