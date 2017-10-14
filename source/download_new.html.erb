@@ -129,9 +129,9 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   {{#*inline "show-releases-for-installer-type"}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <div class="release-type">
-      <input type="radio" id="stable-{{installer_type}}" name="typeOfDownloads-{{installer_type}}" checked="checked" value="stable" />
+      <input type="radio" id="stable-{{installer_type}}" name="typeOfDownloads-{{installer_type}}" checked="checked" value="stable" class="stable" />
       <label for="stable-{{installer_type}}">Stable</label>
-      <input type="radio" id="experimental-{{installer_type}}" name="typeOfDownloads-{{installer_type}}" value="experimental" />
+      <input type="radio" id="experimental-{{installer_type}}" name="typeOfDownloads-{{installer_type}}" value="experimental" class="experimental" />
       <label for="experimental-{{installer_type}}">Experimental</label>
     </div>
     <div class="go-releases">
@@ -421,6 +421,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       newShowDownloadLinks({typeOfInstallersToShow: currentInstallerType})
         .done(function () {
           switchActiveTab(currentOSPackageType);
+          switchDownloadType(currentInstallerType);
         });
     });
 

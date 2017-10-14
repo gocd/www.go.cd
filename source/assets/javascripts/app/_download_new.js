@@ -166,6 +166,10 @@ var determinePackageNameBasedOnOS = function () {
   return packageName
 };
 
+var switchDownloadType = function (currentInstallerType) {
+  $(".release-type input." + currentInstallerType).attr('checked', true);
+};
+
 var showHelpLinksFor = (function ($) {
   return function (packageName) {
     var installer_type_to_help_link_type = {
