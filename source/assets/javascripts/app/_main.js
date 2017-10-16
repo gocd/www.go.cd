@@ -74,44 +74,6 @@ jQuery(document).ready(function ($) {
   });
 });
 
-// download sidebar navigation for mobile
-
-jQuery(document).ready(function ($) {
-
-
-  enquire.register("screen and (max-width: 800px)", {
-    match: function () {
-      $("body.download_new .download-btn").click(function () {
-        $("body.download_new .sidebar-nav ").slideToggle();
-      });
-      $(window).scroll(function () {
-        var sc = $(window).scrollTop();
-        if (sc > 58) {
-          $("body.download_new .sidebar-nav.download-nav").addClass("fixed")
-
-        } else {
-          $("body.download_new .sidebar-nav.download-nav").removeClass("fixed")
-        }
-      });
-
-      // $('body.download_new nav.sidebar-nav  ul.verticalnav > li.dropdown ul li').click(function (e) {
-      //   e.preventDefault();
-      //   $("body.download_new .download-nav ").slideToggle();
-      // });
-    },
-    unmatch: function () {
-      $('body.download_new nav.sidebar-nav').show();
-
-      // $('body.download_new nav.sidebar-nav  ul.verticalnav > li.dropdown ul li').click(function (e) {
-      //   e.preventDefault();
-      //   $("body.download_new nav.sidebar-nav.download-nav ").show();
-      // });
-
-    }
-  });
-});
-
-
 // back to top
 
 $(document).ready(function () {
