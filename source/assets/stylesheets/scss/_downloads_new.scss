@@ -2,7 +2,6 @@ body.download_new {
   .go {
     text-transform: none;
   }
-
   .download-area {
     .info {
       text-align: center;
@@ -10,31 +9,22 @@ body.download_new {
       padding: 0px 10px;
       font-size: 14px;
     }
-
   }
-
   .note {
     .download & {
       text-align: center;
-
       span {
         font-size: 13px;
         display: block;
-
         @media (min-width: $screen-tablet) {
           display: inline-block;
         }
-
         @media (min-width: $screen-desktop) {
           display: block;
         }
-
       }
-
     }
-
   }
-
   .warning {
     padding: 10px;
     margin: 10px 0 0 0;
@@ -43,72 +33,59 @@ body.download_new {
     @extend %flexbox;
     @include justify-content(flex-start);
     @include align-items(center);
-
     .fa {
       font-size: 20px;
       margin: 0 10px;
       color: rgba(255, 0, 0, 0.62);
     }
-
   }
-
   .release {
     border-bottom: 1px solid $border;
-
     .latest & {
       border: 0;
     }
-
   }
-
   .files {
     overflow: hidden;
     position: relative;
-    padding-top: 20px;
-
+    padding-top: 10px;
     .file-not-available {
       text-align: center;
     }
-
     .file {
       float: left;
       margin-bottom: 10px;
-
       .others & {
         border-bottom: 1px solid $border;
       }
-
       .verify {
         border: 0;
         background: transparent;
         cursor: pointer;
         margin-top: 4px;
         padding-left: 0;
-
         &:active {
           outline: 0;
         }
-
       }
-
       .verify-checksum {
         text-align: center;
         font-size: 13px;
       }
-
       &.server {
-        margin-right: 50px;
+        margin-right: 15px;
+        @media (min-width: $screen-tablet) {
+          margin-right: 35px;
+        }
         @media (min-width: $screen-lg-desktop) {
-          margin-right: 95px;
+          margin-right: 35px;
         }
       }
-
     }
     .btn {
       width: 97px;
       position: relative;
     }
-
     span.bit {
       position: absolute;
       top: -19px;
@@ -121,21 +98,17 @@ body.download_new {
       right: 5px;
       border-radius: 3px 3px 0 0;
     }
-
     .server32bit,
     .server {
       @media (max-width: $screen-xs-min) {
-        margin: 0 50px 35px 0;
-
+        margin: 0 15px 15px 0;
       }
-
       @media (min-width: $screen-tablet) {
-        margin-right: 50px;
+        margin-right: 35px;
       }
       @media (min-width: $screen-lg-desktop) {
-        margin-right: 95px;
+        margin-right: 35px;
       }
-
       a {
         .fa {
           span {
@@ -143,7 +116,6 @@ body.download_new {
             font-family: 'Open Sans', sans-serif;
             color: $primary-color;
             margin-left: 10px;
-
             span {
               background: #fff;
               color: #000;
@@ -154,15 +126,10 @@ body.download_new {
               border-radius: 4px;
               font-size: 9px;
             }
-
           }
-
         }
-
       }
-
     }
-
     .agent32bit,
     .agent {
       a {
@@ -172,7 +139,6 @@ body.download_new {
             font-family: 'Open Sans', sans-serif;
             color: $primary-color;
             margin-left: 10px;
-
             span {
               background: #fff;
               color: #000;
@@ -183,22 +149,15 @@ body.download_new {
               border-radius: 4px;
               font-size: 9px;
             }
-
           }
-
         }
-
       }
-
     }
-
   }
-
   .latest {
     .btn {
-      width: 100px;
+      width: 140px;
       padding: 10px 0;
-
       @media (min-width: $screen-lg-desktop) {
         width: 150px;
       }
@@ -220,21 +179,17 @@ body.download_new {
       }
     }
   }
-
   .old-release .server.file {
-    margin-right: 50px;
-    @media (min-width: $screen-lg-desktop) {
-      margin-right: 95px;
-
+    margin-right: 15px;
+    @media (min-width: $screen-tablet) {
+      margin-right: 35px;
     }
   }
-
   .download-files {
     float: left;
     width: 100%;
     margin-bottom: 30px;
   }
-
   .download-message {
     font-size: 12px;
     line-height: 16px;
@@ -244,13 +199,10 @@ body.download_new {
     background: #f5f5f5;
     clear: both;
     margin-bottom: 20px;
-
     @media (max-width: $screen-sm-min) {
       float: left
     }
-
   }
-
   .verify-checksum-message {
     position: fixed;
     left: 0;
@@ -261,10 +213,8 @@ body.download_new {
     padding: 30px;
     background: rgba(0, 0, 0, 0.80);
     left: 0;
-
     @media (min-width: $screen-tablet) {
     }
-
     .content {
       @media (max-width: $screen-xs-min) {
         width: 100%;
@@ -274,14 +224,12 @@ body.download_new {
         overflow-y: auto;
         right: 0;
       }
-
       font-size: 14px;
       border: 1px solid #333;
       background: #fff;
       position: absolute;
       padding: 30px;
       color: #333;
-
       @media (min-width: $screen-tablet) {
         width: 90%;
         width: 100%;
@@ -289,7 +237,6 @@ body.download_new {
         left: 0;
         top: 50%;
       }
-
       @media (min-width: $screen-desktop) {
         width: 90%;
         width: 800px;
@@ -297,10 +244,8 @@ body.download_new {
         left: 50%;
         top: 50%;
       }
-
       .code {
         width: 735px;
-
         .commands,
         .prompts,
         .results {
@@ -311,7 +256,6 @@ body.download_new {
           font-size: 14px;
           color: #fff;
         }
-
         .prompts {
           color: #777;
           float: left;
@@ -319,27 +263,21 @@ body.download_new {
           margin: 10px 0 0 0;
           padding: 10px 10px 0 10px;
         }
-
         .commands {
           float: right;
           width: 86%;
           margin: 10px 0 0 0;
           padding: 10px 10px 0 10px;
         }
-
         .results {
           clear: both;
           margin: 0 0 10px 0;
           padding: 0 0 0 10px;
           width: 100%;
         }
-
       }
-
     }
-
   }
-
   .close-message {
     background: #fff;
     border-radius: 50%;
@@ -355,25 +293,19 @@ body.download_new {
     font-weight: 700;
     color: #555;
     cursor: pointer;
-
     @media (max-width: $screen-xs-min) {
       position: fixed;
     }
-
   }
-
   .o-h {
     overflow: hidden;
   }
-
   .other-releases {
     position: relative;
     margin: 20px auto;
-
     @media (min-width: $screen-lg-desktop) {
       width: 100%;
     }
-
     .btn-release {
       border-radius: 3px;
       background: #fff;
@@ -387,133 +319,98 @@ body.download_new {
       cursor: pointer;
       transition: all 0.5s ease-in-out;
       display: block;
-
       &:active,
       &:focus {
         outline: 0;
       }
-
-      &.hide-old-release {
-      }
-
     }
-
   }
-
   .old-release {
     display: none;
     .row {
       border-bottom: 1px dotted $border;
     }
   }
-
   .go-releases,
   .old-release {
     @media (min-width: $screen-lg-desktop) {
       width: 100%;
       margin: 30px auto;
     }
-
   }
-
   .version {
-    padding: 0 0 0 10px;
-    height: 30px;
+    display: block;
+    margin-top: 15px;
     font-size: 14px;
-    line-height: 30px;
     font-weight: 500;
-    float: left;
-    margin-top: 20px;
-
-    @media (max-width: $screen-lg-desktop) {
-    }
-
-    @media (min-width: $screen-lg-desktop) {
-    }
-
   }
-
   .not-loaded {
     text-align: center;
     margin: 40px 0 0;
   }
-
   .load-message {
     text-align: center;
     margin: 30px 0;
-
     span {
       display: block;
     }
-
   }
-
   .help-links {
     list-style-type: none;
     margin: 0 0 20px 0;
     padding: 0;
-    font-size: 14px;
-
+    font-size: 13px;
     a {
       &:after {
         content: "";
         background: url(/assets/images/external-link.svg) no-repeat center top;
-        width: 15px;
-        height: 15px;
+        background-size: cover;
+        width: 10px;
+        height: 10px;
         display: inline-block;
         margin-left: 5px;
       }
-
     }
-
   }
-
+  p.join {
+    font-size: 13px;
+    line-height: 22px;
+  }
   nav.download-nav {
     margin-top: 0;
-
     .head {
       display: block;
-      padding: 10px 20px;
+      padding: 5px 20px;
+      @media (min-width: $screen-desktop) {
+        padding: 10px 20px;
+      }
     }
-
     .open {
       &:after {
         display: none;
       }
-
     }
-
   }
-
   #downloads {
     overflow: hidden;
-
     .btn-primary {
       color: #fff;
       background-color: $primary-color;
       border-color: $primary-color;
       transition: all 0.2s ease-in-out;
-
       &:hover {
         background: #fff;
         color: $primary-color;
         transition: all 0.2s ease-in-out;
-
         span {
           color: $primary-color;
-
           &.bit {
             color: #000;
           }
-
         }
-
       }
-
     }
-
   }
-
   nav.sidebar-nav {
     &.download-nav {
       > ul > li.dropdown {
@@ -524,10 +421,8 @@ body.download_new {
         font-size: 13px;
         font-weight: 600;
       }
-
       ul {
         border-bottom: 0;
-
         li {
           ul {
             li {
@@ -537,90 +432,128 @@ body.download_new {
                 font-size: 13px;
                 font-weight: 600;
                 cursor: pointer;
-                display:block;
-                padding: 10px 20px;
+                display: block;
+                padding: 5px 20px;
                 color: $link-color;
-                line-height: 18px;                
-
+                line-height: 18px;
+                @media (min-width: $screen-desktop) {
+                  padding: 10px 20px;
+                }
                 &.active {
                   border-bottom: 5px solid $primary-color;
                   border-left: 0;
                   color: $primary-color;
-                  padding: 10px 20px;
+                  padding: 5px 20px;
+                  @media (min-width: $screen-desktop) {
+                    padding: 10px 20px;
+                  }
                 }
-
               }
-
             }
-
           }
-
         }
-
       }
-
       .verticalnav {
         > li:first-child {
-          border-radius: 6px 6px 0 0;
+          border-radius: 0px;
+          @media (min-width: $screen-desktop) {
+            border-radius: 6px 6px 0 0;
+          }
         }
-
       }
-
     }
-
   }
-
   #downloads {
     .dropdown {
       display: inline-block;
       z-index: 5;
-
       .items {
         li {
           border-bottom: 1px solid #e5e5e5;
-
           &.active {
             color: $primary-color;
             font-weight: 500;
           }
-
         }
-
       }
-
     }
     .os-tab-content {
       overflow: hidden;
+      margin: 0 0 20px 0;
+      @media (min-width: $screen-desktop) {
+        margin: 20px 0;
+      }
     }
-
+    .os-tab-content {
+      h2.installer-type {
+        font-size: 14px;
+        font-weight: 600;
+        position: relative;
+        background: #4A4A4A;
+        color: #fff;
+        border-radius: 6px 6px 0 0;
+        display: block;
+        padding: 10px 20px;
+        margin: 0;
+        &.cloud {
+          border-radius: 0;
+          margin: 0;
+        }
+        @media (min-width: $screen-desktop) {
+          display: none;
+        }
+      }
+      .tab-accordion_heading {
+        background: #e2e2e2;
+        color: #666;
+        font-size: 14px;
+        border: 1px solid $border-color;
+        border-color: #979797;
+        border-top: 0;
+        margin: 0;
+        padding: 10px 20px;
+        display: block;
+        cursor: pointer;
+        font-weight: normal;
+        &.d_active {
+          background-color: $primary-color;
+          color: #fff;
+        }
+        @media (min-width: $screen-desktop) {
+          display: none;
+        }
+      }
+      .tab_content {
+        border: 1px solid #979797;
+        border-top: 0;
+        padding: 20px;
+        @media (min-width: $screen-desktop) {
+          border: 1px solid #fff;
+          padding: 0;
+        }
+      }
+    }
     .all-releases .tab_container {
       width: auto;
     }
-
     .table-c {
       margin-top: 5px;
     }
-
     .table {
       border-top: 2px solid #e5e5e5;
       margin: 30px 0;
       background: #f5f5f5;
-
       tr th {
         width: 50%;
         border-top: 0;
       }
-
     }
-
     .select-options {
       height: 172px;
       overflow-y: auto;
       box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.08);
     }
-
   }
-
   .ami {
     .files {
       overflow: visible;
@@ -633,9 +566,7 @@ body.download_new {
         top: 23px;
       }
     }
-
   }
-
   .docker {
     h3 {
       font-size: 20px;
@@ -643,23 +574,18 @@ body.download_new {
       margin: 0 0 20px 0;
       font-weight: 500;
     }
-
     .docker-list {
       list-style-type: none;
       margin: 0 0 50px 0;
       padding: 0;
-
       li {
         margin-bottom: 10px;
         font-size: 14px;
       }
-
       a {
         display: block;
       }
-
     }
-
     .command {
       background: #efefef;
       padding: 5px 10px;
@@ -667,25 +593,19 @@ body.download_new {
       display: block;
       font-family: monospace;
     }
-
     .files {
       padding-top: 30px;
     }
-
   }
-
   #tab-windows {
     .files {
       padding-top: 40px;
     }
-
   }
-
   .btn-new {
     color: #333;
     font-weight: 400;
   }
-
   .release-type {
     border-bottom: 1px solid $border;
     input[type="radio"] {
@@ -706,18 +626,16 @@ body.download_new {
       border-bottom: 5px solid $primary-color;
     }
   }
-
   .download-btn {
-    display: block;
+    display: none;
     border: 0;
-    width: 36px;
     height: 36px;
     text-align: left;
     overflow: hidden;
     white-space: nowrap;
     background: $gray;
     color: #fff;
-    position: fixed;
+    position: absolute;;
     right: 10px;
     top: 78px;
     transition: all 0.5s ease-in-out;
@@ -730,37 +648,78 @@ body.download_new {
       width: 100%;
       transition: all 0.5s ease-in-out;
     }
-
     .fa {
       margin-left: 3px;
       line-height: 31px;
       font-size: 22px;
-
       &:after {
         content: "Download";
         margin-left: 10px;
         font-size: 16px;
+        font-weight: 600;
         font-family: 'Open Sans', sans-serif;
+        color: #fff;
       }
-
     }
-
+  }
+  nav.sidebar-nav.download-nav {
     @media (min-width: $screen-tablet) {
-      top: 74px;
-    }
-
-    @media (min-width: $screen-desktop) {
       display: none;
     }
-
-  }
-
-  nav.sidebar-nav.download-nav {
-    top: 129px;
-    transition: all 0.5s ease-in-out;
-    &.fixed {
-      top: 106px;
+    @media (min-width: $screen-desktop) {
+      display: block;
+      position: relative;
+      background: #fff;
       transition: all 0.5s ease-in-out;
+      top: 0;
+      box-shadow: none;
+      bottom: auto;
+      padding: 0;
+      left: auto;
+      right: 0px;
+    }
+  }
+  #tab-ami {
+    h3 {
+      margin-top: 28px;
+    }
+    .version {
+      margin-top: 23px;
+    }
+  }
+  //subscribe form styles in download page
+  .subscribe-to-blog {
+    text-align: left;
+    padding-left: 0;
+    .subscribe-title {
+      line-height: 20px;
+      font-weight: 300;
+      font-size: 16px;
+      @media (max-width: $screen-xs-max) {
+        margin-bottom: 10px;
+      }
+      @media (min-width: $screen-tablet) {
+        line-height: 24px;
+      }
+    }
+    form {
+      margin-top: 0 !important;
+    }
+    #mktoForm_6699 {
+      text-align: left;
+      margin: 10px 0;
+      padding: 0;
+    }
+  }
+  .mktoForm {
+    margin: 0;
+  }
+  #subscribe-info {
+    margin-top: 0
+  }
+  .mktoButton {
+    @media (min-width: $screen-tablet) {
+      margin-top: 20px !important;
     }
   }
 }

@@ -74,40 +74,6 @@ jQuery(document).ready(function ($) {
   });
 });
 
-// download sidebar navigation for mobile
-
-jQuery(document).ready(function ($) {
-
-  enquire.register("screen and (max-width: 992px)", {
-    match: function () {
-      $("body.download_new .download-btn").click(function () {
-        $("body.download_new .sidebar-nav ").slideToggle();
-      });
-      $(window).scroll(function () {
-        var sc = $(window).scrollTop();
-        if (sc > 58) {
-          $("body.download_new .download-btn").addClass("fixed");
-          $("body.download_new .sidebar-nav.download-nav").addClass("fixed")
-
-        } else {
-          $("body.download_new .download-btn").removeClass("fixed");
-          $("body.download_new .sidebar-nav.download-nav").removeClass("fixed")
-        }
-      });
-
-      $('body.download_new nav.sidebar-nav  ul.verticalnav > li.dropdown ul a').click(function (e) {
-        e.preventDefault();
-        $("body.download_new .download-btn").removeClass("fixed");
-        $("body.download_new .download-nav ").slideToggle();
-      });
-    },
-    unmatch: function () {
-      // Hide the sidebar
-    }
-  });
-});
-
-
 // back to top
 
 $(document).ready(function () {
@@ -169,5 +135,4 @@ jQuery(document).ready(function ($) {
 
 $(document).ready(function () {
   $('.chocolat-parent').Chocolat();
-
 });
