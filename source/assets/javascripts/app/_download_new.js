@@ -71,7 +71,7 @@ var newShowDownloadLinks = (function ($) {
     var showReleases = function (releaseData, amiData) {
       var addInfo = function (latestRelease) {
         var notes = {
-          win: 'There are two flavors of Server and Agent installers for Windows, one packaged with 64 bit JRE and the other with 32 bit JRE. We recommend using a Server with 64 bit JRE and an Agent with 32 bit JRE.',
+          win: 'There are two flavors of GoCD server and agent installers for Windows, one packaged with 64 bit JRE and the other with 32 bit JRE. We recommend using the server with 64 bit JRE and the agent with 32 bit JRE.',
           deb: 'Note: If you prefer to use the APT repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">instructions</a>.',
           rpm: 'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.'
         };
