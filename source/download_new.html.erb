@@ -412,6 +412,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       currentOSPackageType = $(this).attr('rel').replace('tab-', '');
 
       showHelpLinksFor(currentOSPackageType);
+      displayAmiDropdown(currentOSPackageType, currentInstallerType);
     });
 
     /* Switch between stable and experimental. */
@@ -422,6 +423,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         .done(function () {
           switchActiveTab(currentOSPackageType);
           switchDownloadType(currentInstallerType);
+          displayAmiDropdown(currentOSPackageType, currentInstallerType);
         });
     });
 
@@ -429,8 +431,9 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       .done(function () {
         startTabContainer();
         switchActiveTab(currentOSPackageType);
+        displayAmiDropdown(currentOSPackageType, currentInstallerType);
       });
-
+    showHelpLinksFor(currentOSPackageType);
     newSetupShowVerifyChecksumMessage();
   });
   // ]]>
