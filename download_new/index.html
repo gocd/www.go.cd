@@ -15,8 +15,8 @@
 
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-e73b1929.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-b5decb15.js"></script>
+    <link href="../assets/stylesheets/site-fbc1c739.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all-210c97c4.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -83,11 +83,11 @@
             <li class="dropdown open">
               <span class="head">OS Types</span>
               <ul>
-                <li><span class="tab-marker" rel="tab-redhat">RPM/YUM</span></li>
-                <li><span class="tab-marker" rel="tab-debian"> Debian/APT</span></li>
-                <li><span class="tab-marker" rel="tab-zip">Zip</span></li>
                 <li><span class="tab-marker" rel="tab-windows">Windows</span></li>
                 <li><span class="tab-marker" rel="tab-osx">OSX</span></li>
+                <li><span class="tab-marker" rel="tab-debian"> Debian/APT</span></li>
+                <li><span class="tab-marker" rel="tab-redhat">RPM/YUM</span></li>
+                <li><span class="tab-marker" rel="tab-zip">Zip</span></li>
               </ul>
             </li>
             <li class="dropdown open">
@@ -135,12 +135,6 @@
             </div>
           </div>
         </script>
-        <div class="release-type">
-          <input type="radio" id="stable" name="typeOfDownloads" checked="checked" value="stable" />
-          <label for="stable">Stable</label>
-          <input type="radio" id="experimental" name="typeOfDownloads" value="experimental" />
-          <label for="experimental">Experimental</label>
-        </div>
 
         <div class="loading-message-template" style="display: none">
           <div class="load-message">
@@ -160,7 +154,7 @@
           <li><a href="https://docs.gocd.org/current/installation/install/agent/linux.html"  target="_blank">Agent Installation
             Instructions</a></li>
         </ul>
-        <p>If you need help downloading, installing or using GoCD please join the <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank">GoCD Users Google Group</a>.</p>
+        <p class="join">If you need help downloading, installing or using GoCD please join the <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank">GoCD Users Google Group</a>.</p>
 
         <div class='subscribe-to-blog blogpost'>
           <h3 class='subscribe-title'>Subscribe for information on new GoCD releases</h3>
@@ -195,25 +189,31 @@
 <script id="download-revisions-template" type="text/x-handlebars-template">
   {{#*inline "show-releases-for-installer-type"}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
-    <div class=" go-releases">
+    <div class="release-type">
+      <input type="radio" id="stable-{{installer_type}}" name="typeOfDownloads-{{installer_type}}" checked="checked" value="stable" class="stable" />
+      <label for="stable-{{installer_type}}">Stable</label>
+      <input type="radio" id="experimental-{{installer_type}}" name="typeOfDownloads-{{installer_type}}" value="experimental" class="experimental" />
+      <label for="experimental-{{installer_type}}">Experimental</label>
+    </div>
+    <div class="go-releases">
       <div class="latest">
         {{#with latest_release}}
         <div class="go-release {{display_version}} row">
-          <div class="col-xs-12 col-sm-4 col-lg-3 ">
-            <span class="version">{{display_version}}</span>
+          <div class="col-xs-12">
+            <span class="version">Version: {{display_version}}</span>
           </div>
           {{#with (lookup . ../installer_type)}}
-          <div class="col-xs-12  col-sm-8 col-lg-9 ">
+          <div class="col-xs-12">
             <div class="files">
               {{#if server32bit}}
-              {{> show-server-and-agent-32-and-64-bit-installers}}
-              <div class="download-message">
-                There are two flavors of Server and Agent installers for Windows, one packaged with 64 bit JRE and the
-                other
-                with 32 bit JRE. We recommend using a Server with 64 bit JRE and an Agent with 32 bit JRE.
-              </div>
+              {{> show-server-and-agent-32-and-64-bit-installers latest=true}}
               {{else}}
-              {{> show-server-and-agent-installer}}
+              {{> show-server-and-agent-installer latest=true}}
+              {{/if}}
+              {{#if info }}
+              <div class="download-message">
+                {{{ info }}}
+              </div>
               {{/if}}
             </div>
           </div>
@@ -232,12 +232,12 @@
     <div class="old-release">
       {{#each all_other_releases}}
       <div class="row go-release {{display_version}}">
-        <div class="col-xs-12 col-sm-4 col-lg-3 col-lg-3 ">
-          <span class="version">{{display_version}}</span>
+        <div class="col-xs-12">
+          <span class="version">Version: {{display_version}}</span>
         </div>
         {{#if (lookup . ../installer_type)}}
         {{#with (lookup . ../installer_type)}}
-        <div class="col-xs-12 col-sm-8 col-lg-9 ">
+        <div class="col-xs-12">
           <div class="files">
             {{#if server32bit}}
             {{> show-server-and-agent-32-and-64-bit-installers}}
@@ -265,10 +265,10 @@
         configuration.</p></div>
     {{#with latest_cloud_release}}
     <div class="row go-release {{go_version}}">
-      <div class="col-xs-12 col-sm-4 col-lg-3 ">
-        <span class="version">{{go_version}}</span>
+      <div class="col-xs-12">
+        <span class="version">Version: {{go_version}}</span>
       </div>
-      <div class="col-xs-12 col-sm-8 col-lg-9 ">
+      <div class="col-xs-12">
         {{> show-ami-release server_amis=server_amis demo_amis=demo_amis}}
       </div>
       {{/with}}
@@ -279,10 +279,10 @@
     <div class="old-release">
       {{#each all_other_cloud_releases}}
       <div class="row go-release {{go_version}}">
-        <div class="col-xs-12 col-sm-4 col-lg-3 ">
-          <span class="version">{{go_version}}</span>
+        <div class="col-xs-12">
+          <span class="version">Version: {{go_version}}</span>
         </div>
-        <div class="col-xs-12 col-sm-8 col-lg-9 ">
+        <div class="col-xs-12">
           <div class="files">
             {{> show-ami-release}}
           </div>
@@ -337,10 +337,10 @@
     <div class="latest">
       {{#with latest_cloud_release}}
       <div class="go-release {{go_version}} row">
-        <div class=" col-xs-12 col-sm-2">
-          <span class="version">{{go_version}}</span>
+        <div class=" col-xs-12">
+          <span class="version">Version: {{go_version}}</span>
         </div>
-        <div class="col-xs-12 col-sm-10">
+        <div class="col-xs-12">
           {{> show-docker-release server_docker=server_docker agents_docker=agents_docker}}
         </div>
       </div>
@@ -352,10 +352,10 @@
     <div class="old-release">
       {{#each all_other_cloud_releases}}
       <div class="row go-release {{go_version}}">
-        <div class="col-xs-12 col-sm-2 ">
-          <span class="version">{{go_version}}</span>
+        <div class="col-xs-12">
+          <span class="version">Version: {{go_version}}</span>
         </div>
-        <div class="col-xs-12 col-sm-10 ">
+        <div class="col-xs-12">
           {{> show-docker-release server_docker=server_docker agents_docker=agents_docker}}
         </div>
       </div>
@@ -397,20 +397,20 @@
 
   {{#*inline "show-server-and-agent-32-and-64-bit-installers"}}
   <div class="download-files">
-    {{> show-file server type="server" display_name="Server" info="(64 bit JRE)" os=../../installer_type}}
-    {{> show-file agent type="agent" display_name="Agent" info="(64 bit JRE)" os=../../installer_type}}
+    {{> show-file server type="server" display_name="Server" info="(64 bit JRE)" os=../../installer_type latest=latest}}
+    {{> show-file agent type="agent" display_name="Agent" info="(64 bit JRE)" os=../../installer_type latest=latest}}
   </div>
   <div class="download-files">
-    {{> show-file server32bit type="server32bit" display_name="Server" info="(32 bit JRE)" os=../../installer_type}}
-    {{> show-file agent32bit type="agent32bit" display_name="Agent" info="(32 bit JRE)" os=../../installer_type}}
+    {{> show-file server32bit type="server32bit" display_name="Server" info="(32 bit JRE)" os=../../installer_type latest=latest}}
+    {{> show-file agent32bit type="agent32bit" display_name="Agent" info="(32 bit JRE)" os=../../installer_type latest=latest}}
   </div>
   {{/inline}}
 
 
   {{#*inline "show-server-and-agent-installer"}}
   <div>
-    {{> show-file server type="server" display_name="Server" os=../../installer_type}}
-    {{> show-file agent type="agent" display_name="Agent" os=../../installer_type}}
+    {{> show-file server type="server" display_name="Server" os=../../installer_type latest=latest}}
+    {{> show-file agent type="agent" display_name="Agent" os=../../installer_type latest=latest}}
   </div>
   {{/inline}}
 
@@ -420,7 +420,11 @@
     <div class="name">
       <a id="{{{analytics_id}}}" href="{{{url}}}" class="btn btn-primary">
         <i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}"> </i>
+        {{#if latest}}
+        <span>Download {{{display_name}}}</span>
+        {{else}}
         <span>{{{display_name}}}</span>
+        {{/if}}
         {{#if info}}
         <span class="bit">{{{info}}}</span>
         {{/if}}
@@ -437,16 +441,18 @@
   </div>
   <div class="os-tab-content">
     <div class="tab_container tab-container-marker">
+     <h2 class="installer-type">OS Types</h2>
       <h3 class="tab-marker tab-accordion_heading" rel="tab-windows">Windows</h3>
       {{> show-releases-for-installer-type installer_type="win" heading="Windows" tab_id="tab-windows"}}
       <h3 class="tab-marker tab-accordion_heading" rel="tab-osx">OSX</h3>
       {{> show-releases-for-installer-type installer_type="osx" heading="OSX" tab_id="tab-osx"}}
-      <h3 class="tab-marker tab-accordion_heading" rel="tab-debian">Debian</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-debian">Debian/APT</h3>
       {{> show-releases-for-installer-type installer_type="deb" heading="Debian" tab_id="tab-debian"}}
-      <h3 class="tab-marker tab-accordion_heading" rel="tab-redhat">RPM</h3>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-redhat">RPM/YUM</h3>
       {{> show-releases-for-installer-type installer_type="rpm" heading="RPM" tab_id="tab-redhat"}}
       <h3 class="tab-marker tab-accordion_heading" rel="tab-zip">Zip</h3>
       {{> show-releases-for-installer-type installer_type="generic" heading="Zip" tab_id="tab-zip"}}
+      <h2 class="installer-type cloud">Cloud Providers</h2>
       <h3 class="tab-marker tab-accordion_heading" rel="tab-ami">AMIs</h3>
       {{> show-amis installer_type="ami" tab_id="tab-ami"}}
       <h3 class="tab-marker tab-accordion_heading" rel="tab-docker">Docker</h3>
@@ -462,19 +468,23 @@
     var currentOSPackageType = determinePackageNameBasedOnOS();
 
     /* Switch OSes. */
-    $("body").on('click', '.tab-container-marker .tab-marker', function () {
+    var target = $("body");
+    target.on('click', '.tab-container-marker .tab-marker', function () {
       currentOSPackageType = $(this).attr('rel').replace('tab-', '');
 
       showHelpLinksFor(currentOSPackageType);
+      displayAmiDropdown(currentOSPackageType, currentInstallerType);
     });
 
     /* Switch between stable and experimental. */
-    $('input[type=radio][name=typeOfDownloads]').on('change', function () {
+    target.on('change', 'input[type=radio][name=typeOfDownloads-rpm], input[type=radio][name=typeOfDownloads-deb], input[type=radio][name=typeOfDownloads-osx], input[type=radio][name=typeOfDownloads-win], input[type=radio][name=typeOfDownloads-generic]', function () {
       currentInstallerType = $(this).val();
 
       newShowDownloadLinks({typeOfInstallersToShow: currentInstallerType})
         .done(function () {
           switchActiveTab(currentOSPackageType);
+          switchDownloadType(currentInstallerType);
+          displayAmiDropdown(currentOSPackageType, currentInstallerType);
         });
     });
 
@@ -482,8 +492,9 @@
       .done(function () {
         startTabContainer();
         switchActiveTab(currentOSPackageType);
+        displayAmiDropdown(currentOSPackageType, currentInstallerType);
       });
-
+    showHelpLinksFor(currentOSPackageType);
     newSetupShowVerifyChecksumMessage();
   });
   // ]]>
