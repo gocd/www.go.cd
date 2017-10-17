@@ -342,7 +342,7 @@ body.download_new {
     display: block;
     margin-top: 15px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
   }
   .not-loaded {
     text-align: center;
@@ -568,12 +568,12 @@ body.download_new {
     h3 {
       font-size: 20px;
       text-transform: uppercase;
-      margin: 0 0 20px 0;
+      margin: 0 0 10px 0;
       font-weight: 500;
     }
     .docker-list {
       list-style-type: none;
-      margin: 0 0 50px 0;
+      margin: 0 0 30px 0;
       padding: 0;
       li {
         margin-bottom: 10px;
@@ -591,7 +591,7 @@ body.download_new {
       font-family: monospace;
     }
     .files {
-      padding-top: 30px;
+      padding-top: 10px;
     }
   }
   #tab-windows {
@@ -678,10 +678,10 @@ body.download_new {
   }
   #tab-ami {
     h3 {
-      margin-top: 28px;
+      margin: 15px 0;
     }
     .version {
-      margin-top: 23px;
+      margin-top: 15px;
     }
   }
   //subscribe form styles in download page
