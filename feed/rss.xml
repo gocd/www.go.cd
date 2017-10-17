@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>Infographic - What's the difference between Continuous Delivery and Continuous Deployment?</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/10/17/difference-between-continuous-delivery-continuous-deployment-infographic.html"/>
+    <id>https://www.gocd.org/2017/10/17/difference-between-continuous-delivery-continuous-deployment-infographic.html</id>
+    <published>2017-10-17T00:00:00Z</published>
+    <updated>2017-10-17T00:00:00Z</updated>
+    <author>
+      <name>Louda Peña</name>
+    </author>
+    <content type="html">The difference between Continuous Delivery and Continuous Deployment is quite simple, but something most people don't understand. Here's an easy way to remember.</content>
+  </entry>
+  <entry>
     <title>Architecting for Continuous Delivery - Themes in CD Enablement</title>
     <link rel="alternate" href="https://www.gocd.org/2017/10/10/architecting-continuous-delivery.html"/>
     <id>https://www.gocd.org/2017/10/10/architecting-continuous-delivery.html</id>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">CD 101 is a video series to help you get started on your CD journey. Part Three of this series covers the principles and practices in continuous delivery and ways to decrease risk in deployments.</content>
-  </entry>
-  <entry>
-    <title>Part 3 - Continuous Deployment Strategies: Implementation Techniques for Canary Releases</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/08/15/canary-releases.html"/>
-    <id>https://www.gocd.org/2017/08/15/canary-releases.html</id>
-    <published>2017-08-15T00:00:00Z</published>
-    <updated>2017-08-15T00:00:00Z</updated>
-    <author>
-      <name>Ketan Padegaonkar</name>
-    </author>
-    <content type="html">This article describes some of the implementation techniques for performing Canary Releases.</content>
   </entry>
 </feed>

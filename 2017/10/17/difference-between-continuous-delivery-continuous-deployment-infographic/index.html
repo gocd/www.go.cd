@@ -4,19 +4,19 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="This post chronicles the ThoughtWorks-Delta mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them." name="description" />
-    <meta content="trunk based development, feature toggles, feature flags, continuous integration, deployment pipeline" name="keywords" />
+    <meta content="The difference between Continuous Delivery and Continuous Deployment is quite simple, but something most people don't understand. Here's an easy way to remember." name="description" />
+    <meta content="continuous delivery, continuous deployment, infographic" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
-    <meta name="twitter:title" content="Architecting for Continuous Delivery | GoCD Blog" />
-    <meta name="twitter:description" content="This post chronicles the ThoughtWorks-Delta mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them." />
-    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/architecting-continuous-delivery/architecting-continuous-delivery-hero-25ac88c4.jpg" />
-    <link rel="canonical" href="https://www.gocd.org/2017/10/17/delta-airlines-mobile-app-continuous-delivery-gocd" />
+    <meta name="twitter:title" content="Continuous Delivery vs Continuous Deployment Infographic | GoCD Blog" />
+    <meta name="twitter:description" content="The difference between Continuous Delivery and Continuous Deployment is quite simple, but something most people don't understand. Here's an easy way to remember." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/continous-delivery-vs-deployment-infographic/continous-delivery-vs-deployment-infographic-hero-ab1ff875.png" />
+    <link rel="canonical" href="https://www.gocd.org/2017/10/17/difference-between-continuous-delivery-continuous-deployment-infographic" />
 
-    <title>Architecting for Continuous Delivery | GoCD Blog</title>
+    <title>Continuous Delivery vs Continuous Deployment Infographic | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../../../../assets/stylesheets/site-fbc1c739.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-210c97c4.js"></script>
+    <script src="../../../../assets/javascripts/all-e46b35fc.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -27,7 +27,7 @@
 
   </head>
 
-  <body class="x2017 x2017_10 x2017_10_17 x2017_10_17_delta-airlines-mobile-app-continuous-delivery-gocd x2017_10_17_delta-airlines-mobile-app-continuous-delivery-gocd_index">
+  <body class="x2017 x2017_10 x2017_10_17 x2017_10_17_difference-between-continuous-delivery-continuous-deployment-infographic x2017_10_17_difference-between-continuous-delivery-continuous-deployment-infographic_index">
     <header class="top">
   <div class="container">
     <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
@@ -77,68 +77,27 @@
 
     <div class="post-banner">
       <figure>
-  <img src="../../../../assets/images/blog/architecting-continuous-delivery/architecting-continuous-delivery-hero-25ac88c4.jpg" alt="Architecting for Continuous Delivery"/>
+  <img src="../../../../assets/images/blog/continous-delivery-vs-deployment-infographic/continous-delivery-vs-deployment-infographic-hero-ab1ff875.png" alt="The difference between Continuous Delivery and Continuous Deployment" title="The difference between Continuous Delivery and Continuous Deployment" />
 </figure>
 
     </div>
 
 
   <header class="blog-post-header">
-    <h1>Continuous Delivery for Mobile Development - Our learnings at Delta Air Lines</h1>
-    <h4>Sanchit Bahal</h4>
+    <h1>Infographic - What's the difference between Continuous Delivery and Continuous Deployment?</h1>
+    <h4>Louda Peña</h4>
     <p class='tags'>
-     </p>
+<a href="../../../../tags/infographic.html" class="tag">        Infographic
+</a>     </p>
   </header>
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>As a Principal Consultant for ThoughtWorks, I had the opportunity to work with Delta Air Lines to build their <a href="https://www.thoughtworks.com/clients/delta">consumer facing mobile application</a>. My role was to ensure that the application was technically sound and remove any roadblocks for the team. During my stint on the project, one of our challenges was to help the entire team adopt continuous delivery. We had a team of approximately 80 people distributed over two locations. This post chronicles our journey to continuous delivery, the challenges along the way, and how we overcame them.</p>
+<p>There are quite a few terms thrown around the Continuous Delivery arena: Continuous Integration, Continuous Delivery, Continuous Deployment, CD, CI, and so on and so forth. It's easy to get confused. The two terms we see (erroneously) equated most frequently are Continuous Delivery and Continuous Deployment. Below is the easy infographic we designed to help people understand the differences between the two practices.</p>
 
-<h2 id="how-we-overcame-challenges-on-the-road-to-continuous-delivery">How we overcame challenges on the road to Continuous Delivery</h2>
-
-<h3 id="replaced-error-prone-testing-process-with-automation">1. Replaced error-prone testing process with automation</h3>
-
-<p>The number one challenge with mobile app development is infrastructure. We had to run simulations of tests on different environments, the primary among them being a Mac OS (for the iOS app). At first, we did this manually over two days time, and obviously it was error prone: sometimes we forgot something or installed the wrong version. To resolve these issues, we created an image with a vanilla Mac OS environment that included all the software relevant to our tests. We called this our “<strong>golden image</strong>”.  At any time, if anything failed, or there was an issue, we just restored it to “the golden image”. We had a lot of snowflakes so having a golden image helped us eliminate all that.</p>
-
-<h3 id="ended-merge-nightmares-with-feature-toggles-and-trunk-based-development">2. Ended merge nightmares with feature toggles and trunk based development</h3>
-
-<p>Before I joined this project, the team were doing feature branches, which caused a lot of strain. This worsened when the team size grew and started expanding to a team distributed between two cities. Every time we merged a feature branch, it took a lot of effort and would halt everyone for a day or two before things went back to schedule.</p>
-
-<p>Making matters worse, we never ran continuous integration on these feature branches, we only had CI on our master. A branch where the code was getting pushed almost daily generally lived three to four months without continuous integration. People were doing their due diligence to make sure they'd merge master back into the feature branch to keep the code up to date, but that was never enough. We had eight feature teams in two locations; it was inevitable that people would cross paths.</p>
-
-<p>Another deeper problem caused by long-lived feature branches is that our team started becoming hesitant to do any re-factoring. When you know that the merge is going to be very difficult, people shy away from re-factoring even knowing that things are in bad shape. That meant that a huge amount of technical debt started accumulating.</p>
-
-<p>After moving to  feature toggles and trunk-based development,  some of these challenges just went away. With every commit we are basically ensuring that we have a working product - which includes all our pipelines, all our unit tests, integration tests, smoke tests, etc. going green. So the level of confidence that the developers now have when pushing any piece of code is very high.</p>
-
-<h3 id="took-advantage-of-a-good-continuous-delivery-tool">3. Took advantage of a good continuous delivery tool</h3>
-
-<h4 id="customization-and-the-ability-to-orchestrate">Customization and the ability to orchestrate</h4>
-
-<p>Before we could start leveraging our CD tool, we had to make sure that we were able to automate and continuously integrate. A CD tool can only take you so far. That said, we found the pipelines in GoCD really powerful as a first class concept. Once we got the concepts of pipelines, stages, jobs, etc. we used GoCD to our advantage to build custom workflows and were able to define what CI/CD looked like for us.</p>
-
-<h4 id="traceability">Traceability</h4>
-
-<p>Picking a tool that gives advanced traceability can save you a lot of time and agony. Recently, there was an issue that required us to make a <a href="../../../06/20/hotfixes-rollback-rollforward.html">hotfix</a> . Due to an error, the wrong git material was picked for the release pipeline. This resulted in the wrong artifact being produced and so there were random failures all over. What really helped us then, were the <a href="https://docs.gocd.org/current/configuration/build_labelling.html">GoCD labels</a>. This seemingly tiny piece of information on our pipeline helped us figure out what we were using the wrong branch!</p>
-
-<p><img src="../../../../assets/images/blog/delta-gocd/gocd-labels-601cf430.png" alt="GoCD Labels" /></p>
-
-<p>It’s not uncommon for these types of incidents to happen in projects, and without a tool that offers traceability, it would take a lot of effort to troubleshoot. I couldn’t imagine the team being able to function if we removed GoCD from our processes.</p>
-
-<h3 id="the-impact-of-these-changes">The impact of these changes</h3>
-
-<blockquote>
-  <p>Honestly, the best thing after adopting continuous delivery is that we move much faster than before and with confidence.</p>
-</blockquote>
-
-<p>The machine provisioning time reduced from two days to less than 30 minutes. The build waiting time and the time to get a build agent assigned to do the job, reduced from 6 hours to less than 10 seconds. What’s impactful is that less waiting means developers can focus without wasteful interruption. We have a big boost on team productivity. A positive change that we cannot really quantify was the effect on our culture! Our team was proactive about change. Continuous integration and automation became the new normal and we look at tech debt responsibly.</p>
-
-<p>After these improvements,  we wanted to go a bit further and find ways to improve our delivery process. We felt the need to have continuous monitoring or continuous feedback to keep understanding what needs to be fixed in our deployment cycle. This is the only place that I felt that tools like GoCD need to evolve. The idea was to get some reporting and actionable insights into our deployment cycle so we as a team can make changes as we go. Eventually, we built a custom analytics module suited for our application that we could draw insights from.</p>
-
-<hr />
-
-<p>In my experience, continuous delivery is not an end or a goal - there’s no definite point in software development when you can say that now you are “doing CD”. But from where we started, the benefits we experienced using CD practices have been immeasurable. It can be a challenge in the beginning, but if you stick by it, it hugely improves not just the quality of code that gets delivered but the quality of the team as well.</p>
-
-<p><em><a href="https://github.com/sbahal">Sanchit Bahal</a> is a Lead Technical Consultant with ThoughtWorks and has over 14 years of experience in building complex enterprise applications. He loves using devops practices and principles to build high performing delivery teams.</em></p>
+<div align="center">
+<img src="../../../../assets/images/blog/continous-delivery-vs-deployment-infographic/continuous-delivery-vs-continuous-deployment-infographic-305dd620.png" alt="The difference between Continuous Delivery and Continuous Deployment - Infographic" title="The difference between Continuous Delivery and Continuous Deployment - Infographic" />
+</div>
 
       </main>
     </div>
@@ -165,6 +124,11 @@
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <li>
+              <span class="post-date">Oct 17</span>
+              <span class="post-author">Louda Peña</span>
+              <a href="./">Infographic - What's the difference between Continuous Delivery and Continuous Deployment?</a>
+            </li>
+            <li>
               <span class="post-date">Oct 10</span>
               <span class="post-author">Vishal Naik</span>
               <a href="../../10/architecting-continuous-delivery/">Architecting for Continuous Delivery - Themes in CD Enablement</a>
@@ -184,17 +148,12 @@
               <span class="post-author">Ken Mugrage</span>
               <a href="../../../09/19/actions-spread-devops-adoption/">Part 3 - You can’t buy DevOps, but you may need to sell it: Actions to spread DevOps Adoption</a>
             </li>
-            <li>
-              <span class="post-date">Sep 12</span>
-              <span class="post-author">Ken Mugrage</span>
-              <a href="../../../09/12/value-stream-mapping/">Part 4 - CD101: Getting Started with Value Stream Mapping</a>
-            </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../../">2017 (33)</a></li>
+            <li><a href="../../../">2017 (34)</a></li>
             <li><a href="../../../../2016/">2016 (8)</a></li>
             <li><a href="../../../../2015/">2015 (21)</a></li>
             <li><a href="../../../../2014/">2014 (26)</a></li>
@@ -211,7 +170,7 @@
       <script>
         var disqus_config = function () {
           /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2017/10/17/delta-airlines-mobile-app-continuous-delivery-gocd.html";
+          this.page.url = "https://www.go.cd/2017/10/17/difference-between-continuous-delivery-continuous-deployment-infographic.html";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
         };

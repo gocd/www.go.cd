@@ -16,7 +16,7 @@
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../assets/stylesheets/site-fbc1c739.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-210c97c4.js"></script>
+    <script src="../assets/javascripts/all-e46b35fc.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -157,7 +157,7 @@
         <p class="join">If you need help downloading, installing or using GoCD please join the <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank">GoCD Users Google Group</a>.</p>
 
         <div class='subscribe-to-blog blogpost'>
-          <h3 class='subscribe-title'>Subscribe for information on new GoCD releases</h3>
+          <h3 class='subscribe-title'>Subscribe for updates on new GoCD releases</h3>
           <div id="subscribe-info">
             Send us a mail to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20GoCD%20release%20notifications">support@thoughtworks.com</a> and we will sign you up.
           </div>
@@ -258,7 +258,6 @@
 
 
   {{#*inline "show-amis"}}
-  {{#if latest_cloud_release}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <div>
       <p>The Demo AMI is for users to get started with GoCD. It contains both the GoCD server and agent with an existing
@@ -291,11 +290,6 @@
       {{/each}}
     </div>
   </div>
-  {{else}}
-  <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
-    <p>We do not provide experimental AMIs.</p>
-  </div>
-  {{/if}}
   {{/inline}}
 
 
@@ -332,7 +326,6 @@
 
 
   {{#*inline "show-docker"}}
-  {{#if latest_cloud_release}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <div class="latest">
       {{#with latest_cloud_release}}
@@ -362,11 +355,6 @@
       {{/each}}
     </div>
   </div>
-  {{else}}
-  <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
-    <p>We do not provide experimental Docker images.</p>
-  </div>
-  {{/if}}
   {{/inline}}
 
 
@@ -473,7 +461,7 @@
       currentOSPackageType = $(this).attr('rel').replace('tab-', '');
 
       showHelpLinksFor(currentOSPackageType);
-      displayAmiDropdown(currentOSPackageType, currentInstallerType);
+      displayAmiDropdown(currentOSPackageType);
     });
 
     /* Switch between stable and experimental. */
@@ -484,7 +472,7 @@
         .done(function () {
           switchActiveTab(currentOSPackageType);
           switchDownloadType(currentInstallerType);
-          displayAmiDropdown(currentOSPackageType, currentInstallerType);
+          displayAmiDropdown(currentOSPackageType);
         });
     });
 
@@ -492,8 +480,9 @@
       .done(function () {
         startTabContainer();
         switchActiveTab(currentOSPackageType);
-        displayAmiDropdown(currentOSPackageType, currentInstallerType);
+        displayAmiDropdown(currentOSPackageType);
       });
+
     showHelpLinksFor(currentOSPackageType);
     newSetupShowVerifyChecksumMessage();
   });
