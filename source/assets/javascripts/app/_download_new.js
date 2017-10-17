@@ -84,11 +84,9 @@ var newShowDownloadLinks = (function ($) {
       };
 
       var releases = R.compose(R.sort(compareVersions('go_full_version')), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
-      if (typeOfInstallersToShow === 'stable') {
-        var amiReleases = R.sort(compareVersions('go_version'))(amiData[0]);
-        var latest_cloud_release = R.head(amiReleases);
-        var other_cloud_releases = R.tail(amiReleases);
-      }
+      var amiReleases = R.sort(compareVersions('go_version'))(amiData[0]);
+      var latest_cloud_release = R.head(amiReleases);
+      var other_cloud_releases = R.tail(amiReleases);
       var latestRelease = addInfo(R.head(releases));
       var template = Handlebars.compile($("#download-revisions-template").html());
       $("#downloads").html(template({
@@ -170,8 +168,8 @@ var switchDownloadType = function (currentInstallerType) {
   $(".release-type input." + currentInstallerType).attr('checked', true);
 };
 
-var displayAmiDropdown = function (currentOSPackageType, currentInstallerType) {
-  if (currentOSPackageType === 'ami' && currentInstallerType === 'stable') {
+var displayAmiDropdown = function (currentOSPackageType) {
+  if (currentOSPackageType === 'ami') {
     $('.select-dropdown').each(function () {
       var $this = $(this), numberOfOptions = $(this).children('option').length;
 
