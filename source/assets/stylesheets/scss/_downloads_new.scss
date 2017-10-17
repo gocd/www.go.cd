@@ -480,9 +480,6 @@ body.download_new {
     .os-tab-content {
       overflow: hidden;
       margin: 0 0 20px 0;
-      @media (min-width: $screen-desktop) {
-        margin: 20px 0;
-      }
     }
     .os-tab-content {
       h2.installer-type {
