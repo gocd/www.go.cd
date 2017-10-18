@@ -100,9 +100,9 @@ body.download_new {
     }
     .server32bit,
     .server {
-      @media (max-width: $screen-xs-min) {
+      
         margin: 0 15px 15px 0;
-      }
+      
       @media (min-width: $screen-tablet) {
         margin-right: 35px;
       }
@@ -381,9 +381,7 @@ body.download_new {
     .head {
       display: block;
       padding: 5px 20px;
-      @media (min-width: $screen-desktop) {
-        padding: 10px 20px;
-      }
+
     }
     .open {
       &:after {
@@ -427,7 +425,7 @@ body.download_new {
           ul {
             li {
               span {
-                background: #ffffff;
+                background-color: #ffffff;
                 border-bottom: 1px solid $border;
                 font-size: 13px;
                 font-weight: 600;
@@ -437,7 +435,7 @@ body.download_new {
                 color: $link-color;
                 line-height: 18px;
                 @media (min-width: $screen-desktop) {
-                  padding: 10px 20px;
+                  padding: 10px 20px 10px 50px;
                 }
                 &.active {
                   border-bottom: 5px solid $primary-color;
@@ -445,7 +443,7 @@ body.download_new {
                   color: $primary-color;
                   padding: 5px 20px;
                   @media (min-width: $screen-desktop) {
-                    padding: 10px 20px;
+                    padding: 10px 20px 10px 50px;
                   }
                 }
               }
@@ -501,20 +499,22 @@ body.download_new {
         }
       }
       .tab-accordion_heading {
-        background: #e2e2e2;
+        background-color: #f5f5f5;
         color: #666;
         font-size: 14px;
         border: 1px solid $border-color;
         border-color: #979797;
         border-top: 0;
         margin: 0;
-        padding: 10px 20px;
+        padding: 10px 20px 10px 40px;
         display: block;
         cursor: pointer;
         font-weight: normal;
         &.d_active {
-          background-color: $primary-color;
-          color: #fff;
+          border-bottom-color: $primary-color;;
+          border-bottom-width: 3px;
+          color: $primary-color;;
+          font-weight: 700;
         }
         @media (min-width: $screen-desktop) {
           display: none;
@@ -719,4 +719,33 @@ body.download_new {
       margin-top: 20px !important;
     }
   }
+}
+
+.dld-win{
+  background:url(../images/dld-win.svg) no-repeat 5px 8px ;
+  background-size:24px;
+}
+.dld-osx{
+  background:url(../images/dld-osx.svg) no-repeat 5px 6px ;
+  background-size:24px;
+}
+.dld-deb{
+  background:url(../images/dld-deb.svg) no-repeat 5px 5px ;
+  background-size:24px;
+}
+.dld-rpm{
+  background:url(../images/dld-rpm.svg) no-repeat 5px 5px ;
+  background-size:24px;
+}
+.dld-zip{
+  background:url(../images/dld-zip.svg) no-repeat 5px 5px ;
+  background-size:24px;
+}
+.dld-ami{
+  background:url(../images/dld-ami.svg) no-repeat 5px 15px ;
+  background-size:24px;
+}
+.dld-docker{
+  background:url(../images/dld-docker.svg) no-repeat 5px 10px ;
+  background-size:24px;
 }
