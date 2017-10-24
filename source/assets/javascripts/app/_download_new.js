@@ -90,7 +90,7 @@ var newShowDownloadLinks = (function ($) {
       };
 
       var releases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions('go_full_version')), R.map(addURLToFiles), R.map(addDisplayVersion))(releaseData[0]);
-      var amiReleases = R.slice(0, releases.length, R.sort(compareVersions('go_version'))(amiData[0]));
+      var amiReleases = R.compose(releasesLessThanAYearOld, R.sort(compareVersions('go_version')))(amiData[0]);
 
       var latest_cloud_release = R.head(amiReleases);
       var other_cloud_releases = R.tail(amiReleases);
