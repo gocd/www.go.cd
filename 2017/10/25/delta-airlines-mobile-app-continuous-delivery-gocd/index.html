@@ -11,7 +11,7 @@
     <meta name="twitter:title" content="Continuous Delivery for Mobile Development | GoCD Blog" />
     <meta name="twitter:description" content="This post chronicles the ThoughtWorks-Delta mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them." />
     <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/delta-gocd/delta-gocd-hero-7e8b965c.jpg" />
-    <link rel="canonical" href="https://www.gocd.org/2017/10/24/delta-airlines-mobile-app-continuous-delivery-gocd" />
+    <link rel="canonical" href="https://www.gocd.org/2017/10/25/delta-airlines-mobile-app-continuous-delivery-gocd" />
 
     <title>Continuous Delivery for Mobile Development | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
@@ -27,7 +27,7 @@
 
   </head>
 
-  <body class="x2017 x2017_10 x2017_10_24 x2017_10_24_delta-airlines-mobile-app-continuous-delivery-gocd x2017_10_24_delta-airlines-mobile-app-continuous-delivery-gocd_index">
+  <body class="x2017 x2017_10 x2017_10_25 x2017_10_25_delta-airlines-mobile-app-continuous-delivery-gocd x2017_10_25_delta-airlines-mobile-app-continuous-delivery-gocd_index">
     <header class="top">
   <div class="container">
     <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
@@ -92,37 +92,80 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>As a Principal Consultant for ThoughtWorks, I had the opportunity to work with Delta Air Lines to build their <a href="https://www.thoughtworks.com/clients/delta">consumer facing mobile application</a>. My role was to ensure that the application was technically sound and remove any roadblocks for the team. During my stint on the project, one of our challenges was to help the entire team adopt continuous delivery. We had a team of approximately 80 people distributed over two locations. This post chronicles our journey to continuous delivery, the challenges along the way, and how we overcame them.</p>
+<p>As a Technical Principal, I had the opportunity to work with <a href="https://www.thoughtworks.com/clients/delta">Delta Air Lines</a> to build their consumer facing mobile application. My role was to ensure that the application was technically sound and remove any roadblocks for the team. During my stint on the project, one of our challenges was to help the entire team adopt continuous delivery. We had a team of approximately 80 people distributed over three locations. This post chronicles our journey to continuous delivery, the challenges along the way, and how we overcame them.</p>
 
 <h2 id="how-we-overcame-challenges-on-the-road-to-continuous-delivery">How we overcame challenges on the road to Continuous Delivery</h2>
 
-<h3 id="replaced-error-prone-testing-process-with-automation">1. Replaced error-prone testing process with automation</h3>
+<h3 id="creating-a-robust-build-infrastructure">1. Creating a robust build infrastructure</h3>
 
-<p>The number one challenge with mobile app development is infrastructure. We had to run simulations of tests on different environments, the primary among them being a Mac OS (for the iOS app). At first, we did this manually over two days time, and obviously it was error prone: sometimes we forgot something or installed the wrong version. To resolve these issues, we created an image with a vanilla Mac OS environment that included all the software relevant to our tests. We called this our “<strong>golden image</strong>”.  At any time, if anything failed, or there was an issue, we just restored it to “the golden image”. We had a lot of snowflakes so having a golden image helped us eliminate all that.</p>
+<p>One of the most critical success factors for any large distributed team is developer productivity. And having a robust and stable build infrastructure is key to its success. The build infrastructure needs of a mobile project are very unique - working with emulators/simulators was difficult compared to working with web browsers.</p>
 
-<h3 id="ended-merge-nightmares-with-feature-toggles-and-trunk-based-development">2. Ended merge nightmares with feature toggles and trunk based development</h3>
+<p>Some of the challenges we faced were poor utilization of our hardware, long waiting times for a build to get assigned an agent (as high as 1.5 days) and a significant loss of productivity in managing infrastructure. To add to this, we also had a broken test pyramid.</p>
 
-<p>Before I joined this project, the team were doing feature branches, which caused a lot of strain. This worsened when the team size grew and started expanding to a team distributed between two cities. Every time we merged a feature branch, it took a lot of effort and would halt everyone for a day or two before things went back to schedule.</p>
+<p>We also had to run simulations of tests on different environments, the primary among them being a Mac OS (for the iOS app). At first, we provisioned these machines manually. This process not only ended up taking over two days but we also had a lot of <a href="http://kief.com/configuration-drift.html">configuration drift</a> in the build agents.</p>
 
-<p>Making matters worse, we never ran continuous integration on these feature branches, we only had CI on our master. A branch where the code was getting pushed almost daily generally lived three to four months without continuous integration. People were doing their due diligence to make sure they'd merge master back into the feature branch to keep the code up to date, but that was never enough. We had eight feature teams in two locations; it was inevitable that people would cross paths.</p>
+<h4 id="eliminating-snowflakes">Eliminating Snowflakes</h4>
 
-<p>Another deeper problem caused by long-lived feature branches is that our team started becoming hesitant to do any re-factoring. When you know that the merge is going to be very difficult, people shy away from re-factoring even knowing that things are in bad shape. That meant that a huge amount of technical debt started accumulating.</p>
+<p>One of the things we did to mitigate this was to completely automate the provisioning of our build agents using Ansible. We created a pre-baked machine image by running our automated provisioning scripts over a vanilla Mac OS installation. We called this our <strong>golden image</strong>.  At any time, if a build agent failed due to accidental configuration drift, we just restored the <em>golden image</em> on that agent. We also introduced the concept of 'homogeneous' build agents. This enabled all build agents to run all build types (Android/iOS).</p>
 
-<p>After moving to  feature toggles and trunk-based development,  some of these challenges just went away. With every commit we are basically ensuring that we have a working product - which includes all our pipelines, all our unit tests, integration tests, smoke tests, etc. going green. So the level of confidence that the developers now have when pushing any piece of code is very high.</p>
+<blockquote>
+  <p>All these helped reduce our machine provisioning time drastically - from two days to less than 30 minutes.</p>
+</blockquote>
 
-<h3 id="took-advantage-of-a-good-continuous-delivery-tool">3. Took advantage of a good continuous delivery tool</h3>
+<h3 id="making-test-failures-more-visible">2. Making test failures more visible</h3>
 
-<h4 id="customization-and-the-ability-to-orchestrate">Customization and the ability to orchestrate</h4>
+<p>We had inherited a monolith application and found that the functional regression test suite was similarly monolithic as well. There was a single pipeline per platform (Android/iOS), and it always used to be red. It was extremely tedious to figure out which part of the application was broken. Our goal here became to make the test failures more visible, and help identify which parts of the application need our attention. To this end, we wanted to create a <a href="https://martinfowler.com/bliki/TestPyramid.html">balanced test pyramid</a>. We broke down the single regression test suite pipeline into multiple functional pipelines.</p>
+
+<p><img src="../../../../assets/images/blog/delta-gocd/breaking-down-monolith-tests-c699a617.png" alt="Breaking down monolith tests" /></p>
+
+<p>This helped us maintain our regression test suite in a green state.</p>
+
+<h3 id="ensuring-that-every-commit-leaves-the-pipeline-in-a-releasable-state">3. Ensuring that every commit leaves the pipeline in a ‘releasable’ state</h3>
+
+<p>Initially, the team were doing feature branches, which caused a lot of strain. Every time we merged a feature branch, it took a lot of effort and would halt everyone for a day or two before things went back to schedule. What made it more tricky, was that we used to run CI only on our master and not on the feature branches. A branch where the code was getting pushed almost daily generally lived three to four months without continuous integration. People were doing their due diligence to make sure they'd merge master back into the feature branch to keep the code up to date, but that was never enough. We had (at one point) eight feature teams in multiple locations; it was inevitable that people would cross paths.</p>
+
+<p>Another deeper problem caused by long-lived feature branches was that our team started becoming hesitant to do any re-factoring. When you know that the merge is going to be very difficult, people used to shy away from re-factoring even knowing that things are in bad shape. That meant that a huge amount of technical debt started accumulating.</p>
+
+<p>We started focussing on ensuring that every commit left the pipeline in a releasable state. We approached this goal in two ways, by:</p>
+
+<ul>
+  <li>building adequate tests into our CD Pipeline and</li>
+  <li>developing code keeping in mind CI/CD practices.</li>
+</ul>
+
+<p>Here’s a quick view of what our CD pipeline looked like by the end.</p>
+
+<p><img src="../../../../assets/images/blog/delta-gocd/CD-pipeline-f6e59dd8.png" alt="CD pipeline" /></p>
+
+<p>We had a combination of unit tests, integration tests, smoke tests, and regression tests (visual and functional) to make sure that each commit was ready to be deployed.</p>
+
+<p>Along with this, we also educated our team to</p>
+
+<ul>
+  <li>choose feature toggles over feature branches,</li>
+  <li>commit regularly to master and</li>
+  <li>rely on continuous integration tests.</li>
+</ul>
+
+<p>After adopting these practices, some of these challenges just went away. Now, we see that the level of confidence that the developers have when pushing any piece of code is very high.</p>
+
+<h3 id="introducing-quality-as-part-of-the-deployment-pipeline">4. Introducing quality as part of the deployment pipeline</h3>
+
+<p>In most typical setups, code quality is monitored outside of the deployment pipeline. One of the steps we took to ensure continuous delivery was making sure that code quality is part of the build pipeline. Rather than having it to be a dashboard that just worked independently of our pipeline, we integrated our build pipeline with the <a href="https://www.sonarqube.org/">SonarQube Server</a>. This allowed us to be able to run quality checks on every commit as part of the build process.</p>
+
+<p><img src="../../../../assets/images/blog/delta-gocd/sonarqube-quality-96da80f3.png" alt="SonarQube Builds" /></p>
+
+<p>Apart from this, we also added strong quality gates. So if there was a failure in SonarQube, we failed the particular build as well. This helped bring the focus of the team on quality of the code. If the code quality failed at any stage, it meant that the build was a failure, and the team sought to fix that with the same urgency as any other failure.</p>
+
+<h3 id="taking-advantage-of-a-good-continuous-delivery-tool">5. Taking advantage of a good continuous delivery tool</h3>
+
+<p><strong>Customization and the ability to orchestrate</strong></p>
 
 <p>Before we could start leveraging our CD tool, we had to make sure that we were able to automate and continuously integrate. A CD tool can only take you so far. That said, we found the pipelines in GoCD really powerful as a first class concept. Once we got the concepts of pipelines, stages, jobs, etc. we used GoCD to our advantage to build custom workflows and were able to define what CI/CD looked like for us.</p>
 
-<h4 id="traceability">Traceability</h4>
+<p><strong>Traceability</strong></p>
 
-<p>Picking a tool that gives advanced traceability can save you a lot of time and agony. Recently, there was an issue that required us to make a <a href="../../../06/20/hotfixes-rollback-rollforward.html">hotfix</a> . Due to an error, the wrong git material was picked for the release pipeline. This resulted in the wrong artifact being produced and so there were random failures all over. What really helped us then, were the <a href="https://docs.gocd.org/current/configuration/build_labelling.html">GoCD labels</a>. This seemingly tiny piece of information on our pipeline helped us figure out what we were using the wrong branch!</p>
-
-<p><img src="../../../../assets/images/blog/delta-gocd/gocd-labels-601cf430.png" alt="GoCD Labels" /></p>
-
-<p>It’s not uncommon for these types of incidents to happen in projects, and without a tool that offers traceability, it would take a lot of effort to troubleshoot. I couldn’t imagine the team being able to function if we removed GoCD from our processes.</p>
+<p>Picking a tool that gives advanced traceability can save you a lot of time and agony. Recently, there was an issue that required us to make a hotfix. Due to an error, the wrong git material was picked for the release pipeline. This resulted in the wrong artifact being produced and so there were random failures all over. It’s not uncommon for these types of incidents to happen in projects, and without a tool that offers traceability, it would take a lot of effort to troubleshoot.</p>
 
 <h3 id="the-impact-of-these-changes">The impact of these changes</h3>
 
@@ -130,13 +173,24 @@
   <p>Honestly, the best thing after adopting continuous delivery is that we move much faster than before and with confidence.</p>
 </blockquote>
 
-<p>The machine provisioning time reduced from two days to less than 30 minutes. The build waiting time and the time to get a build agent assigned to do the job, reduced from 6 hours to less than 10 seconds. What’s impactful is that less waiting means developers can focus without wasteful interruption. We have a big boost on team productivity. A positive change that we cannot really quantify was the effect on our culture! Our team was proactive about change. Continuous integration and automation became the new normal and we look at tech debt responsibly.</p>
+<p>Some measurable changes that we saw were:</p>
 
-<p>After these improvements,  we wanted to go a bit further and find ways to improve our delivery process. We felt the need to have continuous monitoring or continuous feedback to keep understanding what needs to be fixed in our deployment cycle. This is the only place that I felt that tools like GoCD need to evolve. The idea was to get some reporting and actionable insights into our deployment cycle so we as a team can make changes as we go. Eventually, we built a custom analytics module suited for our application that we could draw insights from.</p>
+<ul>
+  <li>The machine provisioning time reduced from two days to less than 30 minutes.</li>
+  <li>The build waiting time  reduced from 6 hours to less than 10 seconds.</li>
+</ul>
+
+<p>What’s impactful is that less waiting means developers can focus without wasteful interruption. We have a big boost on team productivity. A positive change that we cannot really quantify was the effect on our culture! Our team became proactive about re-factoring and tackling tech-debt. Continuous integration and automation became the new normal.</p>
+
+<h3 id="beyond-continuous-delivery">Beyond Continuous Delivery</h3>
+
+<p>After these improvements, we wanted to go a bit further and find ways to improve our delivery process. We felt the need to have continuous monitoring or continuous feedback to keep understanding what needs to be fixed in our deployment cycle. This is a place that I felt that tools like GoCD need to evolve. The idea was to get some reporting and actionable insights into our deployment cycle so we as a team can make changes as we go. Eventually, we built a custom analytics module suited for our application that we could draw insights from.</p>
+
+<p><img src="../../../../assets/images/blog/delta-gocd/analytics-dd27692c.png" alt="Monitoring Insights" /></p>
 
 <hr />
 
-<p>In my experience, continuous delivery is not an end or a goal - there’s no definite point in software development when you can say that now you are “doing CD”. But from where we started, the benefits we experienced using CD practices have been immeasurable. It can be a challenge in the beginning, but if you stick by it, it hugely improves not just the quality of code that gets delivered but the quality of the team as well.</p>
+<p>At its core, continuous delivery is a journey. In my experience, it was adopting a balance of all of these practices that helped us get closer to our goals for deployment. I don’t think we could have achieved the same measure of success with the same velocity had we only chosen to focus on one or two practices. From where we started, the benefits we experienced using CD practices have been immeasurable. It can be a challenge in the beginning, but if you stick by it, it hugely improves not just the quality of code that gets delivered but the quality of the team as well.</p>
 
 <p><em><a href="https://github.com/sbahal">Sanchit Bahal</a> is a Lead Technical Consultant with ThoughtWorks and has over 14 years of experience in building complex enterprise applications. He loves using devops practices and principles to build high performing delivery teams.</em></p>
 
@@ -211,7 +265,7 @@
       <script>
         var disqus_config = function () {
           /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2017/10/24/delta-airlines-mobile-app-continuous-delivery-gocd.html";
+          this.page.url = "https://www.go.cd/2017/10/25/delta-airlines-mobile-app-continuous-delivery-gocd.html";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
         };
