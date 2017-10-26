@@ -1,44 +1,40 @@
 ---
 layout: post
-title: "Continuous Delivery for Mobile Development - Our learnings at Delta Air Lines"
+title: "Our learnings from Continuous Delivery for Mobile Development"
 type: post
 author: Sanchit Bahal
-excerpt: "This post chronicles the ThoughtWorks-Delta mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them. "
+excerpt: "This post chronicles a mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them."
 title_tag_of_header: "Continuous Delivery for Mobile Development | GoCD Blog"
-meta_description: "This post chronicles the ThoughtWorks-Delta mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them."
-meta_keywords: "trunk based development, feature toggles, feature flags, continuous integration, deployment pipeline, delta, mobile development, mobile deployment, continuous deployment for mobile"
-summary_image: "/assets/images/blog/delta-gocd/delta-gocd-hero.jpg"
+meta_description: "This post chronicles a mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them."
+meta_keywords: "trunk based development, feature toggles, feature flags, continuous integration, deployment pipeline, mobile development, mobile deployment, continuous deployment for mobile"
+summary_image: "/assets/images/blog/mobile-app-cd-gocd/mobile-gocd-hero.jpg"
 draft: true
 ---
 <% content_for :banner do %>
 <figure>
-  <img src="/assets/images/blog/delta-gocd/delta-gocd-hero.jpg" alt="GoCD and Delta"/>
+  <img src="/assets/images/blog/mobile-app-cd-gocd/mobile-gocd-hero.jpg" alt="Challenges in deploying a mobile app"/>
 </figure>
 <% end %>
 
-As a Technical Principal, I had the opportunity to work with [Delta Air Lines](https://www.thoughtworks.com/clients/delta) to build their consumer facing mobile application. My role was to ensure that the application was technically sound and remove any roadblocks for the team. During my stint on the project, one of our challenges was to help the entire team adopt continuous delivery. We had a team of approximately 80 people distributed over three locations. This post chronicles our journey to continuous delivery, the challenges along the way, and how we overcame them. 
+As a Technical Principal, I had the opportunity to work with with one of the largest US airlines to build their consumer facing mobile application. My role was to ensure that the application was technically sound and remove any roadblocks for the team. During my stint on the project, one of our challenges was to help the entire team adopt continuous delivery. We had a team of approximately 80 people distributed over three locations. This post chronicles our journey to continuous delivery, the challenges along the way, and how we overcame them. 
 
 ## How we overcame challenges on the road to Continuous Delivery
 
 ### 1. Creating a robust build infrastructure
 
-One of the most critical success factors for any large distributed team is developer productivity. And having a robust and stable build infrastructure is key to its success. The build infrastructure needs of a mobile project are very unique - working with emulators/simulators was difficult compared to working with web browsers.
+One of the most critical success factors for any large distributed team is developer productivity. And having a robust and stable build infrastructure is key to it. The build infrastructure needs of a mobile project are very unique - working with emulators/simulators was difficult compared to working with web browsers.
 
-Some of the challenges we faced were poor utilization of our hardware, long waiting times for a build to get assigned an agent (as high as 1.5 days) and a significant loss of productivity in managing infrastructure. To add to this, we also had a broken test pyramid. 
+We used to run simulations of tests on different environments, the primary among them being Mac OS (for the iOS app). At first, we provisioned these machines manually. This process not only took over two days but also left us a lot of [configuration drift](http://kief.com/configuration-drift.html) in the build agents. We ended up with poor utilization of our hardware, long waiting time for build (as long as 1.5 days) and significant loss of productivity in managing infrastructure. 
 
-We also had to run simulations of tests on different environments, the primary among them being a Mac OS (for the iOS app). At first, we provisioned these machines manually. This process not only ended up taking over two days but we also had a lot of [configuration drift](http://kief.com/configuration-drift.html) in the build agents. 
-
-#### Eliminating Snowflakes
-
-One of the things we did to mitigate this was to completely automate the provisioning of our build agents using Ansible. We created a pre-baked machine image by running our automated provisioning scripts over a vanilla Mac OS installation. We called this our **golden image**.  At any time, if a build agent failed due to accidental configuration drift, we just restored the *golden image* on that agent. We also introduced the concept of 'homogeneous' build agents. This enabled all build agents to run all build types (Android/iOS). 
+To mitigate this, we decided to completely automate the provisioning of our build agents using Ansible. We also created a pre-baked machine image by running our automated provisioning scripts over a vanilla Mac OS installation. We called this our **“golden image”**.  At any time, if a build agent failed due to accidental configuration drift, we just restored the 'golden image' on that agent. We also introduced the concept of 'homogeneous' build agents. This enabled all build agents to run all build types (Android/iOS). 
 
 > All these helped reduce our machine provisioning time drastically - from two days to less than 30 minutes.
 
 ### 2. Making test failures more visible
 
-We had inherited a monolith application and found that the functional regression test suite was similarly monolithic as well. There was a single pipeline per platform (Android/iOS), and it always used to be red. It was extremely tedious to figure out which part of the application was broken. Our goal here became to make the test failures more visible, and help identify which parts of the application need our attention. To this end, we wanted to create a [balanced test pyramid](https://martinfowler.com/bliki/TestPyramid.html). We broke down the single regression test suite pipeline into multiple functional pipelines. 
+We had inherited a monolith application and found that the functional regression test suite was similarly monolithic as well. There was a single pipeline per platform (Android/iOS), and it always used to be red. It was extremely tedious to figure out which part of the application was broken. Our goal here became to make the test failures more visible, and help identify which parts of the application need our attention. To this end, we broke down the single regression test suite pipeline into multiple functional pipelines. This also helped us maintain our regression test suite in a green state.
 
-<img src="/assets/images/blog/delta-gocd/breaking-down-monolith-tests.png" alt="Breaking down monolith tests"/>
+<img src="/assets/images/blog/mobile-app-cd-gocd/breaking-down-monolith-tests.png" alt="Breaking down monolith tests"/>
 
 This helped us maintain our regression test suite in a green state.
 
@@ -55,7 +51,7 @@ We started focussing on ensuring that every commit left the pipeline in a releas
   
 Here’s a quick view of what our CD pipeline looked like by the end. 
 
-<img src="/assets/images/blog/delta-gocd/CD-pipeline.png" alt="CD pipeline"/>
+<img src="/assets/images/blog/mobile-app-cd-gocd/CD-pipeline.png" alt="CD pipeline"/>
 
 We had a combination of unit tests, integration tests, smoke tests, and regression tests (visual and functional) to make sure that each commit was ready to be deployed. 
 
@@ -71,7 +67,7 @@ After adopting these practices, some of these challenges just went away. Now, we
 
 In most typical setups, code quality is monitored outside of the deployment pipeline. One of the steps we took to ensure continuous delivery was making sure that code quality is part of the build pipeline. Rather than having it to be a dashboard that just worked independently of our pipeline, we integrated our build pipeline with the [SonarQube Server](https://www.sonarqube.org/). This allowed us to be able to run quality checks on every commit as part of the build process. 
 
-<img src="/assets/images/blog/delta-gocd/sonarqube-quality.png" alt="SonarQube Builds"/>
+<img src="/assets/images/blog/mobile-app-cd-gocd/sonarqube-quality.png" alt="SonarQube Builds"/>
 
 Apart from this, we also added strong quality gates. So if there was a failure in SonarQube, we failed the particular build as well. This helped bring the focus of the team on quality of the code. If the code quality failed at any stage, it meant that the build was a failure, and the team sought to fix that with the same urgency as any other failure. 
 
@@ -101,7 +97,7 @@ What’s impactful is that less waiting means developers can focus without waste
 
 After these improvements, we wanted to go a bit further and find ways to improve our delivery process. We felt the need to have continuous monitoring or continuous feedback to keep understanding what needs to be fixed in our deployment cycle. This is a place that I felt that tools like GoCD need to evolve. The idea was to get some reporting and actionable insights into our deployment cycle so we as a team can make changes as we go. Eventually, we built a custom analytics module suited for our application that we could draw insights from. 
 
-<img src="/assets/images/blog/delta-gocd/analytics.png" alt="Monitoring Insights"/>
+<img src="/assets/images/blog/mobile-app-cd-gocd/analytics.png" alt="Monitoring Insights"/>
 
 --- 
 
