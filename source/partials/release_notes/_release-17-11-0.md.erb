@@ -1,53 +1,31 @@
 <h4>UX Changes</h4>
 * <%= link_to_commit '67f1605fca894ea9855d16a283a913335200f3b2', 'Find Value Stream Map (VSM) more easily', 3705%> (<%= link_to_issue 3858%>)
 
-    <%= link_to_commit '9f6909e2f64b07d2dce5cecd4ea5b92b8e19d6b1', 'Renames pipeline \'Label\' to \'Instance\' as part of an ongoing UX refresh.', 3944 %> (<%= link_to_issue 3949%>)
-
-    Pipeline instances have an explict link to VSM across the application for better discoverablity. Moreover, the term pipeline `Label` has been changed to `Instance` as part of an ongoing UX refresh.
+    Pipeline instances have an explict link to VSM across the application for better discoverablity.
 
   <figure class='shrink-figure-50'>
       <%= image_tag 'releases/17.11.0/vsm-explicit-link-dashboard.png', alt: 'Explicit vsm link in dashboard' %>
   </figure>
 
-  <figure class='shrink-figure-50'>
-      <%= image_tag 'releases/17.11.0/vsm-explicit-link-vsm.png', alt: 'Explicit vsm link in vsm' %>
-  </figure>
+<h4>Improvements</h4>
 
-  Page headers refreshed across application
-  <figure class='shrink-figure-50'>
-      <%= image_tag 'releases/17.11.0/vsm-explicit-link-stage-details.png', alt: 'Explicit vsm link in stage details header' %>
-  </figure>
-
-  <figure class='shrink-figure-50'>
-      <%= image_tag 'releases/17.11.0/vsm-explicit-link-vsm-header.png', alt: 'Explicit vsm link in vsm header' %>
-  </figure>
-
-  <figure class='shrink-figure-50'>
-      <%= image_tag 'releases/17.11.0/vsm-explicit-link-job-details-header.png', alt: 'Explicit vsm link in job details page header' %>
-  </figure>
-
-<h4>Other Improvements</h4>
-
-* <%= link_to_commit 'eb7305e41c03df0266974c6b7f432aac4f491cf1', 'Improves classloading and resource management', 3792 %>
-
-  Prevents file-descriptor and classloader leaks by ensuring that:
-
-  * Classloaders for agent-launcher and agent are closed properly
-  * Temporary jar files that are extracted are removed after closing the
-    classloaders
-  * File watcher from log4j is replaced with a custom implementation
-
-* <%= link_to_commit 'f501efc5a00519461fdf7d93081f83fcca7df2b9', 'Move to logback for logging', 3831 %>
-  * As a part of this change, `*-log4j.properties` have been moved over to `*-logback.xml`.
-  * This migration solves a number of logging related issues such as <%= link_to_issue 3588%>, <%= link_to_issue 3557%> and <%= link_to_issue 3403%>
-
-* <%= link_to_commit 'a8d09f30be8947165696083039146a33a06fc5a0', 'Provides support for parameters and template references in config repo pipelines.' %>
-* <%= link_to_commit '36b675e24c7bc7185048f46499c699f9a49ff8e4', 'Introduces support for bitbucket webhook' %>
-* <%= link_to_commit '6320d55722cde007995579d4fe6ec786b6287ea6', 'Introduces support for gitlab webhook' %>
-* <%= link_to_commit '2cb4c003353e0b4b421af50680d6001cfa864a1a', 'Makes Go Server session timeout configurable', 3856 %>
-* <%= link_to_commit '4e5eeda6eced3defed84a85761cf0f101945b90c', 'Updates footer links to point to installed version\'s api and docs pages', 3837 %>
+* <%= link_to_commit 'a8d09f30be8947165696083039146a33a06fc5a0', 'Added support for parameters and template references in config repo pipelines.', 3851 %> (<%= link_to_issue 3849%>)
+* <%= link_to_commit '36b675e24c7bc7185048f46499c699f9a49ff8e4', 'Added support for bitbucket webhook', 3862 %>
+* <%= link_to_commit '6320d55722cde007995579d4fe6ec786b6287ea6', 'Added support for gitlab webhook', 3862 %>
+* <%= link_to_commit '2cb4c003353e0b4b421af50680d6001cfa864a1a', 'GoCD Server session timeout has been made configurable', 3856 %> (<%= link_to("docs", "https://docs.gocd.org/current/configuration/dev_authentication.html") %>)
 * <%= link_to_commit 'e51f3b6427d2b44588d6a4c6a1d0a832b2b8ad82', 'GoCD Agent supports configuring proxies', 995 %>
-* <%= link_to_commit 'c7ec496fe8967206a28902e0f94aae033d5c2386', 'Links pipeline group names in dashboard to corresponding pipeline group settings page for an admin or pipeline group admin.', 3795 %>
+
+<h4>Breaking Changes</h4>
+* <%= link_to_commit 'f501efc5a00519461fdf7d93081f83fcca7df2b9', 'Move over to logback from log4j for logging', 3831 %>
+
+  * Switching to logback solves a number of logging related issues such as <%= link_to_issue 3588%>, <%= link_to_issue 3557%> and <%= link_to_issue 3403%>
+  * The users should now configure logging using corresponding `logback.xml` instead of `log4j.properties` for both server and agents (<%= link_to("docs", "https://docs.gocd.org/current/advanced_usage/logging.html") %>).
+  * This has been marked as a breaking change since GoCD would no longer honour `log4j.properties` file. Users managing `log4j.properties` file externally would have to update their scripts to use the `logback.xml` instead.
+
+* Support for phusion based docker [server](https://hub.docker.com/r/gocd/gocd-server-deprecated/) and [agent](https://hub.docker.com/r/gocd/gocd-agent-deprecated/) images have been removed this release. We provide support for the docker images for GoCD agents across the following operating systems - Alpine [3.5](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/), CentOS [6](https://hub.docker.com/r/gocd/gocd-agent-centos-6/) & [7](https://hub.docker.com/r/gocd/gocd-agent-centos-7/) , Debian [7](https://hub.docker.com/r/gocd/gocd-agent-debian-7/) & [8](https://hub.docker.com/r/gocd/gocd-agent-debian-8/), Ubuntu [12.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/), [14.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/) & [16.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/)
+
+<h4>Performance Fixes</h4>
+* <%= link_to_commit 'eb7305e41c03df0266974c6b7f432aac4f491cf1', 'Fixes memory leak issue in agent-bootstrapper/launcher caused by server upgrades', 3792 %>
 
 <h4>Bug Fixes</h4>
 * <%= link_to_commit 'cef6649637d4de2d7bedb6b00f0fa759cb310fe6', 'Fixes a race condition during Job reschedule', 3891 %>
@@ -56,18 +34,16 @@
 * <%= link_to_commit '686c76d62ad18ae8ffa1299bef2f82e3a225bb4c', 'Fixes issue with users authenticated using WebBasedAuthentication not assigned the right permissions', 3878 %>
 
 <h4>API Changes</h4>
-* <%= link_to_commit 'cba778c7770295fad4d036c82a7802caf41aa723', 'Introduces health check API for Server.', 3912 %>
-* <%= link_to_commit '97df2bfa2578349193c26250d2be59c0909dce58', 'Introduces health check api for agent', 3781 %> (<%= link_to_issue 3074%>)
-* <%= link_to_commit 'e4d041b2340ee6b7928a5fb11b6d3d787665dd1f', 'Adds v2 of Users API', 3720 %>
+* <%= link_to_commit 'cba778c7770295fad4d036c82a7802caf41aa723', 'Introduced health check API for Server.', 3912 %>
+* <%= link_to_commit '97df2bfa2578349193c26250d2be59c0909dce58', 'Introduced health check api for agent', 3781 %> (<%= link_to_issue 3074%>)
+* <%= link_to_commit 'e4d041b2340ee6b7928a5fb11b6d3d787665dd1f', 'Introduced v2 of Users API to support bulk deletion', 3720 %>
 
 <h4>Docker Images</h4>
 * We have made a few changes to the <%= link_to("GoCD Server", "https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md#docker-gocd-server-17110")%> and the <%= link_to("GoCD Agent", "https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md#docker-gocd-agent-17110")%> Docker images.
 
-<h4>Breaking Changes</h4>
-* Support for phusion based docker [server](https://hub.docker.com/r/gocd/gocd-server-deprecated/) and [agent](https://hub.docker.com/r/gocd/gocd-agent-deprecated/) images have been removed this release. We provide support for the docker images for GoCD agents across the following operating systems - Alpine [3.5](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/), CentOS [6](https://hub.docker.com/r/gocd/gocd-agent-centos-6/) & [7](https://hub.docker.com/r/gocd/gocd-agent-centos-7/) , Debian [7](https://hub.docker.com/r/gocd/gocd-agent-debian-7/) & [8](https://hub.docker.com/r/gocd/gocd-agent-debian-8/), Ubuntu [12.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/), [14.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/) & [16.04](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/)
-
 <h4>Deprecations</h4>
 * As of release 17.9, version 2 of the plugin info <%= link_to_api 'plugin-info' %> is deprecated. This version of the API will be removed in 17.12.0 release (scheduled to be released in November 2017). Version 3 of the API is available, and users are encouraged to use it.
+* As of release 17.11, version 1 of the users <%= link_to_api 'users' %> is deprecated. This version of the API will be removed in 18.1.0 release (scheduled to be released in January 2018). Version 2 of the API is available, and users are encouraged to use it.
 * As of release 17.5, authentication plugin endpoints have been deprecated. Support for these plugins will be removed in 18.1 (scheduled to be released in January 2018). Plugin developers are encouraged to migrate their plugins to use the [Authorization Plugins](https://plugin-api.gocd.org/current/authorization/) that were introduced. The following plugins are affected by this deprecation:
     <ul>
       <li><p><%= link_to('Google OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %>
@@ -90,7 +66,6 @@
       <li><p><%= link_to('Strong Auth Plugin', 'https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin') %></p></li>
       <li><p><%= link_to('Guest Login', 'https://github.com/gocd-contrib/gocd_auth_plugin_guest_user') %></p></li>
     </ul>
-* <%= link_to_commit '8571bc13a55853ecff3f19e59f312b2e8b7a1e60', 'Removes garage controller and associated services', 3923 %>
 
 
 <h4>Note</h4>
