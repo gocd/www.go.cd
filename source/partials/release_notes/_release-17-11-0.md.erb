@@ -99,7 +99,7 @@
   "Suzie Prince",
   "Tomasz Setkowski",
   "Varsha Varadarajan"
-].sort.uniq.join(', ')
+].sort{ |w1, w2| w1.casecmp(w2) }.uniq.join(', ')
 %>
 
 <!--
