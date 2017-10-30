@@ -1,5 +1,5 @@
 <h4>UX Changes</h4>
-* <%= link_to_commit '67f1605fca894ea9855d16a283a913335200f3b2', 'Find Value Stream Map (VSM) more easily', 3705%> (<%= link_to_issue 3858%>)
+* <%= link_to_commit '67f1605fca894ea9855d16a283a913335200f3b2', 'Find Value Stream Map (VSM) more easily and show pipeline run duration in VSM', 3705%> (<%= link_to_issue 3858%>)
 
     Pipeline instances have an explict link to VSM across the application for better discoverablity.
 
@@ -7,6 +7,10 @@
       <%= image_tag 'releases/17.11.0/vsm-explicit-link-dashboard.png', alt: 'Explicit vsm link in dashboard' %>
   </figure>
 
+    Pipeline run duration shown in VSM:
+   <figure class='shrink-figure-50'>
+      <%= image_tag 'releases/17.11.0/pipeline-run-duration-in-vsm.png', alt: 'Pipeline run duration in VSM' %>
+  </figure>
 <h4>Improvements</h4>
 
 * <%= link_to_commit 'a8d09f30be8947165696083039146a33a06fc5a0', 'Added support for parameters and template references in config repo pipelines.', 3851 %> (<%= link_to_issue 3849%>)
@@ -39,7 +43,7 @@
 * <%= link_to_commit 'e4d041b2340ee6b7928a5fb11b6d3d787665dd1f', 'Introduced v2 of Users API to support bulk deletion', 3720 %>
 
 <h4>Docker Images</h4>
-* We have made a few changes to the <%= link_to("GoCD Server", "https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md#docker-gocd-server-17110")%> and the <%= link_to("GoCD Agent", "https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md#docker-gocd-agent-17110")%> Docker images.
+* We have made a few changes to the GoCD Server (<%= link_to("Changelog", "https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md#docker-gocd-server-17110")%>) and the GoCD Agent (<%= link_to("Changelog", "https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md#docker-gocd-agent-17110")%>) Docker images.
 
 <h4>Deprecations</h4>
 * As of release 17.9, version 2 of the plugin info <%= link_to_api 'plugin-info' %> is deprecated. This version of the API will be removed in 17.12.0 release (scheduled to be released in November 2017). Version 3 of the API is available, and users are encouraged to use it.
@@ -78,6 +82,7 @@
   "Ankur K",
   "Aravind SV",
   "Bhupendrakumar Piprava",
+  "stayclassychicago",
   "Drew J. Sonne",
   "Emily Luke",
   "Isabelle Carter",
@@ -94,7 +99,7 @@
   "Suzie Prince",
   "Tomasz Setkowski",
   "Varsha Varadarajan"
-].sort.uniq.join(', ')
+].sort{ |w1, w2| w1.casecmp(w2) }.uniq.join(', ')
 %>
 
 <!--
