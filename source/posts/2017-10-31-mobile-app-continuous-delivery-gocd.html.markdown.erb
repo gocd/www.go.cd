@@ -8,7 +8,6 @@ title_tag_of_header: "Continuous Delivery for Mobile Development | GoCD Blog"
 meta_description: "This post chronicles a mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them."
 meta_keywords: "trunk based development, feature toggles, feature flags, continuous integration, deployment pipeline, mobile development, mobile deployment, continuous deployment for mobile"
 summary_image: "/assets/images/blog/mobile-app-cd-gocd/mobile-gocd-hero.jpg"
-draft: true
 ---
 <% content_for :banner do %>
 <figure>
@@ -16,7 +15,7 @@ draft: true
 </figure>
 <% end %>
 
-As a Technical Principal, I had the opportunity to work with with one of the largest US airlines to build their consumer facing mobile application. My role was to ensure that the application was technically sound and remove any roadblocks for the team. During my stint on the project, one of our challenges was to help the entire team adopt continuous delivery. We had a team of approximately 80 people distributed over three locations. This post chronicles our journey to continuous delivery, the challenges along the way, and how we overcame them. 
+As a Technical Principal, I had the opportunity to work with one of the largest US airlines to build their consumer facing mobile application. My role was to ensure that the application was technically sound and remove any roadblocks for the team. During my stint on the project, one of our challenges was to help the entire team adopt continuous delivery. We had a team of approximately 80 people distributed over three locations. This post chronicles our journey to continuous delivery, the challenges along the way, and how we overcame them. 
 
 ## How we overcame challenges on the road to Continuous Delivery
 
@@ -32,7 +31,7 @@ To mitigate this, we decided to completely automate the provisioning of our buil
 
 ### 2. Making test failures more visible
 
-We had inherited a monolith application and found that the functional regression test suite was similarly monolithic as well. There was a single pipeline per platform (Android/iOS), and it always used to be red. It was extremely tedious to figure out which part of the application was broken. Our goal here became to make the test failures more visible, and help identify which parts of the application need our attention. To this end, we broke down the single regression test suite pipeline into multiple functional pipelines. This also helped us maintain our regression test suite in a green state.
+When we started, we had inherited a monolithic application. Over time, with more and more functionality getting added to the application, our functional regression suite became extremely difficult to work with. There was a single pipeline per platform (Android/iOS), and it always used to be red. It was extremely tedious to figure out which part of the application was broken. Our goal here became to make the test failures more visible, and help identify which parts of the application need our attention. To this end, we broke down the single regression test suite pipeline into multiple functional pipelines. This also helped us maintain our regression test suite in a green state.
 
 <img src="/assets/images/blog/mobile-app-cd-gocd/breaking-down-monolith-tests.png" alt="Breaking down monolith tests"/>
 
