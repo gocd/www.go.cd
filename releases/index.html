@@ -87,7 +87,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker">
-      <li rel="tab-17-10-0" class="tab-marker active">17.10.0 (latest)</li>
+      <li rel="tab-17-11-0" class="tab-marker active">17.11.0 (latest)</li>
+      <li rel="tab-17-10-0" class="tab-marker">17.10.0</li>
       <li rel="tab-17-9-0" class="tab-marker">17.9.0</li>
       <li rel="tab-17-8-0" class="tab-marker">17.8.0</li>
       <li rel="tab-17-7-0" class="tab-marker">17.7.0</li>
@@ -121,7 +122,132 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-17-10-0">17.10.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-17-11-0">17.11.0 (latest)</h3>
+      <div id="tab-17-11-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>UX Changes</h4>
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/67f1605fca894ea9855d16a283a913335200f3b2">67f1605</a></code> - Find Value Stream Map (VSM) more easily and show pipeline run duration in VSM. (<a href="https://github.com/gocd/gocd/issues/3705">#3705</a>) (<a href="https://github.com/gocd/gocd/issues/3858">#3858</a>)</p>
+
+    <p>Pipeline instances have an explict link to VSM across the application for better discoverablity.</p>
+
+    <figure class="shrink-figure-50">
+    <img src="../assets/images/releases/17.11.0/vsm-explicit-link-dashboard-e4e4571c.png" alt="Explicit vsm link in dashboard" />
+</figure>
+
+    <p>Pipeline run duration shown in VSM:</p>
+    <figure class="shrink-figure-50">
+    <img src="../assets/images/releases/17.11.0/pipeline-run-duration-in-vsm-4d3bffed.png" alt="Pipeline run duration in VSM" />
+</figure>
+  </li>
+</ul>
+<h4>Improvements</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/a8d09f30be8947165696083039146a33a06fc5a0">a8d09f3</a></code> - Added support for parameters and template references in config repo pipelines. (<a href="https://github.com/gocd/gocd/issues/3851">#3851</a>) (<a href="https://github.com/gocd/gocd/issues/3849">#3849</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/36b675e24c7bc7185048f46499c699f9a49ff8e4">36b675e</a></code> - Added support for bitbucket webhook. (<a href="https://github.com/gocd/gocd/issues/3862">#3862</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/6320d55722cde007995579d4fe6ec786b6287ea6">6320d55</a></code> - Added support for gitlab webhook. (<a href="https://github.com/gocd/gocd/issues/3862">#3862</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/2cb4c003353e0b4b421af50680d6001cfa864a1a">2cb4c00</a></code> - GoCD Server session timeout has been made configurable. (<a href="https://github.com/gocd/gocd/issues/3856">#3856</a>) (<a href="https://docs.gocd.org/current/configuration/dev_authentication.html">docs</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e51f3b6427d2b44588d6a4c6a1d0a832b2b8ad82">e51f3b6</a></code> - GoCD Agent supports configuring proxies. (<a href="https://github.com/gocd/gocd/issues/995">#995</a>)</li>
+</ul>
+
+<h4>Breaking Changes</h4>
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/f501efc5a00519461fdf7d93081f83fcca7df2b9">f501efc</a></code> - Move over to logback from log4j for logging. (<a href="https://github.com/gocd/gocd/issues/3831">#3831</a>)</p>
+
+    <ul>
+      <li>Switching to logback solves a number of logging related issues such as <a href="https://github.com/gocd/gocd/issues/3588">#3588</a>, <a href="https://github.com/gocd/gocd/issues/3557">#3557</a> and <a href="https://github.com/gocd/gocd/issues/3403">#3403</a></li>
+      <li>The users should now configure logging using corresponding <code>logback.xml</code> instead of <code>log4j.properties</code> for both server and agents (<a href="https://docs.gocd.org/current/advanced_usage/logging.html">docs</a>).</li>
+      <li>This has been marked as a breaking change since GoCD would no longer honour <code>log4j.properties</code> file. Users managing <code>log4j.properties</code> file externally would have to update their scripts to use the <code>logback.xml</code> instead.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Support for phusion based docker <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">server</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">agent</a> images have been removed this release. We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></p>
+  </li>
+</ul>
+
+<h4>Performance Fixes</h4>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/eb7305e41c03df0266974c6b7f432aac4f491cf1">eb7305e</a></code> - Fixes memory leak issue in agent-bootstrapper/launcher caused by server upgrades. (<a href="https://github.com/gocd/gocd/issues/3792">#3792</a>)</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/cef6649637d4de2d7bedb6b00f0fa759cb310fe6">cef6649</a></code> - Fixes a race condition during Job reschedule. (<a href="https://github.com/gocd/gocd/issues/3891">#3891</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/a1f99453ca629c18753a8835e406e621fa1cb560">a1f9945</a></code> - Improves checksums for agent jar(s) download. (<a href="https://github.com/gocd/gocd/issues/3884">#3884</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/4db7e52bed39e539e4c6f71e789bee188e3e5bd2">4db7e52</a></code> - Does not show the settings icon for config repo pipelines on VSM. (<a href="https://github.com/gocd/gocd/issues/3892">#3892</a>) (<a href="https://github.com/gocd/gocd/issues/3881">#3881</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/686c76d62ad18ae8ffa1299bef2f82e3a225bb4c">686c76d</a></code> - Fixes issue with users authenticated using WebBasedAuthentication not assigned the right permissions. (<a href="https://github.com/gocd/gocd/issues/3878">#3878</a>)</li>
+</ul>
+
+<h4>API Changes</h4>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/cba778c7770295fad4d036c82a7802caf41aa723">cba778c</a></code> - Introduced health check API for Server. (<a href="https://github.com/gocd/gocd/issues/3912">#3912</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/97df2bfa2578349193c26250d2be59c0909dce58">97df2bf</a></code> - Introduced health check api for agent. (<a href="https://github.com/gocd/gocd/issues/3781">#3781</a>) (<a href="https://github.com/gocd/gocd/issues/3074">#3074</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e4d041b2340ee6b7928a5fb11b6d3d787665dd1f">e4d041b</a></code> - Introduced v2 of Users API to support bulk deletion. (<a href="https://github.com/gocd/gocd/issues/3720">#3720</a>)</li>
+</ul>
+
+<h4>Docker Images</h4>
+<ul>
+  <li>We have made a few changes to the GoCD Server (<a href="https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md#docker-gocd-server-17110">Changelog</a>) and the GoCD Agent (<a href="https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md#docker-gocd-agent-17110">Changelog</a>) Docker images.</li>
+</ul>
+
+<h4>Deprecations</h4>
+<ul>
+  <li>As of release 17.9, version 2 of the plugin info <a href="https://api.gocd.org/current/#plugin-info">API</a> is deprecated. This version of the API will be removed in 17.12.0 release (scheduled to be released in November 2017). Version 3 of the API is available, and users are encouraged to use it.</li>
+  <li>As of release 17.11, version 1 of the users <a href="https://api.gocd.org/current/#users">API</a> is deprecated. This version of the API will be removed in 18.1.0 release (scheduled to be released in January 2018). Version 2 of the API is available, and users are encouraged to use it.</li>
+  <li>As of release 17.5, authentication plugin endpoints have been deprecated. Support for these plugins will be removed in 18.1 (scheduled to be released in January 2018). Plugin developers are encouraged to migrate their plugins to use the <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugins</a> that were introduced. The following plugins are affected by this deprecation:
+    <ul>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">Google OAuth Login</a>
+    (Alternative: <a href="https://github.com/gocd-contrib/google-oauth-authorization-plugin">Google OAuth Authorization Plugin</a>)
+    </p>
+    </li>
+
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitHub OAuth Login</a>
+    (Alternative: <a href="https://github.com/gocd-contrib/github-oauth-authorization-plugin">GitHub OAuth Authorization Plugin</a>)
+    </p></li>
+
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitLab(CE) OAuth Login</a>
+    (Alternative: <a href="https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin">GitLab OAuth Authorization Plugin</a>)
+    </p></li>
+
+    <li><p><a href="https://github.com/cnorthwood/gocd-tls-auth">TLS Client Certificates Login</a>
+    (Use <a href="https://github.com/cnorthwood/gocd-tls-auth/releases">latest version</a> of TLS Client Certificates Login instead.)
+    </p></li>
+
+    <li><p><a href="https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin">Strong Auth Plugin</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a></p></li>
+  </ul>
+  </li>
+</ul>
+
+<h4>Note</h4>
+<ul>
+  <li>With release 17.5.0 support for in-built password file and LDAP/AD authentication had been deprecated. In this release support for this has been removed in favour of the bundled <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">LDAP</a>  and <a href="https://github.com/gocd/filebased-authentication-plugin">Password File</a> plugins respectively.</li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Drew J. Sonne, Emily Luke, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mikhail Advani, Naveen Bhaskar, Rajiesh N, Senthil R, stayclassychicago, Suzie Prince, Tomasz Setkowski, Varsha Varadarajan</p>
+
+<!--
+<h4>Security researchers</h4>
+
+<a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
+-->
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.11%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-17-10-0">17.10.0</h3>
       <div id="tab-17-10-0" class="tab_content" style="display: block;">
         <div class="content">
           <p><strong>Important:</strong> After the 17.9 release, we made an announcement asking users to hold off upgrading their GoCD instance. We found an issue (<a href="https://github.com/gocd/gocd/issues/3834">#3834</a>) affecting a small set of users. This release provides a fix for the same.</p>
