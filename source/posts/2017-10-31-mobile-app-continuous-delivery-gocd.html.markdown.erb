@@ -22,7 +22,7 @@ As a Technical Principal, I had the opportunity to work with one of the largest 
 
 ### 1. Creating a robust build infrastructure
 
-One of the most critical success factors for any large distributed team is developer productivity. And having a robust and stable build infrastructure is key to it. The build infrastructure needs of a mobile project are very unique - working with emulators/simulators was difficult compared to working with web browsers.
+One of the most critical success factors for any large distributed team is developer productivity. And having a robust and stable build infrastructure is key. The build infrastructure needs of a mobile project are very unique and working with emulators/simulators was difficult compared to working with web browsers.
 
 We used to run simulations of tests on different environments, the primary among them being Mac OS (for the iOS app). At first, we provisioned these machines manually. This process not only took over two days but also left us a lot of [configuration drift](http://kief.com/configuration-drift.html) in the build agents. We ended up with poor utilization of our hardware, long waiting time for build (as long as 1.5 days) and significant loss of productivity in managing infrastructure. 
 
@@ -35,8 +35,6 @@ To mitigate this, we decided to completely automate the provisioning of our buil
 When we started, we had inherited a monolithic application. Over time, with more and more functionality getting added to the application, our functional regression suite became extremely difficult to work with. There was a single pipeline per platform (Android/iOS), and it always used to be red. It was extremely tedious to figure out which part of the application was broken. Our goal here became to make the test failures more visible, and help identify which parts of the application need our attention. To this end, we broke down the single regression test suite pipeline into multiple functional pipelines. This also helped us maintain our regression test suite in a green state.
 
 <img src="/assets/images/blog/mobile-app-cd-gocd/breaking-down-monolith-tests.png" alt="Breaking down monolith tests"/>
-
-This helped us maintain our regression test suite in a green state.
 
 ### 3. Ensuring that every commit leaves the pipeline in a ‘releasable’ state 
 
