@@ -47,8 +47,8 @@ REDIRECTS = {
   "gocdvsjenkins/index.html"                    => "/2017/04/25/gocd-over-jenkins/index.html",
   "arrested/index.html"                         => "/index.html?utm_campaign=arrested_ops_2017&utm_medium=podcast&utm_source=podcast_arrested&utm_content=go_website&utm_term=",
   "spinnaker/index.html"                         => "/2017/07/10/gocd-vs-spinnaker/index.html",
-  "podcastinit/index.html"                       => "/index.html?utm_campaign=podcastinit_2017&utm_medium=podcast&utm_source=podcast_audio&utm_content=go_website&utm_term="
-
+  "podcastinit/index.html"                       => "/index.html?utm_campaign=podcastinit_2017&utm_medium=podcast&utm_source=podcast_audio&utm_content=go_website&utm_term=",
+  "101/index.html"                               => "/tags/cd-101.html"
   }
 #To ignore HtmlCheck for URL's with &, update file_ignore options in lib/tasks/static_checks.rake
 activate :sprockets
