@@ -38,7 +38,7 @@ In 2012, we started moving our product to the cloud. This meant that Mingle was 
 
 We took a closer look at our practices and processes and we found big gaps in our cycle time.
 
-> 25% of that three-month release cycle was actually taken up by an activity we called installer testing.
+> **_"25% of that three-month release cycle was actually taken up by an activity we called installer testing."_**
 
 
 We were taking our installer and testing it on a combination of different operating systems and browsers to ensure that when we shipped it to our customer, it worked on their hardware. This process took about two or three weeks. At the end of every release, we could not be ready to ship our software until the ‘installer testing’ was done. Before we were pushed into thinking about delivering frequently, we really hadn't tried to optimize this.
@@ -47,11 +47,11 @@ We were taking our installer and testing it on a combination of different operat
 
 Here’s Jez Humble's definition of continuous delivery from his book: 
 
-> Continuous delivery is the ability to get all kinds of changes, configuration codes, features, bug fixes, infrastructure, everything into the hands of users safely, quickly and in a reliable manner. 
+> **_"Continuous delivery is the ability to get all kinds of changes, configuration codes, features, bug fixes, infrastructure, everything into the hands of users safely, quickly and in a reliable manner."_** 
 
 In practice, what it comes down to is [feedback loops](https://www.gocd.org/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/). Your check-ins trigger automation tests that run and give you feedback. At any step, if you see  any failures, you need to know why, and once that goes green, then you move on to other kind of tests, e.g. performance tests, security tests. Each of this is a feedback loop. It could be manual or automated, but the idea is to go from test-to-test, getting more and more confidence as you go towards production. So when you actually deploy into production, you're assured that it's going to work. 
 
-<img src="/assets/images/blog/mobile-app-cd-gocd/breaking-down-monolith-tests.png" alt="Breaking down monolith tests"/>
+<img src="/assets/images/blog/cd-confessions-mingle/feedback-loops.png" alt="Feedback Loops"/>
 
 ## Confession: We secretly knew that there were areas in our deployment that we needed to optimize. 
 
