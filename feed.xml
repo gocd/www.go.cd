@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2017-10-31T00:00:00Z</updated>
+  <updated>2017-11-07T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Confessions of continuous delivery experts: How Mingle saw the light</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool.html"/>
+    <id>https://www.gocd.org/2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool.html</id>
+    <published>2017-11-07T00:00:00Z</published>
+    <updated>2017-11-07T00:00:00Z</updated>
+    <author>
+      <name>Suzie Prince and Aravind S.V</name>
+    </author>
+    <content type="html">This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine. </content>
+  </entry>
   <entry>
     <title>Our learnings from Continuous Delivery for Mobile Development</title>
     <link rel="alternate" href="https://www.gocd.org/2017/10/31/mobile-app-continuous-delivery-gocd.html"/>
@@ -107,16 +118,5 @@
       <name>GoCD Team</name>
     </author>
     <content type="html">Apax Funds acquired ThoughtWorks. This post explains any impact on the GoCD team, product and the open source community.</content>
-  </entry>
-  <entry>
-    <title>Part 1 - You can’t buy DevOps, but you may need to sell it: DevOps Statistics and Stories</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/08/29/driving-change-devops-adoption.html"/>
-    <id>https://www.gocd.org/2017/08/29/driving-change-devops-adoption.html</id>
-    <published>2017-08-29T00:00:00Z</published>
-    <updated>2017-08-29T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">Part 1 of the series 'You can't buy DevOps, but you may need to sell it' covers facts and statistics to help you drive adoption of a devops culture in your teams and organizations.</content>
   </entry>
 </feed>

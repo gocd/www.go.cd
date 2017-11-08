@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine. " name="description" />
+    <meta content="continuous delivery, mingle, moving to cloud, cloud ready, confessions" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Confessions of continuous delivery experts: How Mingle saw the light | GoCD Blog" />
+    <meta name="twitter:description" content="This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine. " />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-confessions-mingle/cd-confessions-mingle-hero-2b7da0fe.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool.html" />
+
+    <title>Confessions of continuous delivery experts: How Mingle saw the light | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-f9e1182f.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-6c0908b5.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
+  </head>
+
+  <body class="x2017 x2017_11 x2017_11_07 x2017_11_07_confessions-stories-continuous-delivery-mingle-project-management-tool">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+      <figure>
+  <img src="../../../assets/images/blog/cd-confessions-mingle/cd-confessions-mingle-hero-2b7da0fe.jpg" alt="Mingle - Confessions of CD Experts"/>
+</figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Confessions of continuous delivery experts: How Mingle saw the light</h1>
+    <h4>Suzie Prince and Aravind S.V</h4>
+    <p class='tags'>
+<a href="../../../tags/cd-confessions.html" class="tag">        CD Confessions
+</a>     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>At ThoughtWorks, we are <a href="https://www.thoughtworks.com/continuous-delivery">passionate advocates for continuous delivery</a> - we even wrote the book on it. One might think that we know all there is to know about continuous delivery and that nothing can surprise us. This isn’t entirely true. We do understand the challenges behind continuous delivery and one of the reasons for this is that we’ve been through them ourselves. This blog series highlights the important lessons that we learned when we thought we were practicing continuous delivery.</p>
+
+<p>This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine.</p>
+
+<p>Mingle is a project management tool built by <a href="http://thoughtworks.com/products">ThoughtWorks Products</a>. Before Mingle was available on the cloud, it used to be only an installed product (on-premise). We had a three-month release cycle at the end of which we packaged everything up and shipped it out to our customers.</p>
+
+<h2 id="confession-we-werent-delivering-everyday-but-we-thought-that-if-we-need-to-we-probably-could">Confession: We weren’t delivering everyday but we thought that if we need to, we probably could</h2>
+
+<p>At that time, we were sure that we were practicing continuous delivery. Each commit the team made went through a comprehensive automated test suite. We regularly deployed to an environment where we could test out the working software ourselves and all of us could build those installers at anytime. And then once in a month, we would deploy to our ‘staging’ environment which was available for use to anyone within ThoughtWorks.</p>
+
+<p>Overall, we felt pretty good about our development practices, and thought we didn’t release more often just because the cadence was set by our business. If we needed, we could do it.</p>
+
+<h2 id="realizations-when-we-moved-to-the-cloud">Realizations when we moved to the cloud</h2>
+
+<p>In 2012, we started moving our product to the cloud. This meant that Mingle was going to be offered as both a SAAS product as well as an on-premise one. The team was excited and thought that it would be a piece of cake since we were already following best practices. The key aspects to moving to a cloud application was the ability to be deploy to production frequently as well as quickly.  When we compared the reality of daily releases to our quarterly release cycle, we realized two things:</p>
+
+<ul>
+  <li>We needed to figure out how are we going to balance doing the on-premise software and the SAAS product together</li>
+  <li>And that we were not <strong>really</strong> ready to deliver daily!</li>
+</ul>
+
+<p>We took a closer look at our practices and processes and we found big gaps in our cycle time.</p>
+
+<blockquote>
+  <p><strong><em>"25% of that three-month release cycle was actually taken up by an activity we called installer testing."</em></strong></p>
+</blockquote>
+
+<p>We were taking our installer and testing it on a combination of different operating systems and browsers to ensure that when we shipped it to our customer, it worked on their hardware. This process took about two or three weeks. At the end of every release, we could not be ready to ship our software until the ‘installer testing’ was done. Before we were pushed into thinking about delivering frequently, we really hadn't tried to optimize this.</p>
+
+<h2 id="reflecting-on-our-current-cd-processes">Reflecting on our current CD processes</h2>
+
+<p>Here’s Jez Humble's definition of continuous delivery from his book:</p>
+
+<blockquote>
+  <p><strong><em>"Continuous delivery is the ability to get all kinds of changes, configuration codes, features, bug fixes, infrastructure, everything into the hands of users safely, quickly and in a reliable manner."</em></strong></p>
+</blockquote>
+
+<p>In practice, what it comes down to is <a href="https://www.gocd.org/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">feedback loops</a>. Your check-ins trigger automation tests that run and give you feedback. At any step, if you see  any failures, you need to know why, and once that goes green, then you move on to other kind of tests, e.g. performance tests, security tests. Each of this is a feedback loop. It could be manual or automated, but the idea is to go from test-to-test, getting more and more confidence as you go towards production. So when you actually deploy into production, you're assured that it's going to work.</p>
+
+<p><img src="../../../assets/images/blog/cd-confessions-mingle/feedback-loops-a69c8139.png" alt="Feedback Loops" /></p>
+
+<h2 id="confession-we-secretly-knew-that-there-were-areas-in-our-deployment-that-we-needed-to-optimize">Confession: We secretly knew that there were areas in our deployment that we needed to optimize.</h2>
+
+<p>Even though we’d known that there were areas in our Software Development Life Cycle that we could optimize, they didn’t become critical to us till we decided to release daily. So we reassessed whether we could actually remove the manual installer testing and make it part of our automated process - which is what we did. We couldn’t automate this 100%, but after this, we could make a release whenever we decided to.</p>
+
+<p>And we saw benefits right away.</p>
+
+<p>We reduced our time spent in manual testing from 25% to about 5% - from two to three weeks to about two to three days. This meant that if we wanted to release a small bug-fix to our cloud app, it could be done quickly, easily, and reliably.</p>
+
+<p>We also had some unexpected benefits: In our older way of working, when our QA's had been doing the installer testing, they were siloed. While the rest of the team were talking about features for the next release and ideating about how this was going to work in the real world, the QA team was testing on their own. In the new world, we have the entire team working together, especially when we were able to have our QA's as part of our ideation sessions. They were able to assess functionality and highlight critical test cases a lot earlier in the process.  So we were able to build quality in from the very beginning, rather than leaving it for the end.</p>
+
+<p>We continue to use the same fundamentals for the release process today.</p>
+
+<hr />
+
+<h2 id="summary">Summary</h2>
+
+<p>If you think you’re doing continuous delivery, challenge your assumption by actually releasing more frequently. Making a decision to deliver continuously helped us identify roadblocks in our process that we had otherwise not paid attention to. It wasn’t easy and initially took time, but we were able to recover the time invested within the first year. We saw benefits to both the cycle time of our deliveries as well as a shift in our team culture. Moving to continuous delivery freed up our people to do the work they like to do.</p>
+
+<p>In our next post, we’ll share anecdotes about our learnings from continuous delivery with GoCD.</p>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'> Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">Continuous Delivery news in your inbox</p>
+    <div id="subscribe-info">
+      Send us a mail to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20GoCD%20blog%20notifications">support@thoughtworks.com</a> and we will sign you up for a notification on new blog posts.
+    </div>
+    <script type="text/javascript">
+      function initMarketoForm() {
+        jQuery("#subscribe-info").html("<form id='mktoForm_5414'></form>");
+        MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
+      }
+    </script>
+    <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Nov  7</span>
+              <span class="post-author">Suzie Prince and Aravind S.V</span>
+              <a href="confessions-stories-continuous-delivery-mingle-project-management-tool/">Confessions of continuous delivery experts: How Mingle saw the light</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 31</span>
+              <span class="post-author">Sanchit Bahal</span>
+              <a href="../../10/31/mobile-app-continuous-delivery-gocd/">Our learnings from Continuous Delivery for Mobile Development</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 17</span>
+              <span class="post-author">Louda Peña</span>
+              <a href="../../10/17/difference-between-continuous-delivery-continuous-deployment-infographic/">Infographic - What's the difference between Continuous Delivery and Continuous Deployment?</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 10</span>
+              <span class="post-author">Vishal Naik</span>
+              <a href="../../10/10/architecting-continuous-delivery/">Architecting for Continuous Delivery - Themes in CD Enablement</a>
+            </li>
+            <li>
+              <span class="post-date">Oct  3</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../10/03/introduction-continuous-delivery-deployment-tools/">Part 5 - CD101: Common Tools for Continuous Delivery</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2017 (36)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        
+        <li>
+        <a href="../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+
+        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
