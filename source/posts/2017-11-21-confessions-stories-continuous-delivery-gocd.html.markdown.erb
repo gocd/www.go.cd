@@ -1,0 +1,75 @@
+---
+layout: post
+title: "Confessions of continuous delivery experts: How Mingle saw the light"
+type: post
+author: Suzie Prince and Aravind S.V
+excerpt: "-"
+title_tag_of_header: "Confessions of continuous delivery experts: How Mingle saw the light | GoCD Blog"
+meta_description: "-"
+meta_keywords: "trunk based development, feature toggles, feature flags, continuous integration, deployment pipeline, mobile development, mobile deployment, continuous deployment for mobile"
+summary_image: "/assets/images/blog/mobile-app-cd-gocd/mobile-gocd-hero.jpg"
+tags: CD Confessions
+draft: true
+---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/mobile-app-cd-gocd/mobile-gocd-hero.jpg" alt="Challenges in deploying a mobile app"/>
+</figure>
+<% end %>
+
+At ThoughtWorks, we are [passionate advocates for continuous delivery](https://www.thoughtworks.com/continuous-delivery) - we even wrote the book on it. One might think that we know all there is to know about continuous delivery and that nothing can surprise us. This isn’t entirely true. We do understand the challenges behind continuous delivery and one of the reasons for this is that we’ve been through them ourselves. This blog series highlights the important lessons that we learned when we thought we were practicing continuous delivery. 
+  
+This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine. 
+  
+Mingle is a project management tool built by [ThoughtWorks Products](http://thoughtworks.com/products). Before Mingle was available on the cloud, it used to be only an installed product (on-premise). We had a three-month release cycle at the end of which we packaged everything up and shipped it out to our customers. 
+
+## Confession: We weren’t delivering everyday but we thought that if we need to, we probably could
+
+At that time, we were sure that we were practicing continuous delivery. Each commit the team made went through a comprehensive automated test suite. We regularly deployed to an environment where we could test out the working software ourselves and all of us could build those installers at anytime. And then once in a month, we would deploy to our ‘staging’ environment which was available for use to anyone within ThoughtWorks.
+
+Overall, we felt pretty good about our development practices, and thought we didn’t release more often just because the cadence was set by our business. If we needed, we could do it. 
+  
+## Realizations when we moved to the cloud
+
+In 2012, we started moving our product to the cloud. This meant that Mingle was going to be offered as both a SAAS product as well as an on-premise one. The team was excited and thought that it would be a piece of cake since we were already following best practices. The key aspects to moving to a cloud application was the ability to be deploy to production frequently as well as quickly.  When we compared the reality of daily releases to our quarterly release cycle, we realized two things: 
+
+- We needed to figure out how are we going to balance doing the on-premise software and the SAAS product together 
+- And that we were not **really** ready to deliver daily! 
+
+We took a closer look at our practices and processes and we found big gaps in our cycle time.
+
+> 25% of that three-month release cycle was actually taken up by an activity we called installer testing.
+
+
+We were taking our installer and testing it on a combination of different operating systems and browsers to ensure that when we shipped it to our customer, it worked on their hardware. This process took about two or three weeks. At the end of every release, we could not be ready to ship our software until the ‘installer testing’ was done. Before we were pushed into thinking about delivering frequently, we really hadn't tried to optimize this.
+
+## Reflecting on our current CD processes 
+
+Here’s Jez Humble's definition of continuous delivery from his book: 
+
+> Continuous delivery is the ability to get all kinds of changes, configuration codes, features, bug fixes, infrastructure, everything into the hands of users safely, quickly and in a reliable manner. 
+
+In practice, what it comes down to is [feedback loops](https://www.gocd.org/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/). Your check-ins trigger automation tests that run and give you feedback. At any step, if you see  any failures, you need to know why, and once that goes green, then you move on to other kind of tests, e.g. performance tests, security tests. Each of this is a feedback loop. It could be manual or automated, but the idea is to go from test-to-test, getting more and more confidence as you go towards production. So when you actually deploy into production, you're assured that it's going to work. 
+
+<img src="/assets/images/blog/mobile-app-cd-gocd/breaking-down-monolith-tests.png" alt="Breaking down monolith tests"/>
+
+## Confession: We secretly knew that there were areas in our deployment that we needed to optimize. 
+
+Even though we’d known that there were areas in our Software Development Life Cycle that we could optimize, they didn’t become critical to us till we decided to release daily. So we reassessed whether we could actually remove the manual installer testing and make it part of our automated process - which is what we did. We couldn’t automate this 100%, but after this, we could make a release whenever we decided to. 
+
+And we saw benefits right away. 
+
+We reduced our time spent in manual testing from 25% to about 5% - from two to three weeks to about two to three days. This meant that if we wanted to release a small bug-fix to our cloud app, it could be done quickly, easily, and reliably.  
+
+We also had some unexpected benefits: In our older way of working, when our QA's had been doing the installer testing, they were siloed. While the rest of the team were talking about features for the next release and ideating about how this was going to work in the real world, the QA team was testing on their own. In the new world, we have the entire team working together, especially when we were able to have our QA's as part of our ideation sessions. They were able to assess functionality and highlight critical test cases a lot earlier in the process.  So we were able to build quality in from the very beginning, rather than leaving it for the end.
+
+We continue to use the same fundamentals for the release process today. 
+
+--- 
+
+## Summary 
+
+If you think you’re doing continuous delivery, challenge your assumption by actually releasing more frequently. Making a decision to deliver continuously helped us identify roadblocks in our process that we had otherwise not paid attention to. It wasn’t easy and initially took time, but we were able to recover the time invested within the first year. We saw benefits to both the cycle time of our deliveries as well as a shift in our team culture. Moving to continuous delivery freed up our people to do the work they like to do. 
+  
+In our next post, we’ll share anecdotes about our learnings from continuous delivery with GoCD.  
+  
