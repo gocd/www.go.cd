@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="A few tips to help teams start practicing prioritizing security in DevOps." name="description" />
+    <meta content="devsecops, devops security, security in devops, minimizing risk in devops, integrating security in devops, guidelines for devsecops" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Minimizing Risk and Improving Security in DevOps | GoCD Blog" />
+    <meta name="twitter:description" content="A few tips to help teams start practicing prioritizing security in DevOps." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/security-devops-minimizing-risk/security-devops-hero-3e9a0f07.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2017/11/14/minimizing-risk-improving-security-devops.html" />
+
+    <title>Minimizing Risk and Improving Security in DevOps | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-0f1dd86b.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-6c0908b5.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
+  </head>
+
+  <body class="x2017 x2017_11 x2017_11_14 x2017_11_14_minimizing-risk-improving-security-devops">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+      <figure>
+  <img src="../../../assets/images/blog/security-devops-minimizing-risk/security-devops-hero-3e9a0f07.jpg" alt="Security in DevOps"/>
+</figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Minimizing Risk and Improving Security in DevOps</h1>
+    <h4>Franklin Mosley</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>Organizations today are utilizing DevOps to accelerate the software development and deployment space with the goal of releasing better quality software more reliably. According to the <a href="https://puppet.com/resources/whitepaper/state-of-devops-report">2017 State of DevOps report</a>, those that are practicing DevOps are experiencing:</p>
+
+<ul>
+  <li>24x faster recovery from failures</li>
+  <li>3x lower change failure rate</li>
+  <li>22% less time spent on unplanned work and rework</li>
+</ul>
+
+<p>But how <em><strong>secure</strong></em> are these releases? We know that high performing teams spend 50% less time remediating security issues.</p>
+
+<p>Having been in security for many years, I remember the days when it was mostly a function of securing the perimeter. But today, the way we conduct business has changed: we have moved to the cloud and have mobile applications. We are producing web application software that according to the <a href="http://www.verizonenterprise.com/verizon-insights-lab/dbir/">Verizon Data Breach Investigation Report (DBIR)</a> accounted for over 40% of incidents resulting in a data breach and were the single-biggest source of data loss. So it has become critical to integrate proper security thinking into the DevOps process.</p>
+
+<h2 id="minimizing-risk-improving-security">Minimizing Risk, Improving Security</h2>
+
+<p>DevOps is a culture that promotes collaboration between developers and IT professionals. The two groups have found a way to work together in poly-skilled teams to accomplish their common goals while satisfying their different needs. For developers, it is to deliver features quickly and on-time. And for operations, it is to have highly available and stable systems.</p>
+
+<p>So what is the need of security? Security at its core is about managing risk by finding vulnerabilities early and fixing them quickly. By prioritizing security in a DevOps culture (sometimes referred to as DevSecOps), security, development, and operations teams can achieve a common goal of minimizing risk and delivering safe software. It is about completely integrating security with DevOps by bringing it to every stage of the development and delivery process. To do it successfully takes communication and collaboration among the teams.</p>
+
+<p>I have presented on this topic at several conferences, and one of the most common questions I get is how to integrate security into a DevOps culture successfully. People who recognize and understand the need for security want to know how to help their team start practicing it. Here are a few tips to help anyone get started:</p>
+
+<ul>
+  <li>Changing the security mindset</li>
+  <li>Getting buy-in from stakeholders</li>
+  <li>Enforce Security as Code</li>
+  <li>Learn and continuously improve</li>
+</ul>
+
+<h3 id="changing-the-security-mindset">Changing the Security Mindset</h3>
+
+<p>Traditionally, security tasks were performed during the testing phase or were bolted on in production. Security was perceived as a roadblock. Our goal is to shift security left in the Software Development Lifecycle (SDLC) and focus on it throughout the continuous integration and continuous delivery process. We do this by integrating security at every step of the way. This means that the traditional mindsets around security have to change.</p>
+
+<p>The security professional needs to walk in the developer's shoes, and learn how software is made and the issues that are faced. It’s best to work with developers to come up with solutions that allow them to do the right thing when it comes to security.</p>
+
+<p>Security was always seen as a function of the ‘security’ organization. With DevOps, we aim to break down those silos, and security has to become a shared responsibility. The agile teams have to own it the same way they have started owning user experience, reliability, and performance. As Pete Chestna, a DevOps practitioner and AppSec evangelist with Veracode  says,</p>
+
+<blockquote>
+  <p>"DevOps now requires <a href="https://www.veracode.com/blog/secure-development/get-ready-full-spectrum-engineer">Full Spectrum Engineers</a>, and as part of that developers will have to make security a priority."</p>
+</blockquote>
+
+<h3 id="getting-buy-in-from-stakeholders">Getting buy-in from stakeholders</h3>
+
+<blockquote>
+  <p><strong>If security is becoming a shared responsibility, how do you get those who traditionally didn’t care about it to make it a priority?</strong></p>
+</blockquote>
+
+<p>This is a question I get frequently, and I always answer that it starts at the top. Buy-in from stakeholders makes it a priority that trickles down to your agile teams and helps to foster a culture where it is a priority for everyone in the organization.</p>
+
+<p>I worked at a company where the CEO was conducting a town hall to discuss our new software platform, and what it would take to make it successful. He mentioned the security of the customer data as one of the pillars of success. At that point, every employee realized they had a personal stake in securing the platform.</p>
+
+<p>To get that buy-in, you can make a case for the importance of securing your software. Many security incidents occur in the news every week that can be used to highlight why it should be a priority.</p>
+
+<h3 id="enforce-security-as-code">Enforce Security as Code</h3>
+
+<p>Automation is a big part of DevOps, and it is no different for the security aspect of it. The manual gating that security traditionally added must be removed to perform security at scale and achieve continuous delivery. Security and compliance should be scripted as available services, integrated into your pipeline, and used to enforce the policies that you have developed.</p>
+
+<p>As an application security engineer, my job is to help the process continue to flow, while minimizing risk. I have scripted tests to:</p>
+
+<ul>
+  <li>check transport layer security settings of an endpoint</li>
+  <li>check software composition analysis for vulnerable components</li>
+  <li>perform automated code reviews</li>
+</ul>
+
+<p>These are just some examples of security checks you may automate into your CI/CD pipeline.</p>
+
+<h3 id="learn-and-continuously-improve">Learn and Continuously Improve</h3>
+
+<p>Moving to a focus on security in a DevOps culture is a significant transformation project, and it can be overwhelming. As the saying goes, the best way to eat an elephant is one bite at a time. To integrate security into CI/CD, I recommend starting off with a small solution and use the feedback to determine necessary changes. Don’t be afraid to fail. This should be an iterative learning and improvement process and choosing the right tool for the job is part of it.</p>
+
+<p>When implementing security tests into your CI/CD, start with a small set of rules, validate the results, and gradually increase them. Too many false positives can cause your developers to lose faith in the security testing, and to stop using the security service because the CI/CD pipeline is being halted unnecessarily. I have made this mistake before, and it’s not pretty when development teams flood you with Slack messages because their deployments keep failing. So start off small and increase gradually.</p>
+
+<hr />
+
+<h3 id="summary">Summary</h3>
+
+<p>In this article, I covered some tips for successfully transitioning to DevOps culturally while integrating security into your CI/CD. These tips can be used as a guideline to encourage communication and collaboration among security, development, and operation teams.</p>
+
+<p><em><a href="https://www.linkedin.com/in/franklinmosley/">Franklin Mosley</a>, currently helping define and build out the Security Vision and Roadmap for <a href="https://www.pagerduty.com/security/">PagerDuty</a>, has over 16-years of experience as an Information Security professional, during which he supported several businesses counter threats. Prior to that, he was a software engineer, which makes him perfectly suited for his passionate focus on Application Security and DevOps. He is always looking for ways to improve processes, while still ensuring that teams are delivering secure software.</em></p>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'> Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">Continuous Delivery news in your inbox</p>
+    <div id="subscribe-info">
+      Send us a mail to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20GoCD%20blog%20notifications">support@thoughtworks.com</a> and we will sign you up for a notification on new blog posts.
+    </div>
+    <script type="text/javascript">
+      function initMarketoForm() {
+        jQuery("#subscribe-info").html("<form id='mktoForm_5414'></form>");
+        MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
+      }
+    </script>
+    <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Nov 14</span>
+              <span class="post-author">Franklin Mosley</span>
+              <a href="minimizing-risk-improving-security-devops/">Minimizing Risk and Improving Security in DevOps</a>
+            </li>
+            <li>
+              <span class="post-date">Nov  7</span>
+              <span class="post-author">Suzie Prince and Aravind S.V</span>
+              <a href="../07/confessions-stories-continuous-delivery-mingle-project-management-tool/">Confessions of continuous delivery experts: How Mingle saw the light</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 31</span>
+              <span class="post-author">Sanchit Bahal</span>
+              <a href="../../10/31/mobile-app-continuous-delivery-gocd/">Our learnings from Continuous Delivery for Mobile Development</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 17</span>
+              <span class="post-author">Louda Peña</span>
+              <a href="../../10/17/difference-between-continuous-delivery-continuous-deployment-infographic/">Infographic - What's the difference between Continuous Delivery and Continuous Deployment?</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 10</span>
+              <span class="post-author">Vishal Naik</span>
+              <a href="../../10/10/architecting-continuous-delivery/">Architecting for Continuous Delivery - Themes in CD Enablement</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2017 (37)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/11/14/minimizing-risk-improving-security-devops.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        
+        <li>
+        <a href="../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+
+        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

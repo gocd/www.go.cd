@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2017-11-07T00:00:00Z</updated>
+  <updated>2017-11-14T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Minimizing Risk and Improving Security in DevOps</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/11/14/minimizing-risk-improving-security-devops.html"/>
+    <id>https://www.gocd.org/2017/11/14/minimizing-risk-improving-security-devops.html</id>
+    <published>2017-11-14T00:00:00Z</published>
+    <updated>2017-11-14T00:00:00Z</updated>
+    <author>
+      <name>Franklin Mosley</name>
+    </author>
+    <content type="html">A few tips to help teams start practicing prioritizing security in DevOps.</content>
+  </entry>
   <entry>
     <title>Confessions of continuous delivery experts: How Mingle saw the light</title>
     <link rel="alternate" href="https://www.gocd.org/2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool.html"/>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">In part 2 of the series, You can’t buy DevOps but you may need to sell it, we’ll look at some of the most commonly held misconceptions about driving change. We’ll also explore some patterns that you can use to help gain acceptance of your ideas.</content>
-  </entry>
-  <entry>
-    <title>GoCD and the Impact of the ThoughtWorks Acquisition</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/08/31/apax-acquires-thoughtworks.html"/>
-    <id>https://www.gocd.org/2017/08/31/apax-acquires-thoughtworks.html</id>
-    <published>2017-08-31T00:00:00Z</published>
-    <updated>2017-08-31T00:00:00Z</updated>
-    <author>
-      <name>GoCD Team</name>
-    </author>
-    <content type="html">Apax Funds acquired ThoughtWorks. This post explains any impact on the GoCD team, product and the open source community.</content>
   </entry>
 </feed>
