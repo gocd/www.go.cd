@@ -1,0 +1,87 @@
+---
+layout: post
+title: "Minimizing Risk and Improving Security in DevOps"
+type: post
+author: Franklin Mosley
+excerpt: "A few tips to help teams start practicing prioritizing security in DevOps."
+title_tag_of_header: "Minimizing Risk and Improving Security in DevOps | GoCD Blog"
+meta_description: "A few tips to help teams start practicing prioritizing security in DevOps."
+meta_keywords: "devsecops, devops security, security in devops, minimizing risk in devops, integrating security in devops, guidelines for devsecops"
+summary_image: "/assets/images/blog/cd-confessions-mingle/cd-confessions-mingle-hero.jpg"
+draft: true
+---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/cd-confessions-mingle/cd-confessions-mingle-hero.jpg" alt="Mingle - Confessions of CD Experts"/>
+</figure>
+<% end %>
+
+Organizations today are utilizing DevOps to accelerate the software development and deployment space with the goal of releasing better quality software more reliably. According to the [2017 State of DevOps report](https://puppet.com/resources/whitepaper/state-of-devops-report), those that are practicing DevOps are experiencing:
+
+- 24x faster recovery from failures
+- 3x lower change failure rate
+- 22% less time spent on unplanned work and rework
+
+But how _**secure**_ are these releases? We know that high performing teams spend 50% less time remediating security issues.
+
+Having been in security for many years, I remember the days when it was mostly a function of securing the perimeter. But today, the way we conduct business has changed: we have moved to the cloud and have mobile applications. We are producing web application software that according to the [Verizon Data Breach Investigation Report (DBIR)](http://www.verizonenterprise.com/verizon-insights-lab/dbir/) accounted for over 40% of incidents resulting in a data breach and were the single-biggest source of data loss. So it has become critical to integrate proper security thinking into the DevOps process.
+
+## Minimizing Risk, Improving Security
+
+DevOps is a culture that promotes collaboration between developers and IT professionals. The two groups have found a way to work together in poly-skilled teams to accomplish their common goals while satisfying their different needs. For developers, it is to deliver features quickly and on-time. And for operations, it is to have highly available and stable systems.
+
+So what is the need of security? Security at its core is about managing risk by finding vulnerabilities early and fixing them quickly. By prioritizing security in a DevOps culture (sometimes referred to as DevSecOps), security, development, and operations teams can achieve a common goal of minimizing risk and delivering safe software. It is about completely integrating security with DevOps by bringing it to every stage of the development and delivery process. To do it successfully takes communication and collaboration among the teams.
+
+I have presented on this topic at several conferences, and one of the most common questions I get is how to integrate security into a DevOps culture successfully. People who recognize and understand the need for security want to know how to help their team start practicing it. Here are a few tips to help anyone get started:
+
+- Changing the security mindset
+- Getting buy-in from stakeholders
+- Enforce Security as Code
+- Learn and continuously improve
+
+### Changing the Security Mindset
+
+Traditionally, security tasks were performed during the testing phase or were bolted on in production. Security was perceived as a roadblock. Our goal is to shift security left in the Software Development Lifecycle (SDLC) and focus on it throughout the continuous integration and continuous delivery process. We do this by integrating security at every step of the way. This means that the traditional mindsets around security have to change.
+    
+The security professional needs to walk in the developer's shoes, and learn how software is made and the issues that are faced. It’s best to work with developers to come up with solutions that allow them to do the right thing when it comes to security.
+    
+Security was always seen as a function of the ‘security’ organization. With DevOps, we aim to break down those silos, and security has to become a shared responsibility. The agile teams have to own it the same way they have started owning user experience, reliability, and performance. As Pete Chestna, a DevOps practitioner and AppSec evangelist with Veracode  says, 
+
+> "DevOps now requires [Full Spectrum Engineers](https://www.veracode.com/blog/secure-development/get-ready-full-spectrum-engineer), and as part of that developers will have to make security a priority."
+
+### Getting buy-in from stakeholders
+
+> **If security is becoming a shared responsibility, how do you get those who traditionally didn’t care about it to make it a priority?**
+   
+This is a question I get frequently, and I always answer that it starts at the top. Buy-in from stakeholders makes it a priority that trickles down to your agile teams and helps to foster a culture where it is a priority for everyone in the organization.
+    
+I worked at a company where the CEO was conducting a town hall to discuss our new software platform, and what it would take to make it successful. He mentioned the security of the customer data as one of the pillars of success. At that point, every employee realized they had a personal stake in securing the platform.
+    
+To get that buy-in, you can make a case for the importance of securing your software. Many security incidents occur in the news every week that can be used to highlight why it should be a priority. 
+    
+### Enforce Security as Code
+
+Automation is a big part of DevOps, and it is no different for the security aspect of it. The manual gating that security traditionally added must be removed to perform security at scale and achieve continuous delivery. Security and compliance should be scripted as available services, - integrated into your pipeline, and used to enforce the policies that you have developed.
+
+As an application security engineer, my job is to help the process continue to flow, while minimizing risk. I have scripted tests to:
+
+- check transport layer security settings of an endpoint
+- check software composition analysis for vulnerable components
+- perform automated code reviews
+
+These are just some examples of security checks you may automate into your CI/CD pipeline.
+
+### Learn and Continuously Improve
+
+Moving to a focus on security in a DevOps culture is a significant transformation project, and it can be overwhelming. As the saying goes, the best way to eat an elephant is one bite at a time. To integrate security into CI/CD, I recommend starting off with a small solution and use the feedback to determine necessary changes. Don’t be afraid to fail. This should be an iterative learning and improvement process and choosing the right tool for the job is part of it. 
+
+When implementing security tests into your CI/CD, start with a small set of rules, validate the results, and gradually increase them. Too many false positives can cause your developers to lose faith in the security testing, and to stop using the security service because the CI/CD pipeline is being halted unnecessarily. I have made this mistake before, and it’s not pretty when development teams flood you with Slack messages because their deployments keep failing. So start off small and increase gradually.
+
+---
+
+### Summary
+
+In this article, I covered some tips for successfully transitioning to DevOps culturally while integrating security into your CI/CD. These tips can be used as a guideline to encourage communication and collaboration among security, development, and operation teams.
+
+
+*[Franklin Mosley](#), currently at PagerDuty, has over 16-years of experience as an Information Security professional, during which he helped several businesses counter threats. In recent times, he's become involved with, and very interested in, DevOps/DevSecOps. He is always looking for ways to improve processes, while still ensuring that teams are delivering secure software.*
