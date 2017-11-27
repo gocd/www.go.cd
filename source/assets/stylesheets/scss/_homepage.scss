@@ -1,56 +1,109 @@
 //banner
 .banner {
 	background-image: url("/assets/images/home/pipe_bkgd.jpg");
-	background-position: center 0;
+	background-position: center;
 	background-repeat: no-repeat;
 	background-color: #333;
-	height: 250px;
+	background-size: cover;
+	height: auto;
 	position: relative;
 	overflow: hidden;
 
-	@media (min-width:$screen-tablet) {
-		height: 500px;
-		background-image: url('/assets/imageshome/pipe_bkgd.jpg');
-		background-size: initial;
+	.caption {
+		margin-top: 2em;
+
+		h1 {
+			color: hsla(0, 0, 100%, 1);
+			font-size: 72px;
+			font-weight: 400;
+			width: 100%;
+			text-align: center;
+			padding-bottom: 20px;
+			text-transform: uppercase;
+
+			@media (max-width: 1400px) {
+				// font-size: 64px;
+			}
+
+			@media (max-width: 1198px) {
+				font-size: 58px;
+			}
+
+			@media (max-width: 990px) {
+				font-size: 45px;
+			}
+		}
 	}
 
-	@media (min-width:1025px) {
-		background-image: url('/assets/images/home/pipe_bkgd.jpg');
-		height: 750px;
-	}
 
-	@media (min-width:$screen-lg-desktop) {
-		background-image: url('/assets/images/home/pipe_bkgd.jpg');
-		background-size: cover;
-	}
+	.subcaption {
+		margin-bottom: 5em;
 
-	h1 {
-		color: #fff;
-		font-size: 72px;
-		font-weight: 600;
-		width: 100%;
-		text-align: center;
-		padding-bottom: 20px;
-	}
+		.ui-illo {
+			@media (max-width: 990px) {
+				padding-bottom: 2em;
+			}
 
-	.ui-illo {
-	}
+		}
 
-	p {
-		color: #fff;
-		font-size: 26px;
-		line-height: 120%;
-		font-weight: 300;
-		text-transform: uppercase;
-	}
+		p {
+			color: hsla(0, 0, 100%, 1);
+			font-size: 26px;
+			line-height: 120%;
+			font-weight: 300;
+			text-transform: uppercase;
+			padding-bottom: 1em;
 
-	.btn-download {
-		width: 80%;
-		height: 40px;
-		border: 2px solid white;
-		color: hsla(0, 0, 100%, 1);
-	}
+			@media (max-width: 990px) {
+				text-align: center;
+			}
 
+		}
+
+		.btn-download {
+			height: 50px;
+			width: 100%;
+			border: 2px solid;
+			border-color: hsla(0, 0, 100%, 1);
+			padding: 12px 0 0 0;
+			border-radius: 0;
+			
+			color: hsla(0, 0, 100%, 1);
+			text-transform: uppercase;
+			font-size: 1em;
+			font-weight: 600;
+
+			margin-bottom: 6px;
+
+			&:hover {
+				background-color: hsla(0, 0, 100%, 1);
+				color: hsla(294, 47%, 42%, 1);
+			}
+
+			&:active {
+				background-color: hsla(0, 0, 100%, .3);
+				border: 2px solid;
+				border-color: hsla(0, 0, 100%, 1);
+				color: hsla(0, 0, 100%, 1);
+			}
+		}
+
+		.sub-cta {
+			text-align: center;
+			font-size: 12px;
+			font-weight: 400;
+			color: hsla(0, 0, 100%, 1);
+
+			&:hover {
+				font-weight: 600;
+			}
+
+			&:active {
+				text-decoration: underline;
+			}
+
+		}
+	}
 }
 
 .btn-readmore {
