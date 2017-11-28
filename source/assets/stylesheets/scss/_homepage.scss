@@ -1,4 +1,6 @@
 //banner
+
+
 .banner {
 	background-image: url("/assets/images/home/pipe_bkgd.jpg");
 	background-position: center;
@@ -12,27 +14,33 @@
 	.caption {
 		margin-top: 2em;
 
+		@media (max-width: 990px) {
+			margin-top: 1em;
+		}
+
+
 		h1 {
 			color: hsla(0, 0, 100%, 1);
-			font-size: 68px;
-			font-weight: 800;
+			font-size: 78px;
 			width: 100%;
 			text-align: center;
 			padding-bottom: 20px;
 			text-transform: uppercase;
+			font-family: URWGeometric-Heavy;
 
 			@media (max-width: 1400px) {
 				// font-size: 64px;
 			}
 
 			@media (max-width: 1198px) {
-				font-size: 56px;
+				font-size: 64px;
 			}
 
 			@media (max-width: 990px) {
-				font-size: 42px;
+				font-size: 12vw;
 				// font-size: 68px;
-				// line-height: 90%;
+				line-height: 90%;
+				padding-bottom: 10px;
 			}
 		}
 	}
@@ -42,7 +50,7 @@
 		margin-bottom: 5em;
 
 		@media (max-width: 990px) {
-			margin-bottom: 1em;
+			margin-bottom: .5em;
 		}
 
 		.ui-illo {
@@ -56,8 +64,9 @@
 			color: hsla(0, 0, 100%, 1);
 			font-size: 26px;
 			line-height: 120%;
-			font-weight: 300;
-			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-family: URWGeometric-Medium;
+
 			padding-bottom: 1em;
 
 			@media (max-width: 990px) {
@@ -72,15 +81,15 @@
 			width: 100%;
 			border: 2px solid;
 			border-color: hsla(0, 0, 100%, 1);
-			padding: 12px 0 0 0;
+			padding: 15px 0 0 0;
 			border-radius: 0;
 			
 			color: hsla(0, 0, 100%, 1);
 			text-transform: uppercase;
 			font-size: 1em;
-			font-weight: 600;
+			font-family: URWGeometric-ExtraBold;
 
-			margin-bottom: 6px;
+			margin-bottom: 8px;
 
 			&:hover {
 				background-color: hsla(0, 0, 100%, 1);
@@ -98,11 +107,12 @@
 		.sub-cta {
 			text-align: center;
 			font-size: 12px;
-			font-weight: 400;
 			color: hsla(0, 0, 100%, 1);
+			font-family: URWGeometric-Medium;
+
 
 			&:hover {
-				font-weight: 600;
+				font-family: URWGeometric-Heavy;
 			}
 
 			&:active {
