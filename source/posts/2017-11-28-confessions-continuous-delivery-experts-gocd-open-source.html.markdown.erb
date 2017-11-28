@@ -21,7 +21,7 @@ At ThoughtWorks, we are passionate advocates for continuous delivery - we even w
 
 This is the second in our series of confessions from continuous delivery experts. This post is the story of how continuous delivery became critical to the GoCD team’s decision to go open source in 2014.
 
-## _Moving from proprietary to open source_
+## __Moving from proprietary to open source__
 
 GoCD was originally created as a proprietary solution by ThoughtWorks around 2010. At this point, we had a stellar team with people like [Jez Humble](https://twitter.com/jezhumble), GoCD’s first product manager. It was through his experience with GoCD that he wrote the book [Continuous Delivery](https://www.amazon.com/dp/0321601912); which also means that our team was well versed and confident in those concepts. In hindsight, I can see that while our knowledge of these concepts was great, we needed practice in recognizing its applications. One such moment was when GoCD decided to go open source. 
 
@@ -29,7 +29,9 @@ Initially, we had a release cycle of three to four months. The product was being
 
 We were about to get the answers to this question in 2014 - when we decided to go open source. 
 
-# Confession: We were extremely comfortable with the concepts of continuous delivery, but not when it came to practicing it. 
+
+## Confession: We were extremely comfortable with the concepts of continuous delivery, but not when it came to practicing it. 
+
 
 With this decision, came new expectations from a new audience. Now we were seeing adoption from a new group of people who expected changes faster than our previous enterprise customers and were keen to see their contributions in production. 
 
@@ -37,16 +39,18 @@ Our first goal was to shorten our release process from 3 - 4 months to 1.5 month
 
 We decided to break down the automation of our entire deployment into tiny chunks. We did this by figuring out smaller bits to automate with each release, rather than attempting to automate the entire process at once. Our first step was to automate the publishing of releases. Earlier, this was something that people did manually and because it was done every three or four months, it didn’t affect us much. However, now since we’d be releasing more often, it no longer made  sense, so we automated it completely. In fact, everything became automatic so within a release cycle, we started to do this activity multiple times. 
 
-As we kept going, we started finding newer things to automate (that we didn’t have earlier) such as  our Release Notes. Since we were delivering an open source tool to the public, we needed to have reliable and sensible release notes. First, we got everyone who contributed code (the team and external contributors) to write good commit messages and then automated release notes out of these. 
+As we kept going, we started finding newer things to automate (that we didn’t have earlier) such as  our Release Notes. Since we were delivering an open source tool to the public, we needed to have reliable and sensible release notes. First, we got everyone who contributed code (the team and external contributors) to write good commit messages and then automated release notes out of these. Despite the automation, we do still curate it and make it easier to read.
 
-# Confession: We are still not delivering continuously at 100%, as we kept identifying new things to automate. 
 
-The ultimate goal is to get to a place where we automatically publish releases to production. With automated installer tests, performance tests, release notes etc., we got closer and closer to this goal. It took confidence in our automation ability for us to be able to say, 
+## Confession: We were still not delivering continuously at 100%, as we kept identifying new things to automate. 
+
+
+The ultimate goal was to get to a place where we could automatically publish releases to production. With automated installer tests, performance tests, release notes etc., we got closer and closer to this goal. It took confidence in our automation ability for us to be able to say, 
 
 > **"Yes, this is a release that we can stand by”.**
 
-And if there’s a problem with it, we can release a new version or deploy a fix much more easily.
+And if there was a problem with it, we had the ability to release a new version or deploy a fix much more easily. We're also happy to say that we're in a "good enough phase", where the release cadence is decent for an installed product, and increasing it does not necessarily add much value to users. We do publish certified, experimental builds for every good build - but we deem one of them a "release" only about once a month.
 
-## _Learnings_
+## __Learnings__
 
 The biggest learning for me, as a product manager for GoCD, has been that [frequency reduces difficulty](https://martinfowler.com/bliki/FrequencyReducesDifficulty.html). The idea is simple - if you find something difficult, do it more often. If you can bring that pain forward, you will realize that there are a lot of costs and complexity that you can reduce. The second learning for me has been that automation costs pay for themselves. We used to have long cycles and at the end we still spent manual effort checking if all the tests had been carried out and correcting when anything had been missed. We don't have to worry about that now. There is an initial cost at the beginning, but in the end, it definitely pays off. 
