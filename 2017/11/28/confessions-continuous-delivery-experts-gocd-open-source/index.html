@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="This post is the story of how continuous delivery became critical to the GoCD team’s decision to go open source." name="description" />
+    <meta content="confessions, gocd, open source, stories, experts continuous delivery, continuous delivery stories" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Confessions of Continuous Delivery Experts: When GoCD went open source | GoCD Blog" />
+    <meta name="twitter:description" content="This post is the story of how continuous delivery became critical to the GoCD team’s decision to go open source." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-confession-gocd/continuous-delivery-confessions-gocd-5d3dbaab.png" />
+    <link rel="canonical" href="https://www.gocd.org/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source" />
+
+    <title>Confessions of Continuous Delivery Experts: When GoCD went open source | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-0f1dd86b.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-6c0908b5.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
+  </head>
+
+  <body class="x2017 x2017_11 x2017_11_28 x2017_11_28_confessions-continuous-delivery-experts-gocd-open-source x2017_11_28_confessions-continuous-delivery-experts-gocd-open-source_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+      <figure>
+  <img src="../../../../assets/images/blog/cd-confession-gocd/continuous-delivery-confessions-gocd-5d3dbaab.png" alt="CD confessions when GoCD went open source"/>
+</figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Confessions of Continuous Delivery Experts: When <span class="go">Go</span>CD went open source</h1>
+    <h4>Aravind S.V</h4>
+    <p class='tags'>
+<a href="../../../../tags/cd-confessions.html" class="tag">        CD Confessions
+</a>     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>At ThoughtWorks, we are passionate advocates for continuous delivery - we even wrote the book on it. One might think that we know all there is to know about continuous delivery and that nothing can surprise us. This isn’t entirely true. We do understand the challenges behind continuous delivery and one of the reasons for this is that we’ve been through them ourselves. This <a href="https://www.gocd.org/tags/cd-confessions.html">blog series</a> highlights the important lessons that we learned when we thought we were practicing continuous delivery.</p>
+
+<p>This is the second in our series of confessions from continuous delivery experts. This post is the story of how continuous delivery became critical to the GoCD team’s decision to go open source in 2014.</p>
+
+<h2 id="moving-from-proprietary-to-open-source">Moving from proprietary to open source</h2>
+
+<p>GoCD was originally created as a proprietary solution by ThoughtWorks around 2010. At this point, we had a stellar team with people like <a href="https://twitter.com/jezhumble">Jez Humble</a>, GoCD’s first product manager. It was through his experience with GoCD that he wrote the book <a href="https://www.amazon.com/dp/0321601912">Continuous Delivery</a>; which also means that our team was well versed and confident in those concepts. In hindsight, I can see that while our knowledge of these concepts was great, we needed practice in recognizing its applications. One such moment was when GoCD decided to go open source.</p>
+
+<p>Initially, we had a release cycle of three to four months. The product was being consumed by several enterprise customers and given their resistance to upgrade often, there was no real impetus for the team to deliver change any quicker. We had a long exploratory and regression cycle - which worked in that scenario. We also had automated tests which helped us, but they weren’t 100% reliable. We had always contemplated if it were possible to release an installed product more frequently than our 2-3 month cycle… and was the team was truly practicing continuous delivery?</p>
+
+<p>We were about to get the answers to this question in 2014 - when we decided to go open source.</p>
+
+<h2 id="confession-we-were-extremely-comfortable-with-the-concepts-of-continuous-delivery-but-not-when-it-came-to-practicing-it"><em>Confession: We were extremely comfortable with the concepts of continuous delivery, but not when it came to practicing it.</em></h2>
+
+<p>With this decision, came new expectations from a new audience. Now we were seeing adoption from a new group of people who expected changes faster than our previous enterprise customers and were keen to see their contributions in production.</p>
+
+<p>Our first goal was to shorten our release process from 3 - 4 months to 1.5 months. When we did this, we saw that our regression cycle (which worked fine for us initially) broke. There was an installer testing phase and performance testing which had enormous gaps. Our entire automation had huge gaps that we hadn't really noticed till we needed to release much more quickly. This was embarrassing because we were building a CD product!</p>
+
+<p>We decided to break down the automation of our entire deployment into tiny chunks. We did this by figuring out smaller bits to automate with each release, rather than attempting to automate the entire process at once. Our first step was to automate the publishing of releases. Earlier, this was something that people did manually and because it was done every three or four months, it didn’t affect us much. However, now since we’d be releasing more often, it no longer made  sense, so we automated it completely. In fact, everything became automatic so within a release cycle, we started to do this activity multiple times.</p>
+
+<p>As we kept going, we started finding newer things to automate (that we didn’t have earlier) such as  our Release Notes. Since we were delivering an open source tool to the public, we needed to have reliable and sensible release notes. First, we got everyone who contributed code (the team and external contributors) to write good commit messages and then automated release notes out of these. Despite the automation, we do still curate it and make it easier to read.</p>
+
+<p><img src="../../../../assets/images/blog/cd-confession-gocd/automate-everything-gocd-e047261e.jpeg" alt="Automate everything" /></p>
+
+<h2 id="confession-we-were-still-not-delivering-continuously-at-100-as-we-kept-identifying-new-things-to-automate"><em>Confession: We were still not delivering continuously at 100%, as we kept identifying new things to automate.</em></h2>
+
+<p>The ultimate goal was to get to a place where we could automatically publish releases to production. With automated installer tests, performance tests, release notes etc., we got closer and closer to this goal. It took confidence in our automation ability for us to be able to say,</p>
+
+<blockquote>
+  <p><strong><em>"Yes, this is a release that we can stand by”.</em></strong></p>
+</blockquote>
+
+<p>And if there was a problem with it, we had the ability to release a new version or deploy a fix much more easily. We're also happy to say that we're in a "good enough phase", where the release cadence is decent for an installed product, and increasing it does not necessarily add much value to users. We do publish certified, experimental builds for every good build - but we deem one of them a "release" only about once a month.</p>
+
+<h2 id="learnings">Learnings</h2>
+
+<p>The biggest learning for me, as a product manager for GoCD, has been that <a href="https://martinfowler.com/bliki/FrequencyReducesDifficulty.html">frequency reduces difficulty</a>. The idea is simple - if you find something difficult, do it more often. If you can bring that pain forward, you will realize that there are a lot of costs and complexity that you can reduce. The second learning for me has been that automation costs pay for themselves. We used to have long cycles and at the end we still spent manual effort checking if all the tests had been carried out and correcting when anything had been missed. We don't have to worry about that now. There is an initial cost at the beginning, but in the end, it definitely pays off.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'> Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">Continuous Delivery news in your inbox</p>
+    <div id="subscribe-info">
+      Send us a mail to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20GoCD%20blog%20notifications">support@thoughtworks.com</a> and we will sign you up for a notification on new blog posts.
+    </div>
+    <script type="text/javascript">
+      function initMarketoForm() {
+        jQuery("#subscribe-info").html("<form id='mktoForm_5414'></form>");
+        MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
+      }
+    </script>
+    <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Nov 28</span>
+              <span class="post-author">Aravind S.V</span>
+              <a href="./">Confessions of Continuous Delivery Experts: When GoCD went open source</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 14</span>
+              <span class="post-author">Franklin Mosley</span>
+              <a href="../../14/minimizing-risk-improving-security-devops/">Minimizing Risk and Improving Security in DevOps</a>
+            </li>
+            <li>
+              <span class="post-date">Nov  7</span>
+              <span class="post-author">Suzie Prince and Aravind S.V</span>
+              <a href="../../07/confessions-stories-continuous-delivery-mingle-project-management-tool/">Confessions of continuous delivery experts: How Mingle saw the light</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 31</span>
+              <span class="post-author">Sanchit Bahal</span>
+              <a href="../../../10/31/mobile-app-continuous-delivery-gocd/">Our learnings from Continuous Delivery for Mobile Development</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 17</span>
+              <span class="post-author">Louda Peña</span>
+              <a href="../../../10/17/difference-between-continuous-delivery-continuous-deployment-infographic/">Infographic - What's the difference between Continuous Delivery and Continuous Deployment?</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2017 (38)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        
+        <li>
+        <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+
+        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

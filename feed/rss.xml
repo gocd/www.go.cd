@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-11-14T00:00:00Z</updated>
+  <updated>2017-11-28T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Confessions of Continuous Delivery Experts: When GoCD went open source</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source.html"/>
+    <id>https://www.gocd.org/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source.html</id>
+    <published>2017-11-28T00:00:00Z</published>
+    <updated>2017-11-28T00:00:00Z</updated>
+    <author>
+      <name>Aravind S.V</name>
+    </author>
+    <content type="html">This post is the story of how continuous delivery became critical to the GoCD team’s decision to go open source.</content>
+  </entry>
   <entry>
     <title>Minimizing Risk and Improving Security in DevOps</title>
     <link rel="alternate" href="https://www.gocd.org/2017/11/14/minimizing-risk-improving-security-devops.html"/>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">CD 101 is a video series to help you get started on your CD journey. Part Four of this series covers how to get started using value stream mapping.</content>
-  </entry>
-  <entry>
-    <title>Part 2 - You can’t buy DevOps, but you may need to sell it: Misconceptions and Patterns to drive DevOps Adoption</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/09/05/misconceptions-patterns-devops-adoption.html"/>
-    <id>https://www.gocd.org/2017/09/05/misconceptions-patterns-devops-adoption.html</id>
-    <published>2017-09-05T00:00:00Z</published>
-    <updated>2017-09-05T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">In part 2 of the series, You can’t buy DevOps but you may need to sell it, we’ll look at some of the most commonly held misconceptions about driving change. We’ll also explore some patterns that you can use to help gain acceptance of your ideas.</content>
   </entry>
 </feed>
