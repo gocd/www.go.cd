@@ -54,6 +54,9 @@
 		}
 
 		.ui-illo {
+
+			// content: url("../../images/home/ui_illo.svg");
+
 			@media (max-width: 990px) {
 				padding-bottom: 2em;
 			}
@@ -81,44 +84,55 @@
 			width: 100%;
 			border: 2px solid;
 			border-color: hsla(0, 0, 100%, 1);
+			background-color: hsla(0, 0, 100%, .2);
 			padding: 15px 0 0 0;
-			border-radius: 0;
+			border-radius: 2;
 			
 			color: hsla(0, 0, 100%, 1);
 			text-transform: uppercase;
 			font-size: 1em;
 			font-family: URWGeometric-ExtraBold;
 
-			margin-bottom: 8px;
+			margin-bottom: 4px;
 
 			&:hover {
-				background-color: hsla(0, 0, 100%, 1);
-				color: hsla(294, 47%, 42%, 1);
+				background-color: hsla(69, 65%, 60%, 1);
+				border-color: hsla(69, 65%, 60%, 1);
+				color: hsla(0, 0, 100%, 1);
+
 			}
 
 			&:active {
-				background-color: hsla(0, 0, 100%, .3);
-				border: 2px solid;
-				border-color: hsla(0, 0, 100%, 1);
+				background-color: hsla(69, 65%, 40%, 1);
+				border-color: hsla(69, 65%, 40%, 1);
 				color: hsla(0, 0, 100%, 1);
+				// background-color: hsla(0, 0, 100%, .3);
+				// border: 2px solid;
+				// border-color: hsla(0, 0, 100%, 1);
+				// color: hsla(0, 0, 100%, 1);
 			}
 		}
 
 		.sub-cta {
+
 			text-align: center;
-			font-size: 12px;
-			color: hsla(0, 0, 100%, 1);
-			font-family: URWGeometric-Medium;
 
+			padding-top: 0;
+			margin-top: 0;
 
-			&:hover {
-				font-family: URWGeometric-Heavy;
+			a {
+				font-size: 14px;
+				color: hsla(0, 0, 100%, 1);
+				font-family: URWGeometric-Medium;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+				&:active {
+					color: hsla(0, 0, 70%, 1);
+				}
 			}
-
-			&:active {
-				text-decoration: underline;
-			}
-
 		}
 	}
 }
