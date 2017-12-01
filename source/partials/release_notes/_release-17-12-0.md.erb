@@ -25,10 +25,11 @@
 
 <h4>Bug Fixes</h4>
 * <%= link_to_commit 'ab1ccf83aa90dfa3fc916ca892592e6db81717fc', 'Fix config file validation to not use file system to validate paths. This caused issues in certain cases where the server working directores were using symlinks.', 4026%> <%= link_to_issue 3984 %>
-* <%= link_to_commit '6660a1b093d1c265f697c6e0ee16d3c146772a24', "Show console log not available error in build details page's console tab when console.log file is not available", 3998%> <%= link_to_issue 3773 %> <%= link_to_issue 3650 %>
+* <%= link_to_commit '6660a1b093d1c265f697c6e0ee16d3c146772a24', "Show 'console log not available' error in build details page's console tab when console.log file is not available", 3998%> <%= link_to_issue 3773 %> <%= link_to_issue 3650 %>
 * <%= link_to_commit 'e48d9588988969c42c2f63b617cd9d08f8ca015d', 'Fixes console.log file not being available at server if websocket connection is closed while waiting for logs', 3999%> <%= link_to_issue 3986 %>
-* <%= link_to_commit 'ee992e6175497a3ae927c9e956e22d822e5715bd', "Fixes issue in agent zip installers due to which agents fail to register if their log directories' path have spaces in them", 3976%> <%= link_to_issue 3966 %>
+* <%= link_to_commit 'ee992e6175497a3ae927c9e956e22d822e5715bd', "Fixes issue in agent zip installers in which agents fail to register if their log directories' path have spaces in them", 3976%> <%= link_to_issue 3966 %>
 * <%= link_to_commit 'e6c9b3ad5def1b6ea682c6723106f8c77df94f92', "Fixes issue with stale cache being used in CCtray which caused users associated with plugin-roles to not see pipelines which they were authorized to see otherwise", 3955%> <%= link_to_issue 3954 %>
+* <%= link_to_commit '449cbc38c4839ddf0f81165f6b96b10cdd0e721e', "Allows overriding default Go server ports when using windows service", 4038%> <%= link_to_issue 3982 %>
 
 <h4>Security Fixes</h4>
 * <%= link_to_commit '488712d7262dc6dd082aad3f2cf2d3ed05a3caa3', 'Token based approach for agent registration', 4014%>
@@ -44,13 +45,14 @@
 * Introduction of <%= link_to_api "config-repo", "Config Repo API" %> - v1
 * Introduction of <%= link_to_api "pipeline-config", "Pipeline config API" %> - v5 <%= link_to_issue 106 %>
 
-  This version accomodates changes made to <%= link_to("pipeline locking behavior", "https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html") %>. In addition, the representation of the origin attribute has also changed.
+  This version accomodates changes made to <%= link_to("pipeline locking behavior", "https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html") %>. In addition to this, the representation of the origin attribute has also changed.
 
 <h4>Docker Images</h4>
-* Addition of ability to install custom plugin while starting up the gocd-server. <%= link_to_docker_issue 46 %>
+* Addition of ability to run custom scripts while starting up the gocd-server or gocd-agent using the official GoCD docker images. <%= link_to_docker_issue 46 %>
 
 <h4>Breaking Changes</h4>
 * <%= link_to_commit 'cdf6722bf17664799a81c42b5c2cc13ae48736fc', 'Remove code related to starting vncserver', 4028 %> <%= link_to_issue 4005 %>
+
   Alternatives to using the VNC flag are mentioned in <%= link_to "this", "https://github.com/gocd/gocd/issues/4005#issuecomment-348138015" %> comment.
 
 <h4>Deprecations</h4>
@@ -79,17 +81,19 @@
     </ul>
 
 * Plugins upload form has been removed from the new plugins page. It is still available in the old plugins page, which will be removed in release 18.2 (scheduled to be released in February 2018).
+* As of release 17.9, version 2 of the plugin info <%= link_to_api 'plugin-info' %> is deprecated. This version of the API will be removed in 18.1.0 release (scheduled to be released in January 2018). Version 3 of the API is available, and users are encouraged to use it.
 
 <h4>Contributors</h4>
 
 <%= [
+  "Aaditya Sood",
   "Akshay Dewan",
   "Ankit Srivastava",
   "Ankur K",
   "Aravind SV",
   "Bhupendrakumar Piprava",
-  "Drew J. Sonne",
   "Emily Luke",
+  "EugenMayer",
   "Isabelle Carter",
   "Ganesh S Patil",
   "Jyoti Singh",
@@ -97,11 +101,10 @@
   "Louda Peña",
   "Lubaina R",
   "Mahesh Panchaksharaiah",
-  "Mikhail Advani",
   "Naveen Bhaskar",
   "Rajiesh N",
   "Senthil R",
-  "Suzie Prince",
+  "Szymon Chojnacki",
   "Tomasz Setkowski",
   "Varsha Varadarajan"
 ].sort.uniq.join(', ')
@@ -115,7 +118,7 @@
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.11' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.12' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
