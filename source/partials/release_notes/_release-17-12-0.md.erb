@@ -19,7 +19,7 @@
 
     * Run single instance of pipeline and lock on failure ("Lock behavior: Lock on failure")
 
-    More information can be found in the <%= link_to("docs", "https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html") %>
+    More information can be found in the <%= link_to("docs", "https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html") %>.
 * <%= link_to_commit '979fa507d3527927919a730bf421e92c2090a972', 'Addition of pipeline count information to about page', 3960%>
 
 
@@ -42,8 +42,8 @@
 
 
 <h4>API Changes</h4>
-* Introduction of <%= link_to_api "config-repo", "Config Repo API" %> - v1
-* Introduction of <%= link_to_api "pipeline-config", "Pipeline config API" %> - v5 <%= link_to_issue 106 %>
+* Introduction of version 1 for <%= link_to_api "config-repo", "Config Repo API" %>.
+* Introduction of version 5 for <%= link_to_api "pipeline-config", "Pipeline config API" %> (<%= link_to_issue 106 %>)
 
   This version accomodates changes made to <%= link_to("pipeline locking behavior", "https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html") %>. In addition to this, the representation of the origin attribute has also changed.
 
@@ -76,7 +76,9 @@
       (Use <%= link_to('latest version', 'https://github.com/cnorthwood/gocd-tls-auth/releases') %> of TLS Client Certificates Login instead.)
       </p></li>
 
-      <li><p><%= link_to('Strong Auth Plugin', 'https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin') %></p></li>
+      <li><p><%= link_to('Strong Auth Plugin', 'https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin') %>
+      (Use the bundled <%= link_to('gocd-filebased-authentication-plugin', 'https://github.com/gocd/gocd-filebased-authentication-plugin') %> instead.)
+      </p></li>
       <li><p><%= link_to('Guest Login', 'https://github.com/gocd-contrib/gocd_auth_plugin_guest_user') %></p></li>
     </ul>
 
@@ -86,7 +88,7 @@
 <h4>Contributors</h4>
 
 <%= [
-  "Aaditya Sood",
+  "Aditya Sood",
   "Akshay Dewan",
   "Ankit Srivastava",
   "Ankur K",
