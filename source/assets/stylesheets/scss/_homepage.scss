@@ -26,7 +26,7 @@
 			text-align: center;
 			padding-bottom: 20px;
 			text-transform: uppercase;
-			font-family: URWGeometric-Heavy;
+			font-family: URWGeometric-Heavy, Helvetica, sans-serif;
 
 			@media (max-width: 1400px) {
 				// font-size: 64px;
@@ -68,7 +68,7 @@
 			font-size: 26px;
 			line-height: 120%;
 			letter-spacing: 1px;
-			font-family: URWGeometric-Medium;
+			font-family: URWGeometric-Medium, Helvetica, sans-serif;
 
 			padding-bottom: 1em;
 
@@ -91,7 +91,7 @@
 			color: hsla(0, 0, 100%, 1);
 			text-transform: uppercase;
 			font-size: 1em;
-			font-family: URWGeometric-ExtraBold;
+			font-family: URWGeometric-ExtraBold, Helvetica, sans-serif;
 
 			margin-bottom: 4px;
 
@@ -123,7 +123,7 @@
 			a {
 				font-size: 14px;
 				color: hsla(0, 0, 100%, 1);
-				font-family: URWGeometric-Medium;
+				font-family: URWGeometric-Medium, Helvetica, sans-serif;
 
 				&:hover {
 					text-decoration: underline;
