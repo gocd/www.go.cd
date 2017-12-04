@@ -1,164 +1,140 @@
 //banner
+
+
 .banner {
-	background-image: url("/assets/images/go-banner-phone.jpg");
-	background-position: center 0;
+	background-image: url("/assets/images/home/pipe_bkgd.jpg");
+	background-position: center;
 	background-repeat: no-repeat;
 	background-color: #333;
-	height: 250px;
+	background-size: cover;
+	height: auto;
 	position: relative;
 	overflow: hidden;
 
-	@media (min-width:$screen-tablet) {
-		height: 500px;
-		background-image: url('/assets/images/go-banner-tablet.jpg');
-		background-size: initial;
-	}
-
-	@media (min-width:1025px) {
-		background-image: url('/assets/images/go-banner-desktop.jpg');
-		height: 750px;
-	}
-
-	@media (min-width:$screen-lg-desktop) {
-		background-image: url('/assets/images/go-banner-desktop.jpg');
-		background-size: cover;
-	}
-
-	.banner-content {
-		position: absolute;
-		top: 50%;
-		min-width: 300px;
-		max-width: 300px;
-		left: 50%;
-		text-align: center;
-		transform: translate(-50%, -62%);
-		background: rgba(0, 0, 0, 0.63);
-		font-weight: 400;
-
-		@media (min-width:$screen-tablet) {
-			transform: translate(-50%, -50%);
-			width: 575px;
-			max-width: 575px;
-		}
-
-		@media (min-width:$screen-desktop) {
-			width: 775px;
-			max-width: 775px;
-			transform: translate(-50%, -50%);
-		}
-
-		@media (min-width:$screen-lg-desktop) {
-			width: 880px;
-			max-width: 880px;
-			transform: translate(-50%, -50%);
-		}
-
-	}
-
 	.caption {
-		color: #fff;
-		font-size: 26px;
-		font-weight: 600;
-		text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+		margin-top: 2em;
 
-		@media (min-width:$screen-tablet) {
-			font-size: 50px;
+		@media (max-width: 990px) {
+			margin-top: 1em;
 		}
 
-		@media (min-width:$screen-desktop) {
-			font-size: 70px;
-		}
 
-		@media (min-width:$screen-lg-desktop) {
-			font-size: 80px;
-		}
+		h1 {
+			color: hsla(0, 0, 100%, 1);
+			font-size: 78px;
+			width: 100%;
+			text-align: center;
+			padding-bottom: 20px;
+			text-transform: uppercase;
+			font-family: URWGeometric-Heavy;
 
-		span {
-			display: inline-block;
-			margin-right: 10px;
-
-			@media (min-width:$screen-tablet) {
-				margin-right: 20px;
+			@media (max-width: 1400px) {
+				// font-size: 64px;
 			}
 
-			&:last-child {
-				margin-right: 0;
+			@media (max-width: 1198px) {
+				font-size: 64px;
 			}
 
+			@media (max-width: 990px) {
+				font-size: 12vw;
+				// font-size: 68px;
+				line-height: 90%;
+				padding-bottom: 10px;
+			}
 		}
-
 	}
+
 
 	.subcaption {
-		color: #fff;
-		font-size: 15px;
-		font-weight: 300;
-		display: inline-block;
-		text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
-		padding: 0px 20px;
+		margin-bottom: 5em;
 
-		@media (min-width:$screen-tablet) {
-			font-size: 21px;
-			padding: 10px 20px;
-			width: 93%;
-			line-height: 27px;
+		@media (max-width: 990px) {
+			margin-bottom: .5em;
 		}
 
-		@media (min-width:$screen-desktop) {
-			font-size: 25px;
-			line-height: 31px;
-			width: 85%;
+		.ui-illo {
+
+			// content: url("../../images/home/ui_illo.svg");
+
+			@media (max-width: 990px) {
+				padding-bottom: 2em;
+			}
+
 		}
 
-		@media (min-width:$screen-lg-desktop) {
-			font-size: 32px;
-			line-height: 38px;
-			width: 93%;
+		p {
+			color: hsla(0, 0, 100%, 1);
+			font-size: 26px;
+			line-height: 120%;
+			letter-spacing: 1px;
+			font-family: URWGeometric-Medium;
+
+			padding-bottom: 1em;
+
+			@media (max-width: 990px) {
+				text-align: center;
+				font-size: 22px;
+			}
+
 		}
 
+		.btn-download {
+			height: 50px;
+			width: 100%;
+			border: 2px solid;
+			border-color: hsla(0, 0, 100%, 1);
+			background-color: hsla(0, 0, 100%, .2);
+			padding: 15px 0 0 0;
+			border-radius: 2;
+			
+			color: hsla(0, 0, 100%, 1);
+			text-transform: uppercase;
+			font-size: 1em;
+			font-family: URWGeometric-ExtraBold;
+
+			margin-bottom: 4px;
+
+			&:hover {
+				background-color: hsla(69, 65%, 60%, 1);
+				border-color: hsla(69, 65%, 60%, 1);
+				color: hsla(0, 0, 100%, 1);
+
+			}
+
+			&:active {
+				background-color: hsla(69, 65%, 40%, 1);
+				border-color: hsla(69, 65%, 40%, 1);
+				color: hsla(0, 0, 100%, 1);
+				// background-color: hsla(0, 0, 100%, .3);
+				// border: 2px solid;
+				// border-color: hsla(0, 0, 100%, 1);
+				// color: hsla(0, 0, 100%, 1);
+			}
+		}
+
+		.sub-cta {
+
+			text-align: center;
+
+			padding-top: 0;
+			margin-top: 0;
+
+			a {
+				font-size: 14px;
+				color: hsla(0, 0, 100%, 1);
+				font-family: URWGeometric-Medium;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+				&:active {
+					color: hsla(0, 0, 70%, 1);
+				}
+			}
+		}
 	}
-
-}
-
-.banner-video {
-	@media (max-width:$screen-xs-min) {
-		height: 100%;
-	}
-
-	@media (min-width:$screen-tablet) {
-		width: 100%;
-	}
-
-}
-
-.btn-download {
-	margin: 10px auto 0;
-	position: absolute;
-	left: 0;
-	bottom: -40px;
-	width: 300px;
-
-	@media (min-width:$screen-tablet) {
-		width: 575px;
-		padding: 10px;
-		font-size: 27px;
-		bottom: -70px;
-	}
-
-	@media (min-width:$screen-desktop) {
-		width: 775px;
-		position: absolute;
-		left: 0;
-		bottom: -70px;
-	}
-
-	@media (min-width:$screen-lg-desktop) {
-		width: 880px;
-		position: absolute;
-		left: 0;
-		bottom: -70px;
-	}
-
 }
 
 .btn-readmore {
