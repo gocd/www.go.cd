@@ -124,9 +124,10 @@
 				font-size: 14px;
 				color: hsla(0, 0, 100%, 1);
 				font-family: URWGeometric-Medium, Helvetica, sans-serif;
+				text-decoration: underline;
 
 				&:hover {
-					text-decoration: underline;
+					color: hsla(180, 65%, 57%, 1);
 				}
 
 				&:active {
