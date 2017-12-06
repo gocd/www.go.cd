@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2017-11-28T00:00:00Z</updated>
+  <updated>2017-12-06T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Confessions of Continuous Delivery Experts: From microservices back to monolith</title>
+    <link rel="alternate" href="https://www.gocd.org/2017/12/06/confessions-continuous-delivery-experts-snapci-microservices-monolith.html"/>
+    <id>https://www.gocd.org/2017/12/06/confessions-continuous-delivery-experts-snapci-microservices-monolith.html</id>
+    <published>2017-12-06T00:00:00Z</published>
+    <updated>2017-12-06T00:00:00Z</updated>
+    <author>
+      <name>Suzie Prince</name>
+    </author>
+    <content type="html">This story is about the experiences of the Snap CI team in moving a monolith codebase to microservices and the continuous delivery learnings along the way.</content>
+  </entry>
   <entry>
     <title>Confessions of Continuous Delivery Experts: When GoCD went open source</title>
     <link rel="alternate" href="https://www.gocd.org/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source.html"/>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">In part 3 of the series, You can’t buy DevOps but you may need to sell it, we'll explore some of the actions to spread change.</content>
-  </entry>
-  <entry>
-    <title>Part 4 - CD101: Getting Started with Value Stream Mapping</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/09/12/value-stream-mapping.html"/>
-    <id>https://www.gocd.org/2017/09/12/value-stream-mapping.html</id>
-    <published>2017-09-12T00:00:00Z</published>
-    <updated>2017-09-12T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">CD 101 is a video series to help you get started on your CD journey. Part Four of this series covers how to get started using value stream mapping.</content>
   </entry>
 </feed>
