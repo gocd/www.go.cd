@@ -9,7 +9,6 @@ meta_description: "This story is about the experiences of the Snap CI team in mo
 meta_keywords: "confessions, snapci, stories, experts continuous delivery, continuous delivery stories, monolith to microservices"
 summary_image: "/assets/images/blog/cd-confession-snapci/continuous-delivery-confessions-snapci.png"
 tags: CD Confessions
-draft: true
 ---
 <% content_for :banner do %>
 <figure>
@@ -23,7 +22,7 @@ Snap CI was a continuous integration and delivery server for teams who work in t
 
 
     
-## Confession: We fulfilled all the practices on a checklist, but we failed on the core principle which is ‘to deliver changes quickly’
+## _Confession: We fulfilled all the practices on a checklist, but we failed on the core principle which is ‘to deliver changes quickly’_
 
 Snap CI’s team had very enthusiastic and experienced CD practitioners. The team wanted to do ‘everything CD’. Within six months after we began the product, we had a microservices architecture with nine different components, sophisticated messaging queues, monitoring, an automated infrastructure, and deployment pipelines for all of these different components.  
 
@@ -34,7 +33,7 @@ Snap CI’s team had very enthusiastic and experienced CD practitioners. The tea
 We had everything except for one important piece -  delivering quickly. We were delivering to production every two weeks, which sounds “not so bad,” but was not a business decision. We were unable to deploy any sooner than that. The product manager was exceptionally frustrated that they were unable to do daily ‘continuous deployment’ as the business needed to.   
   
 
-## Confession: We did not pay attention to the other core principle of continuous delivery, which was to deliver changes reliably
+## _Confession: We did not pay attention to the other core principle of continuous delivery, which was to deliver changes reliably_
 
 
 The second problem we had, was that when it came time to deliver, the likelihood of key features working was only about 50%. All that monitoring we had in place wasn’t giving us usable feedback. We were forced to rely on manual testing or using a small test group to inform us of any failures. We were unable to move the product forward for public use. 
@@ -56,7 +55,7 @@ At this time, we made a decision to  go back to a monolith structure which put u
 We learned that users don’t care if your team is practicing continuous delivery or using microservices. These are decisions a team makes to ensure what they build reaches users quickly and reliably. It’s easy to get caught up in the checklists, “doing CI and CD”, trying cool new microservices etc. 
 
 
-> _**Do the important things first that will deliver code quickly and reliably and then  evolve and move forward on your journey..**_
+> _**Do the important things first that will deliver code quickly and reliably and then evolve and move forward on your journey.**_
 
 
 The second lesson we learned was that CD is a journey. It's an evolution, and you first need to set your goals driven by your business and then make your way there. It is tempting to move to the latest practice or new technology as soon as you hear about it. However I recommend that  in the first few weeks, unless you are 100% sure that that's what you need, don’t make any major architectural decisions. Do the important things first that will deliver code quickly and reliably and then evolve and move forward on your journey.
