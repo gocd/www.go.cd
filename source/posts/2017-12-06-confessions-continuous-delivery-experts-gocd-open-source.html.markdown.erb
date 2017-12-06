@@ -1,0 +1,54 @@
+---
+layout: post
+title: "Confessions of Continuous Delivery Experts: From microservices back to monolith"
+type: post
+author: Suzie Prince
+excerpt: "This story is about the experiences of the Snap CI team in moving a monolith codebase to microservices and the continuous delivery learnings along the way."
+title_tag_of_header: "Confessions of Continuous Delivery Experts: From microservices back to monolith | GoCD Blog"
+meta_description: "This story is about the experiences of the Snap CI team in moving a monolith codebase to microservices and the continuous delivery learnings along the way."
+meta_keywords: "confessions, snapci, stories, experts continuous delivery, continuous delivery stories, monolith to microservices"
+summary_image: "/assets/images/blog/cd-confession-snapci/continuous-delivery-confessions-snapci.png"
+tags: CD Confessions
+draft: true
+---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/cd-confession-snapci/continuous-delivery-confessions-snapci.png" alt="CD confessions moving from monolith to microservices"/>
+</figure>
+<% end %>
+
+This blog series highlights the important lessons that we learned when we thought we were practicing continuous delivery. This is the third in our series of [confessions from continuous delivery experts](https://www.gocd.org/tags/cd-confessions.html). This story is about the experiences of the Snap CI team in moving a monolith codebase to microservices and why they chose to move back. 
+
+Snap CI was a continuous integration and delivery server for teams who work in the Cloud. If you were using GitHub, Snap CI could take your commit, put it through an automated test or suite of tests that you've written, and then help you deploy it to your Cloud target (like Heroku, AWS etc) . 
+
+Snap CI’s team had very enthusiastic and experienced CD practitioners. So you can imagine what a team that's super-enthusiastic would do? Basically, everything! The team wanted to do ‘everything CD’. If there had been a grade assigned for CD practices, the Snap CI team would have got 10 out of 10. 
+    
+## Confession: We thought CD was fulfilling all the practices on a checklist and forgot the core principle which is ‘to deliver changes quickly’
+
+Within six months after the product had started, we had a microservices architecture with nine different components, sophisticated messaging queues, monitoring, an automated infrastructure, and deployment pipelines for all of these different components.  
+
+> **_“We were in CD Nirvana”_**
+
+All except for one thing -  we were not really delivering _that_ quickly. We were delivering to production every two weeks, which despite that sounding “not so bad,” was not a business decision. The truth was that we were unable to deploy any sooner than that. This was in part because those nine different components were actually not separate components and it took us that long to make all of the right changes to get something out to production. The product manager at that time became exceptionally frustrated that they were not able to do this daily ‘continuous deployment thing’ that the team was striving for.
+    
+## Confession: We did not pay attention to the other core principle of continuous delivery, which was to deliver changes reliably
+
+The second problem we had, was that when it came time to deliver, the likelihood of key features working was only about 50%. All that monitoring we had in place wasn’t giving us usable feedback, making it near impossible to identify when something was broken. We were forced to rely on usability testing or using a small test group to inform us of any failures. It’s safe to say that we were not doing CD, despite our checklists. We were unable to move the product forward for public use. 
+
+## Assess and reassess your continuous delivery practices
+
+It’s commonly thought that microservices are essential to do continuous delivery as a best practice and something you should strive for. However, in our situation they were not right for us at that time.
+    
+We were enamoured by the idea of “microservices” and thus ended up selecting our components to separate without pausing to think about why and if they truly made sense for delivery. And because of that, they may have been separate superficially, but deeply they were coupled to each other. When we needed to change one component we were required to change the data structure in the other components. And because of this, we were unable to deliver those pieces separately from each other.
+    
+At this time, we took a big step back, and made a decision to  go back to a monolith structure which put us in a better place to understand what was going on with the product. This gave us the ability to gradually release more often and allow the business needs and the needs of the product to dictate where those splits should be.
+
+## Lessons we learnt
+
+The lesson we learnt was that users don’t care if your team is practicing continuous delivery or using microservices. These are decisions a team makes to make sure that what they build  reaches users quickly and reliably. It’s easy to get caught up in the checklists, “doing CI and CD”, trying cool new microservices etc. 
+
+> _**We were so caught up trying to be the best at CD, that we forgot about what was really important.**_
+
+The second lesson we learnt was that CD is a journey. It's an evolution, and you first need to set your goals driven by your business and then make your way there. It is tempting to move to the latest practice or new technology as soon as you hear about it. However I recommend that  in the first few weeks, unless you are a 100% sure that that's what you need, don’t make any major architectural decisions. Do the important things first that will deliver code quickly and reliably and then  evolve and move forward on your journey.
+
+_SnapCI was created by ThoughtWorks Products. It is no longer available and [has been discontinued](https://github.com/snap-ci/snap-ci-blog-content/blob/master/posts/2017-02-06-2017-02-06-snap-announcement.md) since Feb 2017._ 
