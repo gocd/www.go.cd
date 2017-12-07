@@ -1,0 +1,16 @@
+body.roadmap .container {
+  font-weight: 400;
+
+  ol.outer {
+    & > li {
+      padding: 4px 0;
+      ol.inner {
+        list-style-type: lower-alpha;
+
+        & > li {
+          padding: 2px 0;
+        }
+      }
+    }
+  }
+}
