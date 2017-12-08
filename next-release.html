@@ -15,7 +15,7 @@
 
     <title>Next release of GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-57089f17.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-91d2bdd2.css" rel="stylesheet" />
     <script src="assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -92,93 +92,92 @@
           <h4>UX Changes</h4>
 <ul>
   <li>
-    <p><code><a href="https://github.com/gocd/gocd/commit/67f1605fca894ea9855d16a283a913335200f3b2">67f1605</a></code> - Find Value Stream Map (VSM) more easily. (<a href="https://github.com/gocd/gocd/issues/3705">#3705</a>) (<a href="https://github.com/gocd/gocd/issues/3858">#3858</a>)</p>
+    <p><code><a href="https://github.com/gocd/gocd/commit/0e926106003a040ad4c62bc7810df0b851a35864">0e92610</a></code> - Newer plugins page. (<a href="https://github.com/gocd/gocd/issues/4030">#4030</a>).</p>
 
-    <p><code><a href="https://github.com/gocd/gocd/commit/9f6909e2f64b07d2dce5cecd4ea5b92b8e19d6b1">9f6909e</a></code> - Renames pipeline 'Label' to 'Instance' as part of an ongoing UX refresh. (<a href="https://github.com/gocd/gocd/issues/3944">#3944</a>) (<a href="https://github.com/gocd/gocd/issues/3949">#3949</a>)</p>
-
-    <p>Pipeline instances have an explict link to VSM across the application for better discoverablity. Moreover, the term pipeline <code>Label</code> has been changed to <code>Instance</code> as part of an ongoing UX refresh.</p>
-
-    <figure class="shrink-figure-50">
-    <img src="assets/images/releases/17.11.0/vsm-explicit-link-dashboard-ca369c86.png" alt="Explicit vsm link in dashboard" />
-</figure>
-
-    <figure class="shrink-figure-50">
-    <img src="assets/images/releases/17.11.0/vsm-explicit-link-vsm-4d3bffed.png" alt="Explicit vsm link in vsm" />
-</figure>
-
-    <p>Page headers refreshed across application</p>
-    <figure class="shrink-figure-50">
-    <img src="assets/images/releases/17.11.0/vsm-explicit-link-stage-details-1590a797.png" alt="Explicit vsm link in stage details header" />
-</figure>
-
-    <figure class="shrink-figure-50">
-    <img src="assets/images/releases/17.11.0/vsm-explicit-link-vsm-header-95afe224.png" alt="Explicit vsm link in vsm header" />
-</figure>
-
-    <figure class="shrink-figure-50">
-    <img src="assets/images/releases/17.11.0/vsm-explicit-link-job-details-header-41ce0456.png" alt="Explicit vsm link in job details page header" />
-</figure>
+    <p>As a part of an ongoing UI/UX refresh, we have introduced the new plugins page:</p>
   </li>
 </ul>
 
-<h4>Other Improvements</h4>
+<figure class="shrink-figure-75">
+      <img src="assets/images/releases/17.12.0/Plugins-SPA-73593efd.png" alt="Plugins SPA" />
+  </figure>
 
+<h4>Other Improvements</h4>
 <ul>
   <li>
-    <p><code><a href="https://github.com/gocd/gocd/commit/eb7305e41c03df0266974c6b7f432aac4f491cf1">eb7305e</a></code> - Improves classloading and resource management. (<a href="https://github.com/gocd/gocd/issues/3792">#3792</a>)</p>
+    <p><code><a href="https://github.com/gocd/gocd/commit/0ee52b367080b758847613c21701c11895e8ba4a">0ee52b3</a></code> - Disallow an authenticated user from re-authentication. (<a href="https://github.com/gocd/gocd/issues/3940">#3940</a>)</p>
 
-    <p>Prevents file-descriptor and classloader leaks by ensuring that:</p>
+    <p>With this change, an authenticated user is re-directed to home page on trying to access the login page.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/6fda2f5cb5104b9394f2cfd5e41ca1e517078bd6">6fda2f5</a></code> - Add new unlock behavior. (<a href="https://github.com/gocd/gocd/issues/3943">#3943</a>) <a href="https://github.com/gocd/gocd/issues/106">#106</a></p>
+
+    <p>As a part of this change, two types of locking behavior are introduced:</p>
 
     <ul>
-      <li>Classloaders for agent-launcher and agent are closed properly</li>
-      <li>Temporary jar files that are extracted are removed after closing the
-classloaders</li>
-      <li>File watcher from log4j is replaced with a custom implementation</li>
+      <li>
+        <p>Run single instance of pipeline at a time ("Lock behavior: Unlock when finished")</p>
+      </li>
+      <li>
+        <p>Run single instance of pipeline and lock on failure ("Lock behavior: Lock on failure")</p>
+      </li>
     </ul>
+
+    <p>More information can be found in the <a href="https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html">docs</a></p>
   </li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/f501efc5a00519461fdf7d93081f83fcca7df2b9">f501efc</a></code> - Move to logback for logging. (<a href="https://github.com/gocd/gocd/issues/3831">#3831</a>)
-    <ul>
-      <li>As a part of this change, <code>*-log4j.properties</code> have been moved over to <code>*-logback.xml</code>.</li>
-      <li>This migration solves a number of logging related issues such as <a href="https://github.com/gocd/gocd/issues/3588">#3588</a>, <a href="https://github.com/gocd/gocd/issues/3557">#3557</a> and <a href="https://github.com/gocd/gocd/issues/3403">#3403</a></li>
-    </ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/979fa507d3527927919a730bf421e92c2090a972">979fa50</a></code> - Addition of pipeline count information to about page. (<a href="https://github.com/gocd/gocd/issues/3960">#3960</a>)</p>
   </li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/a8d09f30be8947165696083039146a33a06fc5a0">a8d09f3</a></code> - Provides support for parameters and template references in config repo pipelines.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/36b675e24c7bc7185048f46499c699f9a49ff8e4">36b675e</a></code> - Introduces support for bitbucket webhook.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/6320d55722cde007995579d4fe6ec786b6287ea6">6320d55</a></code> - Introduces support for gitlab webhook.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/2cb4c003353e0b4b421af50680d6001cfa864a1a">2cb4c00</a></code> - Makes Go Server session timeout configurable. (<a href="https://github.com/gocd/gocd/issues/3856">#3856</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/4e5eeda6eced3defed84a85761cf0f101945b90c">4e5eeda</a></code> - Updates footer links to point to installed version's api and docs pages. (<a href="https://github.com/gocd/gocd/issues/3837">#3837</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/e51f3b6427d2b44588d6a4c6a1d0a832b2b8ad82">e51f3b6</a></code> - GoCD Agent supports configuring proxies. (<a href="https://github.com/gocd/gocd/issues/995">#995</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/c7ec496fe8967206a28902e0f94aae033d5c2386">c7ec496</a></code> - Links pipeline group names in dashboard to corresponding pipeline group settings page for an admin or pipeline group admin. (<a href="https://github.com/gocd/gocd/issues/3795">#3795</a>)</li>
 </ul>
 
 <h4>Bug Fixes</h4>
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/cef6649637d4de2d7bedb6b00f0fa759cb310fe6">cef6649</a></code> - Fixes a race condition during Job reschedule. (<a href="https://github.com/gocd/gocd/issues/3891">#3891</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/a1f99453ca629c18753a8835e406e621fa1cb560">a1f9945</a></code> - Improves checksums for agent jar(s) download. (<a href="https://github.com/gocd/gocd/issues/3884">#3884</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/4db7e52bed39e539e4c6f71e789bee188e3e5bd2">4db7e52</a></code> - Does not show the settings icon for config repo pipelines on VSM. (<a href="https://github.com/gocd/gocd/issues/3892">#3892</a>) (<a href="https://github.com/gocd/gocd/issues/3881">#3881</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/686c76d62ad18ae8ffa1299bef2f82e3a225bb4c">686c76d</a></code> - Fixes issue with users authenticated using WebBasedAuthentication not assigned the right permissions. (<a href="https://github.com/gocd/gocd/issues/3878">#3878</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ab1ccf83aa90dfa3fc916ca892592e6db81717fc">ab1ccf8</a></code> - Fix config file validation to not use file system to validate paths. This caused issues in certain cases where the server working directores were using symlinks. (<a href="https://github.com/gocd/gocd/issues/4026">#4026</a>) <a href="https://github.com/gocd/gocd/issues/3984">#3984</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/6660a1b093d1c265f697c6e0ee16d3c146772a24">6660a1b</a></code> - Show console log not available error in build details page's console tab when console.log file is not available. (<a href="https://github.com/gocd/gocd/issues/3998">#3998</a>) <a href="https://github.com/gocd/gocd/issues/3773">#3773</a> <a href="https://github.com/gocd/gocd/issues/3650">#3650</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e48d9588988969c42c2f63b617cd9d08f8ca015d">e48d958</a></code> - Fixes console.log file not being available at server if websocket connection is closed while waiting for logs. (<a href="https://github.com/gocd/gocd/issues/3999">#3999</a>) <a href="https://github.com/gocd/gocd/issues/3986">#3986</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ee992e6175497a3ae927c9e956e22d822e5715bd">ee992e6</a></code> - Fixes issue in agent zip installers due to which agents fail to register if their log directories' path have spaces in them. (<a href="https://github.com/gocd/gocd/issues/3976">#3976</a>) <a href="https://github.com/gocd/gocd/issues/3966">#3966</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e6c9b3ad5def1b6ea682c6723106f8c77df94f92">e6c9b3a</a></code> - Fixes issue with stale cache being used in CCtray which caused users associated with plugin-roles to not see pipelines which they were authorized to see otherwise. (<a href="https://github.com/gocd/gocd/issues/3955">#3955</a>) <a href="https://github.com/gocd/gocd/issues/3954">#3954</a></li>
+</ul>
+
+<h4>Security Fixes</h4>
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/488712d7262dc6dd082aad3f2cf2d3ed05a3caa3">488712d</a></code> - Token based approach for agent registration. (<a href="https://github.com/gocd/gocd/issues/4014">#4014</a>)</p>
+
+    <ul>
+      <li>Adds a new endpoint to get token from server in exchange of agent uuid. The token for a given agent is issued for unknown agents only - already registered or pending agents cannot request for a token.</li>
+      <li>Agent requests for a token before registration if required. This token is stored on agent's disk and reused for registration calls.</li>
+    </ul>
+
+    <p>Note: As a result of this fix, <a href="https://github.com/gocd-contrib/gocd-golang-agent">Go-lang agents</a> need to be updated to work with GoCD server versions 17.12 or higher, else the agent's registration would fail.
+Golang agent users can follow up with the author on <a href="https://github.com/gocd-contrib/gocd-golang-agent/issues/50">this</a> issue.</p>
+  </li>
 </ul>
 
 <h4>API Changes</h4>
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/cba778c7770295fad4d036c82a7802caf41aa723">cba778c</a></code> - Introduces health check API for Server. (<a href="https://github.com/gocd/gocd/issues/3912">#3912</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/97df2bfa2578349193c26250d2be59c0909dce58">97df2bf</a></code> - Introduces health check api for agent. (<a href="https://github.com/gocd/gocd/issues/3781">#3781</a>) (<a href="https://github.com/gocd/gocd/issues/3074">#3074</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/e4d041b2340ee6b7928a5fb11b6d3d787665dd1f">e4d041b</a></code> - Adds v2 of Users API. (<a href="https://github.com/gocd/gocd/issues/3720">#3720</a>)</li>
+  <li>Introduction of <a href="https://api.gocd.org/current/#config-repo">Config Repo API</a> - v1</li>
+  <li>
+    <p>Introduction of <a href="https://api.gocd.org/current/#pipeline-config">Pipeline config API</a> - v5 <a href="https://github.com/gocd/gocd/issues/106">#106</a></p>
+
+    <p>This version accomodates changes made to <a href="https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html">pipeline locking behavior</a>. In addition, the representation of the origin attribute has also changed.</p>
+  </li>
 </ul>
 
 <h4>Docker Images</h4>
 <ul>
-  <li>We have made a few changes to the <a href="https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md#docker-gocd-server-17110">GoCD Server</a> and the <a href="https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md#docker-gocd-agent-17110">GoCD Agent</a> Docker images.</li>
+  <li>Addition of ability to install custom plugin while starting up the gocd-server. <a href="https://github.com/gocd/docker-gocd-server/issues/46">#46</a></li>
 </ul>
 
 <h4>Breaking Changes</h4>
 <ul>
-  <li>Support for phusion based docker <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">server</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">agent</a> images have been removed this release. We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/cdf6722bf17664799a81c42b5c2cc13ae48736fc">cdf6722</a></code> - Remove code related to starting vncserver. (<a href="https://github.com/gocd/gocd/issues/4028">#4028</a>) <a href="https://github.com/gocd/gocd/issues/4005">#4005</a>
+Alternatives to using the VNC flag are mentioned in <a href="https://github.com/gocd/gocd/issues/4005#issuecomment-348138015">this</a> comment.</li>
 </ul>
 
 <h4>Deprecations</h4>
 <ul>
-  <li>As of release 17.9, version 2 of the plugin info <a href="https://api.gocd.org/current/#plugin-info">API</a> is deprecated. This version of the API will be removed in 17.12.0 release (scheduled to be released in November 2017). Version 3 of the API is available, and users are encouraged to use it.</li>
+  <li>As of release 17.11, version 1 of the users <a href="https://api.gocd.org/current/#users">API</a> is deprecated. This version of the API will be removed in 18.1.0 release (scheduled to be released in January 2018). Version 2 of the API is available, and users are encouraged to use it.</li>
   <li>As of release 17.5, authentication plugin endpoints have been deprecated. Support for these plugins will be removed in 18.1 (scheduled to be released in January 2018). Plugin developers are encouraged to migrate their plugins to use the <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugins</a> that were introduced. The following plugins are affected by this deprecation:
     <ul>
     <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">Google OAuth Login</a>
@@ -202,17 +201,12 @@ classloaders</li>
     <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a></p></li>
   </ul>
   </li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/8571bc13a55853ecff3f19e59f312b2e8b7a1e60">8571bc1</a></code> - Removes garage controller and associated services. (<a href="https://github.com/gocd/gocd/issues/3923">#3923</a>)</li>
-</ul>
-
-<h4>Note</h4>
-<ul>
-  <li>With release 17.5.0 support for in-built password file and LDAP/AD authentication had been deprecated. In this release support for this has been removed in favour of the bundled <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">LDAP</a>  and <a href="https://github.com/gocd/filebased-authentication-plugin">Password File</a> plugins respectively.</li>
+  <li>Plugins upload form has been removed from the new plugins page. It is still available in the old plugins page, which will be removed in release 18.2 (scheduled to be released in February 2018).</li>
 </ul>
 
 <h4>Contributors</h4>
 
-<p>Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Drew J. Sonne, Emily Luke, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mikhail Advani, Naveen Bhaskar, Rajiesh N, Senthil R, Suzie Prince, Tomasz Setkowski, Varsha Varadarajan</p>
+<p>Akshay Dewan, Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Drew J. Sonne, Emily Luke, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mikhail Advani, Naveen Bhaskar, Rajiesh N, Senthil R, Suzie Prince, Tomasz Setkowski, Varsha Varadarajan</p>
 
 <!--
 <h4>Security researchers</h4>

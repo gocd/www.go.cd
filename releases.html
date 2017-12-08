@@ -15,7 +15,7 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-57089f17.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-91d2bdd2.css" rel="stylesheet" />
     <script src="assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -87,7 +87,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker">
-      <li rel="tab-17-11-0" class="tab-marker active">17.11.0 (latest)</li>
+      <li rel="tab-17-12-0" class="tab-marker active">17.12.0 (latest)</li>
+      <li rel="tab-17-11-0" class="tab-marker">17.11.0</li>
       <li rel="tab-17-10-0" class="tab-marker">17.10.0</li>
       <li rel="tab-17-9-0" class="tab-marker">17.9.0</li>
       <li rel="tab-17-8-0" class="tab-marker">17.8.0</li>
@@ -122,7 +123,152 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-17-11-0">17.11.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-17-12-0">17.12.0 (latest)</h3>
+      <div id="tab-17-12-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>UX Changes</h4>
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/0e926106003a040ad4c62bc7810df0b851a35864">0e92610</a></code> - Newer plugins page. (<a href="https://github.com/gocd/gocd/issues/4030">#4030</a>).</p>
+
+    <p>As a part of an ongoing UI/UX refresh, we have introduced the new plugins page:</p>
+  </li>
+</ul>
+
+<figure class="shrink-figure-75">
+      <img src="assets/images/releases/17.12.0/Plugins-SPA-73593efd.png" alt="Plugins SPA" />
+  </figure>
+
+<h4>Other Improvements</h4>
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/0ee52b367080b758847613c21701c11895e8ba4a">0ee52b3</a></code> - Disallow an authenticated user from re-authentication. (<a href="https://github.com/gocd/gocd/issues/3940">#3940</a>)</p>
+
+    <p>With this change, an authenticated user is re-directed to home page on trying to access the login page.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/6fda2f5cb5104b9394f2cfd5e41ca1e517078bd6">6fda2f5</a></code> - Add new unlock behavior. (<a href="https://github.com/gocd/gocd/issues/3943">#3943</a>) <a href="https://github.com/gocd/gocd/issues/106">#106</a></p>
+
+    <p>As a part of this change, two types of locking behavior are introduced:</p>
+
+    <ul>
+      <li>
+        <p>Run single instance of pipeline at a time ("Lock behavior: Unlock when finished")</p>
+      </li>
+      <li>
+        <p>Run single instance of pipeline and lock on failure ("Lock behavior: Lock on failure")</p>
+      </li>
+    </ul>
+
+    <p>More information can be found in the <a href="https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html">docs</a>.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/979fa507d3527927919a730bf421e92c2090a972">979fa50</a></code> - Addition of pipeline count information to about page. (<a href="https://github.com/gocd/gocd/issues/3960">#3960</a>)</p>
+  </li>
+</ul>
+
+<h4>Bug Fixes</h4>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ab1ccf83aa90dfa3fc916ca892592e6db81717fc">ab1ccf8</a></code> - Fix config file validation to not use file system to validate paths. This caused issues in certain cases where the server working directores were using symlinks. (<a href="https://github.com/gocd/gocd/issues/4026">#4026</a>) <a href="https://github.com/gocd/gocd/issues/3984">#3984</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/6660a1b093d1c265f697c6e0ee16d3c146772a24">6660a1b</a></code> - Show 'console log not available' error in build details page's console tab when console.log file is not available. (<a href="https://github.com/gocd/gocd/issues/3998">#3998</a>) <a href="https://github.com/gocd/gocd/issues/3773">#3773</a> <a href="https://github.com/gocd/gocd/issues/3650">#3650</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e48d9588988969c42c2f63b617cd9d08f8ca015d">e48d958</a></code> - Fixes console.log file not being available at server if websocket connection is closed while waiting for logs. (<a href="https://github.com/gocd/gocd/issues/3999">#3999</a>) <a href="https://github.com/gocd/gocd/issues/3986">#3986</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ee992e6175497a3ae927c9e956e22d822e5715bd">ee992e6</a></code> - Fixes issue in agent zip installers in which agents fail to register if their log directories' path have spaces in them. (<a href="https://github.com/gocd/gocd/issues/3976">#3976</a>) <a href="https://github.com/gocd/gocd/issues/3966">#3966</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e6c9b3ad5def1b6ea682c6723106f8c77df94f92">e6c9b3a</a></code> - Fixes issue with stale cache being used in CCtray which caused users associated with plugin-roles to not see pipelines which they were authorized to see otherwise. (<a href="https://github.com/gocd/gocd/issues/3955">#3955</a>) <a href="https://github.com/gocd/gocd/issues/3954">#3954</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/449cbc38c4839ddf0f81165f6b96b10cdd0e721e">449cbc3</a></code> - Allows overriding default Go server ports when using windows service. (<a href="https://github.com/gocd/gocd/issues/4038">#4038</a>) <a href="https://github.com/gocd/gocd/issues/3982">#3982</a></li>
+</ul>
+
+<h4>Security Fixes</h4>
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/488712d7262dc6dd082aad3f2cf2d3ed05a3caa3">488712d</a></code> - Token based approach for agent registration. (<a href="https://github.com/gocd/gocd/issues/4014">#4014</a>)</p>
+
+    <ul>
+      <li>Adds a new endpoint to get token from server in exchange of agent uuid. The token for a given agent is issued for unknown agents only - already registered or pending agents cannot request for a token.</li>
+      <li>Agent requests for a token before registration if required. This token is stored on agent's disk and reused for registration calls.</li>
+    </ul>
+
+    <p>Note: As a result of this fix, <a href="https://github.com/gocd-contrib/gocd-golang-agent">Go-lang agents</a> need to be updated to work with GoCD server versions 17.12 or higher, else the agent's registration would fail.
+Golang agent users can follow up with the author on <a href="https://github.com/gocd-contrib/gocd-golang-agent/issues/50">this</a> issue.</p>
+  </li>
+</ul>
+
+<h4>API Changes</h4>
+<ul>
+  <li>Introduction of version 1 for <a href="https://api.gocd.org/current/#config-repo">Config Repo API</a>.</li>
+  <li>
+    <p>Introduction of version 5 for <a href="https://api.gocd.org/current/#pipeline-config">Pipeline config API</a> (<a href="https://github.com/gocd/gocd/issues/106">#106</a>)</p>
+
+    <p>This version accomodates changes made to <a href="https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html">pipeline locking behavior</a>. In addition to this, the representation of the origin attribute has also changed.</p>
+  </li>
+</ul>
+
+<h4>Docker Images</h4>
+<ul>
+  <li>Addition of ability to run custom scripts while starting up the gocd-server or gocd-agent using the official GoCD docker images. <a href="https://github.com/gocd/docker-gocd-server/issues/46">#46</a></li>
+</ul>
+
+<h4>Breaking Changes</h4>
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/cdf6722bf17664799a81c42b5c2cc13ae48736fc">cdf6722</a></code> - Remove code related to starting vncserver. (<a href="https://github.com/gocd/gocd/issues/4028">#4028</a>) <a href="https://github.com/gocd/gocd/issues/4005">#4005</a></p>
+
+    <p>Alternatives to using the VNC flag are mentioned in <a href="https://github.com/gocd/gocd/issues/4005#issuecomment-348138015">this</a> comment.</p>
+  </li>
+</ul>
+
+<h4>Deprecations</h4>
+<ul>
+  <li>As of release 17.11, version 1 of the users <a href="https://api.gocd.org/current/#users">API</a> is deprecated. This version of the API will be removed in 18.1.0 release (scheduled to be released in January 2018). Version 2 of the API is available, and users are encouraged to use it.</li>
+  <li>As of release 17.5, authentication plugin endpoints have been deprecated. Support for these plugins will be removed in 18.1 (scheduled to be released in January 2018). Plugin developers are encouraged to migrate their plugins to use the <a href="https://plugin-api.gocd.org/current/authorization/">Authorization Plugins</a> that were introduced. The following plugins are affected by this deprecation:
+    <ul>
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">Google OAuth Login</a>
+    (Alternative: <a href="https://github.com/gocd-contrib/google-oauth-authorization-plugin">Google OAuth Authorization Plugin</a>)
+    </p>
+    </li>
+
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitHub OAuth Login</a>
+    (Alternative: <a href="https://github.com/gocd-contrib/github-oauth-authorization-plugin">GitHub OAuth Authorization Plugin</a>)
+    </p></li>
+
+    <li><p><a href="https://github.com/gocd-contrib/gocd-oauth-login">GitLab(CE) OAuth Login</a>
+    (Alternative: <a href="https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin">GitLab OAuth Authorization Plugin</a>)
+    </p></li>
+
+    <li><p><a href="https://github.com/cnorthwood/gocd-tls-auth">TLS Client Certificates Login</a>
+    (Use <a href="https://github.com/cnorthwood/gocd-tls-auth/releases">latest version</a> of TLS Client Certificates Login instead.)
+    </p></li>
+
+    <li><p><a href="https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin">Strong Auth Plugin</a>
+    (Use the bundled <a href="https://github.com/gocd/gocd-filebased-authentication-plugin">gocd-filebased-authentication-plugin</a> instead.)
+    </p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a></p></li>
+  </ul>
+  </li>
+  <li>Plugins upload form has been removed from the new plugins page. It is still available in the old plugins page, which will be removed in release 18.2 (scheduled to be released in February 2018).</li>
+  <li>As of release 17.9, version 2 of the plugin info <a href="https://api.gocd.org/current/#plugin-info">API</a> is deprecated. This version of the API will be removed in 18.1.0 release (scheduled to be released in January 2018). Version 3 of the API is available, and users are encouraged to use it.</li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Emily Luke, EugenMayer, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Naveen Bhaskar, Rajiesh N, Senthil R, Szymon Chojnacki, Tomasz Setkowski, Varsha Varadarajan</p>
+
+<!--
+<h4>Security researchers</h4>
+
+<a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
+-->
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.12%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-17-11-0">17.11.0</h3>
       <div id="tab-17-11-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>UX Changes</h4>
