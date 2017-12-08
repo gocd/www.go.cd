@@ -1,17 +1,22 @@
 <div class='subscribe-to-blog'>
 <div class="row">
   <div class="col-md-4">
-   <h3 class='subscribe-title'> Subscribe to The Pipeline</h3>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
    <p>Continuous Delivery news in your inbox</p>
   </div>
   <div class="col-md-6">
     <div id="subscribe-info">
-      Send us a mail to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20GoCD%20blog%20notifications">support@thoughtworks.com</a> and we will sign you up for a notification on new blog posts.
+      <form id="mktoForm_5414"></form>
+      <div id="backup-subscription-message">
+        Send a mail to <a class="normal-link"
+        href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20The%20Pipeline&amp;body=Hello,%0a%0aPlease%20sign%20me%20up.%20My%20details%20are:%0a%0aFirst%20Name:%0aLast%20Name:%0aCompany%20Name:%0a%0aI%20would%20like%20to%20subscribe%20to%20the%20Pipeline%20newsletter.%0a%0aThank%20you.">support@thoughtworks.com</a>
+          to subscribe to the Pipeline newsletter.
+      </div>
     </div>
     <script type="text/javascript">
       function initMarketoForm() {
-        jQuery("#subscribe-info").html("<form id='mktoForm_5414'></form>");
         MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
+        jQuery("#backup-subscription-message").remove();
       }
     </script>
     <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
