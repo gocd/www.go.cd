@@ -15,7 +15,7 @@
 
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-91d2bdd2.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-d5577e13.css" rel="stylesheet" />
     <script src="assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -159,12 +159,17 @@
         <div class='subscribe-to-blog blogpost'>
           <h3 class='subscribe-title'>Subscribe for updates on new GoCD releases</h3>
           <div id="subscribe-info">
-            Send us a mail to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20GoCD%20release%20notifications">support@thoughtworks.com</a> and we will sign you up.
+            <form id="mktoForm_6699"></form>
+            <div id="backup-subscription-message">
+              Send us a mail
+              to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20GoCD%20release%20notifications">support@thoughtworks.com</a>
+              and we will sign you up.
+            </div>
           </div>
           <script type="text/javascript">
             function initMarketoForm() {
-              jQuery("#subscribe-info").html("<form id='mktoForm_6699'></form>");
               MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 6699);
+              jQuery("#backup-subscription-message").remove();
             }
           </script>
           <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>

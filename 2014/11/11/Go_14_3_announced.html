@@ -15,7 +15,7 @@
 
     <title>Version 14.3 Released | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-91d2bdd2.css" rel="stylesheet" />
+    <link href="../../../assets/stylesheets/site-d5577e13.css" rel="stylesheet" />
     <script src="../../../assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
@@ -108,15 +108,20 @@
         <section  class="recent-ariticles">
           <section class='post'>
             <div class='subscribe-to-blog blogpost'>
-   <h3 class='subscribe-title'> Subscribe to The Pipeline</h3>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
    <p style="font-size:12px; font-weight:300">Continuous Delivery news in your inbox</p>
     <div id="subscribe-info">
-      Send us a mail to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20GoCD%20blog%20notifications">support@thoughtworks.com</a> and we will sign you up for a notification on new blog posts.
+      <form id="mktoForm_5414"></form>
+      <div id="backup-subscription-message">
+        Send a mail to <a class="normal-link"
+        href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20The%20Pipeline&amp;body=Hello,%0a%0aPlease%20sign%20me%20up.%20My%20details%20are:%0a%0aFirst%20Name:%0aLast%20Name:%0aCompany%20Name:%0a%0aI%20would%20like%20to%20subscribe%20to%20the%20Pipeline%20newsletter.%0a%0aThank%20you.">support@thoughtworks.com</a>
+          to subscribe to the Pipeline newsletter.
+      </div>
     </div>
     <script type="text/javascript">
       function initMarketoForm() {
-        jQuery("#subscribe-info").html("<form id='mktoForm_5414'></form>");
         MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
+        jQuery("#backup-subscription-message").remove();
       }
     </script>
     <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
