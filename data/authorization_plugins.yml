@@ -37,7 +37,7 @@
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/github-oauth-authorization-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=github-oauth-authorization-plugin&type=watch&count=true
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=github-oauth-authorization-plugin&type=watch&count=true
   paid: false
 
 - name: Google OAuth authorization plugin
@@ -56,4 +56,13 @@
   author_name: Chris Northwood
   releases_url: https://github.com/cnorthwood/gocd-tls-auth/releases
   github_stars: http://ghbtns.com/github-btn.html?user=cnorthwood&repo=gocd-tls-auth&type=watch&count=true
+  paid: false
+
+- name: GitLab OAuth authorization plugin
+  description: The plugin allows user to login in GoCD using GitLab(or GitLab Enterprise).
+  readmore_url: https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin
+  author_url: https://github.com/gocd-contrib
+  author_name: GoCD Contributors
+  releases_url: https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gitlab-oauth-authorization-plugin&type=watch&count=true
   paid: false
