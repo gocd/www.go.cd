@@ -1,0 +1,79 @@
+---
+layout: post
+title: "An absolute beginners guide to Continuous Delivery"
+type: post
+author: Erin Snyder
+excerpt: "This post is for anyone who identifies themselves as non-technical, and wants to understand what is continuous delivery and why it’s important."
+title_tag_of_header: "An absolute beginners guide to Continuous Delivery | GoCD Blog"
+meta_description: "This post is for non-technical folks and demystifies the term continuous delivery and why it’s important."
+meta_keywords: "Continuous delivery, beginners guide to CD, beginners guide, continuous delivery for starters, continuous delivery basics"
+summary_image: "/assets/images/blog/beginners-guide-cd/beginners-guide-cd-header.jpg"
+---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/beginners-guide-cd/beginners-guide-cd-header.jpg" alt="Beginners Guide to Continuous Delivery"/>
+</figure>
+<% end %>
+
+My first gig at ThoughtWorks was as a Support Engineer for [Mingle - an agile project management tool](https://thoughtworks.com/mingle). When I joined, some of my instructors at the coding bootcamp I attended, tried to teach us how agile development works. Well, they tried. None of us really practiced agile besides having daily stand-ups where we talked about blockers and successes. Some of the practices I figured out on my own, but most of it, I learned from observing my team. And, that’s how I eventually learnt about continuous delivery too. 
+
+After working with Mingle, I expanded my support-net (it’s like a fishing net but made of empathy and clever workarounds instead of rope) to cover support for GoCD and SnapCI - both in the domain of **Continuous Delivery and Release Management systems**. 
+
+Those are very big intimidating words (worthy of capitalization even) and prior to this, I had no idea what any of that meant. I expect that a lot of people might be in the same position. Perhaps, you’ve heard of it and like me, found them intimidating. Hopefully, by the end of this post, I’d have demystified this for you. And I can’t promise that you’ll be ready to immediately jump into *“doing CD”*, but you’ll have a better idea (as I eventually did) of what ‘continuous delivery’ means and what the fuss is all about.  
+
+In this post, I decided to pour out my knowledge for the benefit of anyone who might not be familiar with such things. Experienced developers can take a break: this one’s for the new kids and people like me who come from non-traditional (no CS degree here!) backgrounds. 
+
+## First of all, how does software even get made?
+
+When I was attending a coding bootcamp, here was my process:
+
+- An instructor told me to write some code.
+- I wrote the code.
+- I ran some tests to see if the code works.
+- If it didn't work, I’d try to fix it.
+- Sometimes the code worked - because, magic!
+- I submitted my code for review by my instructor, usually by issuing a pull request on GitHub, or by deploying to Heroku, or something.
+- Done. Go have a cookie!
+
+In a workplace that practices agile development, it is a bit different. Here is your process:
+
+- Identify a need (aka, What am I building and why am I building it?)
+- Flesh out the idea (What are the specifics? Create a blueprint.)
+- Design the thing (What features should it have? What user stories?)
+- Code the thing (Allocate tasks to designers, developers, etc)
+- Test the thing while you are coding the thing (Easier to fix it when it breaks)
+- Integrate your thing into existing code base and test that too (Did your thing break someone else’s thing?)
+- Deploy the thing to an environment, like staging or production (OMG it's live and everyone can see it!)
+- Maintain the thing (Bug fixes, documentation, etc)
+- Repeat
+
+## So, what does continuous deployment do?
+
+Some of the above steps can be automated to make the whole process faster. The faster you push a bug fix or a new feature, the happier your customers will be.
+
+When you use continuous deployment software, here is your process:
+
+- Think up the idea
+- Flesh out the idea
+- Design it
+- Code it
+- Each time you make a commit, it triggers a build server to package the code and sends it off for testing. You should treat any commit as if it could cause your code to be deployed to production and released to your customers, unless you do continuous delivery. More on that in a minute!
+- Code is automatically deployed to different environments and tested (unit tests, functional tests, integration tests, etc). If any of the tests fail, the process stops.
+- Then it’s time to maintain your code, fix some bugs and write some documentation to help your lovely support people troubleshoot the thing. :)
+- Repeat
+
+## What was that about continuous delivery?
+
+The only [difference between continuous deployment and continuous delivery](https://www.gocd.org/2017/10/17/difference-between-continuous-delivery-continuous-deployment-infographic/) is a manual trigger on the deployment stage. In continuous delivery, a human being has to push the button to deploy to an environment (staging, production, whatever).
+
+This means that you can control your release cycle and decide what is getting pushed where and when. 
+
+> **Deployment becomes a business decision.** 
+
+You can even rig up a big red button for your PM or whoever to push when it’s time to release!
+
+---
+
+So that’s it! That is your very basic introduction to CD. It’s just a way to automate some of the steps that your code goes through when you’re developing software and gives you control over your release schedule. Not so intimidating after all :). 
+
+
