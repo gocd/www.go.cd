@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2017-12-06T00:00:00Z</updated>
+  <updated>2018-01-17T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>An absolute beginners guide to Continuous Delivery</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/01/17/continuous-delivery-beginners-guide.html"/>
+    <id>https://www.gocd.org/2018/01/17/continuous-delivery-beginners-guide.html</id>
+    <published>2018-01-17T00:00:00Z</published>
+    <updated>2018-01-17T00:00:00Z</updated>
+    <author>
+      <name>Erin Snyder</name>
+    </author>
+    <content type="html">This post is for anyone who identifies themselves as non-technical, and wants to understand what is continuous delivery and why it’s important.</content>
+  </entry>
   <entry>
     <title>Confessions of Continuous Delivery Experts: From microservices back to monolith</title>
     <link rel="alternate" href="https://www.gocd.org/2017/12/06/confessions-continuous-delivery-experts-snapci-microservices-monolith.html"/>
@@ -107,16 +118,5 @@
       <name>Aravind SV</name>
     </author>
     <content type="html">A handy list of questions about your own people, teams, and organization to determine your readiness for Continuous Delivery.</content>
-  </entry>
-  <entry>
-    <title>Part 3 - You can’t buy DevOps, but you may need to sell it: Actions to spread DevOps Adoption</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/09/19/actions-spread-devops-adoption.html"/>
-    <id>https://www.gocd.org/2017/09/19/actions-spread-devops-adoption.html</id>
-    <published>2017-09-19T00:00:00Z</published>
-    <updated>2017-09-19T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">In part 3 of the series, You can’t buy DevOps but you may need to sell it, we'll explore some of the actions to spread change.</content>
   </entry>
 </feed>

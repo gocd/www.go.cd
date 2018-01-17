@@ -1,0 +1,374 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="This post is for non-technical folks and demystifies the term continuous delivery and why it’s important." name="description" />
+    <meta content="Continuous delivery, beginners guide to CD, beginners guide, continuous delivery for starters, continuous delivery basics" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="An absolute beginners guide to Continuous Delivery | GoCD Blog" />
+    <meta name="twitter:description" content="This post is for non-technical folks and demystifies the term continuous delivery and why it’s important." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/beginners-guide-cd/beginners-guide-cd-header-d0a7319f.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/01/17/continuous-delivery-beginners-guide" />
+
+    <title>An absolute beginners guide to Continuous Delivery | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-d5577e13.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-6c0908b5.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
+  </head>
+
+  <body class="x2018 x2018_01 x2018_01_17 x2018_01_17_continuous-delivery-beginners-guide x2018_01_17_continuous-delivery-beginners-guide_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+      <figure>
+  <img src="../../../../assets/images/blog/beginners-guide-cd/beginners-guide-cd-header-d0a7319f.jpg" alt="Beginners Guide to Continuous Delivery"/>
+</figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>An absolute beginners guide to Continuous Delivery</h1>
+    <h4>Erin Snyder</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>My first gig at ThoughtWorks was as a Support Engineer for <a href="https://thoughtworks.com/mingle">Mingle - an agile project management tool</a>. When I joined, some of my instructors at the coding bootcamp I attended, tried to teach us how agile development works. Well, they tried. None of us really practiced agile besides having daily stand-ups where we talked about blockers and successes. Some of the practices I figured out on my own, but most of it, I learned from observing my team. And, that’s how I eventually learnt about continuous delivery too.</p>
+
+<p>After working with Mingle, I expanded my support-net (it’s like a fishing net but made of empathy and clever workarounds instead of rope) to cover support for GoCD and SnapCI - both in the domain of <strong>Continuous Delivery and Release Management systems</strong>.</p>
+
+<p>Those are very big intimidating words (worthy of capitalization even) and prior to this, I had no idea what any of that meant. I expect that a lot of people might be in the same position. Perhaps, you’ve heard of it and like me, found them intimidating. Hopefully, by the end of this post, I’d have demystified this for you. And I can’t promise that you’ll be ready to immediately jump into <em>“doing CD”</em>, but you’ll have a better idea (as I eventually did) of what ‘continuous delivery’ means and what the fuss is all about.</p>
+
+<p>In this post, I decided to pour out my knowledge for the benefit of anyone who might not be familiar with such things. Experienced developers can take a break: this one’s for the new kids and people like me who come from non-traditional (no CS degree here!) backgrounds.</p>
+
+<h2 id="first-of-all-how-does-software-even-get-made">First of all, how does software even get made?</h2>
+
+<p>When I was attending a coding bootcamp, here was my process:</p>
+
+<ul>
+  <li>An instructor told me to write some code.</li>
+  <li>I wrote the code.</li>
+  <li>I ran some tests to see if the code works.</li>
+  <li>If it didn't work, I’d try to fix it.</li>
+  <li>Sometimes the code worked - because, magic!</li>
+  <li>I submitted my code for review by my instructor, usually by issuing a pull request on GitHub, or by deploying to Heroku, or something.</li>
+  <li>Done. Go have a cookie!</li>
+</ul>
+
+<p>In a workplace that practices agile development, it is a bit different. Here is your process:</p>
+
+<ul>
+  <li>Identify a need (aka, What am I building and why am I building it?)</li>
+  <li>Flesh out the idea (What are the specifics? Create a blueprint.)</li>
+  <li>Design the thing (What features should it have? What user stories?)</li>
+  <li>Code the thing (Allocate tasks to designers, developers, etc)</li>
+  <li>Test the thing while you are coding the thing (Easier to fix it when it breaks)</li>
+  <li>Integrate your thing into existing code base and test that too (Did your thing break someone else’s thing?)</li>
+  <li>Deploy the thing to an environment, like staging or production (OMG it's live and everyone can see it!)</li>
+  <li>Maintain the thing (Bug fixes, documentation, etc)</li>
+  <li>Repeat</li>
+</ul>
+
+<h2 id="so-what-does-continuous-deployment-do">So, what does continuous deployment do?</h2>
+
+<p>Some of the above steps can be automated to make the whole process faster. The faster you push a bug fix or a new feature, the happier your customers will be.</p>
+
+<p>When you use continuous deployment software, here is your process:</p>
+
+<ul>
+  <li>Think up the idea</li>
+  <li>Flesh out the idea</li>
+  <li>Design it</li>
+  <li>Code it</li>
+  <li>Each time you make a commit, it triggers a build server to package the code and sends it off for testing. You should treat any commit as if it could cause your code to be deployed to production and released to your customers, unless you do continuous delivery. More on that in a minute!</li>
+  <li>Code is automatically deployed to different environments and tested (unit tests, functional tests, integration tests, etc). If any of the tests fail, the process stops.</li>
+  <li>Then it’s time to maintain your code, fix some bugs and write some documentation to help your lovely support people troubleshoot the thing. :)</li>
+  <li>Repeat</li>
+</ul>
+
+<h2 id="what-was-that-about-continuous-delivery">What was that about continuous delivery?</h2>
+
+<p>The only <a href="https://www.gocd.org/2017/10/17/difference-between-continuous-delivery-continuous-deployment-infographic/">difference between continuous deployment and continuous delivery</a> is a manual trigger on the deployment stage. In continuous delivery, a human being has to push the button to deploy to an environment (staging, production, whatever).</p>
+
+<p>This means that you can control your release cycle and decide what is getting pushed where and when.</p>
+
+<blockquote>
+  <p><strong>Deployment becomes a business decision.</strong></p>
+</blockquote>
+
+<p>You can even rig up a big red button for your PM or whoever to push when it’s time to release!</p>
+
+<hr />
+
+<p>So that’s it! That is your very basic introduction to CD. It’s just a way to automate some of the steps that your code goes through when you’re developing software and gives you control over your release schedule. Not so intimidating after all :).</p>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">Continuous Delivery news in your inbox</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div id="backup-subscription-message">
+        Send a mail to <a class="normal-link"
+        href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20The%20Pipeline&amp;body=Hello,%0a%0aPlease%20sign%20me%20up.%20My%20details%20are:%0a%0aFirst%20Name:%0aLast%20Name:%0aCompany%20Name:%0a%0aI%20would%20like%20to%20subscribe%20to%20the%20Pipeline%20newsletter.%0a%0aThank%20you.">support@thoughtworks.com</a>
+          to subscribe to the Pipeline newsletter.
+      </div>
+    </div>
+    <script type="text/javascript">
+      function initMarketoForm() {
+        MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
+        jQuery("#backup-subscription-message").remove();
+      }
+    </script>
+    <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Jan 17</span>
+              <span class="post-author">Erin Snyder</span>
+              <a href="./">An absolute beginners guide to Continuous Delivery</a>
+            </li>
+            <li>
+              <span class="post-date">Dec  6</span>
+              <span class="post-author">Suzie Prince</span>
+              <a href="../../../../2017/12/06/confessions-continuous-delivery-experts-snapci-microservices-monolith/">Confessions of Continuous Delivery Experts: From microservices back to monolith</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 28</span>
+              <span class="post-author">Aravind S.V</span>
+              <a href="../../../../2017/11/28/confessions-continuous-delivery-experts-gocd-open-source/">Confessions of Continuous Delivery Experts: When GoCD went open source</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 14</span>
+              <span class="post-author">Franklin Mosley</span>
+              <a href="../../../../2017/11/14/minimizing-risk-improving-security-devops/">Minimizing Risk and Improving Security in DevOps</a>
+            </li>
+            <li>
+              <span class="post-date">Nov  7</span>
+              <span class="post-author">Suzie Prince and Aravind S.V</span>
+              <a href="../../../../2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool/">Confessions of continuous delivery experts: How Mingle saw the light</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2018 (1)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2018/01/17/continuous-delivery-beginners-guide.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        
+        <li>
+        <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+
+        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
