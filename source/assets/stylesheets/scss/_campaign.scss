@@ -392,9 +392,13 @@ h1.main-caption {
   }
 }
 
+
+
 // Enterprise
 
 .enterprise {
+
+  // Global page elements
 
   h1 {
     font-family: 'URWGeometric-Semibold';
@@ -417,7 +421,12 @@ h1.main-caption {
 
   main {
     padding-top: 0;
+    overflow: hidden;
   }
+
+  //Section Specific Elements
+
+  //Banner
 
   .header {
     border: 1px solid red;
@@ -425,33 +434,49 @@ h1.main-caption {
     background: url("../../assets/images/campaign/enterprise/ent-bkgd-test3.jpg");
     background-size: cover;
     height: 400px;
+    width: 100vw;
     position: static;
     top: 0;
-    display: block;
+    display: flex;
+    align-items: center;
 
     h1 {
+      // border: 1px solid yellow;
       color: #FFFFFF;
       font-family: 'URWGeometric-ExtraBold';
       font-size: 5em;
-      line-height: 1.2em;
+      line-height: .8em;
       text-align: center;
-      padding-top: 1em;
-
     }
+
+    @media (max-width:420px) {
+      height: 300px;
+
+      h1 {
+        font-size: 3.5em;
+      }
+    }
+
   }
+
+  //First Section
 
   .intro-section {
 
-    margin-bottom: 2em;
+    // border: 1px solid red;
+
+    padding-top: 1em;
 
     h1 {
       text-align: center;
     }
 
     .intro-text {
-      margin-bottom: 1.5em;
+      margin-bottom: 3em;
     }
   }
+
+  //Second Section, Features
 
   .feature-section {
 
@@ -464,48 +489,82 @@ h1.main-caption {
       text-align: center;
     }
 
-    .feature {
+    .feature-row {
 
       margin-bottom: 2em;
 
-      img {
-        width: auto;
-        margin-bottom: 1em;
-      }
+      .feature {
 
-      .illo {
-        height: 200px;
-      }
-
-      h3 {
+        // border: 1px solid red;
         text-align: center;
-        font-family: 'URWGeometric-Semibold';
-        font-size: 1.5em;
-        text-transform: capitalize;
+
+        h3 {
+          // text-align: center;
+          font-family: 'URWGeometric-Semibold';
+          font-size: 1.5em;
+          text-transform: capitalize;
+        }
+
+        .illo {
+          height: 200px;
+          width: auto;
+          margin: auto;
+          // height: auto;
+          // width: 80%;
+          // margin: auto;
+        }
+
+        p {
+          text-align: left;
+        }
+
+        @media (max-width:767px) {
+
+          margin-bottom: 1em;
+
+          h3 {
+            font-size: 24px;
+            line-height: 0;
+          }
+
+          .illo {
+            height: 160px;
+          }
+
+        }
       }
     }
   }
 
-    .outro-section {
-      h1 {
-        text-align: center;
-      }
+  //Third Section, Outro
 
-      .outro-text {
-        margin-bottom: 3em;
-      }
+  .outro-section {
+
+    // border: 1px solid green;
+
+    h1 {
+      text-align: center;
     }
+
+    .outro-text {
+      margin-bottom: 3em;
+    }
+  }
+
+  //Fourth Section, Sales Funnel
 
   .form-section {
     margin-top: 1em;
     margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+
+    h1 {
+      text-align: center;
+    }
 
     .cf_sign_on {
       display: none;
-    }
-
-    .mktoButton {
-      background-color: #94399e;
     }
 
     .form-row {
@@ -514,8 +573,14 @@ h1.main-caption {
 
     .marketo-form {
       margin-bottom: 1em;
+
+      @media (max-width:991px){
+        margin-left: 25%;
+      }
     }
   }
+
+  //Fifth Section, CTA (may not use)
 
   .cta-section {
 
