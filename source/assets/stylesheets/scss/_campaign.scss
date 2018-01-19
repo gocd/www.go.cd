@@ -404,26 +404,39 @@ h1.main-caption {
     line-height: 1.2em;
   }
 
-  .campaign-header {
+  .hr {
+    height: 2px;
+    width: 100%;
+    background-color: #eee;
+    margin-bottom: 1em;
+  }
+
+  .banner-content {
+   display: none;
+  }
+
+  main {
+    padding-top: 0;
+  }
+
+  .header {
     border: 1px solid red;
     margin-bottom: 1em;
+    background: url("../../assets/images/campaign/enterprise/ent-bkgd-test3.jpg");
+    background-size: cover;
+    height: 400px;
+    position: static;
+    top: 0;
+    display: block;
 
-    .campaign-banner {
-      border: 2px solid green;
+    h1 {
+      color: #FFFFFF;
+      font-family: 'URWGeometric-ExtraBold';
+      font-size: 5em;
+      line-height: 1.2em;
+      text-align: center;
+      padding-top: 1em;
 
-      .banner-content {
-        border: 3px solid blue;
-
-        h1 {
-          font-family: 'URWGeometric-ExtraBold';
-          font-size: 6em;
-          line-height: 1.2em;
-
-          @media (max-width:500px) {
-            font-size: 2em;
-          }
-        }
-      }
     }
   }
 
@@ -434,32 +447,83 @@ h1.main-caption {
     h1 {
       text-align: center;
     }
-  }
 
+    .intro-text {
+      margin-bottom: 1.5em;
+    }
+  }
 
   .feature-section {
 
-    margin-bottom: 2em;
+  // background-color: #ededeb;
+  // background: linear-gradient(70deg, #8e9eab, #eef2f3);
+
+  margin-bottom: 1em;
 
     h1 {
       text-align: center;
     }
 
     .feature {
+
+      margin-bottom: 2em;
+
       img {
         width: auto;
         margin-bottom: 1em;
       }
+
+      .illo {
+        height: 200px;
+      }
+
       h3 {
         text-align: center;
         font-family: 'URWGeometric-Semibold';
         font-size: 1.5em;
+        text-transform: capitalize;
       }
     }
   }
 
-  .campaign-body {
+    .outro-section {
+      h1 {
+        text-align: center;
+      }
 
+      .outro-text {
+        margin-bottom: 3em;
+      }
+    }
+
+  .form-section {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    .cf_sign_on {
+      display: none;
+    }
+
+    .mktoButton {
+      background-color: #94399e;
+    }
+
+    .form-row {
+      margin-bottom: 1em;
+    }
+
+    .marketo-form {
+      margin-bottom: 1em;
+    }
+  }
+
+  .cta-section {
+
+    margin-bottom: 1em;
+
+    h1 {
+      text-align: center;
+    }
   }
 
 }

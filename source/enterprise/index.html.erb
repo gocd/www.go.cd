@@ -2,7 +2,7 @@
 layout: campaignlanding
 title: "GoCD for your Enterprise"
 title_tag_of_header: "Scale your Enterprise with GoCD"
-page_caption: Scale your Enterprise<br>with GoCD
+page_caption:
 meta_description: "GoCD and Chef have launched an official partner cookbook helping you get started quickly with continuous delivery"
 meta_keywords: "chef automate, automated deployment, continuous integration, continuous delivery, chef, partner cookbook, gocd cookbook"
 show_features: true
@@ -10,71 +10,98 @@ show_features: true
 
 <div class="enterprise">
 
-  <% content_for :banner do %>
-  <figure>
-    <%= image_tag 'campaign/enterprise/ent-bkgd-test1.jpg', alt: 'GoCD and Chef', title: "GoCD and Chef" %>
-  </figure>
-  <% end %>
-
   <% content_for :maincontent do %>
 
-  <% if current_page.data.show_features %>
+  <div class="header">
+    <div class="container">
+      <div class="col-md-10 col-md-offset-1">
+        <h1>SCALE YOUR ENTERPRISE WITH GoCD</h1>
+      </div>
+    </div>
+  </div>
 
   <div class="container intro-section">
       <div class="row">
         <div class="col-md-12">
-          <h1>GoCD is Open Source and Free to Download</h1>
+          <h1>Visualize and model complex workflows in your Enterprise</h1>
         </div>
       </div>
-      <div class="row">
+      <div class="row intro-text">
         <div class="col-md-10 col-md-offset-1">
-          <p>meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow.</p>
+          <p>GoCD provides continuous delivery out of the box with its built-in pipelines, advanced traceability and value stream visualization. With GoCD, you can easily model, orchestrate and visualize complex workflows from end to end. GoCD supports modern infrastructure with elastic on-demand agents and cloud deployments.</p>
         </div>
       </div>
   </div>
 
-  <div class="container feature-section">
+  <div class="feature-section">
+    <div class="container">
+      <div class="hr"></div>
+      <div class="row">
+        <h1>Enterprise Extensions and Professional Support</h1>
+      </div>
+
+      <div class="row feature">
+        <div class="col-md-4">
+          <h3>Fits Into Your Ecosystem</h3>
+          <%= image_tag "campaign/enterprise/business.svg", {:title => "GoCD illustration", :alt => "GoCD Value Stream Map", :class => 'illo'} %>
+          <p>GoCD’s commercial extensions provide integrations that fits GoCD into your enterprise IT ecosystem. UAllow you to use GoCD with your existing SVN, ALM, authorization system and cloud infrastructure. </p>
+        </div>
+        <div class="col-md-4">
+          <h3>Continuous Delivery at Scale</h3>
+           <%= image_tag "campaign/enterprise/postgres.svg", {:title => "GoCD illustration", :alt => "GoCD Value Stream Map", :class => 'illo'} %>
+          <p>GoCD’s commercial extensions provides performance upgrades necessary for hundreds of pipelines and agents as well as features to help you manage large number of teams, agents and pipelines.</p>
+        </div>
+        <div class="col-md-4">
+          <h3>Enterprise Professional Support</h3>
+          <%= image_tag "campaign/enterprise/support.svg", {:title => "GoCD illustration", :alt => "GoCD Value Stream Map", :class => 'illo'} %>
+          <p>Access to our support team Unlimited support cases per month Access to our GoCD development team Notifications for all bug fixes and security patches Notification of all GoCD Help updates and upgrades; installation of patches and upgrades</p>
+        </div>
+      </div>
+      <div class="hr"></div>
+
+    </div>
+  </div>
+  
+
+  <div class="container outro-section">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Visualize and model complex workflows in your Enterprise</h1>
+        </div>
+      </div>
+      <div class="row outro-text">
+        <div class="col-md-10 col-md-offset-1">
+          <p>GoCD provides continuous delivery out of the box with its built-in pipelines, advanced traceability and value stream visualization. With GoCD, you can easily model, orchestrate and visualize complex workflows from end to end. GoCD supports modern infrastructure with elastic on-demand agents and cloud deployments.</p>
+        </div>
+      </div>
+      <div class="hr"></div>
+  </div>
+
+  <div class="container form-section">
+    <div class="row form-row">
+
+        <div class="col-md-4 col-md-offset-2">
+          <h1>Write to us to start your free 30 day trial support</h1>
+          <p>“The essence of my philosophy to software delivery is to build software so that it is always in a state where it could be put into production. We call this Continuous Delivery because we are continuously running a deployment pipeline that tests if this software is in a state to be delivered.”— Jez Humble</p>
+        </div>
+
+        <div class="col-md-4 marketo-form">
+          <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <form id="mktoForm_7582"></form>
+          <script>MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 7582);</script>
+        </div>
+
+    </div>
+  </div>
+
+<!--   <div class="container cta-section">
     <div class="row">
-      <h1>Unique Features to Support Your Enterprise</h1>
-    </div>
-
-    <div class="row feature">
-      <div class="col-md-4">
-        <h3>Enterprise Cat</h3>
-        <img src="https://static.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg">
-        <p>meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow.</p>
-      </div>
-      <div class="col-md-4">
-        <h3>Enterprise Cat</h3>
-        <img src="https://static.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg">
-        <p>meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow.</p>
-      </div>
-      <div class="col-md-4">
-        <h3>Enterprise Cat</h3>
-        <img src="https://static.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg">
-        <p>meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow.</p>
+      <div class="col-md-4 col-md-offset-4">
+      <h1>Here's some text</h1>
+      <%= link_to 'This CTA is TBD', "https://supermarket.chef.io/cookbooks/gocd", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
       </div>
     </div>
-  </div>
+  </div> -->
 
-
-  <% end %>
-
-
-  <div class="container">
-    <div class='row'>
-      <div class='col-md-10 col-md-offset-1'>
-        <p>Since cats were venerated in ancient Egypt, they were commonly believed to have been domesticated there,[12] but there may have been instances of domestication as early as the Neolithic from around 9,500 years ago (7,500 BC).[13] A genetic study in 2007[14] concluded that all domestic cats are descended from Near Eastern wildcats, having diverged around 8,000 BC in the Middle East.[12][15] A 2016 study found that leopard cats were undergoing domestication independently in China around 5,500 BC, though this line of partially domesticated cats leaves no trace in the domesticated populations of today.[16][17] A 2017 study confirmed that domestic cats are descendants of those first domesticated by farmers in the Near East around 9,000 years ago.[18][19]</p>
-      </div>
-      <div>
-        <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
-<form id="mktoForm_7582"></form>
-<script>MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 7582);</script>
-</div>
-      <div>
-        <%= link_to 'Sign up for a 30-day Free Support Trial', "https://supermarket.chef.io/cookbooks/gocd", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
-      </div>
-    </div>
-  </div>
 </div>
 <% end %>
