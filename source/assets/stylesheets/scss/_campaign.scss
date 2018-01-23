@@ -18,7 +18,7 @@
       width: 575px;
       max-width: 575px;
       padding: 40px;
-    } 
+    }
 
     @media (min-width:$screen-desktop) {
       width: 775px;
@@ -216,7 +216,7 @@ h1.main-caption {
 
   h1.main-caption {
     text-align: left;
-    
+
     font-size: 24px;
 
     @media (min-width:$screen-tablet) {
@@ -242,7 +242,7 @@ h1.main-caption {
     }
 @media (min-width:$screen-lg-desktop) {
     padding: 50px 0 30px;
-    }    
+    }
   }
 
   .campaign-body {
@@ -258,7 +258,7 @@ h1.main-caption {
     display: block;
     margin: 30px auto;
     @media (min-width:$screen-tablet) {
-        
+
     width: 30%;
   }
 }
@@ -291,7 +291,7 @@ h1.main-caption {
     }
     @media (min-width:$screen-lg-desktop) {
     padding:40px 0 0px 0;
-    }    
+    }
   }
 }
 
@@ -388,7 +388,7 @@ h1.main-caption {
 
     .go-feature {
       font-weight: 400;
-    }    
+    }
   }
 }
 
@@ -429,31 +429,32 @@ h1.main-caption {
   //Banner
 
   .header {
-    border: 1px solid red;
+    // border: 1px solid red;
     margin-bottom: 1em;
     background: url("../../assets/images/campaign/enterprise/ent-bkgd-test3.jpg");
     background-size: cover;
     height: 400px;
-    width: 100vw;
+    width: 100%;
     position: static;
     top: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     h1 {
       // border: 1px solid yellow;
       color: #FFFFFF;
       font-family: 'URWGeometric-ExtraBold';
       font-size: 5em;
-      line-height: .8em;
+      line-height: .9em;
       text-align: center;
     }
 
-    @media (max-width:420px) {
+    @media (max-width:490px) {
       height: 300px;
 
       h1 {
-        font-size: 3.5em;
+        font-size: 3em;
       }
     }
 
@@ -469,6 +470,7 @@ h1.main-caption {
 
     h1 {
       text-align: center;
+      text-transform: capitalize;
     }
 
     .intro-text {
@@ -487,6 +489,7 @@ h1.main-caption {
 
     h1 {
       text-align: center;
+      text-transform: capitalize;
     }
 
     .feature-row {
@@ -499,7 +502,7 @@ h1.main-caption {
         text-align: center;
 
         h3 {
-          // text-align: center;
+          text-align: center;
           font-family: 'URWGeometric-Semibold';
           font-size: 1.5em;
           text-transform: capitalize;
@@ -509,9 +512,6 @@ h1.main-caption {
           height: 200px;
           width: auto;
           margin: auto;
-          // height: auto;
-          // width: 80%;
-          // margin: auto;
         }
 
         p {
@@ -520,11 +520,14 @@ h1.main-caption {
 
         @media (max-width:767px) {
 
+          // border: 1px solid red;
           margin-bottom: 1em;
 
           h3 {
             font-size: 24px;
-            line-height: 0;
+            // border: 1px solid green;
+            margin-bottom: .5em;
+            // line-height: 0;
           }
 
           .illo {
@@ -560,7 +563,12 @@ h1.main-caption {
     align-items: center;
 
     h1 {
-      text-align: center;
+      text-align: left;
+      line-height: .9em;
+    }
+
+    h2 {
+      font-family: 'URWGeometric-Semibold';
     }
 
     .cf_sign_on {
@@ -575,7 +583,8 @@ h1.main-caption {
       margin-bottom: 1em;
 
       @media (max-width:991px){
-        margin-left: 25%;
+        align-items: center;
+
       }
     }
   }
@@ -592,9 +601,3 @@ h1.main-caption {
   }
 
 }
-
-
-
-
-
-
