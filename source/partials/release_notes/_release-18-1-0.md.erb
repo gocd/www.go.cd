@@ -33,12 +33,14 @@
       <li><p><%= link_to('Strong Auth Plugin', 'https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin') %>
       (Use the bundled <%= link_to('gocd-filebased-authentication-plugin', 'https://github.com/gocd/gocd-filebased-authentication-plugin') %> instead.)
       </p></li>
-      <li><p><%= link_to('Guest Login', 'https://github.com/gocd-contrib/gocd_auth_plugin_guest_user') %></p></li>
+      <li><p><%= link_to('Guest Login', 'https://github.com/gocd-contrib/gocd_auth_plugin_guest_user') %>
+      (Alternative: <%= link_to('Guest Login Plugin', 'https://github.com/gocd-contrib/guest-login-plugin') %>)
+      </p></li>
     </ul>
 
 * <%= link_to_commit '23eb465f0b366378c526c70642c3d0748ce47e2e', 'Delete cruft for new jobs as they complete', 4219%>
 
-    This bug fix breaks jobs feed API. We will no longer render the environment variables, resources and build artifacts in the job xml api
+    This bug fix breaks <%= link_to_api 'get-job', 'jobs feed API' %>. We will no longer render the environment variables, resources and build artifacts in the job xml api
 
 * Version 2 of the plugin info <%= link_to_api 'plugin-info' %> which was deprecated in 17.9.0 release is removed in this release. Version 3 of the API is available.
 
