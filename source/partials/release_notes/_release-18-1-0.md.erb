@@ -1,0 +1,88 @@
+<h4>Bug Fixes</h4>
+* <%= link_to_commit 'f9ad3990484ecf02bb4a888b9978748bd00b8e2b', 'Validate roles assigned to stage authorization on template update through API', 4185%> <%= link_to_issue 4176 %>
+* <%= link_to_commit '63d7d0f39663aa6e24d48e2c0ec99200d8733080', "Test artifacts configured using config-repo is uploaded to GoCD server's build artifacts' default location", 4083%> <%= link_to_issue 4071 %>
+* <%= link_to_commit '1442a09c2530c2a7afa9df69c67ff83bbc8e8d15', 'Get Pipeline Config API failed to find pipeline for remote configured pipelines', 4010%> <%= link_to_issue 4008 %>
+* <%= link_to_commit 'addf343053658f79b91b9d7d39231cc94b434017', "Fix path of logback-include.xml", 4145%>
+* <%= link_to_commit 'd409d238f0c051e10857c57664ef62c4279c238b', 'Fix whitelist in configrepo hg material', 4191%>
+* <%= link_to_commit '8971a71ae0bd0ff0a3c32e70e48ad192f06b5567', 'Do not allow agent to register with duplicate elastic agent id ', 4133%>
+
+<h4>Docker Images</h4>
+* Published an updated GoCD Server and Agent docker image for the latest version of Alpine ([3.7](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.7/))
+
+<h4>Breaking Changes</h4>
+* As of release 17.5, authentication plugin endpoints have been deprecated. Support for authentication plugin endpoints has been removed in 18.1 release. The following plugins will not work unless been migrated to use the [Authorization Plugins](https://plugin-api.gocd.org/current/authorization/) endpoint:
+
+    <ul>
+      <li><p><%= link_to('Google OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %>
+      (Alternative: <%= link_to('Google OAuth Authorization Plugin', 'https://github.com/gocd-contrib/google-oauth-authorization-plugin') %>)
+      </p>
+      </li>
+
+      <li><p><%= link_to('GitHub OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %>
+      (Alternative: <%= link_to('GitHub OAuth Authorization Plugin', 'https://github.com/gocd-contrib/github-oauth-authorization-plugin') %>)
+      </p></li>
+
+      <li><p><%= link_to('GitLab(CE) OAuth Login', 'https://github.com/gocd-contrib/gocd-oauth-login') %>
+      (Alternative: <%= link_to('GitLab OAuth Authorization Plugin', 'https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin') %>)
+      </p></li>
+
+      <li><p><%= link_to('TLS Client Certificates Login', 'https://github.com/cnorthwood/gocd-tls-auth') %>
+      (Use <%= link_to('latest version', 'https://github.com/cnorthwood/gocd-tls-auth/releases') %> of TLS Client Certificates Login instead.)
+      </p></li>
+
+      <li><p><%= link_to('Strong Auth Plugin', 'https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin') %>
+      (Use the bundled <%= link_to('gocd-filebased-authentication-plugin', 'https://github.com/gocd/gocd-filebased-authentication-plugin') %> instead.)
+      </p></li>
+      <li><p><%= link_to('Guest Login', 'https://github.com/gocd-contrib/gocd_auth_plugin_guest_user') %></p></li>
+    </ul>
+
+* <%= link_to_commit '23eb465f0b366378c526c70642c3d0748ce47e2e', 'Delete cruft for new jobs as they complete', 4219%>
+
+    This bug fix breaks jobs feed API. We will no longer render the environment variables, resources and build artifacts in the job xml api
+
+* Version 2 of the plugin info <%= link_to_api 'plugin-info' %> which was deprecated in 17.9.0 release is removed in this release. Version 3 of the API is available.
+
+<h4>Deprecations</h4>
+* As of release 17.11, version 1 of the users <%= link_to_api 'users' %> is deprecated. This version of the API will be removed in 18.2.0 release (scheduled to be released in February 2018). Version 2 of the API is available, and users are encouraged to use it.
+* Plugins upload form has been removed from the new plugins page. It is still available in the old plugins page, which will be removed in release 18.2 (scheduled to be released in February 2018).
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Ankit Srivastava",
+  "Ankur K",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Emily Luke",
+  "Isabelle Carter",
+  "Ganesh S Patil",
+  "Jyoti Singh",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Naveen Bhaskar",
+  "Rajiesh N",
+  "Senthil R",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan"
+].sort.uniq.join(', ')
+%>
+
+<!--
+<h4>Security researchers</h4>
+
+<%= link_to('https://hackerone.com/gocd/thanks', 'https://hackerone.com/gocd/thanks') %>
+-->
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.1' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
