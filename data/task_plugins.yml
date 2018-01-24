@@ -221,3 +221,11 @@
   releases_url: https://github.com/ReviakinAleksey/diawi-upload-plugin/tree/master/dist
   github_stars: http://ghbtns.com/github-btn.html?user=ReviakinAleksey&repo=diawi-upload-plugin&type=watch&count=true
   first_available_date: 10/2017
+  
+- name: Docker Exec Plugin
+  description: Execute pipeline tasks inside Docker containers
+  readmore_url: https://github.com/cma-arnold/gocd-docker-exec-plugin
+  author_url: https://www.bitgrillr.com
+  release_url: https://github.com/cma-arnold/gocd-docker-exec-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=cma-arnold&repo=gocd-docker-exec-plugin&type=watch&count=true
+  first_available_date: 01/2018
