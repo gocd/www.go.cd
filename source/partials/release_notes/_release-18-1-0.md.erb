@@ -4,22 +4,10 @@
 * <%= link_to_commit '1442a09c2530c2a7afa9df69c67ff83bbc8e8d15', 'Get Pipeline Config API failed to find pipeline for remote configured pipelines', 4010%> <%= link_to_issue 4008 %>
 * <%= link_to_commit 'addf343053658f79b91b9d7d39231cc94b434017', "Fix path of logback-include.xml", 4145%>
 * <%= link_to_commit 'd409d238f0c051e10857c57664ef62c4279c238b', 'Fix whitelist in configrepo hg material', 4191%>
+* <%= link_to_commit '8971a71ae0bd0ff0a3c32e70e48ad192f06b5567', 'Do not allow agent to register with duplicate elastic agent id ', 4133%>
 
-<h4>Other Improvements</h4>
-* <%= link_to_commit '23eb465f0b366378c526c70642c3d0748ce47e2e', 'Delete cruft from the DB for jobs that are completed and also for new jobs as they complete', 2875%>
-
-    From 18.1.0 release, jobs that are already completed (as per DB) and jobs that will complete from this release onwards, below data will be removed from DB:
-
-    * Environment variables that are not set using trigger-with-options
-
-    * Artifact plans that are of type \"file\" (Artifact plans of type \"unit\" are retained for shine)
-
-    * Artifact properties generators
-
-    * Agent resources associated with a job
-
-    * Elastic agent metatada
-
+<h4>Docker Images</h4>
+* Published an updated GoCD Agent docker image for the latest version of Alpine ([3.7](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.7/))
 
 <h4>Breaking Changes</h4>
 * As of release 17.5, authentication plugin endpoints have been deprecated. Support for authentication plugin endpoints has been removed in 18.1 release. The following plugins will not work unless been migrated to use the [Authorization Plugins](https://plugin-api.gocd.org/current/authorization/) endpoint:
@@ -48,9 +36,11 @@
       <li><p><%= link_to('Guest Login', 'https://github.com/gocd-contrib/gocd_auth_plugin_guest_user') %></p></li>
     </ul>
 
-* <%= link_to_commit '23eb465f0b366378c526c70642c3d0748ce47e2e', 'Delete cruft from the DB for jobs that are completed and also for new jobs as they complete', 2875%>
+* <%= link_to_commit '23eb465f0b366378c526c70642c3d0748ce47e2e', 'Delete cruft for new jobs as they complete', 4219%>
 
-    This improvement breaks jobs feed API. We will no longer render the environment variables, resources and build artifacts in the job xml api
+    This bug fix breaks jobs feed API. We will no longer render the environment variables, resources and build artifacts in the job xml api
+
+* Version 2 of the plugin info <%= link_to_api 'plugin-info' %> which was deprecated in 17.9.0 release is removed in this release. Version 3 of the API is available.
 
 <h4>Deprecations</h4>
 * As of release 17.11, version 1 of the users <%= link_to_api 'users' %> is deprecated. This version of the API will be removed in 18.2.0 release (scheduled to be released in February 2018). Version 2 of the API is available, and users are encouraged to use it.
