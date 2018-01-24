@@ -168,13 +168,15 @@
     <li><p><a href="https://github.com/danielsomerfield/go-strong-auth-plugin#go-strong-auth-plugin">Strong Auth Plugin</a>
     (Use the bundled <a href="https://github.com/gocd/gocd-filebased-authentication-plugin">gocd-filebased-authentication-plugin</a> instead.)
     </p></li>
-    <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a></p></li>
+    <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a>
+    (Alternative: <a href="https://github.com/gocd-contrib/guest-login-plugin">Guest Login Plugin</a>)
+    </p></li>
   </ul>
   </li>
   <li>
     <p><code><a href="https://github.com/gocd/gocd/commit/23eb465f0b366378c526c70642c3d0748ce47e2e">23eb465</a></code> - Delete cruft for new jobs as they complete. (<a href="https://github.com/gocd/gocd/issues/4219">#4219</a>)</p>
 
-    <p>This bug fix breaks jobs feed API. We will no longer render the environment variables, resources and build artifacts in the job xml api</p>
+    <p>This bug fix breaks <a href="https://api.gocd.org/current/#get-job">jobs feed API</a>. We will no longer render the environment variables, resources and build artifacts in the job xml api</p>
   </li>
   <li>
     <p>Version 2 of the plugin info <a href="https://api.gocd.org/current/#plugin-info">API</a> which was deprecated in 17.9.0 release is removed in this release. Version 3 of the API is available.</p>
