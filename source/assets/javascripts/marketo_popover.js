@@ -8,6 +8,8 @@
       }, 5000);
     };
 
+
+
     var init = function() {
       $('.close-button').click(function() {
         $('.overlay').hide();
