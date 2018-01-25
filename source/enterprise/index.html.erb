@@ -21,14 +21,13 @@ show_features: true
     </div>
 
     <div class="container intro-section">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Visualize &amp; Model Complex Workflows in Your Enterprise</h1>
+      <div class="row intro-row">
+        <div class="col-md-5 intro-text">
+          <h1>Visualize and Model Complex Workflows in Your Enterprise</h1>
+          <p>GoCD provides continuous delivery out of the box with its built-in pipelines, advanced traceability and value stream visualization. With GoCD, you can easily model, orchestrate and visualize complex workflows from end to end. GoCD supports modern infrastructure and cloud deployments.</p>
         </div>
-      </div>
-      <div class="row intro-text">
-        <div class="col-md-10 col-md-offset-1">
-          <p>GoCD provides continuous delivery out of the box with its built-in pipelines, advanced traceability and value stream visualization. With GoCD, you can easily model, orchestrate and visualize complex workflows from end to end. GoCD supports modern infrastructure and cloud deployments. </p>
+        <div class="col-md-7 vsm-illo">
+          <%= image_tag "campaign/enterprise/ui_illo_commercial_2.svg", {:title => "GoCD illustration", :alt => "GoCD Value Stream Map", :class => 'illo'} %>
         </div>
       </div>
 
@@ -38,7 +37,7 @@ show_features: true
     <div class="feature-section">
       <div class="container">
         <div class="row">
-          <h1>Enterprise plugins &amp; professional support </h1>
+          <h1>Enterprise Plugins and Professional Support </h1>
         </div>
 
         <div class="row feature-row">
@@ -56,7 +55,6 @@ show_features: true
              <p>GoCD's commercial extensions provide performance upgrades necessary for hundreds of pipelines and agents as well as features to help you manage large number of teams, agents and pipelines.</p>
           </div>
 
-
           <div class="col-md-4 feature">
             <h3>Enterprise Professional Support</h3>
             <%= image_tag "campaign/enterprise/support.svg", {:title => "GoCD illustration", :alt => "GoCD Value Stream Map", :class => 'illo'} %>
@@ -69,21 +67,55 @@ show_features: true
       </div>
     </div>
 
+    <div class="container plugins">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+          <h3>PostgreSQL</h3>
+          <p>GoCD's OSS distribution uses an embedded database. That's great for getting started. But, if you need to scale beyond a few teams and several pipelines, our PostgreSQL add-on gives you the performance upgrade necessary for hundreds of pipelines and agents. We recommend PostgreSQL for critical deployments.<p>
+        </div>
+
+        <div class="col-md-4 col-md-offset-1">
+          <h3>PostgreSQL</h3>
+          <p>GoCD's OSS distribution uses an embedded database. That's great for getting started. But, if you need to scale beyond a few teams and several pipelines, our PostgreSQL add-on gives you the performance upgrade necessary for hundreds of pipelines and agents. We recommend PostgreSQL for critical deployments.<p>
+        </div>
+      </div>
+
+      <div class="row last-row">
+        <div class="col-md-4 col-md-offset-2">
+          <h3>PostgreSQL</h3>
+          <p>GoCD's OSS distribution uses an embedded database. That's great for getting started. But, if you need to scale beyond a few teams and several pipelines, our PostgreSQL add-on gives you the performance upgrade necessary for hundreds of pipelines and agents. We recommend PostgreSQL for critical deployments.<p>
+        </div>
+
+        <div class="col-md-4 col-md-offset-1">
+          <h3>PostgreSQL</h3>
+          <p>GoCD's OSS distribution uses an embedded database. That's great for getting started. But, if you need to scale beyond a few teams and several pipelines, our PostgreSQL add-on gives you the performance upgrade necessary for hundreds of pipelines and agents. We recommend PostgreSQL for critical deployments.<p>
+        </div>
+      </div>
+      <div class="hr"></div>
+    </div>
+
     <div class="container form-section">
       <div class="row form-row">
 
         <div class="col-md-4 col-md-offset-2">
           <h1>Interested in our enterprise offering?</h1>
           <h2>Connect with us so we can learn more about how to help you.</h2>
+          <p>You can also email us directly at support@thoughtworks.com</p>
         </div>
 
         <div class="col-md-4 marketo-form">
+          <div class="overlay">
+            <div class="popup">
+              <div class="close-button"></div>
+              <div class="thanks-msg"><b>Thank you </b> for your interest in <span class="nobr">GoCD</span>.</div>
+              <p class="msg">Someone from our team will reach out to you shortly.</p>
+            </div>
+          </div>
           <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
           <form id="mktoForm_7582"></form>
-          <script>MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 7582);</script>
         </div>
-
       </div>
     </div>
+    <script src="assets/javascripts/marketo_popover.js"></script>
   <% end %>
 </div>
