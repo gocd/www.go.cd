@@ -405,7 +405,7 @@ h1.main-caption {
   }
 
   p {
-    line-height: 1.2em;
+    line-height: 1.5em;
   }
 
   .hr {
@@ -429,7 +429,6 @@ h1.main-caption {
   //Banner
 
   .header {
-    // border: 1px solid red;
     margin-bottom: 1em;
     background: url("../../assets/images/campaign/enterprise/ent-bkgd-test3.jpg");
     background-size: cover;
@@ -442,7 +441,6 @@ h1.main-caption {
     justify-content: center;
 
     h1 {
-      // border: 1px solid yellow;
       color: #FFFFFF;
       font-family: 'URWGeometric-ExtraBold';
       font-size: 5em;
@@ -463,8 +461,6 @@ h1.main-caption {
   //First Section
 
   .intro-section {
-
-    padding-top: 1em;
 
     .intro-row {
       margin-top: 1em;
@@ -495,7 +491,6 @@ h1.main-caption {
 
     h1 {
       text-align: center;
-      text-transform: capitalize;
     }
 
     .feature-row {
@@ -504,7 +499,6 @@ h1.main-caption {
 
       .feature {
 
-        // border: 1px solid red;
         text-align: center;
 
         h3 {
@@ -521,25 +515,27 @@ h1.main-caption {
         }
 
         p {
-          text-align: left;
+          text-align: justify;
         }
 
         @media (max-width:767px) {
 
-          // border: 1px solid red;
           margin-bottom: 1em;
 
           h3 {
             font-size: 24px;
-            // border: 1px solid green;
             margin-bottom: .5em;
-            // line-height: 0;
           }
 
           .illo {
-            height: 160px;
+            height: 100px;
           }
 
+          p {
+            padding-left: 2em;
+            padding-right: 2em;
+            padding-bottom: 1em;
+          }
         }
       }
     }
@@ -547,7 +543,7 @@ h1.main-caption {
 
   // Plugins
 
-  .plugins {
+  .plugins-section {
 
     h3 {
       text-align: center;
@@ -557,11 +553,21 @@ h1.main-caption {
       text-align: justify;
     }
 
-    .last-row {
-      padding-bottom: 2em;
+    .plugins-row {
+      padding-top: 1em;
+      padding-bottom: 3em;
+    }
+
+    .plugin-text {
+      padding: 0 1em 0 1em;
+    }
+
+    @media(max-width: 991px) {
+      .plugin-text {
+        padding: 0 2em 1em 2em;
+      }
     }
   }
-
 
 
   //Outro
@@ -577,7 +583,7 @@ h1.main-caption {
     }
   }
 
-  //Fourth Section, Sales Funnel
+  //Form Section, Sales Funnel
 
   .form-section {
     margin-top: 1em;
@@ -592,6 +598,18 @@ h1.main-caption {
 
     h2 {
       font-family: 'URWGeometric-Semibold';
+      text-align: left;
+    }
+
+    p {
+      text-align: left;
+    }
+
+    a {
+      font-family: 'URWGeometric-Semibold';
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     .cf_sign_on {
@@ -614,14 +632,12 @@ h1.main-caption {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
-
-        background-color: rgba(0, 0, 0, 0.7); /*dim the background*/
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
 
         .popup {
-          // $popup-border-size: 8px;
+          $popup-border-size: 8px;
 
           width: 400px;
           height: auto;
@@ -630,34 +646,27 @@ h1.main-caption {
           top: 25vh;
           left: calc(50vw - 200px);
           padding: 20px;
-          // border: rgba(221, 218, 218, 0.6) $popup-border-size solid;
-
-          // @include media($for-mobile-view) {
-          //   width: auto;
-          //   margin: 20px;
-          //   left: 0px;
-          // }
+          border: #1c425c 8px solid;
 
           .thanks-msg {
+            font-family: 'URWGeometric-Semibold';
             font-size: 1.1em;
-            font-weight: 600;
             margin-bottom: 10px;
+            text-align: center;
           }
 
           .close-button {
-            // $close-button-width: 32px;
-            // $close-button-height: 30px;
-
             position: absolute;
-            background: image-url('index/section5/close.png');
-            // width: $close-button-width;
-            // height: $close-button-height;
-            // z-index: $highest-z-index;
-            // right: calc(-#{$popup-border-size} - (#{$close-button-width} / 2));
-            // top: calc(-#{$popup-border-size} - (#{$close-button-height} / 2));
+            z-index: 101;
+            font-size: 1.5em;
+            right: 4px;
+            top: 2px;
+            color: #1c425c;
+            cursor: pointer;
           }
         }
       }
     }
+
   }
 }
