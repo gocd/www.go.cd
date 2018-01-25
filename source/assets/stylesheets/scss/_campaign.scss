@@ -406,6 +406,7 @@ h1.main-caption {
 
   p {
     line-height: 1.5em;
+    font-weight: 400;
   }
 
   .hr {
@@ -555,16 +556,31 @@ h1.main-caption {
 
     .plugins-row {
       padding-top: 1em;
-      padding-bottom: 3em;
+      padding-bottom: 2em;
     }
 
     .plugin-text {
-      padding: 0 1em 0 1em;
+      padding: 0 1em 1em 1em;
+      // border: 1px solid red;
     }
 
     @media(max-width: 991px) {
       .plugin-text {
         padding: 0 2em 1em 2em;
+      }
+    }
+
+    .plugin-link {
+      text-align: center;
+
+
+      a {
+        font-family: 'URWGeometric-Semibold';
+        align-items: center;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
