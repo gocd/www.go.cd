@@ -464,26 +464,32 @@ h1.main-caption {
 
   .intro-section {
 
-    // border: 1px solid red;
-
     padding-top: 1em;
 
-    h1 {
-      text-align: center;
-      text-transform: capitalize;
+    .intro-row {
+      margin-top: 1em;
+      margin-bottom: 1em;
     }
 
     .intro-text {
-      margin-bottom: 3em;
+      margin-bottom: 2em;
+
+      @media(max-width: 991px) {
+        h1 {
+          text-align: center;
+        }
+      }
+    }
+
+    .vsm-illo {
+      margin-bottom: 1em;
     }
   }
+
 
   //Second Section, Features
 
   .feature-section {
-
-  // background-color: #ededeb;
-  // background: linear-gradient(70deg, #8e9eab, #eef2f3);
 
   margin-bottom: 1em;
 
@@ -509,7 +515,7 @@ h1.main-caption {
         }
 
         .illo {
-          height: 200px;
+          height: 160px;
           width: auto;
           margin: auto;
         }
@@ -539,11 +545,28 @@ h1.main-caption {
     }
   }
 
-  //Third Section, Outro
+  // Plugins
+
+  .plugins {
+
+    h3 {
+      text-align: center;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    .last-row {
+      padding-bottom: 2em;
+    }
+  }
+
+
+
+  //Outro
 
   .outro-section {
-
-    // border: 1px solid green;
 
     h1 {
       text-align: center;
@@ -584,20 +607,57 @@ h1.main-caption {
 
       @media (max-width:991px){
         align-items: center;
+      }
 
+      .overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+
+        background-color: rgba(0, 0, 0, 0.7); /*dim the background*/
+
+        .popup {
+          // $popup-border-size: 8px;
+
+          width: 400px;
+          height: auto;
+          position: fixed;
+          background: white;
+          top: 25vh;
+          left: calc(50vw - 200px);
+          padding: 20px;
+          // border: rgba(221, 218, 218, 0.6) $popup-border-size solid;
+
+          // @include media($for-mobile-view) {
+          //   width: auto;
+          //   margin: 20px;
+          //   left: 0px;
+          // }
+
+          .thanks-msg {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+          }
+
+          .close-button {
+            // $close-button-width: 32px;
+            // $close-button-height: 30px;
+
+            position: absolute;
+            background: image-url('index/section5/close.png');
+            // width: $close-button-width;
+            // height: $close-button-height;
+            // z-index: $highest-z-index;
+            // right: calc(-#{$popup-border-size} - (#{$close-button-width} / 2));
+            // top: calc(-#{$popup-border-size} - (#{$close-button-height} / 2));
+          }
+        }
       }
     }
   }
-
-  //Fifth Section, CTA (may not use)
-
-  .cta-section {
-
-    margin-bottom: 1em;
-
-    h1 {
-      text-align: center;
-    }
-  }
-
 }
