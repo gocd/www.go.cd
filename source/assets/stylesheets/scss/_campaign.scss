@@ -682,6 +682,25 @@ h1.main-caption {
           }
         }
       }
+
+      button.mktoButton {
+        margin-top: 1em;
+        margin-left: -18px;
+        padding: 1em 2em 1em 2em;
+        background-color: #36B1BF;
+        color: #FFFFFF;
+        border: none;
+        align-items: center;
+        border-radius: 2px;
+        
+        &:hover {
+          background-color: #1C425C;
+        }
+      }
+
+      .form-loading-error {
+        display: none;
+      }
     }
 
   }
