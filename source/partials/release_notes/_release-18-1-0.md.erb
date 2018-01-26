@@ -44,6 +44,10 @@
 
 * Version 2 of the plugin info <%= link_to_api 'plugin-info' %> which was deprecated in 17.9.0 release is removed in this release. Version 3 of the API is available.
 
+* The pipeline  <%= link_to_api 'pause-a-pipeline', 'pause' %> API now results in Conflict (HTTP 409) with an error if the pipeline is already paused.
+
+* The pipeline <%= link_to_api 'unpause-a-pipeline', 'unpause' %> API now results in Conflict (HTTP 409) with an error if the pipeline is already unpaused.
+
 <h4>Deprecations</h4>
 * As of release 17.11, version 1 of the users <%= link_to_api 'users' %> is deprecated. This version of the API will be removed in 18.2.0 release (scheduled to be released in February 2018). Version 2 of the API is available, and users are encouraged to use it.
 * Plugins upload form has been removed from the new plugins page. It is still available in the old plugins page, which will be removed in release 18.2 (scheduled to be released in February 2018).
