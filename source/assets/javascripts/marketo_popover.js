@@ -15,6 +15,7 @@
         $('.overlay').hide();
       });
 
+      try {
         MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 7582, function(form) {
           form.onSuccess(function(values, followUpUrl) {
             form.vals({Company: "", Country: "", Email: "", FirstName: "", LastName: "", "Title": "", "User_Comments__c": ""});
@@ -24,6 +25,9 @@
             return false;
           });
         });
+      } catch(e) {
+        $('.form-loading-error').css('display','inline-block').css('color','#E74C3C').css('padding','.5em').css('border','2px solid #E74C3C');
+      }
     };
 
     return {
