@@ -15,7 +15,7 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-3f311c7f.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/site-8a81457b.css" rel="stylesheet" />
     <script src="../assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
@@ -180,6 +180,12 @@
   </li>
   <li>
     <p>Version 2 of the plugin info <a href="https://api.gocd.org/current/#plugin-info">API</a> which was deprecated in 17.9.0 release is removed in this release. Version 3 of the API is available.</p>
+  </li>
+  <li>
+    <p>The pipeline  <a href="https://api.gocd.org/current/#pause-a-pipeline">pause</a> API now results in Conflict (HTTP 409) with an error if the pipeline is already paused.</p>
+  </li>
+  <li>
+    <p>The pipeline <a href="https://api.gocd.org/current/#unpause-a-pipeline">unpause</a> API now results in Conflict (HTTP 409) with an error if the pipeline is already unpaused.</p>
   </li>
 </ul>
 
