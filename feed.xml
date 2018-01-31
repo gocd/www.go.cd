@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2018-01-17T00:00:00Z</updated>
+  <updated>2018-01-31T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>4 Important Metrics for Continuous Delivery</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/01/31/continuous-delivery-metrics.html"/>
+    <id>https://www.gocd.org/2018/01/31/continuous-delivery-metrics.html</id>
+    <published>2018-01-31T00:00:00Z</published>
+    <updated>2018-01-31T00:00:00Z</updated>
+    <author>
+      <name>Alison Polton-Simon</name>
+    </author>
+    <content type="html">Here are some important meaningful metrics to measure the effectiveness of your continuous deployment process.</content>
+  </entry>
   <entry>
     <title>An absolute beginners guide to Continuous Delivery</title>
     <link rel="alternate" href="https://www.gocd.org/2018/01/17/continuous-delivery-beginners-guide.html"/>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">CD 101 is a video series to help you get started on your CD journey. In Part 5 we will explore common CD tools.</content>
-  </entry>
-  <entry>
-    <title>Infographic - Are you ready for Continuous Delivery</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/09/26/are-you-ready-for-continuous-delivery-infographic.html"/>
-    <id>https://www.gocd.org/2017/09/26/are-you-ready-for-continuous-delivery-infographic.html</id>
-    <published>2017-09-26T00:00:00Z</published>
-    <updated>2017-09-26T00:00:00Z</updated>
-    <author>
-      <name>Aravind SV</name>
-    </author>
-    <content type="html">A handy list of questions about your own people, teams, and organization to determine your readiness for Continuous Delivery.</content>
   </entry>
 </feed>
