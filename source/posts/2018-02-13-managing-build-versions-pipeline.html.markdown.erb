@@ -3,11 +3,11 @@ layout: post
 title: CD Hacks - Managing Build Versions in your GoCD Pipeline
 type: post
 author: Moritz Lenz
-excerpt: "This post shows you how to manage your build versions in your GoCD Pipeline."
+excerpt: "Here are some steps on how to manage your build versions in your GoCD Pipeline."
 summary_image: "/assets/images/blog/cd-metrics/metrics-continuous-delivery-header.jpg"
 title_tag_of_header: "Managing Build Versions in your GoCD Pipeline | GoCD Blog"
-meta_description: "This post shows you how to manage your build versions in your GoCD Pipeline."
-meta_keywords: "pipeline, build versions, gocd tutorial, gocd hacks"
+meta_description: "Steps on how to manage your build versions in your GoCD Pipeline."
+meta_keywords: "build pipeline, build versions, gocd tutorial, gocd hacks, build stage, xml config, continuous delivery"
 draft: true
 tags: CD Hacks
 ---
@@ -50,7 +50,7 @@ The `debuild` command is part of the `devscripts` package on Debian and Ubuntu, 
 
 The `timeout="5"` in the job tag specifies a timeout in minutes that applies when the build script hasn't produced any output for five minutes. It acts as a safeguard against infinitely looping builds.
 
-The `artifacts` tag specifies files and wildcards that Go collecst and stores on the server. The use of a wildcard is both to account for the fact that the version number and thus the file name of the generated Debian package is variable, and to able to capture both the generated `.deb` and `.changes` file. The fixed destination path makes it easier to retrieve those artifacts later on without knowing the exact version number.
+The `artifacts` tag specifies files and wildcards that GoCD collecst and stores on the server. The use of a wildcard is both to account for the fact that the version number and thus the file name of the generated Debian package is variable, and to able to capture both the generated `.deb` and `.changes` file. The fixed destination path makes it easier to retrieve those artifacts later on without knowing the exact version number.
 
 If you use the [environments feature](https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-4-go-environments), you also need to add the pipeline and at least one fitting agent to an environment. To keep things simple, we'll skip that here. 
 
