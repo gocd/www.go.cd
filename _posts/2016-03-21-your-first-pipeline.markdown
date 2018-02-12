@@ -1,0 +1,138 @@
+---
+layout: post
+title:  "Managing Build Versions in your GoCD Pipeline"
+status: public
+type: post
+author: Moritz Lenz
+excerpt: <p>What do you do one you have GoCD installed? You start building your first build pipeline. Read how your fisrt steps might look like.</p>
+---
+
+So you've installed [the GoCD server](https://docs.go.cd/current/installation/installing_go_server.html) and an [agent](https://docs.go.cd/15.1.0/installation/installing_go_agent.html). Now it's time to do something with it.
+
+Typically the first step of a delivery pipeline is to build the software from source. A tiny [web service](https://github.com/moritz/package-info) serves as an example, and we'll build Debian packages from that.
+
+GoCD can poll a git repository for changes, and if it has changed, clone
+the repository on an agent machine. So the remaining task is to execute the
+actual build command, and collect the resulting package file (and optionally
+the .changes file).
+
+Since describing each click through the GoCD web interface is a bit tedious, let's talk about the XML configuration for the first pipeline instead. Here it is:
+
+  <pipelines group="deployment">
+    <pipeline name="package-info">
+      <materials>
+        <git url="https://github.com/moritz/package-info.git" dest="package-info" />
+      </materials>
+      <stage name="build" cleanWorkingDir="true">
+        <jobs>
+          <job name="build-deb" timeout="5">
+            <tasks>
+              <exec command="/bin/bash" workingdir="package-info">
+                <arg>-c</arg>
+                <arg>debuild -b -us -uc</arg>
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact src="version" />
+              <artifact src="package-info*_*" dest="package-info/" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+
+
+The build command, `debuild -b -us -uc`, return exit code zero on success and
+a non-zero exit code on failure, which is the standard convention for UNIX
+commands, and the same that the GoCD job runner for system commands
+understands, so we don't have to take special care with error handling.
+
+The `debuild` command is part of the `devscripts` package on Debian and Ubuntu, and we just assume that it is installed on the agent machine. If you have a heterogenous environment, you can [use resources to limit the job to fitting agents](https://docs.go.cd/15.3.0/configuration/managing_a_build_cloud.html#matching-jobs-to-agents).
+
+The `timeout="5"` in the job tag specifies a timeout in minutes that applies when the build script hasn't produced any output for five minutes. It acts as a safeguard against infinitely looping builds.
+
+The `artifacts` tag specifies files and wildcards that Go collecst and
+stores on the server. The use of a wildcard is both to account for the fact
+that the version number and thus the file name of the generated Debian
+package is variable, and to able to capture both the generated `.deb` and
+`.changes` file. The fixed destination path makes it easier to retrieve those
+artifacts later on without knowing the exact version number.
+
+If you use the [environments feature](https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-4-go-environments), you also need to add the pipeline and at least one fitting agent to an environment. Fof the sake of keeping things simple, we'll skip that here.
+
+After you configure the pipeline with the XML above, you need to wait a bit,
+and then the the pipeline turns green on the front page of GoCD's web
+interface. We can celebrate the first small success.
+
+## Recycling considered harmful
+
+There is a small problem with this build stage. The version number of the generated Debian
+package comes from the `debian/changelog` file, which is part of the source git repository. So each time a developer
+pushes a commit that doesn't increment the version, the build stage generates
+a binary that reuses the previous version number. Even if the developers had
+perfect discipline, pipelines and stages can be rerun with the same git
+revision as before. The Debian tool chain very much assumes that new versions
+of a package come with incremented version numbers, so the build pipeline
+should do that.
+
+The simplest approach is to use the pipeline label as a version number, but it comes with two small problems: it is reused when the stage is rerun within the pipeline instance, and it requires a GoCD configuration change for each manual version increment.
+
+An approach that works faily well in practice  is to use the latest git tag as the base version number, and then append the number of commits since the tag, followed by the pipeline counter and the stage counter, which GoCD conveniently supplies through environment variables.
+
+Here is a small shell script that implements this version number increase, and then starts the build.
+
+    #!/bin/bash
+
+    set -e
+    set -o pipefail
+    version=$(git describe --long | sed 's/-g[a-f\d]*$//')
+    # Remove commit hash with leading "g"
+    version=$(sed 's/-g[A-Fa-f0-9]*$//' <<< "$version")
+    version="$version.${GO_PIPELINE_COUNTER:-0}.${GO_STAGE_COUNTER:-0}"
+
+    DISTRIBUTION=${DISTRIBUTION:-jessie}
+
+    echo $version
+    echo $version > ../version
+
+    DEBFULLNAME='Go Debian Build Agent' DEBEMAIL='go-noreply@example.com' debchange --newversion=$version  --force-distribution -b  --distribution="${DISTRIBUTION:-jessie}" 'New Version'
+    debuild -b -us -uc
+
+Since this is code that is required for building the software, it needs to be
+version-controlled just like the other code. If you planned to only deploy a
+single application, you could add it to its source repository. But most
+organisations have multiple applications to deploy, and this script works for
+all software that is deployed through Debian packages. So it makes sense to create
+another git repository, and add it as a second material to the pipeilne, and to any other pipeline of the same structure.
+
+Now each time a developer pushes a new commit without a tag, the number behind
+the tag increases. Every rerun of the pipeline or the stage increments one of
+the subsequent numbers in the version string. For a git tag `2016.01`, the version number produced typically looks like `2016.01-42.4.1`. Not really pretty, but it does fulfill the requirement of distinct and incrementing version numbers, and the first part can easily be influenced by the developer.
+
+To make use of this script, we need to add the git repository with the tools as a second material:
+
+    <git url="https://github.com/moritz/deployment-utils.git" dest="deployment-utils" materialName="deployment-utils" />
+
+And modify the shell task to invoke the script:
+
+    <exec command="/bin/bash" workingdir="package-info">
+      <arg>../deployment-utils/debian-autobuild</arg>
+    </exec>
+
+After triggering the pipeline in the web interface and waiting a bit, it turns green again, and this time generates a Debian package with a unique version string.
+
+## What's next?
+
+After the build stage is in place, there are several possible next steps to drive your Continuous Delivery efforts:
+
+* The next stage in the could add the freshly built package to a repository, making it available for installation on test servers.
+* The package build could be improved to run unit tests for the package being built, ensuring that only software that passes its unit tests reach the testing or staging environment. Note that this doesn't require any changes in GoCD.
+* When multiple applications are to be built automatically, it makes sense to [extract a template from the pipeline](https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-5-power-pipeline-templates-and-parameters), so that configuring a pipeline for the next project becomes a simple matter of instantiating the template and defining a few paramaters.
+
+Do whatever is necessary to solve your pain points and save time.
+
+
+## About the author
+
+*This is guest post by Moritz Lenz, a software engineer and architect at [noris network](https://www.noris.de/). He's currently [writing a book on automating deployments](https://deploybook.com/).*
