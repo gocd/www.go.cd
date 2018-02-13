@@ -1,16 +1,22 @@
 ---
 layout: post
-title: CD Hacks - Managing Build Versions in your GoCD Pipeline
+title: Managing Build Versions in your GoCD Pipeline
 type: post
 author: Moritz Lenz
 excerpt: "Here are some steps on how to manage your build versions in your GoCD Pipeline."
-summary_image: "/assets/images/blog/cd-metrics/metrics-continuous-delivery-header.jpg"
+summary_image: "/assets/images/blog/manage-build-versions/manage-build-versions-hero.jpg"
 title_tag_of_header: "Managing Build Versions in your GoCD Pipeline | GoCD Blog"
 meta_description: "Steps on how to manage your build versions in your GoCD Pipeline."
 meta_keywords: "build pipeline, build versions, gocd tutorial, gocd hacks, build stage, xml config, continuous delivery"
 draft: true
 tags: CD Hacks
 ---
+<% content_for :banner do %>
+  <figure>
+    <img src="/assets/images/blog/manage-build-versions/manage-build-versions-hero.jpg" alt="Managing build versions in your GoCD pipeline"/>
+  </figure>
+  <% end %>
+
 Let's say you're building your first GoCD continuous delivery pipline. 
 
 Typically the first step of a delivery pipeline is to build the software from source. For this post, a tiny [web service](https://github.com/moritz/package-info) will serve as an example, and we'll build Debian packages from that.
