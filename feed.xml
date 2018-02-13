@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2018-01-31T00:00:00Z</updated>
+  <updated>2018-02-13T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Managing Build Versions in your GoCD Pipeline</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/02/13/managing-build-versions-pipeline.html"/>
+    <id>https://www.gocd.org/2018/02/13/managing-build-versions-pipeline.html</id>
+    <published>2018-02-13T00:00:00Z</published>
+    <updated>2018-02-13T00:00:00Z</updated>
+    <author>
+      <name>Moritz Lenz</name>
+    </author>
+    <content type="html">Here are some steps on how to manage your build versions in your GoCD Pipeline.</content>
+  </entry>
   <entry>
     <title>4 Important Metrics for Continuous Delivery</title>
     <link rel="alternate" href="https://www.gocd.org/2018/01/31/continuous-delivery-metrics.html"/>
@@ -107,16 +118,5 @@
       <name>Vishal Naik</name>
     </author>
     <content type="html">Continuous Delivery is not just about automating deployments. The goal is to be able to release software reliably and without friction. This post describes the architectural themes to model CD pipelines.</content>
-  </entry>
-  <entry>
-    <title>Part 5 - CD101: Common Tools for Continuous Delivery</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/10/03/introduction-continuous-delivery-deployment-tools.html"/>
-    <id>https://www.gocd.org/2017/10/03/introduction-continuous-delivery-deployment-tools.html</id>
-    <published>2017-10-03T00:00:00Z</published>
-    <updated>2017-10-03T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">CD 101 is a video series to help you get started on your CD journey. In Part 5 we will explore common CD tools.</content>
   </entry>
 </feed>

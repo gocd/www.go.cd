@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Steps on how to manage your build versions in your GoCD Pipeline." name="description" />
+    <meta content="build pipeline, build versions, gocd tutorial, gocd hacks, build stage, xml config, continuous delivery" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Managing Build Versions in your GoCD Pipeline | GoCD Blog" />
+    <meta name="twitter:description" content="Steps on how to manage your build versions in your GoCD Pipeline." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/manage-build-versions/manage-build-versions-hero-c20cdce6.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/02/13/managing-build-versions-pipeline" />
+
+    <title>Managing Build Versions in your GoCD Pipeline | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-8a81457b.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-6c0908b5.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
+  </head>
+
+  <body class="x2018 x2018_02 x2018_02_13 x2018_02_13_managing-build-versions-pipeline x2018_02_13_managing-build-versions-pipeline_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../../assets/images/blog/manage-build-versions/manage-build-versions-hero-c20cdce6.jpg" alt="Managing build versions in your GoCD pipeline"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Managing Build Versions in your <span class="go">Go</span>CD Pipeline</h1>
+    <h4>Moritz Lenz</h4>
+    <p class='tags'>
+<a href="../../../../tags/cd-hacks.html" class="tag">        CD Hacks
+</a>     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>Let's say you're building your first GoCD continuous delivery pipline.</p>
+
+<p>Typically the first step of a delivery pipeline is to build the software from source. For this post, a tiny <a href="https://github.com/moritz/package-info">web service</a> will serve as an example, and we'll build Debian packages from that.</p>
+
+<p>GoCD can poll a git repository for changes, and if it has changed, clone the repository on an agent machine. So the remaining task is to execute the actual build command, and collect the resulting package file (and optionally the .changes file).</p>
+
+<p>Since describing each click through the GoCD web interface can be time consuming, let's talk about the XML configuration for the first pipeline instead. Here it is:</p>
+
+<pre><code>&lt;pipelines group="deployment"&gt;
+ &lt;pipeline name="package-info"&gt;
+   &lt;materials&gt;
+     &lt;git url="https://github.com/moritz/package-info.git" dest="package-info" /&gt;
+   &lt;/materials&gt;
+   &lt;stage name="build" cleanWorkingDir="true"&gt;
+     &lt;jobs&gt;
+       &lt;job name="build-deb" timeout="5"&gt;
+         &lt;tasks&gt;
+           &lt;exec command="/bin/bash" workingdir="package-info"&gt;
+             &lt;arg&gt;-c&lt;/arg&gt;
+             &lt;arg&gt;debuild -b -us -uc&lt;/arg&gt;
+           &lt;/exec&gt;
+         &lt;/tasks&gt;
+         &lt;artifacts&gt;
+           &lt;artifact src="version" /&gt;
+           &lt;artifact src="package-info*_*" dest="package-info/" /&gt;
+         &lt;/artifacts&gt;
+       &lt;/job&gt;
+     &lt;/jobs&gt;
+   &lt;/stage&gt;
+ &lt;/pipeline&gt;
+&lt;/pipelines&gt;    
+</code></pre>
+
+<p>The build command, <code>debuild -b -us -uc</code>, return exit code zero on success and a non-zero exit code on failure, which is the standard convention for UNIX commands, and the same that the GoCD job runner for system commands understands, so we don't have to take special care with error handling.</p>
+
+<p>The <code>debuild</code> command is part of the <code>devscripts</code> package on Debian and Ubuntu, and we just assume that it is installed on the agent machine. If you have a heterogenous environment, you can <a href="https://docs.go.cd/15.3.0/configuration/managing_a_build_cloud.html#matching-jobs-to-agents">use resources to limit the job to fitting agents</a>.</p>
+
+<p>The <code>timeout="5"</code> in the job tag specifies a timeout in minutes that applies when the build script hasn't produced any output for five minutes. It acts as a safeguard against infinitely looping builds.</p>
+
+<p>The <code>artifacts</code> tag specifies files and wildcards that GoCD collecst and stores on the server. The use of a wildcard is both to account for the fact that the version number and thus the file name of the generated Debian package is variable, and to able to capture both the generated <code>.deb</code> and <code>.changes</code> file. The fixed destination path makes it easier to retrieve those artifacts later on without knowing the exact version number.</p>
+
+<p>If you use the <a href="https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-4-go-environments">environments feature</a>, you also need to add the pipeline and at least one fitting agent to an environment. To keep things simple, we'll skip that here.</p>
+
+<p>After you configure the pipeline with the XML above, you may wait a bit. You'll see the pipeline turns green on the front page of GoCD's web interface!</p>
+
+<p><em>We can celebrate the first small success!</em></p>
+
+<h2 id="recycling-version-numbers-is-confusing">Recycling version numbers is confusing</h2>
+
+<p>Here, there is a small problem with this build stage. The version number of the generated Debian package comes from the <code>debian/changelog</code> file, which is part of the source git repository. So each time a developer pushes a commit that doesn't increment the version, the build stage generates a binary that reuses the previous version number. Even if the developers had perfect discipline, pipelines and stages can be rerun with the same git
+revision as before. The Debian tool chain very much assumes that new versions
+of a package come with incremented version numbers, so the build pipeline
+should do that.</p>
+
+<h2 id="ways-to-increment-build-numbers">Ways to increment build numbers</h2>
+
+<p>The simplest approach is to use the pipeline label as a version number, but it comes with two small problems:</p>
+
+<ul>
+  <li>it is reused when the stage is rerun within the pipeline instance,</li>
+  <li>and it requires a GoCD configuration change for each manual version increment.</li>
+</ul>
+
+<p>An approach that works faily well in practice is to use the latest git tag as the base version number, and then append the number of commits since the tag, followed by the pipeline counter and the stage counter, which GoCD conveniently supplies through environment variables.</p>
+
+<p>Here is a small shell script that implements this version number increase, and then starts the build.</p>
+
+<pre><code>#!/bin/bash
+
+set -e
+set -o pipefail
+version=$(git describe --long | sed 's/-g[a-f\d]*$//')
+# Remove commit hash with leading "g"
+version=$(sed 's/-g[A-Fa-f0-9]*$//' &lt;&lt;&lt; "$version")
+version="$version.${GO_PIPELINE_COUNTER:-0}.${GO_STAGE_COUNTER:-0}"
+
+DISTRIBUTION=${DISTRIBUTION:-jessie}
+
+echo $version
+echo $version &gt; ../version
+
+DEBFULLNAME='Go Debian Build Agent' DEBEMAIL='go-noreply@example.com' debchange --newversion=$version  --force-distribution -b  --distribution="${DISTRIBUTION:-jessie}" 'New Version'
+debuild -b -us -uc
+</code></pre>
+
+<p>Since this is code that is required for building the software, it needs to be
+version-controlled just like the other code. If you planned to only deploy a
+single application, you could add it to its source repository. But most
+organisations have multiple applications to deploy, and this script works for
+all software that is deployed through Debian packages. So it makes sense to create
+another git repository, and add it as a second material to the pipeilne, and to any other pipeline of the same structure.</p>
+
+<p>Now each time a developer pushes a new commit without a tag, the number behind
+the tag increases. Every rerun of the pipeline or the stage increments one of
+the subsequent numbers in the version string. For a git tag <code>2016.01</code>, the version number produced typically looks like <code>2016.01-42.4.1</code>. Not really pretty, but it does fulfill the requirement of distinct and incrementing version numbers, and the first part can easily be influenced by the developer.</p>
+
+<p>To make use of this script, we need to add the git repository with the tools as a second material:</p>
+
+<pre><code>&lt;git url="https://github.com/moritz/deployment-utils.git" dest="deployment-utils" materialName="deployment-utils" /&gt;
+</code></pre>
+
+<p>And modify the shell task to invoke the script:</p>
+
+<pre><code>&lt;exec command="/bin/bash" workingdir="package-info"&gt;
+  &lt;arg&gt;../deployment-utils/debian-autobuild&lt;/arg&gt;
+&lt;/exec&gt;
+</code></pre>
+
+<p>After triggering the pipeline in the web interface and waiting a bit, it turns green again, and this time generates a Debian package with a unique version string.</p>
+
+<h2 id="whats-next">What's next?</h2>
+
+<p>After the build stage is in place, there are several possible next steps to drive your Continuous Delivery efforts:</p>
+
+<ul>
+  <li>The next stage in the pipeline could add the freshly built package to a repository, making it available for installation on test servers.</li>
+  <li>The package build could be improved to run unit tests (for the package being built), ensuring that only software that has passed the unit tests, reach the 'testing' or 'staging' environment. <em>Note that this doesn't require any changes in GoCD</em>.</li>
+  <li>When multiple applications are to be built automatically, it makes sense to <a href="https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-5-power-pipeline-templates-and-parameters">extract a template from the pipeline</a>, so that configuring a pipeline for the next project becomes a simple matter of instantiating the template and defining a few paramaters.</li>
+</ul>
+
+<p>Do whatever is necessary to solve your pain points and save time.</p>
+
+<h2 id="about-the-author">About the author</h2>
+
+<p><em>This is guest post by Moritz Lenz, a software engineer and architect at <a href="https://www.noris.de/">noris network</a>. He's currently <a href="https://deploybook.com/">writing a book on automating deployments</a>.</em></p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">Continuous Delivery news in your inbox</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div id="backup-subscription-message">
+        Send a mail to <a class="normal-link"
+        href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20The%20Pipeline&amp;body=Hello,%0a%0aPlease%20sign%20me%20up.%20My%20details%20are:%0a%0aFirst%20Name:%0aLast%20Name:%0aCompany%20Name:%0a%0aI%20would%20like%20to%20subscribe%20to%20the%20Pipeline%20newsletter.%0a%0aThank%20you.">support@thoughtworks.com</a>
+          to subscribe to the Pipeline newsletter.
+      </div>
+    </div>
+    <script type="text/javascript">
+      function initMarketoForm() {
+        MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
+        jQuery("#backup-subscription-message").remove();
+      }
+    </script>
+    <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Feb 13</span>
+              <span class="post-author">Moritz Lenz</span>
+              <a href="./">Managing Build Versions in your GoCD Pipeline</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 31</span>
+              <span class="post-author">Alison Polton-Simon</span>
+              <a href="../../../01/31/continuous-delivery-metrics/">4 Important Metrics for Continuous Delivery</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 17</span>
+              <span class="post-author">Erin Snyder</span>
+              <a href="../../../01/17/continuous-delivery-beginners-guide/">An absolute beginners guide to Continuous Delivery</a>
+            </li>
+            <li>
+              <span class="post-date">Dec  6</span>
+              <span class="post-author">Suzie Prince</span>
+              <a href="../../../../2017/12/06/confessions-continuous-delivery-experts-snapci-microservices-monolith/">Confessions of Continuous Delivery Experts: From microservices back to monolith</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 28</span>
+              <span class="post-author">Aravind S.V</span>
+              <a href="../../../../2017/11/28/confessions-continuous-delivery-experts-gocd-open-source/">Confessions of Continuous Delivery Experts: When GoCD went open source</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2018 (3)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2018/02/13/managing-build-versions-pipeline.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        
+        <li>
+        <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+
+        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
