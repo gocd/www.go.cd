@@ -402,6 +402,10 @@ h1.main-caption {
 
   h1 {
     font-family: 'URWGeometric-Semibold';
+
+    .highlight {
+      color: #4ad9d9;
+    }
   }
 
   p {
@@ -431,7 +435,7 @@ h1.main-caption {
 
   .header {
     margin-bottom: 1em;
-    background: url("../../assets/images/campaign/enterprise/ent-bkgd-test3.jpg");
+    background: url("../../assets/images/campaign/enterprise/ccoal_bkgd.jpg");
     background-size: cover;
     height: 400px;
     width: 100%;
@@ -705,3 +709,649 @@ h1.main-caption {
 
   }
 }
+
+
+// Kubernetes
+
+.kubernetes {
+
+  // Global page elements
+
+  h1 {
+    font-family: 'URWGeometric-Semibold';
+  }
+
+  p {
+    line-height: 1.5em;
+    font-weight: 400;
+  }
+
+  .hr {
+    height: 2px;
+    width: 100%;
+    background-color: #eee;
+    margin-bottom: 1em;
+  }
+
+  .banner-content {
+   display: none;
+  }
+
+  main {
+    padding-top: 0;
+    overflow: hidden;
+  }
+
+  //Section Specific Elements
+
+  //Banner
+
+  .header {
+    margin-bottom: 1em;
+    background: url("../../assets/images/campaign/kubernetes/k8s-bkgd.jpg");
+    // use 'k8s-bkgd-blk.jpg' in same directory as an alternate image
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    position: static;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      color: #FFFFFF;
+      font-family: 'URWGeometric-ExtraBold';
+      font-size: 5em;
+      line-height: .9em;
+      text-align: center;
+    }
+
+    @media (max-width:490px) {
+      height: 300px;
+
+      h1 {
+        font-size: 3em;
+      }
+    }
+
+  }
+
+  //First Section
+
+  .intro-section {
+
+    .intro-row {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    .intro-text {
+      margin-bottom: 2em;
+
+      h1 {
+        text-align: center;
+      }
+
+      p {
+        text-align: justify;
+      }
+
+      @media(max-width: 991px) {
+        h1 {
+          text-align: center;
+        }
+      }
+    }
+
+    .vsm-illo {
+      margin-bottom: 1em;
+    }
+  }
+
+
+  //Second Section, Features
+
+  .feature-section {
+
+  margin-bottom: 1em;
+
+    h1 {
+      text-align: center;
+    }
+
+    .img-placeholder {
+      height: 400px;
+      border: 1px solid red;
+    }
+
+    .feature-row {
+
+      margin-bottom: 2em;
+
+      .feature {
+
+        text-align: center;
+
+        h3 {
+          text-align: center;
+          font-family: 'URWGeometric-Semibold';
+          font-size: 1.5em;
+          text-transform: capitalize;
+        }
+
+        .illo {
+          height: 160px;
+          width: auto;
+          margin: auto;
+        }
+
+        p {
+          text-align: justify;
+        }
+
+        @media (max-width:767px) {
+
+          margin-bottom: 1em;
+
+          h3 {
+            font-size: 24px;
+            margin-bottom: .5em;
+          }
+
+          .illo {
+            height: 100px;
+          }
+
+          p {
+            padding-left: 2em;
+            padding-right: 2em;
+            padding-bottom: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  // Plugins
+
+  .plugins-section {
+
+    h3 {
+      text-align: center;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    .plugins-row {
+      padding-top: 1em;
+      padding-bottom: 2em;
+    }
+
+    .plugin-text {
+      padding: 0 1em 1em 1em;
+      // border: 1px solid red;
+    }
+
+    @media(max-width: 991px) {
+      .plugin-text {
+        padding: 0 2em 1em 2em;
+      }
+    }
+
+    .plugin-link {
+      text-align: center;
+
+
+      a {
+        font-family: 'URWGeometric-Semibold';
+        align-items: center;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+
+  //Outro
+
+  .outro-section {
+
+    h1 {
+      text-align: center;
+    }
+
+    .outro-text {
+      margin-bottom: 3em;
+    }
+  }
+
+  //Form Section, Sales Funnel
+
+  .form-section {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+
+    h1 {
+      text-align: left;
+      line-height: .9em;
+    }
+
+    h2 {
+      font-family: 'URWGeometric-Semibold';
+      text-align: left;
+    }
+
+    p {
+      text-align: left;
+    }
+
+    a {
+      font-family: 'URWGeometric-Semibold';
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .cf_sign_on {
+      display: none;
+    }
+
+    .form-row {
+      margin-bottom: 1em;
+    }
+
+    .marketo-form {
+      margin-bottom: 1em;
+
+      @media (max-width:991px){
+        align-items: center;
+      }
+
+      .overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+
+        .popup {
+          $popup-border-size: 8px;
+
+          width: 400px;
+          height: auto;
+          position: fixed;
+          background: white;
+          top: 25vh;
+          left: calc(50vw - 200px);
+          padding: 20px;
+          border: #1c425c 8px solid;
+
+          .thanks-msg {
+            font-family: 'URWGeometric-Semibold';
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            text-align: center;
+          }
+
+          .close-button {
+            position: absolute;
+            z-index: 101;
+            font-size: 1.5em;
+            right: 4px;
+            top: 2px;
+            color: #1c425c;
+            cursor: pointer;
+          }
+        }
+      }
+
+      button.mktoButton {
+        margin-top: 1em;
+        margin-left: -18px;
+        padding: 1em 2em 1em 2em;
+        background-color: #36B1BF;
+        color: #FFFFFF;
+        border: none;
+        align-items: center;
+        border-radius: 2px;
+        
+        &:hover {
+          background-color: #1C425C;
+        }
+      }
+
+      .form-loading-error {
+        display: none;
+      }
+    }
+
+  }
+}
+
+
+// Analytics
+
+.analytics {
+
+  // Global page elements
+
+  h1 {
+    font-family: 'URWGeometric-Semibold';
+
+    .highlight {
+      color: #4ad9d9;
+    }
+  }
+
+  p {
+    line-height: 1.5em;
+    font-weight: 400;
+  }
+
+  .hr {
+    height: 2px;
+    width: 100%;
+    background-color: #eee;
+    margin-bottom: 1em;
+  }
+
+  .banner-content {
+   display: none;
+  }
+
+  main {
+    padding-top: 0;
+    overflow: hidden;
+  }
+
+  //Section Specific Elements
+
+  //Banner
+
+  .header {
+    margin-bottom: 1em;
+    background: url("../../assets/images/campaign/analytics/analytics-bkgd.jpg");
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    position: static;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      color: #FFFFFF;
+      font-family: 'URWGeometric-ExtraBold';
+      font-size: 5em;
+      line-height: .9em;
+      text-align: center;
+    }
+
+    @media (max-width:490px) {
+      height: 300px;
+
+      h1 {
+        font-size: 3em;
+      }
+    }
+
+  }
+
+  //First Section
+
+  .intro-section {
+
+    .intro-row {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    .intro-text {
+      margin-bottom: 2em;
+
+      @media(max-width: 991px) {
+        h1 {
+          text-align: center;
+        }
+      }
+    }
+
+    .vsm-illo {
+      margin-bottom: 1em;
+    }
+  }
+
+
+  //Second Section, Features
+
+  .feature-section {
+
+  margin-bottom: 1em;
+
+    h1 {
+      text-align: center;
+    }
+
+    .feature-row {
+
+      margin-bottom: 2em;
+
+      .feature {
+
+        text-align: center;
+
+        h3 {
+          text-align: center;
+          font-family: 'URWGeometric-Semibold';
+          font-size: 1.5em;
+          text-transform: capitalize;
+        }
+
+        .illo {
+          height: 160px;
+          width: auto;
+          margin: auto;
+        }
+
+        p {
+          text-align: justify;
+        }
+
+        @media (max-width:767px) {
+
+          margin-bottom: 1em;
+
+          h3 {
+            font-size: 24px;
+            margin-bottom: .5em;
+          }
+
+          .illo {
+            height: 100px;
+          }
+
+          p {
+            padding-left: 2em;
+            padding-right: 2em;
+            padding-bottom: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  // Plugins
+
+  .plugins-section {
+
+    h3 {
+      text-align: center;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    .plugins-row {
+      padding-top: 1em;
+      padding-bottom: 2em;
+    }
+
+    .plugin-text {
+      padding: 0 1em 1em 1em;
+      // border: 1px solid red;
+    }
+
+    @media(max-width: 991px) {
+      .plugin-text {
+        padding: 0 2em 1em 2em;
+      }
+    }
+
+    .plugin-link {
+      text-align: center;
+
+
+      a {
+        font-family: 'URWGeometric-Semibold';
+        align-items: center;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+
+  //Outro
+
+  .outro-section {
+
+    h1 {
+      text-align: center;
+    }
+
+    .outro-text {
+      margin-bottom: 3em;
+    }
+  }
+
+  //Form Section, Sales Funnel
+
+  .form-section {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+
+    h1 {
+      text-align: left;
+      line-height: .9em;
+    }
+
+    h2 {
+      font-family: 'URWGeometric-Semibold';
+      text-align: left;
+    }
+
+    p {
+      text-align: left;
+    }
+
+    a {
+      font-family: 'URWGeometric-Semibold';
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .cf_sign_on {
+      display: none;
+    }
+
+    .form-row {
+      margin-bottom: 1em;
+    }
+
+    .marketo-form {
+      margin-bottom: 1em;
+
+      @media (max-width:991px){
+        align-items: center;
+      }
+
+      .overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+
+        .popup {
+          $popup-border-size: 8px;
+
+          width: 400px;
+          height: auto;
+          position: fixed;
+          background: white;
+          top: 25vh;
+          left: calc(50vw - 200px);
+          padding: 20px;
+          border: #1c425c 8px solid;
+
+          .thanks-msg {
+            font-family: 'URWGeometric-Semibold';
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            text-align: center;
+          }
+
+          .close-button {
+            position: absolute;
+            z-index: 101;
+            font-size: 1.5em;
+            right: 4px;
+            top: 2px;
+            color: #1c425c;
+            cursor: pointer;
+          }
+        }
+      }
+
+      button.mktoButton {
+        margin-top: 1em;
+        margin-left: -18px;
+        padding: 1em 2em 1em 2em;
+        background-color: #36B1BF;
+        color: #FFFFFF;
+        border: none;
+        align-items: center;
+        border-radius: 2px;
+        
+        &:hover {
+          background-color: #1C425C;
+        }
+      }
+
+      .form-loading-error {
+        display: none;
+      }
+    }
+
+  }
+}
+
+
