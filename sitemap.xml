@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.gocd.org/analytics/</loc>
+  </url>
+  <url>
     <loc>https://www.gocd.org/blog/</loc>
   </url>
   <url>
@@ -53,6 +56,9 @@
   </url>
   <url>
     <loc>https://www.gocd.org/jenkins/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/kubernetes/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/misc/generate-patched-jar-for-deserialization-vulnerability/</loc>
