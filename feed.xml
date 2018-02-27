@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2018-02-13T00:00:00Z</updated>
+  <updated>2018-02-27T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Running your end to end tests on Kubernetes</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/02/27/running-end-to-end-tests-kubernetes.html"/>
+    <id>https://www.gocd.org/2018/02/27/running-end-to-end-tests-kubernetes.html</id>
+    <published>2018-02-27T00:00:00Z</published>
+    <updated>2018-02-27T00:00:00Z</updated>
+    <author>
+      <name>Jean Baudin</name>
+    </author>
+    <content type="html">In post Jean Baudin of Travix talks about how they ran their end to end tests on Kubernetes.</content>
+  </entry>
   <entry>
     <title>Managing Build Versions in your GoCD Pipeline</title>
     <link rel="alternate" href="https://www.gocd.org/2018/02/13/managing-build-versions-pipeline.html"/>
@@ -107,16 +118,5 @@
       <name>Louda Peña</name>
     </author>
     <content type="html">The difference between Continuous Delivery and Continuous Deployment is quite simple, but something most people don't understand. Here's an easy way to remember.</content>
-  </entry>
-  <entry>
-    <title>Architecting for Continuous Delivery - Themes in CD Enablement</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/10/10/architecting-continuous-delivery.html"/>
-    <id>https://www.gocd.org/2017/10/10/architecting-continuous-delivery.html</id>
-    <published>2017-10-10T00:00:00Z</published>
-    <updated>2017-10-10T00:00:00Z</updated>
-    <author>
-      <name>Vishal Naik</name>
-    </author>
-    <content type="html">Continuous Delivery is not just about automating deployments. The goal is to be able to release software reliably and without friction. This post describes the architectural themes to model CD pipelines.</content>
   </entry>
 </feed>
