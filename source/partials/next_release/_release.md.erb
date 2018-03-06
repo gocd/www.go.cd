@@ -1,16 +1,25 @@
-<h4>New dashboard page</h4>
+<h4>New dashboard page (Beta)</h4>
 
 <figure class='shrink-figure-75'>
   <%= image_tag 'releases/18.2.0/new-dashboard.png', alt: 'new dashboard page' %>
   <caption>New dashboard page</caption>
 </figure>
 
-This release of GoCD ships with a beta version of the new dashboard page that improves performance for large GoCD instances with thousands of pipelines. It does so by:
+This release of GoCD ships with a preview version of the new dashboard page that improves performance for large GoCD instances with thousands of pipelines. It does so by:
 
 * keeping track of the state of the dashboard in memory (instead of being pulled from the DB)
 * rendering the response as a JSON (instead of HTML). This improves the rendering time by several hundred times on the server.
 * a javascript based frontend that is several thousand times faster on large instances, reducing the CPU usage of your browser. Your laptop battery will be thanking you :)
 * reduces the polling rate when the dashboard is shown in a browser tab that is hidden
+
+> Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues). This new dashboard will replace the existing dashboard in one of the upcoming releases of GoCD.
+
+This feature can be turned off by executing:
+
+    curl https://your-go-server/go/api/admin/feature_toggles/quicker_dashboard_key \
+      -d toggle_value=off \
+      -H 'Confirm:true' \
+      -u username:password
 
 <h4>Elastic Agent Status Report</h4>
 
@@ -21,9 +30,18 @@ This release of GoCD ships with a beta version of the new dashboard page that im
 
 To make it easier to see information about your elastic agent and check logs in case of issues, elastic agent plugins can now provide an elastic agent status report. This report is available from the agents page, and from the job detail page. Docker, Docker Swarm, and Amazon ECS plugins implement this status report feature. 
 
+<h4>Elastic Agent Plugin Status Report</h4>
+
+<figure class='shrink-figure-75'>
+  <%= image_tag 'releases/18.2.0/elastic-agent-plugin-status-report.png', alt: 'elastic agent plugin status report' %>
+  <caption>Elastic Agent Plugin Status Report</caption>
+</figure>
+
+To make it easier to see information about elastic agent cluster, elastic agent plugins can provide a report about all running agents and the state of the cluster. This report is available from the plugins page. Docker, Docker Swarm, and Amazon ECS plugins implement this status report feature. 
+
 <h4>API Improvements</h4>
 
-* <%= link_to_commit '612c66ac50c24c53fc2db7400386d14faafbd87b', "Introduction of pipeline pause #{link_to_api 'pause-a-pipeline'} and #{link_to_api 'unpause-a-pipeline'}", 4076 %>.
+* <%= link_to_commit '612c66ac50c24c53fc2db7400386d14faafbd87b', "Introduction of pipeline #{link_to_api 'pause-a-pipeline', 'pause api'} and #{link_to_api 'unpause-a-pipeline', 'unpause api'}", 4076 %>.
 
     The old pause/unpause APIs have been deprecated and users should upgrade to the new API.
 
@@ -45,6 +63,10 @@ To make it easier to see information about your elastic agent and check logs in 
 
     Many GitLab installations use `gitlab@` as a git user. This was once a default user for GitLab installs. Due to this the urls for ssh connections from gitlab can include this user.
 
+<h4>Improvements</h4>
+
+* Introduce environment variables `GO_MATERIAL_HAS_CHANGED` and `GO_MATERIAL_${material name or dest}_HAS_CHANGED` to indicate if materials have changed from the previous pipeline run, and if materials have changed, which materials have changed. Read more about these variables in the [help documentation](https://docs.gocd.org/current/faq/environment_variables.html#standard-gocd-environment-variables).
+
 <h4>Docker images</h4>
 
 We have introduced the GoCD Agent Docker in Docker image. This can be used to run the docker related tasks such as building a docker image, pushing to a registry etc. Advanced use-cases include containerizing the application and running tests using DInD.
@@ -63,6 +85,8 @@ Read more about changes with docker images for the [server docker image](https:/
 
     This will add an `http://` prefix to tracking tool links that do not start with `http://` or `https://`.
 
+* The plugin settings request is supported for the SCM and Package repository extensions on the plugins SPA. The plugin settings that can be configured for scm and package repo plugins are made use of *only* on the server side.
+
 <h4>Deprecations</h4>
 
 * As of release 18.2 the following (unversioned) APIs have been deprecated and will be removed in 18.5 (scheduled to be released in May 2018):
@@ -75,9 +99,22 @@ Read more about changes with docker images for the [server docker image](https:/
 
 * The pipeline config API version 3 and version 4 have been deprecated and will be removed in 18.5 (scheduled to be released in May 2018). Version 5 of the pipeline config API has been introduced to add the new pipeline unlock behavior attribute (<%= link_to_issue 3943 %>).
 
-* As of release 17.11, version 1 of the users <%= link_to_api 'users' %> is deprecated. This version of the API will be removed in 18.3.0 release (scheduled to be released in March 2018). Version 2 of the API is available, and users are encouraged to use it.
+* The elastic agent api version 1 and (a development verion 2) has been deprecated. These versions will be removed in 18.5 (scheduled to be released in May 2018). Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
+
+* The notification api version 1 has been deprecated. Plugin developers should use version 2 of the notification plugin api to allow adding support for agent status report and plugin status report.
 
 * Plugins upload form has been removed from the new plugins page. It is still available in the old plugins page, which will be removed in release 18.3.0 (scheduled to be released in March 2018).
+
+<h4>Breaking changes</h4>
+
+* Version 1 of the <%= link_to_api 'users', 'users api' %> has been removed. Version 2 of the API is available, and users are encouraged to use it.
+
+<h4>Known issues</h4>
+
+* There are a few known issues when triggering pipelines using the trigger with options feature on the new dashboard:
+  * <%= link_to_issue 4488, 'If for a material no revision selected on trigger with options, schedules with latest revision' %>
+  * <%= link_to_issue 4489, 'If invalid revision specified do not trigger pipeline' %>
+  * <%= link_to_issue 4448, 'Pipeline with lock behavior specified continues to be locked after run completion under certain conditions' %>
 
 <h4>Contributors</h4>
 
@@ -110,7 +147,7 @@ Read more about changes with docker images for the [server docker image](https:/
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 17.11' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.2' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
