@@ -7,10 +7,10 @@
 
 This release of GoCD ships with a 'preview' version of the new dashboard page. This improves performance for large GoCD instances with thousands of pipelines. It does so by:
 
-* keeping track of the state of the dashboard in memory (instead of being pulled from the DB)
+* keeping track of the state of the dashboard in memory (instead of being pulled from the DB).
 * rendering the response as a JSON (instead of HTML). This improves the rendering time by several hundred times on the server.
-* a javascript based frontend that is several thousand times faster on large instances, reducing the CPU usage of your browser. Your laptop battery will thank you :)
-* reduces the polling rate when the dashboard is shown in a browser tab that is hidden
+* a javascript based frontend that is several thousand times faster on large instances, reducing the CPU usage of your browser. Your laptop battery will thank you. :)
+* reduces the polling rate when the dashboard is shown in a browser tab that is hidden.
 
 > Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues). This new dashboard will replace the existing dashboard in one of the upcoming releases of GoCD.
 
@@ -101,8 +101,6 @@ Read more about changes with docker images for the [server docker image](https:/
 
 * The elastic agent api version 1 and (a development verion 2) has been deprecated. These versions will be removed in 18.5 (scheduled to be released in May 2018). Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
 
-* The notification api version 1 has been deprecated. Plugin developers should use version 2 of the notification plugin api to allow adding support for agent status report and plugin status report.
-
 * Plugins upload form has been removed from the new plugins page. It is still available in the old plugins page, which will be removed in release 18.3.0 (scheduled to be released in March 2018).
 
 <h4>Breaking changes</h4>
@@ -132,9 +130,11 @@ Read more about changes with docker images for the [server docker image](https:/
   "Isabelle Carter",
   "Jyoti Singh",
   "Ketan Padegaonkar",
+  "Kiera Radman",
   "Louda Peña",
   "Lubaina R",
   "Mahesh Panchaksharaiah",
+  "Marques Lee",
   "Naveen Bhaskar",
   "Paul Thomas",
   "Rajiesh N",
