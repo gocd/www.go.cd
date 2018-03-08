@@ -87,7 +87,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker">
-      <li rel="tab-18-1-0" class="tab-marker active">18.1.0 (latest)</li>
+      <li rel="tab-18-2-0" class="tab-marker active">18.2.0 (latest)</li>
+      <li rel="tab-18-1-0" class="tab-marker">18.1.0</li>
       <li rel="tab-17-12-0" class="tab-marker">17.12.0</li>
       <li rel="tab-17-11-0" class="tab-marker">17.11.0</li>
       <li rel="tab-17-10-0" class="tab-marker">17.10.0</li>
@@ -124,7 +125,183 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-18-1-0">18.1.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-18-2-0">18.2.0 (latest)</h3>
+      <div id="tab-18-2-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>New Dashboard Page (Beta)</h4>
+
+<figure class="shrink-figure-75">
+  <img src="assets/images/releases/18.2.0/new-dashboard-4720d938.png" alt="new dashboard page" />
+  <caption>New Dashboard Page</caption>
+</figure>
+
+<p>This release of GoCD ships with a 'preview' version of the new dashboard page. This improves performance for large GoCD instances with thousands of pipelines. It does so by:</p>
+
+<ul>
+  <li>keeping track of the state of the dashboard in memory (instead of being pulled from the DB).</li>
+  <li>rendering the response as a JSON (instead of HTML). This improves the rendering time by several hundred times on the server.</li>
+  <li>a javascript based frontend that is several thousand times faster on large instances, reducing the CPU usage of your browser. Your laptop battery will thank you. :)</li>
+  <li>reduces the polling rate when the dashboard is shown in a browser tab that is hidden.</li>
+</ul>
+
+<blockquote>
+  <p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>. This new dashboard will replace the existing dashboard in one of the upcoming releases of GoCD.</p>
+</blockquote>
+
+<p>This feature can be turned off by executing:</p>
+
+<pre><code>curl https://your-go-server/go/api/admin/feature_toggles/quicker_dashboard_key \
+  -d toggle_value=off \
+  -H 'Confirm:true' \
+  -u username:password
+</code></pre>
+
+<h4>Elastic Agent Status Report</h4>
+
+<figure class="shrink-figure-75">
+  <img src="assets/images/releases/18.2.0/elastic-agent-status-report-66a6779c.png" alt="elastic agent status report" />
+  <caption>Elastic Agent Status Report</caption>
+</figure>
+
+<p>To make it easier to see information about your elastic agent and check logs in case of issues, elastic agent plugins can now provide an elastic agent status report. This report is available from the agents page, and from the job detail page. Docker, Docker Swarm, and Amazon ECS plugins implement this status report feature.</p>
+
+<h4>Elastic Agent Plugin Status Report</h4>
+
+<figure class="shrink-figure-75">
+  <img src="assets/images/releases/18.2.0/elastic-agent-plugin-status-report-1ad2f3fc.png" alt="elastic agent plugin status report" />
+  <caption>Elastic Agent Plugin Status Report</caption>
+</figure>
+
+<p>To make it easier to see information about elastic agent cluster, elastic agent plugins can provide a report about all running agents and the state of the cluster. This report is available from the plugins page. Docker, Docker Swarm, and Amazon ECS plugins implement this status report feature.</p>
+
+<h4>API Improvements</h4>
+
+<ul>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/612c66ac50c24c53fc2db7400386d14faafbd87b">612c66a</a></code> - Introduction of pipeline <a href="https://api.gocd.org/current/#pause-a-pipeline">pause api</a> and <a href="https://api.gocd.org/current/#unpause-a-pipeline">unpause api</a>. (<a href="https://github.com/gocd/gocd/issues/4076">#4076</a>).</p>
+
+    <p>The old pause/unpause APIs have been deprecated and users should upgrade to the new API.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/b52aff7071e0c91d3048b16bcadb63f703ae2495">b52aff7</a></code> - Introduction of pipeline unlock <a href="https://api.gocd.org/current/#releasing-a-pipeline-lock">API</a>. (<a href="https://github.com/gocd/gocd/issues/4237">#4237</a>).</p>
+
+    <p>The old pipeline unlock API has been deprecated and users should upgrade to the new API.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/666b20667e0e3df1834e7e8a339bd1d527db545b">666b206</a></code> - Introduction of pipeline schedule <a href="https://api.gocd.org/current/#scheduling-pipelines">API</a>. (<a href="https://github.com/gocd/gocd/issues/4319">#4319</a>).</p>
+
+    <p>The old pipeline schedule API has been deprecated and users should upgrade to the new API.</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/6dfa18fe9bc7cd315ec2db964980a0a0b00d9dd2">6dfa18f</a></code> - Introduction of server health messages <a href="https://api.gocd.org/current/#server-health-messages">API</a>. (<a href="https://github.com/gocd/gocd/issues/4256">#4256</a>).</p>
+
+    <p>This endpoint will render the warnings and errors that were earlier visible only when clicking on the "errors and warnings" modal on the GoCD server</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/0353bb6881e314bf08597967d6185bb66f7ddbab">0353bb6</a></code> - Introduction of Template Authorization <a href="https://api.gocd.org/current/#update-template-authorization">API</a>. (<a href="https://github.com/gocd/gocd/issues/3081">#3081</a>).</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/9c4829e87ec47fd835579d0dc2779233c7b00330">9c4829e</a></code> - Support <code>gitlab@</code> urls for gitlab webhooks. (<a href="https://github.com/gocd/gocd/issues/4211">#4211</a>)</p>
+
+    <p>Many GitLab installations use <code>gitlab@</code> as a git user. This was once a default user for GitLab installs. Due to this the urls for ssh connections from gitlab can include this user.</p>
+  </li>
+</ul>
+
+<h4>Improvements</h4>
+
+<ul>
+  <li>Introduce environment variables <code>GO_MATERIAL_HAS_CHANGED</code> and <code>GO_MATERIAL_${material name or dest}_HAS_CHANGED</code> to indicate if materials have changed from the previous pipeline run, and if materials have changed, which materials have changed. Read more about these variables in the <a href="https://docs.gocd.org/current/faq/environment_variables.html#standard-gocd-environment-variables">help documentation</a>.</li>
+</ul>
+
+<h4>Docker images</h4>
+
+<p>We have introduced the GoCD Agent Docker in Docker image. This can be used to run the docker related tasks such as building a docker image, pushing to a registry etc. Advanced use-cases include containerizing the application and running tests using DInD.</p>
+
+<p>Read more about changes with docker images for the <a href="https://github.com/gocd/docker-gocd-server/blob/master/CHANGELOG.md">server docker image</a> and <a href="https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md">agent docker image</a>.</p>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li>
+    <p>With the introduction of the server health messages API, we can now show server health messages on some of the pages introduced in the last several releases, viz. roles, authorization configuration, agents, elastic profiles, plugin settings.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/gocd/gocd/issues/3899">#3899</a> - Fixed an infinite redirect issue when logging in using web based authentication plugins</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/gocd/gocd/issues/3926">#3926</a> - Handle console logs better with utf-8 encoding</p>
+  </li>
+  <li>
+    <p><code><a href="https://github.com/gocd/gocd/commit/157f12d46b0eedc35b7d4be147caf77590aeac41">157f12d</a></code> - Enforce <code>http(s)</code> URL scheme for tracking tools. (<a href="https://github.com/gocd/gocd/issues/4356">#4356</a>)</p>
+
+    <p>This will add an <code>http://</code> prefix to tracking tool links that do not start with <code>http://</code> or <code>https://</code>.</p>
+  </li>
+  <li>
+    <p>The plugin settings request is supported for the SCM and Package repository extensions on the plugins SPA. The plugin settings that can be configured for scm and package repo plugins are made use of <em>only</em> on the server side.</p>
+  </li>
+</ul>
+
+<h4>Deprecations</h4>
+
+<ul>
+  <li>As of release 18.2 the following (unversioned) APIs have been deprecated and will be removed in 18.5 (scheduled to be released in May 2018):
+    <ul>
+      <li>The pipeline <a href="https://api.gocd.org/current/#pause-a-pipeline">pause api</a></li>
+      <li>The pipeline <a href="https://api.gocd.org/current/#unpause-a-pipeline">unpause api</a></li>
+      <li>The pipeline <a href="https://api.gocd.org/current/#releasing-a-pipeline-lock">unlock api</a></li>
+      <li>The pipeline <a href="https://api.gocd.org/current/#scheduling-pipelines">schedule api</a></li>
+    </ul>
+
+    <p>These APIs have been replaced with a versioned API and users are encouraged to use these instead.</p>
+  </li>
+  <li>
+    <p>The pipeline config API version 3 and version 4 have been deprecated and will be removed in 18.5 (scheduled to be released in May 2018). Version 5 of the pipeline config API has been introduced to add the new pipeline unlock behavior attribute (<a href="https://github.com/gocd/gocd/issues/3943">#3943</a>).</p>
+  </li>
+  <li>
+    <p>The elastic agent api version 1 and (a development verion 2) has been deprecated. These versions will be removed in 18.5 (scheduled to be released in May 2018). Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.</p>
+  </li>
+  <li>Plugins upload form has been removed from the new plugins page. It is still available in the old plugins page, which will be removed in release 18.3.0 (scheduled to be released in March 2018).</li>
+</ul>
+
+<h4>Breaking changes</h4>
+
+<ul>
+  <li>Version 1 of the <a href="https://api.gocd.org/current/#users">users api</a> has been removed. Version 2 of the API is available, and users are encouraged to use it.</li>
+</ul>
+
+<h4>Known issues</h4>
+
+<ul>
+  <li>There are a few known issues when triggering pipelines using the trigger with options feature on the new dashboard:
+    <ul>
+      <li><a href="https://github.com/gocd/gocd/issues/4488">#4488</a> - If for a material no revision selected on trigger with options, schedules with latest revision</li>
+      <li><a href="https://github.com/gocd/gocd/issues/4489">#4489</a> - If invalid revision specified do not trigger pipeline</li>
+      <li><a href="https://github.com/gocd/gocd/issues/4448">#4448</a> - Pipeline with lock behavior specified continues to be locked after run completion under certain conditions</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Akshay Dewan, Akshay Mayekar, Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Charles Bryant, Christian Lövsund, Don Stewart, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Paul Thomas, Rajiesh N, Senthil R, Varsha Varadarajan</p>
+
+<!--
+<h4>Security researchers</h4>
+
+<a href="https://hackerone.com/gocd/thanks">https://hackerone.com/gocd/thanks</a>
+-->
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+18.2%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-18-1-0">18.1.0</h3>
       <div id="tab-18-1-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Bug Fixes</h4>
