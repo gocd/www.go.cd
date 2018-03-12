@@ -875,7 +875,7 @@ h1.main-caption {
           text-transform: capitalize;
         }
 
-        p {
+        li {
           text-align: justify;
         }
 
@@ -891,11 +891,12 @@ h1.main-caption {
             height: 100px;
           }
 
-          p {
+          li {
             text-align: center;
-            padding-left: 2em;
+            margin-left: -10px;
+            // padding-left: 1em;
             padding-right: 2em;
-            margin-bottom: 0;
+            // margin-bottom: 0;
           }
         }
       }
