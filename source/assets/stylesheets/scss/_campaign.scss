@@ -759,7 +759,7 @@ h1.main-caption {
     background: url("../../assets/images/campaign/kubernetes/k8s-bkgd.jpg");
     // use 'k8s-bkgd-blk.jpg' in same directory as an alternate image
     background-size: cover;
-    height: 400px;
+    height: 500px;
     width: 100%;
     position: static;
     top: 0;
@@ -768,18 +768,110 @@ h1.main-caption {
     justify-content: center;
 
     h1 {
+      margin-bottom: 1em;
+
       color: #FFFFFF;
       font-family: 'URWGeometric-ExtraBold';
       font-size: 5em;
       line-height: .9em;
       text-align: center;
+
+      .highlight {
+        color: #4AD9D9;
+      }
     }
 
-    @media (max-width:490px) {
-      height: 300px;
+    @media (max-width:991px) {
+      height: 400px;
 
       h1 {
+        margin-bottom: 1em;
         font-size: 3em;
+      }
+    }
+
+    .cta-button {
+      height: 4em;
+      background: #FFFFFF;
+      border-radius: 2px;
+      -webkit-transition: background .2s; /* Safari */
+      transition: background .2s;
+      margin-bottom: .5em;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+      h3 {
+        font-size: 1.5em;
+        color: #1C425C;
+      }
+
+      &:hover {
+        background: #C8DB57;
+        cursor: pointer;
+
+        h3 {
+          color: #FFFFFF;
+        }
+      }
+
+      &:active {
+        background: #BDD350;
+        cursor: pointer;
+
+        h3 {
+          color: #FFFFFF;
+        }
+      }
+
+      @media (max-width:540px) {
+        margin-left: 2em;
+        margin-right: 2em;
+      }
+    }
+
+    .spacer {
+      width: 2em;
+      border: 1px solid red;
+      // @media (max-width:991px) {
+      //   display: none;
+      // }
+
+    }
+
+    .cta-button-ghost {
+      height: 4em;
+      border: 2px solid white;
+      border-radius: 2px;
+      -webkit-transition: background .2s, border 0s; /* Safari */
+      transition: background .2s, border 0s;
+
+      margin-bottom: .5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        color: #FFFFFF;
+        font-size: 1.5em;
+      }
+
+      &:hover {
+        border: none;
+        background: #C8DB57;
+        cursor: pointer;
+      }
+
+      &:active {
+        background: #BDD350;
+        cursor: pointer;
+      }
+
+      @media (max-width:540px) {
+        margin-left: 2em;
+        margin-right: 2em;
       }
     }
   }
@@ -963,7 +1055,7 @@ h1.main-caption {
         }
 
         &:active {
-          color: #C1CE41;
+          color: #BDD350;
         }
       }
     }
