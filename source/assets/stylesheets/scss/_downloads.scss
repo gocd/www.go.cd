@@ -684,6 +684,29 @@ body.download {
       margin-top: 15px;
     }
   }
+
+  .helm {
+    h3 {
+      font-size: 20px;
+      text-transform: uppercase;
+      margin: 0 0 10px 0;
+      font-weight: 500;
+    }
+    .command {
+      background: #efefef;
+      padding: 10px 20px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      display: block;
+      font-family: monospace;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+
+  .k8s p {
+    margin-bottom: 0;
+  }
   //subscribe form styles in download page
   .subscribe-to-blog {
     text-align: left;
@@ -748,4 +771,9 @@ body.download {
 .dld-docker{
   background:url(../images/dld-docker.svg) no-repeat 5px 10px ;
   background-size:24px;
+}
+
+.dld-k8s {
+  background:url(../images/dld-k8s.svg) no-repeat 5px 10px ;
+  background-size:20px;
 }
