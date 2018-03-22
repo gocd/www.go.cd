@@ -15,7 +15,7 @@
 
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-71813963.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-da3906ca.css" rel="stylesheet" />
     <script src="assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -68,7 +68,7 @@
     <div class="inner-banner plugins">
   <div class="container">
     <div class="banner-content">
-      <h1 class="caption"><span>Download <span class="go">Go</span>CD now</span></h1>
+      <h1 class="caption"><span>Get <span class="go">Go</span>CD now</span></h1>
     </div>
   </div>
 </div>
@@ -95,6 +95,7 @@
               <ul>
                 <li><span class="tab-marker dld-ami" rel="tab-ami">AMIs</span></li>
                 <li><span class="tab-marker dld-docker" rel="tab-docker">Docker</span></li>
+                <li><span class="tab-marker dld-k8s" rel="tab-helm">Kubernetes/Helm</span></li>
               </ul>
             </li>
           </ul>
@@ -362,6 +363,20 @@
   </div>
   {{/inline}}
 
+  {{#*inline "show-helm"}}
+  <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
+    <h3>Running GoCD On Kubernetes</h3>
+    <div class="command k8s">
+    <p>helm repo add stable https://kubernetes-charts.storage.googleapis.com</p>
+    <p>helm install --name gocd-app --namespace gocd stable/gocd</p>
+    </div>
+    <div class="download-message k8s">
+     <p>Refer to the <a href="https://docs.gocd.org/gocd_on_kubernetes">Getting Started Documentation</a> .</p>
+    </div>
+
+  </div>
+  {{/inline}}
+
 
   {{#*inline "show-docker-release"}}
   <div class="files">
@@ -450,6 +465,8 @@
       {{> show-amis installer_type="ami" tab_id="tab-ami"}}
       <h3 class="tab-marker tab-accordion_heading dld-docker" rel="tab-docker">Docker</h3>
       {{> show-docker installer_type="docker" tab_id="tab-docker"}}
+      <h3 class="tab-marker tab-accordion_heading dld-k8s" rel="tab-helm">Kubernetes/Helm</h3>
+      {{> show-helm installer_type="helm" tab_id="tab-helm"}}
     </div>
     <div id="verify-checksum-message"></div>
   </div>
