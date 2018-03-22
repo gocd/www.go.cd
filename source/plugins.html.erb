@@ -81,7 +81,7 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
                   <li>
                     <span class="logo"></span>
                     <div class="details">
-                      <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled || p.paid %>
+                      <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled || p.paid || p.supported %>
                       <h5 class="name"> <%= escape_html(p.name) %> </h5>
                       <% if p.paid %>
                       <span class="paid">Paid</span>
