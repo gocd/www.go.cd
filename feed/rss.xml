@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2018-02-27T00:00:00Z</updated>
+  <updated>2018-03-21T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Continuous delivery workflows on modern infrastructure - Run GoCD on Kubernetes</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/03/21/continuous-delivery-gocd-kubernetes.html"/>
+    <id>https://www.gocd.org/2018/03/21/continuous-delivery-gocd-kubernetes.html</id>
+    <published>2018-03-21T00:00:00Z</published>
+    <updated>2018-03-21T00:00:00Z</updated>
+    <author>
+      <name>Sheroy Marker</name>
+    </author>
+    <content type="html">GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes. </content>
+  </entry>
   <entry>
     <title>Running your end to end tests on Kubernetes</title>
     <link rel="alternate" href="https://www.gocd.org/2018/02/27/running-end-to-end-tests-kubernetes.html"/>
@@ -107,16 +118,5 @@
       <name>Sanchit Bahal</name>
     </author>
     <content type="html">This post chronicles a mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them.</content>
-  </entry>
-  <entry>
-    <title>Infographic - What's the difference between Continuous Delivery and Continuous Deployment?</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/10/17/difference-between-continuous-delivery-continuous-deployment-infographic.html"/>
-    <id>https://www.gocd.org/2017/10/17/difference-between-continuous-delivery-continuous-deployment-infographic.html</id>
-    <published>2017-10-17T00:00:00Z</published>
-    <updated>2017-10-17T00:00:00Z</updated>
-    <author>
-      <name>Louda Peña</name>
-    </author>
-    <content type="html">The difference between Continuous Delivery and Continuous Deployment is quite simple, but something most people don't understand. Here's an easy way to remember.</content>
   </entry>
 </feed>

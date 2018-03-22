@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes." name="description" />
+    <meta content="Gocd, kubernetes, cloud native, kubernetes plugin, gocd helm chart, gocd helm, docker workflow, gocd k8s, continuous delivery with kubernetes, k8s" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Run GoCD on Kubernetes | GoCD Blog" />
+    <meta name="twitter:description" content="GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/gocd-kubernetes-helm-chart/gocd-kubernetes-helm-chart-hero-71d9973f.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/03/21/continuous-delivery-gocd-kubernetes.html" />
+
+    <title>Run GoCD on Kubernetes | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-71813963.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-6c0908b5.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+
+  </head>
+
+  <body class="x2018 x2018_03 x2018_03_21 x2018_03_21_continuous-delivery-gocd-kubernetes">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li class="dropdown">
+          <a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
+        </li>
+        <li class="dropdown">
+          <a href="../../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
+          <ul  class="level1">
+            <li><a href="../../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
+            <li><a href="../../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
+            <li><a href="../../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li class="dropdown">
+          <a href="../../../help/" class="toplink_help" analytics-label="link_help">Help</a>
+          <ul  class="level1">
+            <li><a href="../../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
+            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+            <li><a href="../../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
+        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+</header>
+<span id="top"></span>
+<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../assets/images/blog/gocd-kubernetes-helm-chart/gocd-kubernetes-helm-chart-hero-71d9973f.jpg" alt="GoCD Kubernetes Helm Chart"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Continuous delivery workflows on modern infrastructure - Run <span class="go">Go</span>CD on Kubernetes</h1>
+    <h4>Sheroy Marker</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>We are excited to announce the <a href="https://hub.kubeapps.com/charts/stable/gocd">release of our Kubernetes helm chart</a> that will allow our users to run GoCD natively on Kubernetes.</p>
+
+<p>GoCD is a best-of-breed continuous delivery tool that allows you to model complex continuous delivery workflows. Kubernetes has emerged as one of the most interesting application delivery platforms. Our upcoming releases will have features that allow GoCD users to model Docker based build workflows with deployments to Kubernetes - we’ll cover more about this later in the post.</p>
+
+<h2 id="continuous-delivery-with-kubernetes">Continuous Delivery with Kubernetes</h2>
+
+<p>An efficient continuous delivery (CD) workflow is key to enabling high performance teams deliver software frequently, and reliably. CD workflows are specific to an organization’s processes. One of the enablers of continuous delivery is a high level of automation with few manual interventions. And so, <strong>automation around delivery infrastructure</strong> is key to a successful CD workflow.</p>
+
+<p>Kubernetes provides simple abstractions for designing deployments for modern application architectures without the need for a lot of ‘configuration management’ code. A powerful API makes it programmable and easily accessible to development teams. Though Kubernetes provides the platform to build self-service delivery infrastructure, it does not provide the facilities to build and deploy your applications.</p>
+
+<blockquote>
+  <p><em>GoCD gives you the flexibility to effectively represent CD pipelines that suit your organization’s processes. Kubernetes gives you a highly programmable delivery infrastructure platform. And together, they provide the foundation for a powerful Continuous Delivery platform.</em></p>
+</blockquote>
+
+<p>We wanted our users to be able to leverage GoCD’s pipeline modeling capabilities with Kubernetes’ developer-centric APIs to enhance their deployment process. To do this, we planned our Kubernetes-related feature releases in two steps.</p>
+
+<h2 id="step-1-current-release--run-gocd-natively-on-kubernetes">Step 1 (Current Release) : Run GoCD natively on Kubernetes</h2>
+
+<p><img src="../../../assets/images/blog/gocd-kubernetes-helm-chart/kubernetes-cluster-agents-c15ee8f8.svg" alt="Provisioning GoCD Elastic Agents on a Kubernetes Cluster" /></p>
+
+<p>Our first goal was to get GoCD to run natively on Kubernetes. In our latest release, we have provided our users with the ability to:</p>
+
+<ul>
+  <li>Install GoCD as a Kubernetes native application with an officially supported helm chart</li>
+  <li>Scale GoCD agents seamlessly with the new ElasticAgent plugin that spins up agents on the fly in response to build workload</li>
+  <li>Design Docker-based build workflows using the Docker in Docker capability</li>
+</ul>
+
+<h2 id="step-2-upcoming-releases-model-a-docker-based-build-workflow">Step 2 (Upcoming Releases): Model a Docker-based build workflow</h2>
+
+<p><img src="../../../assets/images/blog/gocd-kubernetes-helm-chart/GoCD-deploying-kubernetes-0635fbee.svg" alt="GoCD deploying to a Kubernetes Cluster" /></p>
+
+<p>Beyond enabling GoCD to run natively on Kubernetes, we are also working on giving our users the ability to <strong>fully leverage the container-based build workflow</strong>. Containerization provides a clean separation of concerns for managing applications. Docker and Kubernetes together, enable a standard and simplified CD workflow.</p>
+
+<p>These upcoming features will allow our users to:</p>
+
+<ul>
+  <li>
+    <p><strong>Use Docker images as build artifacts</strong><br />
+Docker images are the artifacts that are generated and propagated in a Docker based build workflow. Our users will be able to designate Docker images generated during the build process as artifacts. GoCD will even publish and fetch Docker images from a registry of choice. Metadata regarding Docker image artifacts will be made available to the build context for use in downstream pipelines.</p>
+  </li>
+  <li>
+    <p><strong>Deploy applications to a Kubernetes environment</strong><br />
+Deployments to Kubernetes are based on deployment specifications that are hydrated with runtime configuration. This hydrated deployment specification is then applied to a Kubernetes cluster that performs the actual deployment of the application.  This capability will allow our users to compose these deployments in a continuous delivery build pipeline.</p>
+  </li>
+  <li>
+    <p><strong>Monitor the deployment and call it done once the services come up</strong><br />
+Kubernetes provides a rich API to monitor the progress of a deployment and provide the status of running applications. With this capability, a GoCD build task will complete once the Kubernetes deployment has completed. This will allow for reliably triggering post-deployment stages.</p>
+  </li>
+</ul>
+
+<hr />
+
+<p>We've built GoCD to encompass the best CD practices. We’ve always tried to stay true to that with every release we make and the Kubernetes plugin is no exception.</p>
+
+<p>Check out our <a href="https://docs.gocd.org/current/gocd_on_kubernetes/">documentation on how to start using GoCD on Kubernetes</a> with our officially supported <a href="https://hub.kubeapps.com/charts/stable/gocd">helm chart</a> now.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">Continuous Delivery news in your inbox</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div id="backup-subscription-message">
+        Send a mail to <a class="normal-link"
+        href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20The%20Pipeline&amp;body=Hello,%0a%0aPlease%20sign%20me%20up.%20My%20details%20are:%0a%0aFirst%20Name:%0aLast%20Name:%0aCompany%20Name:%0a%0aI%20would%20like%20to%20subscribe%20to%20the%20Pipeline%20newsletter.%0a%0aThank%20you.">support@thoughtworks.com</a>
+          to subscribe to the Pipeline newsletter.
+      </div>
+    </div>
+    <script type="text/javascript">
+      function initMarketoForm() {
+        MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
+        jQuery("#backup-subscription-message").remove();
+      }
+    </script>
+    <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Mar 21</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="continuous-delivery-gocd-kubernetes/">Continuous delivery workflows on modern infrastructure - Run GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Feb 27</span>
+              <span class="post-author">Jean Baudin</span>
+              <a href="../../02/27/running-end-to-end-tests-kubernetes/">Running your end to end tests on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Feb 13</span>
+              <span class="post-author">Moritz Lenz</span>
+              <a href="../../02/13/managing-build-versions-pipeline/">Managing Build Versions in your GoCD Pipeline</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 31</span>
+              <span class="post-author">Alison Polton-Simon</span>
+              <a href="../../01/31/continuous-delivery-metrics/">4 Important Metrics for Continuous Delivery</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 17</span>
+              <span class="post-author">Erin Snyder</span>
+              <a href="../../01/17/continuous-delivery-beginners-guide/">An absolute beginners guide to Continuous Delivery</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2018 (5)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2018/03/21/continuous-delivery-gocd-kubernetes.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <div class="container">
+      <h3>Join our community</h3>
+      <ul>
+        <li>
+          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+            Join our discussion forum
+          </a>
+        </li>
+        <li>
+          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+           Chat with us
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+            watch us
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+            follow us
+          </a>
+        </li>
+        
+        <li>
+        <a href="../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="container">
+      <div class="foo-content">
+        <p>
+          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+        </p>
+        <h5 class="help-us-improve">Make this place better</h5>
+        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
+        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+
+        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

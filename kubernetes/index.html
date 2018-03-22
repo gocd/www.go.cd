@@ -4,18 +4,18 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="GoCD Enterprise Plugins and Support" name="description" />
-    <meta content="chef automate, automated deployment, continuous integration, continuous delivery, chef, partner cookbook, gocd cookbook" name="keywords" />
+    <meta content="The GoCD Kubernetes integration allows you to model Docker-based build workflows more effectively." name="description" />
+    <meta content="kubernetes, k8s, cloud native, docker, docker in docker, docker workflows, kubernetes pods, gocd kubernetes, kubernetes gocd, continuous delivery" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
-    <meta name="twitter:title" content="Scale your Enterprise with GoCD" />
-    <meta name="twitter:description" content="GoCD Enterprise Plugins and Support" />
+    <meta name="twitter:title" content="Continuous Delivery on Kubernetes with GoCD" />
+    <meta name="twitter:description" content="The GoCD Kubernetes integration allows you to model Docker-based build workflows more effectively." />
     <meta name="twitter:image" content="https://www.gocd.org/assets/images/gocd_continuous_delivery_thoughtworks_twitter-e8d93d6f.jpg" />
     <link rel="canonical" href="https://www.gocd.org/kubernetes" />
 
-    <title>Scale your Enterprise with GoCD</title>
+    <title>Continuous Delivery on Kubernetes with GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-cded0146.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/site-71813963.css" rel="stylesheet" />
     <script src="../assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
@@ -77,52 +77,89 @@
   <main role="main">
    
     <div class="header">
-      <div class="container">
-        <div class="col-md-10 col-md-offset-1">
-          <h1>ship of the imagination shores of the <br/>cosmic ocean</h1>
-        </div>
+
+      <div class="header-text">
+        <h1>CONTINUOUS DELIVERY <br/>ON <span class="highlight">KUBERNETES</span> WITH <span class="highlight">GoCD</span></h1>
+      </div>
+
+      <div class="cta-row">
+        <a href="https://docs.gocd.org/current/gocd_on_kubernetes/">
+          <div class="cta-button">
+            <h3>GET STARTED NOW</h3>
+          </div>
+        </a>
+
+        <a href="https://hub.kubeapps.com/charts/stable/gocd" TARGET="_blank">
+          <div class="cta-button-ghost">
+            <h3>GoCD HELM CHART</h3>
+          </div>
+        </a>
       </div>
     </div>
 
     <div class="container intro-section">
       <div class="row intro-row">
-        <div class="col-md-8 col-md-offset-2 intro-text">
-          <h1>not a sunrise but a galaxyrise</h1>
-          <p>Courage of our questions paroxysm of global death explorations, rings of Uranus, of brilliant syntheses laws of physics trillion hundreds of thousands, something incredible is waiting to be known, courage of our questions. Galaxies dispassionate extraterrestrial observer quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <div class="col-md-5 intro-text">
+          <h1>Visualize and Model<br/>Complex Workflows</h1>
+          <p>GoCD supports continuous delivery out of the box with its built-in pipelines, advanced traceability and value stream visualization. With GoCD, you can easily model, orchestrate and visualize complex workflows from end to end. GoCD supports modern infrastructure and cloud deployments.</p>
+        </div>
+        <div class="col-md-7">
+          <img src="../assets/images/campaign/kubernetes/ui_illo_commercial_2-8ea6f1e8.svg" title="GoCD illustration" alt="GoCD Value Stream Map" class="ui-illo" />
         </div>
       </div>
 
       <div class="hr"></div>
     </div>
 
+    <div class="gr8t-section">
+      <div class="container">
+        <div class="row gr8t-row">
+          <div class="col-md-8 col-md-offset-2 gr8t-text">
+           <h1>GoCD’s Native Integrations for Kubernetes</h1>
+            <p>GoCD gives you the flexibility to effectively represent CD pipelines that model your organization’s processes. Kubernetes gives you a highly programmable delivery infrastructure platform. Together they provide the premiere continuous delivery tool on modern infrastructure.</p>
+            <p>With GoCD running on Kubernetes, you define your build workflow and let GoCD provision and scale build infrastructure on the fly. The GoCD Kubernetes integration allows you to model Docker-based build workflows more effectively.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="feature-section">
       <div class="container">
-        <div class="row">
-          <h1>Something incredible is waiting to be known</h1>
-        </div>
 
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <div class="img-placeholder"></div>
+          <div class="col-md-10 col-md-offset-1">
+            <img src="../assets/images/campaign/kubernetes/k8s-diagram-c15ee8f8.svg" title="GoCD illustration" alt="GoCD Value Stream Map" class="illo" />
           </div>
         </div>
 
         <div class="row feature-row">
 
           <div class="col-md-4 feature">
-            <h3>At the edge of forever.</h3>
-            <p>Emerged into consciousness bits of moving fluff with pretty stories for which there's little good evidence bits of moving fluff ship of the imagination shores of the cosmic ocean Drake Equation birth gathered by gravity, another world cosmic ocean.</p>
+            <h3>Run GoCD Natively on Kubernetes</h3>
+            <ul>
+              <li>GoCD Helm chart with official GoCD Docker images makes setup simple</li>
+              <li>GoCD installs as a Kubernetes native application allowing for ease of operations</li>
+              <li>Ease of maintenance with simple upgrade process using Helm</li>
+            </ul>
           </div>
 
 
           <div class="col-md-4 feature">
-            <h3>At the edge of forever.</h3>
-             <p>Emerged into consciousness bits of moving fluff with pretty stories for which there's little good evidence bits of moving fluff ship of the imagination shores of the cosmic ocean Drake Equation birth gathered by gravity, another world cosmic ocean.</p>
+            <h3>Build Infrastructure Scales Elastically</h3>
+            <ul>
+             <li>Introduces a new elastic agent for Kubernetes that dynamically scales GoCD agents</li>
+             <li>The elastic agent uses Kubernetes conventions to  scale as needed</li>
+             <li>GoCD agents now support Docker in Docker, eliminating the need for specialized setup on  agents</li>
+            </ul>
           </div>
 
           <div class="col-md-4 feature">
-            <h3>At the edge of forever.</h3>
-            <p>Emerged into consciousness bits of moving fluff with pretty stories for which there's little good evidence bits of moving fluff ship of the imagination shores of the cosmic ocean Drake Equation birth gathered by gravity, another world cosmic ocean.</p>
+            <h3 class="coming-soon">Model Deployments to Kubernetes<br/><span class="small">(coming soon)</span></h3>
+            <ul>
+              <li>Model deployments for your containerized applications to Kubernetes</li>
+              <li>First class integration with Docker registries</li>
+              <li>Compose, track, and visualize deployments on Kubernetes</li>
+            </ul>
           </div>
         </div>
 
@@ -130,32 +167,19 @@
       </div>
     </div>
 
-    <div class="container plugins-section">
-      <div class="row plugins-row">
-
-        <div class="col-md-5 col-md-offset-1 plugin-text">
-          <h3>PostgreSQL</h3>
-          <p>GoCD's OSS distribution uses an embedded database. That's great for getting started. But, if you need to scale beyond a few teams and several pipelines, our PostgreSQL add-on gives you the performance upgrade necessary for hundreds of pipelines and agents. We recommend PostgreSQL for critical deployments.</p>
-        </div>
-
-        <div class="col-md-5 plugin-text">
-          <h3>Business Continuity</h3>
-          <p>Hard drives fail. This add-on helps ensure you can deliver even when your machine is down. With business continuity, you’ll be able to set up secondary GoCD and PostgreSQL servers to protect against downtime. Automatic redirection of build agents and the ability to store artifacts on network drives is supported.</p>
-        </div>
-
-        <div class="col-md-5 col-md-offset-1 plugin-text">
-          <h3>Amazon ECS Elastic Agent Plugin</h3>
-          <p>This Elastic Agent Plugin for Amazon EC2 Container Service gives you the flexibility to autoscale your builds on docker instances running on an ECS cluster. It tailors your use of EC2 instances (with support for Docker containers) specific to your needs, by taking care of creating agents &amp; scheduling builds while monitoring the ECS cluster, allowing you to optimize your utilization and reduce costs.</p>
-        </div>
-
-        <div class="col-md-5 plugin-text">
-          <h3>LDAP/AD Authorization Plugin</h3>
-          <p>The LDAP/AD Authorization Plugin provides both authentication and authorization services for GoCD. Grant relevant access to your teams by leveraging your organizations' predefined roles within LDAP/AD. Manage users and roles centrally (LDAP), while using GoCD to define and maintain application specific role based access.</p>
-        </div>
-
-        <div class="col-md-12 plugin-link">
-          <a href="http://www.gocd.org/plugins" TARGET="_blank">View All Plugins</a>
-        </div>
+    <div class="cta-section">
+      <h1>Get Started with GoCD on Kubernetes</h1>
+      <div class="cta-row">
+        <a href="https://docs.gocd.org/current/gocd_on_kubernetes/">
+          <div class="cta-button">
+            <h3>GET STARTED NOW</h3>
+          </div>
+        </a>
+        <a href="https://hub.kubeapps.com/charts/stable/gocd" TARGET="_blank">
+          <div class="cta-button-ghost">
+            <h3>GoCD HELM CHART</h3>
+          </div>
+        </a>
       </div>
     </div>
 
