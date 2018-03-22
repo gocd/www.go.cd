@@ -1007,7 +1007,8 @@ h1.main-caption {
         }
 
         li {
-          text-align: justify;
+          text-align: left;
+          padding-bottom: .2em;
         }
 
         @media (max-width:991px) {
@@ -1020,6 +1021,10 @@ h1.main-caption {
 
           .illo {
             height: 100px;
+          }
+
+          ul {
+            list-style-position: inside;
           }
 
           li {
