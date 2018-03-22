@@ -759,7 +759,7 @@ h1.main-caption {
     background: url("../../assets/images/campaign/kubernetes/k8s-bkgd.jpg");
     // use 'k8s-bkgd-blk.jpg' in same directory as an alternate image
     background-size: cover;
-    height: 66vh;
+    height: 70vh;
     width: 100%;
     position: static;
     top: 0;
@@ -1008,7 +1008,7 @@ h1.main-caption {
 
         li {
           text-align: left;
-          padding-bottom: .2em;
+          padding-bottom: .4em;
         }
 
         @media (max-width:991px) {
@@ -1028,8 +1028,8 @@ h1.main-caption {
           }
 
           li {
-            text-align: center;
-            margin-left: -10px;
+            text-align: left;
+            // margin-left: -10px;
             // padding-left: 1em;
             padding-right: 2em;
             // margin-bottom: 0;
