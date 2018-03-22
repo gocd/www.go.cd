@@ -32,3 +32,13 @@
   author_name: ThoughtWorks Inc.
   contact_url: https://www.thoughtworks.com/go/#pricing
   paid: true
+
+- name: GoCD Elastic Agent plugin for Kubernetes
+  description: GoCD Elastic Agent plugin for bringing up GoCD agents on a Kubernetes cluster on demand.
+  readmore_url: https://docs.gocd.org/current/gocd_on_kubernetes
+  author_url: https://github.com/gocd-contrib
+  author_name: GoCD Contributors
+  releases_url: https://github.com/gocd/kubernetes-elastic-agents/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=kubernetes-elastic-agents&type=watch&count=true
+  supported: true
+  first_available_date: 03/2018
