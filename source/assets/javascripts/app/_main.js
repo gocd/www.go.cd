@@ -58,7 +58,6 @@ jQuery(document).ready(function ($) {
       
       $('nav.getting-started-nav ul.verticalnav > li.dropdown ul a').click(function (e) {
         e.preventDefault();
-        $(".get-start-btn").removeClass("fixed");
         $(".getting-started-nav").slideToggle();
       });
     },
