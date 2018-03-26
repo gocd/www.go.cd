@@ -4,10 +4,30 @@ jQuery(document).ready(function($) {
     $("nav.getting-started-nav a[data-section='" + window.location.hash + "']").addClass('active');
   };
 
+  var hightlightCorrectNavigationSectionBasedOnScroll = function(){
+    var $sections = $('section');
+    $(window).scroll(function(){
+      var currentScroll = $(this).scrollTop();
+      var $currentSection;
+    $sections.each(function(){
+      var divPosition = $(this).offset().top - 130;
+      if( divPosition - 1 < currentScroll ){
+        var $currentSection = $(this);
+      }
+      if($currentSection !== undefined){
+        var id = $currentSection.attr('id');
+   	    $('a').removeClass('active');
+        $('[data-section="#'+id+'"]').addClass('active');
+      }
+    });
+
+  });
+  }
+
   var smoothScrollTo = function(sectionId) {
     $('html, body').animate({
-      scrollTop: $(sectionId).offset().top - 100
-    }, 500, function() {
+      scrollTop: $(sectionId).offset().top - 200
+    }, 1000, 'swing', function() {
       window.location.hash = sectionId;
       highlightCorrectNavigationSectionBasedOnLocation();
     });
@@ -58,6 +78,7 @@ jQuery(document).ready(function($) {
   setupSidebar();
   setupSmoothScrollForSamePageLinks();
   highlightCorrectNavigationSectionBasedOnLocation();
+  hightlightCorrectNavigationSectionBasedOnScroll();
 
   enquire.register("screen and (min-width: 992px) and (min-height: 600px)", {
     match : function() {
