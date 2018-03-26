@@ -14,7 +14,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
   <div class="row">
     <%= partial "getting-started-nav", :locals => {:open_nav_at => "part-1"} %>
     <div class="col-md-9">
-      <div class="getting-started-content">
+      <section class="getting-started-content" id="installation">
         Welcome to GoCD! In this guide, you'll learn about some of GoCD's concepts and features, and get the chance to try them out on a real server.
 
         <h2 class="big-title" id="installation">Installation</h2>
@@ -215,7 +215,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
           <figcaption>Job run details</figcaption>
         </figure>
 
-        <div class="concept" id="concept3">
+        <section class="concept" id="concept3">
           <h3><a name="concept_agent_does_work"></a>Concept 3: Agent prepares to do some work</h3>
           <p>
             Did you notice the lines at the top of the build which said: "Start updating files at revision ..."? This is the agent
@@ -238,7 +238,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
             Notice that the GoCD Agent independently checks out the repository, meaning that the version control systems of your
             materials (Git, SVN, etc) need to be available on the GoCD Agent as well.
           </p>
-        </div>
+        </section>
 
         <p>
           Now that you have a basic idea of a pipeline and what it does, let's understand more about its components.
@@ -309,7 +309,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
             your repository and see pipelines triggering because of them.
           </p>
         </section>
-      </div>
+      </section>
     </div>
   </div>
 </div>
