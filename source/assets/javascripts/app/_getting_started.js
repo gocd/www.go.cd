@@ -26,8 +26,8 @@ jQuery(document).ready(function($) {
 
   var smoothScrollTo = function(sectionId) {
     $('html, body').animate({
-      scrollTop: $(sectionId).offset().top - 200
-    }, 1000, 'swing', function() {
+      scrollTop: $(sectionId).offset().top - 106
+    }, 800, 'linear', function() {
       window.location.hash = sectionId;
       highlightCorrectNavigationSectionBasedOnLocation();
     });
@@ -61,6 +61,7 @@ jQuery(document).ready(function($) {
 
   var setupSmoothScrollForSamePageLinks = function() {
     $("body").on("click", "a[href^='#'][href!='#'], a[data-dest]", function(evt) {
+      
       var currentPage = window.location.pathname.replace(/\/$/, '');
       var section = $(this).data('section') || $.attr(this, 'href');
       var dest = $(this).data('dest') || currentPage;
@@ -68,6 +69,7 @@ jQuery(document).ready(function($) {
 
       if (targetIsInSamePage) {
         smoothScrollTo(section);
+        // $(section).addClass('m-t-15');
       } else {
         window.location.href = dest + section;
       }
