@@ -28,7 +28,11 @@ jQuery(document).ready(function($) {
     $('html, body').animate({
       scrollTop: $(sectionId).offset().top - 106
     }, 800, 'linear', function() {
-      window.location.hash = sectionId;
+      if(history.pushState){
+        history.pushState(null, null, sectionId)
+      }else{
+        window.location.hash = sectionId;
+      }
       highlightCorrectNavigationSectionBasedOnLocation();
     });
   };
