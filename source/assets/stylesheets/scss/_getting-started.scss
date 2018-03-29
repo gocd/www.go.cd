@@ -59,14 +59,16 @@ nav.sidebar-nav {
     left: 0px;
     right: 0;
     overflow-y: auto;
-    top: 18px;
+    top: 20px;
     bottom: 0;
     z-index: $get-started-nav;
-    padding: 10px 8px 0;
+    background: #fff;
+    // padding: 10px 8px 0;
     display: none;
+    margin-top: 50px;
   }
 
-  background: #fff;
+  // background: #fff;
   margin-top: 40px;
 
   @media (min-width:$screen-desktop) {
