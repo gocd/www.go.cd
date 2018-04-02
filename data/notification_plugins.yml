@@ -1,4 +1,4 @@
-- name: AWS SNS Notifier
+w- name: AWS SNS Notifier
   description: Plugin that sends build notifications to AWS SNS (Simple Notification Service)
   readmore_url: https://github.com/paullalonde/gocd-sns-notification-plugin
   author_url: https://github.com/paullalonde
@@ -114,4 +114,12 @@
   releases_url: https://github.com/t04glovern/gocd-spark-build-notifier/releases
   github_stars: http://ghbtns.com/github-btn.html?user=t04glovern&repo=gocd-spark-build-notifier&type=watch&count=true
   first_available_date: 02/2018
-  
+
+- name: MicroFocus  ALM Octane GoCD CI Plugin
+  description: This plugin integrates GoCD with MicroFocus ALM Octane, enabling ALM Octane to display GoCD pipelines, trigger pipeline runs, and track build and test run results, as well as committed changes.
+  readmore_url: https://github.com/MicroFocus/octane-gocd-plugin/blob/master/README.md
+  author_url: https://github.com/MicroFocus
+  author_name: MicroFocus
+  releases_url: https://github.com/MicroFocus/octane-gocd-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=MicroFocus&repo=octane-gocd-plugin&type=watch&count=true
+  first_available_date: 03/2018
