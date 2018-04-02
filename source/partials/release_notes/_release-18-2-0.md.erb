@@ -5,7 +5,7 @@
   <caption>New Dashboard Page</caption>
 </figure>
 
-This release of GoCD ships with a 'preview' version of the new dashboard page (can be accessed using **'/go/dashboard'**). This improves performance for large GoCD instances with thousands of pipelines. It does so by:
+This release of GoCD ships with a 'preview' version of the new dashboard page. This improves performance for large GoCD instances with thousands of pipelines. It does so by:
 
 * keeping track of the state of the dashboard in memory (instead of being pulled from the DB).
 * rendering the response as a JSON (instead of HTML). This improves the rendering time by several hundred times on the server.

@@ -1,4 +1,4 @@
-- name: AWS SNS Notifier
+w- name: AWS SNS Notifier
   description: Plugin that sends build notifications to AWS SNS (Simple Notification Service)
   readmore_url: https://github.com/paullalonde/gocd-sns-notification-plugin
   author_url: https://github.com/paullalonde
