@@ -24,7 +24,7 @@
 
 
 <h4>Bug Fixes</h4>
-* <%= link_to_commit 'ab1ccf83aa90dfa3fc916ca892592e6db81717fc', 'Fix config file validation to not use file system to validate paths. This caused issues in certain cases where the server working directores were using symlinks.', 4026%> <%= link_to_issue 3984 %>
+* <%= link_to_commit 'ab1ccf83aa90dfa3fc916ca892592e6db81717fc', 'Fix config file validation to not use file system to validate paths. This caused issues in certain cases where the server working directories were using symlinks.', 4026%> <%= link_to_issue 3984 %>
 * <%= link_to_commit '6660a1b093d1c265f697c6e0ee16d3c146772a24', "Show 'console log not available' error in build details page's console tab when console.log file is not available", 3998%> <%= link_to_issue 3773 %> <%= link_to_issue 3650 %>
 * <%= link_to_commit 'e48d9588988969c42c2f63b617cd9d08f8ca015d', 'Fixes console.log file not being available at server if websocket connection is closed while waiting for logs', 3999%> <%= link_to_issue 3986 %>
 * <%= link_to_commit 'ee992e6175497a3ae927c9e956e22d822e5715bd', "Fixes issue in agent zip installers in which agents fail to register if their log directories' path have spaces in them", 3976%> <%= link_to_issue 3966 %>
@@ -45,7 +45,7 @@
 * Introduction of version 1 for <%= link_to_api "config-repo", "Config Repo API" %>.
 * Introduction of version 5 for <%= link_to_api "pipeline-config", "Pipeline config API" %> (<%= link_to_issue 106 %>)
 
-  This version accomodates changes made to <%= link_to("pipeline locking behavior", "https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html") %>. In addition to this, the representation of the origin attribute has also changed.
+  This version accommodates changes made to <%= link_to("pipeline locking behavior", "https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html") %>. In addition to this, the representation of the origin attribute has also changed.
 
 <h4>Docker Images</h4>
 * Addition of ability to run custom scripts while starting up the gocd-server or gocd-agent using the official GoCD docker images. <%= link_to_docker_issue 46 %>
