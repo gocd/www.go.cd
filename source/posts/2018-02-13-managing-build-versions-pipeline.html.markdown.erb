@@ -16,7 +16,7 @@ tags: CD Hacks
   </figure>
   <% end %>
 
-Let's say you're building your first GoCD continuous delivery pipline. 
+Let's say you're building your first GoCD continuous delivery pipline.
 
 Typically the first step of a delivery pipeline is to build the software from source. For this post, a tiny [web service](https://github.com/moritz/package-info) will serve as an example, and we'll build Debian packages from that.
 
@@ -46,7 +46,7 @@ Since describing each click through the GoCD web interface can be time consuming
          </jobs>
        </stage>
      </pipeline>
-    </pipelines>    
+    </pipelines>
 
 
 The build command, `debuild -b -us -uc`, return exit code zero on success and a non-zero exit code on failure, which is the standard convention for UNIX commands, and the same that the GoCD job runner for system commands understands, so we don't have to take special care with error handling.
@@ -57,9 +57,9 @@ The `timeout="5"` in the job tag specifies a timeout in minutes that applies whe
 
 The `artifacts` tag specifies files and wildcards that GoCD collecst and stores on the server. The use of a wildcard is both to account for the fact that the version number and thus the file name of the generated Debian package is variable, and to able to capture both the generated `.deb` and `.changes` file. The fixed destination path makes it easier to retrieve those artifacts later on without knowing the exact version number.
 
-If you use the [environments feature](https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-4-go-environments), you also need to add the pipeline and at least one fitting agent to an environment. To keep things simple, we'll skip that here. 
+If you use the [environments feature](https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-4-go-environments), you also need to add the pipeline and at least one fitting agent to an environment. To keep things simple, we'll skip that here.
 
-After you configure the pipeline with the XML above, you may wait a bit. You'll see the pipeline turns green on the front page of GoCD's web interface! 
+After you configure the pipeline with the XML above, you may wait a bit. You'll see the pipeline turns green on the front page of GoCD's web interface!
 
 *We can celebrate the first small success!*
 
@@ -72,9 +72,9 @@ should do that.
 
 ## Ways to increment build numbers
 
-The simplest approach is to use the pipeline label as a version number, but it comes with two small problems: 
+The simplest approach is to use the pipeline label as a version number, but it comes with two small problems:
 
-- it is reused when the stage is rerun within the pipeline instance, 
+- it is reused when the stage is rerun within the pipeline instance,
 - and it requires a GoCD configuration change for each manual version increment.
 
 An approach that works faily well in practice is to use the latest git tag as the base version number, and then append the number of commits since the tag, followed by the pipeline counter and the stage counter, which GoCD conveniently supplies through environment variables.
@@ -127,7 +127,7 @@ After the build stage is in place, there are several possible next steps to driv
 
 * The next stage in the pipeline could add the freshly built package to a repository, making it available for installation on test servers.
 * The package build could be improved to run unit tests (for the package being built), ensuring that only software that has passed the unit tests, reach the 'testing' or 'staging' environment. _Note that this doesn't require any changes in GoCD_.
-* When multiple applications are to be built automatically, it makes sense to [extract a template from the pipeline](https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-5-power-pipeline-templates-and-parameters), so that configuring a pipeline for the next project becomes a simple matter of instantiating the template and defining a few paramaters.
+* When multiple applications are to be built automatically, it makes sense to [extract a template from the pipeline](https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-5-power-pipeline-templates-and-parameters), so that configuring a pipeline for the next project becomes a simple matter of instantiating the template and defining a few parameters.
 
 Do whatever is necessary to solve your pain points and save time.
 

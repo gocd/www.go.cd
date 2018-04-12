@@ -1,11 +1,11 @@
 <h4>Important</h4>
 
-There has been a critical security vulnerabilty identified with this release, fixes for the same have been provided in 17.7.0. If you are on 17.6.0, please upgrade immediately to 17.7.0 to keep your GoCD sever and agent secure.
+There has been a critical security vulnerability identified with this release, fixes for the same have been provided in 17.7.0. If you are on 17.6.0, please upgrade immediately to 17.7.0 to keep your GoCD sever and agent secure.
 
 <h4>Security Fixes</h4>
 
 This release has critical security fixes to prevent CSRF, XSS and Session hijacking exploits. We highly recommend users to upgrade to keep your GoCD server and agent secure.
-Thanks [4cad](https://hackerone.com/4cad) for reporting these issues. 
+Thanks [4cad](https://hackerone.com/4cad) for reporting these issues.
 
 <h4>Improvements</h4>
 
@@ -31,7 +31,7 @@ Thanks [4cad](https://hackerone.com/4cad) for reporting these issues.
     <%= image_tag 'releases/17.6.0/rerun-failed-jobs.png', alt: 'Rerun failed jobs' %>
   </figure>
 
-* The in-built password file authentication plugin now supports `bcrypt`, which is a stronger password hashing function. GoCD server adminstrators should migrate `SHA1` passwords to use `bcrypt` instead.
+* The in-built password file authentication plugin now supports `bcrypt`, which is a stronger password hashing function. GoCD server administrators should migrate `SHA1` passwords to use `bcrypt` instead.
 
 <h4>API Enhancements</h4>
 
@@ -50,7 +50,7 @@ Thanks [4cad](https://hackerone.com/4cad) for reporting these issues.
 <h4>Breaking Changes</h4>
 
 * <%= link_to_commit '8dfb1a9a16d11ed814d16c47d55b8dc283d6044d', 'Removed Environments Config API v1', 3606 %>
-  
+
   Version 1 of the <%= link_to_api 'environment-config', 'Environment Config API' %> was deprecated in 17.3. Version 2 of the API is available, and users are encouraged to use it.
 
 <h4>Deprecations</h4>
