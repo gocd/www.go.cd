@@ -15,7 +15,7 @@
 
     <title>Managing Build Versions in your GoCD Pipeline | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-b59e1177.css" rel="stylesheet" />
+    <link href="../../../../assets/stylesheets/site-e70caf7b.css" rel="stylesheet" />
     <script src="../../../../assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
@@ -123,7 +123,7 @@
      &lt;/jobs&gt;
    &lt;/stage&gt;
  &lt;/pipeline&gt;
-&lt;/pipelines&gt;    
+&lt;/pipelines&gt;
 </code></pre>
 
 <p>The build command, <code>debuild -b -us -uc</code>, return exit code zero on success and a non-zero exit code on failure, which is the standard convention for UNIX commands, and the same that the GoCD job runner for system commands understands, so we don't have to take special care with error handling.</p>
@@ -210,7 +210,7 @@ the subsequent numbers in the version string. For a git tag <code>2016.01</code>
 <ul>
   <li>The next stage in the pipeline could add the freshly built package to a repository, making it available for installation on test servers.</li>
   <li>The package build could be improved to run unit tests (for the package being built), ensuring that only software that has passed the unit tests, reach the 'testing' or 'staging' environment. <em>Note that this doesn't require any changes in GoCD</em>.</li>
-  <li>When multiple applications are to be built automatically, it makes sense to <a href="https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-5-power-pipeline-templates-and-parameters">extract a template from the pipeline</a>, so that configuring a pipeline for the next project becomes a simple matter of instantiating the template and defining a few paramaters.</li>
+  <li>When multiple applications are to be built automatically, it makes sense to <a href="https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-5-power-pipeline-templates-and-parameters">extract a template from the pipeline</a>, so that configuring a pipeline for the next project becomes a simple matter of instantiating the template and defining a few parameters.</li>
 </ul>
 
 <p>Do whatever is necessary to solve your pain points and save time.</p>

@@ -15,7 +15,7 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-b59e1177.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-e70caf7b.css" rel="stylesheet" />
     <script src="assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -438,7 +438,7 @@
 
 <h4>Bug Fixes</h4>
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/ab1ccf83aa90dfa3fc916ca892592e6db81717fc">ab1ccf8</a></code> - Fix config file validation to not use file system to validate paths. This caused issues in certain cases where the server working directores were using symlinks. (<a href="https://github.com/gocd/gocd/issues/4026">#4026</a>) <a href="https://github.com/gocd/gocd/issues/3984">#3984</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ab1ccf83aa90dfa3fc916ca892592e6db81717fc">ab1ccf8</a></code> - Fix config file validation to not use file system to validate paths. This caused issues in certain cases where the server working directories were using symlinks. (<a href="https://github.com/gocd/gocd/issues/4026">#4026</a>) <a href="https://github.com/gocd/gocd/issues/3984">#3984</a></li>
   <li><code><a href="https://github.com/gocd/gocd/commit/6660a1b093d1c265f697c6e0ee16d3c146772a24">6660a1b</a></code> - Show 'console log not available' error in build details page's console tab when console.log file is not available. (<a href="https://github.com/gocd/gocd/issues/3998">#3998</a>) <a href="https://github.com/gocd/gocd/issues/3773">#3773</a> <a href="https://github.com/gocd/gocd/issues/3650">#3650</a></li>
   <li><code><a href="https://github.com/gocd/gocd/commit/e48d9588988969c42c2f63b617cd9d08f8ca015d">e48d958</a></code> - Fixes console.log file not being available at server if websocket connection is closed while waiting for logs. (<a href="https://github.com/gocd/gocd/issues/3999">#3999</a>) <a href="https://github.com/gocd/gocd/issues/3986">#3986</a></li>
   <li><code><a href="https://github.com/gocd/gocd/commit/ee992e6175497a3ae927c9e956e22d822e5715bd">ee992e6</a></code> - Fixes issue in agent zip installers in which agents fail to register if their log directories' path have spaces in them. (<a href="https://github.com/gocd/gocd/issues/3976">#3976</a>) <a href="https://github.com/gocd/gocd/issues/3966">#3966</a></li>
@@ -467,7 +467,7 @@ Golang agent users can follow up with the author on <a href="https://github.com/
   <li>
     <p>Introduction of version 5 for <a href="https://api.gocd.org/current/#pipeline-config">Pipeline config API</a> (<a href="https://github.com/gocd/gocd/issues/106">#106</a>)</p>
 
-    <p>This version accomodates changes made to <a href="https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html">pipeline locking behavior</a>. In addition to this, the representation of the origin attribute has also changed.</p>
+    <p>This version accommodates changes made to <a href="https://docs.gocd.org/17.12.0/configuration/admin_lock_pipelines.html">pipeline locking behavior</a>. In addition to this, the representation of the origin attribute has also changed.</p>
   </li>
 </ul>
 
@@ -545,7 +545,7 @@ Golang agent users can follow up with the author on <a href="https://github.com/
   <li>
     <p><code><a href="https://github.com/gocd/gocd/commit/67f1605fca894ea9855d16a283a913335200f3b2">67f1605</a></code> - Find Value Stream Map (VSM) more easily and show pipeline run duration in VSM. (<a href="https://github.com/gocd/gocd/issues/3705">#3705</a>) (<a href="https://github.com/gocd/gocd/issues/3858">#3858</a>)</p>
 
-    <p>Pipeline instances have an explict link to VSM across the application for better discoverability.</p>
+    <p>Pipeline instances have an explicit link to VSM across the application for better discoverability.</p>
 
     <figure class="shrink-figure-50">
     <img src="assets/images/releases/17.11.0/vsm-explicit-link-dashboard-ca369c86.png" alt="Explicit vsm link in dashboard" />
@@ -884,7 +884,7 @@ We provide support for the docker images for GoCD agents across the following op
         <div class="content">
           <h4>Important</h4>
 
-<p>There has been a critical security vulnerabilty identified with this release, fixes for the same have been provided in 17.7.0. If you are on 17.6.0, please upgrade immediately to 17.7.0 to keep your GoCD sever and agent secure.</p>
+<p>There has been a critical security vulnerability identified with this release, fixes for the same have been provided in 17.7.0. If you are on 17.6.0, please upgrade immediately to 17.7.0 to keep your GoCD sever and agent secure.</p>
 
 <h4>Security Fixes</h4>
 
@@ -920,7 +920,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 </figure>
   </li>
   <li>
-    <p>The in-built password file authentication plugin now supports <code>bcrypt</code>, which is a stronger password hashing function. GoCD server adminstrators should migrate <code>SHA1</code> passwords to use <code>bcrypt</code> instead.</p>
+    <p>The in-built password file authentication plugin now supports <code>bcrypt</code>, which is a stronger password hashing function. GoCD server administrators should migrate <code>SHA1</code> passwords to use <code>bcrypt</code> instead.</p>
   </li>
 </ul>
 
@@ -1003,7 +1003,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
         <div class="content">
           <h4>Important</h4>
 
-<p>There has been a critical security vulnerabilty identified with this release, fixes for the same have been provided in 17.7.0. If you are on 17.5.0, please upgrade immediately to 17.7.0 to keep your GoCD sever and agent secure.</p>
+<p>There has been a critical security vulnerability identified with this release, fixes for the same have been provided in 17.7.0. If you are on 17.5.0, please upgrade immediately to 17.7.0 to keep your GoCD sever and agent secure.</p>
 
 <h4>Authorization Plugin</h4>
 
@@ -1862,7 +1862,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 <p>No breaking changes in this release.</p>
 
 <h4>Deprecations</h4>
-<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 <p>The following features have been deprecated, along with the timeframe when they will be removed</p>
 
 <ul>
@@ -1986,7 +1986,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 <p>No breaking changes in this release</p>
 
 <h4>Deprecations</h4>
-<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 <p>The following features have been deprecated, along with the timeframe when they will be removed</p>
 
 <ul>
@@ -2116,7 +2116,7 @@ and Materials</p></li>
 <p><code><a href="https://github.com/gocd/gocd/commit/ca7ff9c">ca7ff9c</a></code> - Changed the package material check-connection request from GET to POST. (<a href="https://github.com/gocd/gocd/issues/2550">#2550</a>)</p>
 
 <h4>Deprecations</h4>
-<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 <p>The following features have been deprecated, along with the timeframe when they will be removed</p>
 
 <ul>
@@ -2218,7 +2218,7 @@ as an example reference implementation. The plugin API documentation can be foun
 <p><code><a href="https://github.com/gocd/gocd/commit/4c472e1">4c472e1</a></code> - Used fixed delay instead rate execution of agent ping thread.</p>
 
 <h4>Deprecations</h4>
-<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 <p>The following features have been deprecated, along with the timeframe when they will be removed</p>
 
 <ul>
@@ -2295,7 +2295,7 @@ Aravind SV, Ganesh Patil, Jyoti Singh, Ken Mugrage, Ketan Padegaonkar, Mahesh Pa
 <p><code><a href="https://github.com/gocd/gocd/commit/5602048">5602048</a></code> - Removed old backup API, users should user version 1 of the. Backup <a href="https://api.gocd.org/current/#backups">API</a></p>
 
 <h4>Deprecations</h4>
-<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 <p>The following features have been deprecated, along with the timeframe when they will be removed</p>
 
 <ul>
@@ -2401,7 +2401,7 @@ This end point also returns more information to identify performance bottlenecks
 <p><a href="https://github.com/gocd/gocd/pull/2248">#2248</a> - Improved page load performance across the board.</p>
 
 <h4>Deprecations</h4>
-<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 <p>The following features have been deprecated, along with the timeframe when they will be removed</p>
 
 <ul>
@@ -2480,7 +2480,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 <p><a href="https://github.com/gocd/gocd/pull/2136">#2136</a> - Warnings on VSM if pipeline is built with incompatible revisions.</p>
 
 <h4>Deprecations</h4>
-<p>Features that become superceeded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
+<p>Features that become superseded or irrelevant become <em>deprecated</em>, and are scheduled to be removed in some timeframe.</p>
 <p>The following features have been deprecated, along with the timeframe when they will be removed</p>
 
 <ul>

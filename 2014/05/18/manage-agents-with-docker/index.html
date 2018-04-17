@@ -15,7 +15,7 @@
 
     <title>Using GoCD and Docker to manage agents | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-b59e1177.css" rel="stylesheet" />
+    <link href="../../../../assets/stylesheets/site-e70caf7b.css" rel="stylesheet" />
     <script src="../../../../assets/javascripts/all-6c0908b5.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
@@ -104,15 +104,15 @@ I can.</p>
   <li>Install Docker</li>
   <li>Install GoCD server</li>
   <li>
-    <p>Install at least one GoCD agent if you want to use the pipeline - Yup, even though the whole idea here is to create and destroy 
+    <p>Install at least one GoCD agent if you want to use the pipeline - Yup, even though the whole idea here is to create and destroy
 agents automatically, we have to install at least one to run the process. The server needs this to actually run the scripts.</p>
 
     <pre><code>  Once the GoCD agent is installed, go to the Agents tab in your GoCD user interface and assign this agent a resource of "manager" if you intend to use the GoCD pipeline below.
 </code></pre>
   </li>
-  <li>In order for GoCD (and anyone else) to run this without having to become root, you'll have to follow the instructions under 
-"Giving non-root access" at <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">http://docs.docker.io/installation/ubuntulinux/</a>. 
-I make absolutely no warranties for the security of following those instructions! Again, the point here (for me) was to spike out 
+  <li>In order for GoCD (and anyone else) to run this without having to become root, you'll have to follow the instructions under
+"Giving non-root access" at <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">http://docs.docker.io/installation/ubuntulinux/</a>.
+I make absolutely no warranties for the security of following those instructions! Again, the point here (for me) was to spike out
 creating agents on the fly, this is not production code.</li>
 </ul>
 
@@ -133,7 +133,7 @@ program against this file, but I used a shell script so that I could call it fro
 </ul>
 
 <p>Update on 22 June - The Dockerfile has been updated to use wget to download
-the GoCD 14.1 agent debian installer. If you need the RPM version visit 
+the GoCD 14.1 agent debian installer. If you need the RPM version visit
 www.gocd.org/download and change the Dockerfile to match your system.</p>
 
 <ul>
@@ -141,7 +141,7 @@ www.gocd.org/download and change the Dockerfile to match your system.</p>
 </ul>
 
 <p>You'll need to modify this file to set the IP address of your server. Just to make this more interesting, it needs to be the
-IP address that Docker is aware of, so probaly not the one you're used to using.</p>
+IP address that Docker is aware of, so probably not the one you're used to using.</p>
 
 <p>You can find this IP address using ifconfig…</p>
 
@@ -150,7 +150,7 @@ IP address that Docker is aware of, so probaly not the one you're used to using.
 
 <p>On my system, that returns…</p>
 
-<pre><code>docker0   Link encap:Ethernet  HWaddr 56:84:7a:fe:97:99  
+<pre><code>docker0   Link encap:Ethernet  HWaddr 56:84:7a:fe:97:99
 		  inet addr:172.17.42.1  Bcast:0.0.0.0  Mask:255.255.0.0
 </code></pre>
 
@@ -161,7 +161,7 @@ agents for me, they won't be able to connect if you don't make this match your G
   <li><strong>autoregister.properties</strong></li>
 </ul>
 
-<p>This file takes advantage of the autoregister feature in GoCD so that I don't have to manually approve the new agents. You'll 
+<p>This file takes advantage of the autoregister feature in GoCD so that I don't have to manually approve the new agents. You'll
 need to update the key based on the instructions at <a href="https://docs.gocd.org/current/advanced_usage/agent_auto_register.html">https://docs.gocd.org/current/advanced_usage/agent_auto_register.html</a></p>
 
 <ul>
@@ -170,7 +170,7 @@ need to update the key based on the instructions at <a href="https://docs.gocd.o
 
 <p>Once you've modified the above, you're ready to build your containers. Execute this script at a command prompt.</p>
 
-<p>This step could take quite a while depending on the speed of your internet connection. It has to download the base box, 
+<p>This step could take quite a while depending on the speed of your internet connection. It has to download the base box,
 add Java and a bunch of other things and then create the image you'll be using.</p>
 
 <ul>
@@ -184,7 +184,7 @@ the script itself.</p>
   <li><strong>stop_agent_containers.sh</strong></li>
 </ul>
 
-<p>This shell script <em>stops and removes all docker containers</em> - <strong>WARNING:</strong> I do mean all. 
+<p>This shell script <em>stops and removes all docker containers</em> - <strong>WARNING:</strong> I do mean all.
 If you run this on your box every single Docker container will be stopped and deleted. Did I mention this will remove
 <em>every single container</em> on your machine?</p>
 
@@ -202,7 +202,7 @@ resource.</p>
   <li><strong>go_config_xml_excerpt.txt</strong></li>
 </ul>
 
-<p>Everything above can be run from the command line just fine. Of course I wanted to have a GoCD pipeline manage all of this. 
+<p>Everything above can be run from the command line just fine. Of course I wanted to have a GoCD pipeline manage all of this.
 This text file shows the pipeline definition for mine. You'll need to change the github URL to point to your own. You're welcome
 to use mine from above, but I removed it here just so your pipeline doesn't get executed with my GitHub changes if you don't
 want it to.</p>
