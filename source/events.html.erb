@@ -50,7 +50,7 @@ meta_keywords: "GoCD, continuous delivery, open source, community, events, learn
             <% event.details.each do |detail| %>
             <li>
               <div class="date"><i class="fa fa-calendar"></i> <%= detail.date %></div>
-              <div class="location"><i class="fa fa-map-marker"></i> <%= detail.location %></div>
+              <% if detail.location %><div class="location"><i class="fa fa-map-marker"></i> <%= detail.location %></div><% end %>
             </li>
             <% end %>
           </ul>
