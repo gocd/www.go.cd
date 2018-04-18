@@ -47,6 +47,9 @@ There are a lot of tools available to model CD workflows. It’s daunting to ini
 There are five considerations I recommend keeping in mind when you design a CD workflow on microservices architectures. I will have in depth discussion for each of them in the following posts of this series. Here is just an overview:
 
 **1. Have an effective test strategy**
+
+<img src="/assets/images/blog/cd-considerations/test-strategy.jpeg" alt="Effective test strategy"/>
+
 Testing and verification of microservice systems is significantly more nuanced and complex than testing a traditional monolithic application. An effective test strategy needs to account for both testing individual services in isolation and the verification of overall system behavior. 
 
 For pre-production testing of services, especially in an isolated manner, traditional testing methodologies are still applicable and relevant. The [test pyramid](https://martinfowler.com/bliki/TestPyramid.html) can still help you in maintaining a balance between the different types of tests. However, this style of testing has limited effectiveness when testing the aggregate of services. There are categories of errors that you can’t simulate in test environments, for example, issues caused by eventual consistency in a highly distributed system, hardware and network failures causing parts of the system to fail.
@@ -64,6 +67,8 @@ To do trunk based development, you need to have controls called feature toggles.
 Once you have a mechanism for maintaining feature toggles, you can use the same mechanism to introduce other categories of toggles like release toggles (to control access to unfinished code), Ops toggles (to control the behavior of production code), permissions toggles (to turn on specific behavior for privileged users), and experimental toggles (for multivariate testing - How well a feature is received before you make it permanent).
 
 **3. Plan your environments upfront**
+
+<img src="/assets/images/blog/cd-considerations/environments-plan.jpeg" alt="Environments plan"/>
 
 An environment plan includes your sets of environments, the intended use of them, strategies to promote artifacts through these environments and toggle states on these environments. 
 
@@ -84,6 +89,8 @@ And lastly, secrets like certificates need a governance process to ensure they a
 In microservices systems, multiple services get updated frequently, how do you respond when a deployment of a service introduces instability or bugs?
 
 Roll forward, which means finding the root cause of a failure and applying the fix as soon as possible, is most times the best remediation response. A prerequisite for being able to do this is to ensure you have the capability to release from a [hot fix branch](https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward/) straight to production. You may not want a fix to a production outage to go through the CD pipeline, depending on the time it takes for a change to make it through the pipeline. 
+
+<img src="/assets/images/blog/cd-considerations/hotfix-process.jpeg" alt="Hotfix process"/>
 
 Rollbacks are always tricky in production systems. In most cases if the change is granular and can be reasoned about, it’s easy to rollback. But if the deployment includes changes that aren’t easy to reason about, e.g., DB changes, especially ones that make schema changes, you need to deploy DB changes separately from code changes in consecutive deployments to ensure backwards compatibility of DB changes with earlier versions of code.
 
