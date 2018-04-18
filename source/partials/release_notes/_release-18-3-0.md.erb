@@ -1,68 +1,89 @@
-<h4>New Dashboard Page</h4>
-The New Dashboard Page which was previewed in 18.2.0 is now the default dashboard for GoCD. We have made several improvements and bug fixes based on the feedback from the preview.
+<h4>New Dashboard Page out of Beta</h4>
+After we released the improved GoCD Dashboard (beta) in 18.2.0, we made several bug fixes and performance improvements based on feedback from our users. The GoCD dashboard improves performance for large GoCD instances with thousands of pipelines. In 18.3.0, we have replaced the older version of the dashboard with this improved dashboard which will be available as the default option to all GoCD users.
 
 <figure class='shrink-figure-75'>
   <%= image_tag 'releases/18.3.0/new-dashboard.png', alt: 'new dashboard page' %>
-  <caption>New Dashboard Page</caption>
 </figure>
 
-This improves performance for large GoCD instances with thousands of pipelines. It does so by:
 
-* keeping track of the state of the dashboard in memory (instead of being pulled from the DB).
-* rendering the response as a JSON (instead of HTML). This improves the rendering time by several hundred times on the server.
-a javascript based frontend that is several thousand times faster on large instances, reducing the CPU usage of your browser. Your laptop battery will thank you. :)
-* reduces the polling rate when the dashboard is shown in a browser tab that is hidden.
+<h4>Enhancements to GoCD's Plugin Architecture</h4>
+We have been working on a few improvements to our plugin architecture.
 
-> Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
-
-
-<h4>Plugin Infrastructure Enhancements</h4>
-We have been working on a few improvements to our plugin infrastructure.
-
-**Errors and Warnings support:**
-We have a [new API](https://plugin-api.gocd.org/18.3.0/notifications/#add-server-health-messages) that allows plugins to add Errors and Warnings to the Go Server. These will show up along with the server's own Errors and Warnings. It will allow plugin developers to notify users if any errors or exceptions occur.
+**Support for adding plugin alerts to GoCD's Errors and Warnings section:**
+GoCD provides an [ability for plugins](https://plugin-api.gocd.org/18.3.0/notifications/#add-server-health-messages) to add Error and Warning messages. These messages will show up along with the GoCD's own Errors and Warnings. Plugins now have an ability to notify users with any plugin error or warning messages which shows up in GoCD.
 
 <figure class='shrink-figure-75'>
   <%= image_tag 'releases/18.3.0/plugin-error-warning-messages.png', alt: 'Errors and Warnings from Plugins' %>
-  <caption>Errors and Warnings from Plugins</caption>
 </figure>
 
 
 **Multiple Extension Support for Plugins:**
-Plugins can now have [multiple extensions](https://github.com/gocd/gocd/pull/4123) be part of a single plugin JAR. This will allow plugin developers to create plugins with better functionality - for instance, the Notification and Task extension can be used in the same plugin.
+Plugins can now implement [multiple extensions](https://github.com/gocd-contrib/gocd-multi-extension-plugin-example). This will allow plugin developers to create a single plugin to support multiple extensions which complement each other. E.g This would allow one to write a new GitHub PR workflow plugin with both SCM and Notification extensions.
 
-The plugin infos API v4 has been updated to send multiple extensions. The two changes are:
+The plugin info API v4 has been introduced to represent plugins which implement multiple extensions. The two changes are:
 
 * "type" is no longer at plugin level. It's at an extension level.
 * "extension_info" was an attribute. It's now a list called "extensions".
+
+Notification Extension V3: Introduced [Version 3](https://plugin-api.gocd.org/18.3.0/notifications) of Notification Extension. This version adds a new message to [notify agent state](https://plugin-api.gocd.org/18.3.0/notifications/#agent-status-changed) changes.
 
 **Analytics Extension Point:**
 There is a new analytics extension point which allows analytics to be embedded into GoCD. We are continuing to work on it and you'll hear more about it soon.
 
 
+<h4>Docker Images</h4>
+A new Docker image GoCD Agent is available for [Debian 9](https://github.com/gocd/docker-gocd-agent-debian-9). The image for Debian 7 is deprecated, and will be removed with 18.4.0, scheduled to be released around May 2018. The Debian 7 OS will reach EOL in May 2018.
+
+
 <h4>Improvements</h4>
-  * <%= link_to_issue 4644, 'Removing pipeline instance rendering from environments page.' %>
-  * <%= link_to_issue 4617, 'There could be cases when a secret is passed along to an agent or server using system-properties, env-vars or JVM-args, hence making logging of these conditional.' %>
-  * <%= link_to_commit '7672cd956ef5c62f9957592ffc543d11509a31d6', 'Remove flash filter from agent remoting endpoint' %>
+  * <%= link_to_issue 4644, 'Environments page no longer lists the pipeline instances, this page is only for listing the available environments and editing them.' %>
+  * <%= link_to_issue 4617, 'Ability to turn-off logging of JVM-args and Environment variables to STDERR on GoCD Agent and Server startup.' %>
+  * <%= link_to_issue 4607, 'Remove flash filter from agent remoting endpoint' %>
   * <%= link_to_issue 4278, 'Change in Build and Test Artifact XML representation' %>
-  * <%= link_to_commit 'ff1980e1de1e0146b70f60f515aff84089a50ad2', 'Upgrading objenesis' %>
-  * <%= link_to_issue '4557', 'Plugin settings api improvements' %>
-  * <%= link_to_commit '316381f774a6953b60c925e9be410e397df5d21b', 'Add the blacklist textarea to other scm materials in the pipeline creation wizard' %>
-  * <%= link_to_commit 'c071fab279c6a26068809c7b2e3a5963cba46df7', 'Setting up one listener per notification plugin to avoid one plugin interfering with others' %>
+  * <%= link_to_issue 4559, 'Upgraded Objenesis library to fix performance issues around object cloning.' %>
+  * <%= link_to_issue 4557, 'Plugin settings api improvements' %>
+  * <%= link_to_issue 4435, 'Add the blacklist textarea to other scm materials in the pipeline creation wizard' %>
+  * <%= link_to_issue 4432, 'Setting up one listener per notification plugin to avoid one plugin interfering with others' %>
+  * <%= link_to_issue 4521, 'Update config-repo yaml plugin to 0.6.2' %>
+
 
 <h4>Bug fixes</h4>
   * <%= link_to_issue 4656, 'Serialise lastBuildTime for CCTray in UTC with timezone' %>
-  * <%= link_to_issue 4622, 'Fix auth configs url' %>
-  * <%= link_to_issue 4608, 'Render bad request if the representer throws an exception while serializing or deserializing unsupported properties for resources' %>
   * <%= link_to_issue 4466, 'Make JSON output invalid on error' %>
-  * <%= link_to_commit '2a73c0480a435779bb28d21fa61137993a6c1894', 'Update mail sender with mailhost config every time while performing backup.' %>
-  * <%= link_to_issue 4474, 'Do not add the WWW-Authenticate header for XHRs.' %>
-  * <%= link_to_commit '1f7e762942c7dacfd60dc3b713bef263943187bd', 'Fix plugin logging concurrency issue' %>
-  * <%= link_to_issue 4496, 'Show only pipelines that the user has admin permissions to to extract a template.' %>
-  * <%= link_to_commit '98e4569ffa52f678dea717b7277c72294c5ca38c', 'Ensure cancelled stage has lastTransitionedTime.' %>
+  * <%= link_to_issue 4569, 'Update mail sender with mailhost config every time while performing backup.' %>
+  * <%= link_to_issue 4474, 'Fixed issue with SPAs popping up a login dialog after session timeout' %>
+  * <%= link_to_issue 4542, 'Fix plugin logging concurrency issue' %>
+  * <%= link_to_issue 4496, 'Show only pipelines that the user has admin permissions to extract a template.' %>
+  * <%= link_to_issue 4501, 'Ensure cancelled stage has lastTransitionedTime.' %>
+
+
+<h4>Deprecations</h4>
+  * As of release 18.2.0 the following (unversioned) APIs have been deprecated and will be removed in 18.5.0 (scheduled to be released in May 2018):
+      * The pipeline <%= link_to_api 'pause-a-pipeline', 'pause api' %>
+      * The pipeline <%= link_to_api 'unpause-a-pipeline', 'unpause api' %>
+      * The pipeline <%= link_to_api 'releasing-a-pipeline-lock', 'unlock api' %>
+      * The pipeline <%= link_to_api 'scheduling-pipelines', 'schedule api' %>
+
+    These APIs have been replaced with a versioned API and users are encouraged to use these instead.
+
+  * The pipeline config API version 3 and version 4 have been deprecated and will be removed in 18.5.0 (scheduled to be released in May 2018). Version 5 of the pipeline config API has been introduced to add the new pipeline unlock behavior attribute (<%= link_to_issue 3943 %>).
+
+  * The elastic agent api version 1 and (a development verion 2) has been deprecated. These versions will be removed in 18.5.0 (scheduled to be released in May 2018). Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
+
+  * The <%= link_to_api 'plugin-info', 'Plugin Info API' %> v3 has been deprecated as part of 18.3.0. This version of the API will be removed in 18.6.0 release (scheduled to be released around June 2018). Version 4 of the API is available, and users are encouraged to use it.
+
+  * The [Agent Docker Image for Debian 7](https://github.com/gocd/docker-gocd-agent-debian-7) is deprecated and will be removed with the release of 18.4.0 (scheduled to be released around May 2018). Users should upgrade to a [newer version](https://github.com/gocd/docker-gocd-agent-debian-9) of the Debian image.
+
 
 <h4>Breaking changes</h4>
-  * The [old plugins page](https://github.com/gocd/gocd/issues/4226) which was deprecated in v18.2 has been removed
+  * The [old plugins page](https://github.com/gocd/gocd/issues/4226) which was deprecated in 18.2.0 has been removed
+
+
+<h4>Known Issues</h4>
+* There are a few known minor issues when triggering pipelines on the new dashboard:
+  * <%= link_to_issue 4647, 'Trigger buttons do not get disabled if the pipeline was force triggered and material update is in progress' %>
+  * <%= link_to_issue 4452, 'Horizontal scroll appears in Trigger With Options Materials popup' %>
+  * <%= link_to_issue 4481, 'CCTray corner cases: NullPointerException because of a pipeline not being in the config when the dashboard looks to update itself.' %>
 
 
 <h4>Contributors</h4>
@@ -88,7 +109,11 @@ There is a new analytics extension point which allows analytics to be embedded i
   "Rajiesh N",
   "Senthil R",
   "Tomasz Sętkowski",
-  "Varsha Varadarajan"
+  "Varsha Varadarajan",
+  "Steven Streisguth",
+  "Rafael Nunes",
+  "John Eismeier",
+  "Ted Timmons"
 ].sort.uniq.join(', ')
 %>
 
@@ -99,3 +124,5 @@ A more comprehensive list of changes for this release can be found <%= link_to_f
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
 Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
