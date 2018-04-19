@@ -44,15 +44,15 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
     </p>
 
     <% plugin_categories = [
-        {id: 'authorization', kind: "Authorization plugins", version_info: ">= GoCD v17.5", plugins: data.authorization_plugins},
-        {id: 'config-repo', kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.config_repo_plugins},
-        {id: 'elastic-agents', kind: "Elastic agents plugins", version_info: ">= GoCD v16.8", plugins: data.elastic_agent_plugins},
-        {id: 'notification', kind: "Notification plugins", plugins: data.notification_plugins},
-        {id: 'package-repo', kind: "Package repository plugins", version_info: ">= GoCD v13.3", plugins: data.repo_plugins},
-        {id: 'scm', kind: "SCM plugins", plugins: data.scm_plugins},
-        {id: 'task', kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.task_plugins},
-        {id: 'authentication', kind: "Authentication plugins", plugins: data.auth_plugins, deprecated: true, deprecation_message: "Authentication plugins are deprecated from GoCD v17.5.0"},
-        {id: 'commercial', kind: "Commercial Offerings", plugins: data.paid_plugins}
+        {id: 'authorization', kind: "Authorization plugins", version_info: ">= GoCD v17.5", plugins: data.plugins.authorization_plugins},
+        {id: 'config-repo', kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.plugins.config_repo_plugins},
+        {id: 'elastic-agents', kind: "Elastic agents plugins", version_info: ">= GoCD v16.8", plugins: data.plugins.elastic_agent_plugins},
+        {id: 'notification', kind: "Notification plugins", plugins: data.plugins.notification_plugins},
+        {id: 'package-repo', kind: "Package repository plugins", version_info: ">= GoCD v13.3", plugins: data.plugins.repo_plugins},
+        {id: 'scm', kind: "SCM plugins", plugins: data.plugins.scm_plugins},
+        {id: 'task', kind: "Task plugins", version_info: ">= GoCD v14.1", plugins: data.plugins.task_plugins},
+        {id: 'authentication', kind: "Authentication plugins", plugins: data.plugins.auth_plugins, deprecated: true, deprecation_message: "Authentication plugins are deprecated from GoCD v17.5.0"},
+        {id: 'commercial', kind: "Commercial Offerings", plugins: data.plugins.paid_plugins}
     ] %>
     <div class="v-tabs all-plugins">
       <ul class="tabs tab-container-marker">
