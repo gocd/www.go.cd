@@ -11,6 +11,7 @@ body {
     @media (min-width: $screen-tablet) {
         font-size: 16px; // line-height: 26px;
     }
+    min-height: calc(100vh - 66px);
 }
 
 p,

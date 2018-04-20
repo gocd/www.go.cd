@@ -2,7 +2,17 @@ $(function () {
   var nb = $('.navbtn');
   var n = $('.mainnav');
 
+  var footer = document.querySelector("footer");
+
+  function accommodateFooter() {
+    $(document.body).css("padding-bottom", footer.getBoundingClientRect().height + "px");
+  }
+
+  accommodateFooter();
+
   $(window).on('resize', function () {
+
+    accommodateFooter();
 
     if ($(this).width() < 570 && n.hasClass('keep-nav-closed')) {
       // if the nav menu and nav button are both visible,
