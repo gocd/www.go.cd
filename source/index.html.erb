@@ -12,17 +12,15 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
       </div>
     </div>
     <div class="row subcaption">
-      <div class="col-xs-10 col-xs-offset-1 col-md-7 col-md-offset-0">
+      <div class="col-lg-7">
         <%= image_tag "home/ui_illo.svg", {:title => "GoCD illustration", :alt => "GoCD Value Stream Map", :class => 'ui-illo'} %>
       </div>
-      <div class="col-xs-10 col-xs-offset-1 col-md-5 col-md-offset-0">
+      <div class="col-lg-5">
         <p>
         EASILY MODEL AND VISUALIZE COMPLEX WORKFLOWS WITH GoCD, AN OPEN SOURCE CONTINUOUS DELIVERY SERVER.
         </p>
-        <%= link_to 'Download Now', "/download/index.html", {:class => "btn btn-download", "analytics-label" => "home-download-cta"} %>
-        <div class="sub-cta">
-          <a href="https://docs.gocd.org/current/" target="_blank">View Documentation</a>
-        </div>
+        <%= link_to 'GET STARTED NOW', "/getting-started/part-1/index.html", {:class => "btn btn-getting-started", "analytics-label" => "home-started-cta"} %>
+        <%= link_to 'DOWNLOAD GoCD', "/download/index.html", {:class => "btn btn-download", "analytics-label" => "home-download-cta"} %>
       </div>
     </div>
   </div>
@@ -72,9 +70,9 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
             </figure>
           </div>
           <div class="col-xs-9 col-sm-9 col-md-9">
-            <h3>Plugins</h3>
+            <h3 class="plugins-title">Plugins</h3>
             <p>
-              GoCD has extension points for which plugins can be created. There are
+              GoCD has numerous extension points for which plugins can be created. There are
               <%= link_to 'numerous plugins', '/plugins/index.html', "analytics-label" => "link_homepage_plugins" %> already available, or if you don't see
               what you need, you can <%= link_to 'write your own', 'https://developer.gocd.org/current/writing_go_plugins/go_plugins_basics.html',
                                          "analytics-label" => "link_homepage_plugin_writing_docs" %>.
@@ -90,7 +88,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
             </figure>
           </div>
           <div class="col-xs-9 col-sm-9 col-md-9">
-            <h3>Community</h3>
+            <h3 class="plugins-title">Community</h3>
             <p>
               GoCD's community is 1000 members strong and growing. Through our active forum, users and contributors share best practices and
               openly discuss a wide range of topics including product how-tos. To join in the

@@ -2,287 +2,205 @@ $plugins-tile-bg: #f2f9fc;
 $tab-container-bg: #d8f0f1;
 $actions-bg: $green;
 $actions-bg-hover: $primary-color;
-
 //plugins
-
 .all-plugins {
-	@include clearfix;
-	margin-bottom: 30px;
+    @include clearfix;
+    margin-bottom: 30px;
 }
 
 .plugins {
-	.note {
-		font-size: 13px;
-		line-height: 22px;
-		padding: 20px;
-		margin: 20px 0;
-
-		@media (min-width:$screen-tablet) {
-			padding: 30px;
-		}
-
-		@media (min-width:$screen-desktop) {
-			margin: 0;
-		}
-
-	}
-
+    .note {
+        font-size: 13px;
+        line-height: 22px;
+        padding: 20px;
+        margin: 20px 0;
+        @media (min-width: $screen-tablet) {
+            padding: 30px;
+        }
+        @media (min-width:$screen-desktop) {
+            margin: 0;
+        }
+    }
 }
 
 .plugin-content {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .plugins-container {
-	@media (min-width:$screen-tablet) {
-		margin-top: 10px;
-		min-height: 400px;
-	}
-
+    @media (min-width: $screen-tablet) {
+        margin-top: 10px;
+        min-height: 400px;
+    }
 }
 
 .plugin-info {
-	font-size: 12px;
-	// padding: 5px;
-	line-height: normal;
-	border-radius: 10px;
-	// background: $gray-dark;
-	display: inline-block;
-	// color: #fff;
-	// margin-top: 5px;
-
-	&:before {
-		content: "";
-		border-left: 1px solid #ccc;
-		padding-left: 10px;
-	}
-
-	@media (min-width:$screen-tablet) {
-		margin-top: 0;
-	}
-
+    font-size: 12px; 
+    line-height: normal;
+    border-radius: 10px; 
+    display: inline-block; 
+    &:before {
+        content: "";
+        border-left: 1px solid #ccc;
+        padding-left: 10px;
+    }
+    @media (min-width:$screen-tablet) {
+        margin-top: 0;
+    }
 }
 
 .go-tag {
-	margin: 0 5px;
+    margin: 0 5px;
 }
 
 .contribute_tile {
-	width: 100%;
+    width: 100%;
 }
 
 .contribute-plugin {
-	@extend %flexbox;
-	@include flex-direction(column);
-	@include justify-content(center);
-	height: 215px;
-	text-align: center;
-
-	@media (min-width:$screen-tablet) {
-		height: 215px;
-	}
-
-	.fa-star {
-		font-size: 50px;
-		transition: all .8s ease-in-out;
-		color: $green;
-	}
-
-	&:hover {
-		.fa-star {
-			-webkit-transform: rotate(360deg);
-			transform: rotate(360deg);
-			color: $primary-color;
-			transition: all .8s ease-in-out;
-		}
-
-	}
-
+    @extend %flexbox;
+    @include flex-direction(column);
+    @include justify-content(center);
+    height: 215px;
+    text-align: center;
+    @media (min-width: $screen-tablet) {
+        height: 215px;
+    }
+    .fa-star {
+        font-size: 50px;
+        transition: all .8s ease-in-out;
+        color: $green;
+    }
+    &:hover {
+        .fa-star {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            color: $primary-color;
+            transition: all .8s ease-in-out;
+        }
+    }
 }
 
 .plugins-list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	@extend %flexbox;
-	@include flex-wrap(wrap);
-	@include align-content(space-between);
-
-	@media (min-width:$screen-tablet) {
-		margin: 20px 20px 20px 25px;
-	}
-
-	@media (min-width:$screen-desktop) {
-		margin: 20px 20px 10px 20px;
-	}
-
-	@media (min-width:$screen-lg-desktop) {
-		margin: 30px 15px 10px 30px;
-	}
-
-	li {
-		margin: 10px;
-		width: 100%;
-
-		.details {
-			background: #fff;
-			padding: 20px;
-			width: 100%;
-			position: relative;
-			align-items: stretch;
-			transition: all 0.5s ease;
-			height: 175px;
-
-			@media (min-width:$screen-tablet) {
-				height: 195px;
-			}
-
-		}
-
-		@media (min-width:$screen-tablet) {
-			width: 47%;
-			margin: 0px 0 20px 25px;
-
-			&:nth-child(2n+1) {
-				margin-left: 0;
-			}
-
-		}
-
-		@media (min-width:$screen-desktop) {
-			width: 31%;
-
-			&:nth-child(2n+1) {
-				margin-left: 25px;
-			}
-
-			&:nth-child(3n+4) {
-				margin-left: 0;
-			}
-
-			&:first-child {
-				margin-left: 0;
-			}
-
-		}
-
-		@media (min-width:$screen-lg-desktop) {
-			width: 31%;
-		}
-
-		.go-logo {
-			position: absolute;
-			right: 5px;
-			top: 5px;
-		}
-
-		.name {
-			font-size: 17px;
-
-			@media (min-width:$screen-tablet) {
-				// height: 44px;
-			}
-
-		}
-
-		.more-details {
-			font-size: 12px;
-			line-height: 20px;
-			// color: $subtext;
-
-			@media (min-width:$screen-tablet) {
-			}
-
-		}
-
-		.created-by {
-			margin-bottom: 10px;
-			display: block;
-			font-size: 12px;
-		}
-
-		.actions {
-			background: $actions-bg;
-			padding: 10px 20px;
-			@include clearfix;
-			transition: all 0.5s ease;
-			color: #333;
-
-			.fa {
-				margin-right: 3px;
-			}
-
-			@media (min-width:$screen-tablet) {
-				// position: absolute;
-				// bottom: 0;
-				// width: 100%;
-				// margin: 0;
-				// left: 0;
-			}
-
-		}
-
-		.with-go,
-		.download-plugin, .contactus-plugin {
-			float: left;
-			color: #fff;
-			transition: all 0.5s ease;
-
-			a {
-				color: #fff;
-				transition: all 0.5s ease;
-			}
-
-		}
-
-		.github-star-button {
-			float: right;
-		}
-
-		&:hover {
-			-webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
-			-moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
-			box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
-			transition: all 0.5s ease;
-
-			.actions {
-				background: $actions-bg-hover;
-				transition: all 0.5s ease;
-			}
-
-		}
-
-		&.contribute_tile {
-			background: #333333;
-			color: #fff;
-
-			a,
-			h5 {
-				color: #fff;
-			}
-
-		}
-
-		&.go {
-			@media (max-width:$screen-xs-max) {
-				width: 100%;
-			}
-		}
-	}
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    @extend %flexbox;
+    @include flex-wrap(wrap);
+    @include align-content(space-between);
+    @media (min-width: $screen-tablet) {
+        margin: 20px 20px 20px 25px;
+    }
+    @media (min-width:$screen-desktop) {
+        margin: 20px 20px 10px 20px;
+    }
+    @media (min-width:$screen-lg-desktop) {
+        margin: 30px 15px 10px 30px;
+    }
+    li {
+        margin: 10px;
+        width: 100%;
+        .details {
+            background: #fff;
+            padding: 20px;
+            width: 100%;
+            position: relative;
+            align-items: stretch;
+            transition: all 0.5s ease;
+            height: 175px;
+            @media (min-width: $screen-md) {
+                height: 195px;
+            }
+        }
+        @media (min-width:$screen-md) {
+            width: 45%;
+        }
+        @media (min-width:$screen-lg) {
+            width: 30%;
+        }
+        .go-logo {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+        .name {
+            font-size: 17px;
+            @media (min-width: $screen-md) {
+                // height: 44px;
+            }
+        }
+        .more-details {
+            font-size: 12px;
+            line-height: 20px; // color: $subtext;
+            @media (min-width: $screen-md) {}
+        }
+        .created-by {
+            margin-bottom: 10px;
+            display: block;
+            font-size: 12px;
+        }
+        .actions {
+            background: $actions-bg;
+            padding: 10px 20px;
+            @include clearfix;
+            transition: all 0.5s ease;
+            color: #333;
+            .fa {
+                margin-right: 3px;
+            }
+        }
+        .with-go,
+        .download-plugin,
+        .contactus-plugin {
+            float: left;
+            color: #fff;
+            transition: all 0.5s ease;
+            a {
+                color: #fff;
+                transition: all 0.5s ease;
+            }
+        }
+        .github-star-button {
+            float: right;
+        }
+        &:hover {
+            -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
+            transition: all 0.5s ease;
+            .actions {
+                background: $actions-bg-hover;
+                transition: all 0.5s ease;
+            }
+        }
+        &.contribute_tile {
+            background: #333333;
+            color: #fff;
+            a,
+            h5 {
+                color: #fff;
+            }
+        }
+        &.go {
+            @media (max-width: $screen-xs-max) {
+                width: 100%;
+            }
+        }
+    }
 }
 
 .paid {
-	background: $primary-color;
-  display: block;
-  font-size: 12px;
-  border-radius: 3px;
-  line-height: 14px;
-  color: #fff;
-  padding: 2px 7px;
-  width: 37px;
-  margin: -6px 0 10px 0;
+    background: $primary-color;
+    display: block;
+    font-size: 12px;
+    border-radius: 3px;
+    line-height: 14px;
+    color: #fff;
+    padding: 2px 7px;
+    width: 37px;
+    margin: -6px 0 10px 0;
 }
 
 #tab-commercial .plugins-list li:last-child {
-    display:none;
+    display: none;
 }

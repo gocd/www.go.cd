@@ -8,21 +8,18 @@ meta_keywords: "Enterprise, pipelines, ldap, postgres, enterprise support, scale
 show_features: true
 ---
 
-<div class="enterprise">
-
+<div class="enterprise-campaign">
   <% content_for :maincontent do %>
-
+<div class="enterprise-overview">
     <div class="header">
       <div class="container">
-        <div class="col-md-10 col-md-offset-1">
-          <h1>CONTINUOUS DELIVERY SCALED FOR<br/>YOUR <span class="highlight">ENTERPRISE</span></h1>
-        </div>
+      <h1>CONTINUOUS DELIVERY SCALED FOR <span class="break"> YOUR <strong class="highlight">ENTERPRISE</strong></span></h1>
       </div>
     </div>
 
     <div class="container intro-section">
       <div class="row intro-row">
-        <div class="col-md-5 intro-text">
+        <div class="$col-md-6 col-lg-5 intro-text">
           <h1>Visualize and Model Complex Workflows</h1>
           <p>GoCD supports continuous delivery out of the box with its built-in pipelines, advanced traceability and value stream visualization. With GoCD, you can easily model, orchestrate and visualize complex workflows from end to end. GoCD supports modern infrastructure and cloud deployments.</p>
         </div>
@@ -37,28 +34,7 @@ show_features: true
     <div class="feature-section">
       <div class="container">
         <div class="row">
-          <h1>Enterprise Plugins and Professional Support </h1>
-        </div>
 
-        <div class="row feature-row">
-
-          <div class="col-md-4 feature">
-            <h3>Fits Into Your Ecosystem</h3>
-            <%= image_tag "campaign/enterprise/business.svg", {:title => "Fits Into Your Ecosystem", :alt => "Ecosystem illustration", :class => 'illo'} %>
-            <p>GoCD provides integrations that fit into your enterprise IT ecosystem. Use GoCD with your existing SCM, authorization system and cloud infrastructure.</p>
-          </div>
-
-
-          <div class="col-md-4 feature">
-            <h3>Continuous Delivery at Scale</h3>
-             <%= image_tag "campaign/enterprise/postgres.svg", {:title => "Continuous Delivery at Scale", :alt => "CD illustration", :class => 'illo'} %>
-             <p>GoCD's commercial extensions provide performance upgrades for the substantial number of pipelines and agents required in an enterprise, as well as features to help you manage large number of teams, agents and pipelines.</p>
-          </div>
-
-          <div class="col-md-4 feature">
-            <h3>Professional Support</h3>
-            <%= image_tag "campaign/enterprise/support.svg", {:title => "Professional Support", :alt => "Chat illustration", :class => 'illo'} %>
-            <p>Get access to both our Support team and GoCD's development team via unlimited support cases per month. Get notifications for all bug fixes, security patches, and upgrades.</p>
           </div>
         </div>
 
@@ -70,33 +46,36 @@ show_features: true
     <div class="container plugins-section">
       <div class="row plugins-row">
 
-        <div class="col-md-5 col-md-offset-1 plugin-text">
+        <div class="col-md-6 col-lg-5 col-lg-offset-1 plugin-text">
           <h3>PostgreSQL</h3>
           <p>GoCD's OSS distribution uses an embedded database. That's great for getting started. But, if you need to scale beyond a few teams and several pipelines, our PostgreSQL add-on gives you the performance upgrade necessary for hundreds of pipelines and agents. We recommend PostgreSQL for critical deployments.</p>
         </div>
 
-        <div class="col-md-5 plugin-text">
+        <div class="col-md-6 col-lg-5 plugin-text">
           <h3>Business Continuity</h3>
           <p>Hard drives fail. This add-on helps ensure you can deliver even when your machine is down. With business continuity, you’ll be able to set up secondary GoCD and PostgreSQL servers to protect against downtime. Automatic redirection of build agents and the ability to store artifacts on network drives is supported.</p>
         </div>
-
-        <div class="col-md-5 col-md-offset-1 plugin-text">
+        </div>
+    <div class="row plugins-row">
+        <div class="col-md-6 col-lg-5 col-lg-offset-1 plugin-text">
           <h3>Amazon ECS Elastic Agent Plugin</h3>
           <p>This Elastic Agent Plugin for Amazon EC2 Container Service gives you the flexibility to autoscale your builds on docker instances running on an ECS cluster. It tailors your use of EC2 instances (with support for Docker containers) specific to your needs, by taking care of creating agents &amp; scheduling builds while monitoring the ECS cluster, allowing you to optimize your utilization and reduce costs.</p>
         </div>
 
-        <div class="col-md-5 plugin-text">
+        <div class="col-md-6 col-lg-5 plugin-text">
           <h3>LDAP/AD Authorization Plugin</h3>
           <p>The LDAP/AD Authorization Plugin provides both authentication and authorization services for GoCD. Grant relevant access to your teams by leveraging your organizations' predefined roles within LDAP/AD. Manage users and roles centrally (LDAP), while using GoCD to define and maintain application specific role based access.</p>
         </div>
 
-        <div class="col-md-12 plugin-link">
-          <a href="http://www.gocd.org/plugins" TARGET="_blank">View All Plugins</a>
-        </div>
       </div>
 
-      <div class="hr"></div>
     </div>
+    <div class="row  plugins-section">
+      <div class="col-md-12  plugin-link">
+    <a href="http://www.gocd.org/plugins" TARGET="_blank">View All Plugins</a>
+    </div>
+    </div>
+      <div class="hr"></div>
 
 
 
@@ -121,11 +100,11 @@ show_features: true
           <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
           <form id="mktoForm_7582"></form>
           <div class="form-loading-error">
-            <p>It looks like our signup form was blocked by an adblocker in your browser! Please email us directly or pause your adblocker to use the form.</p>
+            It looks like our signup form was blocked by an adblocker in your browser! Please email us directly or pause your adblocker to use the form.
           </div>
         </div>
       </div>
     </div>
-    <script src="/assets/javascripts/marketo_popover.js"></script>
+    <script src="/assets/javascripts/marketo_popover.js" onload="new MarketoForm().init(7582)"></script>
   <% end %>
 </div>

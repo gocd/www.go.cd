@@ -1,4 +1,5 @@
 .subscribe-content {
+
   ul {
     li {
       margin-bottom: 10px;
@@ -6,6 +7,11 @@
 
   }
 
+}
+
+.subscribe-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .subscribe-title {
@@ -22,7 +28,7 @@
 
 .subscribe-content {
   @media (min-width:$screen-desktop) {
-    padding-top: 30px;
+    padding-top: 10px;
   }
 
 }

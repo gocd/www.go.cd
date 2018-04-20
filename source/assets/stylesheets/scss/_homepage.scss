@@ -11,6 +11,10 @@
 	position: relative;
 	overflow: hidden;
 
+	@media (max-width: 991px) {
+		padding-bottom: 6vh;
+	}
+
 	.caption {
 		margin-top: 2em;
 
@@ -77,18 +81,51 @@
 
 		}
 
+		.btn-getting-started {
+			height: 50px;
+			width: 100%;
+			border: 2px solid;
+			border-color: hsla(0, 0, 100%, 1);
+			background-color: hsla(0, 0, 100%, 1);
+			padding: 11px 0 0 0;
+			border-radius: 2;
+			
+			color: #94399e;
+			text-transform: uppercase;
+			font-size: 1.2em;
+			font-family: URWGeometric-ExtraBold, Helvetica, sans-serif;
+
+			margin-bottom: 10px;
+
+			&:hover {
+				background-color: hsla(69, 65%, 60%, 1);
+				border-color: hsla(69, 65%, 60%, 1);
+				color: hsla(0, 0, 100%, 1);
+
+			}
+
+			&:active {
+				background-color: hsla(69, 65%, 40%, 1);
+				border-color: hsla(69, 65%, 40%, 1);
+				color: hsla(0, 0, 100%, 1);
+				// background-color: hsla(0, 0, 100%, .3);
+				// border: 2px solid;
+				// border-color: hsla(0, 0, 100%, 1);
+				// color: hsla(0, 0, 100%, 1);
+			}
+		}
+
 		.btn-download {
 			height: 50px;
 			width: 100%;
 			border: 2px solid;
 			border-color: hsla(0, 0, 100%, 1);
 			background-color: hsla(0, 0, 100%, .2);
-			padding: 15px 0 0 0;
+			padding: 11px 0 0 0;
 			border-radius: 2;
 			
 			color: hsla(0, 0, 100%, 1);
-			text-transform: uppercase;
-			font-size: 1em;
+			font-size: 1.2em;
 			font-family: URWGeometric-ExtraBold, Helvetica, sans-serif;
 
 			margin-bottom: 4px;
@@ -277,8 +314,9 @@
 
 	}
 
+	
 	h3 {
-		font-size: 22px;
+		font-size: 26px;
 		font-weight: 500;
 		margin: 20px 0;
 		text-align: center;
@@ -372,6 +410,11 @@
 
 	}
 
+}
+
+.plugins-title {
+	text-align: left;
+	font-size: 26px;
 }
 
 .plugins-cont {

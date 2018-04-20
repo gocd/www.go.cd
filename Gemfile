@@ -22,3 +22,7 @@ gem 'html-proofer'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'htmlentities'
+
+#View Gems
+gem 'bourbon'
+gem 'neat'

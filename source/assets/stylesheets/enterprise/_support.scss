@@ -1,0 +1,31 @@
+.support-banner-area{
+
+  @media (min-width: $screen-lg){
+    margin-bottom: 50px;
+  }
+
+}
+
+.support-section{
+  margin-top: 50px;
+}
+
+.support-marketo {
+	@media (min-width: $screen-md) {
+		margin-top: 50px;
+	}
+}
+
+.support-quote {
+	text-align: left;
+}
+
+.support-author {
+	text-align: left;
+	font-family: $default-font-normal-bold;
+}
+
+.author-image {
+	border-radius: 50%;
+
+}
