@@ -189,6 +189,8 @@
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
+		padding-top: 10px;
+		padding-bottom: 10px;
 
 		@media (max-width:767px) {
 			flex-direction: column;
@@ -201,11 +203,14 @@
 			padding: 0 20px 0 20px;
 
 			h3 {
-				font-weight: 600;
+				font-size: 20px;
 				color: #FFFFFF;
+				margin: 0;
 
 				@media(max-width: 767px){
 					font-size: 18px;
+					padding-top: 10px;
+					padding-bottom: 10px;
 				}
 			}
 		}
