@@ -1,6 +1,6 @@
 //header
 header.top {
-	background: $header-bg;
+	background: $navbar-dark;
 	border-top: 3px solid $primary-color;
 	@include clearfix;
 	position: fixed;
@@ -22,26 +22,9 @@ header.top {
 		}
 
 	}
-
-	&:hover {
-		background: $header-bg;
-		transition: all 0.5s ease;
-	}
-
 }
 .logo {
 	margin: 13px 0;
 	float: left;
 	width: 74px;
-}
-
-.fork-me {
-
-    width: 115px;
-    height: 115px;
-    position: absolute;
-    right: -2px;
-    top: -64px;
-    z-index: 11;
-    overflow:hidden;
 }

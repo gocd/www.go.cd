@@ -78,6 +78,11 @@ ul.tabs {
     @media (min-width: $screen-tablet) {
         display:none;
     }
+    &.d_active {
+        background-color: $primary-color;
+        color: #fff;
+        border-color: $primary-color;
+    }
 }
 
 .tab_content {
@@ -88,10 +93,10 @@ ul.tabs {
 
 // plugins tabs
 .v-tabs {
+    display: flex;
     ul.tabs {
         margin: 0;
         padding: 0;
-        float: left;
         list-style: none;
         border-top: 1px solid $plugins-tab-container-bg;
         display: none;
@@ -136,16 +141,15 @@ ul.tabs {
         }
     }
     .tab_container {
-        background-color: $plugins-tab-container-bg;
-        @media (min-width: $screen-tablet) {
-            width: 540px;
-        }
-        @media (min-width:$screen-desktop) {
-            width: 760px;
-        }
-        @media (min-width:$screen-lg-desktop) {
-            width: 960px;
-        }
+        background-color: $plugins-tab-container-bg; // @media (min-width: $screen-tablet) {
+        //     width: 540px;
+        // }
+        // @media (min-width:$screen-desktop) {
+        //     width: 760px;
+        // }
+        // @media (min-width:$screen-lg-desktop) {
+        //     width: 960px;
+        // }
     }
 }
 

@@ -1,0 +1,18 @@
+.form{
+  .form-group{
+    margin:2%;
+
+    label{
+      font-weight: bold;
+    }
+    .form-control{
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+  .btn{
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+  }
+}
