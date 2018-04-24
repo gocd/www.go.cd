@@ -11,21 +11,22 @@
 }
 
 .support-marketo {
-	@media (min-width: $screen-md) {
-		margin-top: 50px;
-	}
+  @media (min-width: $screen-md) {
+    margin-top: 50px;
+  }
 }
 
 .support-quote {
-	text-align: left;
+  text-align: left;
+  hyphens: auto;
 }
 
 .support-author {
-	text-align: left;
-	font-family: $default-font-normal-bold;
+  text-align: left;
+  font-family: $default-font-normal-bold;
 }
 
 .author-image {
-	border-radius: 50%;
+  border-radius: 50%;
 
 }
