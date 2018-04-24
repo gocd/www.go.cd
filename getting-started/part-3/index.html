@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
@@ -15,8 +15,8 @@
 
     <title>Help - Getting Started with GoCD Part Three | GoCD</title>
     <link href="../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../assets/stylesheets/site-e70caf7b.css" rel="stylesheet" />
-    <script src="../../assets/javascripts/all-6c0908b5.js"></script>
+    <link href="../../assets/stylesheets/site-35dd4e25.css" rel="stylesheet" />
+    <script src="../../assets/javascripts/all-219cc2a3.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../feed.xml" />
     <script>
@@ -33,28 +33,19 @@
     <a href="../../" class="logo" analytics-label="logo"><img src="../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
-        <li class="dropdown">
-          <a href="../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
-        </li>
-        <li class="dropdown">
-          <a href="../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
-          <ul  class="level1">
-            <li><a href="../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
-            <li><a href="../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
-            <li><a href="../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
-          </ul>
-        </li>
+        <li><a href="../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="../../resources.html" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
         <li><a href="../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
-        <li class="dropdown">
-          <a href="../../help/" class="toplink_help" analytics-label="link_help">Help</a>
-          <ul  class="level1">
-            <li><a href="../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
-            <li><a href="../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+
+        <li class="dropdown"><a href="../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../enterprise/contact/" class="link_contact">Contact</a></li>
           </ul>
         </li>
-        <li><a href="../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
-        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
       </ul>
     </nav>
     <button class="navbtn menu collapse">
@@ -63,7 +54,6 @@
   </div>
 </header>
 <span id="top"></span>
-<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
 
     <div class="inner-banner">
   <div class="container">
@@ -144,7 +134,7 @@
           </p>
 
           <figure>
-            <img src="../../assets/images/image01-453d1ed1.png" title="Deployment Pipeline - Moving closer to production increases confidence of build's production" alt="Deployment Pipeline view shows that as you go closer to production, the confidence of the build's production readiness increases" />
+            <img src="../../assets/images/getting-started/part-3/deployment-pipeline1-15795896.svg" title="Deployment Pipeline - Moving closer to production increases confidence of build's production" alt="Deployment Pipeline view shows that as you go closer to production, the confidence of the build's production readiness increases" />
             <figcaption>
               The idea is that, as you go closer to production, the confidence of the build's production readiness
               increases. (Image &copy; Humble, Farley)
@@ -152,7 +142,7 @@
           </figure>
 
           <figure>
-            <img src="../../assets/images/image02-7cb7c1f3.png" title="Deployment Pipeline - Interactions between source code repositories, artifact repositories and different stages" alt="Image depicts the interactions between source code repositories, artifact repositories and different stages of the Deployment Pipeline." />
+            <img src="../../assets/images/getting-started/part-3/deployment-pipeline2-517c7e60.svg" title="Deployment Pipeline - Interactions between source code repositories, artifact repositories and different stages" alt="Image depicts the interactions between source code repositories, artifact repositories and different stages of the Deployment Pipeline." />
             <figcaption>
               This depicts the interactions between source code repositories, artifact repositories and different stages
               of the Deployment Pipeline. (Image &copy; Humble, Farley)
@@ -164,7 +154,7 @@
           </p>
 
           <figure>
-            <img src="../../assets/images/image03-da3d56f1.png" title="Representation of Value Stream Map in GoCD" alt="Go C D Value Stream Map representing the stages of deployment pipeline" />
+            <img src="../../assets/images/getting-started/part-3/valuestreammap-in-gocd-08be9d46.svg" title="Representation of Value Stream Map in GoCD" alt="Go C D Value Stream Map representing the stages of deployment pipeline" />
           </figure>
 
           <p>
@@ -208,33 +198,33 @@
         </section>
 
         <p>
-          To use a Value Stream Map in GoCD, you don't really need to do anything. If you've pipelines which use
+          To use a Value Stream Map in GoCD, you don't really need to do anything. If you have pipelines which use
           pipeline dependencies, then you can always get a VSM at the click of a button. Here is a dashboard view of
-          pipelines which map to the example shown in the concept. Clicking on the label (marked in red boxes) of any of
-          the pipelines shows the VSM from the perspective of that pipeline:
+          pipelines which map to the example shown in the concept. Clicking on the VSM link (marked in red boxes) in any of
+          the pipeline tiles shows the VSM from the perspective of that pipeline:
         </p>
         <figure>
-          <img src="../../assets/images/getting-started/gateways-to-VSM-e9ae0c02.png" title="The labels of pipelines: gateways to VSM" alt="The labels of pipelines - gateways to VSM" />
-          <figcaption>The labels of pipelines: gateways to VSM</figcaption>
+          <img src="../../assets/images/getting-started/part-3/1-gateways-to-vsm-0e9d70b0.png" title="The labels of pipelines: gateways to VSM" alt="The labels of pipelines - gateways to VSM" />
+          <figcaption>Navigating to the VSM</figcaption>
         </figure>
 
-        <p>Clicking on the label of the "Production" pipeline, takes you to its Value Stream Map, in which all of its upstream
+        <p>Clicking on the VSM link of the "Production" pipeline takes you to its Value Stream Map, in which all of its upstream
           pipelines and their source control materials are shown.</p>
 
         <figure>
-          <img src="../../assets/images/getting-started/production-pipeline-5136d4e0.png" title="VSM from the view of the Production pipeline" alt="VSM from the view of the Production pipeline" />
+          <img src="../../assets/images/getting-started/part-3/2-vsm-of-production-pipeline-80c78046.png" title="VSM from the view of the Production pipeline" alt="VSM from the view of the Production pipeline" />
           <figcaption>VSM from the view of the "Production" pipeline</figcaption>
         </figure>
 
         <p>
-          Clicking on the label of the "Build" pipeline, either from the dashboard or the VSM view above, takes you to a
-          similar view with the perspective of the "Build" pipeline instance you clicked on. It is shown below. You can
+          Clicking on the VSM link of the "Build" pipeline, either from the dashboard or the VSM view above, takes you to a
+          similar view with the perspective of the "Build" pipeline instance. It is shown below. You can
           see that the source material of "CapacityTesting" pipeline is not shown, because it is not directly downstream
           of the "Build" pipeline.
         </p>
 
         <figure class="screenshot">
-          <img src="../../assets/images/getting-started/build-pipeline-ae429bf1.png" title="VSM from the view of the Build pipeline" alt="VSM from the view of the Build pipeline" />
+          <img src="../../assets/images/getting-started/part-3/3-vsm-of-build-pipeline-8b12b538.png" title="VSM from the view of the Build pipeline" alt="VSM from the view of the Build pipeline" />
           <figcaption>VSM from the view of the "Build" pipeline</figcaption>
         </figure>
 
@@ -258,14 +248,14 @@
           </p>
 
           <figure>
-            <img src="../../assets/images/image07-77a88407.png" title="Pipeline fanning out to downstream pipelines" alt="Pipeline fanning out to downstream pipelines" />
+            <img src="../../assets/images/getting-started/part-3/fan-out-153518b1.svg" title="Pipeline fanning out to downstream pipelines" alt="Pipeline fanning out to downstream pipelines" />
           </figure>
           <p>
             Similarly, a source material can be said to fan-out to downstream pipelines:
           </p>
 
           <figure>
-            <img src="../../assets/images/image08-da3d56f1.png" title="Source Material fanning out to downstream pipelines" alt="Source Material fanning out to downstream pipelines" />
+            <img src="../../assets/images/getting-started/part-3/valuestreammap-in-gocd-08be9d46.svg" title="Source Material fanning out to downstream pipelines" alt="Source Material fanning out to downstream pipelines" />
           </figure>
           <p>
             This brings in the advantages of parallelization and quicker feedback, which is a key goal of Continuous Delivery. As
@@ -281,7 +271,7 @@
           </p>
 
           <figure>
-            <img src="../../assets/images/image09-da3d56f1.png" title="Fanning In - Multiple dependencies used by a single pipeline" alt="image shows multiple dependencies used by a single pipeline as fanning in to the pipeline" />
+            <img src="../../assets/images/getting-started/part-3/valuestreammap-in-gocd-08be9d46.svg" title="Fanning In - Multiple dependencies used by a single pipeline" alt="image shows multiple dependencies used by a single pipeline as fanning in to the pipeline" />
           </figure>
 
           <p>
@@ -299,7 +289,7 @@
         </p>
 
         <figure>
-          <img src="../../assets/images/image10-554cdcff.png" title="VSM with links pinned - showing fan-in" alt="VSM with links pinned - showing fan-in" />
+          <img src="../../assets/images/getting-started/part-3/4-pinned-vsm-with-links-8f4c5d92.png" title="VSM with links pinned - showing fan-in" alt="VSM with links pinned - showing fan-in" />
           <figcaption>VSM with links pinned - showing fan-in</figcaption>
         </figure>
 
@@ -368,52 +358,78 @@
 
     <footer>
   <div class="join-community">
-    <div class="container">
-      <h3>Join our community</h3>
-      <ul>
-        <li>
-          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
-            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
-            Join our discussion forum
-          </a>
-        </li>
-        <li>
-          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
-            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
-           Chat with us
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
-            watch us
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
-            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
-            follow us
-          </a>
-        </li>
-        
-        <li>
-        <a href="../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
   </div>
+
   <div class="page-footer">
     <div class="container">
-      <div class="foo-content">
-        <p>
-          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
-          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
-        </p>
-        <h5 class="help-us-improve">Make this place better</h5>
-        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
-        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../part-1/">GETTING STARTED</a></li>
+            <li><a href="../../plugins/">PLUGINS</a></li>
+          </ul>
+        </div>
 
-        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li> <a href="../../events/">WEBINARS + EVENTS</a></li>
+            <li><a href="../../resources/">RESOURCES</a></li>
+            <li><a href="../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
@@ -15,8 +15,8 @@
 
     <title>GoCD - Continuous Delivery</title>
     <link href="../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../assets/stylesheets/site-e70caf7b.css" rel="stylesheet" />
-    <script src="../../assets/javascripts/all-6c0908b5.js"></script>
+    <link href="../../assets/stylesheets/site-35dd4e25.css" rel="stylesheet" />
+    <script src="../../assets/javascripts/all-219cc2a3.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../feed.xml" />
     <script>
@@ -33,28 +33,19 @@
     <a href="../../" class="logo" analytics-label="logo"><img src="../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
-        <li class="dropdown">
-          <a href="../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Why GoCD?</a>
-        </li>
-        <li class="dropdown">
-          <a href="../../contribute/" class="toplink_contribute" analytics-label="link_community">Community</a>
-          <ul  class="level1">
-            <li><a href="../../contribute/" class="link_contribute" analytics-label="link_community&gt;link_contribute">Contribute</a></li>
-            <li><a href="../../events/" class="link_events" analytics-label="link_community&gt;link_events">Events</a></li>
-            <li><a href="../../plugins/" class="link_plugins" analytics-label="link_community&gt;link_plugins">Plugins</a></li>
-          </ul>
-        </li>
+        <li><a href="../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="../../resources.html" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
         <li><a href="../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
-        <li class="dropdown">
-          <a href="../../help/" class="toplink_help" analytics-label="link_help">Help</a>
-          <ul  class="level1">
-            <li><a href="../../help/" class="getting-started" analytics-label="link_help&gt;link_getting_started">Getting started</a></li>
-            <li><a href="https://docs.gocd.org/current/" target="_blank" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
-            <li><a href="../../resources.html" class="link_resources" analytics-label="link_help&gt;link_resources">Resources</a></li>
+
+        <li class="dropdown"><a href="../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../enterprise/contact/" class="link_contact">Contact</a></li>
           </ul>
         </li>
-        <li><a href="../../download/" class="link_download" analytics-label="link_help&gt;link_download">Download</a></li>
-        <li><a href="https://www.thoughtworks.com/go" class="link_support" target="_blank" analytics-label="link_support">Get Support</a></li>
       </ul>
     </nav>
     <button class="navbtn menu collapse">
@@ -63,7 +54,6 @@
   </div>
 </header>
 <span id="top"></span>
-<a href="http://github.com/gocd" class="github-fork-ribbon" target="_blank" analytics-label="link_header_fork&gt;link_download" title="Fork me on GitHub">Fork me on GitHub</a>
 
     <h1>Archive for
     Jul  7 2015
@@ -77,52 +67,78 @@
 
     <footer>
   <div class="join-community">
-    <div class="container">
-      <h3>Join our community</h3>
-      <ul>
-        <li>
-          <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
-            <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
-            Join our discussion forum
-          </a>
-        </li>
-        <li>
-          <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
-            <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
-           Chat with us
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-            <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
-            watch us
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
-            <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
-            follow us
-          </a>
-        </li>
-        
-        <li>
-        <a href="../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i>subscribe</a>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
   </div>
+
   <div class="page-footer">
     <div class="container">
-      <div class="foo-content">
-        <p>
-          GoCD is an open-source project, sponsored by <a target="_blank" href="http://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
-          under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
-        </p>
-        <h5 class="help-us-improve">Make this place better</h5>
-        <a href="http://github.com/gocd" class="social-buttons" analytics-label="link_footer_fork"><i class="fa fa-code-fork" aria-hidden="true" target="_blank"></i> fork</a>
-        <a href="https://github.com/gocd/www.go.cd/issues"  class="social-buttons" analytics-label="link_footer_github_issues"> <i class="fa fa-github" aria-hidden="true"></i> suggest</a>
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../getting-started/part-1/">GETTING STARTED</a></li>
+            <li><a href="../../plugins/">PLUGINS</a></li>
+          </ul>
+        </div>
 
-        <p><a href="https://brandfolder.com/twproducts" target="_blank">Logos and brand guidelines</a></p>
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li> <a href="../../events/">WEBINARS + EVENTS</a></li>
+            <li><a href="../../resources/">RESOURCES</a></li>
+            <li><a href="../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
