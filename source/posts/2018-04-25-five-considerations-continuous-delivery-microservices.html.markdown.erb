@@ -3,9 +3,9 @@ layout: post
 title: 5 Considerations for Continuous Delivery of Microservices
 type: post
 author: Sheroy Marker
-excerpt: "GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes. "
-summary_image: "/assets/images/blog/gocd-kubernetes-helm-chart/gocd-kubernetes-helm-chart-hero.jpg"
-title_tag_of_header: "Run GoCD on Kubernetes | GoCD Blog"
+excerpt: "In this blog series, I will share the considerations we keep in mind in architecture design and application development."
+summary_image: "/assets/images/blog/cd-considerations/5-consideration-microservices-gocd.jpg"
+title_tag_of_header: "Five Considerations for Continuous Delivery of Microservices | GoCD Blog"
 meta_description: "GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes."
 meta_keywords: "microservices, continuous delivery, microservices architecture, continuous integration, hotfixes, test pyramid"
 draft: true
@@ -29,7 +29,7 @@ Jez Humble, in his pioneering book describes continuous delivery as "the ability
 
 Regardless of the target deployment environment or your architecture choice, monolithic architecture in the past or microservices these days, it’s important to design a continuous delivery workflow to get your changes into production. A CD workflow is central to a DevOps process, and spans well across various functions in an organization including your development, QA and IT operations.
 
-## 4 Challenges for CD on Microservices
+## Four Challenges for CD on Microservices
 
 1. Maintaining the integrity of complex distributed systems
 Since you decompose a large monolithic system into smaller, more manageable microservices, the overall complexity of the system itself increases. You now have to deal with distributed systems concerns.
@@ -43,7 +43,7 @@ Microservice environments often include disparate technology stacks for services
 4. Process and tooling for deploying services independently and out of band
 There are a lot of tools available to model CD workflows. It’s daunting to initially map out your CD workflow and pick tooling that best represents this workflow.
 
-## 5 Considerations for CD on Microservices
+## Five Considerations for CD on Microservices
 
 There are five considerations I recommend keeping in mind when you design a CD workflow on microservices architectures. I will have in depth discussion for each of them in the following posts of this series. Here is just an overview:
 
