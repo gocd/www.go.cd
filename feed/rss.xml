@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2018-04-24T00:00:00Z</updated>
+  <updated>2018-04-25T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>5 Considerations for Continuous Delivery of Microservices</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices.html"/>
+    <id>https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices.html</id>
+    <published>2018-04-25T00:00:00Z</published>
+    <updated>2018-04-25T00:00:00Z</updated>
+    <author>
+      <name>Sheroy Marker</name>
+    </author>
+    <content type="html">In the first of this blog series, we will share the considerations to keep in mind in architecture design and application development.</content>
+  </entry>
   <entry>
     <title>Continuous delivery workflows on modern infrastructure - Run GoCD on Kubernetes</title>
     <link rel="alternate" href="https://www.gocd.org/2018/03/21/continuous-delivery-gocd-kubernetes.html"/>
@@ -107,16 +118,5 @@
       <name>Suzie Prince and Aravind S.V</name>
     </author>
     <content type="html">This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine. </content>
-  </entry>
-  <entry>
-    <title>Our learnings from Continuous Delivery for Mobile Development</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/10/31/mobile-app-continuous-delivery-gocd.html"/>
-    <id>https://www.gocd.org/2017/10/31/mobile-app-continuous-delivery-gocd.html</id>
-    <published>2017-10-31T00:00:00Z</published>
-    <updated>2017-10-31T00:00:00Z</updated>
-    <author>
-      <name>Sanchit Bahal</name>
-    </author>
-    <content type="html">This post chronicles a mobile app development team’s journey to continuous delivery, the challenges along the way and how they overcame them.</content>
   </entry>
 </feed>

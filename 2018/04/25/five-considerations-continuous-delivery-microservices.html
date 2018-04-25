@@ -8,17 +8,17 @@
     <meta content="microservices, continuous delivery, microservices architecture, continuous integration, hotfixes, test pyramid" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
-    <meta name="twitter:title" content="Run GoCD on Kubernetes | GoCD Blog" />
+    <meta name="twitter:title" content="Five Considerations for Continuous Delivery of Microservices | GoCD Blog" />
     <meta name="twitter:description" content="GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes." />
-    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/gocd-kubernetes-helm-chart/gocd-kubernetes-helm-chart-hero-71d9973f.jpg" />
-    <link rel="canonical" href="https://www.gocd.org/2018/04/24/five-considerations-continuous-delivery-microservices" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-considerations/5-consideration-microservices-gocd-12ad175f.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices.html" />
 
-    <title>Run GoCD on Kubernetes | GoCD Blog</title>
-    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-35dd4e25.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-219cc2a3.js"></script>
+    <title>Five Considerations for Continuous Delivery of Microservices | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-35dd4e25.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-219cc2a3.js"></script>
     
-    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
       $(document).ready(function(){
     $('.chocolat-parent').Chocolat();
@@ -27,23 +27,23 @@
 
   </head>
 
-  <body class="x2018 x2018_04 x2018_04_24 x2018_04_24_five-considerations-continuous-delivery-microservices x2018_04_24_five-considerations-continuous-delivery-microservices_index">
+  <body class="x2018 x2018_04 x2018_04_25 x2018_04_25_five-considerations-continuous-delivery-microservices">
     <header class="top">
   <div class="container">
-    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
     <nav class="mainnav">
       <ul class="level0">
-        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
-        <li><a href="../../../../resources.html" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
-        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li><a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="../../../resources.html" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
 
-        <li class="dropdown"><a href="../../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+        <li class="dropdown"><a href="../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
           <ul class="level1 mobile-nav">
-            <li><a href="../../../../enterprise/" class="link_overview">Overview</a></li>
-            <li><a href="../../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
-            <li><a href="../../../../enterprise/support/" class="link_support">Support</a></li>
-            <li><a href="../../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
-            <li><a href="../../../../enterprise/contact/" class="link_contact">Contact</a></li>
+            <li><a href="../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../enterprise/contact/" class="link_contact">Contact</a></li>
           </ul>
         </li>
       </ul>
@@ -67,7 +67,7 @@
 
     <div class="post-banner">
         <figure>
-    <img src="../../../../assets/images/blog/gocd-kubernetes-helm-chart/gocd-kubernetes-helm-chart-hero-71d9973f.jpg" alt="GoCD Kubernetes Helm Chart"/>
+    <img src="../../../assets/images/blog/cd-considerations/5-consideration-microservices-gocd-12ad175f.jpg" alt="Continuous Delivery of Microservices"/>
   </figure>
 
     </div>
@@ -95,7 +95,7 @@ Continuous Delivery is an essential component of any software delivery practice.
 
 <p>Regardless of the target deployment environment or your architecture choice, monolithic architecture in the past or microservices these days, it’s important to design a continuous delivery workflow to get your changes into production. A CD workflow is central to a DevOps process, and spans well across various functions in an organization including your development, QA and IT operations.</p>
 
-<h2 id="challenges-for-cd-on-microservices">4 Challenges for CD on Microservices</h2>
+<h2 id="four-challenges-for-cd-on-microservices">Four Challenges for CD on Microservices</h2>
 
 <ol>
   <li>
@@ -116,13 +116,13 @@ There are a lot of tools available to model CD workflows. It’s daunting to ini
   </li>
 </ol>
 
-<h2 id="considerations-for-cd-on-microservices">5 Considerations for CD on Microservices</h2>
+<h2 id="five-considerations-for-cd-on-microservices">Five Considerations for CD on Microservices</h2>
 
 <p>There are five considerations I recommend keeping in mind when you design a CD workflow on microservices architectures. I will have in depth discussion for each of them in the following posts of this series. Here is just an overview:</p>
 
 <p><strong>1. Have an effective test strategy</strong></p>
 
-<p><img src="../../../../assets/images/blog/cd-considerations/test-strategy-0cde2295.jpeg" alt="Effective test strategy" /></p>
+<p><img src="../../../assets/images/blog/cd-considerations/test-strategy-0cde2295.jpeg" alt="Effective test strategy" /></p>
 
 <p>Testing and verification of microservice systems is significantly more nuanced and complex than testing a traditional monolithic application. An effective test strategy needs to account for both testing individual services in isolation and the verification of overall system behavior.</p>
 
@@ -142,7 +142,7 @@ There are a lot of tools available to model CD workflows. It’s daunting to ini
 
 <p><strong>3. Plan your environments</strong></p>
 
-<p><img src="../../../../assets/images/blog/cd-considerations/environments-plan-e0ff13b0.jpeg" alt="Environments plan" /></p>
+<p><img src="../../../assets/images/blog/cd-considerations/environments-plan-e0ff13b0.jpeg" alt="Environments plan" /></p>
 
 <p>An environment plan includes your sets of environments, the intended use of them, strategies to promote artifacts through these environments and toggle states on these environments.</p>
 
@@ -164,7 +164,7 @@ There are a lot of tools available to model CD workflows. It’s daunting to ini
 
 <p>Roll forward, which means finding the root cause of a failure and applying the fix as soon as possible, is most times the best remediation response. A prerequisite for being able to do this is to ensure you have the capability to release from a <a href="https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward/">hot fix branch</a> straight to production. You may not want a fix to a production outage to go through the CD pipeline, depending on the time it takes for a change to make it through the pipeline.</p>
 
-<p><img src="../../../../assets/images/blog/cd-considerations/hotfix-process-fef37152.jpeg" alt="Hotfix process" /></p>
+<p><img src="../../../assets/images/blog/cd-considerations/hotfix-process-fef37152.jpeg" alt="Hotfix process" /></p>
 
 <p>Rollbacks are always tricky in production systems. In most cases if the change is granular and can be reasoned about, it’s easy to rollback. But if the deployment includes changes that aren’t easy to reason about, e.g., DB changes, especially ones that make schema changes, you need to deploy DB changes separately from code changes in consecutive deployments to ensure backwards compatibility of DB changes with earlier versions of code.</p>
 
@@ -195,47 +195,47 @@ There are a lot of tools available to model CD workflows. It’s daunting to ini
         jQuery("#backup-subscription-message").remove();
       }
     </script>
-    <script async="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
 </div>
 
           </section>
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <li>
+              <span class="post-date">Apr 25</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="five-considerations-continuous-delivery-microservices/">5 Considerations for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
               <span class="post-date">Mar 21</span>
               <span class="post-author">Sheroy Marker</span>
-              <a href="../../../03/21/continuous-delivery-gocd-kubernetes/">Continuous delivery workflows on modern infrastructure - Run GoCD on Kubernetes</a>
+              <a href="../../03/21/continuous-delivery-gocd-kubernetes/">Continuous delivery workflows on modern infrastructure - Run GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Feb 27</span>
               <span class="post-author">Jean Baudin</span>
-              <a href="../../../02/27/running-end-to-end-tests-kubernetes/">Running your end to end tests on Kubernetes</a>
+              <a href="../../02/27/running-end-to-end-tests-kubernetes/">Running your end to end tests on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Feb 13</span>
               <span class="post-author">Moritz Lenz</span>
-              <a href="../../../02/13/managing-build-versions-pipeline/">Managing Build Versions in your GoCD Pipeline</a>
+              <a href="../../02/13/managing-build-versions-pipeline/">Managing Build Versions in your GoCD Pipeline</a>
             </li>
             <li>
               <span class="post-date">Jan 31</span>
               <span class="post-author">Alison Polton-Simon</span>
-              <a href="../../../01/31/continuous-delivery-metrics/">4 Important Metrics for Continuous Delivery</a>
-            </li>
-            <li>
-              <span class="post-date">Jan 17</span>
-              <span class="post-author">Erin Snyder</span>
-              <a href="../../../01/17/continuous-delivery-beginners-guide/">An absolute beginners guide to Continuous Delivery</a>
+              <a href="../../01/31/continuous-delivery-metrics/">4 Important Metrics for Continuous Delivery</a>
             </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../../">2018 (5)</a></li>
-            <li><a href="../../../../2017/">2017 (39)</a></li>
-            <li><a href="../../../../2016/">2016 (8)</a></li>
-            <li><a href="../../../../2015/">2015 (21)</a></li>
-            <li><a href="../../../../2014/">2014 (26)</a></li>
+            <li><a href="../../">2018 (6)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
           </ol>
         </section>
 
@@ -249,7 +249,7 @@ There are a lot of tools available to model CD workflows. It’s daunting to ini
       <script>
         var disqus_config = function () {
           /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2018/04/24/five-considerations-continuous-delivery-microservices.html";
+          this.page.url = "https://www.go.cd/2018/04/25/five-considerations-continuous-delivery-microservices.html";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
         };
@@ -299,7 +299,7 @@ There are a lot of tools available to model CD workflows. It’s daunting to ini
       </li>
 
       <li>
-      <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      <a href="../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
       </li>
     </ul>
   </div>
@@ -309,17 +309,17 @@ There are a lot of tools available to model CD workflows. It’s daunting to ini
       <div class="row">
         <div class="col-md-2">
           <ul class="unordered-list">
-            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
-            <li><a href="../../../../getting-started/part-1/">GETTING STARTED</a></li>
-            <li><a href="../../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../getting-started/part-1/">GETTING STARTED</a></li>
+            <li><a href="../../../plugins/">PLUGINS</a></li>
           </ul>
         </div>
 
         <div class="col-md-2">
           <ul class="unordered-list">
-            <li> <a href="../../../../events/">WEBINARS + EVENTS</a></li>
-            <li><a href="../../../../resources/">RESOURCES</a></li>
-            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+            <li> <a href="../../../events/">WEBINARS + EVENTS</a></li>
+            <li><a href="../../../resources/">RESOURCES</a></li>
+            <li><a href="../../../contribute/">CONTRIBUTE</a></li>
           </ul>
         </div>
 
@@ -333,7 +333,7 @@ There are a lot of tools available to model CD workflows. It’s daunting to ini
 
         <div class="col-md-2">
           <ul class="unordered-list">
-            <li><a href="../../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
             <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
           </ul>
         </div>
