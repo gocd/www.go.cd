@@ -2,7 +2,7 @@
   "use strict";
 
   function isFirefox() {
-    return !!navigator.userAgent.match(/(mozilla|gecko|firefox)/i)
+    return !!navigator.userAgent.match(/firefox/i)
   }
 
   var LOAD_ERR_MSG = "It looks like our signup form was blocked by an adblocker in your browser! Please email us directly or pause your adblocker to use the form.",
