@@ -44,13 +44,8 @@ meta_keywords: "GoCD, feature announcements, release announcements, continuous d
           Send us a mail to <a href="mailto:support@thoughtworks.com?subject=Sign%20me%20up%20for%20the%20GoCD%20mailing%20list&amp;body=Hello,%0a%0aPlease%20sign%20me%20up.%20My%20details%20are:%0a%0aFirst%20Name:%0aLast%20Name:%0aCompany%20Name:%0a%0aI%20would%20like%20to%20hear%20about:%0a%20%20-%20Product%20updates%0a%20%20-%20Product%20learning%20sessions%0a%20%20-%20Enterprise%20features%20and%20support%0a%20%20-%20The%20Pipeline%20newsletter%0a%0aThank%20you.">support@thoughtworks.com</a> to subscribe to this.
         </div>
       </div>
-      <script type="text/javascript">
-        function initMarketoForm() {
-          MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 3085);
-          jQuery("#backup-subscription-message").remove();
-        }
-      </script>
-      <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+      <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+      <script defer="true" src="/assets/javascripts/marketo_popover.js" onload="new MarketoForm().mailToFallback(3085)"></script>
     </div>
   </div>
 </div>
