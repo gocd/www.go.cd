@@ -86,6 +86,12 @@ A new Docker image GoCD Agent is available for [Debian 9](https://github.com/goc
   * <%= link_to_issue 4452, 'Horizontal scroll appears in Trigger With Options Materials popup' %>
   * <%= link_to_issue 4481, 'CCTray corner cases: NullPointerException because of a pipeline not being in the config when the dashboard looks to update itself.' %>
 
+* There is a known issue with API authentication:
+
+  API requests that wait for a authentication challenge before sending the credentials in the `Authorization` header fail with `401`.
+  This is due to a bug introduced in the pull request <%= link_to_pull_request 4585, '\'SPAs - redirect to login page if unauthorized\''%>
+  The bug essentially responded with a `401` http response before the `WWW-Authenticate` header could be added. More details can be found in the github issue <%= link_to_issue 4682 %>.
+
 
 <h4>Contributors</h4>
 <%= [
