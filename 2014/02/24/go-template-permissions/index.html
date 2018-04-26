@@ -110,13 +110,8 @@
           to subscribe to the Pipeline newsletter.
       </div>
     </div>
-    <script type="text/javascript">
-      function initMarketoForm() {
-        MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", 5414);
-        jQuery("#backup-subscription-message").remove();
-      }
-    </script>
-    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js" onload="initMarketoForm()"></script>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../../assets/javascripts/marketo_popover-423727ce.js" onload="new MarketoForm().mailToFallback(5414)"></script>
 </div>
 
           </section>
