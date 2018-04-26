@@ -6,7 +6,7 @@
   }
 
   var LOAD_ERR_MSG = "It looks like our signup form was blocked by an adblocker in your browser! Please email us directly or pause your adblocker to use the form.",
-      LOAD_ERR_MSG_FFOX = "It looks like our signup form was blocked by Firefox! Please email us directly or try a different broswer to use the form.";
+      LOAD_ERR_MSG_FFOX = "It looks like our signup form was blocked by Firefox! Please email us directly or try a different browser to use the form.";
 
   function MarketoForm() {
     function displayOverlay() {
