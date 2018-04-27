@@ -217,6 +217,13 @@ There is a new analytics extension point which allows analytics to be embedded i
       <li><a href="https://github.com/gocd/gocd/issues/4481">#4481</a> - CCTray corner cases: NullPointerException because of a pipeline not being in the config when the dashboard looks to update itself.</li>
     </ul>
   </li>
+  <li>
+    <p>There is a known issue with API authentication:</p>
+
+    <p>API requests that wait for a authentication challenge before sending the credentials in the <code>Authorization</code> header fail with <code>401</code>.
+This is due to a bug introduced in the pull request <a href="https://github.com/gocd/gocd/pull/4585">#4585</a> - 'SPAs - redirect to login page if unauthorized'.
+The bug essentially responded with a <code>401</code> http response before the <code>WWW-Authenticate</code> header could be added. More details can be found in the github issue <a href="https://github.com/gocd/gocd/issues/4682">#4682</a>.</p>
+  </li>
 </ul>
 
 <h4>Contributors</h4>
