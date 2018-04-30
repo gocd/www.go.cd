@@ -30,21 +30,13 @@ Regardless of the target deployment environment or your architecture choice, mon
 
 ## Four Challenges for CD on Microservices
 
-1. Maintaining the integrity of complex distributed systems
+1. **Maintaining the integrity of complex distributed systems.** Since you decompose a large monolithic system into smaller, more manageable microservices, the overall complexity of the system itself increases. You now have to deal with distributed systems concerns.
 
-Since you decompose a large monolithic system into smaller, more manageable microservices, the overall complexity of the system itself increases. You now have to deal with distributed systems concerns.
+2. **Safely and rapidly releasing features constantly.** Managing frequent feature releases needs special consideration when your features could involve changes in one or many microservices.
 
-2. Safely and rapidly releasing features constantly
+3. **Managing deployments of disparate technology stacks.** Microservice environments often include disparate technology stacks for services. Managing a deployment process across these different stacks is challenging.
 
-Managing frequent feature releases needs special consideration when your features could involve changes in one or many microservices.
-
-3. Managing deployments of disparate technology stacks
-
-Microservice environments often include disparate technology stacks for services. Managing a deployment process across these different stacks is challenging.
-
-4. Process and tooling for deploying services independently and out of band
-
-There are a lot of tools available to model CD workflows. It’s daunting to initially map out your CD workflow and pick tooling that best represents this workflow.
+4. **Process and tooling for deploying services independently and out of band.** There are a lot of tools available to model CD workflows. It’s daunting to initially map out your CD workflow and pick tooling that best represents this workflow.
 
 ## Five Considerations for CD on Microservices
 
