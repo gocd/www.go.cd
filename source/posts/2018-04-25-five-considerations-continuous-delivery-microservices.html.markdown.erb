@@ -31,20 +31,24 @@ Regardless of the target deployment environment or your architecture choice, mon
 ## Four Challenges for CD on Microservices
 
 1. Maintaining the integrity of complex distributed systems
+
 Since you decompose a large monolithic system into smaller, more manageable microservices, the overall complexity of the system itself increases. You now have to deal with distributed systems concerns.
 
 2. Safely and rapidly releasing features constantly
+
 Managing frequent feature releases needs special consideration when your features could involve changes in one or many microservices.
 
 3. Managing deployments of disparate technology stacks
+
 Microservice environments often include disparate technology stacks for services. Managing a deployment process across these different stacks is challenging.
 
 4. Process and tooling for deploying services independently and out of band
+
 There are a lot of tools available to model CD workflows. It’s daunting to initially map out your CD workflow and pick tooling that best represents this workflow.
 
 ## Five Considerations for CD on Microservices
 
-There are five considerations I recommend keeping in mind when you design a CD workflow on microservices architectures. I will have in depth discussion for each of them in the following posts of this series. Here is just an overview:
+There are five considerations I recommend keeping in mind when you design a CD workflow on microservices architectures. I will have an in-depth discussion for each of them in the following posts of this series. Here is just an overview:
 
 **1. Have an effective test strategy**
 
@@ -80,7 +84,7 @@ An application’s configuration includes everything that varies per deployment 
 
 One technique we've seen to be useful is to manage deployment configuration centrally in repositories like [Consul](https://www.consul.io/) or [Vault](https://www.vaultproject.io/). Spreading deployment configurations across tools like [Chef](https://www.chef.io/chef/) and the CD pipeline just makes it hard to understand and reason.
 
-Another technique we use is to standardize processes for distributing configuration regardless of the technology stack of your services, and just let services handle the consuming of this configuration depending on the stack.  For example, we generally use the [12 factor recommendations](https://12factor.net/) and avoid distributing configuration files.
+Another technique we use is to standardize processes for distributing configuration regardless of the technology stack of your services, and just let services handle the consuming of this configuration depending on the stack.  For example, we generally use the [12-factor recommendations](https://12factor.net/) and avoid distributing configuration files.
 
 And lastly, secrets like certificates need a governance process to ensure they are managed appropriately. This is usually a manual process but you need to think about it earlier and get it in place.
 
@@ -96,4 +100,4 @@ Rollbacks are always tricky in production systems. In most cases if the change i
 
 ## Summary
 
-This is the part 1 of our Continuous Delivery of Microservices blog series. We have talked about four challenges and five considerations for building CD pipelines on microservices architecture. In the next blog I will have in depth discussion on the first consideration: testing strategy for microservices system.
+This is the part 1 of our Continuous Delivery of Microservices blog series. We have talked about four challenges and five considerations for building CD pipelines on microservices architecture. In the next blog, I will have an in-depth discussion on the first consideration: testing strategy for a system based on microservices architectures.
