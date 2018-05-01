@@ -1022,8 +1022,8 @@ h1.main-caption {
 
         .plugin-image {
             width: 100%;
-            height: 400px;
-            background-color: #bada55;
+            height: auto;
+            border: 1px solid #dddddd;
             margin-bottom: 2em;
         }
         @media(max-width: 991px) {
