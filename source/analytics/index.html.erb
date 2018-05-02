@@ -14,11 +14,24 @@ show_features: true
 
     <div class="header">
       <div class="container">
-        <div class="col-md-10 col-md-offset-1">
-          <h1>Use CD Metrics to Improve Your <span class="highlight">Build</span></h1>
+        <div class= "row">
+          <div class="col-md-10 col-md-offset-1">
+            <h1><span class="highlight">CD Metrics</span> to<br/>Improve Your Build</h1>
+          </div>
+        </div>
+      <div class="row">
+        <div class="cta-row">
+
+
+        <% link_to '/enterprise/contact/index.html' do %>
+          <div class="cta-button-ghost">
+            <h3>GET STARTED NOW</h3>
+          </div>
+        <% end %>
         </div>
       </div>
     </div>
+  </div>
 
     <div class="container intro-section">
       <div class="row intro-row">
@@ -44,20 +57,20 @@ show_features: true
 
           <div class="col-md-4 feature">
             <h3>Visibility Into<br/>Pipeline Status</h3>
-<!--             <%= image_tag "campaign/enterprise/business.svg", {:title => "Fits Into Your Ecosystem", :alt => "Ecosystem illustration", :class => 'illo'} %> -->
+            <%= image_tag "campaign/analytics/status.svg", {:title => "Visibility Into Pipeline Status", :alt => "Pipeline Status illustration", :class => 'illo'} %>
             <p>GoCD’s analytics plugin gives real time visibility into your deployment pipelines. Metrics like pipeline times, wait times and mean time to recovery are at your fingertips.</p>
           </div>
 
 
           <div class="col-md-4 feature">
             <h3>Identify Bottlenecks<br/>in Your Process</h3>
-<!--              <%= image_tag "campaign/enterprise/postgres.svg", {:title => "Continuous Delivery at Scale", :alt => "CD illustration", :class => 'illo'} %> -->
+              <%= image_tag "campaign/analytics/bottleneck.svg", {:title => "Identify Bottlenecks in Your Process", :alt => "CD illustration", :class => 'illo'} %> 
              <p>GoCD provides both in-context pipeline analytics and top-level metrics to illuminate bottlenecks in your deployment process and help you streamline it.</p>
           </div>
 
           <div class="col-md-4 feature">
             <h3>Maximize Utilization<br/>Through Analytics</h3>
-<!--             <%= image_tag "campaign/enterprise/support.svg", {:title => "Professional Support", :alt => "Chat illustration", :class => 'illo'} %> -->
+             <%= image_tag "campaign/analytics/analytics.svg", {:title => "Maximize Utilization Through Analytics", :alt => "Chat illustration", :class => 'illo'} %>
             <p>Which jobs are the slowest? Which agents have the longest wait time? GoCD’s analytics plugin answers these questions and more, helping you optimize your resources for best throughput.</p>
           </div>
         </div>
@@ -68,41 +81,55 @@ show_features: true
     </div>
 
     <div class="container plugins-section">
-      <div class="row plugins-row">
 
-        <div class="col-md-8 col-md-offset-2">
-          <h3>Pipeline Status at One Glance</h3>
-          <div class="plugin-image">
+      <div class="row plugins-row">
+        <div class="col-md-7">
+            <div class="plugin-image">
             <%= image_tag "campaign/analytics/build_time1.jpg", {:title => "Pipeline status at One Glance", :alt => "GoCD Build Time Graph", } %>
           </div>
         </div>
+        <div class="col-md-5">
+          <h3>Pipeline Status at One Glance</h3>
+          <p>Another world, network of wormholes? Are creatures of the cosmos a still more glorious dawn awaits Jean-Francois Champollion cosmos gathered by gravity a billion trillion venture, Hypatia? The carbon in our apple pies preserve and cherish that pale blue dot. Vanquish the impossible?</p>
+        </div>
+      </div>
 
-        <div class="col-md-8 col-md-offset-2">
-          <h3>Pipeline Waiting Chart with Easy Drill-down</h3>
+      <div class="row plugins-row">
+        <div class="col-md-7">
           <div class="plugin-image">
-            <%= image_tag "campaign/analytics/utilization.png", {:title => "Pipeline Waiting Chart with Easy Drill-down", :alt => "GoCD Pipeline Utilization Chart", } %>
+          <%= image_tag "campaign/analytics/utilization.png", {:title => "Pipeline Waiting Chart with Easy Drill-down", :alt => "GoCD Pipeline Utilization Chart", } %>
           </div>
         </div>
+        <div class="col-md-5">
+          <h3>Pipeline Waiting Chart with Easy Drill-Down</h3>
+          <p>Another world, network of wormholes? Are creatures of the cosmos a still more glorious dawn awaits Jean-Francois Champollion cosmos gathered by gravity a billion trillion venture, Hypatia? The carbon in our apple pies preserve and cherish that pale blue dot. Vanquish the impossible?</p>
+        </div>
+      </div>
 
-        <div class="col-md-8 col-md-offset-2">
-          <h3>Agent Utilization Chart with Easy Drill-down</h3>
+      <div class="row plugins-row">
+        <div class="col-md-7">
           <div class="plugin-image">
-            <%= image_tag "campaign/analytics/wait_time.png", {:title => "Agent Utilization Chart with Easy Drill-down", :alt => "GoCD Agent Utilization Chart", } %>
+          <%= image_tag "campaign/analytics/wait_time.png", {:title => "Agent Utilization Chart with Easy Drill-down", :alt => "GoCD Agent Utilization Chart", } %>
           </div>
+        </div>
+        <div class="col-md-5">
+          <h3>Agent Utilization Chart with Easy Drill-Down</h3>
+          <p>Another world, network of wormholes? Are creatures of the cosmos a still more glorious dawn awaits Jean-Francois Champollion cosmos gathered by gravity a billion trillion venture, Hypatia? The carbon in our apple pies preserve and cherish that pale blue dot. Vanquish the impossible?</p>
         </div>
       </div>
 
       <div class="hr"></div>
+
     </div>
 
     <div class="cta-section">
       <h1>Get Started with GoCD Analytics</h1>
       <div class="cta-row">
-        <a href="https://docs.gocd.org/current/gocd_on_kubernetes/">
+        <% link_to '/enterprise/contact/index.html' do %>
           <div class="cta-button">
             <h3>GET STARTED NOW</h3>
           </div>
-        </a>
+        <% end %>
       </div>
     </div>
 

@@ -550,7 +550,7 @@ h1.main-caption {
     }
 }
 
-// Kubernetes
+
 // Kubernetes
 .kubernetes {
     // Global page elements
@@ -704,7 +704,9 @@ h1.main-caption {
                 }
             }
         }
-    } //First Section
+    }
+
+    //First Section
     .intro-section {
         .intro-row {
             margin-top: 2em;
@@ -886,6 +888,7 @@ h1.main-caption {
 
 // Analytics
 .analytics {
+    
     // Global page elements
     h1 {
         font-family: 'URWGeometric-Semibold';
@@ -909,7 +912,10 @@ h1.main-caption {
     main {
         padding-top: 0;
         overflow: hidden;
-    } //Section Specific Elements
+    }
+
+    //Section Specific Elements
+
     //Banner
     .header {
         margin-bottom: 1em;
@@ -928,6 +934,7 @@ h1.main-caption {
             font-size: 5em;
             line-height: .9em;
             text-align: center;
+            margin-bottom: 20px;
         }
         @media (max-width:490px) {
             height: 300px;
@@ -935,7 +942,93 @@ h1.main-caption {
                 font-size: 3em;
             }
         }
-    } //First Section
+
+        .cta-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            @media (max-width: 511px) {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta-button {
+                height: 4em;
+                width: 20em;
+                background: #1C425C;
+                border-radius: 2px;
+                -webkit-transition: background .2s;
+                /* Safari */
+                transition: background .2s;
+                margin: .5em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                h3 {
+                    font-size: 1.5em;
+                    color: #FFFFFF;
+                }
+                &:hover {
+                    background: #C8DB57;
+                    cursor: pointer;
+                    h3 {
+                        color: #FFFFFF;
+                    }
+                }
+                &:active {
+                    background: #BDD350;
+                    cursor: pointer;
+                    h3 {
+                        color: #FFFFFF;
+                    }
+                }
+                @media (max-width:991px) {
+                    height: 3.5em;
+                    width: 16em;
+                    h3 {
+                        font-size: 1.4em;
+                    }
+                }
+            }
+            .cta-button-ghost {
+                height: 4em;
+                width: 20em;
+                border: 2px solid #FFFFFF;
+                border-radius: 2px;
+                -webkit-transition: background .2s, border 0s;
+                /* Safari */
+                transition: background .2s, border 0s;
+                margin: .5em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                h3 {
+                    color: #FFFFFF;
+                    font-size: 1.5em;
+                }
+                &:hover {
+                    border: none;
+                    background: #C8DB57;
+                    cursor: pointer;
+                    h3 {
+                        color: #FFFFFF;
+                    }
+                }
+                &:active {
+                    background: #BDD350;
+                    cursor: pointer;
+                }
+                @media (max-width:991px) {
+                    height: 3.5em;
+                    width: 16em;
+                    h3 {
+                        font-size: 1.4em;
+                    }
+                }
+            }
+        }
+    }
+
+    //First Section
     .intro-section {
         .intro-row {
             margin-top: 2em;
@@ -962,7 +1055,9 @@ h1.main-caption {
         .vsm-illo {
             margin-bottom: 1em;
         }
-    } //Second Section, Features
+    }
+
+    //Second Section, Features
     .feature-section {
         margin-bottom: 1em;
         h1 {
@@ -982,6 +1077,7 @@ h1.main-caption {
                     height: 160px;
                     width: auto;
                     margin: auto;
+                    margin-bottom: 20px;
                 }
                 p {
                     text-align: justify;
@@ -1003,10 +1099,18 @@ h1.main-caption {
                 }
             }
         }
-    } // Plugins
+    }
+
+    // Plugins
     .plugins-section {
         h3 {
-            text-align: center;
+            text-align: left;
+            margin-top: 0;
+
+            @media(max-width: 767px) {
+                text-align: center;
+                margin-top: auto;
+            }
         }
         p {
             text-align: left;
@@ -1041,7 +1145,9 @@ h1.main-caption {
                 }
             }
         }
-    } //Outro
+    }
+
+    //Outro
     .outro-section {
         h1 {
             text-align: center;
@@ -1049,7 +1155,9 @@ h1.main-caption {
         .outro-text {
             margin-bottom: 3em;
         }
-    } //Form Section, Sales Funnel
+    }
+
+    //Form Section, Sales Funnel
     .form-section {
         margin-top: 1em;
         margin-bottom: 1em;
