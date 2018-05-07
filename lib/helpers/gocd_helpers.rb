@@ -41,7 +41,16 @@ module GoCDHelpers
   end
 
   def link_to_issue(number, text='')
-    concat_content(link_to("##{number}", "https://github.com/gocd/gocd/issues/#{number}"))
+    if number =~ /(.*)\/(.*)#(.*)/
+      url = "https://github.com/#{$1}/#{$2}/issues/#{$3}"
+      number = $3
+    else
+      url = "https://github.com/gocd/gocd/issues/#{number}"
+    end
+
+    number = number.to_s.gsub(/#.*/, '')
+
+    concat_content(link_to("##{number}", url))
     concat_content(' - ') unless text == ''
     concat_content(text)
   end
