@@ -33,7 +33,11 @@ module GoCDHelpers
   end
 
   def link_to_api(api_section, text='API')
-    link_to text, "https://api.gocd.org/current/##{api_section}"
+    link_to_versioned_api('current', api_section, text)
+  end
+
+  def link_to_versioned_api(version, api_section, text='API')
+    link_to text, "https://api.gocd.org/#{version}/##{api_section}"
   end
 
   def link_to_plugin_api(api_section, text='PLUGIN API')
@@ -41,16 +45,9 @@ module GoCDHelpers
   end
 
   def link_to_issue(number, text='')
-    if number =~ /(.*)\/(.*)#(.*)/
-      url = "https://github.com/#{$1}/#{$2}/issues/#{$3}"
-      number = $3
-    else
-      url = "https://github.com/gocd/gocd/issues/#{number}"
-    end
-
     number = number.to_s.gsub(/#.*/, '')
 
-    concat_content(link_to("##{number}", url))
+    concat_content(link_to("##{number}", "https://github.com/gocd/gocd/issues/#{number}"))
     concat_content(' - ') unless text == ''
     concat_content(text)
   end

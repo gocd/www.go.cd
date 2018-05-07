@@ -7,26 +7,31 @@ We have performed some optimizations in order to significantly reduce the number
 <h4>Improvements</h4>
 
   * <%= link_to_issue 4664, 'Improved logging on GoCD server when agent registration fails.' %>
-  * <%= link_to_issue 4577, 'Use the same XML tag to represent fetch task for built in artifact and pluggable artifacts.' %>
-  * <%= link_to_commit 'c34dcf05f4552e706333354616066a9d78f39b13', 'Upgrade jetty to 9.4.9.' %>
+  * <%= link_to_issue 4610, "Add an origin attribute on fetch task. The origin attribute indicates where to fetch the artifact from. For all artifacts fetched from the gocd server, the value is 'gocd'" %>
+  * <%= link_to_issue 4630, 'Upgrade jetty to version 9.4.9.' %>
 
 <h4>Bug fixes</h4>
 
-  * <%= link_to_issue 'gocd/gocd-filebased-authentication-plugin#20', 'File based authentication now supports UTF-8 usernames.' %> 
-  * <%= link_to_issue 'gocd/gocd-ldap-authentication-plugin#39', 'Do not allow logging in if multiple users match a given LDAP login.' %>
-  * <%= link_to_issue 4675, 'Server side timestamps are rendered properly when DST is in effect.' %>
+  * <%= link_to_issue 4675, 'Server side timestamps are rendered properly when daylight saving is in effect.' %>
   * <%= link_to_issue 4691, "Allow logged in users to access #{link_to_api 'plugin-info', 'PluginInfos API'}." %>
   * <%= link_to_issue 4673, "Allow `null` environment variable value in config repo plugins." %>
-  * <%= link_to_issue 3908, "Allow adding users when adding users from the 'User summary' page." %>
+  * <%= link_to_issue 3908, "Browse for multiple users and add them in the User summary page." %>
   * <%= link_to_issue 4690, "Fixed some issues with case-insensitive renames of pipeline names." %>
+  * <%= link_to_issue 4698, "Do not truncate long pipeline name." %>
+  * <%= link_to_issue 4682, "Do not send a HTTP basic authentication challenge for API requests sent by the browser over AJAX." %>
+
+<h4>Bundled plugins</h4>
+
+* Upgraded the bundled LDAP authentication plugin to version 1.0.2. See the [plugin CHANGELOG](https://github.com/gocd/gocd-ldap-authentication-plugin/blob/master/CHANGELOG.md) for more details.
+* Upgraded the bundled file based authentication plugin to version 1.0.2. See the [plugin CHANGELOG](https://github.com/gocd/gocd-filebased-authentication-plugin/blob/master/CHANGELOG.md) for more details.
 
 <h4>Deprecations</h4>
 
   * As of release 18.2.0 the following (unversioned) APIs have been deprecated and will be removed in a release scheduled for June 2018:
-      * The pipeline <%= link_to_api 'pause-a-pipeline', 'pause api' %>
-      * The pipeline <%= link_to_api 'unpause-a-pipeline', 'unpause api' %>
-      * The pipeline <%= link_to_api 'releasing-a-pipeline-lock', 'unlock api' %>
-      * The pipeline <%= link_to_api 'scheduling-pipelines', 'schedule api' %>
+      * The pipeline <%= link_to_versioned_api '18.2.0', 'pause-a-pipeline', 'pause api' %>.
+      * The pipeline <%= link_to_versioned_api '18.2.0', 'unpause-a-pipeline', 'unpause api' %>.
+      * The pipeline <%= link_to_versioned_api '18.2.0', 'releasing-a-pipeline-lock', 'unlock api' %>.
+      * The pipeline <%= link_to_versioned_api '18.2.0', 'scheduling-pipelines', 'schedule api' %>.
 
     These APIs have been replaced with a versioned API and users are encouraged to use these instead.
 
@@ -34,12 +39,12 @@ We have performed some optimizations in order to significantly reduce the number
 
   * The elastic agent plugin extension version 1 and (a development verion 2) has been deprecated. These versions will be removed in a release scheduled for June 2018. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
 
-  * The <%= link_to_api 'plugin-info', 'Plugin Info API' %> v3 has been deprecated as part of 18.3.0. This version of the API will be removed in a release scheduled for July 2018. Version 4 of the API is available, and users are encouraged to use it.
+  * The <%= link_to_versioned_api '18.2.0', 'plugin-info', 'Plugin Info API' %> v3 has been deprecated as part of 18.3.0. This version of the API will be removed in a release scheduled for July 2018. Version 4 of the API is available, and users are encouraged to use it.
 
 
 <h4>Breaking changes</h4>
 
-  * The [Agent Docker Image for Debian 7](https://github.com/gocd/docker-gocd-agent-debian-7) will not be built with newer version of GoCD. Users wanting to build a gocd agent image for debian 7 can for [the repository](https://github.com/gocd/docker-gocd-agent-debian-7) to build an image.
+  * The [Agent Docker Image for Debian 7](https://github.com/gocd/docker-gocd-agent-debian-7) will not be built with newer version of GoCD. Users wanting to build a gocd agent image for debian 7 can fork [the repository](https://github.com/gocd/docker-gocd-agent-debian-7) to build an image.
 
 <h4>Known Issues</h4>
 
@@ -57,7 +62,6 @@ We have performed some optimizations in order to significantly reduce the number
   "Ankur K",
   "Aravind SV",
   "Bhupendrakumar Piprava",
-  "Christoph Burgmer",
   "Ganesh S Patil",
   "Isabelle Carter",
   "Jyoti Singh",
@@ -71,17 +75,13 @@ We have performed some optimizations in order to significantly reduce the number
   "Rajiesh N",
   "Senthil R",
   "Tomasz Sętkowski",
-  "Varsha Varadarajan",
-  "Steven Streisguth",
-  "Rafael Nunes",
-  "John Eismeier",
-  "Ted Timmons"
+  "Varsha Varadarajan"
 ].sort.uniq.join(', ')
 %>
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.3' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.4' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
