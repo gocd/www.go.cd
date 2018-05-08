@@ -3,11 +3,12 @@ layout: post
 title: Test Strategy for Microservices
 type: post
 author: Sheroy Marker
-excerpt: "In the first of this blog series, we will share the considerations to keep in mind in architecture design and application development."
+excerpt: "In the second post of this blog series, we will dig deeper into testing strategies for a microservices architecture.."
 summary_image: "/assets/images/blog/cd-considerations/5-consideration-microservices-gocd.jpg"
 title_tag_of_header: "Testing Strategy for Microservices | GoCD Blog"
 meta_description: "GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes."
 meta_keywords: "testing strategies, microservices, continuous delivery, microservices architecture, deployment strategies, e2e tests, unit tests, end to end tests, blue green deployment, canary deployment"
+tags: CD for Microservices
 draft: true
 ---
 <% content_for :banner do %>
@@ -16,7 +17,7 @@ draft: true
   </figure>
 <% end %>
 
-This is the second post in the series - Continuous Delivery of Microservices. [In the previous post](https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices/), I gave an overview of five considerations for building CD pipelines on a microservices architecture. In this post, we’ll get deeper into testing strategy.
+This is the second post in the series - [Continuous Delivery for Microservices](https://www.gocd.org/tags/cd-for-microservices.html). [In my previous post](https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices/), I gave an overview of five considerations for building CD pipelines on a microservices architecture. In this post, we’ll get deeper into testing strategy.
 
 ## Test Strategy 
 
@@ -26,7 +27,7 @@ A microservices architecture involves many moving parts with different guarantee
 
 ## Pre-production testing of services
 
-Here’s a simple example where you have build pipelines for multiple services and you're testing a service in isolation. In this case, the traditional test pyramid helps to maintain a balance between the different types of tests. 
+Here’s a simple example where you have build pipelines for multiple services and you're testing a service in isolation. In this case, the traditional [test pyramid](https://martinfowler.com/bliki/TestPyramid.html) helps to maintain a balance between the different types of tests. 
 
 In a typical test pyramid, you have:
 
@@ -69,5 +70,4 @@ Another interesting variation of this kind of testing is multivariate testing, w
 
 ## Summary
 
-This is the part 2 of our Continuous Delivery of Microservices blog series. We have talked in depth about testing strategies for microservices, which include how to apply traditional testing pyramids to pre-production testing for microservices and also new techniques for production monitoring and testing. In my next post, we will talk about the second consideration: CI practices for microservices systems. 
-
+This is part 2 of our Continuous Delivery for Microservices blog series. We have talked in depth about testing strategies for microservices, which include how to apply traditional testing pyramids to pre-production testing for microservices and also new techniques for production monitoring and testing. In my next post, we will talk about the second consideration: CI practices for microservices systems. 
