@@ -20,7 +20,7 @@ This is the second post in the series - [Continuous Delivery for Microservices](
 
 ## Test Strategy 
 
-A microservices architecture involves many moving parts with different guarantees and failure modes. Testing and verification of these systems is significantly more nuanced and complex than testing a traditional monolithic application. An effective test strategy needs to account for both testing individual services in isolation and the verification of overall system behavior. You can broadly break testing down into two categories: pre-production testing and monitoring and testing in production. 
+A microservices architecture involves many moving parts with different guarantees and failure modes. Testing and verification of these systems are significantly more nuanced and complex than testing a traditional monolithic application. An effective test strategy needs to account for both testing individual services in isolation and the verification of overall system behavior. You can broadly break testing down into two categories: pre-production testing and monitoring and testing in production. 
 
 <img src="/assets/images/blog/cd-considerations/test-strategy.jpeg" alt="Test Strategies for Microservices"/>
 
@@ -37,10 +37,10 @@ Tests that cover the smallest piece of testable functionality in your software.
 Integration tests, in this context, deal with testing integrations and interface defects for components within your service; these are more granular tests.
 
 **Component tests**<br/>
-When you look at component tests for microservices, a component is a service that exposes certain functionalities. Therefore, component tests for microservice can just be acceptance tests for services and your tests need to validate whether the service provide the functionality that it promises to.
+When you look at component tests for microservices, a component is a service that exposes certain functionalities. Therefore, component tests for microservice can just be acceptance tests for services and your tests need to validate whether the service provides the functionality that it promises to.
 
 **Contract tests**<br/>
-Another category of tests that's very applicable to microservices are contract tests. They test the contracts of APIs of your services to see if the API is valid or if the microservice honors its API. A cool variation of these contract tests is consumer driven contract tests. These tests are written by consumer services of an API; the consumers codify this contract in a suite of tests that get run on every change to the API. That way, if a change to the API breaks a contract that one of it’s consumers expects, this breaking change is caught early in the CD pipeline. 
+Another category of tests that's very applicable to microservices are contract tests. They test the contracts of APIs of your services to see if the API is valid or if the microservice honors its API. A cool variation of these contract tests is consumer driven contract tests. These tests are written by consumer services of an API; the consumers codify this contract in a suite of tests that get run on every change to the API. That way, if a change to the API breaks a contract that one of its consumers expect, this breaking change is caught early in the CD pipeline. 
 
 **End-to-end tests**<br/>
 The test suites we discussed earlier are applicable to testing individual services. End-to-end tests, however, are more coarse-grained and try to test the functionality of an overall system. Depending on the deployment architecture you're going for, if you are deploying all of your services in a pre-production environment in an aggregate manner, you can run end-to-end tests there. Since end-to-end tests are usually brittle and take a long time to run, you’ll usually want to restrict the number of these tests to as few as possible. If you have microservices that are completely independent and don't get deployed to a pre-production test environment, then consider approaches that test in production.
@@ -59,13 +59,13 @@ A variation of in-production testing are some specific deployment strategies tha
 
 <img src="/assets/images/blog/continuous-deployment-strategies/canary-release.jpeg" alt="Canary deployments"/>
 
-**Blue/Green deployment**<br/>
-[Blue green deployments](https://www.gocd.org/2017/07/25/blue-green-deployments/) are similar, where you have a new footprint of your new service, and then you do some testing and route some traffic through it. If everything is fine, you switch over all of your traffic to the new instance of services, otherwise, you keep the old footprint going.
+**Blue-Green deployment**<br/>
+[Blue-green deployments](https://www.gocd.org/2017/07/25/blue-green-deployments/) are similar, where you have a new footprint of your new service, and then you do some testing and route some traffic through it. If everything is fine, you switch over all of your traffic to the new instance of services, otherwise, you keep the old footprint going.
 
 <img src="/assets/images/blog/continuous-deployment-strategies/blue-green-deployments.jpeg" alt="Blue green deployments"/>
 
 **Multivariate testing**<br/>
-Another interesting variation of this kind of testing is multivariate testing, where you're not really testing your new service against defects, instead you are A/B testing new release features behind A/B testing toggles. The purpose of this type of testing is to see how well these features are received. You can decide roll it out to your entire set of users or make fixes where necessary. 
+Another interesting variation of this kind of testing is multivariate testing, where you're not really testing your new service against defects, instead, you are A/B testing new release features behind A/B testing toggles. The purpose of this type of testing is to see how well these features are received. You can decide roll it out to your entire set of users or make fixes where necessary. 
 
 ## Summary
 
