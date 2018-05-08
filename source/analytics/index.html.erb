@@ -55,13 +55,13 @@ show_features: true
           <div class="col-md-4 feature">
             <h3>Visibility Into<br/>Pipeline Status</h3>
             <%= image_tag "campaign/analytics/status.svg", {:title => "Visibility Into Pipeline Status", :alt => "Pipeline Status illustration", :class => 'illo'} %>
-            <p>GoCD’s analytics plugin gives real time visibility into your deployment pipelines. Metrics like pipeline times, wait times, and mean time to recovery are at your fingertips.</p>
+            <p>GoCD’s analytics plugin gives real-time visibility into your deployment pipelines. Metrics like pipeline times, wait times, and mean time to recovery are at your fingertips.</p>
           </div>
 
 
           <div class="col-md-4 feature">
             <h3>Identify Bottlenecks<br/>in Your Process</h3>
-              <%= image_tag "campaign/analytics/bottleneck.svg", {:title => "Identify Bottlenecks in Your Process", :alt => "CD illustration", :class => 'illo'} %> 
+              <%= image_tag "campaign/analytics/bottleneck.svg", {:title => "Identify Bottlenecks in Your Process", :alt => "CD illustration", :class => 'illo'} %>
              <p>GoCD provides both in-context pipeline analytics and top-level metrics to illuminate bottlenecks in your deployment process and help you streamline it.</p>
           </div>
 
@@ -87,31 +87,43 @@ show_features: true
         </div>
         <div class="col-md-5">
           <h3>Pipeline Status at One Glance</h3>
-          <p>The pipeline level analytics gives insights into pipeline runs. It provides information about pipeline build time and wait time over all the pipeline runs. It also shows the “Mean Time to Recovery” from a failure for that pipeline.</p>
+
+          <p>
+            The pipeline level analytics gives insights into pipeline runs. It provides information about pipeline build time and wait time
+            over all the pipeline runs. It also shows the "Mean Time to Recovery" from a failure for that pipeline.
+          </p>
         </div>
       </div>
 
       <div class="row plugins-row">
         <div class="col-md-7">
           <div class="plugin-image">
-          <%= image_tag "campaign/analytics/utilization.png", {:title => "Pipeline Waiting Chart with Easy Drill-down", :alt => "GoCD Pipeline Utilization Chart", } %>
+          <%= image_tag "campaign/analytics/wait_time.png", {:title => "Pipeline Waiting Chart with Easy Drill-down", :alt => "GoCD Pipeline Utilization Chart", } %>
           </div>
         </div>
         <div class="col-md-5">
           <h3>Pipeline Waiting Chart with Easy Drill-Down</h3>
-          <p>The top level analytics provides you insights about pipelines with the highest wait time. Drill down to the jobs in a chosen pipeline and view, the highest wait time, and dive further to the individual job instances to see their build and wait times.</p>
+
+          <p>
+            The top level analytics provides insights about pipelines with the highest wait time. Drill down to see jobs in a chosen
+            pipeline with the highest wait time, and dive further down to the individual job instances to see their build and wait times.
+          </p>
         </div>
       </div>
 
       <div class="row plugins-row">
         <div class="col-md-7">
           <div class="plugin-image">
-          <%= image_tag "campaign/analytics/wait_time.png", {:title => "Agent Utilization Chart with Easy Drill-down", :alt => "GoCD Agent Utilization Chart", } %>
+          <%= image_tag "campaign/analytics/utilization.png", {:title => "Agent Utilization Chart with Easy Drill-down", :alt => "GoCD Agent Utilization Chart", } %>
           </div>
         </div>
         <div class="col-md-5">
           <h3>Agent Utilization Chart with Easy Drill-Down</h3>
-          <p>Agent utilization chart shows you agents with the highest utilization. You can drill down to the jobs with the highest wait time and further down to the individual job instances of a chosen job to see their build and wait times. Drill down to see things like jobs with highest wait times, or individual job instance build and wait times.</p>
+
+          <p>
+            Agent utilization chart shows you agents with the highest utilization. You can drill down to the jobs with the highest wait time
+            for a chosen agent and further down to the individual job instances of a chosen job to see their build and wait times.
+          </p>
         </div>
       </div>
 
