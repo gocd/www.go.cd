@@ -8,12 +8,12 @@
     <meta content="testing strategies, microservices, continuous delivery, microservices architecture, deployment strategies, e2e tests, unit tests, end to end tests, blue green deployment, canary deployment" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
-    <meta name="twitter:title" content="Testing Strategy for Microservices | GoCD Blog" />
+    <meta name="twitter:title" content="Test Strategy for Microservices | GoCD Blog" />
     <meta name="twitter:description" content="GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes." />
     <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-considerations/test-strategy-microservices-a668284d.jpg" />
     <link rel="canonical" href="https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy.html" />
 
-    <title>Testing Strategy for Microservices | GoCD Blog</title>
+    <title>Test Strategy for Microservices | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../../../assets/stylesheets/site-aa863bcc.css" rel="stylesheet" />
     <script src="../../../assets/javascripts/all-219cc2a3.js"></script>
@@ -83,11 +83,11 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>This is the second post in the series - <a href="https://www.gocd.org/tags/cd-for-microservices.html">Continuous Delivery for Microservices</a>. <a href="https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices/">In my previous post</a>, I gave an overview of five considerations for building CD pipelines on a microservices architecture. In this post, we’ll get deeper into testing strategy.</p>
+<p>This is the second post in the series - <a href="https://www.gocd.org/tags/cd-for-microservices.html">Continuous Delivery for Microservices</a>. <a href="https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices/">In my previous post</a>, I gave an overview of five considerations for building CD pipelines on a microservices architecture. In this post, we’ll get deeper into test strategy.</p>
 
 <h2 id="test-strategy">Test Strategy</h2>
 
-<p>A microservices architecture involves many moving parts with different guarantees and failure modes. Testing and verification of these systems is significantly more nuanced and complex than testing a traditional monolithic application. An effective test strategy needs to account for both testing individual services in isolation and the verification of overall system behavior. You can broadly break testing down into two categories: pre-production testing and monitoring and testing in production.</p>
+<p>A microservices architecture involves many moving parts with different guarantees and failure modes. Testing and verification of these systems are significantly more nuanced and complex than testing a traditional monolithic application. An effective test strategy needs to account for both testing individual services in isolation and the verification of overall system behavior. You can broadly break testing down into two categories: pre-production testing and monitoring and testing in production.</p>
 
 <p><img src="../../../assets/images/blog/cd-considerations/test-strategy-0cde2295.jpeg" alt="Test Strategies for Microservices" /></p>
 
@@ -104,10 +104,10 @@ Tests that cover the smallest piece of testable functionality in your software.<
 Integration tests, in this context, deal with testing integrations and interface defects for components within your service; these are more granular tests.</p>
 
 <p><strong>Component tests</strong><br />
-When you look at component tests for microservices, a component is a service that exposes certain functionalities. Therefore, component tests for microservice can just be acceptance tests for services and your tests need to validate whether the service provide the functionality that it promises to.</p>
+When you look at component tests for microservices, a component is a service that exposes certain functionalities. Therefore, component tests for microservice can just be acceptance tests for services and your tests need to validate whether the service provides the functionality that it promises to.</p>
 
 <p><strong>Contract tests</strong><br />
-Another category of tests that's very applicable to microservices are contract tests. They test the contracts of APIs of your services to see if the API is valid or if the microservice honors its API. A cool variation of these contract tests is consumer driven contract tests. These tests are written by consumer services of an API; the consumers codify this contract in a suite of tests that get run on every change to the API. That way, if a change to the API breaks a contract that one of it’s consumers expects, this breaking change is caught early in the CD pipeline.</p>
+Another category of tests that's very applicable to microservices are contract tests. They test the contracts of APIs of your services to see if the API is valid or if the microservice honors its API. A cool variation of these contract tests is consumer driven contract tests. These tests are written by consumer services of an API; the consumers codify this contract in a suite of tests that get run on every change to the API. That way, if a change to the API breaks a contract that one of its consumers expect, this breaking change is caught early in the CD pipeline.</p>
 
 <p><strong>End-to-end tests</strong><br />
 The test suites we discussed earlier are applicable to testing individual services. End-to-end tests, however, are more coarse-grained and try to test the functionality of an overall system. Depending on the deployment architecture you're going for, if you are deploying all of your services in a pre-production environment in an aggregate manner, you can run end-to-end tests there. Since end-to-end tests are usually brittle and take a long time to run, you’ll usually want to restrict the number of these tests to as few as possible. If you have microservices that are completely independent and don't get deployed to a pre-production test environment, then consider approaches that test in production.</p>
@@ -125,13 +125,13 @@ The test suites we discussed earlier are applicable to testing individual servic
 
 <p><img src="../../../assets/images/blog/continuous-deployment-strategies/canary-release-5c74ac79.jpeg" alt="Canary deployments" /></p>
 
-<p><strong>Blue/Green deployment</strong><br />
-<a href="https://www.gocd.org/2017/07/25/blue-green-deployments/">Blue green deployments</a> are similar, where you have a new footprint of your new service, and then you do some testing and route some traffic through it. If everything is fine, you switch over all of your traffic to the new instance of services, otherwise, you keep the old footprint going.</p>
+<p><strong>Blue-Green deployment</strong><br />
+<a href="https://www.gocd.org/2017/07/25/blue-green-deployments/">Blue-green deployments</a> are similar, where you have a new footprint of your new service, and then you do some testing and route some traffic through it. If everything is fine, you switch over all of your traffic to the new instance of services, otherwise, you keep the old footprint going.</p>
 
 <p><img src="../../../assets/images/blog/continuous-deployment-strategies/blue-green-deployments-d73adc69.jpeg" alt="Blue green deployments" /></p>
 
 <p><strong>Multivariate testing</strong><br />
-Another interesting variation of this kind of testing is multivariate testing, where you're not really testing your new service against defects, instead you are A/B testing new release features behind A/B testing toggles. The purpose of this type of testing is to see how well these features are received. You can decide roll it out to your entire set of users or make fixes where necessary.</p>
+Another interesting variation of this kind of testing is multivariate testing, where you're not really testing your new service against defects, instead, you are A/B testing new release features behind A/B testing toggles. The purpose of this type of testing is to see how well these features are received. You can decide roll it out to your entire set of users or make fixes where necessary.</p>
 
 <h2 id="summary">Summary</h2>
 
