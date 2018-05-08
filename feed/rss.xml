@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2018-04-25T00:00:00Z</updated>
+  <updated>2018-05-08T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Test Strategy for Microservices</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy.html"/>
+    <id>https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy.html</id>
+    <published>2018-05-08T00:00:00Z</published>
+    <updated>2018-05-08T00:00:00Z</updated>
+    <author>
+      <name>Sheroy Marker</name>
+    </author>
+    <content type="html">In the second post of this blog series, we will dig deeper into testing strategies for a microservices architecture..</content>
+  </entry>
   <entry>
     <title>5 Considerations for Continuous Delivery of Microservices</title>
     <link rel="alternate" href="https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices.html"/>
@@ -107,16 +118,5 @@
       <name>Franklin Mosley</name>
     </author>
     <content type="html">A few tips to help teams start practicing prioritizing security in DevOps.</content>
-  </entry>
-  <entry>
-    <title>Confessions of continuous delivery experts: How Mingle saw the light</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool.html"/>
-    <id>https://www.gocd.org/2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool.html</id>
-    <published>2017-11-07T00:00:00Z</published>
-    <updated>2017-11-07T00:00:00Z</updated>
-    <author>
-      <name>Suzie Prince and Aravind S.V</name>
-    </author>
-    <content type="html">This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine. </content>
   </entry>
 </feed>
