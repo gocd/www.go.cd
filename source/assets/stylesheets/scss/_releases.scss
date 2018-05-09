@@ -24,9 +24,12 @@
       &:first-child {
         margin-top: 0px;
       }
-
     }
 
+    .alert.warning {
+      background-color: #e68489cc;
+      padding: 10px;
+    }
   }
 
   figure {
