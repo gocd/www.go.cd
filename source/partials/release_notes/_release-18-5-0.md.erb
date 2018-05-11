@@ -1,0 +1,40 @@
+<h4>Bug fixes</h4>
+
+  * <%= link_to_issue 4724, "Fixed an issue with Dashboard cache being in an inconsistent state after config-save operations via different methods. This caused dashboard to show up duplicate pipeline instance in some cases." %>
+  * <%= link_to_issue 4727, 'Fix spaces in template message in quick edit view.' %>
+
+<h4>Contributors</h4>
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Akshay Mayekar",
+  "Ankit Srivastava",
+  "Ankur K",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Ganesh S Patil",
+  "Isabelle Carter",
+  "Jyoti Singh",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Naveen Bhaskar",
+  "Rajiesh N",
+  "Senthil R",
+  "Tomasz Sętkowski",
+  "Varsha Varadarajan"
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.5' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
