@@ -67,16 +67,16 @@
 
 		p {
 			color: hsla(0, 0, 100%, 1);
-			font-size: 26px;
+			font-size: 22px;
 			line-height: 120%;
 			letter-spacing: 1px;
-			font-family: URWGeometric-Medium, Helvetica, sans-serif;
+			font-family: URWGeometric-SemiBold, Helvetica, sans-serif;
 
 			padding-bottom: 1em;
 
 			@media (max-width: 990px) {
 				text-align: center;
-				font-size: 22px;
+				font-size: 20px;
 			}
 
 		}

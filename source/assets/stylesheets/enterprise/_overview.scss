@@ -2,7 +2,7 @@
     background-size: cover;
     background: url("../../assets/images/campaign/enterprise/ccoal_bkgd.jpg");
     position: static;
-    height: 34vh;
+    height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,6 +73,9 @@
                 padding: 0 15px;
             }
             .feature-card-title {
+                
+                text-align: center;
+                
                 @media (max-width: $screen-md-min) {
                     float: left;
                     width: 80%;
