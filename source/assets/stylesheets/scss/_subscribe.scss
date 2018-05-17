@@ -9,6 +9,11 @@
     }
   }
 
+  label[for="consent_Privacy_Policy"] ~ div.mktoCheckboxList {
+    width: 15px !important;
+    padding: 0.3em 0 0 0;
+  }
+
   input#consent_Privacy_Policy {
     float: left;
   }
@@ -16,7 +21,6 @@
   label[for="Country"] {
     width: 145px !important;
   }
-
 }
 
 .subscribe-content {
@@ -50,6 +54,27 @@
     padding-top: 10px;
   }
 
+}
+
+.subscribe-to-blog {
+
+  .subscribe-left-panel {
+    float: left;
+    text-align: left;
+  }
+
+  .subscribe-right-panel {
+    float: right;
+    text-align: right;
+
+    #mktoForm_5414 {
+      text-align: right;
+
+      .mktoFormRow {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 
 .subscribe-form,
