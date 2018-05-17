@@ -1,12 +1,31 @@
+#subscribe-info {
+  label[for="consent_Privacy_Policy"] {
+    width: 90% !important;
+    float: right;
+    .mktoAsterix {
+      float: left;
+      padding-right: 5px;
+      margin-left: -16px;
+    }
+  }
+
+  input#consent_Privacy_Policy {
+    float: left;
+  }
+
+  label[for="Country"] {
+    width: 145px !important;
+  }
+
+}
+
 .subscribe-content {
 
   ul {
     li {
       margin-bottom: 10px;
     }
-
   }
-
 }
 
 .subscribe-container {
