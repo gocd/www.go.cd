@@ -230,3 +230,21 @@
   releases_url: https://github.com/cma-arnold/gocd-docker-exec-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=cma-arnold&repo=gocd-docker-exec-plugin&type=watch&count=true
   first_available_date: 01/2018
+
+- name: Backblaze B2 Publish Task Plugin
+  description: Plugin adding a task to publish artifacts to Backblaze B2.
+  readmore_url: https://github.com/kszatan/gocd-b2-artifacts
+  author_url: https://kszatan.github.io/
+  author_name: Krzysztof Szatan
+  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-b2-artifacts&type=watch&count=true
+  first_available_date: 05/2018
+
+- name: Backblaze B2 Fetch Task Plugin
+  description: Plugin adding a task to fetch artifacts from Backblaze B2.
+  readmore_url: https://github.com/kszatan/gocd-b2-artifacts
+  author_url: https://kszatan.github.io/
+  author_name: Krzysztof Szatan
+  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-b2-artifacts&type=watch&count=true
+  first_available_date: 05/2018
