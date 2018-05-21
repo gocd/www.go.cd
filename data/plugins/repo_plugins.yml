@@ -104,3 +104,12 @@
   releases_url: https://github.com/cnenning/go-artifactory-scm-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=cnenning&repo=go-artifactory-scm-plugin&type=watch&count=true
   first_available_date: 12/2016
+
+- name: Backblaze B2 artifacts poller
+  description: Plugin adding a package material for Backblaze B2.
+  readmore_url: https://github.com/kszatan/gocd-b2-artifacts
+  author_url: https://kszatan.github.io/
+  author_name: Krzysztof Szatan
+  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-b2-artifacts&type=watch&count=true
+  first_available_date: 05/2018
