@@ -1,3 +1,4 @@
+//= require 'lib/_cookies-v1.0.0-3'
 //= require 'lib/_jquery-1.12.3'
 //= require 'lib/_enquire'
 //= require 'lib/_masonry.pkgd'
