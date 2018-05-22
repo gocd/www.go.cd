@@ -50,17 +50,6 @@
       }, 5000);
     }
 
-    this.mailToFallback = function mailToFallback(id) {
-      try {
-        MktoForms2.loadForm("//app-e.marketo.com", "199-QDE-291", parseInt(id, 10));
-        $("#backup-subscription-message").remove();
-      } catch(e) {
-        if (console && "function" === typeof console.warn) {
-          console.warn("Failed to load Marketo form; reason:", e);
-        }
-      }
-    };
-
     this.init = function init(id) {
       $('.close-button').click(function() {
         $('.overlay').remove();
