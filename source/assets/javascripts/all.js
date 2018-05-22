@@ -7,6 +7,7 @@
 //= require 'lib/_jquery.chocolat'
 //= require 'bootstrap-sprockets'
 
+//= require 'app/_gdpr'
 //= require 'app/_main'
 //= require 'app/_download'
 //= require 'app/_getting_started'
