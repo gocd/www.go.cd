@@ -5,13 +5,15 @@ body {
     font-weight: 300;
     line-height: 22px;
     position: relative;
-    margin: 66px 0 0 0; //For proper font rendering
+    margin: $header-height 0 0 0;
+    min-height: calc(100vh - $header-height);
+
+    //For proper font rendering
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     @media (min-width: $screen-tablet) {
         font-size: 16px; // line-height: 26px;
     }
-    min-height: calc(100vh - 66px);
 }
 
 p,

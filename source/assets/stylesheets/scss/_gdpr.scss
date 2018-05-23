@@ -1,0 +1,31 @@
+$header-height-with-gdpr-banner: $header-height + 42px;
+
+.with-gdpr {
+    margin-top: $header-height-with-gdpr-banner;
+    min-height: calc(100vh - #{$header-height-with-gdpr-banner});
+
+    .top {
+        height: $header-height-with-gdpr-banner;
+    }
+
+    .gdpr-cookie-banner {
+        background: #fff;
+        padding: 10px 66px;
+        position: fixed;
+        width: 100%;
+
+        p {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .gdpr-close {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            margin-top: -8px;
+            cursor: pointer;
+        }
+    }
+}
