@@ -26,7 +26,7 @@
       overlay.on("click", ".close-button", hideOverlay).find(".thanks-msg").html(message);
       $(document.body).append(overlay);
 
-      timer = setTimeout(hideOverlay, 5000);
+      timer = setTimeout(hideOverlay, 15000);
     }
 
     this.init = function init(id) {
