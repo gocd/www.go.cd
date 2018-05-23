@@ -231,6 +231,42 @@ p{
 
 }
 
+.overlay.marketo-response {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  .popup {
+    $popup-border-size: 8px;
+    box-shadow: 2px 2px 12px 2px rgba(0,0,0,.2);
+    width: 400px;
+    height: auto;
+    position: fixed;
+    background: white;
+    top: 25vh;
+    left: calc(50vw - 200px);
+    padding: 20px;
+    border: #1c425c 8px solid;
+    .thanks-msg {
+      font-family: 'URWGeometric-Semibold';
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .close-button {
+      position: absolute;
+      z-index: 101;
+      font-size: 1.5em;
+      right: 4px;
+      top: 2px;
+      color: #1c425c;
+      cursor: pointer;
+    }
+  }
+}
+
 //subscribe page
 
 .subscribe {
