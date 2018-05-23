@@ -8,14 +8,6 @@
   var LOAD_ERR_MSG = "It looks like our signup form was blocked by an adblocker in your browser! Please email us directly or pause your adblocker to use the form.",
       LOAD_ERR_MSG_FFOX = "It looks like our signup form was blocked by Firefox! Please email us directly or try a different browser to use the form.";
 
-  function isSubscriptionConfirmation(values) {
-    var keys = ["Subscription_Enterprise_CD__c", "surveySTWhatwouldyouliketohearabout"];
-    for (var i = 0, len = keys.length; i < len; ++i) {
-      if (values[keys[i]]) return true;
-    }
-    return false;
-  }
-
   function sanitize(str) {
     var a = document.createElement("a");
     a.textContent = str;
@@ -23,14 +15,33 @@
   }
 
   function overlayMessage(values) {
-    if (isSubscriptionConfirmation(values)) {
-      return "<h3>Thank you for your interest!</h3>\n" +
-             "<p>We've sent an email to " + sanitize(values.Email) + " about your GoCD email subscription. You must check this email to activate it.</p>\n" +
-             "<p>At the same time, a member of our team will be in touch with you to talk about your GoCD enterprise needs soon.</p>";
+    var keys = ["Subscription_Enterprise_CD__c", "surveySTWhatwouldyouliketohearabout"];
+    var withContactForm = false, subscribed = false;
+
+    for (var i = 0, len = keys.length; i < len; ++i) {
+      if ("Subscription_Enterprise_CD__c" in values) {
+        withContactForm = true;
+      }
+
+      if (values[keys[i]]) {
+        subscribed = true;
+        break;
+      }
     }
 
-    return "<h3>You are almost in!</h3>\n" +
-           "<p>We've sent an email to " + sanitize(values.Email) + ". You must check this email to activate your subscription.</p>";
+    if (withContactForm) {
+      if (subscribed) {
+        return "<h3>Thank you for your interest!</h3>\n" +
+               "<p>We've sent an email to " + sanitize(values.Email) + " about your GoCD email subscription. You must check this email to activate it.</p>\n" +
+               "<p>At the same time, a member of our team will be in touch with you to talk about your GoCD enterprise needs soon.</p>";
+      } else {
+        return "<h3>Thank you for your interest!</h3>\n" +
+               "<p>A member of our team will be in touch with you to talk about your GoCD enterprise needs soon.</p>";
+      }
+    } else {
+      return "<h3>You are almost in!</h3>\n" +
+             "<p>We've sent an email to " + sanitize(values.Email) + ". You must check this email to activate your subscription.</p>";
+    }
   }
 
   function MarketoForm() {
