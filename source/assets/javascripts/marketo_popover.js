@@ -5,11 +5,11 @@
       LOAD_ERR_MSG_FFOX = "It looks like our signup form was blocked by Firefox! Please email us directly or try a different browser to use the form.",
 
       CONTACT_FORM_SUBSCR_FIELD = "Subscription_Enterprise_CD__c",
-      SUBSCR_FORM_SUSCR_FIELD = "surveySTWhatwouldyouliketohearabout";
+      SUBSCR_FORM_SUSCR_FIELD = "surveySTWhatwouldyouliketohearabout",
+      ENTERPRISE_FORMS = ["7582", "2357"];
 
   function MarketoForm() {
     function displayOverlay(message) {
-      var timer;
       var overlay = $(
         "<div class=\"overlay marketo-response\">" +
         "  <div class=\"popup\">" +
@@ -19,14 +19,11 @@
         "</div>");
 
       function hideOverlay() {
-        if ("number" === typeof timer) clearTimeout(timer);
         overlay.fadeOut("fast", function then(e) { overlay.remove(); });
       }
 
       overlay.on("click", ".close-button", hideOverlay).find(".thanks-msg").html(message);
       $(document.body).append(overlay);
-
-      timer = setTimeout(hideOverlay, 15000);
     }
 
     this.init = function init(id) {
@@ -55,7 +52,7 @@
     var isContactForm = false, subscribed = false;
 
     for (var i = 0, len = keys.length; i < len; ++i) {
-      if (CONTACT_FORM_SUBSCR_FIELD in values) {
+      if (ENTERPRISE_FORMS.indexOf(values.formid) > -1) {
         isContactForm = true;
       }
 
