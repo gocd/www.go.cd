@@ -10,7 +10,7 @@ $header-height-with-gdpr-banner: $header-height + 42px;
 
     .gdpr-cookie-banner {
         background: #fff;
-        padding: 10px 36px;
+        padding: 10px 66px;
         position: fixed;
         width: 100%;
 
@@ -22,7 +22,7 @@ $header-height-with-gdpr-banner: $header-height + 42px;
 
         .gdpr-close {
             position: absolute;
-            right: 10px;
+            right: 40px;
             top: 50%;
             margin-top: -8px;
             cursor: pointer;
