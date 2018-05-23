@@ -8,7 +8,7 @@
         $(document.body).removeClass("with-gdpr");
         gdpr.remove();
       }).append("<i class='gdpr-close fa fa-close'/>").
-        append("<p>Our site uses <a href='https://www.thoughtworks.com/privacy-policy#cookie-section' target='_blank'>cookies</a> for analytics. If you're unsure about it, take a look at our <a href='https://www.thoughtworks.com/privacy-policy' target='_blank'>privacy policy</a>.</p>");
+        append("<p>Our site uses <a href='https://www.thoughtworks.com/privacy-policy#cookie-section' target='_blank' rel='noopener noreferrer'>cookies</a> for analytics. If you're unsure about it, take a look at our <a href='https://www.thoughtworks.com/privacy-policy' target='_blank' rel='noopener noreferrer'>privacy policy</a>.</p>");
 
       $(document.body).addClass("with-gdpr").find("header").append(gdpr);
       dc.setItem("gdpr-accept", "yes");
