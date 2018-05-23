@@ -6,6 +6,11 @@
       float: left;
       padding-right: 5px;
       margin-left: -16px;
+
+      @media (max-width: 767px) {
+        padding-right: 5px;
+        margin-left: 0;
+      }
     }
   }
 
@@ -58,21 +63,39 @@
 
 .subscribe-to-blog {
 
+  // border: 1px solid blue;
+
   p {
     line-height: 1em;
   }
 
   .subscribe-left-panel {
+    // border: 1px solid red;
     float: left;
     text-align: left;
+
+    .pipeline_subscribe_image {
+      height: auto;
+      width: auto;
+    }
+
   }
 
   .subscribe-right-panel {
+    // border: 1px solid green;
     float: right;
     text-align: right;
 
+    @media (max-width: 767px) {
+      float: none;
+      }
+
     #mktoForm_5414 {
       text-align: right;
+
+      @media (max-width: 991px) {
+        text-align: center;
+      }
 
       .mktoFormRow {
         margin-bottom: 10px;
@@ -97,8 +120,9 @@
     @media (min-width:$screen-desktop) {
       margin-top: 0 !important;
     }
-
   }
+
+
 
   .mktoForm input[type=text],
   .mktoForm input[type=url],
@@ -147,6 +171,13 @@
   #mktoForm_5414 .mktoButtonWrap.mktoSimple, #mktoForm_6699 .mktoButtonWrap.mktoSimple {
     margin-left: -15px !important;
   }
+
+//Pair with Marques
+  // #mktoForm_5414 .mktoError {
+  //   position: relative;
+  //   right: 0px;
+  //   bottom: 0px;
+  // }
 
   .mktoForm .mktoRequiredField label.mktoLabel {
     width: 105px !important;
@@ -224,6 +255,8 @@ p{
       .mktoEmailField {
         width: 100% !important;
       }
+
+
 
     }
 
