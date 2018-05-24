@@ -1,4 +1,10 @@
 #subscribe-info {
+  margin-top: 9px;
+
+  .mktoForm {
+    width: auto !important;
+  }
+
   label[for="Country"] {
     width: 145px !important;
   }
@@ -174,9 +180,6 @@
 
 p{
   margin-bottom: 0;
-}
-#subscribe-info {
-    margin-top: 9px;
 }
   // Marketo form overrides
   #mktoForm_5414, #mktoForm_6699 {
