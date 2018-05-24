@@ -149,6 +149,14 @@
     margin-left: -15px !important;
   }
 
+  a {
+    color: #4a90e2;
+
+    &:hover {
+      color: #94399E;
+    }
+  }
+
 
   .mktoLabel {
     width: 105px !important;
