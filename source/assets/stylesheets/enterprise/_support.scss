@@ -34,7 +34,10 @@
     label[for="consent_Privacy_Policy"] ~ div.mktoCheckboxList {
       width: 10px !important;
       margin-left: 20px;
-      border: none;
+
+      &.mktoInvalid {
+        border: none;
+      }
     }
 
     .mktoGutter {
