@@ -174,22 +174,22 @@
     margin: 0  auto 50px auto;
     position: relative;
 
-    @media (min-width:$screen-tablet) {
+    @media (min-width:$screen-md) {
       margin: 0  10px 40px 0;
       float: left;
-      width: 170px;
+      width: 160px;
       height: auto;
     }
 
-    @media (min-width:$screen-desktop) {
+    @media (min-width:$screen-lg) {
       margin: 0  50px 40px 0;
-      width: 185px;
+      width: 180px;
       height: auto;
     }
 
-    @media (min-width:$screen-lg-desktop) {
+    @media (min-width:$screen-xl) {
       float: left;
-      width: 234px;
+      width: 220px;
     }
 
     &:before {
