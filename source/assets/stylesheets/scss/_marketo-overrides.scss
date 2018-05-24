@@ -1,0 +1,25 @@
+.mktoForm {
+  label[for="consent_Privacy_Policy"].mktoLabel {
+    padding-left: 17px;
+    width: 90% !important;
+    float: right;
+
+    .mktoAsterix {
+      position: absolute;
+      left: 10%;
+    }
+  }
+
+  label[for="consent_Privacy_Policy"].mktoLabel + .mktoGutter {
+    display: none;
+  }
+
+  label[for="consent_Privacy_Policy"].mktoLabel ~ .mktoCheckboxList {
+    width: 15px !important;
+    padding: 0;
+    padding-top: 0.3em;
+
+    position: relative;
+    left: calc(10% - 25px);
+  }
+}

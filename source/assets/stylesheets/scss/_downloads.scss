@@ -738,24 +738,9 @@ body.download {
       text-align: left;
       margin: 10px 0;
       padding: 0;
-
-      label[for="consent_Privacy_Policy"] {
-        width: 90% !important;
-        float: right;
-
-        .mktoAsterix {
-          float: left;
-          padding-right: 5px;
-          margin-left: -16px;
-        }
-      }
-
-      input#consent_Privacy_Policy {
-        float: left;
-      }
     }
   }
-  
+
   .mktoForm {
     margin: 0;
   }

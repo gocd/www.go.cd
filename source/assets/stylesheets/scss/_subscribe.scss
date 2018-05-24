@@ -1,28 +1,4 @@
 #subscribe-info {
-  label[for="consent_Privacy_Policy"] {
-    width: 90% !important;
-    float: right;
-    .mktoAsterix {
-      float: left;
-      padding-right: 5px;
-      margin-left: -16px;
-
-      @media (max-width: 767px) {
-        padding-right: 5px;
-        margin-left: 0;
-      }
-    }
-  }
-
-  label[for="consent_Privacy_Policy"] ~ div.mktoCheckboxList {
-    width: 15px !important;
-    padding: 0.3em 0 0 0;
-  }
-
-  input#consent_Privacy_Policy {
-    float: left;
-  }
-
   label[for="Country"] {
     width: 145px !important;
   }
@@ -168,7 +144,7 @@
   }
 
 
-  .mktoForm .mktoRequiredField label.mktoLabel {
+  .mktoLabel {
     width: 105px !important;
     font-family: 'Open Sans', sans-serif;
   }
