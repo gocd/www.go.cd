@@ -248,7 +248,7 @@
       margin: 20px 0 50px;
 
       a {
-        text-decoration: underline;
+        text-decoration: none;
         font-size: 12px;
         color: #fff;
 
@@ -260,7 +260,10 @@
         @media only screen and (min-width:$screen-tablet) {
           font-size: 15px;
         }
+      }
 
+      .support_link {
+        text-decoration: underline;
       }
 
     }
@@ -333,55 +336,6 @@
   #support_form_submit_success p {
     color: #419041;
     margin-bottom: 0;
-  }
-
-  .signup {
-    clear: both;
-    border: 1px solid #ccc;
-    border-top-width: 0;
-    padding: 30px;
-    display: none;
-    position: relative;
-    text-align: center;
-
-    &:before {
-      content: "";
-      position: absolute;
-      width: 0;
-      left: 50%;
-      height: 0;
-      border-style: solid;
-      border-width: 0 30px 30px 30px;
-      border-color: transparent transparent #ffffff transparent;
-      top: -20px;
-      transform: translateX(-50%);
-    }
-
-    .close {
-      position: absolute;
-      right: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      background: #ccc;
-      top: 20px;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      line-height: 31px;
-    }
-
-    h3 {
-      text-align: center;
-      margin: 0 0 10px 0;
-      font-size: 22px;
-    }
-
-    p {
-      text-align: center;
-      max-width: 400px;
-      margin: 0 auto 30px;
-    }
-
   }
 
   @media only screen and (min-width:$screen-tablet) {
