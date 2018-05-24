@@ -58,19 +58,15 @@
   @media (min-width:$screen-desktop) {
     padding-top: 10px;
   }
-
 }
 
 .subscribe-to-blog {
-
-  // border: 1px solid blue;
 
   p {
     line-height: 1em;
   }
 
   .subscribe-left-panel {
-    // border: 1px solid red;
     float: left;
     text-align: left;
 
@@ -82,7 +78,6 @@
   }
 
   .subscribe-right-panel {
-    // border: 1px solid green;
     float: right;
     text-align: right;
 
@@ -172,12 +167,6 @@
     margin-left: -15px !important;
   }
 
-//Pair with Marques
-  // #mktoForm_5414 .mktoError {
-  //   position: relative;
-  //   right: 0px;
-  //   bottom: 0px;
-  // }
 
   .mktoForm .mktoRequiredField label.mktoLabel {
     width: 105px !important;
