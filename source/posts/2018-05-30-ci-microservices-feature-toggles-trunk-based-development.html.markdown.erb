@@ -50,17 +50,17 @@ Here is a very simple example. The team are working on four features for the sam
 Feature toggles are usually stored in a specification or configuration file close to the codebase and used by automation in the CD pipeline to turn toggles on in specific environments. They are just conditions in your code base.You should separate setting these toggles from the actual release process so that you can control it in run time. 
 
 
-**Some things you should consider when implementing feature toggles:**
+Some things you should consider when implementing feature toggles:
 
-*Feature toggles should be short lived
+**Feature toggles should be short lived**
 
 Feature toggles should be discarded once a feature has gone through the development lifecycle and is turned on in production. They are considered to be a code debt that needs to be cleaned up.
 
-*Use tooling to manage toggles’ lifecycles
+**Use tooling to manage toggles’ lifecycles**
 
 Don’t underestimate the amount of effort required to manage these toggles. You can easily run into hundreds of them. Use tooling which provides visibility into the list of toggles, what’s turned on in which environment, and which features will get turned on in production in the next release. 
 
-*Consider building your own utilities
+**Consider building your own utilities**
 
 There isn't a lot of tooling out there, so consider writing your own utilities to solve some of these problems. Again, getting this tooling in place before you go down a microservice strategy is a wise thing to do.
 
