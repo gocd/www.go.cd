@@ -30,3 +30,17 @@
     bottom: -4px !important;
   }
 }
+
+.enterprise-page {
+  label[for="surveySTWhatwouldyouliketohearabout"] {
+    width: auto !important;
+    margin-bottom: 20px;
+  }
+
+  .mktoCheckboxList {
+    margin-left: 20px;
+    width: calc(100% - 20px) !important;
+
+    input[type="checkbox"] { display: none; }
+  }
+}
