@@ -66,10 +66,10 @@
       if (subscribed) {
         return "<h3>Thank you for your interest!</h3>\n" +
                "<p>We've sent an email to " + sanitize(values.Email) + " about your GoCD email subscription. You must check this email to activate it.</p>\n" +
-               "<p>At the same time, a member of our team will be in touch with you to talk about your GoCD enterprise needs soon.</p>";
+               "<p>At the same time, a member of our team will be in touch with you soon.</p>";
       } else {
-        return "<h3>Thank you for your interest!</h3>\n" +
-               "<p>A member of our team will be in touch with you to talk about your GoCD enterprise needs soon.</p>";
+        return "<h3>Thank you!</h3>\n" +
+               "<p>A member of our team will be in touch with you soon.</p>";
       }
     } else {
       return "<h3>You are almost in!</h3>\n" +
