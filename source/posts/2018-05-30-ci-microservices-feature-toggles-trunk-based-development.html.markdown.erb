@@ -17,7 +17,7 @@ draft: true
   </figure>
 <% end %>
 
-This is the third post in the series - CD of Microserviese series. In the previous post, we talked about testing strategy for building CD pipelines on microservices architecture. In this post, we’ll get deep into CI practices.
+This is the third post in the series - [CD of Microservices](https://www.gocd.org/tags/cd-for-microservices.html). In the [previous post](https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy/), we talked about testing strategy for building CD pipelines on microservices architecture. In this post, we’ll get deep into CI practices.
 
 ##Continuous integration
 
@@ -30,13 +30,13 @@ We’ll focus on two key practices, trunk based development and feature toggles.
 
 In trunk based development (TBD), developers collaborate on code in a single branch called “trunk”. The key benefit is to avoid drift in development branches and the resulting merge hell. 
 
-TRUNK BASED DEV IMAGE HERE
+<img src="/assets/images/blog/cd-considerations/trunk-based-development.png" alt="Trunk Based Development - TBD"/>
 
-This is contrary to the practice of maintaining long-lived feature and release branches. In a branching model, though you may be running builds on individual branches, arguably you aren’t doing continuous integration. In trunk based development, you should never find your trunk in a state where your CD process is unable to deploy. All code should be checked into trunk, built and tested constantly, and the codebase deployable on demand: all of this make CD a reality.
+This is contrary to the practice of maintaining long-lived feature and release branches. In a branching model, though you may be running builds on individual branches, arguably [you aren’t doing continuous integration](https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre/). In trunk based development, you should never find your trunk in a state where your CD process is unable to deploy. All code should be checked into trunk, built and tested constantly, and the codebase deployable on demand: all of this make CD a reality.
 
 TBD results in much simpler CD workflows: you don’t have to build multiple branches in parallel, map branches to environments and re-test when the same features get merged to trunk. Simplifying workflows is very important in the context of microservices, as the complexity is exasperated as the number of microservices grows. 
 
-Feature toggles is an important technique for TBD. 
+[Feature toggles](https://martinfowler.com/articles/feature-toggles.html) is an important technique for TBD. 
 
 
 ##Feature Toggles
@@ -45,11 +45,12 @@ Feature toggles enable commits of a combination of work-in-progress and complete
 
 Here is a very simple example. The team are working on four features for the same application: search, menu, sign-in and in-app chat. The in-app chat feature is incomplete (but you still check into trunk in TBD) or you find issues with the in-app chat in pre-production testing. With feature toggles, you can simply turn in-app chat off, even at run time. 
 
-FEATURE TOGGLE IMAGE HERE
+<img src="/assets/images/blog/cd-considerations/feature-toggles.png" alt="Feature Toggles"/>
 
-Feature toggles are usually stored in a specification or configuration file close to the codebase and used by automation in the CD pipeline to turn toggles on in specific environments. They are just conditions in your code base.You should separatesetting these toggles from the actual release process so that you can control it in run time. 
+Feature toggles are usually stored in a specification or configuration file close to the codebase and used by automation in the CD pipeline to turn toggles on in specific environments. They are just conditions in your code base.You should separate setting these toggles from the actual release process so that you can control it in run time. 
 
-```  feature_a:
+~~~~
+feature_a:
     state: in_dev
     description: This turns on feature a
   feature_b:
@@ -57,7 +58,8 @@ Feature toggles are usually stored in a specification or configuration file clos
   feature_c:
     state: ready_for_release
     description: This turns on feature c
-    ```
+~~~~
+
 
 **Some things you should consider when implementing feature toggles:**
 
@@ -75,7 +77,7 @@ There isn't a lot of tooling out there, so consider writing your own utilities t
 
 Once you have a mechanism for maintaining feature toggles, you could use the same mechanism to introduce other categories of toggles:
 
-INSERT DIAGRAM HERE
+<img src="/assets/images/blog/cd-considerations/feature-toggles-diagram.png" alt="Feature Toggles Permissions"/>
 
 This diagram is borrowed from my colleague Pete Hodgson, who has written a lot about toggles. In this diagram, release toggles is defined as toggles that control access to unfinished code, which is same as feature toggles. 
 
