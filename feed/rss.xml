@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2018-05-08T00:00:00Z</updated>
+  <updated>2018-05-30T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/05/30/ci-microservices-feature-toggles-trunk-based-development.html"/>
+    <id>https://www.gocd.org/2018/05/30/ci-microservices-feature-toggles-trunk-based-development.html</id>
+    <published>2018-05-30T00:00:00Z</published>
+    <updated>2018-05-30T00:00:00Z</updated>
+    <author>
+      <name>Sheroy Marker</name>
+    </author>
+    <content type="html">Getting deeper into CD practices, we'll cover continuous integration, feature toggles, and the importance of trunk based development</content>
+  </entry>
   <entry>
     <title>Test Strategy for Microservices</title>
     <link rel="alternate" href="https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy.html"/>
@@ -107,16 +118,5 @@
       <name>Aravind S.V</name>
     </author>
     <content type="html">This post is the story of how continuous delivery became critical to the GoCD team’s decision to go open source.</content>
-  </entry>
-  <entry>
-    <title>Minimizing Risk and Improving Security in DevOps</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/11/14/minimizing-risk-improving-security-devops.html"/>
-    <id>https://www.gocd.org/2017/11/14/minimizing-risk-improving-security-devops.html</id>
-    <published>2017-11-14T00:00:00Z</published>
-    <updated>2017-11-14T00:00:00Z</updated>
-    <author>
-      <name>Franklin Mosley</name>
-    </author>
-    <content type="html">A few tips to help teams start practicing prioritizing security in DevOps.</content>
   </entry>
 </feed>
