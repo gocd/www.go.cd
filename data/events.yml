@@ -14,9 +14,13 @@
       location: Charlotte
     - date: April 24 - 25
       location: Seattle
+    - date: May 30 - 31
+      location: Toronto
+    - date: July 12 - 13
+      location: Minneapolis      
 
 - title: "Lead Developer Conference"
-  url: http://theleaddeveloper-ny.com/
+  url: https://theleaddeveloper.com/
   description: "The conference for technical leads."
   details:
     - date: February 2 - 3
@@ -39,3 +43,23 @@
       location: Chicago
     - date: June 18 - 20
       location: Amsterdam
+    - date: Oct 31 - Nov 2
+      location: Berlin
+    - date: Nov 19 - 21
+      location: Copenhagen      
+      
+- title: "THAT Conference"
+  url: https://www.thatconference.com/
+  description: "Summercamp for Geeks™"
+  details:
+    - date: August 6 - 8
+      location: Wisconsin Dells
+      
+- title: "QCon"
+  url: https://qconferences.com/
+  description: "A conference for senior software engineers and architects"
+  details:
+    - date: June 26 - 28
+      location: New York
+    - date: Nov 5 - 9
+      location: San Francisco        
