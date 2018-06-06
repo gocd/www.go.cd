@@ -12,7 +12,7 @@
 <h4>Breaking changes</h4>
 
   * APIs now respond with an HTTP status code 403(Forbidden) instead of the 401(Unauthorized) when authenticated users are not authorized to view or perform operations on a resource.
-  * Stricter URL escaping and normalization
+  * URLs containing any un-normalized paths (`/../`, `./` and `/.`), semicolon (`;` and `%3B`), encoded forward-slash (`%2F`), backslash (`\`, `%5C`), encoded percent (`%25`) will be rejected.
 
 
 <h4>Bug fixes</h4>
