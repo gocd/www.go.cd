@@ -1,29 +1,29 @@
-<h4>Performance fix</h4>
-
-This release primarily addresses performance issue caused by a config save, which slows down several requests because of a long-running database query executed in order to update the dashboard.
-
-We have performed some optimizations in order to significantly reduce the number of SQL calls executed. Read more about it <% link_to_issue 4706, 'here' %> and <%= link_to_issue '4705#issuecomment-386554649', 'here' %>.
-
 <h4>Improvements</h4>
 
-  * <%= link_to_issue 4664, 'Improved logging on GoCD server when agent registration fails.' %>
-  * <%= link_to_issue 4610, "Add an origin attribute on fetch task. The origin attribute indicates where to fetch the artifact from. For all artifacts fetched from the gocd server, the value is 'gocd'" %>
-  * <%= link_to_issue 4630, 'Upgrade jetty to version 9.4.9.' %>
+  * <%= link_to_commit '3541529f60044fec297f42efce08ca65d14651ad', 'Upgrade to TFS SDK version 14.118.0.' %>
+  * <%= link_to_commit 'ebdfb7dff06029d03198740701a6ef7e74482a31', 'Do not log server info at shutdown.' %>
+
+
+<h4>Library upgrades</h4>
+
+  In order to move towards supporting JRE version 9 and upwards, this release upgrades several libraries used by GoCD, including spring, hibernate, mybatis.
+
+
+<h4>Breaking changes</h4>
+
+  * APIs now respond with an HTTP status code 403(Forbidden) instead of the 401(Unauthorized) when authenticated users are not authorized to view or perform operations on a resource.
+  * Stricter URL escaping and normalization
+
 
 <h4>Bug fixes</h4>
 
-  * <%= link_to_issue 4675, 'Server side timestamps are rendered properly when daylight saving is in effect.' %>
-  * <%= link_to_issue 4691, "Allow logged in users to access #{link_to_api 'plugin-info', 'PluginInfos API'}." %>
-  * <%= link_to_issue 4673, "Allow `null` environment variable value in config repo plugins." %>
-  * <%= link_to_issue 3908, "Browse for multiple users and add them in the User summary page." %>
-  * <%= link_to_issue 4690, "Fixed some issues with case-insensitive renames of pipeline names." %>
-  * <%= link_to_issue 4698, "Do not truncate long pipeline name." %>
-  * <%= link_to_issue 4682, "Do not send a HTTP basic authentication challenge for API requests sent by the browser over AJAX." %>
+  * <%= link_to_issue 4737, 'Secure variables that were not masked in task plugins are now masked properly.' %>
+  * <%= link_to_issue 4805, 'Pipeline history page pagination was broken.' %>
+  * <%= link_to_issue 4757, 'Fix Mac installer to use Java 1.8 only.' %>
+  * <%= link_to_issue 4751, 'Fix incorrect cache key generation.' %>
+  * <%= link_to_issue 4746, 'Fix issue with user preferences page on Microsoft Edge browser.' %>
+  * <%= link_to_issue 4338, 'QuickEdit does not allow delete of only stage in pipeline.' %>
 
-<h4>Bundled plugins</h4>
-
-* Upgraded the bundled LDAP authentication plugin to version 1.0.2. See the [plugin CHANGELOG](https://github.com/gocd/gocd-ldap-authentication-plugin/blob/master/CHANGELOG.md) for more details.
-* Upgraded the bundled file based authentication plugin to version 1.0.2. See the [plugin CHANGELOG](https://github.com/gocd/gocd-filebased-authentication-plugin/blob/master/CHANGELOG.md) for more details.
 
 <h4>Deprecations</h4>
 
@@ -42,18 +42,8 @@ We have performed some optimizations in order to significantly reduce the number
   * The <%= link_to_versioned_api '18.2.0', 'plugin-info', 'Plugin Info API' %> v3 has been deprecated as part of 18.3.0. This version of the API will be removed in a release scheduled for July 2018. Version 4 of the API is available, and users are encouraged to use it.
 
 
-<h4>Breaking changes</h4>
-
-  * The [Agent Docker Image for Debian 7](https://github.com/gocd/docker-gocd-agent-debian-7) will not be built with newer version of GoCD. Users wanting to build a gocd agent image for debian 7 can fork [the repository](https://github.com/gocd/docker-gocd-agent-debian-7) to build an image.
-
-<h4>Known Issues</h4>
-
-* There are a few known minor issues when triggering pipelines on the new dashboard:
-  * <%= link_to_issue 4647, 'Trigger buttons do not get disabled if the pipeline was force triggered and material update is in progress' %>
-  * <%= link_to_issue 4452, 'Horizontal scroll appears in Trigger With Options Materials popup' %>
-  * <%= link_to_issue 4481, 'CCTray corner cases: NullPointerException because of a pipeline not being in the config when the dashboard looks to update itself.' %>
-
 <h4>Contributors</h4>
+
 <%= [
   "Aditya Sood",
   "Akshay Dewan",
@@ -81,7 +71,7 @@ We have performed some optimizations in order to significantly reduce the number
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.4' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.6' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
