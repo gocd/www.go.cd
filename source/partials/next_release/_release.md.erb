@@ -13,6 +13,8 @@
 
   * APIs now respond with an HTTP status code 403(Forbidden) instead of the 401(Unauthorized) when authenticated users are not authorized to view or perform operations on a resource.
   * URLs containing any un-normalized paths (`/../`, `./` and `/.`), semicolon (`;` and `%3B`), encoded forward-slash (`%2F`), backslash (`\`, `%5C`), encoded percent (`%25`) will be rejected.
+  * The pipeline config API version 3 and version 4 have been removed. Please use version 5 of the <%= link_to_versioned_api '18.5.0', 'pipeline-config', 'pipeline config API' %>.
+  * The elastic agent plugin extension version 1 and (a development verion 2) has been removed. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
 
 
 <h4>Bug fixes</h4>
@@ -27,17 +29,13 @@
 
 <h4>Deprecations</h4>
 
-  * As of release 18.2.0 the following (unversioned) APIs have been deprecated and will be removed in a release scheduled for June 2018:
+  * As of release 18.2.0 the following (unversioned) APIs have been deprecated and will be removed in a release scheduled for July 2018:
       * The pipeline <%= link_to_versioned_api '18.1.0', 'pause-a-pipeline', 'pause api' %>.
       * The pipeline <%= link_to_versioned_api '18.1.0', 'unpause-a-pipeline', 'unpause api' %>.
       * The pipeline <%= link_to_versioned_api '18.1.0', 'releasing-a-pipeline-lock', 'unlock api' %>.
       * The pipeline <%= link_to_versioned_api '18.1.0', 'scheduling-pipelines', 'schedule api' %>.
 
     These APIs have been replaced with a versioned API and users are encouraged to use these instead.
-
-  * The pipeline config API version 3 and version 4 have been deprecated as part of 18.2.0 and will be removed in a release scheduled for June 2018. Version 5 of the pipeline config API has been introduced to add the new pipeline unlock behavior attribute (<%= link_to_issue 3943 %>).
-
-  * The elastic agent plugin extension version 1 and (a development verion 2) has been deprecated. These versions will be removed in a release scheduled for June 2018. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
 
   * The <%= link_to_versioned_api '18.2.0', 'plugin-info', 'Plugin Info API' %> v3 has been deprecated as part of 18.3.0. This version of the API will be removed in a release scheduled for July 2018. Version 4 of the API is available, and users are encouraged to use it.
 
