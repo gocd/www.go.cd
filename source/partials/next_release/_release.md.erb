@@ -6,7 +6,7 @@
 
 <h4>Library upgrades</h4>
 
-  In order to move towards supporting JRE version 9 and upwards, this release upgrades several libraries used by GoCD, including spring, hibernate, mybatis.
+  In order to move towards supporting JRE version 9 and upwards, this release upgrades several libraries used by GoCD, including spring, hibernate, mybatis. See <%= link_to_issue 4785 %>, <%= link_to_issue 4749 %> and <%= link_to_issue 4768 %>.
 
 
 <h4>Breaking changes</h4>
@@ -14,7 +14,7 @@
   * APIs now respond with an HTTP status code 403(Forbidden) instead of the 401(Unauthorized) when authenticated users are not authorized to view or perform operations on a resource.
   * URLs containing any un-normalized paths (`/../`, `./` and `/.`), semicolon (`;` and `%3B`), encoded forward-slash (`%2F`), backslash (`\`, `%5C`), encoded percent (`%25`) will be rejected.
   * The pipeline config API version 3 and version 4 have been removed. Please use version 5 of the <%= link_to_versioned_api '18.5.0', 'pipeline-config', 'pipeline config API' %>.
-  * The elastic agent plugin extension version 1 and (a development verion 2) has been removed. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
+  * The elastic agent plugin extension version 1 and (a development version 2) has been removed. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features. Users using ECS plugin >= 4.0.0, docker swarm plugin >= 3.0.0, docker plugin >= 0.9.0 and kubernetes elastic agent >= 1.0.0 need not upgrade.
 
 
 <h4>Bug fixes</h4>
@@ -25,7 +25,9 @@
   * <%= link_to_issue 4751, 'Fix incorrect cache key generation.' %>
   * <%= link_to_issue 4746, 'Fix issue with user preferences page on Microsoft Edge browser.' %>
   * <%= link_to_issue 4338, 'QuickEdit does not allow delete of only stage in pipeline.' %>
-
+  * <%= link_to_issue 4775, 'Dashboard UI rendering duplicate pipeline information.' %>
+  * <%= link_to_commit '5eb11210c6dadb8ea5c53926ad385731dd1e0e95', 'Fix the roles configuration link in the admin dropdown menu.' %>
+  * <%= link_to_issue 4723, 'Dashboard does not show all pipelines after upgrade.' %>
 
 <h4>Deprecations</h4>
 
