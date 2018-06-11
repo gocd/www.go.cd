@@ -1,0 +1,79 @@
+<h4>Improvements</h4>
+
+  * <%= link_to_commit '3541529f60044fec297f42efce08ca65d14651ad', 'Upgrade to TFS SDK version 14.118.0.' %>
+  * <%= link_to_commit 'ebdfb7dff06029d03198740701a6ef7e74482a31', 'Do not log server info at shutdown.' %>
+
+
+<h4>Library upgrades</h4>
+
+  In order to move towards supporting JRE version 9 and upwards, this release upgrades several libraries used by GoCD, including spring, hibernate, mybatis. See <%= link_to_issue 4785 %>, <%= link_to_issue 4749 %> and <%= link_to_issue 4768 %>.
+
+
+<h4>Breaking changes</h4>
+
+  * APIs now respond with an HTTP status code 403(Forbidden) instead of the 401(Unauthorized) when authenticated users are not authorized to view or perform operations on a resource.
+  * URLs containing any un-normalized paths (`/../`, `./` and `/.`), semicolon (`;` and `%3B`), encoded forward-slash (`%2F`), backslash (`\`, `%5C`), encoded percent (`%25`) will be rejected.
+  * The pipeline config API version 3 and version 4 have been removed. Please use version 5 of the <%= link_to_versioned_api '18.5.0', 'pipeline-config', 'pipeline config API' %>.
+  * The elastic agent plugin extension version 1 and (a development version 2) has been removed. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features. Users using ECS plugin >= 4.0.0, docker swarm plugin >= 3.0.0, docker plugin >= 0.9.0 and kubernetes elastic agent >= 1.0.0 need not upgrade.
+
+
+<h4>Bug fixes</h4>
+
+  * <%= link_to_issue 4737, 'Secure variables that were not masked in task plugins are now masked properly.' %>
+  * <%= link_to_issue 4805, 'Pipeline history page pagination was broken.' %>
+  * <%= link_to_issue 4757, 'Fix Mac installer to use Java 1.8 only.' %>
+  * <%= link_to_issue 4751, 'Fix incorrect cache key generation.' %>
+  * <%= link_to_issue 4746, 'Fix issue with user preferences page on Microsoft Edge browser.' %>
+  * <%= link_to_issue 4338, 'QuickEdit does not allow delete of only stage in pipeline.' %>
+  * <%= link_to_issue 4775, 'Dashboard UI rendering duplicate pipeline information.' %>
+  * <%= link_to_commit '5eb11210c6dadb8ea5c53926ad385731dd1e0e95', 'Fix the roles configuration link in the admin dropdown menu.' %>
+
+<h4>Deprecations</h4>
+
+  * As of release 18.2.0 the following (unversioned) APIs have been deprecated and will be removed in a release scheduled for July 2018:
+      * The pipeline <%= link_to_versioned_api '18.1.0', 'pause-a-pipeline', 'pause api' %>.
+      * The pipeline <%= link_to_versioned_api '18.1.0', 'unpause-a-pipeline', 'unpause api' %>.
+      * The pipeline <%= link_to_versioned_api '18.1.0', 'releasing-a-pipeline-lock', 'unlock api' %>.
+      * The pipeline <%= link_to_versioned_api '18.1.0', 'scheduling-pipelines', 'schedule api' %>.
+
+    These APIs have been replaced with a versioned API and users are encouraged to use these instead.
+
+  * The <%= link_to_versioned_api '18.2.0', 'plugin-info', 'Plugin Info API' %> v3 has been deprecated as part of 18.3.0. This version of the API will be removed in a release scheduled for July 2018. Version 4 of the API is available, and users are encouraged to use it.
+
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Akshay Mayekar",
+  "Ankit Srivastava",
+  "Ankur K",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Ganesh S Patil",
+  "Isabelle Carter",
+  "Jyoti Singh",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Naveen Bhaskar",
+  "Rajiesh N",
+  "Senthil R",
+  "Tomasz Sętkowski",
+  "Varsha Varadarajan"
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.6' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
