@@ -79,43 +79,43 @@
       <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-next"> (next)</h3>
       <div id="tab-next" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Performance fix</h4>
-
-<p>This release primarily addresses performance issue caused by a config save, which slows down several requests because of a long-running database query executed in order to update the dashboard.</p>
-
-<p>We have performed some optimizations in order to significantly reduce the number of SQL calls executed. Read more about it <a href="https://github.com/gocd/gocd/issues/4706">#4706</a> - here and <a href="https://github.com/gocd/gocd/issues/4705">#4705</a> - here.</p>
-
-<h4>Improvements</h4>
+          <h4>Improvements</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/issues/4664">#4664</a> - Improved logging on GoCD server when agent registration fails.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4610">#4610</a> - Add an origin attribute on fetch task. The origin attribute indicates where to fetch the artifact from. For all artifacts fetched from the gocd server, the value is 'gocd'</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4630">#4630</a> - Upgrade jetty to version 9.4.9.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/3541529f60044fec297f42efce08ca65d14651ad">3541529</a></code> - Upgrade to TFS SDK version 14.118.0.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ebdfb7dff06029d03198740701a6ef7e74482a31">ebdfb7d</a></code> - Do not log server info at shutdown.</li>
+</ul>
+
+<h4>Library upgrades</h4>
+
+<p>In order to move towards supporting JRE version 9 and upwards, this release upgrades several libraries used by GoCD, including spring, hibernate, mybatis. See <a href="https://github.com/gocd/gocd/issues/4785">#4785</a>, <a href="https://github.com/gocd/gocd/issues/4749">#4749</a> and <a href="https://github.com/gocd/gocd/issues/4768">#4768</a>.</p>
+
+<h4>Breaking changes</h4>
+
+<ul>
+  <li>APIs now respond with an HTTP status code 403(Forbidden) instead of the 401(Unauthorized) when authenticated users are not authorized to view or perform operations on a resource.</li>
+  <li>URLs containing any un-normalized paths (<code>/../</code>, <code>./</code> and <code>/.</code>), semicolon (<code>;</code> and <code>%3B</code>), encoded forward-slash (<code>%2F</code>), backslash (<code>\</code>, <code>%5C</code>), encoded percent (<code>%25</code>) will be rejected.</li>
+  <li>The pipeline config API version 3 and version 4 have been removed. Please use version 5 of the <a href="https://api.gocd.org/18.5.0/#pipeline-config">pipeline config API</a>.</li>
+  <li>The elastic agent plugin extension version 1 and (a development version 2) has been removed. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features. Users using ECS plugin &gt;= 4.0.0, docker swarm plugin &gt;= 3.0.0, docker plugin &gt;= 0.9.0 and kubernetes elastic agent &gt;= 1.0.0 need not upgrade.</li>
 </ul>
 
 <h4>Bug fixes</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/issues/4675">#4675</a> - Server side timestamps are rendered properly when daylight saving is in effect.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4691">#4691</a> - Allow logged in users to access <a href="https://api.gocd.org/current/#plugin-info">PluginInfos API</a>.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4673">#4673</a> - Allow <code>null</code> environment variable value in config repo plugins.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/3908">#3908</a> - Browse for multiple users and add them in the User summary page.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4690">#4690</a> - Fixed some issues with case-insensitive renames of pipeline names.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4698">#4698</a> - Do not truncate long pipeline name.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4682">#4682</a> - Do not send a HTTP basic authentication challenge for API requests sent by the browser over AJAX.</li>
-</ul>
-
-<h4>Bundled plugins</h4>
-
-<ul>
-  <li>Upgraded the bundled LDAP authentication plugin to version 1.0.2. See the <a href="https://github.com/gocd/gocd-ldap-authentication-plugin/blob/master/CHANGELOG.md">plugin CHANGELOG</a> for more details.</li>
-  <li>Upgraded the bundled file based authentication plugin to version 1.0.2. See the <a href="https://github.com/gocd/gocd-filebased-authentication-plugin/blob/master/CHANGELOG.md">plugin CHANGELOG</a> for more details.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4737">#4737</a> - Secure variables that were not masked in task plugins are now masked properly.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4805">#4805</a> - Pipeline history page pagination was broken.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4757">#4757</a> - Fix Mac installer to use Java 1.8 only.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4751">#4751</a> - Fix incorrect cache key generation.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4746">#4746</a> - Fix issue with user preferences page on Microsoft Edge browser.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4338">#4338</a> - QuickEdit does not allow delete of only stage in pipeline.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4775">#4775</a> - Dashboard UI rendering duplicate pipeline information.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/5eb11210c6dadb8ea5c53926ad385731dd1e0e95">5eb1121</a></code> - Fix the roles configuration link in the admin dropdown menu.</li>
 </ul>
 
 <h4>Deprecations</h4>
 
 <ul>
-  <li>As of release 18.2.0 the following (unversioned) APIs have been deprecated and will be removed in a release scheduled for June 2018:
+  <li>As of release 18.2.0 the following (unversioned) APIs have been deprecated and will be removed in a release scheduled for July 2018:
     <ul>
       <li>The pipeline <a href="https://api.gocd.org/18.1.0/#pause-a-pipeline">pause api</a>.</li>
       <li>The pipeline <a href="https://api.gocd.org/18.1.0/#unpause-a-pipeline">unpause api</a>.</li>
@@ -125,39 +125,16 @@
 
     <p>These APIs have been replaced with a versioned API and users are encouraged to use these instead.</p>
   </li>
-  <li>
-    <p>The pipeline config API version 3 and version 4 have been deprecated as part of 18.2.0 and will be removed in a release scheduled for June 2018. Version 5 of the pipeline config API has been introduced to add the new pipeline unlock behavior attribute (<a href="https://github.com/gocd/gocd/issues/3943">#3943</a>).</p>
-  </li>
-  <li>
-    <p>The elastic agent plugin extension version 1 and (a development verion 2) has been deprecated. These versions will be removed in a release scheduled for June 2018. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.</p>
-  </li>
   <li>The <a href="https://api.gocd.org/18.2.0/#plugin-info">Plugin Info API</a> v3 has been deprecated as part of 18.3.0. This version of the API will be removed in a release scheduled for July 2018. Version 4 of the API is available, and users are encouraged to use it.</li>
 </ul>
 
-<h4>Breaking changes</h4>
-
-<ul>
-  <li>The <a href="https://github.com/gocd/docker-gocd-agent-debian-7">Agent Docker Image for Debian 7</a> will not be built with newer version of GoCD. Users wanting to build a gocd agent image for debian 7 can fork <a href="https://github.com/gocd/docker-gocd-agent-debian-7">the repository</a> to build an image.</li>
-</ul>
-
-<h4>Known Issues</h4>
-
-<ul>
-  <li>There are a few known minor issues when triggering pipelines on the new dashboard:
-    <ul>
-      <li><a href="https://github.com/gocd/gocd/issues/4647">#4647</a> - Trigger buttons do not get disabled if the pipeline was force triggered and material update is in progress</li>
-      <li><a href="https://github.com/gocd/gocd/issues/4452">#4452</a> - Horizontal scroll appears in Trigger With Options Materials popup</li>
-      <li><a href="https://github.com/gocd/gocd/issues/4481">#4481</a> - CCTray corner cases: NullPointerException because of a pipeline not being in the config when the dashboard looks to update itself.</li>
-    </ul>
-  </li>
-</ul>
-
 <h4>Contributors</h4>
+
 <p>Aditya Sood, Akshay Dewan, Akshay Mayekar, Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Rajiesh N, Senthil R, Tomasz Sętkowski, Varsha Varadarajan</p>
 
 <h4>Note</h4>
 
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+18.4%22+is%3Aclosed">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+18.6%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 
