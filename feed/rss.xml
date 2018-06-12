@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2018-05-30T00:00:00Z</updated>
+  <updated>2018-06-12T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Continuous Delivery of Microservices - Environment Strategy</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/06/12/cd-microservices-environment-strategy.html"/>
+    <id>https://www.gocd.org/2018/06/12/cd-microservices-environment-strategy.html</id>
+    <published>2018-06-12T00:00:00Z</published>
+    <updated>2018-06-12T00:00:00Z</updated>
+    <author>
+      <name>Sheroy Marker</name>
+    </author>
+    <content type="html">Getting deeper into CD practices, we'll cover continuous integration, feature toggles, and the importance of trunk based development</content>
+  </entry>
   <entry>
     <title>Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles</title>
     <link rel="alternate" href="https://www.gocd.org/2018/05/30/ci-microservices-feature-toggles-trunk-based-development.html"/>
@@ -107,16 +118,5 @@
       <name>Suzie Prince</name>
     </author>
     <content type="html">This story is about the experiences of the Snap CI team in moving a monolith codebase to microservices and the continuous delivery learnings along the way.</content>
-  </entry>
-  <entry>
-    <title>Confessions of Continuous Delivery Experts: When GoCD went open source</title>
-    <link rel="alternate" href="https://www.gocd.org/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source.html"/>
-    <id>https://www.gocd.org/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source.html</id>
-    <published>2017-11-28T00:00:00Z</published>
-    <updated>2017-11-28T00:00:00Z</updated>
-    <author>
-      <name>Aravind S.V</name>
-    </author>
-    <content type="html">This post is the story of how continuous delivery became critical to the GoCD team’s decision to go open source.</content>
   </entry>
 </feed>

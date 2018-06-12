@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties." name="description" />
+    <meta content="Microservices, continuous delivery, microservice environment, environment strategy, artifacts, provision environment" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles | GoCD Blog" />
+    <meta name="twitter:description" content="You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-considerations/cd-microservices-environment-strategy-0cce5b32.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/06/12/cd-microservices-environment-strategy" />
+
+    <title>Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-57a549ab.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-58774f9f.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+  </head>
+
+  <body class="x2018 x2018_06 x2018_06_12 x2018_06_12_cd-microservices-environment-strategy x2018_06_12_cd-microservices-environment-strategy_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="../../../../resources.html" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../../assets/images/blog/cd-considerations/cd-microservices-environment-strategy-0cce5b32.jpg" alt="Continuous Delivery of Microservices"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Continuous Delivery of Microservices - Environment Strategy</h1>
+    <h4>Sheroy Marker</h4>
+    <p class='tags'>
+<a href="../../../../tags/cd-for-microservices.html" class="tag">        CD for Microservices
+</a>     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>This is the fourth post in the series - <a href="https://www.gocd.org/tags/cd-for-microservices.html">CD of Microservices</a>. In the <a href="https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy/">previous post</a>, we talked in depth about CI practices, in particular trunk based deployment and feature toggles. In this post, we’ll discuss environment strategy.</p>
+
+<h2 id="environment-plan">Environment plan</h2>
+
+<p>In some organizations people don’t realize the importance of an environment plan until they have too many environments and maintaining them becomes overwhelming.</p>
+
+<p>An environment plan communicates the various environments that are involved in the path to production and their intended uses, it also communicates how your artifacts are promoted and the toggle states on these environments.</p>
+
+<p>You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties.</p>
+
+<h2 id="artifact-promotion">Artifact promotion</h2>
+
+<p>Artifacts are one of many kinds of tangible by-products produced during the development of software. Some of these artifacts are text files like test and coverage reports. Some of these artifacts are binary artifacts like npm packages, jar files, and AMI machine images, which are built once and propagated along the CD pipelines for deployment in downstream environments.</p>
+
+<p>CD pipelines generate a lot of artifacts. Before you know it, you're getting into terabytes, or tens of terabytes of generated artifacts. It's important to think through an artifact promotion strategy, which deals with where these artifacts are stored, how many are retained, and how you do clean-up.</p>
+
+<p><img src="../../../../assets/images/blog/cd-considerations/environments-plan-e0ff13b0.jpeg" alt="Environment Plan for Continuous Delivery" /></p>
+
+<p>The diagram above shows you an environment plan. From the plan you can see how many environments exist in the CD pipeline, the different colored arrows depict different artifact promotion strategies. Early on in this pipeline, we generate artifacts that go to a different artifact repository that has a more aggressive clean-up strategy, so we don't really retain too many of those environments. As you go further down this pipeline, your artifacts are verified and more robust and you want to keep these for a little longer, so you keep them in a different store with a different retention policy.</p>
+
+<h2 id="dynamic-environments">Dynamic environments</h2>
+
+<p>Environments are expensive and cumbersome to maintain. One way to make the process simpler and less expensive is to create environments on the fly. For example, when running functional tests, you can provision a functional test environment on demand, then clean it up right after your test is done.</p>
+
+<p>To do this, you need use IaaC techniques to script all aspects of environment provisioning. Here are the benefits of doing this:</p>
+
+<p><strong>Parity with production</strong>
+If you create all environments dynamically based on automation, you will use exactly the same way to create testing and staging environments. The scale and nature of infrastructure may be different, but the footprint of the environment remains the same.</p>
+
+<p><strong>Prevent drift</strong>
+If you have manual processes and manual installations, you can't really ensure that two environments are the same. But using a script to create short-lived dynamic environments prevents drift.</p>
+
+<p><strong>Efficient use of hardware and infrastructure</strong>
+Only creating an environment when you need it and cleaning up dynamically optimizes utilization and saves infrastructure costs.</p>
+
+<p>Technologies such as container schedulers are all the rage these days for deploying and running applications. The diagram below is an example of a Dock, a Docker based build workflow with Kubernetes. The CI aspect of this pipeline, which is the build pipeline all the way on the left, generates Docker images. Then, artifacts from this pipeline, the Docker image, are stored in a Docker registry. Further downstream, deploy environments deploy directly to Kubernetes. You can leverage features of Kubernetes like the concept of labels to provision environments on the fly.</p>
+
+<p><img src="../../../../assets/images/blog/cd-considerations/environments-dynamic-provisioning-b19e72d6.png" alt="Environment Plan Dynamic Provisioning for Continuous Delivery" /></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>This is the part 4 of our <a href="https://www.gocd.org/tags/cd-for-microservices.html">CD of Microservices blog series</a>. We have talked environment strategy including artifact promotion and leveraging modern infrastructure for dynamic environment. In the next post, we will talk about the fourth consideration: configuration strategy.</p>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../../assets/javascripts/marketo_popover-2ee090ae.js" onload="new MarketoForm().init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Jun 12</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="./">Continuous Delivery of Microservices - Environment Strategy</a>
+            </li>
+            <li>
+              <span class="post-date">May 30</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../../05/30/ci-microservices-feature-toggles-trunk-based-development/">Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles</a>
+            </li>
+            <li>
+              <span class="post-date">May  8</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../../05/08/continuous-delivery-microservices-test-strategy/">Test Strategy for Microservices</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 25</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../../04/25/five-considerations-continuous-delivery-microservices/">5 Considerations for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 21</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../../03/21/continuous-delivery-gocd-kubernetes/">Continuous delivery workflows on modern infrastructure - Run GoCD on Kubernetes</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2018 (9)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2018/06/12/cd-microservices-environment-strategy.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">GETTING STARTED</a></li>
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li> <a href="../../../../events/">WEBINARS + EVENTS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
