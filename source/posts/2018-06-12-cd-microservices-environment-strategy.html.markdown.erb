@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Continuous Delivery of Microservices - Environment Strategy
+title: Environment Strategy for Continuous Delivery of Microservices
 type: post
 author: Sheroy Marker
-excerpt: "Getting deeper into CD practices, we'll cover continuous integration, feature toggles, and the importance of trunk based development"
+excerpt: "In this post, we'll look at environment strategy including artifact promotion and leveraging modern infrastructure for dynamic environments."
 summary_image: "/assets/images/blog/cd-considerations/cd-microservices-environment-strategy.jpg"
-title_tag_of_header: "Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles | GoCD Blog"
+title_tag_of_header: "Continuous Delivery of Microservices - Environment Strategy | GoCD Blog"
 meta_description: "You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties."
 meta_keywords: "Microservices, continuous delivery, microservice environment, environment strategy, artifacts, provision environment"
 tags: CD for Microservices
@@ -23,7 +23,7 @@ This is the fourth post in the series - [CD of Microservices](https://www.gocd.o
 
 In some organizations people don’t realize the importance of an environment plan until they have too many environments and maintaining them becomes overwhelming. 
 
-An environment plan communicates the various environments that are involved in the path to production and their intended uses, it also communicates how your artifacts are promoted and the toggle states on these environments. 
+An environment plan communicates the various environments that are involved in the path to production and their intended uses. It also communicates how your artifacts are promoted and the toggle states on these environments.
 
 You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties. 
 
@@ -35,13 +35,13 @@ CD pipelines generate a lot of artifacts. Before you know it, you're getting int
 
 <img src="/assets/images/blog/cd-considerations/environments-plan.jpeg" alt="Environment Plan for Continuous Delivery"/>
     
-The diagram above shows you an environment plan. From the plan you can see how many environments exist in the CD pipeline, the different colored arrows depict different artifact promotion strategies. Early on in this pipeline, we generate artifacts that go to a different artifact repository that has a more aggressive clean-up strategy, so we don't really retain too many of those environments. As you go further down this pipeline, your artifacts are verified and more robust and you want to keep these for a little longer, so you keep them in a different store with a different retention policy.
+The diagram above shows you an environment plan which factors in an artifact promotion strategy. From the plan you can see the environments that exist in the CD pipeline, with different colored arrows depicting different artifact promotion strategies. Early on in this pipeline, we generate artifacts that go to an artifact repository that has a more aggressive clean-up strategy, so we don't really retain too many of those environments. As you go further down this pipeline, artifacts are verified and more robust and you may want to keep these for a little longer, so you could keep them in a store with a different retention policy.
 
 ##Dynamic environments 
 
 Environments are expensive and cumbersome to maintain. One way to make the process simpler and less expensive is to create environments on the fly. For example, when running functional tests, you can provision a functional test environment on demand, then clean it up right after your test is done. 
 
-To do this, you need use IaaC techniques to script all aspects of environment provisioning. Here are the benefits of doing this:
+To do this, you need use [IaaC]("http://infrastructure-as-code.com/") techniques to script all aspects of environment provisioning. Here are the benefits of doing this:
 
 **Parity with production**
 If you create all environments dynamically based on automation, you will use exactly the same way to create testing and staging environments. The scale and nature of infrastructure may be different, but the footprint of the environment remains the same. 
@@ -52,12 +52,14 @@ If you have manual processes and manual installations, you can't really ensure t
 **Efficient use of hardware and infrastructure**
 Only creating an environment when you need it and cleaning up dynamically optimizes utilization and saves infrastructure costs.
 
-Technologies such as container schedulers are all the rage these days for deploying and running applications. The diagram below is an example of a Dock, a Docker based build workflow with Kubernetes. The CI aspect of this pipeline, which is the build pipeline all the way on the left, generates Docker images. Then, artifacts from this pipeline, the Docker image, are stored in a Docker registry. Further downstream, deploy environments deploy directly to Kubernetes. You can leverage features of Kubernetes like the concept of labels to provision environments on the fly. 
+Technologies such as container schedulers are all the rage these days for deploying and running applications. The diagram below is an example of a Dock - a Docker based build workflow with Kubernetes. 
 
 <img src="/assets/images/blog/cd-considerations/environments-dynamic-provisioning.png" alt="Environment Plan Dynamic Provisioning for Continuous Delivery"/>
 
+The CI aspect of this pipeline, which is the build pipeline on the left, generates Docker images. The artifacts from this pipeline, which are Docker images, are stored in a Docker registry. Further downstream, deploy environments deploy directly to Kubernetes. You can leverage features of Kubernetes like its concept of labels to provision environments on the fly.
+
 ##Summary
 
-This is the part 4 of our [CD of Microservices blog series](https://www.gocd.org/tags/cd-for-microservices.html). We have talked environment strategy including artifact promotion and leveraging modern infrastructure for dynamic environment. In the next post, we will talk about the fourth consideration: configuration strategy. 
+This is the part 4 of our [CD of Microservices blog series](https://www.gocd.org/tags/cd-for-microservices.html). We have talked about environment strategy including artifact promotion and leveraging modern infrastructure for dynamic environments. In the next post, we will talk about the fourth consideration: configuration strategy. 
 
 
