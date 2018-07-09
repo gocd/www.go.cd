@@ -1,8 +1,8 @@
-- title: "Webinar: Continuous Delivery with Docker, Kubernetes, and GoCD"
-  url: https://info.thoughtworks.com/Continuous-Delivery-Docker-Kubernetes-webinar.html
-  description: "Docker and Kubernetes provide the platform for organizations to get software to market quickly. GoCD enables you to design continuous delivery workflows for Kubernetes. Join us to get a practical guide in designing a continuous delivery pipeline on modern container infrastructure - Kubernetes."
+- title: "Webinar: Actionable Continuous Delivery Metrics"
+  url: https://info.thoughtworks.com/Actionable_CD_Metrics.html
+  description: "Actionable Continuous Delivery metrics provide you insight into your software delivery pipeline, and help you to improve your delivery and team processes."
   details:
-    - date: June 26 at 10:00am BST
+    - date: July 27 at 1:00pm CDT
 
 - title: "DevOpsDays"
   url: https://www.devopsdays.org/
@@ -62,4 +62,12 @@
     - date: June 26 - 28
       location: New York
     - date: Nov 5 - 9
-      location: San Francisco        
+      location: San Francisco
+      
+- title: "DevOps Enterprise Summit"
+  url: https://events.itrevolution.com/us/
+  description: "A conference for the leaders of large, complex organizations implementing DevOps principles and practices."
+  details:
+    - date: October 22 - 24
+      location: Las Vegas
+
