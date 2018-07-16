@@ -4,16 +4,16 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine. " name="description" />
-    <meta content="continuous delivery, mingle, moving to cloud, cloud ready, confessions" name="keywords" />
+    <meta content="This post talks about the best ways to manage your configurations for continuous delivery of a microservices setup." name="description" />
+    <meta content="Configuration strategy, microservices, distributed configuration, secrets, centrally manage configuration" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
-    <meta name="twitter:title" content="Confessions of continuous delivery experts: How Mingle saw the light | GoCD Blog" />
-    <meta name="twitter:description" content="This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine. " />
-    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-confessions-mingle/cd-confessions-mingle-hero-2b7da0fe.jpg" />
-    <link rel="canonical" href="https://www.gocd.org/2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool" />
+    <meta name="twitter:title" content="Continuous Delivery of Microservices - Configuration Strategy | GoCD Blog" />
+    <meta name="twitter:description" content="This post talks about the best ways to manage your configurations for continuous delivery of a microservices setup." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-considerations/cd-microservices-configuration-strategy-95389633.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/07/11/cd-microservices-configuration-strategy" />
 
-    <title>Confessions of continuous delivery experts: How Mingle saw the light | GoCD Blog</title>
+    <title>Continuous Delivery of Microservices - Configuration Strategy | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../../../../assets/stylesheets/site-f67d9b9e.css" rel="stylesheet" />
     <script src="../../../../assets/javascripts/all-58774f9f.js"></script>
@@ -26,7 +26,7 @@
     </script>
   </head>
 
-  <body class="x2017 x2017_11 x2017_11_07 x2017_11_07_confessions-stories-continuous-delivery-mingle-project-management-tool x2017_11_07_confessions-stories-continuous-delivery-mingle-project-management-tool_index">
+  <body class="x2018 x2018_07 x2018_07_11 x2018_07_11_cd-microservices-configuration-strategy x2018_07_11_cd-microservices-configuration-strategy_index">
     <header class="top">
   <div class="container">
     <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
@@ -66,83 +66,62 @@
     <div class="col-md-9">
 
     <div class="post-banner">
-      <figure>
-  <img src="../../../../assets/images/blog/cd-confessions-mingle/cd-confessions-mingle-hero-2b7da0fe.jpg" alt="Mingle - Confessions of CD Experts"/>
-</figure>
+        <figure>
+    <img src="../../../../assets/images/blog/cd-considerations/cd-microservices-configuration-strategy-95389633.jpg" alt="Continuous Delivery of Microservices"/>
+  </figure>
 
     </div>
 
 
   <header class="blog-post-header">
-    <h1>Confessions of continuous delivery experts: How Mingle saw the light</h1>
-    <h4>GoCD Team</h4>
+    <h1>Configuration Strategy for Continuous Delivery of Microservices</h1>
+    <h4>Sheroy Marker</h4>
     <p class='tags'>
-<a href="../../../../tags/cd-confessions.html" class="tag">        CD Confessions
+<a href="../../../../tags/cd-for-microservices.html" class="tag">        CD for Microservices
 </a>     </p>
   </header>
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>At ThoughtWorks, we are <a href="https://www.thoughtworks.com/continuous-delivery">passionate advocates for continuous delivery</a> - we even wrote the book on it. One might think that we know all there is to know about continuous delivery and that nothing can surprise us. This isn’t entirely true. We do understand the challenges behind continuous delivery and one of the reasons for this is that we’ve been through them ourselves. This blog series highlights the important lessons that we learned when we thought we were practicing continuous delivery.</p>
+<p>This is the fifth post in the series - <a href="https://www.gocd.org/tags/cd-for-microservices.html">CD of Microservices</a>. In the <a href="https://www.gocd.org/2018/06/12/cd-microservices-environment-strategy/">previous post</a>, we talked about environment strategy -  including artifact promotion and ways to leverage modern infrastructure for dynamic environments. In this post, we will discuss configuration strategy.</p>
 
-<p>This post is about the journey of the Mingle development team from not doing continuous delivery at all to a state where continuous delivery is considered as a routine.</p>
+<h2 id="introduction">Introduction</h2>
 
-<p>Mingle is a project management tool built by <a href="http://thoughtworks.com/products">ThoughtWorks Products</a>. Before Mingle was available on the cloud, it used to be only an installed product (on-premise). We had a three-month release cycle at the end of which we packaged everything up and shipped it out to our customers.</p>
+<p>An application’s configuration is everything that is variable per deployment. If you can re-deploy the same code but switch out certain aspects (like URLs to third party services, ports etc.) these are what I mean by variables. Ideally, configuration should be stored separately from the application code.</p>
 
-<h2 id="confession-we-werent-delivering-everyday-but-we-thought-that-if-we-need-to-we-probably-could">Confession: We weren’t delivering everyday but we thought that if we need to, we probably could</h2>
-
-<p>At that time, we were sure that we were practicing continuous delivery. Each commit the team made went through a comprehensive automated test suite. We regularly deployed to an environment where we could test out the working software ourselves and all of us could build those installers at anytime. And then once in a month, we would deploy to our ‘staging’ environment which was available for use to anyone within ThoughtWorks.</p>
-
-<p>Overall, we felt pretty good about our development practices, and thought we didn’t release more often just because the cadence was set by our business. If we needed, we could do it.</p>
-
-<h2 id="realizations-when-we-moved-to-the-cloud">Realizations when we moved to the cloud</h2>
-
-<p>In 2012, we started moving our product to the cloud. This meant that Mingle was going to be offered as both a SAAS product as well as an on-premise one. The team was excited and thought that it would be a piece of cake since we were already following best practices. The key aspects to moving to a cloud application was the ability to be deploy to production frequently as well as quickly.  When we compared the reality of daily releases to our quarterly release cycle, we realized two things:</p>
+<p>In a system based on a microservices architecture, configuration needs to be distributed across multiple services. There are a few ways to manage configurations in a distributed way:</p>
 
 <ul>
-  <li>We needed to figure out how are we going to balance doing the on-premise software and the SAAS product together</li>
-  <li>And that we were not <strong>really</strong> ready to deliver daily!</li>
+  <li>storing these application configurations in your config management system (e.g. <a href="https://chef.io">Chef</a>)</li>
+  <li>checking in application configuration files with the code,</li>
+  <li>or creating environment variables at deploy time.</li>
 </ul>
 
-<p>We took a closer look at our practices and processes and we found big gaps in our cycle time.</p>
+<p>Here are three things you should consider for your microservices configuration strategy:</p>
 
-<blockquote>
-  <p><strong><em>"25% of that three-month release cycle was actually taken up by an activity we called installer testing."</em></strong></p>
-</blockquote>
+<h3 id="manage-deployment-configurations-centrally">1. Manage deployment configurations centrally</h3>
 
-<p>We were taking our installer and testing it on a combination of different operating systems and browsers to ensure that when we shipped it to our customer, it worked on their hardware. This process took about two or three weeks. At the end of every release, we could not be ready to ship our software until the ‘installer testing’ was done. Before we were pushed into thinking about delivering frequently, we really hadn't tried to optimize this.</p>
+<p>If you have configuration living on your CD server, the configuration tends to spread across multiple sources, e.g. Chef and CD pipelines, as a result it becomes hard to understand. One way to avoid the sprawl of configuration is to use central configuration servers like <a href="https://www.consul.io/">Consul</a> for general configuration and <a href="https://www.vaultproject.io/">Vault</a> for secrets.</p>
 
-<h2 id="reflecting-on-our-current-cd-processes">Reflecting on our current CD processes</h2>
+<h3 id="standard-process-for-distributing-configuration">2. Standard process for distributing configuration</h3>
 
-<p>Here’s Jez Humble's definition of continuous delivery from his book:</p>
+<p>For microservices systems, one tends to have different tech stacks across the systems. If one is handling configuration differently for different stacks, then the complexity becomes hard to manage. Therefore, regardless of the tech stack of a microservice, configurations should be distributed to nodes in a standard manner. A technique we use is to make configuration available in the environment per the <a href="https://12factor.net/">12 factor</a> app methodology. As a rule of thumb, always avoid distributing configuration files.</p>
 
-<blockquote>
-  <p><strong><em>"Continuous delivery is the ability to get all kinds of changes, configuration codes, features, bug fixes, infrastructure, everything into the hands of users safely, quickly and in a reliable manner."</em></strong></p>
-</blockquote>
+<h3 id="governance-policy-around-secrets">3. Governance policy around secrets</h3>
 
-<p>In practice, what it comes down to is <a href="https://www.gocd.org/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">feedback loops</a>. Your check-ins trigger automation tests that run and give you feedback. At any step, if you see  any failures, you need to know why, and once that goes green, then you move on to other kind of tests, e.g. performance tests, security tests. Each of this is a feedback loop. It could be manual or automated, but the idea is to go from test-to-test, getting more and more confidence as you go towards production. So when you actually deploy into production, you're assured that it's going to work.</p>
+<p>Secrets such as API keys, passwords, and certificates need to be accessed securely. You need a governance process to ensure secrets access is managed appropriately. One technique we recommend to store all secrets is a central secrets store. The central store gives you traceability on how and when policies were changed. That traceability goes a long way in setting up a governance process.</p>
 
-<p><img src="../../../../assets/images/blog/cd-confessions-mingle/feedback-loops-a69c8139.png" alt="Feedback Loops" /></p>
+<p>A tool we recommend to store secrets is the <a href="https://www.vaultproject.io/">Vault</a> by Hashicorp.</p>
 
-<h2 id="confession-we-secretly-knew-that-there-were-areas-in-our-deployment-that-we-needed-to-optimize">Confession: We secretly knew that there were areas in our deployment that we needed to optimize.</h2>
+<p><em>Example</em></p>
 
-<p>Even though we’d known that there were areas in our Software Development Life Cycle that we could optimize, they didn’t become critical to us till we decided to release daily. So we reassessed whether we could actually remove the manual installer testing and make it part of our automated process - which is what we did. We couldn’t automate this 100%, but after this, we could make a release whenever we decided to.</p>
+<p>This is an example of an architecture where configurations are stored centrally in a config server and updated by the CD pipeline and pushed out to service instances.</p>
 
-<p>And we saw benefits right away.</p>
-
-<p>We reduced our time spent in manual testing from 25% to about 5% - from two to three weeks to about two to three days. This meant that if we wanted to release a small bug-fix to our cloud app, it could be done quickly, easily, and reliably.</p>
-
-<p>We also had some unexpected benefits: In our older way of working, when our QA's had been doing the installer testing, they were siloed. While the rest of the team were talking about features for the next release and ideating about how this was going to work in the real world, the QA team was testing on their own. In the new world, we have the entire team working together, especially when we were able to have our QA's as part of our ideation sessions. They were able to assess functionality and highlight critical test cases a lot earlier in the process.  So we were able to build quality in from the very beginning, rather than leaving it for the end.</p>
-
-<p>We continue to use the same fundamentals for the release process today.</p>
-
-<hr />
+<p>At the top there is an abstraction of the CD pipeline. This updates the config server and then the configuration from the config server is pushed to the service instances. At run time, service instances are aware of how to consume this configuration. When setting-up an architecture like this, you need to consider how many configuration servers should you have. We recommend that you have one configuration server per CD environment, or at least one for production and one for all other environments.</p>
 
 <h2 id="summary">Summary</h2>
 
-<p>If you think you’re doing continuous delivery, challenge your assumption by actually releasing more frequently. Making a decision to deliver continuously helped us identify roadblocks in our process that we had otherwise not paid attention to. It wasn’t easy and initially took time, but we were able to recover the time invested within the first year. We saw benefits to both the cycle time of our deliveries as well as a shift in our team culture. Moving to continuous delivery freed up our people to do the work they like to do.</p>
-
-<p>In our next post, we’ll share anecdotes about our learnings from continuous delivery with GoCD.</p>
+<p>This is the part 5 of our <a href="https://www.gocd.org/tags/cd-for-microservices.html">CD of Microservices blog series</a>. We have talked about configuration strategy for your CD pipeline. In the next post, we will talk about the last consideration - remediation strategies for when something goes wrong.</p>
 
 
       </main>
@@ -168,35 +147,35 @@
             <li>
               <span class="post-date">Jun 12</span>
               <span class="post-author">Sheroy Marker</span>
-              <a href="../../../../2018/06/12/cd-microservices-environment-strategy/">Environment Strategy for Continuous Delivery of Microservices</a>
+              <a href="../../../06/12/cd-microservices-environment-strategy/">Environment Strategy for Continuous Delivery of Microservices</a>
             </li>
             <li>
               <span class="post-date">May 30</span>
               <span class="post-author">Sheroy Marker</span>
-              <a href="../../../../2018/05/30/ci-microservices-feature-toggles-trunk-based-development/">Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles</a>
+              <a href="../../../05/30/ci-microservices-feature-toggles-trunk-based-development/">Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles</a>
             </li>
             <li>
               <span class="post-date">May  8</span>
               <span class="post-author">Sheroy Marker</span>
-              <a href="../../../../2018/05/08/continuous-delivery-microservices-test-strategy/">Test Strategy for Microservices</a>
+              <a href="../../../05/08/continuous-delivery-microservices-test-strategy/">Test Strategy for Microservices</a>
             </li>
             <li>
               <span class="post-date">Apr 25</span>
               <span class="post-author">Sheroy Marker</span>
-              <a href="../../../../2018/04/25/five-considerations-continuous-delivery-microservices/">5 Considerations for Continuous Delivery of Microservices</a>
+              <a href="../../../04/25/five-considerations-continuous-delivery-microservices/">5 Considerations for Continuous Delivery of Microservices</a>
             </li>
             <li>
               <span class="post-date">Mar 21</span>
               <span class="post-author">Sheroy Marker</span>
-              <a href="../../../../2018/03/21/continuous-delivery-gocd-kubernetes/">Continuous delivery workflows on modern infrastructure - Run GoCD on Kubernetes</a>
+              <a href="../../../03/21/continuous-delivery-gocd-kubernetes/">Continuous delivery workflows on modern infrastructure - Run GoCD on Kubernetes</a>
             </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../../../2018/">2018 (9)</a></li>
-            <li><a href="../../../">2017 (39)</a></li>
+            <li><a href="../../../">2018 (9)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
             <li><a href="../../../../2016/">2016 (8)</a></li>
             <li><a href="../../../../2015/">2015 (21)</a></li>
             <li><a href="../../../../2014/">2014 (26)</a></li>
@@ -213,7 +192,7 @@
       <script>
         var disqus_config = function () {
           /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2017/11/07/confessions-stories-continuous-delivery-mingle-project-management-tool.html";
+          this.page.url = "https://www.go.cd/2018/07/11/cd-microservices-configuration-strategy.html";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
         };
