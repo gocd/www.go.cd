@@ -3,11 +3,11 @@ layout: post
 title: How to Work with Materials in GoCD
 type: post
 author: Ankit Srivastava
-excerpt: "In this post, we'll look at environment strategy including artifact promotion and leveraging modern infrastructure for dynamic environments."
+excerpt: "Learn more about how to use materials in GoCD, including understanding more about blacklisting and whitelisting"
 summary_image: "/assets/images/blog/cd-hacks/cd-hacks-gocd-materials.jpg"
 title_tag_of_header: "How to Works with Materials in GoCD | GoCD Blog"
-meta_description: "You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties."
-meta_keywords: "Microservices, continuous delivery, microservice environment, environment strategy, artifacts, provision environment"
+meta_description: "Learn more about how to use materials in GoCD, including understanding more about blacklisting and whitelisting"
+meta_keywords: "materials, artifacts, continuous delivery, blacklist, whitelist, build pipeline, cd pipeline"
 tags: CD Hacks
 ---
 <% content_for :banner do %>
@@ -16,7 +16,7 @@ tags: CD Hacks
   </figure>
 <% end %>
 
-In this new segment called #GoCDHacks, we introduce some quick and easy ways to get things done in GoCD. In this post, we’re going to cover how to use? materials in GoCD. 
+In this new segment called #GoCDHacks, we introduce some quick and easy ways to get things done in GoCD. In this post, we’re going to cover how to use materials in GoCD. 
 
 A material is the 'cause' for a deployment pipeline to run. In most cases, it is a source code material repository (like Git, SVN, Mercurial, etc). A CD server continuously polls the configured materials and when a new change or commit is found, the corresponding pipelines are run or "triggered". A pipeline can even be configured with multiple materials.
 
@@ -37,7 +37,7 @@ Git - g2 : poll for new changes enabled and files under misc folder is blacklist
 Git - g3 : poll for new changes disabled with no blacklisting.
 Git - g4 : poll for new changes enabled with no blacklisting.
 
-    <img src="/assets/images/blog/cd-hacks/material-blacklisting.jpeg" alt="Blacklisting Materials in GoCD"/>
+<img src="/assets/images/blog/cd-hacks/material-blacklisting.jpeg" alt="Blacklisting Materials in GoCD"/>
     
 Here’s a breakdown of how your pipeline behaves when there are commits made to the source code materials. 
 
@@ -67,7 +67,7 @@ All changes in the commit affect only misc/abc/README.txt and misc/def/hello.txt
 
 In order to perform whitelisting, you choose “Invert the file filter, e.g. a blacklist becomes a whitelist instead.” option as shown below.
 
-INSERT IMAGE HERE
+<img src="/assets/images/blog/cd-hacks/edit_material_whitelist.png" alt="GoCD Fetch Materials"/>
 
 ##Server-side Material Blacklisting vs Fetch Materials
 
@@ -75,9 +75,9 @@ In blacklisting, all of the decisions about which materials to use for a pipelin
 
 The "Fetch Materials" option, on the other hand, affects only the Agent side. It's an option which allows the agent to not fetch / checkout / clone the materials at all, when run. By this time, the server has already decided which materials to use. The agent cannot control it.
 
-INSERT IMAGE HERE
+<img src="/assets/images/blog/cd-hacks/fetch_materials.png" alt="GoCD Fetch Materials"/>
 
-When Fetch Material is set to False.
+When Fetch Material is set to False.<br>
 `<stage name="stagename" fetchMaterials="false">`
 
 “Fetch materials” option should be turned off only in cases where you don't care about the material at all. In some cases, you just want a timer trigger for a pipeline - and don't care about the revision of the checked out material - or you want to check out the material yourself for some reason. Then, you'd turn off "Fetch materials".
