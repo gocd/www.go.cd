@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Learn more about how to use materials in GoCD, including understanding more about blacklisting and whitelisting" name="description" />
+    <meta content="materials, artifacts, continuous delivery, blacklist, whitelist, build pipeline, cd pipeline" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="How to Works with Materials in GoCD | GoCD Blog" />
+    <meta name="twitter:description" content="Learn more about how to use materials in GoCD, including understanding more about blacklisting and whitelisting" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-hacks/cd-hacks-gocd-materials-a91363d7.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/07/17/gocd-materials-blacklisting-whitelisting.html" />
+
+    <title>How to Works with Materials in GoCD | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-f67d9b9e.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-58774f9f.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+  </head>
+
+  <body class="x2018 x2018_07 x2018_07_17 x2018_07_17_gocd-materials-blacklisting-whitelisting">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="../../../resources.html" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../assets/images/blog/cd-hacks/cd-hacks-gocd-materials-a91363d7.jpg" alt="Materials in GoCD"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>How to Work with Materials in <span class="go">Go</span>CD</h1>
+    <h4>Ankit Srivastava</h4>
+    <p class='tags'>
+<a href="../../../tags/cd-hacks.html" class="tag">        CD Hacks
+</a>     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>In this new segment called #GoCDHacks, we introduce some quick and easy ways to get things done in GoCD. In this post, we’re going to cover how to use <a href="https://www.google.com/url?q=https://docs.gocd.org/18.3.0/introduction/concepts_in_go.html%23materials&amp;sa=D&amp;ust=1531843726381000&amp;usg=AFQjCNEk7ZgbCNUPdHXg70bT50wx-tBhng">materials</a> in GoCD.</p>
+
+<p>A material is the 'cause' for a deployment pipeline to run. In most cases, it is a source code material repository (like Git, SVN, Mercurial, etc). A CD server continuously polls the configured materials and when a new change or commit is found, the corresponding pipelines are run or "triggered". A pipeline can even be configured with multiple materials.</p>
+
+<p>The best way to control what changes get polled, and eventually trigger your pipeline, is by using the blacklisting/whitelisting feature for materials.</p>
+
+<h2 id="what-is-material-blacklistingwhitelisting">What is material blacklisting/whitelisting?</h2>
+
+<p>The blacklisting feature for materials in GoCD allows users to specify a file or a set of files for GoCD to ignore when it polls for new changes. The advantage of this is that repository changesets which contain blacklisted file/s will not trigger a pipeline automatically.</p>
+
+<p>Sometimes, instead of ignoring files, you want to trigger a pipeline only for specific files or folder/s. GoCD allows you to invert the blacklisting feature to whitelist and poll only for changes to specific files</p>
+
+<h2 id="how-does-it-work">How does it work?</h2>
+
+<p>Let’s say you have a pipeline which has four different git materials.</p>
+
+<p>Git - g1 : poll for new changes enabled and everything is blacklisted.<br />
+Git - g2 : poll for new changes enabled and files under misc folder is blacklisted.<br />
+Git - g3 : poll for new changes disabled with no blacklisting.<br />
+Git - g4 : poll for new changes enabled with no blacklisting.<br /></p>
+
+<p><img src="../../../assets/images/blog/cd-hacks/material-blacklisting-5d8fd8c0.jpeg" alt="Blacklisting Materials in GoCD" /></p>
+
+<p>Here’s a breakdown of how your pipeline behaves when there are commits made to the source code materials.</p>
+
+<p><strong>At 10:00 AM:</strong> Commit g1-c2 happens on g1.
+Result: Pipeline does not trigger, because the material is fully blacklisted. But, the server sees that commit and will change its latest known commit to g1-c2.</p>
+
+<p><strong>At 10:05 AM:</strong> Commit g2-c2 happens on g2. 
+All changes in the commit affect only misc/abc/README.txt and misc/def/hello.txt</p>
+
+<p><strong>Result:</strong> Pipeline does not trigger, because path misc/<em>*/</em> is blacklisted. But, the server sees that commit and will change its latest known commit to g2-c2.</p>
+
+<p><strong>At time 10:10 AM:</strong> Commit g3-c2 happens on g3.</p>
+
+<p><strong>Result:</strong> Pipeline does not trigger, because polling is turned off (and the server does not see that commit at all).</p>
+
+<p><strong>At time 10:15 AM:</strong> Commit g4-c2 happens on g4.</p>
+
+<p><strong>Result:</strong> Pipeline triggers - with g1-c2, g2-c2, g3-c1 and g4-c2. Since polling is turned off, g3-c2 has not been seen.</p>
+
+<p><strong>At time 10:20 AM:</strong> Commit g2-c3 happens on g2. Changes in the commit affect misc/abc/README.txt and src/test.rb</p>
+
+<p><strong>Result:</strong> Pipeline triggers - with g1-c2, g2-c3, g3-c1 and g4-c2. This is because src/test.rb does not match the blacklist misc/<em>*/</em>.</p>
+
+<p><strong>At time 10:25 AM:</strong> Pipeline is manually forced (click on "Play" button)</p>
+
+<p><strong>Result:</strong> Pipeline triggers - with g1-c2, g2-c3, g3-c2 and g4-c2. A manual trigger will forcibly update every material it knows of to the latest revision and triggers the pipeline.</p>
+
+<p>In order to perform whitelisting, you choose “Invert the file filter, e.g. a blacklist becomes a whitelist instead.” option as shown below.</p>
+
+<p><img src="../../../assets/images/blog/cd-hacks/edit_material_whitelist-1592dc8d.png" alt="GoCD Fetch Materials" /></p>
+
+<h2 id="server-side-material-blacklisting-vs-fetch-materials">Server-side Material Blacklisting vs Fetch Materials</h2>
+
+<p>In blacklisting, all of the decisions about which materials to use for a pipeline trigger are configured on the GoCD server side and gives advantage to skip a pipeline trigger for set of files and folder.</p>
+
+<p>The "Fetch Materials" option, on the other hand, affects only the Agent side. It's an option which allows the agent to not fetch / checkout / clone the materials at all, when run. By this time, the server has already decided which materials to use. The agent cannot control it.</p>
+
+<p><img src="../../../assets/images/blog/cd-hacks/fetch_materials-07a717f9.png" alt="GoCD Fetch Materials" /></p>
+
+<p>When Fetch Material is set to False.<br />
+<code>&lt;stage name="stagename" fetchMaterials="false"&gt;</code></p>
+
+<p>“Fetch materials” option should be turned off only in cases where you don't care about the material at all. In some cases, you just want a timer trigger for a pipeline - and don't care about the revision of the checked out material - or you want to check out the material yourself for some reason. Then, you'd turn off "Fetch materials".</p>
+
+<p>We believe incorporating the GoCD material blacklisting/whitelisting feature would help avoid undesirable pipeline builds and help save time.</p>
+
+<p>You can visit help documentation to understand more about the <a href="https://docs.gocd.org/current/configuration/admin_add_material.html">material blacklisting/whitelisting</a> feature.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../assets/javascripts/marketo_popover-2ee090ae.js" onload="new MarketoForm().init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Jul 17</span>
+              <span class="post-author">Ankit Srivastava</span>
+              <a href="gocd-materials-blacklisting-whitelisting/">How to Work with Materials in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 12</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../06/12/cd-microservices-environment-strategy/">Environment Strategy for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
+              <span class="post-date">May 30</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../05/30/ci-microservices-feature-toggles-trunk-based-development/">Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles</a>
+            </li>
+            <li>
+              <span class="post-date">May  8</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../05/08/continuous-delivery-microservices-test-strategy/">Test Strategy for Microservices</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 25</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../04/25/five-considerations-continuous-delivery-microservices/">5 Considerations for Continuous Delivery of Microservices</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2018 (10)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2018/07/17/gocd-materials-blacklisting-whitelisting.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../getting-started/part-1/">GETTING STARTED</a></li>
+            <li><a href="../../../plugins/">PLUGINS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li> <a href="../../../events/">WEBINARS + EVENTS</a></li>
+            <li><a href="../../../resources/">RESOURCES</a></li>
+            <li><a href="../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
