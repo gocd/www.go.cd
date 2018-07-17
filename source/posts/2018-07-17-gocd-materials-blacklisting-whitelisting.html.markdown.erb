@@ -16,7 +16,7 @@ tags: CD Hacks
   </figure>
 <% end %>
 
-In this new segment called #GoCDHacks, we introduce some quick and easy ways to get things done in GoCD. In this post, we’re going to cover how to use materials in GoCD. 
+In this new segment called #GoCDHacks, we introduce some quick and easy ways to get things done in GoCD. In this post, we’re going to cover how to use [materials](https://www.google.com/url?q=https://docs.gocd.org/18.3.0/introduction/concepts_in_go.html%23materials&sa=D&ust=1531843726381000&usg=AFQjCNEk7ZgbCNUPdHXg70bT50wx-tBhng) in GoCD. 
 
 A material is the 'cause' for a deployment pipeline to run. In most cases, it is a source code material repository (like Git, SVN, Mercurial, etc). A CD server continuously polls the configured materials and when a new change or commit is found, the corresponding pipelines are run or "triggered". A pipeline can even be configured with multiple materials.
 
@@ -85,6 +85,4 @@ When Fetch Material is set to False.<br>
 
 We believe incorporating the GoCD material blacklisting/whitelisting feature would help avoid undesirable pipeline builds and help save time.
 
-(placeholder text, waiting for Ankit to finish editing this portion)
-Check out our help documentation to know more about material blacklisting/whitelisting feature.
-More info about blacklisting/whitelisting can be found here - https://docs.gocd.org/current/configuration/admin_add_material.html
+You can check visit help documentation to understand more about the [material blacklisting/whitelisting](https://docs.gocd.org/current/configuration/admin_add_material.html) feature.
