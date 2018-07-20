@@ -1,0 +1,82 @@
+<h4>External Artifacts</h4>
+
+Introduced support for publishing and fetching artifacts from an external artifacts store. 
+
+* We have introduced a new  [Artifacts Plugin Extension](https://plugin-api.gocd.org/18.7.0/artifacts/) for plugin authors to write plugins which support artifact stores of their choice.
+* Introduced Artifact Plugin for [Docker Registry](https://github.com/gocd/docker-registry-artifact-plugin) to store and fetch docker images from the docker registry.
+
+<h4>Better encryption</h4>
+We have moved towards using AES for encryption/decryption over DES. All DES cipher-text in cruise-config.xml will be migrated to AES cipher-text. Support for DES is retained to handle DES cipher-texts configured in config-repos.
+
+<h4>Data Sharing</h4>
+We strive to understand our users better and provide the best product experience. This is why we ask for and collect your GoCD usage data. We will never collect any private or personal information, and we will always be transparent about what is being shared.
+
+<h4>API Improvements</h4>
+
+* <%= link_to_commit '26cc0ec092a555574f6d9e653f46fc3981416125', "Introduced #{link_to_api 'pipeline-config', 'Pipeline Config API V6'} to support external artifact config", 4760 %>.
+
+* <%= link_to_commit '00df58058d497b8952010d35c45082d3f982d02d', "Introduced #{link_to_api 'template-config', 'Template Config API V4'} to support external artifact config", 4891 %>.
+
+<h4>Bug fixes</h4>
+
+  * <%= link_to_commit '9edcd29b6f5e4dd7355d200fd029edbef92bbc40', 'Fixed issue with webhook authentication.', '4945' %>
+  * <%= link_to_commit 'db8652bdd9dfe379911aedb98e7c1e1809da68cf', 'This fixes issue with analytics not showing up on GoCD instance running on Windows.', '4923' %>
+  * <%= link_to_commit '941d93f6324f90cc6a6e6151a900f437f5fcabef', 'Fixed an issue with Jobs being hung when agent goes to missing state.', '4823' %>
+  * <%= link_to_commit '3a1933d4b43e8c1a1f888623c58b664380929faf', 'Fixed infinite redirect issue for password and web based plugin.', '4853' %>
+  * <%= link_to_commit 'eb7c461e22d4707b169ae110ada517bc610838d4', 'Fix for Agent not honoring GO_AGENT_LOG_DIR directive in service_mode', '4718' %>
+
+
+<h4>Breaking changes</h4>
+  * As of release 18.2.0 the following (unversioned) APIs had been deprecated and have been removed.
+      * The pipeline <%= link_to_versioned_api '18.1.0', 'pause-a-pipeline', 'pause api' %>.
+      * The pipeline <%= link_to_versioned_api '18.1.0', 'unpause-a-pipeline', 'unpause api' %>.
+      * The pipeline <%= link_to_versioned_api '18.1.0', 'releasing-a-pipeline-lock', 'unlock api' %>.
+      * The pipeline <%= link_to_versioned_api '18.1.0', 'scheduling-pipelines', 'schedule api' %>.
+
+    These APIs have been replaced with a versioned API and users are encouraged to use these instead.
+
+  * The <%= link_to_versioned_api '18.2.0', 'plugin-info', 'Plugin Info API' %> v3 deprecated in 18.3.0 has been removed.  Version 4 of the API is available, and users are encouraged to use it.
+
+<h4>Deprecations</h4>
+  * With the introduction of AES for encryption/decryption in this release, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.7.0', 'encryption', 'Encryption API' %> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.
+  * The <%= link_to_versioned_api '18.7.0', 'pipeline-config', 'Pipeline Config API' %> v5 has been deprecated as of this release. This version of the API will be removed in a release scheduled for October 2018. Version 6 of the API is available, and users are encouraged to use it.
+  * The <%= link_to_versioned_api '18.7.0', 'template-config', 'Template Config API' %> v3 has been deprecated as of this release. This version of the API will be removed in a release scheduled for October 2018. Version 4 of the API is available, and users are encouraged to use it.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Akshay Mayekar",
+  "Ankit Srivastava",
+  "Ankur K",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Ganesh S Patil",
+  "Isabelle Carter",
+  "Jyoti Singh",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Naveen Bhaskar",
+  "Pranav Bansod",
+  "Rajiesh N",
+  "ralcini",
+  "Senthil R",
+  "Tomasz Sętkowski",
+  "Varsha Varadarajan"
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.7' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
