@@ -6,10 +6,14 @@ Introduced support for publishing and fetching artifacts from an external artifa
 * Introduced Artifact Plugin for [Docker Registry](https://github.com/gocd/docker-registry-artifact-plugin) to store and fetch docker images from the docker registry.
 
 <h4>Better encryption</h4>
-We have moved towards using AES for encryption/decryption over DES. All DES cipher-text in cruise-config.xml will be migrated to AES cipher-text. Support for DES is retained to handle DES cipher-texts configured in config-repos.
+We have moved towards using AES for encryption/decryption over DES. All DES cipher-text in cruise-config.xml will be migrated to AES cipher-text. Support for DES is retained to handle DES cipher-texts configured in config-repos. DES encryption is deprecated, check the deprecation notes for more details. 
 
 <h4>Data Sharing</h4>
-We strive to understand our users better and provide the best product experience. This is why we ask for and collect your GoCD usage data. We will never collect any private or personal information, and we will always be transparent about what is being shared.
+GoCD now shares some (non-personally identifiable) information about the instance, to help improve the experience and performance. All GoCD system administrators will see a notification message about it and will have a chance to review the information sent and make a decision about it.
+
+<figure class='shrink-figure-75'>
+  <%= image_tag 'releases/18.7.0/data-sharing.png', alt: 'GoCD Data Sharing' %>
+</figure>
 
 <h4>API Improvements</h4>
 
@@ -27,7 +31,7 @@ We strive to understand our users better and provide the best product experience
 
 
 <h4>Breaking changes</h4>
-  * As of release 18.2.0 the following (unversioned) APIs had been deprecated and have been removed.
+  * As of release 18.2.0 the following (unversioned) APIs had been deprecated and have been removed in 18.7.0.
       * The pipeline <%= link_to_versioned_api '18.1.0', 'pause-a-pipeline', 'pause api' %>.
       * The pipeline <%= link_to_versioned_api '18.1.0', 'unpause-a-pipeline', 'unpause api' %>.
       * The pipeline <%= link_to_versioned_api '18.1.0', 'releasing-a-pipeline-lock', 'unlock api' %>.
@@ -35,7 +39,7 @@ We strive to understand our users better and provide the best product experience
 
     These APIs have been replaced with a versioned API and users are encouraged to use these instead.
 
-  * The <%= link_to_versioned_api '18.2.0', 'plugin-info', 'Plugin Info API' %> v3 deprecated in 18.3.0 has been removed.  Version 4 of the API is available, and users are encouraged to use it.
+  * The <%= link_to_versioned_api '18.2.0', 'plugin-info', 'Plugin Info API' %> v3 deprecated in 18.3.0 has been removed in 18.7.0. Version 4 of the API is available, and users are encouraged to use it.
 
 <h4>Deprecations</h4>
   * With the introduction of AES for encryption/decryption in this release, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.7.0', 'encryption', 'Encryption API' %> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.
