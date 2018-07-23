@@ -241,6 +241,34 @@ nav.sidebar-nav {
     padding: 20px;
   }
 
+  p:first-child{
+    font-size: 24px;
+    text-align: center;  
+    margin: 0 45px;
+    font-weight: 600;
+    line-height: 30px;
+    @media (min-width: $screen-lg){
+      padding: 0 100px;
+    }
+  }
+
+  .btn-download{
+    width: 200px;
+    height: 50px;
+    line-height: 40px;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #00bfc0;
+    border-radius: 5px;
+    font-size: 24px;
+    background: #00bfc0;
+    color: #fff;
+    transition: all 0.25s;
+
+    &:hover{
+      opacity: 0.8;
+    }
+  }
 }
 
 .big-title {

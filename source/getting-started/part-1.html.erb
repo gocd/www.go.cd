@@ -15,7 +15,9 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
     <%= partial "getting-started-nav", :locals => {:open_nav_at => "part-1"} %>
     <div class="col-md-9">
       <div class="getting-started-content">
-        <p>Welcome to GoCD! In this guide, you'll learn about some of GoCD's concepts and features, and get the chance to try them out on a real server.</p>
+        <%#<p>Welcome to GoCD! In this guide, you'll learn about some of GoCD's concepts and features, and get the chance to try them out on a real server.</p>%>
+        <p>If you do not have GoCD installed, please download and follow the installation checklist.</p>
+        <%= link_to 'Download GoCD', "/download/index.html", {:class => "btn btn-download", "analytics-label" => "home-download-cta"} %>
 
         <h2 class="big-title" id="installation">Installation</h2>
         <p>

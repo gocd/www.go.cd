@@ -81,7 +81,7 @@
 
 		}
 
-		.btn-getting-started {
+		.btn-download {
 			height: 50px;
 			width: 100%;
 			border: 2px solid;
@@ -115,7 +115,7 @@
 			}
 		}
 
-		.btn-download {
+		.btn-getting-started {
 			height: 50px;
 			width: 100%;
 			border: 2px solid;
@@ -123,12 +123,11 @@
 			background-color: hsla(0, 0, 100%, .2);
 			padding: 11px 0 0 0;
 			border-radius: 2;
-			
 			color: hsla(0, 0, 100%, 1);
 			font-size: 1.2em;
 			font-family: URWGeometric-ExtraBold, Helvetica, sans-serif;
-
-			margin-bottom: 4px;
+			// margin-bottom: 4px;
+			margin: 20px auto 4px auto;
 
 			&:hover {
 				background-color: hsla(69, 65%, 60%, 1);
