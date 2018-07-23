@@ -15,6 +15,13 @@ GoCD now shares some (non-personally identifiable) information about the instanc
   <%= image_tag 'releases/18.7.0/data-sharing.png', alt: 'GoCD Data Sharing' %>
 </figure>
 
+<h4>New Loading... screen</h4>
+The GoCD server now starts up into a "Loading ..." screen early on in the process. So, if you have scripts waiting on the port to be open, instead use the [server health API](https://api.gocd.org/current/#server-health), which will succeed with an HTTP status of 200 once the server is up. Till then, it'll fail with an HTTP status of 503.
+
+<figure class='shrink-figure-75'>
+  <%= image_tag 'releases/18.7.0/loading-screen.png', alt: 'Loading Screen' %>
+</figure>
+
 <h4>API Improvements</h4>
 
 * <%= link_to_commit '26cc0ec092a555574f6d9e653f46fc3981416125', "Introduced #{link_to_api 'pipeline-config', 'Pipeline Config API V6'} to support external artifact config", 4760 %>.
