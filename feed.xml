@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2018-07-17T00:00:00Z</updated>
+  <updated>2018-07-24T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Improving GoCD through usage analytics</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/07/24/gocd-usage-analytics.html"/>
+    <id>https://www.gocd.org/2018/07/24/gocd-usage-analytics.html</id>
+    <published>2018-07-24T00:00:00Z</published>
+    <updated>2018-07-24T00:00:00Z</updated>
+    <author>
+      <name>GoCD Team</name>
+    </author>
+    <content type="html">GoCD started collecting and analyzing usage data in 18.7. This post explains the data collected and how to turn it off.</content>
+  </entry>
   <entry>
     <title>How to Work with Materials in GoCD</title>
     <link rel="alternate" href="https://www.gocd.org/2018/07/17/gocd-materials-blacklisting-whitelisting.html"/>
@@ -107,16 +118,5 @@
       <name>Alison Polton-Simon</name>
     </author>
     <content type="html">Here are some important meaningful metrics to measure the effectiveness of your continuous deployment process.</content>
-  </entry>
-  <entry>
-    <title>An absolute beginners guide to Continuous Delivery</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/01/17/continuous-delivery-beginners-guide.html"/>
-    <id>https://www.gocd.org/2018/01/17/continuous-delivery-beginners-guide.html</id>
-    <published>2018-01-17T00:00:00Z</published>
-    <updated>2018-01-17T00:00:00Z</updated>
-    <author>
-      <name>Erin Snyder</name>
-    </author>
-    <content type="html">This post is for anyone who identifies themselves as non-technical, and wants to understand what is continuous delivery and why it’s important.</content>
   </entry>
 </feed>
