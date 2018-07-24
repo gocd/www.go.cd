@@ -39,21 +39,18 @@ This is a rundown of all the information that we currently collect:
 
 The data that gets sent to us looks like this:
 
-
-````json
-{
-    "server_id": "2ab54f99-5fb5-4a5b-850b-ac790aba52b4",
-    "message_version": 1,
-    "data": {
-        "pipeline_count": 139,
-        "agent_count": 43,
-        "oldest_pipeline_execution_time": 1398322181981,
-        "gocd_version": "18.7.0"
+    {
+        "server_id": "2ab54f99-5fb5-4a5b-850b-ac790aba52b4",
+        "message_version": 1,
+        "data": {
+            "pipeline_count": 139,
+            "agent_count": 43,
+            "oldest_pipeline_execution_time": 1398322181981,
+            "gocd_version": "18.7.0"
+        }
     }
-}
-````
 
-
+        
 ## Turning data sharing off
 
 You can absolutely turn this off, if you’d like. The toggle to turn off the data collection is accessible by the GoCD System Administrator under Admin > Data Sharing. You’ll be able to change this at any time and don’t forget to hit ‘Save’ when you’re done.
