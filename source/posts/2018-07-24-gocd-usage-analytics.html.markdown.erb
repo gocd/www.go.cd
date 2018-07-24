@@ -1,0 +1,64 @@
+---
+layout: post
+title: "Improving GoCD through usage analytics"
+type: post
+author: GoCD Team
+excerpt: "GoCD started collecting and analyzing usage data in 18.7. This post explains the data collected and how to turn it off."
+title_tag_of_header: "Improving GoCD through usage analytics | GoCD Blog"
+meta_description: "GoCD started collecting and analyzing usage data in 18.7. This post explains the data collected and how to turn it off."
+meta_keywords: "gocd, usage analytics, number of pipelines, turning off usage analytics"
+summary_image: "/assets/images/blog/thoughtworks-apax/thoughtworks-apax_announcement.jpg"
+tags: Announcements
+draft: true
+---
+<% content_for :banner do %>
+<figure>
+  <img src="/assets/images/blog/thoughtworks-apax/thoughtworks-apax_announcement.jpg" alt="GoCD and the Impact of the ThoughtWorks Acquisition"/>
+</figure>
+<% end %>
+
+GoCD started collecting and analyzing usage data in 18.7. If you are a GoCD System Administrator, you will be able to see a notification that pops up when you upgrade to version 18.7.
+
+<img src="/assets/images/blog/gocd-usage-analytics/notification.png" alt="GoCD collecting usage analytics"/>
+
+## Why are we collecting data?
+
+We strive to understand our users better and provide the best product experience. Having data like number of pipelines and agents on an instance helps us optimize the GoCD experience for scale. We will never collect any private or personal information, [and we will always be transparent about what is being shared](https://www.thoughtworks.com/privacy-policy). 
+
+
+## What data is being shared?
+
+This is a rundown of all the information that we currently collect: 
+
+- **Number of pipelines** *(pipeline_count)*: This allows the calculation of the average number of pipelines a GoCD instance has. Knowing the average number of pipelines helps us optimize the GoCD experience.
+- **Number of agents** *(agent_count)*: This allows the calculation of the average number of agents a GoCD instance has. This will help us ensure GoCD can handle a reasonable number of requests from the average number of agents.
+- **Oldest pipeline run time** *(oldest_pipeline_execution_time)*: This provides data around the age of the GoCD instance. Along with the number of pipelines data point, it helps establish an expected growth in the number of pipelines.
+- **GoCD version** *(gocd_version)*: This is the version of GoCD the server is on.
+- **Server ID** *(server_id)*: A randomly-generated identifier for this instance of GoCD to help correlate the data. This does not tie into any other ID in this instance.
+- **Message version** *(message_version)*: This is the JSON Schema version number for this message.
+
+The data that gets sent to us looks like this:
+
+````
+{
+    "server_id": "2ab54f99-5fb5-4a5b-850b-ac790aba52b4",
+    "message_version": 1,
+    "data": {
+        "pipeline_count": 139,
+        "agent_count": 43,
+        "oldest_pipeline_execution_time": 1398322181981,
+        "gocd_version": "18.7.0"
+    }
+}
+````
+
+## Turning data sharing off
+
+You can absolutely turn this off, if you’d like. The toggle to turn off the data collection is accessible by the GoCD System Administrator under Admin > Data Sharing. You’ll be able to change this at any time and don’t forget to hit ‘Save’ when you’re done.
+
+<img src="/assets/images/blog/gocd-usage-analytics/gocd-settings.png" alt="GoCD usage analytics"/>
+
+If you have any questions or would like more clarity about how and why we collect this information, chat with us on our [gitter channel](https://www.gitter.im/gocd/gocd) or join our [discussion forum](https://groups.google.com/forum/#!forum/go-cd). 
+
+
+
