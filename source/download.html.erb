@@ -235,7 +235,16 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   {{> ami-table amis=demo_amis}}
   <h3>Server AMI</h3>
   {{#size server_amis 'eq' 1}}
-    <div>Region: {{server_amis.0.region}}</div>
+   <table class="table">
+    <tr>
+      <th>Region</th>
+      <th>AMI ID</th>
+    </tr>
+    <tr class="{{server_amis.0.region}}">
+      <td>{{server_amis.0.region}}</td>
+      <td><a href="{{server_amis.0.href}}">{{server_amis.0.ami_id}}</a></td>
+    </tr>
+  </table>
   {{/size}}
   {{#size server_amis 'gt' 1}}
   <div>Select a region</div>
