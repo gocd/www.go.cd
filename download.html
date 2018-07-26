@@ -16,7 +16,7 @@
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
     <link href="assets/stylesheets/site-f67d9b9e.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-58774f9f.js"></script>
+    <script src="assets/javascripts/all-85381e82.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
     <script>
@@ -285,6 +285,19 @@
   <h3>Demo AMI</h3>
   {{> ami-table amis=demo_amis}}
   <h3>Server AMI</h3>
+  {{#size server_amis 'eq' 1}}
+   <table class="table">
+    <tr>
+      <th>Region</th>
+      <th>AMI ID</th>
+    </tr>
+    <tr class="{{server_amis.0.region}}">
+      <td>{{server_amis.0.region}}</td>
+      <td><a href="{{server_amis.0.href}}">{{server_amis.0.ami_id}}</a></td>
+    </tr>
+  </table>
+  {{/size}}
+  {{#size server_amis 'gt' 1}}
   <div>Select a region</div>
   <div class="table-c">
     <select id="{{go_version}}" class="select-dropdown">
@@ -294,6 +307,7 @@
     </select>
     {{> ami-table amis=server_amis}}
   </div>
+  {{/size}}
   {{/inline}}
 
 
