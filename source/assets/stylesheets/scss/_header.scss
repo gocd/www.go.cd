@@ -31,7 +31,15 @@ header.top {
 }
 
 .download{
-    border: 1px solid;
     line-height: 40px !important;
     margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    &::before{
+        display: none;
+    }
+}
+
+.sticky{
+    border: 1px solid $primary-color;
 }
