@@ -1,7 +1,10 @@
 module GoCDHelpers
-  def git_revision
-    $revision = `git rev-parse --verify HEAD 2>/dev/null || true`.strip if @revision.nil?
-    $revision
+  def git_revision_information
+    return $revision unless $revision.nil?
+
+    git_log = `git log -n 1 HEAD 2>/dev/null || true`
+
+    $revision = "Last updated: #{Time.now}\n\nLatest commit:\n    #{git_log.gsub(/\n/, "\n    ")}"
   end
 
   def put_gocd_in_span(text)
