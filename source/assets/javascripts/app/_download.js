@@ -253,3 +253,27 @@ var showHelpLinksFor = (function ($) {
     }));
   };
 })(jQuery);
+
+
+Handlebars.registerHelper('size', function (array, operator, expectedSize, options) {
+	'use strict';
+	if (array == null || array == undefined) {
+		return options.inverse(this);
+	}
+
+	switch (operator) {
+		case 'lt':
+			return array.length < expectedSize ? options.fn(this) : options.inverse(this);
+		case 'lte':
+			return array.length <= expectedSize ? options.fn(this) : options.inverse(this);
+		case 'eq':
+			return array.length === expectedSize ? options.fn(this) : options.inverse(this);
+		case 'gt':
+			return array.length > expectedSize ? options.fn(this) : options.inverse(this);
+		case 'gte':
+			return array.length >= expectedSize ? options.fn(this) : options.inverse(this);
+		default:
+			throw "Invalid operator " + operator + ".";
+			break;
+	}
+});
