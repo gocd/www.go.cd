@@ -787,3 +787,19 @@ body.download {
   background:url(../images/dld-k8s.svg) no-repeat 5px 10px ;
   background-size:20px;
 }
+
+.steps-section{
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.recommended-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recommended-list_child{
+  list-style: disc;
+  margin-top: -40px;
+}
