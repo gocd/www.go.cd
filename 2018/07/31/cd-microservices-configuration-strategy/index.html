@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties." name="description" />
+    <meta content="Microservices, continuous delivery, microservice environment, environment strategy, artifacts, provision environment" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Continuous Delivery of Microservices - Configuration Strategy | GoCD Blog" />
+    <meta name="twitter:description" content="You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-considerations/configuration-strategy-95389633.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy" />
+
+    <title>Continuous Delivery of Microservices - Configuration Strategy | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-f67d9b9e.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-85381e82.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+  </head>
+
+  <body class="x2018 x2018_07 x2018_07_31 x2018_07_31_cd-microservices-configuration-strategy x2018_07_31_cd-microservices-configuration-strategy_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="../../../../resources.html" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../../assets/images/blog/cd-considerations/configuration-strategy-95389633.jpg" alt="Continuous Delivery of Microservices"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Configuration Strategy for Continuous Delivery of Microservices</h1>
+    <h4>Sheroy Marker</h4>
+    <p class='tags'>
+<a href="../../../../tags/cd-for-microservices.html" class="tag">        CD for Microservices
+</a>     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>This is the fifth post in the series - Continuous Delivery of Microservices. In the previous post, we talked about environment strategy -  including artifact promotion and ways to leverage modern infrastructure for dynamic environments. In this post, we will discuss configuration strategy.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>An application’s configuration is everything that is variable across deployment environments such as development, test, and production. If you can deploy the same code but switch out certain aspects (like URLs to backing services, database connection information, credentials to third-party services, etc.) these are what I mean by variables. Such configuration should be stored separately from the application code.</p>
+
+<p>In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. There are a couple of ways to manage configurations in a distributed way: 
+*make configuration available in environment variables at deploy time, 
+*use an external configuration server product designed to expose configuration</p>
+
+<p>Here are three things you should consider for your microservices configuration strategy:</p>
+
+<h2 id="manage-application-configurations-centrally">1: Manage application configurations centrally</h2>
+
+<p>An external configuration server is a more appropriate system for managing application configuration and introduces cleaner separation of concerns.</p>
+
+<p>The configuration management code (in chef or puppet) can solely be responsible for cluster management. With Chef, updating application configuration would require a slow convergence operation of the cluster. With an external configuration server, updates to application configuration can be more dynamic without the need to update any other aspect of the infrastructure.</p>
+
+<p>Another added advantage of this approach is that it forces consistent practices with organizing configuration by application, and environment.</p>
+
+<p>There are a number of purpose built external configuration servers you could consider. The Spring cloud config server is a good option for Spring applications. With support for multiple backends, you could integrate with industry standard KV stores such as Consul for non-sensitive configuration, and Vault for sensitive configuration.</p>
+
+<h2 id="standard-process-for-distributing-configuration">2: Standard process for distributing configuration</h2>
+
+<p>For microservices systems, it is possible to have different tech stacks across the systems. If one is handling configuration differently for different stacks, then the complexity becomes hard to manage. Therefore, regardless of the tech stack of a microservice, configurations should be distributed to nodes in a standard manner.</p>
+
+<p>A technique we use is to supply configuration as environment variables per The Twelve-Factor App methodology. As a rule of thumb, always avoid distributing configuration files.</p>
+
+<p>The Twelve-Factor app is a manifesto that provides some guidelines to be followed while building cloud-native applications. These guidelines let you build applications that are cloud-friendly. To truly harness the advantages of a cloud environment, an application needs to embrace cloud concepts such as elastic scalability, independently deployable and operable services, and statelessness.</p>
+
+<h2 id="governance-policy-around-secrets">3: Governance policy around secrets</h2>
+
+<p>Secrets such as API keys, passwords, and certificates need to be accessed securely. You need a governance process to ensure secrets access is managed appropriately. One technique we recommend to store all secrets is a central secrets store. The central external configuration server could provide this capability.</p>
+
+<p>This central store gives you traceability on how and when policies were changed. That traceability goes a long way in setting up a governance process.</p>
+
+<p>A tool we recommend to store secrets is the Vault by Hashicorp.</p>
+
+<p><strong>Example:</strong></p>
+
+<p><img src="../../../../assets/images/blog/cd-considerations/managing-configuration-6efe2f64.jpeg" alt="Managing Configuration" /></p>
+
+<p>This is an example of an architecture where configurations are stored centrally in a config server and updated by the CD pipeline and pushed out to service instances.</p>
+
+<p>At the top there is an abstraction of the CD pipeline. This updates the config server and then the configuration from the config server is pushed to the service instances. At run time, service instances are aware of how to consume this configuration. When setting-up an architecture like this, you need to consider how many configuration servers should you have. We recommend that you have one configuration server per CD environment, or at least one for production and one for all other environments.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>This is the part 5 of our CD for Microservices blog series. We have talked about configuration strategy for your CD pipeline. In the next post, we will talk about the last consideration: remediation strategies for when something goes wrong.</p>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../../assets/javascripts/marketo_popover-2ee090ae.js" onload="new MarketoForm().init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Jul 24</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../24/gocd-usage-analytics/">Improving GoCD through usage analytics</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 17</span>
+              <span class="post-author">Ankit Srivastava</span>
+              <a href="../../17/gocd-materials-blacklisting-whitelisting/">How to Work with Materials in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 12</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../../06/12/cd-microservices-environment-strategy/">Environment Strategy for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
+              <span class="post-date">May 30</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../../05/30/ci-microservices-feature-toggles-trunk-based-development/">Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles</a>
+            </li>
+            <li>
+              <span class="post-date">May  8</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../../05/08/continuous-delivery-microservices-test-strategy/">Test Strategy for Microservices</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2018 (11)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2018/07/31/cd-microservices-configuration-strategy.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">GETTING STARTED</a></li>
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li> <a href="../../../../events/">WEBINARS + EVENTS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
