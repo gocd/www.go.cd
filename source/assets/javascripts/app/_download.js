@@ -4,20 +4,20 @@ var showDownloadLinks = (function ($) {
 
     var settingsForAllTypes = {
       stable: {
-        download_info_url: 'https://download.gocd.org/releases.json',
+        download_info_url: '../assets/data/releases.json',
         download_prefix: 'https://download.gocd.org/binaries/',
         version_to_show: function (release) {
           return release['go_version'];
         },
-        cloud_info_url: 'https://download.gocd.org/cloud.json'
+        cloud_info_url: '../assets/data/cloud.json'
       },
       experimental: {
-        download_info_url: 'https://download.gocd.org/experimental/releases.json',
+        download_info_url: '../assets/data/releases.json',
         download_prefix: 'https://download.gocd.org/experimental/binaries/',
         version_to_show: function (release) {
           return release['go_full_version'];
         },
-        cloud_info_url: 'https://download.gocd.org/cloud.json'
+        cloud_info_url: '../assets/data/cloud.json'
       }
     };
 
@@ -256,24 +256,24 @@ var showHelpLinksFor = (function ($) {
 
 
 Handlebars.registerHelper('size', function (array, operator, expectedSize, options) {
-	'use strict';
-	if (array == null || array == undefined) {
-		return options.inverse(this);
-	}
+  'use strict';
+  if (array == null || array == undefined) {
+    return options.inverse(this);
+  }
 
-	switch (operator) {
-		case 'lt':
-			return array.length < expectedSize ? options.fn(this) : options.inverse(this);
-		case 'lte':
-			return array.length <= expectedSize ? options.fn(this) : options.inverse(this);
-		case 'eq':
-			return array.length === expectedSize ? options.fn(this) : options.inverse(this);
-		case 'gt':
-			return array.length > expectedSize ? options.fn(this) : options.inverse(this);
-		case 'gte':
-			return array.length >= expectedSize ? options.fn(this) : options.inverse(this);
-		default:
-			throw "Invalid operator " + operator + ".";
-			break;
-	}
+  switch (operator) {
+    case 'lt':
+      return array.length < expectedSize ? options.fn(this) : options.inverse(this);
+    case 'lte':
+      return array.length <= expectedSize ? options.fn(this) : options.inverse(this);
+    case 'eq':
+      return array.length === expectedSize ? options.fn(this) : options.inverse(this);
+    case 'gt':
+      return array.length > expectedSize ? options.fn(this) : options.inverse(this);
+    case 'gte':
+      return array.length >= expectedSize ? options.fn(this) : options.inverse(this);
+    default:
+      throw "Invalid operator " + operator + ".";
+      break;
+  }
 });
