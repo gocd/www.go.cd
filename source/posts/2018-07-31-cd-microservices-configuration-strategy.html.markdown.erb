@@ -3,26 +3,26 @@ layout: post
 title: Configuration Strategy for Continuous Delivery of Microservices
 type: post
 author: Sheroy Marker
-excerpt: "In this post, we'll look at environment strategy including artifact promotion and leveraging modern infrastructure for dynamic environments."
+excerpt: "In this post, we'll look at three considerations for your microservices configuration strategy."
 summary_image: "/assets/images/blog/cd-considerations/configuration-strategy.jpg"
 title_tag_of_header: "Continuous Delivery of Microservices - Configuration Strategy | GoCD Blog"
-meta_description: "You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties."
+meta_description: "In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. Here are three considerations for your microservices configuration strategy"
 meta_keywords: "Microservices, continuous delivery, microservice environment, environment strategy, artifacts, provision environment"
 tags: CD for Microservices
 draft: true
 ---
 <% content_for :banner do %>
   <figure>
-    <img src="/assets/images/blog/cd-considerations/configuration-strategy.jpg" alt="Continuous Delivery of Microservices"/>
+    <img src="/assets/images/blog/cd-considerations/configuration-strategy.jpg" alt="Continuous Delivery of Microservices - Configuration Strategy"/>
   </figure>
 <% end %>
 
 
-This is the fifth post in the series - Continuous Delivery of Microservices. In the previous post, we talked about environment strategy -  including artifact promotion and ways to leverage modern infrastructure for dynamic environments. In this post, we will discuss configuration strategy. 
+This is the fifth post in the series - [Continuous Delivery of Microservices](https://www.gocd.org/tags/cd-for-microservices.html). In the [previous post](https://www.gocd.org/2018/06/12/cd-microservices-environment-strategy/), we talked about environment strategy -  including artifact promotion and ways to leverage modern infrastructure for dynamic environments. In this post, we will discuss configuration strategy. 
 
 ##Introduction
 
-An application’s configuration is everything that is variable across deployment environments such as development, test, and production. If you can deploy the same code but switch out certain aspects (like URLs to backing services, database connection information, credentials to third-party services, etc.) these are what I mean by variables. Such configuration should be stored separately from the application code. 
+An application’s configuration is everything that is variable across deployment environments such as development, test, and production. If you can deploy the same code but switch out certain aspects (like URLs to backing services, database connection information, credentials to third-party services, etc.) these are examples of variables. Such configuration should be stored separately from the application code. 
 
 In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. There are a couple of ways to manage configurations in a distributed way: 
 *make configuration available in environment variables at deploy time, 
@@ -38,13 +38,13 @@ The configuration management code (in chef or puppet) can solely be responsible 
 
 Another added advantage of this approach is that it forces consistent practices with organizing configuration by application, and environment.  
 
-There are a number of purpose built external configuration servers you could consider. The Spring cloud config server is a good option for Spring applications. With support for multiple backends, you could integrate with industry standard KV stores such as Consul for non-sensitive configuration, and Vault for sensitive configuration. 
+There are a number of purpose built external configuration servers you could consider. The Spring cloud config server is a good option for Spring applications. With support for multiple backends, you could integrate with industry standard KV stores such as [Consul](https://www.consul.io) for non-sensitive configuration, and [Vault](https://www.vaultproject.io/) for sensitive configuration. 
 
 ##2: Standard process for distributing configuration
 
 For microservices systems, it is possible to have different tech stacks across the systems. If one is handling configuration differently for different stacks, then the complexity becomes hard to manage. Therefore, regardless of the tech stack of a microservice, configurations should be distributed to nodes in a standard manner. 
 
-A technique we use is to supply configuration as environment variables per The Twelve-Factor App methodology. As a rule of thumb, always avoid distributing configuration files. 
+A technique we use is to supply configuration as environment variables per The [Twelve-Factor App](https://12factor.net/) methodology. As a rule of thumb, always avoid distributing configuration files. 
 
 The Twelve-Factor app is a manifesto that provides some guidelines to be followed while building cloud-native applications. These guidelines let you build applications that are cloud-friendly. To truly harness the advantages of a cloud environment, an application needs to embrace cloud concepts such as elastic scalability, independently deployable and operable services, and statelessness. 
 
@@ -55,7 +55,7 @@ Secrets such as API keys, passwords, and certificates need to be accessed secure
 
 This central store gives you traceability on how and when policies were changed. That traceability goes a long way in setting up a governance process.
 
-A tool we recommend to store secrets is the Vault by Hashicorp. 
+A tool we recommend to store secrets is the [Vault](https://www.vaultproject.io/) by Hashicorp. 
 
 **Example:**
 
@@ -68,6 +68,6 @@ At the top there is an abstraction of the CD pipeline. This updates the config s
 
 ##Summary
 
-This is the part 5 of our CD for Microservices blog series. We have talked about configuration strategy for your CD pipeline. In the next post, we will talk about the last consideration: remediation strategies for when something goes wrong. 
+This is the part 5 of our [CD for Microservices blog series](https://www.gocd.org/tags/cd-for-microservices.html). We have talked about configuration strategy for your CD pipeline. In the next post, we will talk about the last consideration: remediation strategies for when something goes wrong. 
 
 
