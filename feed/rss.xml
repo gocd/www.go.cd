@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>Configuration Strategy for Continuous Delivery of Microservices</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy.html"/>
+    <id>https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy.html</id>
+    <published>2018-07-31T00:00:00Z</published>
+    <updated>2018-07-31T00:00:00Z</updated>
+    <author>
+      <name>Sheroy Marker</name>
+    </author>
+    <content type="html">In this post, we'll look at three considerations for your microservices configuration strategy.</content>
+  </entry>
+  <entry>
     <title>Improving GoCD through usage analytics</title>
     <link rel="alternate" href="https://www.gocd.org/2018/07/24/gocd-usage-analytics.html"/>
     <id>https://www.gocd.org/2018/07/24/gocd-usage-analytics.html</id>
@@ -107,16 +118,5 @@
       <name>Moritz Lenz</name>
     </author>
     <content type="html">Here are some steps on how to manage your build versions in your GoCD Pipeline.</content>
-  </entry>
-  <entry>
-    <title>4 Important Metrics for Continuous Delivery</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/01/31/continuous-delivery-metrics.html"/>
-    <id>https://www.gocd.org/2018/01/31/continuous-delivery-metrics.html</id>
-    <published>2018-01-31T00:00:00Z</published>
-    <updated>2018-01-31T00:00:00Z</updated>
-    <author>
-      <name>Alison Polton-Simon</name>
-    </author>
-    <content type="html">Here are some important meaningful metrics to measure the effectiveness of your continuous deployment process.</content>
   </entry>
 </feed>

@@ -4,12 +4,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties." name="description" />
+    <meta content="In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. Here are three considerations for your microservices configuration strategy" name="description" />
     <meta content="Microservices, continuous delivery, microservice environment, environment strategy, artifacts, provision environment" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Continuous Delivery of Microservices - Configuration Strategy | GoCD Blog" />
-    <meta name="twitter:description" content="You can start with thinking about what environments need to be created upfront and talking about the intended use cases for these environments. Different groups in your organization will have different competing needs. Your environment plan should accommodate the needs from different parties." />
+    <meta name="twitter:description" content="In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. Here are three considerations for your microservices configuration strategy" />
     <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-considerations/configuration-strategy-95389633.jpg" />
     <link rel="canonical" href="https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy.html" />
 
@@ -67,7 +67,7 @@
 
     <div class="post-banner">
         <figure>
-    <img src="../../../assets/images/blog/cd-considerations/configuration-strategy-95389633.jpg" alt="Continuous Delivery of Microservices"/>
+    <img src="../../../assets/images/blog/cd-considerations/configuration-strategy-95389633.jpg" alt="Continuous Delivery of Microservices - Configuration Strategy"/>
   </figure>
 
     </div>
@@ -83,11 +83,11 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>This is the fifth post in the series - Continuous Delivery of Microservices. In the previous post, we talked about environment strategy -  including artifact promotion and ways to leverage modern infrastructure for dynamic environments. In this post, we will discuss configuration strategy.</p>
+<p>This is the fifth post in the series - <a href="https://www.gocd.org/tags/cd-for-microservices.html">Continuous Delivery of Microservices</a>. In the <a href="https://www.gocd.org/2018/06/12/cd-microservices-environment-strategy/">previous post</a>, we talked about environment strategy -  including artifact promotion and ways to leverage modern infrastructure for dynamic environments. In this post, we will discuss configuration strategy.</p>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>An application’s configuration is everything that is variable across deployment environments such as development, test, and production. If you can deploy the same code but switch out certain aspects (like URLs to backing services, database connection information, credentials to third-party services, etc.) these are what I mean by variables. Such configuration should be stored separately from the application code.</p>
+<p>An application’s configuration is everything that is variable across deployment environments such as development, test, and production. If you can deploy the same code but switch out certain aspects (like URLs to backing services, database connection information, credentials to third-party services, etc.) these are examples of variables. Such configuration should be stored separately from the application code.</p>
 
 <p>In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. There are a couple of ways to manage configurations in a distributed way: 
 *make configuration available in environment variables at deploy time, 
@@ -103,13 +103,13 @@
 
 <p>Another added advantage of this approach is that it forces consistent practices with organizing configuration by application, and environment.</p>
 
-<p>There are a number of purpose built external configuration servers you could consider. The Spring cloud config server is a good option for Spring applications. With support for multiple backends, you could integrate with industry standard KV stores such as Consul for non-sensitive configuration, and Vault for sensitive configuration.</p>
+<p>There are a number of purpose built external configuration servers you could consider. The Spring cloud config server is a good option for Spring applications. With support for multiple backends, you could integrate with industry standard KV stores such as <a href="https://www.consul.io">Consul</a> for non-sensitive configuration, and <a href="https://www.vaultproject.io/">Vault</a> for sensitive configuration.</p>
 
 <h2 id="standard-process-for-distributing-configuration">2: Standard process for distributing configuration</h2>
 
 <p>For microservices systems, it is possible to have different tech stacks across the systems. If one is handling configuration differently for different stacks, then the complexity becomes hard to manage. Therefore, regardless of the tech stack of a microservice, configurations should be distributed to nodes in a standard manner.</p>
 
-<p>A technique we use is to supply configuration as environment variables per The Twelve-Factor App methodology. As a rule of thumb, always avoid distributing configuration files.</p>
+<p>A technique we use is to supply configuration as environment variables per The <a href="https://12factor.net/">Twelve-Factor App</a> methodology. As a rule of thumb, always avoid distributing configuration files.</p>
 
 <p>The Twelve-Factor app is a manifesto that provides some guidelines to be followed while building cloud-native applications. These guidelines let you build applications that are cloud-friendly. To truly harness the advantages of a cloud environment, an application needs to embrace cloud concepts such as elastic scalability, independently deployable and operable services, and statelessness.</p>
 
@@ -119,7 +119,7 @@
 
 <p>This central store gives you traceability on how and when policies were changed. That traceability goes a long way in setting up a governance process.</p>
 
-<p>A tool we recommend to store secrets is the Vault by Hashicorp.</p>
+<p>A tool we recommend to store secrets is the <a href="https://www.vaultproject.io/">Vault</a> by Hashicorp.</p>
 
 <p><strong>Example:</strong></p>
 
@@ -131,7 +131,7 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>This is the part 5 of our CD for Microservices blog series. We have talked about configuration strategy for your CD pipeline. In the next post, we will talk about the last consideration: remediation strategies for when something goes wrong.</p>
+<p>This is the part 5 of our <a href="https://www.gocd.org/tags/cd-for-microservices.html">CD for Microservices blog series</a>. We have talked about configuration strategy for your CD pipeline. In the next post, we will talk about the last consideration: remediation strategies for when something goes wrong.</p>
 
 
       </main>
@@ -155,6 +155,11 @@
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <li>
+              <span class="post-date">Jul 31</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="cd-microservices-configuration-strategy/">Configuration Strategy for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
               <span class="post-date">Jul 24</span>
               <span class="post-author">GoCD Team</span>
               <a href="../24/gocd-usage-analytics/">Improving GoCD through usage analytics</a>
@@ -174,17 +179,12 @@
               <span class="post-author">Sheroy Marker</span>
               <a href="../../05/30/ci-microservices-feature-toggles-trunk-based-development/">Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles</a>
             </li>
-            <li>
-              <span class="post-date">May  8</span>
-              <span class="post-author">Sheroy Marker</span>
-              <a href="../../05/08/continuous-delivery-microservices-test-strategy/">Test Strategy for Microservices</a>
-            </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../">2018 (11)</a></li>
+            <li><a href="../../">2018 (12)</a></li>
             <li><a href="../../../2017/">2017 (39)</a></li>
             <li><a href="../../../2016/">2016 (8)</a></li>
             <li><a href="../../../2015/">2015 (21)</a></li>
