@@ -32,20 +32,11 @@ $(function () {
     e.preventDefault();
     $(".mainnav").toggleClass('open');
   });
-
-
+  
   $('.menu').click(function () {
     $(this).toggleClass('open');
     $('.slidenav').toggleClass('open');
     $('body').toggleClass('nav-open')
-  });
-
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 20) {
-      $('.top .download').addClass('sticky');
-    } else {
-      $('.top .download').removeClass('sticky');
-    }
   });
 
 });

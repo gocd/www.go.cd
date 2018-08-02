@@ -343,7 +343,7 @@ body.download {
   .old-release {
     @media (min-width: $screen-lg-desktop) {
       width: 100%;
-      margin: 30px auto;
+      margin: 0px auto;
     }
   }
   .version {
@@ -718,7 +718,9 @@ body.download {
   //subscribe form styles in download page
   .subscribe-to-blog {
     text-align: left;
-    padding-left: 0;
+    padding: 0;
+    margin-top: 0px;
+    
     .subscribe-title {
       line-height: 20px;
       font-weight: 300;
@@ -791,6 +793,10 @@ body.download {
 .steps-section{
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+
+  h3{
+    margin: 15px auto 10px auto;
+  }
 }
 
 .recommended-list{
@@ -801,5 +807,5 @@ body.download {
 
 .recommended-list_child{
   list-style: disc;
-  margin-top: -40px;
+  margin-top: -20px;
 }
