@@ -96,6 +96,7 @@ var showDownloadLinks = (function ($) {
       var other_cloud_releases = R.tail(amiReleases);
       var latestRelease = addInfo(R.head(releases));
       var template = Handlebars.compile($("#download-revisions-template").html());
+
       $("#downloads").html(template({
         latest_release: latestRelease,
         all_other_releases: R.tail(releases),
