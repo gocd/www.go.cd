@@ -33,12 +33,12 @@ $navbar-dark: #1B1D21;
     width: 40px;
     height: 40px;
     cursor: pointer;
-
     color: $navbutton;
     border-radius: 5px;
     text-decoration: none;
     border: none;
     background: transparent;
+
     @media screen and (min-width: $screen-tablet) {
         display: none;
     }
@@ -50,7 +50,7 @@ $navbar-dark: #1B1D21;
 
 .mainnav {
     float: right;
-    @media screen and (max-width: $screen-tablet) {
+    @media screen and (max-width: $screen-md-min) {
         display: block;
         position: absolute;
         z-index: $mobile-nav;
