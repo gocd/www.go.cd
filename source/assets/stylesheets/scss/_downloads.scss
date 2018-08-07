@@ -801,7 +801,7 @@ body.download {
 
 .recommended-list{
   list-style: none;
-  margin: 0;
+  margin: 0 0 15px 0 ;
   padding: 0;
 }
 
@@ -809,14 +809,13 @@ body.download {
   list-style: disc;
   margin-top: -20px;
 }
-.steps-section p{
-  a::after {
-    content: "";
-    background: url(/assets/images/external-link.svg) no-repeat center top;
-    background-size: cover;
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-    margin-left: 5px;
-  }
+
+.link-external::after {
+  content: "";
+  background: url(/assets/images/external-link.svg) no-repeat center top;
+  background-size: cover;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-left: 5px;
 }
