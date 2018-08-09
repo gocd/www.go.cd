@@ -1,17 +1,14 @@
 #subscribe-info {
   margin-top: 9px;
-
   .mktoForm {
     width: auto !important;
   }
-
   label[for="Country"] {
     width: 145px !important;
   }
 }
 
 .subscribe-content {
-
   ul {
     li {
       margin-bottom: 10px;
@@ -28,52 +25,41 @@
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-
-  @media (min-width:$screen-tablet) {
+  @media (min-width: $screen-tablet) {
     font-size: 22px;
     font-weight: 300;
   }
-
 }
 
 .subscribe-content {
-  @media (min-width:$screen-desktop) {
+  @media (min-width: $screen-desktop) {
     padding-top: 10px;
   }
 }
 
 .subscribe-to-blog {
-
   p {
     line-height: 1em;
   }
-
   .subscribe-left-panel {
     float: left;
     text-align: left;
-
     .pipeline_subscribe_image {
       height: auto;
       width: auto;
     }
-
   }
-
   .subscribe-right-panel {
     float: right;
     text-align: right;
-
     @media (max-width: 767px) {
       float: none;
-      }
-
+    }
     #mktoForm_5414 {
       text-align: right;
-
       @media (max-width: 991px) {
         text-align: center;
       }
-
       .mktoFormRow {
         margin-bottom: 10px;
       }
@@ -85,22 +71,16 @@
 .subscribe-to-blog {
   padding: 20px;
   margin-top: 30px;
-
-  @media (max-width:$screen-sm-max) {
+  @media (max-width: $screen-sm-max) {
     margin-top: 30px;
     margin-bottom: 30px;
   }
-
   form {
     margin-top: 20px !important;
-
-    @media (min-width:$screen-desktop) {
+    @media (min-width: $screen-desktop) {
       margin-top: 0 !important;
     }
   }
-
-
-
   .mktoForm input[type=text],
   .mktoForm input[type=url],
   .mktoForm input[type=email],
@@ -112,14 +92,12 @@
     border: 1px solid $border;
     height: 30px;
   }
-
   .mktoForm .mktoRequiredField label.mktoLabel,
   .mktoForm label.mktoLabel,
   label {
     font-weight: normal;
     margin-bottom: 5px;
   }
-
   .mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
     color: #fff;
     border: 1px solid #94399E;
@@ -135,109 +113,83 @@
     position: relative;
     top: 3px;
     font-family: 'Open Sans', sans-serif;
-
-    @media (min-width:$screen-tablet) {
+    @media (min-width: $screen-tablet) {
       margin-top: 0px;
     }
-
   }
-
 }
 
 .subscribe-to-blog {
-  #mktoForm_5414 .mktoButtonWrap.mktoSimple, #mktoForm_6699 .mktoButtonWrap.mktoSimple {
+  #mktoForm_5414 .mktoButtonWrap.mktoSimple,
+  #mktoForm_6699 .mktoButtonWrap.mktoSimple {
     margin-left: -15px !important;
   }
-
   a {
     color: #4a90e2;
-
     &:hover {
       color: #94399E;
     }
   }
-
-
   .mktoLabel {
     width: 105px !important;
     font-family: 'Open Sans', sans-serif;
   }
-
   .mktoButtonWrap.mktoSimple {
     margin: 0 !important;
-
-    @media (min-width:$screen-tablet) {
+    @media (min-width: $screen-tablet) {
       margin-left: 0px !important;
     }
-
   }
-
   .mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
     border: 0;
   }
-
 }
 
 .subscribe-to-blog {
-  // border-top: 1px solid #CCC;
-  // border-bottom: 1px solid #CCC;
   margin-bottom: 30px;
   padding: 20px;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-
-p{
-  margin-bottom: 0;
-}
-  // Marketo form overrides
-  #mktoForm_5414, #mktoForm_6699 {
+  p {
+    margin-bottom: 0;
+  } // Marketo form overrides
+  #mktoForm_5414,
+  #mktoForm_6699 {
     width: 250px !important;
     text-align: center;
     margin: 10px auto;
-
-    @media (min-width:$screen-tablet) {
+    @media (min-width: $screen-tablet) {
       width: auto !important;
     }
-
     @media (min-width:$screen-desktop) {
       margin: 0 auto;
     }
-
     .mktoFormRow {
       display: inline-block;
       vertical-align: middle;
     }
-
     .mktoButtonWrap.mktoSimple {
       margin: 0 !important;
     }
-
     .mktoFormCol {
       margin-bottom: 0px !important;
     }
-
   }
-
 }
 
 .post {
   .subscribe-to-blog {
-    #mktoForm_5414, #mktoForm_6699 {
+    #mktoForm_5414,
+    #mktoForm_6699 {
       .mktoButtonWrap.mktoSimple {
         display: block;
         margin: 10px !important;
       }
-
       .mktoEmailField {
         width: 100% !important;
       }
-
-
-
     }
-
   }
-
 }
 
 .overlay.marketo-response {
@@ -249,7 +201,7 @@ p{
   z-index: 100;
   .popup {
     $popup-border-size: 8px;
-    box-shadow: 2px 2px 12px 2px rgba(0,0,0,.2);
+    box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, .2);
     width: 400px;
     height: auto;
     position: fixed;
@@ -277,19 +229,15 @@ p{
 }
 
 //subscribe page
-
 .subscribe {
   .mktoButtonWrap.mktoSimple {
     margin-left: 165px !important;
   }
-
 }
 
 //post page
-
 .blogpost {
   .subscribe-title {
     font-size: 17px;
   }
-
 }
