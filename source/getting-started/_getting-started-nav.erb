@@ -9,13 +9,12 @@
 <div class="col-md-3 sidebar">
   <button class="get-start-btn"><i class="fa fa-bars"></i></button>
   <nav class="sidebar-nav getting-started-nav">
-    <h5>Getting started <span class="close-nav">X</span></h5>
+    <h5>Introduction to GoCD <span class="close-nav">X</span></h5>
 
     <ul class="verticalnav">
       <li class="dropdown <%= open_nav_at == "part-1" ? "open" : "dropdown-menu" %>">
         <a href="#" class="active">Part 1</a>
         <ul>
-          <li><%= link_to_fragment "installation", "part-1", "Installation", open_nav_at %></li>
           <li><%= link_to_fragment "concept1", "part-1", "<strong>Concept 1:</strong>Server and agents", open_nav_at, {"class" => "active"} %></li>
           <li><%= link_to_fragment "concept2", "part-1", "<strong>Concept 2:</strong>Pipelines and materials", open_nav_at %></li>
           <li><%= link_to_fragment "concept3", "part-1", "<strong>Concept 3:</strong>Agent prepares to do some work", open_nav_at %></li>

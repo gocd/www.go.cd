@@ -96,6 +96,7 @@ var showDownloadLinks = (function ($) {
       var other_cloud_releases = R.tail(amiReleases);
       var latestRelease = addInfo(R.head(releases));
       var template = Handlebars.compile($("#download-revisions-template").html());
+
       $("#downloads").html(template({
         latest_release: latestRelease,
         all_other_releases: R.tail(releases),
@@ -256,24 +257,24 @@ var showHelpLinksFor = (function ($) {
 
 
 Handlebars.registerHelper('size', function (array, operator, expectedSize, options) {
-	'use strict';
-	if (array == null || array == undefined) {
-		return options.inverse(this);
-	}
+  'use strict';
+  if (array == null || array == undefined) {
+    return options.inverse(this);
+  }
 
-	switch (operator) {
-		case 'lt':
-			return array.length < expectedSize ? options.fn(this) : options.inverse(this);
-		case 'lte':
-			return array.length <= expectedSize ? options.fn(this) : options.inverse(this);
-		case 'eq':
-			return array.length === expectedSize ? options.fn(this) : options.inverse(this);
-		case 'gt':
-			return array.length > expectedSize ? options.fn(this) : options.inverse(this);
-		case 'gte':
-			return array.length >= expectedSize ? options.fn(this) : options.inverse(this);
-		default:
-			throw "Invalid operator " + operator + ".";
-			break;
-	}
+  switch (operator) {
+    case 'lt':
+      return array.length < expectedSize ? options.fn(this) : options.inverse(this);
+    case 'lte':
+      return array.length <= expectedSize ? options.fn(this) : options.inverse(this);
+    case 'eq':
+      return array.length === expectedSize ? options.fn(this) : options.inverse(this);
+    case 'gt':
+      return array.length > expectedSize ? options.fn(this) : options.inverse(this);
+    case 'gte':
+      return array.length >= expectedSize ? options.fn(this) : options.inverse(this);
+    default:
+      throw "Invalid operator " + operator + ".";
+      break;
+  }
 });

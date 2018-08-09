@@ -32,8 +32,7 @@ $(function () {
     e.preventDefault();
     $(".mainnav").toggleClass('open');
   });
-
-
+  
   $('.menu').click(function () {
     $(this).toggleClass('open');
     $('.slidenav').toggleClass('open');

@@ -1,12 +1,9 @@
 body.download {
-
   margin-top: 66px;
-
   main {
     margin-top: 30px;
     margin-bottom: 30px;
   }
-
   .go {
     text-transform: none;
   }
@@ -108,9 +105,7 @@ body.download {
     }
     .server32bit,
     .server {
-
       margin: 0 15px 15px 0;
-
       @media (min-width: $screen-tablet) {
         margin-right: 35px;
       }
@@ -221,8 +216,7 @@ body.download {
     padding: 30px;
     background: rgba(0, 0, 0, 0.80);
     left: 0;
-    @media (min-width: $screen-tablet) {
-    }
+    @media (min-width: $screen-tablet) {}
     .content {
       @media (max-width: $screen-xs-min) {
         width: 100%;
@@ -343,7 +337,7 @@ body.download {
   .old-release {
     @media (min-width: $screen-lg-desktop) {
       width: 100%;
-      margin: 30px auto;
+      margin: 0px auto;
     }
   }
   .version {
@@ -389,7 +383,6 @@ body.download {
     .head {
       display: block;
       padding: 5px 20px;
-
     }
     .open {
       &:after {
@@ -419,7 +412,7 @@ body.download {
   }
   nav.sidebar-nav {
     &.download-nav {
-      > ul > li.dropdown {
+      >ul>li.dropdown {
         position: relative;
         background: #e2e2e2;
       }
@@ -460,7 +453,7 @@ body.download {
         }
       }
       .verticalnav {
-        > li:first-child {
+        >li:first-child {
           border-radius: 0px;
           @media (min-width: $screen-desktop) {
             border-radius: 6px 6px 0 0;
@@ -519,9 +512,9 @@ body.download {
         cursor: pointer;
         font-weight: normal;
         &.d_active {
-          border-bottom-color: $primary-color;;
+          border-bottom-color: $primary-color;
           border-bottom-width: 3px;
-          color: $primary-color;;
+          color: $primary-color;
           font-weight: 700;
         }
         @media (min-width: $screen-desktop) {
@@ -534,7 +527,7 @@ body.download {
         padding: 20px;
         @media (min-width: $screen-desktop) {
           border: 1px solid #fff;
-          padding: 0;
+          padding: 0 35px;
         }
       }
     }
@@ -627,7 +620,7 @@ body.download {
         margin: 0 20px 0 0;
       }
     }
-    input[type="radio"]:checked + label {
+    input[type="radio"]:checked+label {
       border-bottom: 5px solid $primary-color;
     }
   }
@@ -640,7 +633,7 @@ body.download {
     white-space: nowrap;
     background: $gray;
     color: #fff;
-    position: absolute;;
+    position: absolute;
     right: 10px;
     top: 78px;
     transition: all 0.5s ease-in-out;
@@ -692,7 +685,6 @@ body.download {
       margin-top: 15px;
     }
   }
-
   .helm {
     h3 {
       font-size: 20px;
@@ -711,14 +703,15 @@ body.download {
       white-space: nowrap;
     }
   }
-
   .k8s p {
     margin-bottom: 0;
-  }
+  } 
+  
   //subscribe form styles in download page
   .subscribe-to-blog {
     text-align: left;
-    padding-left: 0;
+    padding: 0;
+    margin-top: 0px;
     .subscribe-title {
       line-height: 20px;
       font-weight: 300;
@@ -733,14 +726,12 @@ body.download {
     form {
       margin-top: 0 !important;
     }
-
     #mktoForm_6699 {
       text-align: left;
       margin: 10px 0;
       padding: 0;
     }
   }
-
   .mktoForm {
     margin: 0;
   }
@@ -754,36 +745,71 @@ body.download {
   }
 }
 
-.dld-win{
-  background:url(../images/dld-win.svg) no-repeat 5px 8px ;
-  background-size:24px;
+.dld-win {
+  background: url(../images/dld-win.svg) no-repeat 5px 8px;
+  background-size: 24px;
 }
-.dld-osx{
-  background:url(../images/dld-osx.svg) no-repeat 5px 6px ;
-  background-size:24px;
+
+.dld-osx {
+  background: url(../images/dld-osx.svg) no-repeat 5px 6px;
+  background-size: 24px;
 }
-.dld-deb{
-  background:url(../images/dld-deb.svg) no-repeat 5px 5px ;
-  background-size:24px;
+
+.dld-deb {
+  background: url(../images/dld-deb.svg) no-repeat 5px 5px;
+  background-size: 24px;
 }
-.dld-rpm{
-  background:url(../images/dld-rpm.svg) no-repeat 5px 5px ;
-  background-size:24px;
+
+.dld-rpm {
+  background: url(../images/dld-rpm.svg) no-repeat 5px 5px;
+  background-size: 24px;
 }
-.dld-zip{
-  background:url(../images/dld-zip.svg) no-repeat 5px 5px ;
-  background-size:24px;
+
+.dld-zip {
+  background: url(../images/dld-zip.svg) no-repeat 5px 5px;
+  background-size: 24px;
 }
-.dld-ami{
-  background:url(../images/dld-ami.svg) no-repeat 5px 15px ;
-  background-size:24px;
+
+.dld-ami {
+  background: url(../images/dld-ami.svg) no-repeat 5px 15px;
+  background-size: 24px;
 }
-.dld-docker{
-  background:url(../images/dld-docker.svg) no-repeat 5px 10px ;
-  background-size:24px;
+
+.dld-docker {
+  background: url(../images/dld-docker.svg) no-repeat 5px 10px;
+  background-size: 24px;
 }
 
 .dld-k8s {
-  background:url(../images/dld-k8s.svg) no-repeat 5px 10px ;
-  background-size:20px;
+  background: url(../images/dld-k8s.svg) no-repeat 5px 10px;
+  background-size: 20px;
+}
+
+.steps-section {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  h3 {
+    margin: 15px auto 10px auto;
+  }
+}
+
+.recommended-list {
+  list-style: none;
+  margin: 0 0 15px 0;
+  padding: 0;
+}
+
+.recommended-list_child {
+  list-style: disc;
+  margin-top: -20px;
+}
+
+.link-external::after {
+  content: "";
+  background: url(/assets/images/external-link.svg) no-repeat center top;
+  background-size: cover;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-left: 5px;
 }
