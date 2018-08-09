@@ -513,10 +513,8 @@ body.download {
         font-weight: normal;
         &.d_active {
           border-bottom-color: $primary-color;
-          ;
           border-bottom-width: 3px;
           color: $primary-color;
-          ;
           font-weight: 700;
         }
         @media (min-width: $screen-desktop) {
@@ -636,7 +634,6 @@ body.download {
     background: $gray;
     color: #fff;
     position: absolute;
-    ;
     right: 10px;
     top: 78px;
     transition: all 0.5s ease-in-out;
@@ -708,7 +705,9 @@ body.download {
   }
   .k8s p {
     margin-bottom: 0;
-  } //subscribe form styles in download page
+  } 
+  
+  //subscribe form styles in download page
   .subscribe-to-blog {
     text-align: left;
     padding: 0;
