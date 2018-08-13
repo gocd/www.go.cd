@@ -192,20 +192,21 @@ nav.sidebar-nav {
 
         >a {
           color: #fff;
+          &:after {
+            content: "";
+            position: absolute;
+            right: 10px;
+            top: 14px;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid #fff;
+          }
         }
 
-        &:after {
-          content: "";
-          position: absolute;
-          right: 10px;
-          top: 14px;
-          border-top: 5px solid transparent;
-          border-bottom: 5px solid transparent;
-          border-left: 5px solid #fff;
-        }
 
         &.open {
-          &:after {
+          >a {
+            &:after {
             content: "";
             position: absolute;
             right: 12px;
@@ -213,8 +214,8 @@ nav.sidebar-nav {
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
             border-top: 5px solid #fff;
+           }
           }
-
         }
 
       }
