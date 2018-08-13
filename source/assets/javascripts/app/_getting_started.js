@@ -16,12 +16,14 @@ jQuery(document).ready(function($) {
   var setupSidebar = function() {
     $('nav.getting-started-nav ul.verticalnav > li.dropdown > a').click(function(e){
       e.preventDefault();
-      var isOpen = $(this).parent().hasClass('open');
-      $('nav.getting-started-nav ul.verticalnav > li.dropdown > ul').hide();
-      $('nav.getting-started-nav ul.verticalnav > li.dropdown').removeClass('open');
+      var parent = $(this).parent();
+      var isOpen = parent.hasClass('open');
+
+      $(this).next('ul').hide();
+      parent.removeClass('open');
       if(!isOpen) {
-        $(this).parent().addClass('open');
-        $(this).parent().find('ul').show();  
+        parent.addClass('open');
+        parent.find('ul').show();
       }
     });
   };
