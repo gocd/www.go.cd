@@ -414,6 +414,21 @@
   }
 }
 
+.features-section{
+  .two-row-col:nth-child(even) {
+    @media (max-width: $screen-md-min){
+      .two-row-col_item:first-child {
+        order: 2;
+      }
+  
+      .two-row-col_item:last-child {
+        order: 1;
+      }
+
+    }
+  }
+}
+
 .content { 
   width: 80%;
   padding: 0 20px;
