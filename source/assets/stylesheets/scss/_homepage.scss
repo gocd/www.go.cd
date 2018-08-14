@@ -387,3 +387,51 @@
     text-transform: none;
   }
 }
+
+
+// New Stylesheet restructuring
+.features-section, .learn-more-section, .plugins-community-section {
+  margin: 50px auto;
+}
+
+.two-row-col {
+  // border: 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.two-row-col_item {
+  display: flex;
+  flex-wrap: wrap;
+  // border: 1px solid;
+  width: 100%;
+  padding: 30px;
+  margin: 20px auto;
+
+  @media (min-width: $screen-md) {
+    width: 50%;
+  }
+}
+
+.content { 
+  width: 80%;
+  padding: 0 20px;
+}
+
+.img-feature {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+}
+
+.learn-more-section {
+  background: $grey-bg;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.img-icon{
+  width: 20%;
+  height: auto;
+}

@@ -37,64 +37,100 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
   </div>
 </div>
 
-<p class="bigtxt">Automate and streamline your build-test-release cycle for reliable, continuous delivery of your product.</p>
-
-
-<div class="main-features">
+<section class="features-section">
   <div class="container">
-    <div class="row features">
-      <div class=" col-sm-12 col-md-4">
-        <%= partial "partials/whygocdfeature1" %>
+    <div class="two-row-col">
+      <div class="two-row-col_item">
+        <h1 class="item-heading">End to End Visualisation</h1>
+        <p class="item-description">GoCD’s value stream map shows your entire path to production in a single view. Easily navigate across jobs, spot inefficiencies, and optimize your process. No plugin required, out of box CD. </p>
       </div>
-      <div class=" col-sm-12 col-md-4">
-        <%= partial "partials/whygocdfeature2" %>
-      </div>
-      <div class="col-sm-12 col-md-4">
-        <%= partial "partials/whygocdfeature3" %>
+      <div class="two-row-col_item">
+        <figure class="img-feature">
+          <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows and dependency management", :alt => "Model complex workflows and dependency management"} %>
+        </figure>
       </div>
     </div>
-    <%= link_to 'See more GoCD features', '/why-gocd/index.html', :class => 'btn btn-default see-all-features', "analytics-label" => "link_homepage_see_more_gocd_features" %>
-  </div>
-</div>
-<div class="plugins-community">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="row plugins-cont">
-          <div class="col-xs-3 col-sm-3 col-md-3">
-            <figure>
-              <%= image_tag "icons/go.cd_plugins.svg", {:title => "GoCD open source plugins", :alt => "GoCD open source plugins"} %>
-            </figure>
-          </div>
-          <div class="col-xs-9 col-sm-9 col-md-9">
-            <h3 class="plugins-title">Plugins</h3>
-            <p>
-              GoCD has numerous extension points for which plugins can be created. There are
-              <%= link_to 'numerous plugins', '/plugins/index.html', "analytics-label" => "link_homepage_plugins" %> already available, or if you don't see
-              what you need, you can <%= link_to 'write your own', 'https://developer.gocd.org/current/writing_go_plugins/go_plugins_basics.html',
-                                         "analytics-label" => "link_homepage_plugin_writing_docs" %>.
-            </p>
-          </div>
-        </div>
+
+    <div class="two-row-col">
+      <div class="two-row-col_item">
+        <figure class="img-feature">
+          <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows and dependency management", :alt => "Model complex workflows and dependency management"} %>
+        </figure>
       </div>
-      <div class="col-md-6">
-        <div class="row community-cont">
-          <div class=" col-xs-3 col-sm-3 col-md-3">
-            <figure>
-              <%= image_tag "icons/go.cd_community.svg", {:title => "GoCD open source community", :alt => "GoCD open source community"}  %>
-            </figure>
-          </div>
-          <div class="col-xs-9 col-sm-9 col-md-9">
-            <h3 class="plugins-title">Community</h3>
-            <p>
-              GoCD's community is 1000 members strong and growing. Through our active forum, users and contributors share best practices and
-              openly discuss a wide range of topics including product how-tos. To join in the
-              conversation visit <a href="https://groups.google.com/forum/#!forum/go-cd" analytics-label="link_homepage_google_group" >our Google group.</a>
-            </p>
-          </div>
-        </div>
+      
+      <div class="two-row-col_item">
+        <h1 class="item-heading">Cloud Native</h1>
+        <p class="item-description">GoCD streamlines your CD workflow on popular cloud environments such as Kubernetes, Docker, AWS and more. </p>
+      </div>
+    </div>
+
+    <div class="two-row-col">
+      <div class="two-row-col_item">
+        <h1 class="item-heading">Complex Workflow Modeling</h1>
+        <p class="item-description">GoCD excels at modeling complex CD workflows for fast feedback with its modeling constructs, parallel execution and dependency management.
+No plugin required, out of box CD. </p>
+      </div>
+      
+      <div class="two-row-col_item">
+        <figure class="img-feature">
+          <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows and dependency management", :alt => "Model complex workflows and dependency management"} %>
+        </figure>
+      </div>
+    </div>
+
+    <div class="two-row-col">
+      <div class="two-row-col_item">
+        <figure class="img-feature">
+          <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows and dependency management", :alt => "Model complex workflows and dependency management"} %>
+        </figure>
+      </div>
+      
+      <div class="two-row-col_item">
+        <h1 class="item-heading">Advanced Traceability</h1>
+        <p class="item-description">GoCD helps you troubleshoot a broken pipeline by tracking every change from commit to deploy in real time. Compare content - both files and commit messages - across any two arbitrary builds. No plugin required, out of box CD.</p>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<section class="learn-more-section">
+  <div class="container">
+    <h2> GoCD for Enterprise</h2>
+    <p> GoCD provides enterprise plugins and professional support to bring the power of its continuous delivery pipelines for your enterprise IT environment.</p>
+    <a href="#">LEARN MORE</a>
+  </div>
+</section>
+
+<section class="plugins-community-section">
+  <div class="container">
+    <div class="two-row-col">
+      <div class="two-row-col_item">
+        <figure class="img-icon">
+          <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows and dependency management", :alt => "Model complex workflows and dependency management"} %>
+        </figure>
+
+        <div class="content">
+          <h3 class="content_header"> Plugins</h3>
+          <p class="content_description">
+            GoCD integrates with many popular external tools and services via its extensible plugin architecture. And we’ve put a lot of thought into making sure GoCD upgrades are painless and non-breaking even when you are using plugins.
+            There are numerous <a href="#">high-quality curated plugins </a>currently available. Something you don’t see? GoCD’s <a href="#">plugin API</a> makes it easy to write your own.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-row-col_item">
+        <figure class="img-icon">
+          <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows and dependency management", :alt => "Model complex workflows and dependency management"} %>
+        </figure>
+
+        <div  class="content">
+          <h3 class="content_header">Community</h3>
+          <p class="content_description">
+            Through our active forum, users and contributors share best practices and openly discuss a wide range of topics including GoCD and continuous delivery how-tos. To join in the conversation visit our<a href="#"> Google group.</a> 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <%= partial "partials/supportbanner" %>
