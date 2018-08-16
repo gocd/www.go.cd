@@ -414,17 +414,15 @@
   }
 }
 
-.features-section{
-  .two-row-col:nth-child(even) {
-    @media (max-width: $screen-md-min){
-      .two-row-col_item:first-child {
-        order: 2;
-      }
+.mob-order-reverse_item {
   
-      .two-row-col_item:last-child {
-        order: 1;
-      }
+  @media (max-width: $screen-md-min){
+    .two-row-col_item:first-child {
+      order: 2;
+    }
 
+    .two-row-col_item:last-child {
+      order: 1;
     }
   }
 }
