@@ -395,27 +395,31 @@
 }
 
 .two-row-col {
-  // border: 1px solid;
   display: flex;
   flex-wrap: wrap;
+  margin: 40px auto;
 }
 
 
 .two-row-col_item {
   display: flex;
   flex-wrap: wrap;
-  // border: 1px solid;
   width: 100%;
-  padding: 30px;
-  margin: 20px auto;
-
+  padding: 0;
   @media (min-width: $screen-md) {
     width: 50%;
+    padding: 30px;
   }
 }
 
+.item-heading {
+  text-align: center;
+  width: 100%;
+  @media (min-width: $screen-md) {
+    text-align: left;
+  }
+}
 .mob-order-reverse_item {
-  
   @media (max-width: $screen-md-min){
     .two-row-col_item:first-child {
       order: 2;
