@@ -397,12 +397,16 @@
 .two-row-col {
   display: flex;
   flex-wrap: wrap;
-  margin: 40px auto;
+  margin: 50px auto;
+
   @media (min-width: $screen-md) {
-    margin: 10px auto;
+    margin: 40px auto;
+  }
+
+  @media (min-width: $screen-lg) {
+    margin: 60px auto;
   }
 }
-
 
 .two-row-col_item {
   display: flex;
@@ -423,6 +427,14 @@
   }
 }
 
+.item-description {
+  font-size: 18px;
+
+  @media (min-width: $screen-lg) {
+    font-size: 24px;
+  }
+}
+
 .mob-order-reverse_item {
   @media (max-width: $screen-md-min){
     .two-row-col_item:first-child {
@@ -435,6 +447,20 @@
   }
 }
 
+.img-mobile {
+  display: block !important;
+  @media (min-width: $screen-md) {
+    display: none !important;
+  }
+}
+
+.img-desktop{
+  display: none !important;
+  @media (min-width: $screen-md) {
+    display: block !important;
+  }
+}
+
 .content { 
   width: 80%;
   padding: 0 20px;
@@ -443,11 +469,12 @@
 .img-feature {
   width: 60%;
   display: block;
-  margin: 0 auto;
+  margin: auto;
 }
 
-$learn-more-bg: #333333;
+$learn-more-bg: url("../../assets/images/campaign/enterprise/ccoal_bkgd.jpg");
 $learn-more-text: #fff;
+$learn-more-cta: #000;
 
 .learn-more-section {
   background: $learn-more-bg;
@@ -488,7 +515,7 @@ $learn-more-text: #fff;
 .centered-content_link {
   background: $secondary-color;
   border-radius: 5px;
-  color: $learn-more-text;
+  color: $learn-more-cta;
   text-decoration: none;
   transition: all 0.25s;
   width: 80%;
@@ -499,7 +526,7 @@ $learn-more-text: #fff;
   font-weight: bold;
 
   &:hover{
-    color: $learn-more-text;
+    color: $learn-more-cta;
     opacity: 0.8;
   }
 

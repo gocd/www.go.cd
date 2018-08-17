@@ -42,10 +42,14 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
     <div class="two-row-col">
       <div class="two-row-col_item">
         <h1 class="item-heading">End to End Visualisation</h1>
-        <p class="item-description">GoCD’s value stream map shows your entire path to production in a single view. Easily navigate across jobs, spot inefficiencies, and optimize your process. No plugin required, out of box CD. </p>
+        <figure class="img-feature img-mobile">
+          <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows and dependency management", :alt => "Model complex workflows and dependency management"} %>
+        </figure>
+        <p class="item-description">GoCD’s value stream map shows your entire path to production in a single view. Easily navigate across jobs, spot inefficiencies, and optimize your process.
+        </br> No plugin required, out of box CD. </p>
       </div>
       <div class="two-row-col_item">
-        <figure class="img-feature">
+        <figure class="img-feature img-desktop">
           <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows and dependency management", :alt => "Model complex workflows and dependency management"} %>
         </figure>
       </div>
@@ -53,13 +57,16 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
 
     <div class="two-row-col mob-order-reverse_item">
       <div class="two-row-col_item">
-        <figure class="img-feature">
+        <figure class="img-feature img-desktop">
           <%= image_tag "icons/go.cd_compare-builds.svg", {:title => "Compare builds - continuous delivery deployment pipelines", :alt => "Compare builds - continuous delivery deployment pipelines"} %>
         </figure>
       </div>
       
       <div class="two-row-col_item">
         <h1 class="item-heading">Cloud Native</h1>
+        <figure class="img-feature img-mobile">
+          <%= image_tag "icons/go.cd_compare-builds.svg", {:title => "Compare builds - continuous delivery deployment pipelines", :alt => "Compare builds - continuous delivery deployment pipelines"} %>
+        </figure>
         <p class="item-description">GoCD streamlines your CD workflow on popular cloud environments such as Kubernetes, Docker, AWS and more. </p>
       </div>
     </div>
@@ -67,12 +74,15 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
     <div class="two-row-col">
       <div class="two-row-col_item">
         <h1 class="item-heading">Complex Workflow Modeling</h1>
+        <figure class="img-feature img-mobile">
+          <%= image_tag "icons/go.cd_see-how-things-really-work.svg", {:title => "Visualize your workflow with continuous delivery value stream map", :alt => "Visualize your workflow with continuous delivery value stream map"} %>
+        </figure>
         <p class="item-description">GoCD excels at modeling complex CD workflows for fast feedback with its modeling constructs, parallel execution and dependency management.
-No plugin required, out of box CD. </p>
+        </br> No plugin required, out of box CD. </p>
       </div>
       
       <div class="two-row-col_item">
-        <figure class="img-feature">
+        <figure class="img-feature img-desktop">
           <%= image_tag "icons/go.cd_see-how-things-really-work.svg", {:title => "Visualize your workflow with continuous delivery value stream map", :alt => "Visualize your workflow with continuous delivery value stream map"} %>
         </figure>
       </div>
@@ -80,14 +90,18 @@ No plugin required, out of box CD. </p>
 
     <div class="two-row-col mob-order-reverse_item">
       <div class="two-row-col_item">
-        <figure class="img-feature">
+        <figure class="img-feature img-desktop">
           <%= image_tag "icons/go.cd_see-how-things-really-work.svg", {:title => "Visualize your workflow with continuous delivery value stream map", :alt => "Visualize your workflow with continuous delivery value stream map"} %>
         </figure>
       </div>
       
       <div class="two-row-col_item">
         <h1 class="item-heading">Advanced Traceability</h1>
-        <p class="item-description">GoCD helps you troubleshoot a broken pipeline by tracking every change from commit to deploy in real time. Compare content - both files and commit messages - across any two arbitrary builds. No plugin required, out of box CD.</p>
+        <figure class="img-feature img-mobile">
+          <%= image_tag "icons/go.cd_see-how-things-really-work.svg", {:title => "Visualize your workflow with continuous delivery value stream map", :alt => "Visualize your workflow with continuous delivery value stream map"} %>
+        </figure>
+        <p class="item-description">GoCD helps you troubleshoot a broken pipeline by tracking every change from commit to deploy in real time. Compare content - both files and commit messages - across any two arbitrary builds.
+        </br>No plugin required, out of box CD.</p>
       </div>
     </div>
   </div>
@@ -115,7 +129,7 @@ No plugin required, out of box CD. </p>
           <h3 class="content_header"> Plugins</h3>
           <p class="content_description">
             GoCD integrates with many popular external tools and services via its extensible plugin architecture. And we’ve put a lot of thought into making sure GoCD upgrades are painless and non-breaking even when you are using plugins.
-            There are numerous <a href="#">high-quality curated plugins </a>currently available. Something you don’t see? GoCD’s <a href="#">plugin API</a> makes it easy to write your own.
+            There are numerous <a href="https://www.gocd.org/plugins/">high-quality curated plugins </a>currently available. Something you don’t see? GoCD’s <a href="https://developer.gocd.org/current/writing_go_plugins/go_plugins_basics.html ">plugin API</a> makes it easy to write your own.
           </p>
         </div>
       </div>
@@ -128,11 +142,10 @@ No plugin required, out of box CD. </p>
         <div  class="content">
           <h3 class="content_header">Community</h3>
           <p class="content_description">
-            Through our active forum, users and contributors share best practices and openly discuss a wide range of topics including GoCD and continuous delivery how-tos. To join in the conversation visit our<a href="#"> Google group.</a> 
+            Through our active forum, users and contributors share best practices and openly discuss a wide range of topics including GoCD and continuous delivery how-tos. To join in the conversation visit our<a href="https://groups.google.com/forum/#!forum/go-cd"> Google group.</a> 
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<%= partial "partials/supportbanner" %>
