@@ -390,17 +390,13 @@
 
 
 // New Stylesheet restructuring
-.features-section, .learn-more-section, .plugins-community-section {
-  margin: 50px auto;
-}
-
 .two-row-col {
   display: flex;
   flex-wrap: wrap;
   margin: 50px auto;
 
   @media (min-width: $screen-md) {
-    margin: 40px auto;
+    margin: 10px auto;
   }
 
   @media (min-width: $screen-lg) {
@@ -413,26 +409,43 @@
   flex-wrap: wrap;
   width: 100%;
   padding: 0;
+
+  @media (min-width: $screen-lg){
+    padding: 30px;
+    width: 50%;
+  }
+
   @media (min-width: $screen-md) {
     width: 50%;
-    padding: 30px;
+    padding: 15px;
   }
 }
 
 .item-heading {
   text-align: center;
   width: 100%;
+  font-size: 20px;
+
   @media (min-width: $screen-md) {
     text-align: left;
+  }
+
+  @media (min-width: $screen-lg){
+    font-size: 36px;  
   }
 }
 
 .item-description {
   font-size: 18px;
+  margin: 30px auto;
+  @media (min-width: $screen-md) {
+    margin: auto;
+  }
 
   @media (min-width: $screen-lg) {
     font-size: 24px;
   }
+  
 }
 
 .mob-order-reverse_item {
@@ -454,16 +467,27 @@
   }
 }
 
-.img-desktop{
+.img-desktop-tablet {
   display: none !important;
   @media (min-width: $screen-md) {
     display: block !important;
   }
 }
 
+.img-desktop {
+  display: none !important;
+  @media (min-width: $screen-lg) {
+    display: block !important;
+  }
+}
+
 .content { 
-  width: 80%;
+  width: 100%;
   padding: 0 20px;
+
+  @media (min-width: $screen-lg) {
+    width: 80%;  
+  }
 }
 
 .img-feature {
@@ -487,8 +511,12 @@ $learn-more-cta: #000;
   display: block;
   margin: 0 auto;
 
-  @media (min-width: $screen-md-min) {
-    width: 70%;
+  @media (min-width: $screen-md) {
+    width: 80%;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: 50%;
   }
 }
 
@@ -496,19 +524,27 @@ $learn-more-cta: #000;
   color: $learn-more-text;
   text-align: center;
   font-size: 30px;
+  margin: 30px auto;
 
-  @media  (min-width: $screen-md-min) { 
+  @media  (min-width: $screen-md) { 
     font-size: 36px;
   }
+
 }
 
 .centered-content_text{
   color: $learn-more-text;
-  text-align: center;
+  text-align: left;
   font-size: 20px;
   line-height: 30px;
-  @media  (min-width: $screen-md-min) { 
+  margin: 0 0 30px 0;
+
+  @media  (min-width: $screen-md) { 
     font-size: 26px;  
+  }
+
+  @media  (min-width: $screen-lg) { 
+    text-align: center;
   }
 }
 
@@ -540,3 +576,22 @@ $learn-more-cta: #000;
   width: 20%;
   height: auto;
 }
+
+
+.content_header {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  @media (min-width: $screen-lg) {
+    font-size: 36px;
+    text-align: left;
+  }
+}
+
+.content_description {
+  font-size: 18px;
+  @media (min-width: $screen-lg) { 
+    font-size: 20px;
+  }
+}
+
