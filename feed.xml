@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>Replacing GoCD with GoCD</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/08/21/replacing-gocd-with-gocd.html"/>
+    <id>https://www.gocd.org/2018/08/21/replacing-gocd-with-gocd.html</id>
+    <published>2018-08-21T00:00:00Z</published>
+    <updated>2018-08-21T00:00:00Z</updated>
+    <author>
+      <name>Ken Mugrage</name>
+    </author>
+    <content type="html">GoCD has made major changes recently, and if you haven't tried it lately, you haven't tried it at all.</content>
+  </entry>
+  <entry>
     <title>Configuration Strategy for Continuous Delivery of Microservices</title>
     <link rel="alternate" href="https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy.html"/>
     <id>https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy.html</id>
@@ -107,16 +118,5 @@
       <name>Jean Baudin</name>
     </author>
     <content type="html">In post Jean Baudin of Travix talks about how they ran their end to end tests on Kubernetes.</content>
-  </entry>
-  <entry>
-    <title>Managing Build Versions in your GoCD Pipeline</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/02/13/managing-build-versions-pipeline.html"/>
-    <id>https://www.gocd.org/2018/02/13/managing-build-versions-pipeline.html</id>
-    <published>2018-02-13T00:00:00Z</published>
-    <updated>2018-02-13T00:00:00Z</updated>
-    <author>
-      <name>Moritz Lenz</name>
-    </author>
-    <content type="html">Here are some steps on how to manage your build versions in your GoCD Pipeline.</content>
   </entry>
 </feed>
