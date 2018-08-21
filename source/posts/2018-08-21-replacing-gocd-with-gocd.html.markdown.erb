@@ -1,0 +1,49 @@
+---
+layout: post
+title: Replacing GoCD with GoCD
+type: post
+author: Ken Mugrage
+excerpt: "In this post, we'll look at three considerations for your microservices configuration strategy."
+summary_image: "/assets/images/blog/replacing-gocd/replacing-gocd-with-gocd.jpg"
+title_tag_of_header: "Continuous Delivery of Microservices - Configuration Strategy | GoCD Blog"
+meta_description: "In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. Here are three considerations for your microservices configuration strategy"
+meta_keywords: "Microservices, continuous delivery, microservice environment, environment strategy, artifacts, provision environment"
+draft: true
+---
+<% content_for :banner do %>
+  <figure>
+    <img src="/assets/images/blog/replacing-gocd/replacing-gocd-with-gocd.jpg" alt="Replacing GoCD with GoCD"/>
+  </figure>
+<% end %>
+
+##If you haven't tried GoCD lately, you haven't tried GoCD
+
+In my role I get to attend a lot of different events in the software industry. When I do, I get to meet a lot of people using a lot of different products and services. I recently asked someone what they were using for continuous delivery. They told me they were using GoCD but were thinking about changing. Of course I asked him what they were going to change to. He told me there were going to replace GoCD... with GoCD.
+
+I imagine the look on your face right now is pretty close to the look on mine when he told me. Total confusion. 
+
+Luckily, he explained:
+
+They had configured GoCD taking advantage of configuration options and features available at that time, which was five years ago.  As time went on, they found themselves wanting to use newer technologies such as public cloud and containers to speed up their builds while lowering their costs.
+
+After a bit of research, they determined that what they needed was to take advantage of features added to GoCD over the past few years that they hadn't been using.
+
+##Elastic agents
+
+Originally, when you set up GoCD, you install a server and build agents. Agents were running all the time for most people. You can still do that with GoCD, but you no longer have to.
+GoCD now has functionality that we call elastic agents. With this functionality you can define what's needed in a build agent and tell a job in your pipeline which configuration to use. When you do this, GoCD will start agents when it needs them, and shut them down when it's done. This way, you can take advantage of things like cloud services to run agents only when you need them.
+
+##Configuration as Code
+
+Another cool feature that came out in the past couple years is the ability to use external source code repositories for GoCD's configuration. Originally, all configuration for GoCD was stored internally. This was true whether you used the GUI or the API. This is very powerful, as it gives GoCD the ability to troubleshoot potential problems before they happen. This is still the way most people configure GoCD, but it's no longer the only option.
+You can now store pipeline configuration in YAML or JSON files in your own external source code repository. This allows teams who wish to control everything about their build process, without having administrator access to GoCD. This also makes it easier for teams who update their pipeline configuration often.
+
+##Deployment options
+
+ThoughtWorks has created installers for the most popular operating systems for many years. This includes Windows, many distributions of Linux, Mac OS and more. In the past couple of years, the team has added official Docker images and AMIs.
+And now we've added…
+
+##Native Kubernetes support
+
+You can now deploy GoCD on Kubernetes using supported helm charts. You can use the new Kubernetes elastic agent functionality to scale your agents up and down the same way you would on cloud services. You can even store build artifacts such as Docker containers in external  registries with the same functionality as the file-based artifact management available in GoCD.
+For more information on the native kubernetes support, see this [recent blog post](https://www.gocd.org/2018/02/27/running-end-to-end-tests-kubernetes/).
