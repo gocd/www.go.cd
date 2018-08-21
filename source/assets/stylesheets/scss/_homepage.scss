@@ -400,7 +400,8 @@
   }
 
   @media (min-width: $screen-lg) {
-    margin: 60px auto;
+    margin: 40px auto;
+    padding: 20px 0px;
   }
 }
 
@@ -438,6 +439,7 @@
 .item-description {
   font-size: 18px;
   margin: 30px auto;
+  line-height: 1.5;
   @media (min-width: $screen-md) {
     margin: auto;
   }
@@ -445,7 +447,7 @@
   @media (min-width: $screen-lg) {
     font-size: 24px;
   }
-  
+
 }
 
 .mob-order-reverse_item {
@@ -499,6 +501,7 @@
 $learn-more-bg: url("../../assets/images/campaign/enterprise/ccoal_bkgd.jpg");
 $learn-more-text: #fff;
 $learn-more-cta: #000;
+$learn-more-cta-hover-bg: #6ee0e0;
 
 .learn-more-section {
   background: $learn-more-bg;
@@ -525,6 +528,7 @@ $learn-more-cta: #000;
   text-align: center;
   font-size: 30px;
   margin: 30px auto;
+  font-weight: 800;
 
   @media  (min-width: $screen-md) { 
     font-size: 36px;
@@ -535,16 +539,13 @@ $learn-more-cta: #000;
 .centered-content_text{
   color: $learn-more-text;
   text-align: left;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 30px;
   margin: 0 0 30px 0;
 
-  @media  (min-width: $screen-md) { 
-    font-size: 26px;  
-  }
-
   @media  (min-width: $screen-lg) { 
     text-align: center;
+    font-size: 26px; 
   }
 }
 
@@ -554,7 +555,7 @@ $learn-more-cta: #000;
   color: $learn-more-cta;
   text-decoration: none;
   transition: all 0.25s;
-  width: 80%;
+  width: 290px;
   display: block;
   margin: 20px auto;
   line-height: 60px;
@@ -563,7 +564,7 @@ $learn-more-cta: #000;
 
   &:hover{
     color: $learn-more-cta;
-    opacity: 0.8;
+    background: $learn-more-cta-hover-bg;
   }
 
   @media  (min-width: $screen-md-min){
