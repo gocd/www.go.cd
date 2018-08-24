@@ -122,25 +122,3 @@
   padding: 0;
   border: 1px solid brown;
 }
-
-.centered-content_cta {
-  display: block;
-  border: 1px solid red;
-  margin: 25px auto;
-  width: 237px;
-  padding: 20px 0;
-  text-align: center;
-  border-radius: 2px;
-  font-weight: bold;
-  font-size: 14px;
-  text-transform: uppercase;
-  
-  @media (min-width: $screen-md) {
-    margin: 55px auto;
-  }
-
-  @media (min-width: $screen-lg) {
-    width: 337px;
-    font-size: 20px;  
-  }
-}
