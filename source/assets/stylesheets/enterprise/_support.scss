@@ -73,5 +73,74 @@
 
 
 .support-banner-container {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (min-width: $screen-lg) {
+    padding: 40px 0;
+  }
+}
+
+.centered-content{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  border: 1px solid;
+}
+
+.centered-content_header{
+  text-align: center;
+  font-weight: bold;
+  margin: 40px auto;
+  font-size: 24px;
+  border: 1px solid blue;
+
+  @media (min-width: $screen-md) {
+    font-size: 30px;
+    margin: 55px auto;
+  }
+
+  @media (min-width: $screen-lg) {
+    font-size: 40px;
+    margin: 55px auto;
+  }
+}
+
+.centered-content_description{
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  @media (min-width: $screen-lg) {
+    width: 80%;
+  }
+}
+
+.description-list{
+  margin: 0 10px;
+  padding: 0;
+  border: 1px solid brown;
+}
+
+.centered-content_cta {
+  display: block;
+  border: 1px solid red;
+  margin: 25px auto;
+  width: 237px;
+  padding: 20px 0;
+  text-align: center;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
   
+  @media (min-width: $screen-md) {
+    margin: 55px auto;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: 337px;
+    font-size: 20px;  
+  }
 }
