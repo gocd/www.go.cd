@@ -236,7 +236,7 @@
   margin-bottom: 150px;
 
   #mktoForm_1104 {
-    width: 100% !important;
+    width: 80% !important;
     // border: 1px solid;
   }
 
@@ -285,7 +285,13 @@
     font-size: 16px;
   }
 
+  .mktoButtonRow{
+    display: block;
+  }
+
   .mktoButton {
+    display: block;
+    margin: 30px auto;
     width: 240px;
     height: 50px;
     border-radius: 2px;
