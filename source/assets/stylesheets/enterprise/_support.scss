@@ -89,7 +89,6 @@
   flex-wrap: wrap;
   margin: 0 auto;
   width: 80%;
-  border: 1px solid;
 }
 
 .centered-content_header{
@@ -97,7 +96,6 @@
   font-weight: bold;
   margin: 40px auto;
   font-size: 24px;
-  border: 1px solid blue;
 
   @media (min-width: $screen-md) {
     font-size: 30px;
@@ -110,25 +108,49 @@
   }
 }
 
-.centered-content_description{
+.content-description{
   width: 100%;
   display: block;
-  margin: 0 auto;
-  @media (min-width: $screen-lg) {
-    width: 80%;
+  margin: 20px auto;
+  @media (min-width: $screen-lg) { 
+    width: 70%;
+    margin: 25px auto;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+
+    @media (min-width: $screen-md) {
+      font-size: 18px;
+      line-height: 27px;
+    }
+
+    @media (min-width: $screen-lg) {
+      font-size: 22px;
+      line-height: 36px;
+    }
   }
 }
 
 .description-list{
-  margin: 0 10px;
+  margin: 0 20px;
   padding: 0;
-  border: 1px solid brown;
+  font-size: 16px;
+
+  @media (min-width: $screen-md) { 
+    font-size: 18px;
+  }
+
+  @media (min-width: $screen-lg) { 
+    font-size: 22px;
+  }
 }
 
 .centered-content_cta {
-  display: block;
-  border: 1px solid red;
   margin: 25px auto;
+  height: 50px;
+  line-height: 18px;
   width: 237px;
   padding: 20px 0;
   text-align: center;
@@ -136,7 +158,6 @@
   font-weight: bold;
   font-size: 14px;
   text-transform: uppercase;
-  
   @media (min-width: $screen-md) {
     margin: 55px auto;
   }
@@ -147,4 +168,82 @@
   }
 }
 
+.card{
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.card-item {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: $screen-lg) {
+    width: 45%;
+    margin: 30px 25px;
+  }
+}
+
+.card-image {
+  width: 145px;
+  height: 145px;
+  img {  
+    border-radius: 50%;
+  }
+
+  @media (max-width: $screen-md-min) {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.card-description {
+  width: 100%;
+  @media (min-width: $screen-md) {
+    width: 65%;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 24px;
+
+    @media (min-width: $screen-lg) {
+      font-size: 18px;
+    }
+  }
+}
+
+.card-author {
+  font-size: 16px;
+  @media (min-width: $screen-lg) {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+}
+
+.form-header {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin: 30px auto;
+}
+
+// Marketo Styling
+
+.contact-form {
+
+  .mktoFormRow {
+    display: flex;
+  }
+  .mktoFormCol {
+    width: 260px;
+  }
+
+  .mktoField {
+    height: 50px;
+    width: 260px;
+  }
+
+}
