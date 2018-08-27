@@ -233,17 +233,63 @@
 // Marketo Styling
 
 .contact-form {
+  margin-bottom: 150px;
+
+  #mktoForm_1104 {
+    width: 100% !important;
+    // border: 1px solid;
+  }
+
+  .mktoFormCol{
+    // border: 1px solid;
+  }
 
   .mktoFormRow {
     display: flex;
   }
-  .mktoFormCol {
-    width: 260px;
+
+  textarea {
+    width: 540px !important;
+    height: 100px !important;
+
+    &::placeholder {
+      font-size: 16px;
+      font-style: oblique;
+
+    }
   }
 
-  .mktoField {
+  .mktoTextField, .mktoEmailField, select{
     height: 50px;
-    width: 260px;
+    width: 260px !important;
+
+    &::placeholder {
+      font-size: 16px;
+      font-style: oblique;
+
+    }
+  }
+
+  .mktoCheckboxList input[type="checkbox"] {
+    display: inline !important;
+  }
+
+  .mktoHtmlText span{
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .mktoCheckboxList  label {
+    font-size: 16px;
+  }
+
+  .mktoButton {
+    width: 240px;
+    height: 50px;
+    border-radius: 2px;
+    background: #4AD9D9 !important;
+    line-height: 18px;
+    border: 1px solid #4AD9D9 !important;
   }
 
 }
