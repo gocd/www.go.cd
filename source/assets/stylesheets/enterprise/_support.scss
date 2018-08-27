@@ -241,7 +241,9 @@
   }
 
   .mktoFormCol{
-    // border: 1px solid;
+    @media (max-width: $screen-md-min) {
+      width: 100% !important;
+    }
   }
 
   .mktoFormRow {
