@@ -39,7 +39,7 @@
 
   * <%= link_to_commit '1ca78a37f992affd6dfd3aa3bae5b75f502c2618', "Improve log messages at server startup when plugins are not configured" %>
   * <%= link_to_issue '5041', "Pipelines created via the PipelineConfig API shouldn't be created paused by default" %>
-
+  * Published 2 new GoCD agent images for docker based on alpine 3.8 and ubuntu 18.04.
 
 <h4>Performance Improvements</h4>
 
@@ -61,6 +61,7 @@
 
 <h4>Deprecations</h4>
 
+  * The ubuntu 12.04 based docker image for gocd agent has been deprecated and will be removed in the next release of GoCD. This is done because ubuntu 12.04 is now end-of-life.
   * As of release 18.2.0 the following (unversioned) APIs have been deprecated and will be removed in a release scheduled for July 2018:
       * The pipeline <%= link_to_versioned_api '18.1.0', 'pause-a-pipeline', 'pause api' %>.
       * The pipeline <%= link_to_versioned_api '18.1.0', 'unpause-a-pipeline', 'unpause api' %>.
