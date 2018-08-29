@@ -1,32 +1,63 @@
+<h4>New dashboard</h4>
+
+  We have made several improvements to the new dashboard the pipeline personalization features.
+
+  **Grouping of pipelines**
+
+  You can now group pipelines by their pipeline groups, or environments
+
+  <figure class='shrink-figure-70'>
+    <%= image_tag 'releases/18.8.0/dashboard-grouping.gif', alt: 'grouping by environment or pipeline group name' %>
+  </figure>
+
+  **Multiple named pipeline views**
+
+  You can create multiple personalizations depending on your preferences
+
+  <figure class='shrink-figure-70'>
+    <%= image_tag 'releases/18.8.0/create-new-view.gif', alt: 'create new personalization view' %>
+  </figure>
+
+  Make it interesting by only showing you what is building or failing
+
+  <figure class='shrink-figure-70'>
+    <%= image_tag 'releases/18.8.0/only-building-and-failed-pipelines.gif', alt: 'show only building and failed pipelines' %>
+  </figure>
+
+  **Re-order views based on your preference**
+
+  <figure class='shrink-figure-70'>
+    <%= image_tag 'releases/18.8.0/reorder-views.gif', alt: 'reorder views' %>
+  </figure>
+
+<h4>New APIs</h4>
+
+  * <%= link_to_issue 4936, "Introduced an API to configure #{link_to_api 'system-admins', 'GoCD system admin users'}." %>
+
+
 <h4>Improvements</h4>
 
-  * <%= link_to_commit '3541529f60044fec297f42efce08ca65d14651ad', 'Upgrade to TFS SDK version 14.118.0.' %>
-  * <%= link_to_commit 'ebdfb7dff06029d03198740701a6ef7e74482a31', 'Do not log server info at shutdown.' %>
+  * <%= link_to_commit '1ca78a37f992affd6dfd3aa3bae5b75f502c2618', "Improve log messages at server startup when plugins are not configured" %>
+  * <%= link_to_issue '5041', "Pipelines created via the PipelineConfig API shouldn't be created paused by default" %>
 
 
-<h4>Library upgrades</h4>
+<h4>Performance Improvements</h4>
 
-  In order to move towards supporting JRE version 9 and upwards, this release upgrades several libraries used by GoCD, including spring, hibernate, mybatis. See <%= link_to_issue 4785 %>, <%= link_to_issue 4749 %> and <%= link_to_issue 4768 %>.
+  * <%= link_to_issue 4965, 'Improve performance of config saves when config repositories are configured.' %>
 
 
 <h4>Breaking changes</h4>
 
-  * APIs now respond with an HTTP status code 403(Forbidden) instead of the 401(Unauthorized) when authenticated users are not authorized to view or perform operations on a resource.
-  * URLs containing any un-normalized paths (`/../`, `./` and `/.`), semicolon (`;` and `%3B`), encoded forward-slash (`%2F`), backslash (`\`, `%5C`), encoded percent (`%25`) will be rejected.
-  * The pipeline config API version 3 and version 4 have been removed. Please use version 5 of the <%= link_to_versioned_api '18.5.0', 'pipeline-config', 'pipeline config API' %>.
-  * The elastic agent plugin extension version 1 and (a development version 2) has been removed. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features. Users using ECS plugin >= 4.0.0, docker swarm plugin >= 3.0.0, docker plugin >= 0.9.0 and kubernetes elastic agent >= 1.0.0 need not upgrade.
+  * GoCD is no longer an OAuth provider. This integration was primarily used for integration with Mingle and the commercial business-continuity addon. Users who have been using GoCD's OAuth provider for the commercial business-continuity addon should read the business-continuity release notes before upgrading their GoCD servers.
 
 
 <h4>Bug fixes</h4>
 
-  * <%= link_to_issue 4737, 'Secure variables that were not masked in task plugins are now masked properly.' %>
-  * <%= link_to_issue 4805, 'Pipeline history page pagination was broken.' %>
-  * <%= link_to_issue 4757, 'Fix Mac installer to use Java 1.8 only.' %>
-  * <%= link_to_issue 4751, 'Fix incorrect cache key generation.' %>
-  * <%= link_to_issue 4746, 'Fix issue with user preferences page on Microsoft Edge browser.' %>
-  * <%= link_to_issue 4338, 'QuickEdit does not allow delete of only stage in pipeline.' %>
-  * <%= link_to_issue 4775, 'Dashboard UI rendering duplicate pipeline information.' %>
-  * <%= link_to_commit '5eb11210c6dadb8ea5c53926ad385731dd1e0e95', 'Fix the roles configuration link in the admin dropdown menu.' %>
+  * <%= link_to_commit 'd5fd967f7ccfcc664f2b8d6f2825304637e24c4e', 'Fetch artifact task should support `./` as source directory for backward compatability.', 4810 %>
+  * <%= link_to_issue 4971, 'Do not expose gocd server class-loader to a plugin.' %>
+  * <%= link_to_issue 5020, 'Request logging broken after loading indicator was introduced in version 18.7.0.' %>
+  * <%= link_to_issue 3390, "Deleting pipeline config via API don't notify scheduleService to cancel job" %>
+
 
 <h4>Deprecations</h4>
 
@@ -46,13 +77,14 @@
 <%= [
   "Aditya Sood",
   "Akshay Dewan",
-  "Akshay Mayekar",
+  "Anisha Roofi",
   "Ankit Srivastava",
-  "Ankur K",
   "Aravind SV",
   "Bhupendrakumar Piprava",
   "Ganesh S Patil",
+  "Huimin Li",
   "Isabelle Carter",
+  "Jen Marley",
   "Jyoti Singh",
   "Ketan Padegaonkar",
   "Kiera Radman",
@@ -61,16 +93,19 @@
   "Mahesh Panchaksharaiah",
   "Marques Lee",
   "Naveen Bhaskar",
+  "Rahul Pargaonkar",
   "Rajiesh N",
   "Senthil R",
-  "Tomasz Sętkowski",
-  "Varsha Varadarajan"
+  "Steven Streisguth",
+  "Varsha Varadarajan",
+  "Vishal Devgire",
 ].sort.uniq.join(', ')
 %>
 
+
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.6' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.8' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
