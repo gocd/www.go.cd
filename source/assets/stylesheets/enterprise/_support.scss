@@ -273,9 +273,13 @@ $dark-text-color: #25282D;
     background: #4AD9D9 !important;
     line-height: 18px;
     border: 1px solid #4AD9D9 !important;
-    color: #000;
+    color: #000 !important;
     text-transform: uppercase;
     font-weight: bold;
+    transition: all 0.25s;
+    &:hover {
+      background: #6ee0e0 !important;
+    }
   }
 
   .mktoFormRow:nth-child(5), .mktoFormRow:nth-child(6), .mktoFormRow:nth-child(7){
