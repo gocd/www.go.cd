@@ -233,24 +233,12 @@ $dark-text-color: #25282D;
 
 .contact-form {
   margin-bottom: 150px;
-
   #mktoForm_1104 {
     width: auto;
-    border: 1px solid;
     @media (min-width: $screen-lg) {
       width: 65%;
     }
   }
-
-  // .mktoFormCol{
-  //   @media (max-width: $screen-md-min) {
-  //     width: 100% !important;
-  //   }
-  // }
-
-  // .mktoFormRow {
-  //   display: flex;
-  // }
 
   textarea {
     width: 100% !important;
@@ -265,8 +253,6 @@ $dark-text-color: #25282D;
 
   .mktoTextField, .mktoEmailField, select{
     height: 50px;
-    // width: 260px !important;
-
     &::placeholder {
       font-size: 16px;
       font-style: oblique;
@@ -278,30 +264,47 @@ $dark-text-color: #25282D;
     display: inline !important;
   }
 
-  // .mktoHtmlText span{
-  //   font-weight: bold;
-  //   font-size: 16px;
-  // }
+  .mktoButton {
+    display: block;
+    margin: 30px auto;
+    width: 240px;
+    height: 50px;
+    border-radius: 2px;
+    background: #4AD9D9 !important;
+    line-height: 18px;
+    border: 1px solid #4AD9D9 !important;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 
-  // .mktoCheckboxList  label {
-  //   font-size: 16px;
-  // }
+  .mktoFormRow:nth-child(5), .mktoFormRow:nth-child(6), .mktoFormRow:nth-child(7){
+    .mktoFormCol {
+      width: 100% !important;
+    }
+  }
+    
+  .mktoFormRow:nth-child(7) {
+    display: flex;
 
-  // .mktoButtonRow{
-  //   display: block;
-  // }
+    .mktoFormCol:nth-child(1) {
+      width: 15% !important;
+    }
+    .mktoFormCol:nth-child(2) {
+      width: 80% !important;
+    }
 
-  // .mktoButton {
-  //   display: block;
-  //   margin: 30px auto;
-  //   width: 240px;
-  //   height: 50px;
-  //   border-radius: 2px;
-  //   background: #4AD9D9 !important;
-  //   line-height: 18px;
-  //   border: 1px solid #4AD9D9 !important;
-  // }
-
-
-
+    @media (min-width: 480px) {
+      .mktoFormCol:nth-child(1) {
+        width: 8% !important;
+      }
+      .mktoFormCol:nth-child(2) {
+        width: 90% !important;
+        font-weight: bold;
+        .mktoHtmlText{
+          width: 100% !important;
+        }
+      } 
+    }
+  }
 }
