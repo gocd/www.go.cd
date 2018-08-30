@@ -395,7 +395,6 @@ $learn-more-cta-hover-bg: #6ee0e0;
 }
 
 .centered-content_header {
-  color: $learn-more-text;
   text-align: center;
   font-size: 26px;
   margin-bottom: 20px;
@@ -404,11 +403,13 @@ $learn-more-cta-hover-bg: #6ee0e0;
   @media  (min-width: $screen-md) { 
     font-size: 36px;
   }
+}
 
+.centered-content_header_light {
+  color: $learn-more-text;
 }
 
 .centered-content_text{
-  color: $learn-more-text;
   text-align: left;
   font-size: 20px;
   line-height: 1.4;
@@ -418,6 +419,10 @@ $learn-more-cta-hover-bg: #6ee0e0;
     text-align: center;
     font-size: 24px; 
   }
+}
+
+.centered-content_text_light {
+  color: $learn-more-text;
 }
 
 .centered-content_link {
@@ -432,7 +437,7 @@ $learn-more-cta-hover-bg: #6ee0e0;
   padding: 18px 0 18px 0;
   font-size: 18px;
   font-family: URWGeometric-SemiBold;
-
+  text-align: center;
   &:hover{
     color: $learn-more-cta;
     background: $learn-more-cta-hover-bg;
