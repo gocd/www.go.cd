@@ -235,13 +235,13 @@
 .contact-form {
   margin-bottom: 150px;
 
-  // #mktoForm_1104 {
-  //   // width: auto;
-  //   border: 1px solid;
-  //   @media (min-width: $screen-lg) {
-  //     // width: 65%;
-  //   }
-  // }
+  #mktoForm_1104 {
+    width: auto;
+    border: 1px solid;
+    @media (min-width: $screen-lg) {
+      width: 65%;
+    }
+  }
 
   // .mktoFormCol{
   //   @media (max-width: $screen-md-min) {
