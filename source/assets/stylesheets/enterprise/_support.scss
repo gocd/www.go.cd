@@ -72,6 +72,7 @@
 // New Styles
 
 $dark-text-color: #25282D;
+$signup-button-bg: #4ad9d9;
 
 .support-banner-container {
   padding: 20px 0;
@@ -101,6 +102,7 @@ $dark-text-color: #25282D;
   font-weight: bold;
   margin: 20px auto 0px; 
   font-size: 24px;
+  font-weight: normal;
 
   @media (min-width: $screen-md) {
     font-size: 30px;
@@ -131,15 +133,14 @@ $dark-text-color: #25282D;
     font-size: 16px;
     line-height: 24px;
     margin: 0;
+    line-height: 1.5;
 
     @media (min-width: $screen-md) {
       font-size: 18px;
-      line-height: 27px;
     }
 
     @media (min-width: $screen-lg) {
       font-size: 22px;
-      line-height: 36px;
     }
   }
 }
@@ -160,6 +161,7 @@ $dark-text-color: #25282D;
 .support-banner-cta {
   margin: 20px auto;
   text-transform: uppercase;
+  background: $signup-button-bg;
   @media (min-width: $screen-md) {
     margin: 30px auto;
   }
@@ -223,7 +225,7 @@ $dark-text-color: #25282D;
 
 .form-header {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: normal;
   text-align: center;
   width: 100%;
   margin: 30px auto;
@@ -258,6 +260,14 @@ $dark-text-color: #25282D;
       font-style: oblique;
 
     }
+  }
+
+  select {
+    border-radius: 0px !important;
+    margin: 0 !important;
+    font-size: 16px;
+    font-style: oblique;
+    color: #767676;
   }
 
   .mktoCheckboxList input[type="checkbox"] {
