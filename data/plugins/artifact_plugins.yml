@@ -5,3 +5,11 @@
   author_name: ThoughtWorks Inc.
   github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=docker-registry-artifact-plugin&type=watch&count=true
   releases_url: https://github.com/gocd/docker-registry-artifact-plugin/releases
+
+- name: S3 Artifact Plugin
+  description: The S3 artifact plugin provides a way to publish and fetch artifacts to/from AWS S3
+  readmore_url: https://github.com/Diogomrol/gocd-s3-artifact-plugin
+  author_url: https://github.com/Diogomrol
+  author_name: Diogo Oliveira
+  github_stars: ghbtns.com/github-btn.html?user=Diogomrol&repo=gocd-s3-artifact-plugin&type=watch&count=true
+  releases_url: https://github.com/Diogomrol/gocd-s3-artifact-plugin/releases
