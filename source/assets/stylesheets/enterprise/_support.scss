@@ -302,24 +302,21 @@ $signup-button-bg: #4ad9d9;
     display: flex;
 
     .mktoFormCol:nth-child(1) {
-      width: 15% !important;
-    }
-    .mktoFormCol:nth-child(2) {
-      width: 80% !important;
+      width: 40px !important;
     }
 
-    @media (min-width: 480px) {
-      .mktoFormCol:nth-child(1) {
-        width: 8% !important;
+    .mktoFormCol:nth-child(2) {
+      width: 400px !important;
+      text-indent: -10px;
+      padding-left: 8px;
+      font-weight: bold;
+
+      @media (min-width: 480px) {
+        padding-left: 5px;
+        text-indent: 0px;
       }
-      .mktoFormCol:nth-child(2) {
-        width: 90% !important;
-        font-weight: bold;
-        .mktoHtmlText{
-          width: 100% !important;
-        }
-      } 
     }
+
     .mktoFormCol {
       .mktoFormCol:nth-child(2) {
         margin-top: 4px;
