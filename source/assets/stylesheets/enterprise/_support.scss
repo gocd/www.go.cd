@@ -306,15 +306,24 @@ $signup-button-bg: #4ad9d9;
     }
 
     .mktoFormCol:nth-child(2) {
-      width: 400px !important;
+      width: 400px;
       text-indent: -10px;
       padding-left: 8px;
       font-weight: bold;
+
+      @media (min-width: $screen-md) {
+        width: 470px;
+      }
 
       @media (min-width: 480px) {
         padding-left: 5px;
         text-indent: 0px;
       }
+      
+      .mktoHtmlText{
+        width: 100% !important;
+      }
+
     }
 
     .mktoFormCol {
