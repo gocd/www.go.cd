@@ -70,7 +70,6 @@
 
 
 // New Styles
-
 $dark-text-color: #25282D;
 $signup-button-bg: #4ad9d9;
 
@@ -332,4 +331,16 @@ $signup-button-bg: #4ad9d9;
       }
     } 
   }
+}
+
+// Noscript Stlyes
+.error-msg-container {
+  border: 1px solid red;
+  color: red;
+  padding: 20px; 
+}
+
+.error-msg_text {
+  font-size: 18px;
+  line-height: 1.5;
 }
