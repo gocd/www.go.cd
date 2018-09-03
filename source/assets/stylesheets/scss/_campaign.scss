@@ -1623,3 +1623,14 @@ $signup-button-bg: #4ad9d9;
     } 
   }
 }
+
+.error-msg-container {
+    border: 1px solid red;
+    color: red;
+    padding: 20px; 
+  }
+  
+  .error-msg_text {
+    font-size: 18px;
+    line-height: 1.5;
+  }
