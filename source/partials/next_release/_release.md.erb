@@ -1,46 +1,48 @@
-<h4>Multiple Dashboard Views</h4>
+<h4>Flexible & Personalized Dashboard</h4>
 
-  We have made several improvements to the pipeline personalization features on the new dashboard.
+  We have made several improvements to the pipeline view on the new dashboard to make it more personal and relevant to our users.
 
-  **Grouping of pipelines**
-
-  You can now group pipelines by their pipeline groups, or environments
+  **Group pipelines either by pipeline groups or environments**
 
   <figure class='shrink-figure-70'>
     <%= image_tag 'releases/18.8.0/dashboard-grouping.gif', alt: 'grouping by environment or pipeline group name' %>
   </figure>
-
-  **Multiple named pipeline views**
-
-  You can create multiple personalizations depending on your preferences
+  <br/>
+  **Create personalizations based on your preference**
 
   <figure class='shrink-figure-70'>
     <%= image_tag 'releases/18.8.0/create-new-view.gif', alt: 'create new personalization view' %>
   </figure>
+  <br/>
 
-  Make it interesting by only showing you what is building or failing
+
+  **Make views more relevant by showing only those pipelines that are building or failing**
 
   <figure class='shrink-figure-70'>
     <%= image_tag 'releases/18.8.0/by-pipeline-status.gif', alt: 'show only building and failed pipelines' %>
   </figure>
+  <br/>
 
-  **Re-order views based on your preference**
+  **Re-order views to your liking**
 
   <figure class='shrink-figure-70'>
     <%= image_tag 'releases/18.8.0/reorder-views.gif', alt: 'reorder views' %>
   </figure>
+  <br/>
 
-  **Accessibility Improvements**
+<h4>Accessibility Improvements</h4>
 
-  We have made some [accessibility improvements](https://github.com/gocd/gocd/issues/4165), which should make it easier for people using screenreaders to use the new dashboard.
+We have made some [accessibility improvements](https://github.com/gocd/gocd/issues/4165) which makes it easier for people
+using screenreaders to use the new dashboard.
 
-<h4>Data Sharing</h4>
+<h4>Data Sharing Update</h4>
 
-As of GoCD release v18.8.0, GoCD's data sharing include elastic jobs and config repo pipelines information. These metrics helps us to understand the usefulness of the pipeline as code feature and elastic agent plugins.
+As of this release (18.8), GoCD collects information regarding jobs run by elastic agents and pipelines added through config repo. These metrics help us gauge the effectiveness of the pipeline as code feature and elastic agent plugins.
 
 <figure class='shrink-figure-70'>
   <%= image_tag 'releases/18.8.0/data-sharing.png', alt: 'Data Sharing' %>
 </figure>
+<br/>
 
 <h4>New APIs</h4>
 
@@ -90,6 +92,7 @@ As of GoCD release v18.8.0, GoCD's data sharing include elastic jobs and config 
   "Ankit Srivastava",
   "Aravind SV",
   "Bhupendrakumar Piprava",
+  "Chandrakanth Nagaraj",
   "Ganesh S Patil",
   "Huimin Li",
   "Isabelle Carter",
@@ -107,6 +110,7 @@ As of GoCD release v18.8.0, GoCD's data sharing include elastic jobs and config 
   "Rajiesh N",
   "Senthil R",
   "Steven Streisguth",
+  "Tina Vinod",
   "Varsha Varadarajan",
   "Vishal Devgire",
 ].sort.uniq.join(', ')
