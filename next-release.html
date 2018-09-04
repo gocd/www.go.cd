@@ -80,62 +80,105 @@
       <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-next"> (next)</h3>
       <div id="tab-next" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Improvements</h4>
+          <h4>Flexible &amp; Personalized Dashboard</h4>
+
+<p>We have made several improvements to the pipeline view on the new dashboard to make it more personal and relevant to our users.</p>
+
+<p><strong>Group pipelines either by pipeline groups or environments</strong></p>
+
+<figure class="shrink-figure-70">
+    <img src="assets/images/releases/18.8.0/dashboard-grouping-18748d18.gif" alt="grouping by environment or pipeline group name" />
+  </figure>
+<p><br />
+  <strong>Create personalizations based on your preference</strong></p>
+
+<figure class="shrink-figure-70">
+    <img src="assets/images/releases/18.8.0/create-new-view-cf4e737f.gif" alt="create new personalization view" />
+  </figure>
+<p><br /></p>
+
+<p><strong>Make views more relevant by showing only those pipelines that are building or failing</strong></p>
+
+<figure class="shrink-figure-70">
+    <img src="assets/images/releases/18.8.0/by-pipeline-status-898e5dee.gif" alt="show only building and failed pipelines" />
+  </figure>
+<p><br /></p>
+
+<p><strong>Re-order views to your liking</strong></p>
+
+<figure class="shrink-figure-70">
+    <img src="assets/images/releases/18.8.0/reorder-views-c7beeb90.gif" alt="reorder views" />
+  </figure>
+<p><br /></p>
+
+<h4>Accessibility Improvements</h4>
+
+<p>We have made some <a href="https://github.com/gocd/gocd/issues/4165">accessibility improvements</a> which makes it easier for people
+using screenreaders to use the new dashboard.</p>
+
+<h4>Data Sharing Update</h4>
+
+<p>As of this release (18.8), GoCD collects information regarding jobs run by elastic agents and pipelines added through config repo. These metrics help us gauge the effectiveness of the pipeline as code feature and elastic agent plugins.</p>
+
+<figure class="shrink-figure-70">
+  <img src="assets/images/releases/18.8.0/data-sharing-721f77da.png" alt="Data Sharing" />
+</figure>
+<p><br /></p>
+
+<h4>New APIs</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/3541529f60044fec297f42efce08ca65d14651ad">3541529</a></code> - Upgrade to TFS SDK version 14.118.0.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/ebdfb7dff06029d03198740701a6ef7e74482a31">ebdfb7d</a></code> - Do not log server info at shutdown.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4936">#4936</a> - Introduced an API to configure <a href="https://api.gocd.org/current/#system-admins">GoCD system admin users</a>.</li>
 </ul>
 
-<h4>Library upgrades</h4>
+<h4>Improvements</h4>
 
-<p>In order to move towards supporting JRE version 9 and upwards, this release upgrades several libraries used by GoCD, including spring, hibernate, mybatis. See <a href="https://github.com/gocd/gocd/issues/4785">#4785</a>, <a href="https://github.com/gocd/gocd/issues/4749">#4749</a> and <a href="https://github.com/gocd/gocd/issues/4768">#4768</a>.</p>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/1ca78a37f992affd6dfd3aa3bae5b75f502c2618">1ca78a3</a></code> - Improve log messages at server startup when plugins are not configured.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5041">#5041</a> - Pipelines created via the PipelineConfig API are not paused by default now</li>
+  <li><a href="https://github.com/gocd/docker-gocd-server">GoCD server image</a> is now updated to alpine 3.8.</li>
+  <li>Published 2 new GoCD agent images for docker based on <a href="https://github.com/gocd/docker-gocd-agent-alpine-3.8">alpine 3.8</a> and <a href="https://github.com/gocd/docker-gocd-agent-ubuntu-18.04">ubuntu 18.04</a>.</li>
+</ul>
+
+<h4>Performance Improvements</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/4965">#4965</a> - Improve performance of config saves when config repositories are configured.</li>
+</ul>
 
 <h4>Breaking changes</h4>
 
 <ul>
-  <li>APIs now respond with an HTTP status code 403(Forbidden) instead of the 401(Unauthorized) when authenticated users are not authorized to view or perform operations on a resource.</li>
-  <li>URLs containing any un-normalized paths (<code>/../</code>, <code>./</code> and <code>/.</code>), semicolon (<code>;</code> and <code>%3B</code>), encoded forward-slash (<code>%2F</code>), backslash (<code>\</code>, <code>%5C</code>), encoded percent (<code>%25</code>) will be rejected.</li>
-  <li>The pipeline config API version 3 and version 4 have been removed. Please use version 5 of the <a href="https://api.gocd.org/18.5.0/#pipeline-config">pipeline config API</a>.</li>
-  <li>The elastic agent plugin extension version 1 and (a development version 2) has been removed. Plugin developers should use version 3 of the elastic agent plugin api to allow adding support for agent status report and plugin status report. The docker, docker swarm, and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features. Users using ECS plugin &gt;= 4.0.0, docker swarm plugin &gt;= 3.0.0, docker plugin &gt;= 0.9.0 and kubernetes elastic agent &gt;= 1.0.0 need not upgrade.</li>
+  <li>GoCD is no longer an OAuth provider. This integration was primarily used for integration with Mingle and the commercial business-continuity addon. Users who have been using GoCD's OAuth provider for the commercial business-continuity addon should read the business-continuity release notes before upgrading their GoCD servers.</li>
 </ul>
 
 <h4>Bug fixes</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/issues/4737">#4737</a> - Secure variables that were not masked in task plugins are now masked properly.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4805">#4805</a> - Pipeline history page pagination was broken.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4757">#4757</a> - Fix Mac installer to use Java 1.8 only.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4751">#4751</a> - Fix incorrect cache key generation.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4746">#4746</a> - Fix issue with user preferences page on Microsoft Edge browser.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4338">#4338</a> - QuickEdit does not allow delete of only stage in pipeline.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4775">#4775</a> - Dashboard UI rendering duplicate pipeline information.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/5eb11210c6dadb8ea5c53926ad385731dd1e0e95">5eb1121</a></code> - Fix the roles configuration link in the admin dropdown menu.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/d5fd967f7ccfcc664f2b8d6f2825304637e24c4e">d5fd967</a></code> - Fetch artifact task should support <code>./</code> as source directory for backward compatability. (<a href="https://github.com/gocd/gocd/issues/4810">#4810</a>)</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4971">#4971</a> - Do not expose gocd server class-loader to a plugin.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5020">#5020</a> - Request logging broken after loading indicator was introduced in version 18.7.0.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/3390">#3390</a> - Deleting pipeline config via API don't notify scheduleService to cancel job</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/dfa0d2212669e32a404c477306abef64b5adf415">dfa0d22</a></code> - Fixed config repo cloning using API. (<a href="https://github.com/gocd/gocd/issues/5013">#5013</a>)</li>
 </ul>
 
 <h4>Deprecations</h4>
 
 <ul>
-  <li>As of release 18.2.0 the following (unversioned) APIs have been deprecated and will be removed in a release scheduled for July 2018:
-    <ul>
-      <li>The pipeline <a href="https://api.gocd.org/18.1.0/#pause-a-pipeline">pause api</a>.</li>
-      <li>The pipeline <a href="https://api.gocd.org/18.1.0/#unpause-a-pipeline">unpause api</a>.</li>
-      <li>The pipeline <a href="https://api.gocd.org/18.1.0/#releasing-a-pipeline-lock">unlock api</a>.</li>
-      <li>The pipeline <a href="https://api.gocd.org/18.1.0/#scheduling-pipelines">schedule api</a>.</li>
-    </ul>
-
-    <p>These APIs have been replaced with a versioned API and users are encouraged to use these instead.</p>
-  </li>
-  <li>The <a href="https://api.gocd.org/18.2.0/#plugin-info">Plugin Info API</a> v3 has been deprecated as part of 18.3.0. This version of the API will be removed in a release scheduled for July 2018. Version 4 of the API is available, and users are encouraged to use it.</li>
+  <li>The ubuntu 12.04 based docker image for <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">gocd agent</a> has been deprecated and will not be built in the upcoming releases of GoCD. This is done because ubuntu 12.04 is now end-of-life.</li>
+  <li>The alpine 3.5 based docker image for <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">gocd agent</a> has been deprecated and will not be built after November 2018 release of GoCD. This will be done as alpine 3.5 will reach <a href="https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases">end-of-life</a> in November 2018.</li>
+  <li>With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <a href="https://api.gocd.org/18.8.0/#encryption">Encryption API</a> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.</li>
+  <li>The Pipeline Config API v5 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for October 2018. <a href="https://api.gocd.org/18.8.0/#pipeline-config">Version 6</a> of the API is available, and users are encouraged to use it.</li>
+  <li>The Template Config API v3 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for October 2018. <a href="https://api.gocd.org/18.8.0/#template-config">Version 4</a> of the API is available, and users are encouraged to use it.</li>
 </ul>
 
 <h4>Contributors</h4>
 
-<p>Aditya Sood, Akshay Dewan, Akshay Mayekar, Ankit Srivastava, Ankur K, Aravind SV, Bhupendrakumar Piprava, Ganesh S Patil, Isabelle Carter, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Rajiesh N, Senthil R, Tomasz Sętkowski, Varsha Varadarajan</p>
+<p>Aditya Sood, Akshay Dewan, Anisha Roofi, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Chandrakanth Nagaraj, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Pranav Bansod, Rahul Pargaonkar, Rajiesh N, Senthil R, Steven Streisguth, Tina Vinod, Varsha Varadarajan, Vishal Devgire</p>
 
 <h4>Note</h4>
 
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+18.6%22+is%3Aclosed">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+18.8%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 
