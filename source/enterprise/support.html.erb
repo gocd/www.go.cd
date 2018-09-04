@@ -18,7 +18,7 @@
             </ul>
           </div>
 
-          <a href="#signup-form" class="centered-content_link support-banner-cta">Sign Up For Trail</a>
+          <a href="#signup-form" class="centered-content_link support-banner-cta">Sign Up For Trial</a>
         </div>
       </div>
     </section>
@@ -73,13 +73,12 @@
     <section class="contact-form" id="signup-form">
       <div class="container">
         <div class="centered-content-container">
-          <h1 class="form-header"> Start Your Free 30-Day Trail Support </h1>
+          <h1 class="form-header"> Start Your Free 30-Day Trial Support </h1>
           <script src="//app-abq.marketo.com/js/forms2/js/forms2.min.js"></script>
           <form id="mktoForm_1104"></form>
-          <script>
-            MktoForms2.loadForm("//app-abq.marketo.com", "089-BZB-373", 1104);
-          </script>
-   
+          <div class="form-loading-error"></div>
+          <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <script defer="true" src="/assets/javascripts/marketo_popover.js" onload= "new MarketoForm('//app-abq.marketo.com', '089-BZB-373').init(1104)"></script>
           <noscript>
             <div class="error-msg-container">
               <p class="error-msg_text">
