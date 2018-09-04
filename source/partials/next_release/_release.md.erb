@@ -1,6 +1,6 @@
 <h4>Multiple Dashboard Views</h4>
 
-  We have made several improvements to the new dashboard the pipeline personalization features.
+  We have made several improvements to the pipeline personalization features on the new dashboard.
 
   **Grouping of pipelines**
 
@@ -50,7 +50,8 @@ As of GoCD release v18.8.0, GoCD's data sharing include elastic jobs and config 
 <h4>Improvements</h4>
 
   * <%= link_to_commit '1ca78a37f992affd6dfd3aa3bae5b75f502c2618', "Improve log messages at server startup when plugins are not configured" %>
-  * <%= link_to_issue '5041', "Pipelines created via the PipelineConfig API shouldn't be created paused by default" %>
+  * <%= link_to_issue '5041', "Pipelines created via the PipelineConfig API are not paused by default now" %>
+  * [GoCD server image](https://github.com/gocd/docker-gocd-server) is now updated to alpine 3.8.
   * Published 2 new GoCD agent images for docker based on [alpine 3.8](https://github.com/gocd/docker-gocd-agent-alpine-3.8) and [ubuntu 18.04](https://github.com/gocd/docker-gocd-agent-ubuntu-18.04).
 
 <h4>Performance Improvements</h4>
@@ -74,7 +75,8 @@ As of GoCD release v18.8.0, GoCD's data sharing include elastic jobs and config 
 
 <h4>Deprecations</h4>
 
-  * The ubuntu 12.04 based docker image for gocd agent has been deprecated and will be removed in the next release of GoCD. This is done because ubuntu 12.04 is now end-of-life.
+  * The ubuntu 12.04 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/) has been deprecated and will not be built in the upcoming releases of GoCD. This is done because ubuntu 12.04 is now end-of-life.
+  * The alpine 3.5 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/) has been deprecated and will not be built after November 2018 release of GoCD. This will be done as alpine 3.5 will reach [end-of-life](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases) in November 2018.
    * With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.8.0', 'encryption', 'Encryption API' %> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.
   * The Pipeline Config API v5 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for October 2018. <%= link_to_versioned_api '18.8.0', 'pipeline-config', 'Version 6' %> of the API is available, and users are encouraged to use it.
   * The Template Config API v3 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for October 2018. <%= link_to_versioned_api '18.8.0', 'template-config', 'Version 4' %> of the API is available, and users are encouraged to use it.
