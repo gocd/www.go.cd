@@ -21,7 +21,7 @@
   Make it interesting by only showing you what is building or failing
 
   <figure class='shrink-figure-70'>
-    <%= image_tag 'releases/18.8.0/only-building-and-failed-pipelines.gif', alt: 'show only building and failed pipelines' %>
+    <%= image_tag 'releases/18.8.0/by-pipeline-status.gif', alt: 'show only building and failed pipelines' %>
   </figure>
 
   **Re-order views based on your preference**
@@ -61,6 +61,7 @@ We have made some accessibility improvements, which should make it easier for pe
   * <%= link_to_issue 4971, 'Do not expose gocd server class-loader to a plugin.' %>
   * <%= link_to_issue 5020, 'Request logging broken after loading indicator was introduced in version 18.7.0.' %>
   * <%= link_to_issue 3390, "Deleting pipeline config via API don't notify scheduleService to cancel job" %>
+  * <%= link_to_commit 'dfa0d2212669e32a404c477306abef64b5adf415', 'Fixed config repo cloning using API.', 5013 %>
 
 
 <h4>Deprecations</h4>
