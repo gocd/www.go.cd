@@ -148,6 +148,7 @@ $signup-button-bg: #4ad9d9;
   margin: 0 20px;
   padding: 0;
   font-size: 16px;
+  line-height: 1.5;
   @media (min-width: $screen-md) { 
     font-size: 18px;
   }
@@ -286,6 +287,7 @@ $signup-button-bg: #4ad9d9;
     text-transform: uppercase;
     font-weight: bold;
     transition: all 0.25s;
+    font-size: 18px !important;
     &:hover {
       background: #6ee0e0 !important;
     }
