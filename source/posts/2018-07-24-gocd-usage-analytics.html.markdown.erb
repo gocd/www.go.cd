@@ -43,24 +43,22 @@ This is a rundown of all the information that we currently collect:
 
 The data that gets sent looks like this:
 
-``` 
-{
-    "server_id": "2ab54f99-5fb5-4a5b-850b-ac790aba52b4",
-    "message_version": 2,
-    "data": {
-        "pipeline_count": 139,
-        "config_repo_pipeline_count": 63, 
-        "agent_count": 43,
-        "oldest_pipeline_execution_time": 1398322181981,
-        "job_count": 506,
-        "elastic_agent_job_count": [
-                { "plugin_id": "cd.go.contrib.elasticagent.kubernetes", "job_count": 2 }
-        ]
-        "gocd_version": "18.8.0-7433"
-    }
-}
-``` 
 
+    {
+        "server_id": "2ab54f99-5fb5-4a5b-850b-ac790aba52b4",
+        "message_version": 2,
+        "data": {
+            "pipeline_count": 139,
+            "config_repo_pipeline_count": 63, 
+            "agent_count": 43,
+            "oldest_pipeline_execution_time": 1398322181981,
+            "job_count": 506,
+            "elastic_agent_job_count": [
+                { "plugin_id": "cd.go.contrib.elasticagent.kubernetes", "job_count": 2 }
+            ]
+            "gocd_version": "18.8.0-7433"
+        }
+    }
         
 ## Turning data sharing off
 
