@@ -1522,7 +1522,7 @@ $signup-button-bg: #4ad9d9;
 .form-header {
   font-size: 24px;
   font-weight: normal;
-  text-align: center;
+  text-align: center !important;
   width: 100%;
   margin: 30px auto;
 }
@@ -1593,17 +1593,25 @@ $signup-button-bg: #4ad9d9;
         width: 100% !important;
       }
     }
-      
+    
+    .mktoFormRow:nth-child(12) {
+        .mktoFieldWrap {
+            .mktoLabel , .mktoCheckboxList {
+                width: 100% !important;
+            }
+        }
+    }
+
     .mktoFormRow:nth-child(13) {
       display: flex;
   
       .mktoFormCol:nth-child(1) {
-        width: 40px !important;
+        width: 20px !important;
       }
   
       .mktoFormCol:nth-child(2) {
         width: 400px;
-        padding-left: 8px;
+        padding-left: 6px;
         font-weight: bold;
   
         @media (min-width: $screen-md) {
