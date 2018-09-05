@@ -123,3 +123,12 @@
   releases_url: https://github.com/MicroFocus/octane-gocd-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=MicroFocus&repo=octane-gocd-plugin&type=watch&count=true
   first_available_date: 03/2018
+
+- name: Rocket.Chat Build Notifier
+  description: Notification plugin which sends build failures to RocketChat
+  readmore_url: https://github.com/tomzo/gocd-rocketchat-plugin
+  author_url: https://github.com/tomzo
+  author_name: Tomasz Sętkowski
+  releases_url: https://github.com/tomzo/gocd-rocketchat-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=tomzo&repo=gocd-rocketchat-plugin&type=watch&count=true
+  first_available_date: 09/2018
