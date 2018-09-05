@@ -84,7 +84,9 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>GoCD started collecting and analyzing usage data in 18.7. If you are a GoCD System Administrator, you will be able to see a notification that pops up when you upgrade to version 18.7.</p>
+<p><em>This blog has been edited on September 5, 2018 to include the data sharing updates released in GoCD 18.8.</em></p>
+
+<p>GoCD started collecting and analyzing usage data in 18.7. If you are a GoCD System Administrator, you will be able to see a notification that pops up when you upgrade to version 18.7 or newer.</p>
 
 <p><img src="../../../assets/images/blog/gocd-usage-analytics/notification-773fb524.png" alt="GoCD collecting usage analytics" /></p>
 
@@ -103,18 +105,25 @@
   <li><strong>GoCD version</strong> <em>(gocd_version)</em>: This is the version of GoCD the server is on.</li>
   <li><strong>Server ID</strong> <em>(server_id)</em>: A randomly-generated identifier for this instance of GoCD to help correlate the data. This does not tie into any other ID in this instance.</li>
   <li><strong>Message version</strong> <em>(message_version)</em>: This is the JSON Schema version number for this message.</li>
+  <li><strong>Number of config repo pipelines</strong> <em>(config_repo_pipeline_count)</em>: This is the number of pipelines added through config repo. It helps us gauge the effectiveness of the pipeline as code feature.</li>
+  <li><strong>Number of elastic agent jobs</strong> <em>(job_count and elastic_agent_job_count)</em>: These counts provides a measure of usefulness of elastic agent plugins. This helps decide which plugins to put more effort into and improve.</li>
 </ul>
 
-<p>The data that gets sent to us looks like this:</p>
+<p>The data that gets sent looks like this:</p>
 
 <pre><code>{
     "server_id": "2ab54f99-5fb5-4a5b-850b-ac790aba52b4",
-    "message_version": 1,
+    "message_version": 2,
     "data": {
         "pipeline_count": 139,
+        "config_repo_pipeline_count": 63, 
         "agent_count": 43,
         "oldest_pipeline_execution_time": 1398322181981,
-        "gocd_version": "18.7.0"
+        "job_count": 506,
+        "elastic_agent_job_count": [
+            { "plugin_id": "cd.go.contrib.elasticagent.kubernetes", "job_count": 2 }
+        ]
+        "gocd_version": "18.8.0-7433"
     }
 }
 </code></pre>
@@ -123,7 +132,7 @@
 
 <p>You can absolutely turn this off, if you’d like. The toggle to turn off the data collection is accessible by the GoCD System Administrator under Admin &gt; Data Sharing. You’ll be able to change this at any time and don’t forget to hit ‘Save’ when you’re done.</p>
 
-<p><img src="../../../assets/images/blog/gocd-usage-analytics/gocd-settings-3b53fce9.png" alt="GoCD usage analytics" /></p>
+<p><img src="../../../assets/images/blog/gocd-usage-analytics/gocd-settings-2-c7d8ebf4.png" alt="GoCD usage analytics" /></p>
 
 <p>If you have any questions or would like more clarity about how and why we collect this information, chat with us on our <a href="https://www.gitter.im/gocd/gocd">gitter channel</a> or join our <a href="https://groups.google.com/forum/#!forum/go-cd">discussion forum</a>.</p>
 
