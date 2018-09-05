@@ -234,7 +234,7 @@ $signup-button-bg: #4ad9d9;
 
 .contact-form {
   margin-bottom: 150px;
-  #mktoForm_1104 {
+  #mktoForm_9095 {
     width: auto;
     @media (min-width: $screen-lg) {
       width: 65%;
@@ -291,13 +291,13 @@ $signup-button-bg: #4ad9d9;
     }
   }
 
-  .mktoFormRow:nth-child(5), .mktoFormRow:nth-child(6), .mktoFormRow:nth-child(7){
+  .mktoFormRow:nth-child(5), .mktoFormRow:nth-child(12), .mktoFormRow:nth-child(13){
     .mktoFormCol {
       width: 100% !important;
     }
   }
     
-  .mktoFormRow:nth-child(7) {
+  .mktoFormRow:nth-child(13) {
     display: flex;
 
     .mktoFormCol:nth-child(1) {
@@ -306,12 +306,12 @@ $signup-button-bg: #4ad9d9;
 
     .mktoFormCol:nth-child(2) {
       width: 400px;
-      text-indent: -10px;
       padding-left: 8px;
       font-weight: bold;
 
       @media (min-width: $screen-md) {
         width: 470px;
+        text-indent: -10px;
       }
 
       @media (min-width: 480px) {
@@ -322,7 +322,6 @@ $signup-button-bg: #4ad9d9;
       .mktoHtmlText{
         width: 100% !important;
       }
-
     }
 
     .mktoFormCol {
@@ -331,6 +330,7 @@ $signup-button-bg: #4ad9d9;
       }
     } 
   }
+
   .mktoForm .mktoGutter {
     height: 2.2em;
   }
