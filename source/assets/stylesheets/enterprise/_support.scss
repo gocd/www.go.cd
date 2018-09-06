@@ -1,12 +1,10 @@
 $dark-text-color: #25282D;
 $signup-button-bg: #4ad9d9;
-
 .support-banner-container {
   padding: 20px 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
   @media (min-width: $screen-lg) {
     padding: 40px 0;
   }
@@ -27,45 +25,38 @@ $signup-button-bg: #4ad9d9;
 .centered-content_header {
   text-align: center;
   font-weight: bold;
-  margin: 20px auto 0px; 
+  margin: 20px auto 0px;
   font-size: 24px;
   font-weight: normal;
-
   @media (min-width: $screen-md) {
     font-size: 30px;
     margin: 55px auto 0px;
     text-align: left;
     width: 100%;
   }
-
   @media (min-width: $screen-lg) {
     font-size: 40px;
     margin: 55px auto 10px;
     text-align: center;
   }
-
 }
 
 .content-description {
   width: 100%;
   display: block;
   margin: 25px auto 0px;
-  
-  @media (min-width: $screen-lg) { 
+  @media (min-width: $screen-lg) {
     width: 60%;
     margin: 28px auto 0px;
   }
-
   p {
     font-size: 16px;
     line-height: 24px;
     margin: 0;
     line-height: 1.5;
-
     @media (min-width: $screen-md) {
       font-size: 18px;
     }
-
     @media (min-width: $screen-lg) {
       font-size: 22px;
     }
@@ -77,11 +68,10 @@ $signup-button-bg: #4ad9d9;
   padding: 0;
   font-size: 16px;
   line-height: 1.5;
-  @media (min-width: $screen-md) { 
+  @media (min-width: $screen-md) {
     font-size: 18px;
   }
-
-  @media (min-width: $screen-lg) { 
+  @media (min-width: $screen-lg) {
     font-size: 22px;
   }
 }
@@ -114,10 +104,9 @@ $signup-button-bg: #4ad9d9;
 .card-image {
   width: 145px;
   height: 145px;
-  img {  
+  img {
     border-radius: 50%;
   }
-
   @media (max-width: $screen-md-min) {
     display: block;
     margin: 0 auto;
@@ -127,15 +116,13 @@ $signup-button-bg: #4ad9d9;
 .card-description {
   width: 100%;
   padding: 20px;
-  @media (min-width: $screen-md) { 
-   width: 65%;
-   padding: 0 20px;
+  @media (min-width: $screen-md) {
+    width: 65%;
+    padding: 0 20px;
   }
-  
   p {
     font-size: 16px;
     line-height: 24px;
-
     @media (min-width: $screen-lg) {
       font-size: 18px;
     }
@@ -146,9 +133,8 @@ $signup-button-bg: #4ad9d9;
   font-size: 16px;
   font-weight: bold;
   @media (min-width: $screen-lg) {
-    font-size: 18px;    
+    font-size: 18px;
   }
-  
 }
 
 .form-header {
@@ -168,27 +154,23 @@ $signup-button-bg: #4ad9d9;
       width: 65%;
     }
   }
-
   textarea {
     width: 100% !important;
     height: 100px !important;
-
     &::placeholder {
       font-size: 16px;
       font-style: oblique;
-
     }
   }
-
-  .mktoTextField, .mktoEmailField, select{
+  .mktoTextField,
+  .mktoEmailField,
+  select {
     height: 50px;
     &::placeholder {
       font-size: 16px;
       font-style: oblique;
-
     }
   }
-
   select {
     border-radius: 0px !important;
     margin: 0 !important;
@@ -196,11 +178,9 @@ $signup-button-bg: #4ad9d9;
     font-style: oblique;
     color: #767676;
   }
-
   .mktoCheckboxList input[type="checkbox"] {
     display: inline !important;
   }
-
   .mktoButton {
     display: block;
     margin: 30px auto;
@@ -219,47 +199,40 @@ $signup-button-bg: #4ad9d9;
       background: #6ee0e0 !important;
     }
   }
-
-  .mktoFormRow:nth-child(5), .mktoFormRow:nth-child(12), .mktoFormRow:nth-child(13){
+  .mktoFormRow:nth-child(5),
+  .mktoFormRow:nth-child(12),
+  .mktoFormRow:nth-child(13) {
     .mktoFormCol {
       width: 100% !important;
     }
   }
-    
   .mktoFormRow:nth-child(13) {
     display: flex;
-
     .mktoFormCol:nth-child(1) {
       width: 40px !important;
     }
-
     .mktoFormCol:nth-child(2) {
       width: 400px;
       padding-left: 8px;
       font-weight: bold;
-
       @media (min-width: $screen-md) {
         width: 470px;
         text-indent: -10px;
       }
-
       @media (min-width: 480px) {
         padding-left: 5px;
         text-indent: 0px;
       }
-      
-      .mktoHtmlText{
+      .mktoHtmlText {
         width: 100% !important;
       }
     }
-
     .mktoFormCol {
       .mktoFormCol:nth-child(2) {
         margin-top: 4px;
       }
-    } 
+    }
   }
-
   .mktoForm .mktoGutter {
     height: 2.2em;
   }
@@ -269,7 +242,7 @@ $signup-button-bg: #4ad9d9;
 .error-msg-container {
   border: 1px solid red;
   color: red;
-  padding: 20px; 
+  padding: 20px;
 }
 
 .error-msg_text {
