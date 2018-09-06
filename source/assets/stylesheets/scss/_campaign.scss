@@ -968,6 +968,7 @@ h1.main-caption {
             h3 {
                 font-size: 1.4em;
                 color: #FFFFFF;
+                text-transform:uppercase;
             }
             &:hover {
                 background: #C8DB57;
@@ -1006,6 +1007,7 @@ h1.main-caption {
             h3 {
                 color: #1C425C;
                 font-size: 1.4em;
+                text-transform: uppercase;
             }
             &:hover {
                 border: 2px solid #C8DB57;
@@ -1342,7 +1344,7 @@ h1.main-caption {
             display: block;
             border-radius: 50%;
             margin: 0 1em 0 1em;
-            background: url("../../assets/images/campaign/analytics/analytics-bkgd.jpg");            background-size: cover;
+            background: url("/assets/images/campaign/analytics/analytics-bkgd.jpg");            background-size: cover;
             background-size: cover;
             flex-shrink: 0;
         }
