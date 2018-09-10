@@ -38,10 +38,10 @@ Rollback is another an emergency fix strategy when rolling forward is not an opt
 
 A DB refactoring is a change made to the DB schema - the table structure or the data itself - while maintaining its informational semantics. A simple example: to rename a database table column, you take the following steps:
 
-*add a new column with the new name
-*populate the new column with data
-*change the code to consume the new column
-*delete the old column
+* add a new column with the new name
+* populate the new column with data
+* change the code to consume the new column
+* delete the old column
 
 Each of these steps can be in a different deployment. By doing this, the existing application code still writes to the older column, while newer code makes use of the new column. Once all instances of the old code are migrated over to using the new column, you can safely delete the old column.  
 
