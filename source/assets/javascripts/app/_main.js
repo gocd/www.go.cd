@@ -144,9 +144,9 @@ jQuery(document).ready(function ($) {
 
   // Add smooth scrolling to analytics cta
   $(".cta-analytics").on('click', function(event) {
-    let clickedElement = $(this);
-    let anchorOfTargetElement = clickedElement.data('link-target');
-    let offsetToUseForScrolling = parseInt(clickedElement.data('link-target-offset') || "0");
+    var clickedElement = $(this);
+    var anchorOfTargetElement = clickedElement.data('link-target');
+    var offsetToUseForScrolling = parseInt(clickedElement.data('link-target-offset') || "0");
 
     if (typeof anchorOfTargetElement === "undefined") {
       return;
