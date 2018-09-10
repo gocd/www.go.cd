@@ -16,65 +16,38 @@ show_features: true
       <div class="container">
         <div class= "row">
           <div class="col-md-10 col-md-offset-1">
-            <h1><span class="highlight">CD Metrics</span> to<br/>Improve Your Build</h1>
+            <h1>Get <span class="highlight">actionable insights</span> into your GoCD pipelines</h1>
           </div>
         </div>
-      <div class="row">
-        <div class="cta-row">
-
-
-        <% link_to '/enterprise/contact/index.html' do %>
-          <div class="cta-button-ghost">
-            <h3>GET STARTED NOW</h3>
-          </div>
-        <% end %>
-        </div>
-      </div>
     </div>
   </div>
 
     <div class="container intro-section">
       <div class="row intro-row">
-        <div class="col-md-8 col-md-offset-2 intro-text">
-<!--           <h1>star stuff harvesting star light</h1> -->
-          <h3>GoCD's Enterprise Analytics Plugin provides actionable insights about your release workflow, pipeline status, and infrastructure utilization. With this, you can easily gain visibility into your release pipeline, identify, and remove bottlenecks and optimize resources for best throughput.</h3>
+        <div class="col-md-6 col-md-offset-3 intro-text">
+          <h3>Actionable metrics to help team optimize software delivery</h3>
+          <ul>
+            <li>Real time visibility into your deployment pipelines</li>
+            <li>Insight into your end-to-end cycle time</li>
+            <li>Identify bottlenecks of your process using CD metrics</li>
+            <li>Optimize your resources for best throughput</li>
+          </ul>
         </div>
-<!--         <div class="col-md-7 vsm-illo">
-          <%= image_tag "campaign/enterprise/ui_illo_commercial_2.svg", {:title => "GoCD illustration", :alt => "GoCD Value Stream Map"} %>
-        </div> -->
+      </div>
+      <div class="row cta-row">
+        <% link_to '#contact-form', class:'cta-analytics', 'data-link-target': '#contact-form', 'data-link-target-offset': '-60' do %>
+          <div class="cta-button ">
+            <h3>Start Free Trial</h3>
+          </div>
+        <% end %>
+        <% link_to 'https://extensions-docs.gocd.org/analytics/current/' do %>
+          <div class="cta-button-ghost">
+            <h3>View Documentation</h3>
+          </div>
+        <% end %>
       </div>
 
-<!--       <div class="hr"></div> -->
-    </div>
-
-    <div class="feature-section">
-      <div class="container">
-
-        <div class="row feature-row">
-
-          <div class="col-md-4 feature">
-            <h3>Visibility Into<br/>Pipeline Status</h3>
-            <%= image_tag "campaign/analytics/status.svg", {:title => "Visibility Into Pipeline Status", :alt => "Pipeline Status illustration", :class => 'illo'} %>
-            <p>GoCD’s analytics plugin gives real-time visibility into your deployment pipelines. Metrics like pipeline times, wait times, and mean time to recovery are at your fingertips.</p>
-          </div>
-
-
-          <div class="col-md-4 feature">
-            <h3>Identify Bottlenecks<br/>in Your Process</h3>
-              <%= image_tag "campaign/analytics/bottleneck.svg", {:title => "Identify Bottlenecks in Your Process", :alt => "CD illustration", :class => 'illo'} %>
-             <p>GoCD provides both in-context pipeline analytics and top-level metrics to illuminate bottlenecks in your deployment process and help you streamline it.</p>
-          </div>
-
-          <div class="col-md-4 feature">
-            <h3>Maximize Utilization<br/>Through Analytics</h3>
-             <%= image_tag "campaign/analytics/analytics.svg", {:title => "Maximize Utilization Through Analytics", :alt => "Chat illustration", :class => 'illo'} %>
-            <p>Which jobs are the slowest? Which agents have the longest wait time? GoCD’s analytics plugin answers these questions and more, helping you optimize your resources for best throughput.</p>
-          </div>
-        </div>
-
-        <div class="hr"></div>
-
-      </div>
+      <div class="hr"></div>
     </div>
 
     <div class="container plugins-section">
@@ -87,10 +60,23 @@ show_features: true
         </div>
         <div class="col-md-5">
           <h3>Pipeline Status at One Glance</h3>
-
           <p>
             The pipeline level analytics gives insights into pipeline runs. It provides information about pipeline build time and wait time
             over all the pipeline runs. It also shows the "Mean Time to Recovery" from a failure for that pipeline.
+          </p>
+        </div>
+      </div>
+
+      <div class="row plugins-row">
+        <div class="col-md-7">
+            <div class="plugin-image">
+            <%= image_tag "campaign/analytics/build_time.jpg", {:title => "Pipeline status at One Glance", :alt => "GoCD Build Time Graph", } %>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <h3>Insight Into Your End-to-End Cycle Time</h3>
+          <p>
+            GoCD’s Value Stream Map provides holistic view of your workflow, from commit to production. Analytics plugin collect important pipeline metrics and give you insight into your end-to-end cycle time.
           </p>
         </div>
       </div>
@@ -103,7 +89,6 @@ show_features: true
         </div>
         <div class="col-md-5">
           <h3>Pipeline Waiting Chart with Easy Drill-Down</h3>
-
           <p>
             The top level analytics provides insights about pipelines with the highest wait time. Drill down to see jobs in a chosen
             pipeline with the highest wait time, and dive further down to the individual job instances to see their build and wait times.
@@ -119,27 +104,43 @@ show_features: true
         </div>
         <div class="col-md-5">
           <h3>Agent Utilization Chart with Easy Drill-Down</h3>
-
           <p>
             Agent utilization chart shows you agents with the highest utilization. You can drill down to the jobs with the highest wait time
             for a chosen agent and further down to the individual job instances of a chosen job to see their build and wait times.
           </p>
         </div>
       </div>
-
-      <div class="hr"></div>
-
     </div>
 
-    <div class="cta-section">
-      <div class="cta-row">
-        <% link_to '/enterprise/contact/index.html' do %>
-          <div class="cta-button">
-            <h3>GET STARTED NOW</h3>
-          </div>
-        <% end %>
+    <div class="testimonial-section">
+      <div class="testimonial-photo"></div>
+      <div class="testimonial-text"> <p>"Your valuable support enhanced our experience with the GoCD application. I cannot say enough how much of a pleasure it has been working with each of your team members while troubleshooting production issues in our environment, without causing any discontinuities or issues to end users." <br /> <span class="bold">Vijay Mohan, Sr. Devops Engineer, Barclaycard - USA</span></p>
       </div>
-      <p>Visit our <% link_to '/enterprise/addons/index.html' do %>Enterprise Add-ons<% end %> page.</p>
+    </div>
+
+    <div class="form-section contact-form_analytics" id="contact-form">
+      <div class="container">
+        <div class="centered-content-container">
+          <h1 class="form-header"> Start Your Free 30-Day Trial Support </h1>
+          <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <form id="mktoForm_9095"></form>
+          <div class="form-loading-error"></div>
+          <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <script defer="true" src="/assets/javascripts/marketo_popover.js" onload= "new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(9095)"></script>
+          <noscript>
+            <div class="error-msg-container">
+              <p class="error-msg_text">
+                Our signup form is blocked by your browser. You can email us directly at support@thoughtworks.com.
+              </p>
+            </div>
+            <style>
+              footer {
+                position: relative;
+              }
+            </style>
+          </noscript>
+        </div>
+      </div>
     </div>
 
   <% end %>
