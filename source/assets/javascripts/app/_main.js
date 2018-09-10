@@ -138,28 +138,29 @@ jQuery(document).ready(function ($) {
   $(".imagemodal .close").click(function () {
     $(".imagemodal").hide();
   });
-});
-
-//why go-cd lightbox
-
-$(document).ready(function () {
-  $('.chocolat-parent').Chocolat();
-});
 
 
-// Analytics Page
+  // Analytics Page
 
-$(document).ready(function(){
-  // Add smooth scrolling to all links
+  // Add smooth scrolling to analytics cta
   $(".cta-analytics").on('click', function(event) {
-    if (this.hash !== "") {
-      event.preventDefault();
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: ($(hash).offset().top - 500)
-      }, 800, function(){
-        window.location.hash = hash;
-      });
+    let clickedElement = $(this);
+    let anchorOfTargetElement = clickedElement.data('link-target');
+    let offsetToUseForScrolling = parseInt(clickedElement.data('link-target-offset') || "0");
+
+    if (typeof anchorOfTargetElement === "undefined") {
+      return;
     }
+
+    event.preventDefault();
+
+    $('html, body').animate({
+      scrollTop: $(anchorOfTargetElement).offset().top + offsetToUseForScrolling
+    }, 800, function() {
+      window.location.hash = anchorOfTargetElement;
+    });
   });
+
+  //why go-cd lightbox
+  $('.chocolat-parent').Chocolat();
 });

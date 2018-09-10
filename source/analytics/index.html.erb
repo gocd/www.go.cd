@@ -35,7 +35,7 @@ show_features: true
         </div>
       </div>
       <div class="row cta-row">
-        <% link_to '#contact-form', class:'cta-analytics' do %>
+        <% link_to '#contact-form', class:'cta-analytics', 'data-link-target': '#contact-form', 'data-link-target-offset': '-60' do %>
           <div class="cta-button ">
             <h3>Start Free Trial</h3>
           </div>
@@ -118,8 +118,7 @@ show_features: true
       </div>
     </div>
 
-    <div class="form-section contact-form_analytics">
-    <span class="head-butt-avoider" id="contact-form">&nbsp;</span>
+    <div class="form-section contact-form_analytics" id="contact-form">
       <div class="container">
         <div class="centered-content-container">
           <h1 class="form-header"> Start Your Free 30-Day Trial Support </h1>
