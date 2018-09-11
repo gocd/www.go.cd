@@ -1042,7 +1042,7 @@ h1.main-caption {
 
             h3 {
                 font-size: 2em;
-                // text-align: center;
+                text-align: center;
             }
 
             ul {
@@ -1070,6 +1070,7 @@ h1.main-caption {
     .plugins-section {
 
         margin-top: 2em;
+        margin-bottom: 3em;
 
         h3 {
             text-align: left;
@@ -1139,7 +1140,7 @@ h1.main-caption {
         display: flex;
         align-items: center;
         h1 {
-            text-align: left;
+            text-align: center;
             line-height: .9em;
         }
         h2 {
@@ -1343,7 +1344,7 @@ h1.main-caption {
             display: block;
             border-radius: 50%;
             margin: 0 1em 0 1em;
-            background: url("/assets/images/campaign/analytics/analytics-bkgd.jpg");            background-size: cover;
+            background: url("/assets/images/campaign/analytics/matt_photo_testimonial_web.jpg");
             background-size: cover;
             flex-shrink: 0;
         }
@@ -1365,7 +1366,9 @@ h1.main-caption {
     }
 }
 
+
 .contact-form_analytics {
+
     margin-bottom: 150px;
     #mktoForm_9095 {
       width: auto;
@@ -1479,17 +1482,17 @@ h1.main-caption {
     .mktoForm .mktoGutter {
       height: 2.2em;
     }
-  }
+}
 
-  // Noscript Stlyes
+  // Noscript Styles
 
-  .error-msg-container {
+.error-msg-container {
     border: 1px solid red;
     color: red;
     padding: 20px;
-  }
+}
 
-  .error-msg_text {
+.error-msg_text {
     font-size: 18px;
     line-height: 1.5;
-  }
+}
