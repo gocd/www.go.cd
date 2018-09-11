@@ -1,63 +1,98 @@
 <div class="enterprise-page">
   <%= partial 'partials/secondarynav' %>
-  <div class="container">
-
-      <div class="grid-container">
-        <div class="content-card-six-column">
-          <div class="header-padding">
-              <h1>SIGN UP FOR OUR SUPPORT TRIAL</h1>
-              <p>GoCD's expert support team offers you the reassurance that your issues are prioritized. Get unlimited support cases per month, quick 1-hour, 24x5 response for urgent severity issues, and access to our development team forums.</p>
-              <p>We offer a free 30-day trial for our support services. Contact us to get started.</p>
-              <p>You can also email us directly at support@thoughtworks.com</p>
+    <section class="support-banner-container">
+      <div class="container">
+        <div class="banner-centered-content">
+          <h1 class="centered-content_header"> Get Support form the Creators of GoCD</h1>
+          <div class="content-description">
+            <p>GoCD is open source and free to use. Our Enterprise offering gives you additional access to add-ons and professional
+              support.</p>
           </div>
-        </div>
-        <div class="content-card-six-column enterprise-marketo-style support-marketo">
-          <form id="mktoForm_2357"></form>
-          <div class="form-loading-error"></div>
-          <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
-          <script defer="true" src="/assets/javascripts/marketo_popover.js" onload="new MarketoForm().init(2357)"></script>
+
+          <div class="content-description">
+            <p>Here are some great things you will get from our support:</p>
+            <ul class="description-list">
+              <li> Unlimited support cases per month </li>
+              <li> Quick 1-hour, 24x5 response for urgent severity issues </li>
+              <li> Access to our development team </li>
+            </ul>
+          </div>
+
+          <a href="#signup-form" class="centered-content_link support-banner-cta" data-link-target="#signup-form" data-link-target-offset="-90">Sign Up For Trial</a>
         </div>
       </div>
+    </section>
 
-    <hr class="mobile-border" />
+    <section>
+      <div class="container">
+        <div class="card">
+          <div class="card-item">
+            <figure class="card-image">
+              <img src="/assets/images/author-mohan.png"
+                alt="Vijay Mohan" />
+            </figure>
 
-      <div class="grid-container support-section">
+            <div class="card-description">
+              <p>
+                "Your valuable support enhanced our experience with the GoCD application. I cannot say enough how much of a pleasure it has
+                been working with each of your team members while troubleshooting production issues in our environment, without
+                causing any discontinuities or issues to end users."
+              </p>
 
-        <div class="content-card-six-column">
-          <div class="grid-container">
-            <div class="content-card-six-column">
-              <img class="img-container img-rounded__bordered enterprise-stock-head-image author-image" src="/assets/images/author-mohan.png" alt="Vijay Mohan"/>
-            </div>
-            <div class="content-card-six-column">
-                <p class="support-quote">
-                    "Your valuable support enhanced our experience with the GoCD application. I cannot say enough how much of a pleasure it
-                    has been working with each of your team members while troubleshooting production issues in our environment, without
-                    causing any discontinuities or issues to end users."
-                </p>
-              <p class="support-author">
-              Vijay Mohan, Sr. Devops Engineer, Barclaycard - USA</p>
+              <p class="card-author">
+                Vijay Mohan, Sr. Devops Engineer, <br /> Barclaycard - USA
+              </p>
+
             </div>
           </div>
-        </div>
 
-        <div class="content-card-six-column">
-          <div class="grid-container">
-            <div class="content-card-six-column">
-              <img class="img-container img-rounded__bordered enterprise-stock-head-image author-image" src="/assets/images/author-wei.jpg" alt="Tony Z. Wei"/>
-            </div>
-            <div class="content-card-six-column">
-              <p class="support-quote">
-                "Our release engineering team works closely with the Thoughtworks support team on GoCD implementation. The Thoughtworks
-                support team provides rapid assistance, detailed explanations, and solutions. We really appreciate all the attention,
+          <div class="card-item">
+            <figure class="card-image">
+              <img src="/assets/images/author-wei.jpg"
+                alt="Tony Z. Wei" />
+            </figure>
+
+            <div class="card-description">
+              <p>
+                "Our release engineering team works closely with the Thoughtworks support team on GoCD implementation. The Thoughtworks support
+                team provides rapid assistance, detailed explanations, and solutions. We really appreciate all the attention,
                 availability, effort and quality from the support team."
               </p>
-              <p class="support-author">
-              Tony Z. Wei, Lead Build and Release Engineer, Medidata Solutions Worldwide </p>
+              <p class="card-author">
+                Tony Z. Wei, Lead Build and Release <br /> Engineer, Medidata Solutions Worldwide
+              </p>
             </div>
+
           </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contact-form" id="signup-form">
+      <div class="container">
+        <div class="centered-content-container">
+          <h1 class="form-header"> Start Your Free 30-Day Trial Support </h1>
+          <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <form id="mktoForm_9095"></form>
+          <div class="form-loading-error"></div>
+          <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <script defer="true" src="/assets/javascripts/marketo_popover.js" onload= "new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(9095)"></script>
+          <noscript>
+            <div class="error-msg-container">
+              <p class="error-msg_text">
+                Our signup form is blocked by your browser. You can email us directly at support@thoughtworks.com.
+              </p>
+            </div>
+            <style>
+              footer {
+                position: relative;
+              }
+            </style>
+
+          </noscript>
         </div>
       </div>
-  </div>
-  <div class="page-bottom-margin">
-  </div>
+    </section>
 </div>

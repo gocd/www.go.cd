@@ -139,11 +139,8 @@ jQuery(document).ready(function ($) {
     $(".imagemodal").hide();
   });
 
-
-  // Analytics Page
-
-  // Add smooth scrolling to analytics cta
-  $(".cta-analytics").on('click', function(event) {
+  // Add smooth scrolling to analytics CTA and support page CTA
+  $(".cta-analytics, .support-banner-cta").on('click', function(event) {
     var clickedElement = $(this);
     var anchorOfTargetElement = clickedElement.data('link-target');
     var offsetToUseForScrolling = parseInt(clickedElement.data('link-target-offset') || "0");
