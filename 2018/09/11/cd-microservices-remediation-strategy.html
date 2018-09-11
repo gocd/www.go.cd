@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. Here are three considerations for your microservices configuration strategy" name="description" />
+    <meta content="Microservices, continuous delivery, microservice environment, environment strategy, artifacts, provision environment" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Continuous Delivery of Microservices - Remediation Strategy | GoCD Blog" />
+    <meta name="twitter:description" content="In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. Here are three considerations for your microservices configuration strategy" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-considerations/cd-microservices-remediation-strategy-b0bee309.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/09/11/cd-microservices-remediation-strategy.html" />
+
+    <title>Continuous Delivery of Microservices - Remediation Strategy | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-1f28f7a4.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-2510b8cb.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+  </head>
+
+  <body class="x2018 x2018_09 x2018_09_11 x2018_09_11_cd-microservices-remediation-strategy">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="../../../resources.html" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="download-btn-header" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../assets/images/blog/cd-considerations/cd-microservices-remediation-strategy-b0bee309.jpg" alt="Continuous Delivery of Microservices - Remediation Strategy"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Remediation Strategy for Continuous Delivery of Microservices</h1>
+    <h4>Sheroy Marker</h4>
+    <p class='tags'>
+<a href="../../../tags/cd-for-microservices.html" class="tag">        CD for Microservices
+</a>     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>This is the final post in the series - <a href="https://www.gocd.org/tags/cd-for-microservices.html">Continuous Delivery of Microservices</a>. In the <a href="https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy/">previous post</a>, we talked about configuration strategy for your CD pipeline. In this post, we’ll discuss remediation strategies when something goes wrong.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>In systems based on microservices architecture, you have multiple services getting updated frequently. How do you respond when a deployment of a service introduces instability or bugs? How do you ensure changes to an API are backwards compatible? We try to answer these questions in this post.</p>
+
+<h2 id="roll-forward-and-hotfix">Roll forward and hotfix</h2>
+
+<p>Roll forward is an emergency fix strategy: you introduced an issue, you find the root cause of the failure, apply the fix as soon as possible and then move forward. If the fix is a small contained change that doesn’t compromise the entire environment, roll forward is recommended.</p>
+
+<p><img src="../../../assets/images/blog/cd-considerations/hotfix-process-fef37152.jpeg" alt="Hotfix process" /></p>
+
+<p>A prerequisite for roll forward is to ensure you have a comprehensive <a href="https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward/">hotfix process</a> already in place, so that you can release bypass the CD pipeline to push change from a hotfix branch directly to production. It is not uncommon to see a hotfix environment where these changes are deployed and tested before deploying to production.</p>
+
+<h2 id="rollbacks-and-database-refactoring">Rollbacks and database refactoring</h2>
+
+<p>Rollback is another an emergency fix strategy when rolling forward is not an option due to maturity of the codebase, status of CD pipeline or the team culture. In most cases, it’s easy to rollback if the change is granular and can be reasoned about. But if your deployment has changes to the database especially to the database schema, you can't easily roll them back because transaction traffic could have been written into a new aspect of the schema. One common technique to deal with this is database refactoring.</p>
+
+<p>A DB refactoring is a change made to the DB schema - the table structure or the data itself - while maintaining its informational semantics. A simple example: to rename a database table column, you take the following steps:</p>
+
+<ul>
+  <li>add a new column with the new name</li>
+  <li>populate the new column with data</li>
+  <li>change the code to consume the new column</li>
+  <li>delete the old column</li>
+</ul>
+
+<p>Each of these steps can be in a different deployment. By doing this, the existing application code still writes to the older column, while newer code makes use of the new column. Once all instances of the old code are migrated over to using the new column, you can safely delete the old column.</p>
+
+<p>Database refactoring allows you to be able to rollback more robustly. You can apply database changes out of band from code changes. When you have a database change used by both new code and old code, you can release the version of the database changes in isolation, and then follow it with a deployment of the app code that actually uses that database change. Keep repeating cycles of this and when you need to rollback for emergency fix, it will be straightforward because the V1 version of the code still works with the V2 of that database.</p>
+
+<p><img src="../../../assets/images/blog/cd-considerations/continuous-delivery-remediation-strategy-d02def00.jpeg" alt="Remediation Strategy" /></p>
+
+<h2 id="api-backward-compatibility">API backward compatibility</h2>
+
+<p>In microservices systems, you need to make changes to service APIs in a backward compatible manner. A change to the API should not break existing consumers of the API.</p>
+
+<h3 id="ensure-your-api-is-backward-compatible">Ensure your API is backward compatible</h3>
+
+<p>For a single version strategy, ensure changes to an API are backwards compatible. That way careful consideration can be applied to major breaking changes.</p>
+
+<p>One technique that is useful is to expose your API via <a href="https://graphql.org/">GraphQL</a> rather than REST to make backwards compatible changes to your APIs. GraphQL encourages backwards compatibility by allowing you to define the fields in the response in the query rather than letting the server define the format of the response.</p>
+
+<h3 id="introducing-service-versioning">Introducing service versioning</h3>
+
+<p>Versioning services adds significant complexity to the maintainability of a service. Multiple versions make a CD pipeline significantly more complex as multiple versions of a service need to be deployed and tested. We recommend as far as possible, start with a simple strategy of maintaining a single version of a service, along with Trunk Based Development. Maintaining multiple versions should be treated as a last resort and the operational complexities of managing multiple versions should be considered.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>This is the last post of our CD of Microservices blog series. We hope you've enjoyed it. Please do leave a comment on the blog if you have any questions, we'd love to hear from you.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../assets/javascripts/marketo_popover-a55210a4.js" onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Aug 21</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../08/21/replacing-gocd-with-gocd/">Replacing GoCD with GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 31</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../07/31/cd-microservices-configuration-strategy/">Configuration Strategy for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 24</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../07/24/gocd-usage-analytics/">Improving GoCD through usage analytics</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 17</span>
+              <span class="post-author">Ankit Srivastava</span>
+              <a href="../../07/17/gocd-materials-blacklisting-whitelisting/">How to Work with Materials in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 12</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../06/12/cd-microservices-environment-strategy/">Environment Strategy for Continuous Delivery of Microservices</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2018 (13)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2018/09/11/cd-microservices-remediation-strategy.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../getting-started/part-1/">GETTING STARTED</a></li>
+            <li><a href="../../../plugins/">PLUGINS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li> <a href="../../../events/">WEBINARS + EVENTS</a></li>
+            <li><a href="../../../resources/">RESOURCES</a></li>
+            <li><a href="../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
