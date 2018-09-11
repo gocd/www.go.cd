@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
   };
 
   var setupSmoothScrollForSamePageLinks = function() {
-    $("body").on("click", "a[href^='#'][href!='#'], a[data-dest]", function(evt) {
+    $("body.getting-started").on("click", "a[href^='#'][href!='#'], a[data-dest]", function(evt) {
       var currentPage = window.location.pathname.replace(/\/$/, '');
       var section = $(this).data('section') || $.attr(this, 'href');
       var dest = $(this).data('dest') || currentPage;

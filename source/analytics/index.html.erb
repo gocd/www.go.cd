@@ -1,9 +1,9 @@
 ---
 layout: campaignlanding
-title: "Continuous Delivery Metrics for your Enterprise"
-title_tag_of_header: "Continuous Delivery Metrics for your Enterprise"
+title: "Improve your GoCD pipelines with the analytics plugin"
+title_tag_of_header: "Improve your GoCD pipelines with the analytics plugin"
 page_caption:
-meta_description: "GoCD Enterprise Analytics Plugin provides actionable insights about your release workflow, pipeline status and infrastructure utilization"
+meta_description: "GoCD Enterprise Analytics Plugin provides actionable insights about your end-to-end cycle time, pipeline status and infrastructure utilization"
 meta_keywords: "continuous delivery metrics, cd metrics, cycle time metrics, devops metrics, mean time to recovery"
 show_features: true
 ---
@@ -16,65 +16,38 @@ show_features: true
       <div class="container">
         <div class= "row">
           <div class="col-md-10 col-md-offset-1">
-            <h1><span class="highlight">CD Metrics</span> to<br/>Improve Your Build</h1>
+            <h1>Get <span class="highlight">insights</span> into<br />your <span class="highlight">GoCD</span> pipelines</h1>
           </div>
         </div>
-      <div class="row">
-        <div class="cta-row">
-
-
-        <% link_to '/enterprise/contact/index.html' do %>
-          <div class="cta-button-ghost">
-            <h3>GET STARTED NOW</h3>
-          </div>
-        <% end %>
-        </div>
-      </div>
     </div>
   </div>
 
     <div class="container intro-section">
       <div class="row intro-row">
-        <div class="col-md-8 col-md-offset-2 intro-text">
-<!--           <h1>star stuff harvesting star light</h1> -->
-          <h3>GoCD's Enterprise Analytics Plugin provides actionable insights about your release workflow, pipeline status, and infrastructure utilization. With this, you can easily gain visibility into your release pipeline, identify, and remove bottlenecks and optimize resources for best throughput.</h3>
+        <div class="col-md-6 col-md-offset-3 intro-text">
+          <h3>Use metrics to improve your software delivery process</h3>
+          <ul>
+            <li>See, track and analyze your end-to-end cycle time</li>
+            <li>Real time visibility into your deployment pipelines</li>
+            <li>Identify bottlenecks of your delivery process</li>
+            <li>Optimize your resources for best throughput</li>
+          </ul>
         </div>
-<!--         <div class="col-md-7 vsm-illo">
-          <%= image_tag "campaign/enterprise/ui_illo_commercial_2.svg", {:title => "GoCD illustration", :alt => "GoCD Value Stream Map"} %>
-        </div> -->
+      </div>
+      <div class="row cta-row">
+        <% link_to '#contact-form', class:'cta-analytics', 'data-link-target': '#contact-form', 'data-link-target-offset': '-60' do %>
+          <div class="cta-button ">
+            <h3>Start Free Trial</h3>
+          </div>
+        <% end %>
+        <% link_to 'https://extensions-docs.gocd.org/analytics/current/' do %>
+          <div class="cta-button-ghost">
+            <h3>View Documentation</h3>
+          </div>
+        <% end %>
       </div>
 
-<!--       <div class="hr"></div> -->
-    </div>
-
-    <div class="feature-section">
-      <div class="container">
-
-        <div class="row feature-row">
-
-          <div class="col-md-4 feature">
-            <h3>Visibility Into<br/>Pipeline Status</h3>
-            <%= image_tag "campaign/analytics/status.svg", {:title => "Visibility Into Pipeline Status", :alt => "Pipeline Status illustration", :class => 'illo'} %>
-            <p>GoCD’s analytics plugin gives real-time visibility into your deployment pipelines. Metrics like pipeline times, wait times, and mean time to recovery are at your fingertips.</p>
-          </div>
-
-
-          <div class="col-md-4 feature">
-            <h3>Identify Bottlenecks<br/>in Your Process</h3>
-              <%= image_tag "campaign/analytics/bottleneck.svg", {:title => "Identify Bottlenecks in Your Process", :alt => "CD illustration", :class => 'illo'} %>
-             <p>GoCD provides both in-context pipeline analytics and top-level metrics to illuminate bottlenecks in your deployment process and help you streamline it.</p>
-          </div>
-
-          <div class="col-md-4 feature">
-            <h3>Maximize Utilization<br/>Through Analytics</h3>
-             <%= image_tag "campaign/analytics/analytics.svg", {:title => "Maximize Utilization Through Analytics", :alt => "Chat illustration", :class => 'illo'} %>
-            <p>Which jobs are the slowest? Which agents have the longest wait time? GoCD’s analytics plugin answers these questions and more, helping you optimize your resources for best throughput.</p>
-          </div>
-        </div>
-
-        <div class="hr"></div>
-
-      </div>
+      <div class="hr"></div>
     </div>
 
     <div class="container plugins-section">
@@ -82,15 +55,27 @@ show_features: true
       <div class="row plugins-row">
         <div class="col-md-7">
             <div class="plugin-image">
-            <%= image_tag "campaign/analytics/build_time.jpg", {:title => "Pipeline status at One Glance", :alt => "GoCD Build Time Graph", } %>
+            <%= image_tag "campaign/analytics/vsm1.jpg", {:title => "Pipeline status at One Glance", :alt => "GoCD Build Time Graph", } %>
           </div>
         </div>
         <div class="col-md-5">
-          <h3>Pipeline Status at One Glance</h3>
-
+          <h3>See, track, and analyze your end-to-end cycle time</h3>
           <p>
-            The pipeline level analytics gives insights into pipeline runs. It provides information about pipeline build time and wait time
-            over all the pipeline runs. It also shows the "Mean Time to Recovery" from a failure for that pipeline.
+            GoCD Analytics plugin provides insights into your entire path to production. It tracks he end-to-end time of your value stream map, and helps you answer questions like “what is the throughput” and “how long will this take to reach the customer” more accurately.
+          </p>
+        </div>
+      </div>
+
+      <div class="row plugins-row">
+        <div class="col-md-7">
+            <div class="plugin-image">
+            <%= image_tag "campaign/analytics/pipeline1.png", {:title => "Real-time visibility into your release pipelines", :alt => "GoCD Value Stream Map", } %>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <h3>Real-time visibility into your release pipelines</h3>
+          <p>
+            GoCD’s analytics plugin gives real time visibility into your pipelines. Metrics like pipeline build times, wait times and mean time to recovery are at your fingertips.
           </p>
         </div>
       </div>
@@ -98,15 +83,13 @@ show_features: true
       <div class="row plugins-row">
         <div class="col-md-7">
           <div class="plugin-image">
-          <%= image_tag "campaign/analytics/wait_time.png", {:title => "Pipeline Waiting Chart with Easy Drill-down", :alt => "GoCD Pipeline Utilization Chart", } %>
+          <%= image_tag "campaign/analytics/waittime1.png", {:title => "Pipeline Waiting Chart with Easy Drill-down", :alt => "GoCD Pipeline Utilization Chart", } %>
           </div>
         </div>
         <div class="col-md-5">
-          <h3>Pipeline Waiting Chart with Easy Drill-Down</h3>
-
+          <h3>Identify bottlenecks of your process</h3>
           <p>
-            The top level analytics provides insights about pipelines with the highest wait time. Drill down to see jobs in a chosen
-            pipeline with the highest wait time, and dive further down to the individual job instances to see their build and wait times.
+            GoCD provides both in-context pipeline analytics and top-level metrics to illuminate bottlenecks in your deployment process and help you streamline it.
           </p>
         </div>
       </div>
@@ -114,32 +97,47 @@ show_features: true
       <div class="row plugins-row">
         <div class="col-md-7">
           <div class="plugin-image">
-          <%= image_tag "campaign/analytics/utilization.png", {:title => "Agent Utilization Chart with Easy Drill-down", :alt => "GoCD Agent Utilization Chart", } %>
+          <%= image_tag "campaign/analytics/util1.png", {:title => "Agent Utilization Chart with Easy Drill-down", :alt => "GoCD Agent Utilization Chart", } %>
           </div>
         </div>
         <div class="col-md-5">
-          <h3>Agent Utilization Chart with Easy Drill-Down</h3>
-
+          <h3>Optimize your resources for best throughput</h3>
           <p>
-            Agent utilization chart shows you agents with the highest utilization. You can drill down to the jobs with the highest wait time
-            for a chosen agent and further down to the individual job instances of a chosen job to see their build and wait times.
+            Which jobs are the slowest? Which agents have the longest wait time? GoCD’s analytics plugin answers these questions and more, helping you optimize your resources for best throughput.
           </p>
         </div>
       </div>
-
-      <div class="hr"></div>
-
     </div>
 
-    <div class="cta-section">
-      <div class="cta-row">
-        <% link_to '/enterprise/contact/index.html' do %>
-          <div class="cta-button">
-            <h3>GET STARTED NOW</h3>
-          </div>
-        <% end %>
+    <div class="testimonial-section">
+      <div class="testimonial-photo"></div>
+      <div class="testimonial-text"> <p>"The GoCD Analytics Plugin provides a great way for teams to assess and improve the effectiveness of their deployment pipelines. Having used GoCD with multiple distributed teams, I know that having rapid insights into timings and utilisation for build &amp; deployment can be a big enabler for teams. The GoCD Analytics Plugin is a ‘must’ for serious teams in the enterprise." <br /> <span class="bold">Matthew Skelton, Head of Consulting, Conflux</span></p>
       </div>
-      <p>Visit our <% link_to '/enterprise/addons/index.html' do %>Enterprise Add-ons<% end %> page.</p>
+    </div>
+
+    <div class="form-section contact-form_analytics" id="contact-form">
+      <div class="container">
+        <div class="centered-content-container">
+          <h1>Start Your Free Trial</h1>
+          <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <form id="mktoForm_9095"></form>
+          <div class="form-loading-error"></div>
+          <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <script defer="true" src="/assets/javascripts/marketo_popover.js" onload= "new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(9095)"></script>
+          <noscript>
+            <div class="error-msg-container">
+              <p class="error-msg_text">
+                Our signup form is blocked by your browser. You can email us directly at support@thoughtworks.com.
+              </p>
+            </div>
+            <style>
+              footer {
+                position: relative;
+              }
+            </style>
+          </noscript>
+        </div>
+      </div>
     </div>
 
   <% end %>

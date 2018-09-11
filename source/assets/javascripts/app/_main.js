@@ -138,11 +138,30 @@ jQuery(document).ready(function ($) {
   $(".imagemodal .close").click(function () {
     $(".imagemodal").hide();
   });
-});
 
-//why go-cd lightbox
 
-$(document).ready(function () {
+  // Analytics Page
+
+  // Add smooth scrolling to analytics cta
+  $(".cta-analytics").on('click', function(event) {
+    var clickedElement = $(this);
+    var anchorOfTargetElement = clickedElement.data('link-target');
+    var offsetToUseForScrolling = parseInt(clickedElement.data('link-target-offset') || "0");
+
+    if (typeof anchorOfTargetElement === "undefined") {
+      return;
+    }
+
+    $('html, body').animate({
+      scrollTop: $(anchorOfTargetElement).offset().top + offsetToUseForScrolling
+    }, 800, function() {
+      history.replaceState(null, null, anchorOfTargetElement);
+    });
+
+    event.preventDefault();
+  });
+
+  //why go-cd lightbox
   $('.chocolat-parent').Chocolat();
 });
 

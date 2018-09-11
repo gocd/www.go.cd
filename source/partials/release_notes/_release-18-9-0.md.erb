@@ -1,8 +1,8 @@
 <h4>Backups on a schedule</h4>
 
-  This release allows performing a backup on a schedule. Furthermore, GoCD now allows executing a script once the backup completes. This feature now removes the need for GoCD administrators to execute and monitor custom "cron-like" jobs to ensure that backups complete.
+  This release allows performing a backup on schedule. GoCD now allows executing a script once the backup completes. This feature removes the need for GoCD administrators to execute and monitor custom "cron-like" jobs to ensure that backups are completed.
 
-  Users can now add the following snippet to the config XML to perform a backup once a night at 10pm on weekdays and call the `/usr/local/bin/upload-to-s3 script` after the backup is done:
+  For example: Users can now add the following snippet to the config XML to perform a backup once a night at 10pm on weekdays and call the `/usr/local/bin/upload-to-s3 script` after the backup is done:
 
     <server>
       ...
@@ -14,15 +14,11 @@
 
 <h4>Analytics Extension V2</h4>
 
-  Introduced [Version 2](https://plugin-api.gocd.org/18.9.0/analytics) of the Analytics Extension. This version adds support for showing analytics on the Agents and Value Stream Map(VSM) page.
+  Upgraded the Analytics Extension to [Version 2](https://plugin-api.gocd.org/18.9.0/analytics). This version adds support for showing analytics on the Agents and Value Stream Map(VSM) page.
 
 <h4>Notification Extension V4</h4>
 
-  Introduced [Version 4](https://plugin-api.gocd.org/18.9.0/notifications) of the Notification Extension. This versions enchances the existing Stage Status notification message to include the material fingerprint, it also provides details of previous stage(if any) responsible for triggering the current stage.
-
-<h4>Breaking changes</h4>
-
-  * The ubuntu 12.04 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/) has been deprecated and will not be built in the upcoming releases of GoCD. This is done because ubuntu 12.04 is now end-of-life.
+  [Version 4](https://plugin-api.gocd.org/18.9.0/notifications) of the Notification Extension enchances the existing Stage Status notification message to include the material fingerprint. It also provides details of previous stage(if any) responsible for triggering the current stage.
 
 
 <h4>Bug fixes</h4>
@@ -32,6 +28,7 @@
 
 <h4>Deprecations</h4>
 
+  * The ubuntu 12.04 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/) has been deprecated and will not be built in the upcoming releases of GoCD. This is done because ubuntu 12.04 is now end-of-life.
   * The alpine 3.5 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/) has been deprecated and will not be built after November 2018 release of GoCD. This will be done as alpine 3.5 will reach [end-of-life](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases) in November 2018.
    * With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.8.0', 'encryption', 'Encryption API' %> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.
   * The Pipeline Config API v5 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for October 2018. <%= link_to_versioned_api '18.8.0', 'pipeline-config', 'Version 6' %> of the API is available, and users are encouraged to use it.
