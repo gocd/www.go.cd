@@ -152,13 +152,13 @@ jQuery(document).ready(function ($) {
       return;
     }
 
-    event.preventDefault();
-
     $('html, body').animate({
       scrollTop: $(anchorOfTargetElement).offset().top + offsetToUseForScrolling
     }, 800, function() {
-      window.location.hash = anchorOfTargetElement;
+      history.replaceState(null, null, anchorOfTargetElement);
     });
+
+    event.preventDefault();
   });
 
   //why go-cd lightbox
