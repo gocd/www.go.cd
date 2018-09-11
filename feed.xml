@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>Remediation Strategy for Continuous Delivery of Microservices</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/09/11/cd-microservices-remediation-strategy.html"/>
+    <id>https://www.gocd.org/2018/09/11/cd-microservices-remediation-strategy.html</id>
+    <published>2018-09-11T00:00:00Z</published>
+    <updated>2018-09-11T00:00:00Z</updated>
+    <author>
+      <name>Sheroy Marker</name>
+    </author>
+    <content type="html">In this post, we'll look at remediation strategies when there's instability or bugs.</content>
+  </entry>
+  <entry>
     <title>Replacing GoCD with GoCD</title>
     <link rel="alternate" href="https://www.gocd.org/2018/08/21/replacing-gocd-with-gocd.html"/>
     <id>https://www.gocd.org/2018/08/21/replacing-gocd-with-gocd.html</id>
@@ -107,16 +118,5 @@
       <name>Sheroy Marker</name>
     </author>
     <content type="html">GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes. </content>
-  </entry>
-  <entry>
-    <title>Running your end to end tests on Kubernetes</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/02/27/running-end-to-end-tests-kubernetes.html"/>
-    <id>https://www.gocd.org/2018/02/27/running-end-to-end-tests-kubernetes.html</id>
-    <published>2018-02-27T00:00:00Z</published>
-    <updated>2018-02-27T00:00:00Z</updated>
-    <author>
-      <name>Jean Baudin</name>
-    </author>
-    <content type="html">In post Jean Baudin of Travix talks about how they ran their end to end tests on Kubernetes.</content>
   </entry>
 </feed>

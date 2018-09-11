@@ -4,12 +4,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-    <meta content="In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. Here are three considerations for your microservices configuration strategy" name="description" />
-    <meta content="Microservices, continuous delivery, microservice environment, environment strategy, artifacts, provision environment" name="keywords" />
+    <meta content="In a system based on a microservices architecture, It's important to have a strategy to remediate any instability or bug introduced to your system. Here are some options for you to consider" name="description" />
+    <meta content="Microservices, continuous delivery, remediation strategy, bug fixes, hotfix, hotfixes, rollback, service versioning" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Continuous Delivery of Microservices - Remediation Strategy | GoCD Blog" />
-    <meta name="twitter:description" content="In a system based on a microservices architecture, configuration also needs to be distributed across multiple services. Here are three considerations for your microservices configuration strategy" />
+    <meta name="twitter:description" content="In a system based on a microservices architecture, It's important to have a strategy to remediate any instability or bug introduced to your system. Here are some options for you to consider" />
     <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-considerations/cd-microservices-remediation-strategy-b0bee309.jpg" />
     <link rel="canonical" href="https://www.gocd.org/2018/09/11/cd-microservices-remediation-strategy.html" />
 
@@ -96,11 +96,11 @@
 
 <p><img src="../../../assets/images/blog/cd-considerations/hotfix-process-fef37152.jpeg" alt="Hotfix process" /></p>
 
-<p>A prerequisite for roll forward is to ensure you have a comprehensive <a href="https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward/">hotfix process</a> already in place, so that you can release bypass the CD pipeline to push change from a hotfix branch directly to production. It is not uncommon to see a hotfix environment where these changes are deployed and tested before deploying to production.</p>
+<p>A prerequisite for roll forward is to ensure you have a comprehensive <a href="https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward/">hotfix process</a> already in place, so that you can bypass the CD pipeline to push changes from a hotfix branch directly to production. It is not uncommon to see a hotfix environment where these changes are deployed and tested before deploying to production.</p>
 
 <h2 id="rollbacks-and-database-refactoring">Rollbacks and database refactoring</h2>
 
-<p>Rollback is another an emergency fix strategy when rolling forward is not an option due to maturity of the codebase, status of CD pipeline or the team culture. In most cases, it’s easy to rollback if the change is granular and can be reasoned about. But if your deployment has changes to the database especially to the database schema, you can't easily roll them back because transaction traffic could have been written into a new aspect of the schema. One common technique to deal with this is database refactoring.</p>
+<p>Rollback is another an emergency fix strategy when rolling forward is not an option due to maturity of the codebase, status of CD pipeline, or the team culture. In most cases, it’s easy to rollback if the change is granular and can be reasoned about. But if your deployment has changes to the database, especially to the database schema, you can't easily roll them back because transaction traffic could have been written into a new aspect of the schema. One common technique to deal with this is database refactoring.</p>
 
 <p>A DB refactoring is a change made to the DB schema - the table structure or the data itself - while maintaining its informational semantics. A simple example: to rename a database table column, you take the following steps:</p>
 
@@ -156,6 +156,11 @@
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <li>
+              <span class="post-date">Sep 11</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="cd-microservices-remediation-strategy/">Remediation Strategy for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
               <span class="post-date">Aug 21</span>
               <span class="post-author">Ken Mugrage</span>
               <a href="../../08/21/replacing-gocd-with-gocd/">Replacing GoCD with GoCD</a>
@@ -175,17 +180,12 @@
               <span class="post-author">Ankit Srivastava</span>
               <a href="../../07/17/gocd-materials-blacklisting-whitelisting/">How to Work with Materials in GoCD</a>
             </li>
-            <li>
-              <span class="post-date">Jun 12</span>
-              <span class="post-author">Sheroy Marker</span>
-              <a href="../../06/12/cd-microservices-environment-strategy/">Environment Strategy for Continuous Delivery of Microservices</a>
-            </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
-            <li><a href="../../">2018 (13)</a></li>
+            <li><a href="../../">2018 (14)</a></li>
             <li><a href="../../../2017/">2017 (39)</a></li>
             <li><a href="../../../2016/">2016 (8)</a></li>
             <li><a href="../../../2015/">2015 (21)</a></li>
