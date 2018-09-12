@@ -1,52 +1,4 @@
 .help {
-  .numbering {
-    text-align: center;
-    padding: 20px 0;
-    position: relative;
-
-    @media (min-width:$screen-tablet) {
-      padding: 50px 0;
-    }
-
-    &:before {
-      content: "";
-      border-bottom: 1px solid $gray-lighter;
-      width: 200px;
-      top: 50%;
-      left: 50%;
-      display: block;
-      position: absolute;
-      transform: translateX(-50%);
-      z-index: 0;
-
-      @media (min-width:$screen-tablet) {
-        width: 300px;
-      }
-
-    }
-
-    span {
-      position: relative;
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      text-align: center;
-      line-height: 30px;
-      border-radius: 50%;
-      border: 1px solid $border;
-      background: #fff;
-      color: #333;
-      z-index: 2;
-
-      @media (min-width:$screen-tablet) {
-        width: 50px;
-        height: 50px;
-        line-height: 47px;
-      }
-
-    }
-
-  }
 
   .sub-title {
     text-align: center;
@@ -61,9 +13,8 @@
 
   }
 
-  .get-start {
-    margin-bottom: 50px;
-    @include clearfix;
+  .help-row {
+    padding: 4em 0 3em 0;
   }
 
   .gocd-community {
@@ -107,7 +58,6 @@
       height: 230px;
       padding: 40px 20px;
       border: 1px solid $border;
-      background: #EEEBEB;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -190,7 +140,7 @@
   }
 
   .get-support {
-    background: url(/assets/images/texture-bg.jpg) no-repeat center top;
+    background: url("../../assets/images/campaign/enterprise/ccoal_bkgd.jpg") no-repeat center top;
     background-size: cover;
     color: #fff;
     @include clearfix;
@@ -209,7 +159,6 @@
 
     ul {
       list-style-type: circle;
-      font-weight: 300;
     }
 
     a {
@@ -223,17 +172,10 @@
     }
 
     @media only screen and (min-width:$screen-tablet) {
-      .left {
-        padding-right: 30px;
-        float: left;
-        width: 50%;
-        text-align: right;
-        direction: rtl;
-      }
 
       .right {
-        width: 50%;
-        float: left;
+        // width: 50%;
+        // float: left;
       }
 
     }
@@ -243,37 +185,57 @@
     }
 
     .actions {
-      clear: both;
       text-align: center;
-      margin: 20px 0 50px;
-
-      a {
-        text-decoration: none;
-        font-size: 12px;
-        color: #fff;
-
-        &:visited,
-        &:hover {
-          color: #fff;
-        }
-
-        @media only screen and (min-width:$screen-tablet) {
-          font-size: 15px;
-        }
-      }
-
-      .support_link {
-        text-decoration: underline;
-      }
-
     }
 
   }
 
+  .support_cta {
+    background: $secondary-color;
+    border-radius: 2px;
+    border: none;
+    color: $learn-more-cta;
+    text-decoration: none;
+    transition: all 0.25s;
+    width: 290px;
+    display: block;
+    margin: 0px auto 20px auto;
+    padding: 18px 0 18px 0;
+    font-size: 18px;
+    font-family: URWGeometric-SemiBold;
+    text-align: center;
+
+    &:hover {
+      color: $learn-more-cta;
+      background: $learn-more-cta-hover-bg;
+      cursor: pointer;
+      border: none;
+    }
+
+    &:active {
+      border: none;
+    }
+
+    &:visited {
+      border: none;
+    }
+
+    @media  (min-width: $screen-md-min){
+      width: 400px;
+      font-size: 20px;
+    }
+  }
+
+
   .points {
     width: 100%;
     margin: 30px auto;
+    font-size: 18px;
     @include clearfix;
+
+    display: flex;
+    justify-content: center;
+
 
     @media only screen and (min-width:$screen-tablet) {
       width: 77%;
@@ -294,7 +256,6 @@
     text-align: center;
     text-decoration: none;
     margin: 0px auto 10px;
-    font-weight: 300;
     font-size: 18px;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
@@ -370,9 +331,9 @@
   }
 
   .desc {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 300;
-    max-width: 650px;
+    max-width: 500px;
     text-align: center;
     margin: auto;
   }
@@ -538,6 +499,7 @@
   .graphics {
     img {
       width: 100%;
+      height: 100px;
     }
 
   }
