@@ -113,3 +113,12 @@
   releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases
   github_stars: http://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-b2-artifacts&type=watch&count=true
   first_available_date: 05/2018
+
+- name: Nexus Repository Manager poller
+  description: Plugin to poll Nexus Repository Manager for component updates.
+  readmore_url: https://github.com/benwolstencroft/go-nexus-poller-plugin
+  author_url: https://github.com/benwolstencroft/
+  author_name: Ben Wolstencroft
+  releases_url: https://github.com/benwolstencroft/go-nexus-poller-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=benwolstencroft&repo=go-nexus-poller-plugin&type=watch&count=true
+  first_available_date: 09/2018
