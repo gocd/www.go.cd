@@ -118,6 +118,37 @@
             }
         }
     }
+
+    .feature-cta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        a {
+            width: 100%;
+
+            @media (min-width: $screen-md ){
+                width: 320px;
+                margin: 0 10px;
+            }
+        }
+
+        .button-brand {
+            width: 100%;
+            font-size: 20px;
+        }
+    }
+
+    .btn-light {
+        background: transparent;
+        border: 1px solid $secondary-color;
+        transition: all 0.25s;
+
+        &:hover {
+            background: $secondary-color;
+        }
+    }
+
     .enterprise-customers {
         .flex-container {
             display: flex;
