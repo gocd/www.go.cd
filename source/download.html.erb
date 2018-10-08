@@ -13,8 +13,8 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 </div>
 <main>
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-3 sidebar">
+    <div class="row dowload-content-container">
+      <div class="sidebar-left">
         <button class="download-btn"><i class="fa fa-bars"></i></button>
 
         <nav class="sidebar-nav download-nav">
@@ -40,7 +40,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
           </ul>
         </nav>
       </div>
-      <div class="col-sm-8 col-md-6">
+      <div class="main-content">
         <script id="verify-checksum-message-template" type="text/x-handlebars-template">
           <div class="verify-checksum-message">
             <div class="content">
@@ -86,7 +86,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         <div id="downloads"></div>
       </div>
 
-      <div class="col-sm-4 col-lg-3 col-md-3">
+      <div class="sidebar-right">
         <div class='subscribe-to-blog blogpost'>
           <h3 class='subscribe-title'>Want updates about GoCD releases?</h3>
           <p>Subscribe to the GoCD Release Bulletin for monthly email updates on the latest GoCD releases.</p>
@@ -96,6 +96,15 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
           </div>
           <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
           <script defer="true" src="/assets/javascripts/marketo_popover.js" onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(6699)"></script>
+        </div>
+        <div class="subscribe-band">
+          <p class="subscribe-band_text">
+          We offer a free 30-day trial for our support services
+          </p>
+          <% link_to '/enterprise/support/index.html#signup-form' do %>
+            <button class="subscribe-band_cta">Try Now</button>
+          <% end %>
+          </a>
         </div>
       </div>
     </div>
