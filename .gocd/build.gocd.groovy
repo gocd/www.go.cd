@@ -9,8 +9,13 @@ def buildStage = {
         elasticProfileId = ELASTIC_PROFILE_ID
         tasks {
           bash {
+            commandString = "git merge origin/master"
+          }
+
+          bash {
             commandString = "bundle install --path .bundle --jobs 4"
           }
+
           bash {
             commandString = "bundle exec rake build"
           }
