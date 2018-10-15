@@ -25,15 +25,18 @@ run by an elastic agent.
 <h4>Improvements</h4>
 
   * <%= link_to_commit '69559f95c38249cb799aaa043eea76f492fe78aa', 'Added support for referencing Environment Variable in Pipeline Label.', 5180 %>
+  * <%= link_to_commit '1ed99a0a8f9c461ac34833a2406219306e05e9dd', 'Allow non-admins to view all analytics other than dashboard analytics', 5237 %>
 
 <h4>Bug fixes</h4>
 
   * <%= link_to_commit '7b83e689eb68b67bc3de328dcca05bba6b915368', 'Validate fetch artifact config before save', 5202 %>
   * <%= link_to_commit '9f177810a6ac527ef7f1bc3ddd1657cf30a5ada1', 'Set status 503 when backup is in progress.', 5222 %>
+  * <%= link_to_commit 'fa31d5805193a4a433e645fbe35b5e0839bda154', "Fix for email notification filter not acknowledging 'Only if it contains my check-ins'", 5238 %>
+  * <%= link_to_commit '1cce49562aa15563d10d46ef6d4afe722f306491', "Fix ETag computation for DataSharing Settings API", 5184 %>
+  * <%= link_to_commit '0349a02348a93876cbf2b3d3bc9864283455d524', "Timer triggered pipelines are not scheduled on a standby server", 5234 %>
 
 <h4>Deprecations</h4>
 
-  * The ubuntu 12.04 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/) has been deprecated and will not be built in the upcoming releases of GoCD. This is done because ubuntu 12.04 is now end-of-life.
   * The alpine 3.5 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/) has been deprecated and will not be built after November 2018 release of GoCD. This will be done as alpine 3.5 will reach [end-of-life](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases) in November 2018.
    * With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.8.0', 'encryption', 'Encryption API' %> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.
   * The Pipeline Config API v5 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for November 2018. <%= link_to_versioned_api '18.8.0', 'pipeline-config', 'Version 6' %> of the API is available, and users are encouraged to use it.
