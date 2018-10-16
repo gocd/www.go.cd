@@ -1,0 +1,67 @@
+---
+layout: post
+title: What's new in GoCD
+type: post
+author: Arvind S.V.
+excerpt: "In this post, we'll look at remediation strategies when there's instability or bugs."
+summary_image: "/assets/images/blog/cd-considerations/cd-microservices-remediation-strategy.jpg"
+title_tag_of_header: "What's New in GoCD | GoCD Blog"
+meta_description: "In a system based on a microservices architecture, It's important to have a strategy to remediate any instability or bug introduced to your system. Here are some options for you to consider"
+meta_keywords: "cloud native, kubernetes, docker, elastic agents, on demand agents, pipeline as code, config as code"
+tags: 
+draft: true
+---
+
+The continuous delivery space is moving at the speed of light. Containers, infrastructure, and cloud, are all moving incredibly fast, and so is GoCD. In the past few months we have released some exciting new features. .
+
+##GoCD is cloud native
+
+We’ve built two distinct sets of features to make GoCD cloud native. First, we've made it easier to operate GoCD on cloud infrastructure providers. Second, we have provided better support for container-based workflows.
+
+###Operating on cloud infrastructure
+
+People operating CI and CD servers on cloud providers want to perform as little administration of their build infrastructure as possible. Getting started should be easy. Build resources, or agents in GoCD parlance, should scale up and down transparently, as needed. GoCD addresses this with a suite of “elastic agent” plugins that provide scalable build infrastructure on Amazon ECS, Docker, Docker Swarm, OpenStack, and of course, Kubernetes. 
+
+Veteran users of GoCD likely have spent a fair bit of time managing their agent grids via scripts, puppet, chef and similar. An elastic agent plugin eliminates this work as GoCD installs, starts, and stops agents as needed on whatever cloud provider you point it at.
+
+On Kubernetes, we've provided a [helm chart](https://hub.kubeapps.com/charts/stable/gocd) to make it near trivial to install and operate GoCD in its entirety on your Kubernetes cluster.
+
+* [Amazon ECS elastic agents plugin](https://extensions-docs.gocd.org/ecs/current/) (commercial)
+* [Docker-based elastic agents plugin](https://github.com/gocd-contrib/docker-elastic-agents)
+* [Docker swarm based elastic agents plugin](https://github.com/gocd-contrib/docker-swarm-elastic-agents)
+* [Openstack Elastic Agent plugin](https://github.com/gocd-contrib/openstack-elastic-agent)
+* [Kubernetes Elastic Agent plugin](https://docs.gocd.org/current/gocd_on_kubernetes/)
+* [Elastic agent endpoint](https://plugin-api.gocd.org/current/elastic-agents/#elastic-agents) to write your own plugins
+
+###Improved container based workflows
+
+There are two elements to our improved container based workflows:
+
+1. Teams who are fully immersed in Docker want pretty much everything to be Docker-based.  If you are utilizing our Docker, ECS Docker or Kubernetes support then all your build activity will now be Docker based. It just how it works.
+2. GoCD now supports Docker images as native GoCD artifacts.  GoCD abides by build once and only once and provides full traceability up and downstream for artifacts. You can now  specify a Docker image repository as a GoCD artifact repository. This allows Docker images to be a part of GoCD’s native artifact tracing, pushing, and fetching. 
+
+##Analytics plugin for enterprise users
+
+We have added a CD analytics plugin to our [GoCD enterprise](http://gocd.org/enerprise) offering. The analytics plugin is intended to provide visualizations and actionable metrics to help you to optimize both value stream and the underlying build resources powering your pipeline.
+
+One of the highlights is when you're looking at your value stream, you can pick any two points in the value stream and take a quick look at throughput as well as cycle time. This helps you answer questions like "How often do we deploy to production" and "how long will this take to reach the customer" more accurately. We have free trial available. [Sign up here](http://gocd.org/analytics).
+
+<img src="/assets/images/campaign/analytics/vsm1-667caf39.jpg" alt="CD Pipeline Analytics"/>
+
+Another supported use case is to view your pipeline trends and identify builds that are slowing down. GoCD allows you to drill down to different levels of your pipeline to find root causes, e.g. slow tests or a lack of resources. 
+
+The GoCD enterprise offering provides you add-on software and support from the core team to enable GoCD for larger enterprise environments.
+
+##Improved the main dashboard 
+
+We have also made a couple of dashboard improvements. First, we improved performance for big organizations with hundreds or thousands of pipelines. Second, we have added personalization to the dashboard. You can now filter the dashboard to show only specific pipelines and pipeline groups. And you can save those settings as custom dashboard tabs for future reference. 
+
+##Pipelines as code
+
+In case you missed it, another cool feature we have improved over the past year is “[Pipelines as code](https://www.gocd.org/2017/05/02/what-does-pipelines-as-code-really-mean/)”. With this feature, you can store your pipeline configuration as YAML or JSON files in your own repository, so that you can modify, control and version it externally. 
+
+We also exposed this ability as a plugin endpoint so anyone can write a plugin for a config repository, to store the configuration in any manner you choose. For more in depth reading on  GoCD’s pipeline as code feature, please [visit our documentation](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html) for more details.
+
+##What's next:
+
+Moving forward, we’re going to be focusing on user experience for a few months. To start, we are going to make it much easier to utilize pipelines as code. This will include making it easier to add new pipelines as well as get feedback on whether your YAML or JSON specifies a valid pipeline. Beyond that we are likely to look at improving how we store secrets, including integration with popular 3rd party tools. If you are interested to learn more, take a look at the [open github issues](https://github.com/gocd/gocd/issues).
