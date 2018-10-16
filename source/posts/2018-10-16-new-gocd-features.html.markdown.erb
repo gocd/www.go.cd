@@ -2,14 +2,13 @@
 layout: post
 title: What's new in GoCD
 type: post
-author: Arvind S.V.
+author: Arvind S.V, Product Manager at GoCD
 excerpt: "GoCD has released several new features recently. Here's an overview of what you can look forward to using."
 summary_image: "/assets/images/blog/whats-new-gocd/gocd-new-features.jpg"
 title_tag_of_header: "What's New in GoCD | GoCD Blog"
 meta_description: "GoCD supports cloud native infrastructures, pipelines as code, and on demand agents."
 meta_keywords: "cloud native, kubernetes, docker, elastic agents, on demand agents, pipeline as code, config as code"
 tags: 
-draft: true
 ---
 <% content_for :banner do %>
   <figure>
@@ -32,7 +31,7 @@ Veteran users of GoCD likely have spent a fair bit of time managing their agent 
 
 On Kubernetes, we've provided a [helm chart](https://hub.kubeapps.com/charts/stable/gocd) to make it near trivial to install and operate GoCD in its entirety on your Kubernetes cluster.
 
-* [Amazon ECS elastic agents plugin](https://extensions-docs.gocd.org/ecs/current/) (commercial)
+* [Amazon ECS elastic agents plugin](https://extensions-docs.gocd.org/ecs/current/) (enterprise)
 * [Docker-based elastic agents plugin](https://github.com/gocd-contrib/docker-elastic-agents)
 * [Docker swarm based elastic agents plugin](https://github.com/gocd-contrib/docker-swarm-elastic-agents)
 * [Openstack Elastic Agent plugin](https://github.com/gocd-contrib/openstack-elastic-agent)
@@ -43,8 +42,8 @@ On Kubernetes, we've provided a [helm chart](https://hub.kubeapps.com/charts/sta
 
 There are two elements to our improved container based workflows:
 
-1. Teams who are fully immersed in Docker want pretty much everything to be Docker-based.  If you are utilizing our Docker, ECS Docker or Kubernetes support then all your build activity will now be Docker based. It just how it works.
-2. GoCD now supports Docker images as native GoCD artifacts.  GoCD abides by build once and only once and provides full traceability up and downstream for artifacts. You can now  specify a Docker image repository as a GoCD artifact repository. This allows Docker images to be a part of GoCD’s native artifact tracing, pushing, and fetching. 
+1. Teams who are fully immersed in Docker want pretty much everything to be Docker-based.  If you are utilizing our Docker, ECS Docker or Kubernetes support then all your build activity will now be Docker based. It just works.
+2. GoCD now supports Docker images as native GoCD artifacts.  GoCD abides by "build once and only once" and provides full traceability up and downstream for artifacts. You can now  specify a Docker image repository as a GoCD artifact repository. This allows Docker images to be a part of GoCD’s native artifact tracing, pushing, and fetching. 
 
 ##Analytics plugin for enterprise users
 
@@ -72,4 +71,4 @@ We also exposed this ability as a plugin endpoint so anyone can write a plugin f
 
 ##What's next:
 
-Moving forward, we’re going to be focusing on user experience for a few months. To start, we are going to make it much easier to utilize pipelines as code. This will include making it easier to add new pipelines as well as get feedback on whether your YAML or JSON specifies a valid pipeline. Beyond that we are likely to look at improving how we store secrets, including integration with popular 3rd party tools. If you are interested to learn more, take a look at the [open github issues](https://github.com/gocd/gocd/issues).
+Moving forward, we’re going to be focusing on user experience for a few months. To start, we are going to make it much easier to utilize pipelines as code. This will include making it easier to add new pipelines as well as get feedback on whether your YAML or JSON specifies a valid pipeline. Beyond that we are likely to look at improving how we store secrets, including integration with popular 3rd party tools. If you are interested in learning more, subscribe to the [GoCD Release Bulletin](https://www.gocd.org/subscribe).
