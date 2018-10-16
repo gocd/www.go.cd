@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2018-09-11T00:00:00Z</updated>
+  <updated>2018-10-16T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>What's new in GoCD</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/10/16/new-gocd-features.html"/>
+    <id>https://www.gocd.org/2018/10/16/new-gocd-features.html</id>
+    <published>2018-10-16T00:00:00Z</published>
+    <updated>2018-10-16T00:00:00Z</updated>
+    <author>
+      <name>Arvind S.V, Product Manager at GoCD</name>
+    </author>
+    <content type="html">GoCD has released several new features recently. Here's an overview of what you can look forward to using.</content>
+  </entry>
   <entry>
     <title>Remediation Strategy for Continuous Delivery of Microservices</title>
     <link rel="alternate" href="https://www.gocd.org/2018/09/11/cd-microservices-remediation-strategy.html"/>
@@ -107,16 +118,5 @@
       <name>Sheroy Marker</name>
     </author>
     <content type="html">In the first of this blog series, we will share the considerations to keep in mind in architecture design and application development.</content>
-  </entry>
-  <entry>
-    <title>Continuous delivery workflows on modern infrastructure - Run GoCD on Kubernetes</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/03/21/continuous-delivery-gocd-kubernetes.html"/>
-    <id>https://www.gocd.org/2018/03/21/continuous-delivery-gocd-kubernetes.html</id>
-    <published>2018-03-21T00:00:00Z</published>
-    <updated>2018-03-21T00:00:00Z</updated>
-    <author>
-      <name>Sheroy Marker</name>
-    </author>
-    <content type="html">GoCD is excited to announce the release of our Kubernetes Helm Chart that will allow our users to run GoCD natively on Kubernetes. </content>
   </entry>
 </feed>

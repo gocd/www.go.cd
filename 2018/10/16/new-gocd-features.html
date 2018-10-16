@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD supports cloud native infrastructures, pipelines as code, and on demand agents." name="description" />
+    <meta content="cloud native, kubernetes, docker, elastic agents, on demand agents, pipeline as code, config as code" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="What's New in GoCD | GoCD Blog" />
+    <meta name="twitter:description" content="GoCD supports cloud native infrastructures, pipelines as code, and on demand agents." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/whats-new-gocd/gocd-new-features-99a2019c.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/10/16/new-gocd-features.html" />
+
+    <title>What's New in GoCD | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-cb1b79a3.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-dfc7a865.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+  </head>
+
+  <body class="x2018 x2018_10 x2018_10_16 x2018_10_16_new-gocd-features">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../download/" class="download-btn-header" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+<img src="../../../assets/images/blog/whats-new-gocd/gocd-new-features-99a2019c.jpg" alt="New Features in GoCD"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>What's new in <span class="go">Go</span>CD</h1>
+    <h4>Arvind S.V, Product Manager at GoCD</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>The continuous delivery space is moving at the speed of light. Containers, infrastructure, and cloud, are all moving incredibly fast, and so is GoCD. In the past few months we have released some exciting new features. .</p>
+
+<h2 id="gocd-is-cloud-native">GoCD is cloud native</h2>
+
+<p>We’ve built two distinct sets of features to make GoCD cloud native. First, we've made it easier to operate GoCD on cloud infrastructure providers. Second, we have provided better support for container-based workflows.</p>
+
+<h3 id="operating-on-cloud-infrastructure">Operating on cloud infrastructure</h3>
+
+<p>People operating CI and CD servers on cloud providers want to perform as little administration of their build infrastructure as possible. Getting started should be easy. Build resources, or agents in GoCD parlance, should scale up and down transparently, as needed. GoCD addresses this with a suite of “elastic agent” plugins that provide scalable build infrastructure on Amazon ECS, Docker, Docker Swarm, OpenStack, and of course, Kubernetes.</p>
+
+<p>Veteran users of GoCD likely have spent a fair bit of time managing their agent grids via scripts, puppet, chef and similar. An elastic agent plugin eliminates this work as GoCD installs, starts, and stops agents as needed on whatever cloud provider you point it at.</p>
+
+<p>On Kubernetes, we've provided a <a href="https://hub.kubeapps.com/charts/stable/gocd">helm chart</a> to make it near trivial to install and operate GoCD in its entirety on your Kubernetes cluster.</p>
+
+<ul>
+  <li><a href="https://extensions-docs.gocd.org/ecs/current/">Amazon ECS elastic agents plugin</a> (enterprise)</li>
+  <li><a href="https://github.com/gocd-contrib/docker-elastic-agents">Docker-based elastic agents plugin</a></li>
+  <li><a href="https://github.com/gocd-contrib/docker-swarm-elastic-agents">Docker swarm based elastic agents plugin</a></li>
+  <li><a href="https://github.com/gocd-contrib/openstack-elastic-agent">Openstack Elastic Agent plugin</a></li>
+  <li><a href="https://docs.gocd.org/current/gocd_on_kubernetes/">Kubernetes Elastic Agent plugin</a></li>
+  <li><a href="https://plugin-api.gocd.org/current/elastic-agents/#elastic-agents">Elastic agent endpoint</a> to write your own plugins</li>
+</ul>
+
+<h3 id="improved-container-based-workflows">Improved container based workflows</h3>
+
+<p>There are two elements to our improved container based workflows:</p>
+
+<ol>
+  <li>Teams who are fully immersed in Docker want pretty much everything to be Docker-based.  If you are utilizing our Docker, ECS Docker or Kubernetes support then all your build activity will now be Docker based. It just works.</li>
+  <li>GoCD now supports Docker images as native GoCD artifacts.  GoCD abides by "build once and only once" and provides full traceability up and downstream for artifacts. You can now  specify a Docker image repository as a GoCD artifact repository. This allows Docker images to be a part of GoCD’s native artifact tracing, pushing, and fetching.</li>
+</ol>
+
+<h2 id="analytics-plugin-for-enterprise-users">Analytics plugin for enterprise users</h2>
+
+<p>We have added a CD analytics plugin to our <a href="http://gocd.org/enerprise">GoCD enterprise</a> offering. The analytics plugin is intended to provide visualizations and actionable metrics to help you to optimize both value stream and the underlying build resources powering your pipeline.</p>
+
+<p>One of the highlights is when you're looking at your value stream, you can pick any two points in the value stream and take a quick look at throughput as well as cycle time. This helps you answer questions like "How often do we deploy to production" and "How long will this take to reach the customer" more accurately. We have free trial available. <a href="http://gocd.org/analytics">Sign up here</a>.</p>
+
+<p><img src="../../../assets/images/blog/whats-new-gocd/gocd-analytics-vsm-a734be3e.png" alt="CD Pipeline Analytics" /></p>
+
+<p>Another supported use case is to view your pipeline trends and identify builds that are slowing down. GoCD allows you to drill down to different levels of your pipeline to find root causes, e.g. slow tests or a lack of resources.</p>
+
+<p>The GoCD enterprise offering provides you add-on software and support from the core team to enable GoCD for larger enterprise environments.</p>
+
+<h2 id="improved-the-main-dashboard">Improved the main dashboard</h2>
+
+<p>We have also made a couple of dashboard improvements. First, we improved performance for big organizations with hundreds or thousands of pipelines. Second, we have added personalization to the dashboard. You can now filter the dashboard to show only specific pipelines and pipeline groups. And you can save those settings as custom dashboard tabs for future reference.</p>
+
+<p><img src="../../../assets/images/blog/whats-new-gocd/gocd-dashboard-f14ab52a.gif" alt="GoCD Dashboard" /></p>
+
+<h2 id="pipelines-as-code">Pipelines as code</h2>
+
+<p>In case you missed it, another cool feature we have improved over the past year is “<a href="https://www.gocd.org/2017/05/02/what-does-pipelines-as-code-really-mean/">Pipelines as code</a>”. With this feature, you can store your pipeline configuration as YAML or JSON files in your own repository, so that you can modify, control and version it externally.</p>
+
+<p>We also exposed this ability as a plugin endpoint so anyone can write a plugin for a config repository, to store the configuration in any manner you choose. For more in depth reading on  GoCD’s pipeline as code feature, please <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">visit our documentation</a> for more details.</p>
+
+<h2 id="whats-next">What's next:</h2>
+
+<p>Moving forward, we’re going to be focusing on user experience for a few months. To start, we are going to make it much easier to utilize pipelines as code. This will include making it easier to add new pipelines as well as get feedback on whether your YAML or JSON specifies a valid pipeline. Beyond that we are likely to look at improving how we store secrets, including integration with popular 3rd party tools. If you are interested in learning more, subscribe to the <a href="https://www.gocd.org/subscribe">GoCD Release Bulletin</a>.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../assets/javascripts/marketo_popover-a55210a4.js" onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Oct 16</span>
+              <span class="post-author">Arvind S.V, Product Manager at GoCD</span>
+              <a href="new-gocd-features/">What's new in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Sep 11</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../09/11/cd-microservices-remediation-strategy/">Remediation Strategy for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
+              <span class="post-date">Aug 21</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../08/21/replacing-gocd-with-gocd/">Replacing GoCD with GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 31</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../07/31/cd-microservices-configuration-strategy/">Configuration Strategy for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 24</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../07/24/gocd-usage-analytics/">Improving GoCD through usage analytics</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../">2018 (15)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2018/10/16/new-gocd-features.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../getting-started/part-1/">GETTING STARTED</a></li>
+            <li><a href="../../../plugins/">PLUGINS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li> <a href="../../../events/">WEBINARS + EVENTS</a></li>
+            <li><a href="../../../resources/">RESOURCES</a></li>
+            <li><a href="../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
