@@ -41,6 +41,9 @@ run by an elastic agent.
    * With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.8.0', 'encryption', 'Encryption API' %> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.
   * The Pipeline Config API v5 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for November 2018. <%= link_to_versioned_api '18.8.0', 'pipeline-config', 'Version 6' %> of the API is available, and users are encouraged to use it.
   * The Template Config API v3 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for November 2018. <%= link_to_versioned_api '18.8.0', 'template-config', 'Version 4' %> of the API is available, and users are encouraged to use it.
+  * The elastic agent plugin extension version 3 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
+  * The notification plugin extension version 3 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.
+  * The analytics plugin extension version 1 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.
 
 <h4>Breaking Changes</h4>
 
