@@ -1491,7 +1491,7 @@ h1.main-caption {
     .ebook-cd-analytics-banner {
         width: 100%;
         
-        @media (max-width: 375px) {
+        @media (max-width: 414px) {
             display: none;
         }
     }
@@ -1515,18 +1515,18 @@ h1.main-caption {
         @media (max-width: 767px) {
             display: flex;
             justify-content: center;
-            // border: 1px solid blue;
+            margin-bottom: 1em;
+
         }
     }
 
     .analytics-mockup {
-        // border: 1px solid red;
 
         @media (max-width: 767px) {
             align-items: center;
             flex-direction: column;
             width: 80%;
-            // border: 1px solid green;
+            height: 100%;
         }
     }
 
