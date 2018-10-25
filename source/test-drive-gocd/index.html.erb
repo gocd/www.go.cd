@@ -2,13 +2,12 @@
 layout: campaignlanding
 title: "Test Drive GoCD"
 title_tag_of_header: "Test Drive GoCD | GoCD"
-page_caption: 
+page_caption:
 meta_description: "Download and Trial GoCD in less than 5 minutes"
 meta_keywords: "gocd trial, try gocd, gocd tutorial, gocd download"
 show_features: true
 ---
 <div class="ebook-cd-analytics">
-
   <!-- banner image goes here -->
   <% content_for :banner do %>
       <%= image_tag 'campaign/cd101/cd101-banner-blank.png', alt: 'Test Drive GoCD', title: "Test Drive GoCD", class: "ebook-cd-analytics-banner" %>
@@ -22,36 +21,43 @@ show_features: true
           <h1>Try GoCD in less than 5 minutes</h1>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col-md-4 analytics-mockup-container">
           <%= image_tag '/assets/images/icons/go.cd_see-how-things-really-work.svg', alt: 'Test drive GoCD', title: "Test Drive GoCD", class: "analytics-mockup" %>
         </div>
 
-        <div class="col-md-8 ebook-cd-analytics-content">          
+        <div class="col-md-8 ebook-cd-analytics-content">
           <p>Want to deliver faster? Want to recover from failures more quickly? Want to improve your cycle time?</p>
 
-          <p>This Actionable Continuous Delivery Metrics eBook will provide you insight into your software delivery pipeline, and help you to improve your delivery and team processes. Inside you will find:
+          <p>
+            This Actionable Continuous Delivery Metrics eBook will provide you insight into your software delivery pipeline,
+            and help you to improve your delivery and team processes. Inside you will find:
           </p>
-        
+
           <ul>
-            <li>Check the depencies</li>
-            <p>
-              All you need is Git, Docker, Docker Compose, and ensure Docker is running.
-              <p>
-            <li>Run GoCD</li>
-                <p>
-                  <a href=https://github.com/arvindsv/gocd-trial">Visit the Github repo</a> and run the commands to get started.
-                  <p>
-            <li>Explore GoCD</li>
-                    <p>
-                      <li>Create a <a href="https://www.gocd.org/getting-started/part-1/#concept2">pipeline</a>
-                      <li>Add a <a href="https://www.gocd.org/getting-started/part-1/#concept4">stage</a>
-                      <li>Configure a <a href="https://docs.gocd.org/current/extension_points/plugin_user_guide.html">plugin</a>
-                      <li>Edit the <a href=https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">configuration</a>
+            <li>
+              Check the dependencies
+              <p>All you need is Git, Docker, Docker Compose, and ensure Docker is running.</p>
+            </li>
+            <li>
+              Run GoCD
+              <p><a href=https://github.com/arvindsv/gocd-trial">Visit the Github repo</a> and run the commands to get started.</p>
+            </li>
+            <li>
+              Explore GoCD
+              <ul>
+                <li>Create a <a href="https://www.gocd.org/getting-started/part-1/#concept2">pipeline</a></li>
+                <li>Add a <a href="https://www.gocd.org/getting-started/part-1/#concept4">stage</a></li>
+                <li>Configure a <a href="https://docs.gocd.org/current/extension_points/plugin_user_guide.html">plugin</a></li>
+                <li>Edit the <a href=https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">configuration</a></li>
+              </ul>
+            </li>
           </ul>
-            <p>
-              Please note: This template is intended to be used to trial GoCD. It is not intended for production use. If you’d like to use this in production, just copy and paste your config into a new production instance.
+          <p>
+            Please note: This template is intended to be used to trial GoCD. It is not intended for production use.
+            If you’d like to use this in production, just copy and paste your config into a new production instance.
+          </p>
         </div>
       </div>
 
@@ -63,10 +69,9 @@ show_features: true
           <%= link_to 'Intro to GoCD Guide', "https://www.gocd.org/getting-started/part-1/", {:class => "btn btn-primary campaign-btn-download ebook-cd-analytics-btn-2", "analytics-label" => "campaign-download-cta"} %>
         </div>
       </div>
-
-  </div>
+    </div>
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
-    <% end %>
+  <% end %>
 </div>
