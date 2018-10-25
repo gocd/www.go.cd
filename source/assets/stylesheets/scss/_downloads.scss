@@ -849,6 +849,18 @@ body.download {
   color: #333333;
   border: 1px solid #4FE0E1;
   background: #4FE0E1; 
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;  
+    outline: 0;
+  }
+
+  &:active{
+    background: #36b1bf;
+    color: #FFFFFF;
+    outline: 0;
+  }
 }
 
 
