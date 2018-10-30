@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="To understand whether you are improving and delivering on your goals, you need to measure you CD process. Here is an overview of where you should begin" name="description" />
+    <meta content="cd metrics, measure continuous delivery, measure devops, mean time to recover, mttr, cycle time, failure rate" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Why Measure Your CD Process | GoCD Blog" />
+    <meta name="twitter:description" content="To understand whether you are improving and delivering on your goals, you need to measure you CD process. Here is an overview of where you should begin" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-metrics/measure-cd-process-0855a3b2.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2018/10/30/measure-continuous-delivery-process" />
+
+    <title>Why Measure Your CD Process | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-81c256f7.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-dfc7a865.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+  </head>
+
+  <body class="x2018 x2018_10 x2018_10_30 x2018_10_30_measure-continuous-delivery-process x2018_10_30_measure-continuous-delivery-process_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="download-btn-header" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+<img src="../../../../assets/images/blog/cd-metrics/measure-cd-process-0855a3b2.jpg" alt="Why Measure your CD process"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Why measure your CD process</h1>
+    <h4>Aravind S.V and Suzie Prince</h4>
+    <p class='tags'>
+<a href="../../../../tags/cd-analytics.html" class="tag">        CD Analytics
+</a>     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>As software and IT become key drivers for innovation in most organizations these days, the speed of software delivery becomes very important to their success. More and more teams are adopting Continuous Delivery (CD) and expect to benefit from the accelerated feedback loop CD offers. To understand whether you are improving and delivering on your goals, you need to measure you CD process.</p>
+
+<p>In this blog series, we will share :</p>
+
+<ul>
+  <li>Why CD metrics are important</li>
+  <li>What metrics you should measure</li>
+  <li>A step by step guide to getting started</li>
+</ul>
+
+<h2 id="continuous-delivery">Continuous Delivery</h2>
+
+<p>Jez Humble defined continuous delivery on continuousdelivery.com as</p>
+
+<blockquote>
+  <p>"the ability to get changes of all types - including new features, configuration, bug fixes, and experiments - into production, safely and quickly in a sustainable way."</p>
+</blockquote>
+
+<p>In practice, a CD pipeline can look like this:</p>
+
+<p><img src="../../../../assets/images/blog/cd-metrics/gocd-pipelines-6356c22e.png" alt="CD pipelines" /></p>
+
+<p>On the left of the diagram, the material is a repository such as git or svn. The delivery team commits a change, and your CI/CD server such as GoCD, runs build and unit tests. If these tests fail, the team immediately fixes any problems. The new version with those fixes goes further along the CD pipeline. If tests further down fails, again the team fixes them as quickly as possible. This process happens over and over in the life-cycle of an application.</p>
+
+<h2 id="why-measure-your-cd-process">Why measure your CD process</h2>
+
+<p><strong>1. Measurement, Feedback, and improvement</strong></p>
+
+<p><img src="../../../../assets/images/blog/cd-metrics/build-learn-measure-3f64a841.jpg" alt="Build, Learn, Measure" /></p>
+
+<p>If we consider a feedback cycle like “Build, Measure and Learn”, metrics are a way to set specific and measurable goals, direct activities towards achieving those goals, and help you understand if you are achieving those goals.</p>
+
+<p><strong>2. Predict future behavior</strong></p>
+
+<p>Data will provide you more accurate estimates to your business. For example, if you know your cycle time, you can more accurately answer questions about how long it will take for something to be ready for your customers.</p>
+
+<p>If you are considering parallelizing tasks or removing manual steps in your process, once you have some data about your current process, you can calculate the time savings of these improvement activities. From there, this data could potentially help your organization estimate dollars made or saved by certain specific improvements.</p>
+
+<p><strong>3. Continuous delivery benchmarking</strong></p>
+
+<p>Once you have some data, the values can be used as your baseline. Those baseline values are key to understanding whether you are improving your own process as well as  key to understanding where you stand relative to “high performing” teams.</p>
+
+<p><img src="../../../../assets/images/blog/cd-metrics/continuous-delivery-benchmarking-329817c5.png" alt="CD Benchmarking" /></p>
+
+<p>Credit: Forsgren PhD, Nicole. Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations (Kindle Location 564). IT Revolution Press. Kindle Edition.</p>
+
+<h2 id="what-metrics-are-important-to-measure">What metrics are important to measure?</h2>
+
+<p>Once you introduce a CD pipeline and have established your path-to-production, the next step is to monitor its efficiency. We do not suggest measuring everything. At a high level here are the four metrics that we suggest using to help monitor your CD process. We’ll go deeper into details in future parts of the series.</p>
+
+<p><strong>1. Throughput</strong></p>
+
+<p>Throughput is a measure of how frequently your team deploys code. This metric is represented as a percentage. It is the answer to the question “how often does code reach a certain point in the CD pipeline”.</p>
+
+<p><strong>2. Cycle Time</strong></p>
+
+<p>Cycle time is a measure of how long it takes from committing code to deploying it to a production environment. This metric is represented as a duration. It is the answer to the question "how long does it take from committing code to it reaching production".</p>
+
+<p><strong>3. Failure Rate</strong></p>
+
+<p>Failure rate is a measure of the percentage of changes that result in a failure. This metric is represented as a percentage. It is the answer to questions like “what percentage of changes break builds” and “what percentage of deployments result in a service outage”.</p>
+
+<p><strong>4. Mean time to recover</strong></p>
+
+<p>Mean time to recover (MTTR) is a measure of how long it takes to fix a build failure. This metric is represented as a mean duration. It is the answer to questions like "how long does it take you to restore service during a failed deployment".</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>This is the part 1 of our Actionable CD metrics blog series. We talked about why CD metrics are important, and an overview of the important metrics we recommend. In the next post, we will dig deeper into  each metric.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../../assets/javascripts/marketo_popover-a55210a4.js" onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Oct 30</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="./">Why measure your CD process</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 16</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../16/new-gocd-features/">What's new in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Sep 11</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../../09/11/cd-microservices-remediation-strategy/">Remediation Strategy for Continuous Delivery of Microservices</a>
+            </li>
+            <li>
+              <span class="post-date">Aug 21</span>
+              <span class="post-author">Ken Mugrage</span>
+              <a href="../../../08/21/replacing-gocd-with-gocd/">Replacing GoCD with GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jul 31</span>
+              <span class="post-author">Sheroy Marker</span>
+              <a href="../../../07/31/cd-microservices-configuration-strategy/">Configuration Strategy for Continuous Delivery of Microservices</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2018 (16)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2018/10/30/measure-continuous-delivery-process.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">GETTING STARTED</a></li>
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li> <a href="../../../../events/">WEBINARS + EVENTS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

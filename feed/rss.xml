@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2018-10-16T00:00:00Z</updated>
+  <updated>2018-10-30T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Why measure your CD process</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/10/30/measure-continuous-delivery-process.html"/>
+    <id>https://www.gocd.org/2018/10/30/measure-continuous-delivery-process.html</id>
+    <published>2018-10-30T00:00:00Z</published>
+    <updated>2018-10-30T00:00:00Z</updated>
+    <author>
+      <name>Aravind S.V and Suzie Prince</name>
+    </author>
+    <content type="html">To understand whether you are improving and delivering on your goals, you need to measure you CD process. Here is an overview of where you should begin</content>
+  </entry>
   <entry>
     <title>What's new in GoCD</title>
     <link rel="alternate" href="https://www.gocd.org/2018/10/16/new-gocd-features.html"/>
@@ -107,16 +118,5 @@
       <name>Sheroy Marker</name>
     </author>
     <content type="html">In the second post of this blog series, we will dig deeper into testing strategies for a microservices architecture..</content>
-  </entry>
-  <entry>
-    <title>5 Considerations for Continuous Delivery of Microservices</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices.html"/>
-    <id>https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices.html</id>
-    <published>2018-04-25T00:00:00Z</published>
-    <updated>2018-04-25T00:00:00Z</updated>
-    <author>
-      <name>Sheroy Marker</name>
-    </author>
-    <content type="html">In the first of this blog series, we will share the considerations to keep in mind in architecture design and application development.</content>
   </entry>
 </feed>
