@@ -1,0 +1,73 @@
+.header-bg {
+  height: 258px;
+  width: 100%;
+  background: $dark;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-lt, .content-rt {
+  width: 48%;
+  margin: 30px;
+  margin: -170px auto 150px;
+}
+
+.content-header {
+  font-size: 48px;
+  color: #fff;
+  padding: 0px 30px 50px;
+}
+
+.steps-list {
+  margin: 50px auto;
+  list-style: none;
+  padding: 0px 15px;
+}
+
+.steps-list_item {
+  margin: 50px auto;
+}
+
+.steps-heading {
+  font-size: 30px;
+  font-family: $default-font-extra-bold;
+  margin: 0;
+  padding: 0;
+
+  &:nth-child(2) {
+    margin: 0 0 20px;  
+  }
+}
+
+.steps-desc {
+  font-size: 20px;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.steps-desc_list {
+  list-style: outside;
+  margin: 0;
+  padding: 0px 18px;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.actions_note {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+}
