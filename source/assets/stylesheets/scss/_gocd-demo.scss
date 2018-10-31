@@ -1,7 +1,11 @@
 .header-bg {
-  height: 258px;
+  height: 180px;
   width: 100%;
   background: $dark;
+  
+  @media (min-width: $screen-md) {
+    height: 258px;
+  }
 }
 
 .content-container {
@@ -9,22 +13,60 @@
   flex-wrap: wrap;
 }
 
-.content-lt, .content-rt {
-  width: 48%;
-  margin: 30px;
-  margin: -170px auto 150px;
+
+.content-lt {
+  display: none;
+
+  @media (min-width: $screen-lg) {
+    width: 48%;
+    display: block;
+    margin: -170px auto 150px;
+  }
 }
+
+.content-rt {
+  width: 100%;
+  margin: -150px auto 150px;
+
+  @media (min-width: $screen-md) {
+    margin: -200px auto 150px;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: 48%;
+    margin: -170px auto 150px;
+  }
+
+}
+
 
 .content-header {
-  font-size: 48px;
+  font-size: 38px;
   color: #fff;
-  padding: 0px 30px 50px;
-}
+  text-align: center;
+
+  @media (min-width: $screen-lg) {
+    font-size: 48px;
+    text-align: left;  
+    padding: 0px 30px 50px;
+    margin: 0;
+  }
+ }
 
 .steps-list {
-  margin: 50px auto;
+  margin: 80px auto;
   list-style: none;
   padding: 0px 15px;
+
+  @media (min-width: $screen-md) {
+    margin: 50px 50px;
+  }
+
+  @media (min-width: $screen-lg) {
+    margin: 50px auto;
+  }
+
+
 }
 
 .steps-list_item {
@@ -32,7 +74,7 @@
 }
 
 .steps-heading {
-  font-size: 30px;
+  font-size: 26px;
   font-family: $default-font-extra-bold;
   margin: 0;
   padding: 0;
@@ -40,14 +82,22 @@
   &:nth-child(2) {
     margin: 0 0 20px;  
   }
+
+  @media (min-width: $screen-lg) {
+    font-size: 30px;
+  }
 }
 
 .steps-desc {
-  font-size: 20px;
+  font-size: 18px;
 
   a {
     color: inherit;
     text-decoration: underline;
+  }
+
+  @media (min-width: $screen-lg) {
+    font-size: 20px;
   }
 }
 
@@ -70,4 +120,28 @@
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
+}
+
+.link-mobile {
+  display: block;
+  @media (min-width: $screen-lg) {
+    display: none;
+  }
+
+  .button-brand {
+    margin: 20px auto;
+  }
+}
+
+.hide-mob-desktop {
+  display: none;
+
+  @media (min-width: $screen-md) {
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $screen-lg) {
+    display: none;
+  }
 }

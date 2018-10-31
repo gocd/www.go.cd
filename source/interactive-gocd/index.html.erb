@@ -13,7 +13,8 @@ meta_keywords: ""
 <div class="content-container container">
 
 <section class="content-lt">
-    <%= image_tag  "https://via.placeholder.com/653x437?text=Screenshot+Placeholder", class: "img-responsive fixed-image" %>
+
+    <%= image_tag  "https://via.placeholder.com/653x437?text=Screenshot+Placeholder", class: "img-responsive" %>
     <div class="container-actions link-desktop">
           <%= link_to "Test Drive GoCD", '#', class: 'button-brand' %>
           <%= link_to "Introduction to GoCD Guide", '#', class: 'button-brand button-brand_transparent' %>
@@ -22,10 +23,12 @@ meta_keywords: ""
               Please note: This template is intended to be used to trial GoCD. It is not intended for production use. If you’d like to use this in production, just copy and paste your config!
           </p>
     </div>
+
   </section>
 
   <section class="content-rt">
     <h1 class="content-header">Get Started with GoCD in 2 Minutes </h1>
+    <%= image_tag  "https://via.placeholder.com/417x314?text=Screenshot+Placeholder", class: "img-responsive hide-mob-desktop" %>
     <div class="steps-list">
       <ul class="steps-list">
             <li class="steps-list_item">
@@ -74,6 +77,15 @@ meta_keywords: ""
               </p>
             </li>
           </ul>
+    </div>
+
+    <div class="container-actions link-mobile">
+          <%= link_to "Test Drive GoCD", '#', class: 'button-brand' %>
+          <%= link_to "Introduction to GoCD Guide", '#', class: 'button-brand button-brand_transparent' %>
+
+          <p class="actions_note">
+              Please note: This template is intended to be used to trial GoCD. It is not intended for production use. If you’d like to use this in production, just copy and paste your config!
+          </p>
     </div>
   </section>
 </div>
