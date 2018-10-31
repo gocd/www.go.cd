@@ -111,56 +111,6 @@
     }
 }
 
-.button-brand {
-    background: $brand-secondary;
-    color: $dark;
-    display: block;
-    font-family: $default-font-normal-bold;
-    line-height: 0.2;
-    margin: 0 auto;
-    padding: 30px;
-    text-transform: uppercase;
-    margin: 20px auto 50px auto;
-    font-size: 16px;
-    width: auto;
-    border: 0;
-    cursor: pointer;
-    transition: all 0.25s;
-    text-align: center;
-    &:active {
-        background: #36b1bf;
-        color: #FFFFFF;
-        outline: 0;
-    }
-    
-    &:hover {
-        opacity: 0.8;
-        outline: 0;
-    }
-
-    &:focus {
-      outline: 0;
-    }
-
-    @media(min-width: $screen-md) {
-        height: 37px;
-        font-size: 22px;
-        width: 424px;
-        margin: 40px auto 40px auto;
-    }
-}
-
-.brand-button__small {
-    width: auto;
-    height: 38px;
-    font-size: 10px;
-    background: $brand-secondary;
-    font-family: $default-font-extra-bold;
-    color: $dark;
-    padding: 10px;
-    text-transform: uppercase;
-}
-
 .custom-table {
     width: 100%;
     max-width: 100%;
