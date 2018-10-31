@@ -1484,6 +1484,98 @@ h1.main-caption {
     }
 }
 
+//test-drive-gocd
+
+.test-drive-gocd {
+
+    .ebook-cd-analytics-banner {
+        width: 100%;
+        
+        @media (max-width: 414px) {
+            display: none;
+        }
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 3em;
+        margin-bottom: 1em;
+
+        @media (max-width: 767px) {
+            font-size: 2em;
+        }
+    }
+
+    .ebook-cd-analytics-header {
+        margin-top: 2em;
+    }
+
+    .analytics-mockup-container {
+        
+        @media (max-width: 767px) {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1em;
+
+        }
+    }
+
+    .analytics-mockup {
+
+        @media (max-width: 767px) {
+            align-items: center;
+            flex-direction: column;
+            width: 80%;
+            height: 100%;
+        }
+    }
+
+    .ebook-cd-analytics-content {
+        margin-bottom: 3em;
+
+        h3{
+            font-size: 24px;
+        }
+
+        p, ul {
+            color: #333;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+    }
+
+    .ebook-cd-analytics-cta {
+        margin-bottom: 2em;
+
+        .btn {
+            background-color: #4ad9d9;
+            border: 2px solid #4ad9d9;
+            border-radius: 0;
+            color: #333;
+            font-family: 'URWGeometric-Semibold';
+
+            &:hover,
+            &:focus {
+                background-color: #6ee0e0;
+                border: 2px solid #6ee0e0;
+            }
+
+            &:active {
+            background-color: #5ec0cb;
+            border: 2px solid #5ec0cb;
+
+            }
+
+        }
+
+        .ebook-cd-analytics-btn-2 {
+            border: 2px solid #4ad9d9;
+            background-color: #ffffff;
+            color: #333;
+        }
+    }
+}
+
 //ebook-cd-analytics
 
 .ebook-cd-analytics {
@@ -1547,6 +1639,7 @@ h1.main-caption {
 
     .ebook-cd-analytics-cta {
         margin-bottom: 4em;
+        border: 1px solid red;
 
         .btn {
             background-color: #4ad9d9;
