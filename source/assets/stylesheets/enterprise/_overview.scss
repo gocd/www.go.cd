@@ -127,10 +127,10 @@
         .button-brand {
             font-size: 18px;
             width: 100%;
+            margin: 20px auto;
             @media (min-width: $screen-md) {
                 font-size: 20px;
                 width: 320px;
-                margin: 0 10px;
             }
         }
     }
