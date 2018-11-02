@@ -20,21 +20,21 @@
   @media (min-width: $screen-lg) {
     width: 48%;
     display: block;
-    margin: -170px auto 150px;
+    margin: -170px auto 75px;
   }
 }
 
 .content-rt {
   width: 100%;
-  margin: -150px auto 150px;
+  margin: -150px auto 75px;
 
   @media (min-width: $screen-md) {
-    margin: -200px auto 150px;
+    margin: -200px auto 75px;
   }
 
   @media (min-width: $screen-lg) {
     width: 48%;
-    margin: -170px auto 150px;
+    margin: -170px auto 75px;
   }
 
 }
@@ -105,6 +105,7 @@
   list-style: outside;
   margin: 0;
   padding: 0px 18px;
+  font-size: 20px;
 
   a {
     color: inherit;
@@ -120,6 +121,11 @@
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
+
+  a {
+    text-decoration: underline;
+    color: inherit;
+  }
 }
 
 .link-mobile {
