@@ -854,12 +854,13 @@ body.download {
   &:hover {
     opacity: 0.8;  
     outline: 0;
+    color: #333333;
   }
 
   &:active{
     background: #36b1bf;
     color: #FFFFFF;
-    outline: 0;
+    outline: 0
   }
 }
 
