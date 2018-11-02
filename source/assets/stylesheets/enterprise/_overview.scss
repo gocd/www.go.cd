@@ -123,18 +123,14 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-
-        a {
-            @media (min-width: $screen-md ){
-                width: 320px;
-                margin: 0 10px;
-            }
-        }
-
+        
         .button-brand {
             font-size: 18px;
+            width: 100%;
             @media (min-width: $screen-md) {
                 font-size: 20px;
+                width: 320px;
+                margin: 0 10px;
             }
         }
     }
