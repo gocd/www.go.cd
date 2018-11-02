@@ -2,58 +2,61 @@
 layout: campaignlanding
 title: "Test Drive GoCD"
 title_tag_of_header: "Test Drive GoCD | GoCD"
-page_caption: 
+page_caption:
 meta_description: "Download and Trial GoCD in less than 5 minutes"
-meta_keywords: ""
+meta_keywords: "gocd trial, try gocd, gocd tutorial, gocd download"
 show_features: true
 ---
-<div class="ebook-cd-analytics">
+<div class="test-drive-gocd">
 
   <!-- banner image goes here -->
   <% content_for :banner do %>
-      <%= image_tag 'campaign/ebook-cd-analytics/ebook-analytics-banner.jpg', alt: 'Download the CD101 eBook', title: "Download the CD Analytics eBook", class: "ebook-cd-analytics-banner" %>
+      <%= image_tag 'campaign/test-drive/test-drive-gocd.png', alt: 'Test Drive GoCD', title: "Test Drive GoCD", class: "ebook-cd-analytics-banner" %>
   <% end %>
 
   <% content_for :maincontent do %>
     <div class="container">
 
-      <div class="row">
-        <div class="col-sm-12 ebook-cd-analytics-header">
-          <h1>Free Guide: Use Metrics to Improve Your CD Process</h1>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-md-4 analytics-mockup-container">
-          <%= image_tag 'campaign/ebook-cd-analytics/w-analytics-mockup.png', alt: 'Download the CD Analytics eBook', title: "Download the CD Analytics eBook", class: "analytics-mockup" %>
-        </div>
-
-        <div class="col-md-8 ebook-cd-analytics-content">          
-          <p>Want to deliver faster? Want to recover from failures more quickly? Want to improve your cycle time?</p>
-
-          <p>This Actionable Continuous Delivery Metrics eBook will provide you insight into your software delivery pipeline, and help you to improve your delivery and team processes. Inside you will find:
-          </p>
-        
-          <ul>
-            <li>Why measuring and monitoring your CD pipeline is important</li>
-            <li>What metrics matters when improving your path to production</li>
-            <li>A guide to using metrics to improve your CD process</li>
-          </ul>
-        </div>
-      </div>
-
       <div class="row ebook-cd-analytics-cta">
         <div class="col-md-6">
-        <%= link_to 'Download for Free', "/assets/images/campaign/ebook-cd-analytics/ebook-cd-analytics.pdf", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
+        <%= link_to 'Test Drive GoCD', "https://github.com/gocd/gocd-trial", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
         </div>
         <div class="col-md-6">
-          <%= link_to 'Trial Our GoCD Analytics Plugin', "https://www.gocd.org/analytics/", {:class => "btn btn-primary campaign-btn-download ebook-cd-analytics-btn-2", "analytics-label" => "campaign-download-cta"} %>
+          <%= link_to 'Intro to GoCD Guide', "https://www.gocd.org/getting-started/part-1/", {:class => "btn btn-primary campaign-btn-download ebook-cd-analytics-btn-2", "analytics-label" => "campaign-download-cta"} %>
         </div>
       </div>
 
-  </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 ebook-cd-analytics-content">
+          <p>Try GoCD's continuous delivery server in less then 5 minutes:</p>
+
+          <ul>
+            <li>
+              Step 1: Check the dependencies
+              <p>All you need is Git, Docker, Docker Compose, and ensure Docker is running.</p>
+            </li>
+            <li>
+              Step 2: Run GoCD
+              <p><a href="https://github.com/gocd/gocd-trial#installation">Visit the Github repo</a> and run the commands to get started.</p>
+            </li>
+            <li>
+              Step 3: Explore GoCD
+              <ul>
+                <li>Create a <a href="https://www.gocd.org/getting-started/part-1/#concept2">pipeline</a></li>
+                <li>Add a <a href="https://www.gocd.org/getting-started/part-1/#concept4">stage</a></li>
+                <li>Configure a <a href="https://docs.gocd.org/current/extension_points/plugin_user_guide.html">plugin</a></li>
+                <li>Edit the <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">configuration</a></li>
+              </ul>
+            </li>
+          </ul>
+          <p>
+            If you like the test drive, remember GoCD is open source and free to use. Just <a href="https://github.com/gocd/gocd-trial#next-steps">follow these instructions</a> to move your test drive to production.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
-    <% end %>
+  <% end %>
 </div>
