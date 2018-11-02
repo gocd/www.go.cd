@@ -76,10 +76,8 @@
       </div>
     </div>
 
-    <% link_to '/enterprise/contact/index.html' do %>
-        <button class="button-brand">Get Started</button>
-    <% end %>
-
+    <%= link_to 'Contact Us to Get Started', '/enterprise/contact/index.html', class: 'button-brand btn-addons' %>
+    
     <a href="https://extensions-docs.gocd.org/" class="text-center default-link-text">View Enterprise Add-On Docs</a>
 
     <%= link_to 'View Community Plugins', '/plugins/index.html', :class => 'text-center default-link-text' %>

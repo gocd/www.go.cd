@@ -174,7 +174,6 @@
 // blog post
 
 .blog-post {
-  p,
   li,
   h2,
   h3,
@@ -232,6 +231,7 @@
 .blog-post-header {
   border-bottom: 1px solid $border;
   margin: 10px 0;
+  text-transform: none;
 
   @media (min-width:$screen-desktop) {
     margin: 30px 0 0;
@@ -530,5 +530,16 @@
   padding:5px 0;
   @media (min-width:$screen-tablet) {
     padding:15px 0;
+  }
+
+  p {
+    font-size: 18px;  
+    line-height: 1.5;
+    letter-spacing: .1px;
+
+    color: #333333;
+    @media (min-width: $screen-lg) {
+      font-size: 20px;
+    }
   }
 }
