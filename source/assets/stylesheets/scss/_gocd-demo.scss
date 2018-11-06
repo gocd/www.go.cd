@@ -107,9 +107,14 @@
   padding: 0px 18px;
   font-size: 20px;
 
+  li {
+    line-height: 1.5;
+  }
+
   a {
     color: inherit;
-
+    text-decoration: underline;
+    
     &:hover {
       text-decoration: underline;
     }
