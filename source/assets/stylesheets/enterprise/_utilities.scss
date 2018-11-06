@@ -133,22 +133,22 @@
         outline: 0;
     }
     
-//     &:hover {
-//         opacity: 0.8;
-//         outline: 0;
-//     }
+    &:hover {
+        opacity: 0.8;
+        outline: 0;
+    }
 
-//     &:focus {
-//       outline: 0;
-//     }
+    &:focus {
+      outline: 0;
+    }
 
-//     @media(min-width: $screen-md) {
-//         height: 37px;
-//         font-size: 22px;
-//         width: 424px;
-//         margin: 40px auto 40px auto;
-//     }
-// }
+    @media(min-width: $screen-md) {
+        height: 37px;
+        font-size: 22px;
+        width: 424px;
+        margin: 40px auto 40px auto;
+    }
+}
 
 .brand-button__small {
     width: auto;
