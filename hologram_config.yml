@@ -15,8 +15,8 @@ dependencies:
   - 'build'
 # The CSS files to be included in the styleguide
 css_include:
-  - '/styleguide/css/github.css'
-  - '/styleguide/css/doc.css'
+  - '/assets/vendor/stylesheets/github.css'
+  - '/assets/vendor/stylesheets/doc.css'
   - '/assets/stylesheets/site.css'
 
 # The JavaScript files to included in the styleguide
