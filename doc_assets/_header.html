@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
     <title><%= title %> <% if title != '' %>&ndash;<% end %> <%= @config['global_title'] %></title>
     <% if @config['css_include'].to_s.strip.length != 0 %>
       <% @config['css_include'].each do |css| %>
