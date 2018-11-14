@@ -17,6 +17,8 @@ dependencies:
 css_include:
   - '/assets/vendor/stylesheets/github.css'
   - '/assets/vendor/stylesheets/doc.css'
+  - '/assets/vendor/stylesheets/hgt-syntax.css'
+  - '/assets/vendor/stylesheets/hgt.css'
   - '/assets/stylesheets/site.css'
 
 # The JavaScript files to included in the styleguide
