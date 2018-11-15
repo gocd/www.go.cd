@@ -1,0 +1,65 @@
+/*doc
+---
+title: Banner Component
+name: banner-component
+category: index
+---
+
+Style for Banner Component
+
+```html_example
+  <div class="banner-container">
+  <div class="container">
+  <h1 class="banner-container_heading"> GoCD supports Pipeline as Code </h1>
+  <div class="banner-container_content">
+  <div class="banner-container_img">
+    <img src="http://via.placeholder.com/600x400" />
+  </div>
+
+  <div class="banner-container_desc">
+    <p>
+      With GoCD’s pipelines as code functionality, get full flexibility and control into every aspect of your pipeline configuration without the need for administrator access. It’s easier to upgrade your configuration as often as needed.
+    </p>
+    <p>
+      With pipelines as code, your changes are easier to audit, share, revert, and also to set up new servers.
+    </p>
+    <a href="#" class="button-brand banner-container_btn">Try Now </a>
+  </div>
+  </div>
+  </div>  
+</div>
+```
+*/
+
+.banner-container {
+  padding: 50px 100px;
+}
+
+.banner-container_heading {
+  text-align: center;
+}
+
+.banner-container_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.banner-container_img {
+  width: 50%;
+  padding: 30px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.banner-container_desc {
+  width: 50%;
+  padding: 30px;
+}
+
+.banner-container_btn {
+  text-align: center;
+}
