@@ -41,8 +41,13 @@ Style for Card Component
 }
 
 .card {
-  width: 50%;
-  padding: 30px;
+  width: 100%;
+  padding: 10px;
+
+  @media (min-width: $screen-md) {
+    width: 50%;
+    padding: 30px;
+  }
 }
 
 .card_img {
