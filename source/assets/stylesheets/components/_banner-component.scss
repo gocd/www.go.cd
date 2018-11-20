@@ -32,7 +32,11 @@ Style for Banner Component
 */
 
 .banner-container {
-  padding: 50px 100px;
+  padding: 10px;
+
+  @media (min-width: $screen-lg) {
+    padding: 50px 100px;
+  }
 }
 
 .banner-container_heading {
@@ -47,17 +51,26 @@ Style for Banner Component
 }
 
 .banner-container_img {
-  width: 50%;
-  padding: 30px;
+  width: 100%;
+  padding: 30px 0px;
   img {
     width: 100%;
     height: auto;
   }
+  @media (min-width: $screen-lg) {
+    width: 50%;
+    padding: 30px;
+  }
 }
 
 .banner-container_desc {
-  width: 50%;
-  padding: 30px;
+  width: 100%;
+  padding: 30px 0px;
+
+  @media (min-width: $screen-lg) {
+    width: 50%;
+    padding: 30px;
+  }
 }
 
 .banner-container_btn {
