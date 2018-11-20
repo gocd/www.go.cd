@@ -7,7 +7,7 @@ excerpt: "To understand whether you are improving and delivering on your goals, 
 summary_image: "/assets/images/blog/cd-metrics/measure-cd-process.jpg"
 title_tag_of_header: "Why Measure Your CD Process | GoCD Blog"
 meta_description: "To understand whether you are improving and delivering on your goals, you need to measure you CD process. Here is an overview of where you should begin"
-meta_keywords: "cd metrics, measure continuous delivery, measure devops, mean time to recover, mttr, cycle time, failure rate"
+meta_keywords: "cd metrics, measure continuous delivery, measure devops, mean time to recover, mttr, lead time, failure rate"
 tags: CD Analytics
 ---
 <% content_for :banner do %>
@@ -47,7 +47,7 @@ If we consider a feedback cycle like “Build, Measure and Learn”, metrics are
 
 **2. Predict future behavior** 
 
-Data will provide you more accurate estimates to your business. For example, if you know your cycle time, you can more accurately answer questions about how long it will take for something to be ready for your customers.
+Data will provide you more accurate estimates to your business. For example, if you know your lead time, you can more accurately answer questions about how long it will take for something to be ready for your customers.
 
 If you are considering parallelizing tasks or removing manual steps in your process, once you have some data about your current process, you can calculate the time savings of these improvement activities. From there, this data could potentially help your organization estimate dollars made or saved by certain specific improvements.
 
@@ -63,21 +63,21 @@ Credit: Forsgren PhD, Nicole. Accelerate: The Science of Lean Software and DevOp
 
 Once you introduce a CD pipeline and have established your path-to-production, the next step is to monitor its efficiency. We do not suggest measuring everything. At a high level here are the four metrics that we suggest using to help monitor your CD process. We’ll go deeper into details in future parts of the series.
 
-**1. Throughput**
+**1. Deployment Frequency a.k.a Throughput**
 
-Throughput is a measure of how frequently your team deploys code. This metric is represented as a percentage. It is the answer to the question “how often does code reach a certain point in the CD pipeline”.
+Deployment freqency is a measure of how frequently your team deploys code. This metric is represented as a percentage. It is the answer to the question “how often does code reach a certain point in the CD pipeline”.
 
-**2. Cycle Time**
+**2. Lead Time**
 
-Cycle time is a measure of how long it takes from committing code to deploying it to a production environment. This metric is represented as a duration. It is the answer to the question "how long does it take from committing code to it reaching production".
+Lead time is a measure of how long it takes from committing code to deploying it to a production environment. This metric is represented as a duration. It is the answer to the question "how long does it take from committing code to it reaching production".
 
-**3. Failure Rate**
+**3. Change Fail Percentage**
 
-Failure rate is a measure of the percentage of changes that result in a failure. This metric is represented as a percentage. It is the answer to questions like “what percentage of changes break builds” and “what percentage of deployments result in a service outage”.
+Change fail percentage is a measure of the percentage of changes that result in a failure. This metric is represented as a percentage. It is the answer to questions like “what percentage of changes break builds” and “what percentage of deployments result in a service outage”.
 
-**4. Mean time to recover**
+**4. Mean time to restore**
 
-Mean time to recover (MTTR) is a measure of how long it takes to fix a build failure. This metric is represented as a mean duration. It is the answer to questions like "how long does it take you to restore service during a failed deployment". 
+Mean time to restore (MTTR) is a measure of how long it takes to fix a build failure. This metric is represented as a mean duration. It is the answer to questions like "how long does it take you to restore service during a failed deployment". 
 
 ##Summary
 
