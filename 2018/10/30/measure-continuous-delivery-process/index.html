@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
     <meta content="To understand whether you are improving and delivering on your goals, you need to measure you CD process. Here is an overview of where you should begin" name="description" />
-    <meta content="cd metrics, measure continuous delivery, measure devops, mean time to recover, mttr, cycle time, failure rate" name="keywords" />
+    <meta content="cd metrics, measure continuous delivery, measure devops, mean time to recover, mttr, lead time, failure rate" name="keywords" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="Why Measure Your CD Process | GoCD Blog" />
@@ -112,13 +112,13 @@
 
 <p><strong>1. Measurement, Feedback, and improvement</strong></p>
 
-<p><img src="../../../../assets/images/blog/cd-metrics/build-learn-measure-3f64a841.jpg" alt="Build, Learn, Measure" /></p>
+<p><img src="../../../../assets/images/blog/cd-metrics/build-learn-measure-649caa06.jpg" alt="Build, Learn, Measure" /></p>
 
 <p>If we consider a feedback cycle like “Build, Measure and Learn”, metrics are a way to set specific and measurable goals, direct activities towards achieving those goals, and help you understand if you are achieving those goals.</p>
 
 <p><strong>2. Predict future behavior</strong></p>
 
-<p>Data will provide you more accurate estimates to your business. For example, if you know your cycle time, you can more accurately answer questions about how long it will take for something to be ready for your customers.</p>
+<p>Data will provide you more accurate estimates to your business. For example, if you know your lead time, you can more accurately answer questions about how long it will take for something to be ready for your customers.</p>
 
 <p>If you are considering parallelizing tasks or removing manual steps in your process, once you have some data about your current process, you can calculate the time savings of these improvement activities. From there, this data could potentially help your organization estimate dollars made or saved by certain specific improvements.</p>
 
@@ -134,21 +134,21 @@
 
 <p>Once you introduce a CD pipeline and have established your path-to-production, the next step is to monitor its efficiency. We do not suggest measuring everything. At a high level here are the four metrics that we suggest using to help monitor your CD process. We’ll go deeper into details in future parts of the series.</p>
 
-<p><strong>1. Throughput</strong></p>
+<p><strong>1. Deployment Frequency a.k.a Throughput</strong></p>
 
-<p>Throughput is a measure of how frequently your team deploys code. This metric is represented as a percentage. It is the answer to the question “how often does code reach a certain point in the CD pipeline”.</p>
+<p>Deployment freqency is a measure of how frequently your team deploys code. This metric is represented as a percentage. It is the answer to the question “how often does code reach a certain point in the CD pipeline”.</p>
 
-<p><strong>2. Cycle Time</strong></p>
+<p><strong>2. Lead Time</strong></p>
 
-<p>Cycle time is a measure of how long it takes from committing code to deploying it to a production environment. This metric is represented as a duration. It is the answer to the question "how long does it take from committing code to it reaching production".</p>
+<p>Lead time is a measure of how long it takes from committing code to deploying it to a production environment. This metric is represented as a duration. It is the answer to the question "how long does it take from committing code to it reaching production".</p>
 
-<p><strong>3. Failure Rate</strong></p>
+<p><strong>3. Change Fail Percentage</strong></p>
 
-<p>Failure rate is a measure of the percentage of changes that result in a failure. This metric is represented as a percentage. It is the answer to questions like “what percentage of changes break builds” and “what percentage of deployments result in a service outage”.</p>
+<p>Change fail percentage is a measure of the percentage of changes that result in a failure. This metric is represented as a percentage. It is the answer to questions like “what percentage of changes break builds” and “what percentage of deployments result in a service outage”.</p>
 
-<p><strong>4. Mean time to recover</strong></p>
+<p><strong>4. Mean time to restore</strong></p>
 
-<p>Mean time to recover (MTTR) is a measure of how long it takes to fix a build failure. This metric is represented as a mean duration. It is the answer to questions like "how long does it take you to restore service during a failed deployment".</p>
+<p>Mean time to restore (MTTR) is a measure of how long it takes to fix a build failure. This metric is represented as a mean duration. It is the answer to questions like "how long does it take you to restore service during a failed deployment".</p>
 
 <h2 id="summary">Summary</h2>
 
