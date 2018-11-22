@@ -40,6 +40,7 @@
   * The alpine 3.5 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/) has been removed since alpine 3.5 has reached end of life.
   * The Template Config API v3 has been removed. <%= link_to_versioned_api '18.8.0', 'template-config', 'Version 4' %> of the API is available, and users are encouraged to use it.
   * The Pipeline Config API v5 has been removed. <%= link_to_versioned_api '18.8.0', 'pipeline-config', 'Version 6' %> of the API is available, and users are encouraged to use it.
+  * The <%= link_to_versioned_api('18.10.0', 'get-stage', 'Feeds API for getting a Stage') %> no longer supports the `pipeline_label` url parameter. Users should use the `pipeline_counter` parameter instead.
 
 
 <h4>Contributors</h4>
