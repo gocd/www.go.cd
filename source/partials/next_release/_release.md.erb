@@ -1,50 +1,46 @@
-<h4>Support for Java 10 and 11</h4>
+<h4>Improvements</h4>
 
-  While we continue to support Java 8, GoCD has now added support for Java 10 and 11. With Oracle moving towards a 6 month cadence for newer releases we are evaluating the process to keep in sync with the new cadence. Watch this space for more information in the coming releases.
-
-<h4>Environments Page</h4>
-
-  Originally the `Environments` page grouped the pipelines by environment with an option for admins to edit the environment. With the introduction of the new pipeline dashboard users have an option to group the pipelines by `Pipeline Group` or `Environment`. 
-
-  With this release we have moved the environments page under the Admin tab. This page lists all the configured environments with an option to edit them.
-
-  <figure class='shrink-figure-70'>
-    <%= image_tag 'releases/18.10.0/environments-under-admin.gif', alt: 'Environments page moved under Admin tab' %>
-  </figure>
+  * <%= link_to_commit '7203cb371a2ce06a18a7bbc5c2a317cd93a074cf', 'Allow artifact plugins to introduce new env vars.', 5188 %>
 
 
-<h4>Elastic Agent Extension V4</h4>
+<h4>Performance Improvements</h4>
 
-  Upgraded the Elastic Agent Extension to [Version 4](https://plugin-api.gocd.org/18.10.0/elastic-agents). With this version GoCD notifies the plugin on completion of Job
-run by an elastic agent.
+  * Upgrading some libraries to support java 9 and beyond caused some performance regressions with the agents page (and the agents api). Users with about 100 or above agents will now notice a significant performance improvemnt when visiting the agents page, and invoking the agents API.
+  * <%= link_to_commit '451cef0fb5c018f8d0f76565cf473e5cd7819ea9', 'Improve performance of some pipeline lookups in the database by removing a cast operation' %>
+  * <%= link_to_commit 'dcf69b053bbc3ba7729fc3a29c515ff76a4ac960', 'Do not lookup pipelines by both label and counter, prefer a counter', 5256 %>
+  * <%= link_to_commit 'f0d1a6e6b46f9c342a698b9e9c0fdd8e8d21e47e', 'Use byte arrays (instead of strings) to represent the config xml. This improves performance of some of the admin pages and also quickly renders large configuration XML.' %>
+
 
 <h4>New APIs</h4>
 
-  * <%= link_to_issue 2404, "Introduced an API for Admins to manage  #{link_to_api 'pipeline-group-config', 'Pipeline Groups'}." %>
+  * Introduce an API to <%= link_to_versioned_api('18.11.0', 'run-stage', 'run/rerun a stage') %>.
+  * Introduce an API to <%= link_to_versioned_api('18.11.0', 'run-failed-jobs', 'run failed jobs') %> in a stage.
+  * Introduce an API to <%= link_to_versioned_api('18.11.0', 'run-selected-jobs', 'run selected jobs') %> in a stage.
 
-<h4>Improvements</h4>
-
-  * <%= link_to_commit '69559f95c38249cb799aaa043eea76f492fe78aa', 'Added support for referencing Environment Variable in Pipeline Label.', 5180 %>
-  * <%= link_to_commit '1ed99a0a8f9c461ac34833a2406219306e05e9dd', 'Allow non-admins to view all analytics other than dashboard analytics', 5237 %>
 
 <h4>Bug fixes</h4>
 
-  * <%= link_to_commit '7b83e689eb68b67bc3de328dcca05bba6b915368', 'Validate fetch artifact config before save', 5202 %>
-  * <%= link_to_commit '9f177810a6ac527ef7f1bc3ddd1657cf30a5ada1', 'Set status 503 when backup is in progress.', 5222 %>
-  * <%= link_to_commit 'fa31d5805193a4a433e645fbe35b5e0839bda154', "Fix for email notification filter not acknowledging 'Only if it contains my check-ins'", 5238 %>
-  * <%= link_to_commit '1cce49562aa15563d10d46ef6d4afe722f306491', "Fix ETag computation for DataSharing Settings API", 5184 %>
-  * <%= link_to_commit '0349a02348a93876cbf2b3d3bc9864283455d524', "Timer triggered pipelines are not scheduled on a standby server", 5234 %>
+  * <%= link_to_commit 'ad87a7c4dce5027a143eff554c102d64e8f3ce38', 'Ensure that the GoCD server health check api returns an HTTP 200 OK status code when backup is in progress.', 5416 %>
+  * <%= link_to_commit '69e4b3937b5d3a52cb4444f6caba17c4e1573ff3', 'Render the dashboard again after backup is completed', 5391 %>
+  * <%= link_to_commit '98853a28dd22f9094f513b4ef17190a2de1943ec', 'Fix a NullPointerException in the logs when a pipeline that is building is removed from the config file.' %>
+  * <%= link_to_commit 'aabbf06e969b62f0d73d1e091d1c88ae5ef9a258', 'Fix 500 server error when calling pipeline config api by ensuring that the default artifact directory is not null', 5342 %>
+  * <%= link_to_commit '6fddce6e290391e63992ec6195594f3149200362', 'Prevent console logs of cancelled jobs running on elastic agents from being lost', 5325 %>
+  * <%= link_to_commit 'e95e88b1dcc1a4337254874af929b8690a522163', 'Agent will ensure that plugins are loaded before performing any jobs.', 5169 %>
+  * <%= link_to_commit '49d741308cbbb499554e4e2843f0812e2e9b8460', 'Do not send email notification if user account is disabled.', 5279 %>
+  * <%= link_to_commit '13be966d353818be2c56ad00be16661e5257263d', 'Reenable pipeline operation buttons on dashboard if pipeline trigger fails.', 5153 %>
+
 
 <h4>Deprecations</h4>
 
-  * The alpine 3.5 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/) has been deprecated and will not be built after November 2018 release of GoCD. This will be done as alpine 3.5 will reach [end-of-life](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases) in November 2018.
    * With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.8.0', 'encryption', 'Encryption API' %> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.
-  * The Pipeline Config API v5 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for November 2018. <%= link_to_versioned_api '18.8.0', 'pipeline-config', 'Version 6' %> of the API is available, and users are encouraged to use it.
-  * The Template Config API v3 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for November 2018. <%= link_to_versioned_api '18.8.0', 'template-config', 'Version 4' %> of the API is available, and users are encouraged to use it.
+
 
 <h4>Breaking Changes</h4>
 
-  * We have stopped building ubuntu 12.04 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/) as ubuntu 12.04 is now end-of-life.
+  * The alpine 3.5 based docker image for [gocd agent](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/) has been removed since alpine 3.5 has reached end of life.
+  * The Template Config API v3 has been removed. <%= link_to_versioned_api '18.8.0', 'template-config', 'Version 4' %> of the API is available, and users are encouraged to use it.
+  * The Pipeline Config API v5 has been removed. <%= link_to_versioned_api '18.8.0', 'pipeline-config', 'Version 6' %> of the API is available, and users are encouraged to use it.
+
 
 <h4>Contributors</h4>
 
@@ -55,7 +51,6 @@ run by an elastic agent.
   "Aravind SV",
   "Bhupendrakumar Piprava",
   "Chandrakanth Nagaraj",
-  "Danilo Sato",
   "Ganesh S Patil",
   "Huimin Li",
   "Isabelle Carter",
@@ -63,7 +58,6 @@ run by an elastic agent.
   "Jyoti Singh",
   "Ketan Padegaonkar",
   "Kiera Radman",
-  "Kosta Welke",
   "Louda Peña",
   "Lubaina R",
   "Mahesh Panchaksharaiah",
@@ -72,10 +66,8 @@ run by an elastic agent.
   "Pranav Bansod",
   "Rahul Pargaonkar",
   "Rajiesh N",
-  "Ravi Ranjan",
-  "Senthil R",
+  "Sana Jahan",
   "Steven Streisguth",
-  "Tina Vinod",
   "Varsha Varadarajan",
   "Vishal Devgire",
 ].sort.uniq.join(', ')
@@ -84,7 +76,7 @@ run by an elastic agent.
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.10' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.11' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
