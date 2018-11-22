@@ -118,7 +118,8 @@
     font-family: $default-font-normal-bold;
     line-height: 0.2;
     margin: 0 auto;
-    padding: 30px; 
+    padding: 30px;
+    text-transform: uppercase;
     margin: 20px auto 50px auto;
     font-size: 16px;
     width: auto;
@@ -126,7 +127,6 @@
     cursor: pointer;
     transition: all 0.25s;
     text-align: center;
-    text-transform: capitalize;
     &:active {
         background: #36b1bf;
         color: #FFFFFF;
