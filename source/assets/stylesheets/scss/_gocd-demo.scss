@@ -1,0 +1,158 @@
+.header-bg {
+  height: 180px;
+  width: 100%;
+  background: $dark;
+  
+  @media (min-width: $screen-md) {
+    height: 258px;
+  }
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.content-lt {
+  display: none;
+
+  @media (min-width: $screen-lg) {
+    width: 48%;
+    display: block;
+    margin: -170px auto 75px;
+  }
+}
+
+.content-rt {
+  width: 100%;
+  margin: -150px auto 75px;
+
+  @media (min-width: $screen-md) {
+    margin: -200px auto 75px;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: 48%;
+    margin: -170px auto 75px;
+  }
+
+}
+
+
+.content-header {
+  font-size: 38px;
+  color: #fff;
+  text-align: center;
+
+  @media (min-width: $screen-lg) {
+    font-size: 48px;
+    text-align: left;  
+    padding: 0px 30px 50px;
+    margin: 0;
+  }
+ }
+
+.steps-list {
+  margin: 80px auto;
+  list-style: none;
+  padding: 0px 15px;
+
+  @media (min-width: $screen-md) {
+    margin: 50px 50px;
+  }
+
+  @media (min-width: $screen-lg) {
+    margin: 50px auto;
+  }
+
+
+}
+
+.steps-list_item {
+  margin: 50px auto;
+}
+
+.steps-heading {
+  font-size: 26px;
+  font-family: $default-font-extra-bold;
+  margin: 0;
+  padding: 0;
+
+  &:nth-child(2) {
+    margin: 0 0 20px;  
+  }
+
+  @media (min-width: $screen-lg) {
+    font-size: 30px;
+  }
+}
+
+.steps-desc {
+  font-size: 18px;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  @media (min-width: $screen-lg) {
+    font-size: 20px;
+  }
+}
+
+.steps-desc_list {
+  list-style: outside;
+  margin: 0;
+  padding: 0px 18px;
+  font-size: 20px;
+
+  li {
+    line-height: 1.5;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.actions_note {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+
+  a {
+    text-decoration: underline;
+    color: inherit;
+  }
+}
+
+.link-mobile {
+  display: block;
+  @media (min-width: $screen-lg) {
+    display: none;
+  }
+
+  .button-brand {
+    margin: 20px auto;
+  }
+}
+
+.hide-mob-desktop {
+  display: none;
+
+  @media (min-width: $screen-md) {
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $screen-lg) {
+    display: none;
+  }
+}
