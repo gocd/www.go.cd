@@ -137,7 +137,7 @@
 <h4>Performance Improvements</h4>
 
 <ul>
-  <li>Upgrading some libraries to support java 9 and beyond caused some performance regressions with the agents page (and the agents API). Users with about 100 or above agents will now notice a significant performance improvement when visiting the agents page, and invoking the agents API.</li>
+  <li>In this release, users with ~100 or above agents will see a significant performance improvement on the agents page and when invoking the agents API. In 18.10, due to upgrading some libraries to support Java 9 (and beyond) there were some performance regressions with the agents page (and the agents API).</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/451cef0fb5c018f8d0f76565cf473e5cd7819ea9">451cef0</a></code> - Improve performance of some pipeline lookups in the database by removing a cast operation.</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/dcf69b053bbc3ba7729fc3a29c515ff76a4ac960">dcf69b0</a></code> - Do not lookup pipelines by both label and counter, prefer a counter. (<a href="https://github.com/gocd/gocd/issues/5256">#5256</a>)</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/f0d1a6e6b46f9c342a698b9e9c0fdd8e8d21e47e">f0d1a6e</a></code> - Use byte arrays (instead of strings) to represent the config XML. This improves performance of some of the admin pages and also quickly renders large configuration XML.</li>
@@ -145,10 +145,12 @@
 
 <h4>New APIs</h4>
 
+<p>Introduced APIs to</p>
+
 <ul>
-  <li>Introduce an API to <a href="https://api.gocd.org/18.11.0/#run-stage">run/rerun a stage</a>.</li>
-  <li>Introduce an API to <a href="https://api.gocd.org/18.11.0/#run-failed-jobs">run failed jobs</a> in a stage.</li>
-  <li>Introduce an API to <a href="https://api.gocd.org/18.11.0/#run-selected-jobs">run selected jobs</a> in a stage.</li>
+  <li><a href="https://api.gocd.org/18.11.0/#run-stage">Run/rerun a stage</a>.</li>
+  <li><a href="https://api.gocd.org/18.11.0/#run-failed-jobs">Run failed jobs</a> in a stage</li>
+  <li><a href="https://api.gocd.org/18.11.0/#run-selected-jobs">Run selected jobs</a> in a stage</li>
 </ul>
 
 <h4>Bug fixes</h4>
@@ -164,13 +166,17 @@
   <li><code><a href="https://github.com/gocd/gocd/commit/13be966d353818be2c56ad00be16661e5257263d">13be966</a></code> - Re-enable pipeline operation buttons on dashboard if pipeline trigger fails. (<a href="https://github.com/gocd/gocd/issues/5153">#5153</a>)</li>
 </ul>
 
+<h4>Docker Images</h4>
+
+<p>We have added support for the GoCD agents for <a href="https://github.com/gocd/docker-gocd-agent-fedora-28">Fedora-28</a> and <a href="https://github.com/gocd/docker-gocd-agent-fedora-29">Fedora-29</a>.</p>
+
 <h4>Deprecations</h4>
 
 <ul>
-  <li>With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <a href="https://api.gocd.org/18.8.0/#encryption">Encryption API</a> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.</li>
-  <li>The elastic agent plugin extension version 3 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.</li>
-  <li>The notification plugin extension version 3 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.</li>
-  <li>The analytics plugin extension version 1 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.</li>
+  <li>With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <a href="https://api.gocd.org/18.8.0/#encryption">Encryption API</a> is updated to return an AES cipher-text and users are encouraged to update their DES cipher-texts in config-repos using this API.</li>
+  <li>The elastic agent plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.</li>
+  <li>The notification plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.</li>
+  <li>The analytics plugin extension version 1 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.</li>
 </ul>
 
 <h4>Breaking Changes</h4>
