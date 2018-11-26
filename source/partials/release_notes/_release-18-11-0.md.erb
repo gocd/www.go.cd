@@ -32,6 +32,11 @@ Introduced APIs to
   * <%= link_to_commit '13be966d353818be2c56ad00be16661e5257263d', 'Re-enable pipeline operation buttons on dashboard if pipeline trigger fails.', 5153 %>
 
 
+<h4>Docker Images</h4>
+
+We have added support for the GoCD agents for [Fedora-28](https://github.com/gocd/docker-gocd-agent-fedora-28) and [Fedora-29](https://github.com/gocd/docker-gocd-agent-fedora-29).
+
+
 <h4>Deprecations</h4>
 
    * With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.8.0', 'encryption', 'Encryption API' %> is updated to return an AES cipher-text and users are encouraged to update their DES cipher-texts in config-repos using this API.
