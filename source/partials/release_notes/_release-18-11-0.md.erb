@@ -5,7 +5,7 @@
 
 <h4>Performance Improvements</h4>
 
-  * Upgrading some libraries to support java 9 and beyond caused some performance regressions with the agents page (and the agents API). Users with about 100 or above agents will now notice a significant performance improvement when visiting the agents page, and invoking the agents API.
+  * In this release, users with ~100 or above agents will see a significant performance improvement on the agents page and when invoking the agents API. In 18.10, due to upgrading some libraries to support Java 9 (and beyond) there were some performance regressions with the agents page (and the agents API). 
   * <%= link_to_commit '451cef0fb5c018f8d0f76565cf473e5cd7819ea9', 'Improve performance of some pipeline lookups in the database by removing a cast operation' %>
   * <%= link_to_commit 'dcf69b053bbc3ba7729fc3a29c515ff76a4ac960', 'Do not lookup pipelines by both label and counter, prefer a counter', 5256 %>
   * <%= link_to_commit 'f0d1a6e6b46f9c342a698b9e9c0fdd8e8d21e47e', 'Use byte arrays (instead of strings) to represent the config XML. This improves performance of some of the admin pages and also quickly renders large configuration XML.' %>
@@ -13,9 +13,10 @@
 
 <h4>New APIs</h4>
 
-  * Introduce an API to <%= link_to_versioned_api('18.11.0', 'run-stage', 'run/rerun a stage') %>.
-  * Introduce an API to <%= link_to_versioned_api('18.11.0', 'run-failed-jobs', 'run failed jobs') %> in a stage.
-  * Introduce an API to <%= link_to_versioned_api('18.11.0', 'run-selected-jobs', 'run selected jobs') %> in a stage.
+Introduced APIs to 
+  * <%= link_to_versioned_api('18.11.0', 'run-stage', 'Run/rerun a stage') %>.
+  * Introduce an API to <%= link_to_versioned_api('18.11.0', 'run-failed-jobs', 'Run failed jobs') %> in a stage
+  * Introduce an API to <%= link_to_versioned_api('18.11.0', 'run-selected-jobs', 'Run selected jobs') %> in a stage
 
 
 <h4>Bug fixes</h4>
@@ -32,10 +33,10 @@
 
 <h4>Deprecations</h4>
 
-   * With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.8.0', 'encryption', 'Encryption API' %> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.
-   * The elastic agent plugin extension version 3 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
-   * The notification plugin extension version 3 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.
-   * The analytics plugin extension version 1 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.
+   * With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.8.0', 'encryption', 'Encryption API' %> is updated to return an AES cipher-text and users are encouraged to update their DES cipher-texts in config-repos using this API.
+   * The elastic agent plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
+   * The notification plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.
+   * The analytics plugin extension version 1 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.
 
 
 <h4>Breaking Changes</h4>
