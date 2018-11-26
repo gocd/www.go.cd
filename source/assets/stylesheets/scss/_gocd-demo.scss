@@ -1,8 +1,12 @@
 .header-bg {
   height: 180px;
   width: 100%;
-  background: $dark;
-  
+
+  background: url('../images/campaign/test-drive/halftone_bkgd_03.jpg');
+  background-size: cover;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+
   @media (min-width: $screen-md) {
     height: 258px;
   }
