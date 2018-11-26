@@ -15,7 +15,7 @@
 
     <title>Next release of GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-f52a8d79.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-3688d8a1.css" rel="stylesheet" />
     <script src="assets/javascripts/all-dfc7a865.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -80,70 +80,67 @@
       <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-next"> (next)</h3>
       <div id="tab-next" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Support for Java 10 and 11</h4>
+          <h4>Improvements</h4>
 
-<p>While we continue to support Java 8, GoCD has now added support for Java 10 and 11. With Oracle moving towards a 6 month cadence for newer releases we are evaluating the process to keep in sync with the new cadence. Watch this space for more information in the coming releases.</p>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/7203cb371a2ce06a18a7bbc5c2a317cd93a074cf">7203cb3</a></code> - Allow artifact plugins to introduce new environment variables to be used by subsequent tasks. (<a href="https://github.com/gocd/gocd/issues/5188">#5188</a>)</li>
+</ul>
 
-<h4>Environments Page</h4>
+<h4>Performance Improvements</h4>
 
-<p>Originally the <code>Environments</code> page grouped the pipelines by environment with an option for admins to edit the environment. With the introduction of the new pipeline dashboard users have an option to group the pipelines by <code>Pipeline Group</code> or <code>Environment</code>.</p>
-
-<p>With this release we have moved the environments page under the Admin tab. This page lists all the configured environments with an option to edit them.</p>
-
-<figure class="shrink-figure-70">
-    <img src="assets/images/releases/18.10.0/environments-under-admin-e89c15f6.gif" alt="Environments page moved under Admin tab" />
-  </figure>
-
-<h4>Elastic Agent Extension V4</h4>
-
-<p>Upgraded the Elastic Agent Extension to <a href="https://plugin-api.gocd.org/18.10.0/elastic-agents">Version 4</a>. With this version GoCD notifies the plugin on completion of Job
-run by an elastic agent.</p>
+<ul>
+  <li>Upgrading some libraries to support java 9 and beyond caused some performance regressions with the agents page (and the agents API). Users with about 100 or above agents will now notice a significant performance improvement when visiting the agents page, and invoking the agents API.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/451cef0fb5c018f8d0f76565cf473e5cd7819ea9">451cef0</a></code> - Improve performance of some pipeline lookups in the database by removing a cast operation.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/dcf69b053bbc3ba7729fc3a29c515ff76a4ac960">dcf69b0</a></code> - Do not lookup pipelines by both label and counter, prefer a counter. (<a href="https://github.com/gocd/gocd/issues/5256">#5256</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/f0d1a6e6b46f9c342a698b9e9c0fdd8e8d21e47e">f0d1a6e</a></code> - Use byte arrays (instead of strings) to represent the config XML. This improves performance of some of the admin pages and also quickly renders large configuration XML.</li>
+</ul>
 
 <h4>New APIs</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/issues/2404">#2404</a> - Introduced an API for Admins to manage  <a href="https://api.gocd.org/current/#pipeline-group-config">Pipeline Groups</a>.</li>
-</ul>
-
-<h4>Improvements</h4>
-
-<ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/69559f95c38249cb799aaa043eea76f492fe78aa">69559f9</a></code> - Added support for referencing Environment Variable in Pipeline Label. (<a href="https://github.com/gocd/gocd/issues/5180">#5180</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/1ed99a0a8f9c461ac34833a2406219306e05e9dd">1ed99a0</a></code> - Allow non-admins to view all analytics other than dashboard analytics. (<a href="https://github.com/gocd/gocd/issues/5237">#5237</a>)</li>
+  <li>Introduce an API to <a href="https://api.gocd.org/18.11.0/#run-stage">run/rerun a stage</a>.</li>
+  <li>Introduce an API to <a href="https://api.gocd.org/18.11.0/#run-failed-jobs">run failed jobs</a> in a stage.</li>
+  <li>Introduce an API to <a href="https://api.gocd.org/18.11.0/#run-selected-jobs">run selected jobs</a> in a stage.</li>
 </ul>
 
 <h4>Bug fixes</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/7b83e689eb68b67bc3de328dcca05bba6b915368">7b83e68</a></code> - Validate fetch artifact config before save. (<a href="https://github.com/gocd/gocd/issues/5202">#5202</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/9f177810a6ac527ef7f1bc3ddd1657cf30a5ada1">9f17781</a></code> - Set status 503 when backup is in progress. (<a href="https://github.com/gocd/gocd/issues/5222">#5222</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/fa31d5805193a4a433e645fbe35b5e0839bda154">fa31d58</a></code> - Fix for email notification filter not acknowledging 'Only if it contains my check-ins'. (<a href="https://github.com/gocd/gocd/issues/5238">#5238</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/1cce49562aa15563d10d46ef6d4afe722f306491">1cce495</a></code> - Fix ETag computation for DataSharing Settings API. (<a href="https://github.com/gocd/gocd/issues/5184">#5184</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/0349a02348a93876cbf2b3d3bc9864283455d524">0349a02</a></code> - Timer triggered pipelines are not scheduled on a standby server. (<a href="https://github.com/gocd/gocd/issues/5234">#5234</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ad87a7c4dce5027a143eff554c102d64e8f3ce38">ad87a7c</a></code> - Ensure that the GoCD server health check API returns an HTTP 200 OK status code when backup is in progress. (<a href="https://github.com/gocd/gocd/issues/5416">#5416</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/69e4b3937b5d3a52cb4444f6caba17c4e1573ff3">69e4b39</a></code> - Render the dashboard again after backup is completed. (<a href="https://github.com/gocd/gocd/issues/5391">#5391</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/98853a28dd22f9094f513b4ef17190a2de1943ec">98853a2</a></code> - Fix a NullPointerException in the logs when a pipeline that is building is removed from the config file.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/aabbf06e969b62f0d73d1e091d1c88ae5ef9a258">aabbf06</a></code> - Fix 500 server error when calling pipeline config API by ensuring that the default artifact directory is not null. (<a href="https://github.com/gocd/gocd/issues/5342">#5342</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/6fddce6e290391e63992ec6195594f3149200362">6fddce6</a></code> - Prevent console logs of cancelled jobs running on elastic agents from being lost. (<a href="https://github.com/gocd/gocd/issues/5325">#5325</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/e95e88b1dcc1a4337254874af929b8690a522163">e95e88b</a></code> - Agent will ensure that plugins are loaded before performing any jobs. (<a href="https://github.com/gocd/gocd/issues/5169">#5169</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/49d741308cbbb499554e4e2843f0812e2e9b8460">49d7413</a></code> - Do not send email notification if user account is disabled. (<a href="https://github.com/gocd/gocd/issues/5277">#5277</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/13be966d353818be2c56ad00be16661e5257263d">13be966</a></code> - Re-enable pipeline operation buttons on dashboard if pipeline trigger fails. (<a href="https://github.com/gocd/gocd/issues/5153">#5153</a>)</li>
 </ul>
 
 <h4>Deprecations</h4>
 
 <ul>
-  <li>The alpine 3.5 based docker image for <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">gocd agent</a> has been deprecated and will not be built after November 2018 release of GoCD. This will be done as alpine 3.5 will reach <a href="https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases">end-of-life</a> in November 2018.</li>
   <li>With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <a href="https://api.gocd.org/18.8.0/#encryption">Encryption API</a> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.</li>
-  <li>The Pipeline Config API v5 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for November 2018. <a href="https://api.gocd.org/18.8.0/#pipeline-config">Version 6</a> of the API is available, and users are encouraged to use it.</li>
-  <li>The Template Config API v3 has been deprecated in release 18.7.0. This version of the API will be removed in a release scheduled for November 2018. <a href="https://api.gocd.org/18.8.0/#template-config">Version 4</a> of the API is available, and users are encouraged to use it.</li>
+  <li>The elastic agent plugin extension version 3 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.</li>
+  <li>The notification plugin extension version 3 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.</li>
+  <li>The analytics plugin extension version 1 has been deprecated. This versions will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.</li>
 </ul>
 
 <h4>Breaking Changes</h4>
 
 <ul>
-  <li>We have stopped building ubuntu 12.04 based docker image for <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">gocd agent</a> as ubuntu 12.04 is now end-of-life.</li>
+  <li>The alpine 3.5 based docker image for <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">GoCD agent</a> has been removed since alpine 3.5 has reached end of life.</li>
+  <li>The Template Config API v3 has been removed. <a href="https://api.gocd.org/18.8.0/#template-config">Version 4</a> of the API is available, and users are encouraged to use it.</li>
+  <li>The Pipeline Config API v5 has been removed. <a href="https://api.gocd.org/18.8.0/#pipeline-config">Version 6</a> of the API is available, and users are encouraged to use it.</li>
+  <li>The <a href="https://api.gocd.org/18.11.0/#get-stage">Feeds API for getting a Stage</a> no longer supports the <code>pipeline_label</code> URL parameter. Users should use the <code>pipeline_counter</code> parameter instead.</li>
 </ul>
 
 <h4>Contributors</h4>
 
-<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Chandrakanth Nagaraj, Danilo Sato, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Kosta Welke, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Pranav Bansod, Rahul Pargaonkar, Rajiesh N, Ravi Ranjan, Senthil R, Steven Streisguth, Tina Vinod, Varsha Varadarajan, Vishal Devgire</p>
+<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Chandrakanth Nagaraj, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Pranav Bansod, Rahul Pargaonkar, Rajiesh N, Sana Jahan, Steven Streisguth, Varsha Varadarajan, Vishal Devgire</p>
 
 <h4>Note</h4>
 
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+18.10%22+is%3Aclosed">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+18.11%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 
