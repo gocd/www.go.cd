@@ -1,62 +1,91 @@
 ---
-layout: campaignlanding
-title: "Test Drive GoCD"
-title_tag_of_header: "Test Drive GoCD | GoCD"
-page_caption:
-meta_description: "Download and Trial GoCD in less than 5 minutes"
-meta_keywords: "gocd trial, try gocd, gocd tutorial, gocd download"
-show_features: true
+layout: layout
+title: Interactive GoCD Demo
+title_tag_of_header: "Help - Getting Started with GoCD Part One | GoCD"
+meta_description: ""
+meta_keywords: ""
 ---
-<div class="test-drive-gocd">
 
-  <!-- banner image goes here -->
-  <% content_for :banner do %>
-      <%= image_tag 'campaign/test-drive/test-drive-gocd.png', alt: 'Test Drive GoCD', title: "Test Drive GoCD", class: "ebook-cd-analytics-banner" %>
-  <% end %>
+<div class="header-bg">
 
-  <% content_for :maincontent do %>
-    <div class="container">
+</div>
 
-      <div class="row ebook-cd-analytics-cta">
-        <div class="col-md-6">
-        <%= link_to 'Test Drive GoCD', "https://github.com/gocd/gocd-trial", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
-        </div>
-        <div class="col-md-6">
-          <%= link_to 'Intro to GoCD Guide', "https://www.gocd.org/getting-started/part-1/", {:class => "btn btn-primary campaign-btn-download ebook-cd-analytics-btn-2", "analytics-label" => "campaign-download-cta"} %>
-        </div>
-      </div>
+<div class="content-container container">
 
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3 ebook-cd-analytics-content">
-          <p>Try GoCD's continuous delivery server in less then 5 minutes:</p>
+<section class="content-lt">
 
-          <ul>
-            <li>
-              Step 1: Check the dependencies
-              <p>All you need is Git, Docker, Docker Compose, and ensure Docker is running.</p>
-            </li>
-            <li>
-              Step 2: Run GoCD
-              <p><a href="https://github.com/gocd/gocd-trial#installation">Visit the Github repo</a> and run the commands to get started.</p>
-            </li>
-            <li>
-              Step 3: Explore GoCD
-              <ul>
-                <li>Create a <a href="https://www.gocd.org/getting-started/part-1/#concept2">pipeline</a></li>
-                <li>Add a <a href="https://www.gocd.org/getting-started/part-1/#concept4">stage</a></li>
-                <li>Configure a <a href="https://docs.gocd.org/current/extension_points/plugin_user_guide.html">plugin</a></li>
-                <li>Edit the <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">configuration</a></li>
-              </ul>
-            </li>
-          </ul>
-          <p>
-            If you like the test drive, remember GoCD is open source and free to use. Just <a href="https://github.com/gocd/gocd-trial#next-steps">follow these instructions</a> to move your test drive to production.
+    <%= image_tag  "../assets/images/campaign/test-drive/test-drive-screenshot-1.jpg", class: "img-responsive test-drive-screenshot" %>
+
+    <div class="container-actions link-desktop">
+          <%= link_to "Visit the Github Repo", 'https://github.com/gocd/gocd-trial', class: 'button-brand' %>
+          <p class="actions_note">
+              Please note: If you like the test drive, remember GoCD is open source and free to use. Just follow <a href="https://github.com/gocd/gocd-trial#next-steps">these instructions</a> to move your test drive to production.
+            </br>
+              This trial does not currently work on Docker for Windows.
           </p>
-        </div>
-      </div>
     </div>
 
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
-  <% end %>
+  </section>
+
+  <section class="content-rt">
+    <h1 class="content-header">Get Started with GoCD in 5 Minutes</h1>
+    <%= image_tag  "../assets/images/campaign/test-drive/test-drive-screenshot-1.jpg", class: "img-responsive hide-mob-desktop test-drive-screenshot"%>
+    <div class="steps-list">
+      <ul class="steps-list">
+            <li class="steps-list_item">
+              <h2 class="steps-heading">
+                Step 1:
+              </h2>
+              <h2 class="steps-heading">
+                Download the Dependencies
+              </h2>
+              <p class="steps-desc">
+                All you need is Git, Docker, Docker Compose, and ensure Docker is running.
+              </p>
+            </li>
+
+            <li class="steps-list_item">
+              <h2 class="steps-heading"> 
+                Step 2:
+              </h2>
+              <h2 class="steps-heading">
+                Run the Commands
+              </h2>
+              <p class="steps-desc">
+                <a href="https://github.com/gocd/gocd-trial">Visit the Github repo</a> and run the commands to get started.
+              </p>
+            </li>
+
+            <li class="steps-list_item">
+              <h2 class="steps-heading"> 
+                Step 3:
+              </h2>
+              <h2 class="steps-heading">
+                Explore GoCD
+              </h2>
+                <ul class="steps-desc_list">
+                  <li>
+                    <p class="steps-desc">
+                      <a href="https://www.gocd.org/getting-started/part-1/">Learn about GoCD Concepts</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p class="steps-desc">
+                      <a href="https://docs.gocd.org/current/">Visit GoCD Documentation</a>
+                    </p>
+                  </li>
+                </ul>
+            </li>
+          </ul>
+    </div>
+
+    <div class="container-actions link-mobile">
+          <%= link_to "Visit the Github Repo", 'https://github.com/gocd/gocd-trial', class: 'button-brand' %>
+          <p class="actions_note">
+              Please note: If you like the test drive, remember GoCD is open source and free to use. Just follow <a href="https://github.com/gocd/gocd-trial#next-steps">these instructions</a>to move your test drive to production.
+              </br>
+              This trial does not currently work on Docker for Windows.
+          </p>
+    </div>
+  </section>
 </div>
