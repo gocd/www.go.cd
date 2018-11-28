@@ -333,6 +333,8 @@
     img {
       transform: scale(1);
       transition: all 0.3s ease-in-out;
+      height: 100%;
+      width: 100%;
     }
 
   }
@@ -407,7 +409,7 @@
   margin-bottom: 15px;
 
   @media (min-width:$screen-tablet) {
-    margin-bottom: 30px;
+    margin: 50px auto 30px;
   }
 
   figure {
