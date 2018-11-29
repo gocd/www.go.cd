@@ -344,3 +344,66 @@ nav.sidebar-nav {
 .getting-started .go {
   text-transform: none;
 }
+
+.page-control {
+  margin: 20px;
+}
+
+.left-control, .right-control {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  line-height: 35px;
+  text-align: center;
+  background: $secondary-color;
+  font-family: 'URWGeometric-Semibold';
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #000;
+  transition: all 0.25s;
+  cursor: pointer;
+
+  &:hover, &:visited, &:active {
+    color: #000;
+    opacity: 0.8;
+  }
+}
+
+.right-control {
+  float: right;
+  margin-bottom: 20px;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 15px 0px 15px;
+    border-color: $secondary-color transparent transparent transparent;
+    top: 7px;
+    right: -22px;
+    width: 30px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+}
+
+.left-control {
+  &::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 15px 0px 15px;
+    border-color: $secondary-color transparent transparent transparent;
+    left: -22px;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    top: 7px;
+    width: 30px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+}
