@@ -22,14 +22,14 @@ This is the second post in the series - <a href="https://preview.gocd.org/tags/c
 
 ##What Deployment Frequency Is
 
-Deployment frequency otherwise known as throughput, is a measure of how frequently your team deploys code. This metric is often represented as a percentage and it answers the question “how often do we deploy to production or to another significant point in your CD pipeline such as a staging environment?”.
+Deployment frequency otherwise known as throughput, is a measure of how frequently your team deploys code. This metric is often represented as a percentage and it answers the question “how often do we deploy to production or to another significant point in our CD pipeline such as a staging environment?”.
 
 <img src="/assets/images/blog/cd-metrics/deployment-frequency-concept.jpg" alt="deployment frequency concept"/>
 
 We consider production deployment as a significant point in the CD pipeline and we are counting the number of times a deployment to production happens versus not happening. In the example above, we have 8 instances or opportunities to deploy, with only  2 deployments happening, so the deployment frequency is 25%.
 
 
-##Why deployment frequency is important
+##Why Deployment Frequency Is Important
 
 The word "continuous" in continuous delivery implies high deployment frequency. Having a high deployment frequency means that you have more deployments, and gives you more opportunities for feedback on your software. More importantly, higher deployment frequency means that you’re delivering value to end users and stakeholders more quickly.
 
@@ -39,17 +39,17 @@ However, deployment frequency has to be balanced with quality. You don't want to
 
 ##An example: How to Use Deployment Frequency
 
-If you are measuring your pipeline and have low deployment frequency, what can you do? We’ll take a hypothetical example, and use GoCD, our continuous delivery server, to take you through how you can identify and act on deployment frequency issues. In our example, the team received the complaint from the business that they don’t get value very often. Let’s find out why. 
+If you are measuring your pipeline and have low deployment frequency, what can you do? We’ll take a hypothetical example, and use GoCD, our continuous delivery server, to take you through how you can identify and act on deployment frequency issues. In our example, the team received a complaint from the business that they don’t get value very often. Let’s find out why. 
 
 <img src="/assets/images/blog/cd-metrics/cd-metrics-example-pipelines.png" alt="example pipelines"/>
 
-The picture above shows you the continuous delivery pipelines, represented in GoCD’s Value Stream Map (VMS). Here, GoCD runs through the value stream including some unit tests, then integration tests and smoke tests in parallel, and then eventually the regression tests. Finally, there are User Acceptance Tests (UAT) and a production deployment. 
+The picture above shows you the continuous delivery pipelines, represented in GoCD’s Value Stream Map (VSM). Here, GoCD runs through the value stream including some unit tests, then integration tests and smoke tests in parallel, and then eventually the regression tests. Finally, there are User Acceptance Tests (UAT) and a production deployment. 
 
-To understand what is happening here, we start with finding out whether your deployment frequency is concerning. In our example, it’s easy to look this metric up in GoCD using <a href="https://www.gocd.org/analytics.html">GoCD enterprise analytics plugin</a>: go to GoCD’s VSM view, select the part of the CD pipeline you care about, and see the deployment frequency (known as throughput in GoCD). We can see that the throughput is only 9%, which means out of the opportunities to deploy only 9% are reaching production. This number is too low.
+To understand what is happening here, we start with finding out whether your deployment frequency is concerning. In our example, it’s easy to look this metric up in GoCD using the <a href="https://www.gocd.org/analytics.html">GoCD enterprise analytics plugin</a>: go to GoCD’s VSM view, select the part of the CD pipeline you care about, and see the deployment frequency (known as throughput in GoCD). We can see that the throughput is only 9%, which means out of the opportunities to deploy only 9% are reaching production. This number is too low.
 
 <img src="/assets/images/blog/cd-metrics/throughput-gocd.png" alt="deployment frequency in GoCD"/>
 
-These can also be tracked manually in a spreadsheet or other tool. If you note down the status each time <i>BuildAndUnitTests</i> ran, as well as the <i>production</i> pipeline ran, , you’ll see more failures on the way to the <i>production</i> part of the CD pipelines. In the table below, you can see when you track and plot the run times, in the same time period of five days, <i>BuildAndUnitTests</i> ran much more times than <i>Production</i>. Again, you see the deployment frequency is very low.
+These can also be tracked manually in a spreadsheet or other tool. If you note down the status each time <i>BuildAndUnitTests</i> ran, as well as the <i>production</i> pipeline ran, , you’ll see more failures on the way to the <i>production</i> part of the CD pipelines. In the table below, you can see when you track and plot the run times, in the same time period of five days, <i>BuildAndUnitTests</i> ran many more times than <i>Production</i>. Again, you see the deployment frequency is very low.
 
 <img src="/assets/images/blog/cd-metrics/throughput-manual.png" alt="deployment frequency in excel"/>
 
@@ -59,8 +59,8 @@ The main signal here is clearly that the deployment frequency is low.  But why a
 * Is your end-to-end lead time from commit to deployment too long?
 * Do you have builds that fail very often? 
 * Do you have flaky tests? If tests are flaky consider understanding which ones are the biggest problem and <a href="https://gauge.org/2018/10/23/taiko-beta-reliable-browser-automation/">addressing the root cause</a>. 
-* Are you stopping the line to address other problems? 
-* Do you have long-lived feature branches or pull-requests which are not merged often?. Very often we see the development team working hard on their branches, but the business won’t see that value until the changes are deployed.  If your problem is that you have work going on in long-lived branches, consider feature toggles and trunk based development.
+* Are you <a href="http://gettingtolean.com/toyota-principle-5-build-culture-stopping-fix">stopping the line</a> to address other problems? 
+* Do you have long-lived feature branches or pull-requests which are not merged often?. Very often we see the development team working hard on their branches, but the business won’t see that value until the changes are deployed.  If your problem is that you have work going on in long-lived branches, consider feature toggles and <a href="https://trunkbaseddevelopment.com/">trunk based development</a>.
 
 ##Summary
 
