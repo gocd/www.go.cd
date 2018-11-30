@@ -39,22 +39,18 @@ However, deployment frequency has to be balanced with quality. You don't want to
 ##An example: How to Use Deployment Frequency
 
 If you are measuring your pipeline and have low deployment frequency, what can you do? We’ll take a hypothetical example, and use GoCD, our continuous delivery server, to take you through how you can identify and act on deployment frequency issues. In our example, the team received the complaint from the business that they don’t get value very often. Let’s find out why. 
-</br>
+
 <img src="/assets/images/blog/cd-metrics/cd-metrics-example-pipelines.png" alt="example pipelines"/>
-</br>
 
 The picture above shows you the continuous delivery pipelines, represented in GoCD’s Value Stream Map (VMS). Here, GoCD runs through the value stream including some unit tests, then integration tests and smoke tests in parallel, and then eventually the regression tests. Finally, there are User Acceptance Tests (UAT) and a production deployment. 
 
 To understand what is happening here, we start with finding out whether your deployment frequency is concerning. In our example, it’s easy to look this metric up in GoCD using <a href="https://www.gocd.org/analytics.html">GoCD enterprise analytics plugin</a>: go to GoCD’s VSM view, select the part of the CD pipeline you care about, and see the deployment frequency (known as throughput in GoCD). We can see that the throughput is only 9%, which means out of the opportunities to deploy only 9% are reaching production. This number is too low.
-</br>
+
 <img src="/assets/images/blog/cd-metrics/throughput-gocd.png" alt="deployment frequency in GoCD"/>
-</br>
 
 These can also be tracked manually in a spreadsheet or other tool. If you note down the status each time <i>BuildAndUnitTests</i> ran, as well as the <i>production</i> pipeline ran, , you’ll see more failures on the way to the <i>production</i> part of the CD pipelines. In the table below, you can see when you track and plot the run times, in the same time period of five days, <i>BuildAndUnitTests</i> ran much more times than <i>Production</i>. Again, you see the deployment frequency is very low.
 
-</br>
 <img src="/assets/images/blog/cd-metrics/throughput-manual.png" alt="deployment frequency in excel"/>
-</br>
 
 The main signal here is clearly that the deployment frequency is low.  But why and how should we act on that?  There may be many reasons for this. We recommend checking the following potential causes: 
 
