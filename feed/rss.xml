@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>Continuous Delivery Metrics Part 2&amp;#58; How often do you deploy to production?</title>
+    <link rel="alternate" href="https://www.gocd.org/2018/11/30/deployment-frequency.html"/>
+    <id>https://www.gocd.org/2018/11/30/deployment-frequency.html</id>
+    <published>2018-11-30T00:00:00Z</published>
+    <updated>2018-11-30T00:00:00Z</updated>
+    <author>
+      <name>Aravind S.V and Suzie Prince</name>
+    </author>
+    <content type="html">This is the second post in the series - Actionable Continuous Delivery Metrics. Here we’ll dive deep into the first metric: deployment frequency. </content>
+  </entry>
+  <entry>
     <title>Continuous Delivery Metrics Part 1&amp;#58; Why measure your CD process</title>
     <link rel="alternate" href="https://www.gocd.org/2018/10/30/measure-continuous-delivery-process.html"/>
     <id>https://www.gocd.org/2018/10/30/measure-continuous-delivery-process.html</id>
@@ -107,16 +118,5 @@
       <name>Sheroy Marker</name>
     </author>
     <content type="html">Getting deeper into CD practices, we'll cover continuous integration, feature toggles, and the importance of trunk based development</content>
-  </entry>
-  <entry>
-    <title>Test Strategy for Microservices</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy.html"/>
-    <id>https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy.html</id>
-    <published>2018-05-08T00:00:00Z</published>
-    <updated>2018-05-08T00:00:00Z</updated>
-    <author>
-      <name>Sheroy Marker</name>
-    </author>
-    <content type="html">In the second post of this blog series, we will dig deeper into testing strategies for a microservices architecture..</content>
   </entry>
 </feed>
