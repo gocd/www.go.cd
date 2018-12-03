@@ -356,7 +356,7 @@ nav.sidebar-nav {
   height: 30px;
   line-height: 35px;
   text-align: center;
-  background: $secondary-color;
+  background: $brand-secondary;
   font-family: 'URWGeometric-Semibold';
   font-size: 16px;
   text-transform: uppercase;
@@ -379,7 +379,7 @@ nav.sidebar-nav {
     height: 0;
     border-style: solid;
     border-width: 15px 15px 0px 15px;
-    border-color: $secondary-color transparent transparent transparent;
+    border-color: $brand-secondary transparent transparent transparent;
     top: 7px;
     right: -22px;
     width: 30px;
@@ -397,7 +397,7 @@ nav.sidebar-nav {
     height: 0;
     border-style: solid;
     border-width: 15px 15px 0px 15px;
-    border-color: $secondary-color transparent transparent transparent;
+    border-color: $brand-secondary transparent transparent transparent;
     left: -22px;
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
