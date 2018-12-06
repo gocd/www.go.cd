@@ -62,4 +62,10 @@ Style for Card Component
 
 .card_desc {
   text-align: justify;
+  padding: 0px 20px;
+
+  @media (min-width: $screen-lg) {
+    padding: 0px 50px;
+  }
+  
 }
