@@ -495,14 +495,14 @@
     left: 10px;
     position: absolute;
     width: 6px;
-    top: 10px;
+    top: 6px;
   }
 
   &:after {
     background: #fff;
-    border-bottom: 13px solid transparent;
+    border-bottom: 10px solid transparent;
     border-left: 10px solid #ccc;
-    border-top: 13px solid transparent;
+    border-top: 10px solid transparent;
     content: '';
     position: absolute;
     right: 0;
