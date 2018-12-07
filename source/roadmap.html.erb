@@ -14,14 +14,18 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 <main>
 <div class="container">
 
-GoCD's current roadmap consists of two main parts:
+<p></p>
+
+GoCD's current roadmap consists of:
 
 <ol>
-  <li>Better support for cloud deployments (cloud-native GoCD support).</li>
-  <li>Better user experience.</li>
+  <li>In progress: Improve experience of using pipelines as code (<a href="https://github.com/gocd/gocd/issues/5175">#5175</a>).</li>
+  <li>In progress: Improve overall user experience.</li>
+  <li>Upcoming: Better access tokens for authentication (<a href="https://github.com/gocd/gocd/issues/5321">#5321</a>).</li>
+  <li>Planned: Improved secrets management.</li>
 </ol>
 
-These two parts are explained below. Apart from this, GoCD as a product continues to evolve along these values:
+Apart from this, GoCD as a product continues to evolve along these values:
 <ul>
   <li>Be universal and easily extensible.</li>
 
@@ -31,106 +35,24 @@ These two parts are explained below. Apart from this, GoCD as a product continue
   <li>Produce more supporting content for improving the way people do CD (mostly on the GoCD blog).</li>
 </ul>
 
-<h2>Better support for cloud deployments (cloud-native)</h2>
-
-Container systems (almost single-handedly Docker) have changed how applications are built. The fact that applications
-can now be shipped and shared in a standardized manner with dependencies defined or bundled in a standardized manner
-changes both the development side and the operations side. Applications can now be defined in terms of container images
-and the interactions between containers.
-
-<p></p>
-
-Container orchestration systems (such as Kubernetes and Mesos) are in the middle of a major shift in how applications
-are deployed and managed. They are the shipping infrastructure equivalent of the virtual world and by the abstractions
-they provide, they make it easier to deploy, manage and monitor entire fleets of containerized applications across
-multiple nodes, physical or virtual. Quite often, these nodes are in the cloud and these orchestration systems provide
-reasonable abstractions over them.
+Recent work has included:
+<ul>
+  <li>Easier to run GoCD on Kubernetes, using helm charts. See <a href="https://github.com/gocd/gocd/issues/5321">documentation.</a></li>
+  <li>Quick way to trial GoCD using docker-compose. <a href="https://www.gocd.org/test-drive-gocd.html">Try it out now.</a></li>
+  <li>Commercial: Analytics plugin for GoCD. <a href="https://www.gocd.org/analytics/">Start a free trial now</a>.</li>
+</ul>
 
 <p></p>
 
-All of these changes inevitably affect the CD workflow. The good news is that in many cases, it becomes simpler. The
-processes and underlying workflows will still need to be considered and modeled. Though the generic nature of GoCD
-allows these changes to be modeled today, GoCD will be extended to embrace these changes and make them easier and more
-streamlined.
-
-<p></p>
-
-Most of this work will focus on Kubernetes as the first implementation, since it seems to be the most mature and
-accepted container orchestration system. All of the work will be done as generically as possible, so that GoCD is not
-tied irrevocably to Kubernetes. Extension points will be identified, so that the Kubernetes-related work can be inside
-plugins, so that these ideas can be extended to other orchestration systems.
-
-<p></p>
-
-The work will be based on these high-level ideas:
-
-<ol class="outer">
-  <li>
-    Running GoCD natively on Kubernetes: Involves ...
-    <ol class="inner">
-      <li>Running the GoCD server in Kubernetes.</li>
-      <li>Running automatically scaled elastic agents in Kubernetes.</li>
-    </ol>
-  </li>
-
-  <li>
-    Better support for the Docker workflow: Involves ...
-    <ol class="inner">
-      <li>The idea of building an image and propagating it across multiple environments till production.</li>
-      <li>This involves allowing build artifacts to be natively published to artifact repositories (such as a Docker Registry, Artifactory or S3).</li>
-    </ol>
-  </li>
-
-  <li>
-    Deployments to Kubernetes: Involves ...
-    <ol class="inner">
-      <li>These can be modeled using simple commands (and that is encouraged).</li>
-      <li>More support for generating deployment yamls and helm charts with the correct versions.</li>
-      <li>Ability to monitor deployments (they might be done asynchronously by Kubernetes).</li>
-    </ol>
-  </li>
-
-  <li>More content around CD in this new world. It's not always as straightforward as you think.</li>
-</ol>
-
-<p></p>
-
-More details can (soon) be found <a href="https://github.com/gocd/gocd/issues/3969">here</a>.
-
-<p></p>
-
-On the commercial side, this might include automatic scaling of nodes (not just containers) across different cluster
-systems (GCE, Azure, OpenShift, Mesos, etc) to save cost.
-
-<h2>Better user experience</h2>
-
-<p></p>
-
-This involves a refresh of the GoCD user experience (not just the user interface). Based on many interviews with users
-of GoCD and other solutions, there has been a lot of feedback gathered about changes to the user experience of
-GoCD. These changes will take the form of:
-
-<ol>
-  <li>Better discoverability of features.</li>
-  <li>Improved movement through the app (easier to get to what you need).</li>
-  <li>Better use of colors and icons.</li>
-  <li>Better wayfinding (headers).</li>
-  <li>Rewrites of significant parts of the application to provide new data or existing data in a better form.</li>
-</ol>
-... and more.
-
-<p></p>
-
-You might be able to see of this already, on the VSM (Value Stream Map) pages. If you haven't had a chance to provide
-feedback or ideas, more details can (soon) be found <a href="https://github.com/gocd/gocd/issues/3970">here</a>.
+You might be able to see some of the work in progress already. If you haven't had a chance to provide feedback or ideas, please do so by
+opening an issue or writing to <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.
 
 <h2>Other</h2>
 
 <p></p>
 
-Though not part of this roadmap, there are other aspects such as better credential management, better plugin management,
-more granularity in permissions, etc. which will continue to be worked on. This roadmap just talks about the bigger
-pieces and it will be changed to reflect changing priorities.
+Though not part of this roadmap, there are other aspects such as better plugin management, more granularity in permissions, etc. which will
+continue to be worked on. This roadmap just talks about the bigger pieces and it will be changed to reflect changing priorities.
 
 <h2>About the roadmap:</h2>
 
@@ -143,7 +65,7 @@ needed.
 
 <p></p>
 
-Last updated: Dec 7, 2017
+Last updated: Dec 7, 2018
 
 </div>
 </main>
