@@ -58,14 +58,16 @@ Style for Card Component
 
 .card_heading {
   text-align: center;
+  margin: 10px 0 30px;
 }
 
 .card_desc {
   text-align: justify;
   padding: 0px 20px;
+  font-size: 20px;
 
   @media (min-width: $screen-lg) {
-    padding: 0px 50px;
+    padding: 0px 55px;
   }
   
 }
