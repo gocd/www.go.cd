@@ -89,4 +89,8 @@ Style for Banner Component
 .banner-container_btn {
   text-align: center;
   font-size: 26px;
+
+  @media (max-width: $screen-md-min) {
+    width: 100% !important;
+  }
 }
