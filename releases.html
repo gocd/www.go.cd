@@ -16,7 +16,7 @@
     <title>Releases - Version notes | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
     <link href="assets/stylesheets/site-e9ff2574.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-dfc7a865.js"></script>
+    <script src="assets/javascripts/all-0c2be4dc.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
     <script>
@@ -78,7 +78,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker">
-      <li rel="tab-18-11-0" class="tab-marker active">18.11.0 (latest)</li>
+      <li rel="tab-18-12-0" class="tab-marker active">18.12.0 (latest)</li>
+      <li rel="tab-18-11-0" class="tab-marker">18.11.0</li>
       <li rel="tab-18-10-0" class="tab-marker">18.10.0</li>
       <li rel="tab-18-9-0" class="tab-marker">18.9.0</li>
       <li rel="tab-18-8-0" class="tab-marker">18.8.0</li>
@@ -125,7 +126,99 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-18-11-0">18.11.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-18-12-0">18.12.0 (latest)</h3>
+      <div id="tab-18-12-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Manage Config Repositories through UI</h4>
+
+<p>We have added a new Config Repositories page. This page lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page has the ability to show errors and allows users to force a check of the repository.</p>
+
+<figure class="shrink-figure-100">
+    <img src="assets/images/releases/18.12.0/config_repo-8810e00d.png" alt="Config Repositories Page" />
+  </figure>
+<p><br /></p>
+
+<h4>UI/UX Improvements</h4>
+
+<p><strong>The Elastic profiles page now provides the ability to view jobs configured for an elastic profile.</strong></p>
+
+<figure class="shrink-figure-70">
+    <img src="assets/images/releases/18.12.0/elastic_profile_jobs-d50b21a6.png" alt="Elastic Profile List Jobs" />
+  </figure>
+<p><br /></p>
+
+<p><strong>Admin Menu has been improved for better accessibility.</strong></p>
+
+<figure class="shrink-figure-70">
+    <img src="assets/images/releases/18.12.0/admin_menu-6be5be5a.png" alt="Admin Menu" />
+  </figure>
+
+<h4>Other Improvements</h4>
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/0a15ede4941e83916cdf7a50c34f25bba184dd27">0a15ede</a></code> - Performance improvement to loading multiple Config Repos on server restart. (<a href="https://github.com/gocd/gocd/issues/5010">#5010</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/df76be9984cf43d337791497c6dad57bd9c1a043">df76be9</a></code> - GoCD Admins can now configure the server to set HSTS header as part of HTTP response. (<a href="https://github.com/gocd/gocd/issues/5557">#5557</a>) Refer <a href="https://docs.gocd.org/18.12.0/installation/ssl_tls/configuring_hsts_header.html">docs</a> for configuring the header.</li>
+</ul>
+
+<h4>API Improvements</h4>
+
+<ul>
+  <li>Introduce <a href="https://api.gocd.org/18.12.0/#dashboard">V2 of Dashboard API</a>.</li>
+</ul>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/cb9ab57a3069b04b6f688cc7bbe72598db6f1d70">cb9ab57</a></code> - Fixed an issue where the first personalization tab showed all pipelines on page load. (<a href="https://github.com/gocd/gocd/issues/5512">#5512</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/bbeebad6c03497cf3f5bf0bcddbe13bbc08a11c8">bbeebad</a></code> - Fix for email notification not sent on job cancellation due to timeout. (<a href="https://github.com/gocd/gocd/issues/5370">#5370</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/0efb7d007d06e92279ff578947d807bb059867df">0efb7d0</a></code> - Allow javascript to be executed in the plugin settings modal. (<a href="https://github.com/gocd/gocd/issues/4797">#4797</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/b00b026bfead77e2a42d690add07a596451e556f">b00b026</a></code> - Fixed links pointing to pipeline dependency graph. (<a href="https://github.com/gocd/gocd/issues/5535">#5535</a>)</li>
+</ul>
+
+<h4>Installer Changes</h4>
+
+<ul>
+  <li>
+    <p>OSX installers are now bundled with adoptopenjdk JRE 8, commit <code><a href="https://github.com/gocd/gocd/commit/6814d48cf7f5e7da3353cbeb6abdad18d5be7519">6814d48</a></code> - fixes an issue with Server and Agent not working on JRE &gt;=9. (<a href="https://github.com/gocd/gocd/issues/3934">#3934</a>)</p>
+  </li>
+  <li>
+    <p>Support for Java 11 was introduced in 18.10.0. Windows installers have been changed to bundle with OpenJDK 11.</p>
+  </li>
+</ul>
+
+<h4>Deprecations</h4>
+
+<ul>
+  <li>With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <a href="https://api.gocd.org/18.8.0/#encryption">Encryption API</a> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.</li>
+  <li>The elastic agent plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.</li>
+  <li>The notification plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.</li>
+  <li>The analytics plugin extension version 1 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.</li>
+  <li>The Dashboard API v1 has been deprecated in this release. This version of the API will be removed in a release scheduled for March 2019. Version 2 of the API is available, and users are encouraged to use it.</li>
+</ul>
+
+<h4>Breaking Changes</h4>
+
+<ul>
+  <li>Windows installers are now bundled with OpenJDK 11. In absence of 32 bit JDK distributions from OpenJDK we have stopped providing 32 bit windows installers from this release.</li>
+  <li>With this release there will be limited support for IE11. Visual bugs can be expected on this browser.</li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Armin G Jazi, Bhupendrakumar Piprava, Chandrakanth Nagaraj, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Marques Lee, Naveen Bhaskar, Pranav Bansod, Rahul Pargaonkar, Rajiesh N, Sana Jahan, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Vishal Devgire, Vrushali Waykole</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+18.12%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+<p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>.</p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-18-11-0">18.11.0</h3>
       <div id="tab-18-11-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Improvements</h4>
