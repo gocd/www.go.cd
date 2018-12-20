@@ -1,9 +1,11 @@
-Last updated: 2018-12-19 04:04:47 -0800
+Last updated: 2018-12-20 10:12:19 -0800
 
 Latest commit:
-    commit 1577c12724ec67cad76e525951b5d9339be715cf
+    commit 6eadc44b7246e97c37cdd60e061f3194cc3bbef4
     Author: Bhupendra <bdpiparva@gmail.com>
-    Date:   Wed Dec 19 17:27:17 2018 +0530
+    Date:   Thu Dec 20 07:33:16 2018 +0530
     
-        Updated release notes for 18.12.0 (#852)
+        Revert "Remove additional padding on windows tab when there is no 32-bit and 64-bit info to show. (#854)" (#855)
+        
+        This reverts commit 21df47c01f2b7727a697c852cbb04e49e6bc1d5f.
     
