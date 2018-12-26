@@ -1,11 +1,12 @@
-Last updated: 2018-12-20 10:12:19 -0800
+Last updated: 2018-12-26 09:31:59 -0800
 
 Latest commit:
-    commit 6eadc44b7246e97c37cdd60e061f3194cc3bbef4
-    Author: Bhupendra <bdpiparva@gmail.com>
-    Date:   Thu Dec 20 07:33:16 2018 +0530
+    commit 87a2bcec0ea810302d40f58233614cf83d0c8038
+    Merge: 6eadc44 44eedf6
+    Author: Aravind SV <auto.github@arvindsv.com>
+    Date:   Wed Dec 26 12:18:20 2018 -0500
     
-        Revert "Remove additional padding on windows tab when there is no 32-bit and 64-bit info to show. (#854)" (#855)
+        Merge pull request #856 from varshavaradarajan/extra-padding
         
-        This reverts commit 21df47c01f2b7727a697c852cbb04e49e6bc1d5f.
+        Add additional padding only when there are 2 types of installers to show.
     
