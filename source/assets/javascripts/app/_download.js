@@ -104,6 +104,9 @@ var showDownloadLinks = (function ($) {
         latest_cloud_release: latest_cloud_release,
         all_other_cloud_releases: other_cloud_releases
       }));
+
+      // add additional padding if there are 32 bit and 64 bit installers to show
+      $("#downloads #tab-windows .files:has(.download-files)").css("padding-top", "40px");
     };
 
     var showFailureMessage = function (error) {
