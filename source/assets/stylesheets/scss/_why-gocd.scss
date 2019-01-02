@@ -11,19 +11,40 @@
 }
 
 .header-container_image {
-  width: 48%;
+  width: 100%;
+  height: auto;
+  margin: 0px auto 40px;
+
+  @media(min-width: $screen-lg) {
+    width: 48%;
+    margin: 0 auto;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 .header-container_description {
-  width: 48%;
+  width: 100%;
   padding: 0 30px; 
+  text-align: center;
+  @media(min-width: $screen-lg) {
+    width: 48%;
+    text-align: left;
+  }
 }
 
 .description_text {
-  font-size: 24px;
+  font-size: 14px;
   font-family: 'URWGeometric-Medium';
-  text-align: left;
+  text-align: center;
   margin-bottom: 60px;
+  @media(min-width: $screen-md) { 
+    text-align: left;
+    font-size: 24px;
+  }
 }
 
 .row-card_list {
@@ -35,10 +56,14 @@
 }
 
 .row-card_item {
-  width: 50%;
+  width: 100%;
   padding: 20px;
   display: flex;
   flex-wrap: nowrap;
+
+  @media(min-width: $screen-md) {
+    width: 50%;
+  }
 }
 
 .card-item_icon {
