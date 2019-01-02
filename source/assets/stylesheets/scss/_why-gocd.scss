@@ -1,87 +1,74 @@
-.why-gocd {
-  .go {
-    text-transform: none;
-  }
-
-  .go-features {
-    .row {
-      @media (min-width:$screen-tablet) {
-        padding: 50px 0;
-      }
-
-    }
-
-    figure {
-      text-align: center;
-
-      img {
-        width: 180px;
-        max-height: 200px;
-
-        @media (min-width:$screen-tablet) {
-          width: auto;
-        }
-
-      }
-
-    }
-
-    
-
-
-    hr {
-      border-top: 1px dashed #ccc;
-      position: relative;
-      clear: both;
-
-      @media (min-width:$screen-tablet) {
-        top: 48px;
-      }
-
-    }
-
-  }
+.why-GoCD {
+  margin: 150px auto 100px;
 }
 
-.features__title {
-      font-weight: 300;
-      font-size: 22px;
-      margin-bottom: 20px;
-      text-align: center;
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
 
-      @media (min-width:$screen-tablet) {
-        font-size: 30px;
-        text-align: left;
-      }
-    }
+.header-container_image {
+  width: 48%;
+}
 
-.screenshots{
-  .features__title{
-    margin-bottom: 30px;
-    @media (min-width:$screen-tablet) {
-        font-size: 30px;
-        text-align: center;
-      }
-  }
-  figure{
-    a{
-      border-radius:10px;
-        border:3px solid #fff;
-        display: block;
-      &:hover{
-      border:3px solid #4AD9D9;
-      }
-    }
-    img{
-      display:block;
-      border-radius:5px;
-    }
-    h5{
+.header-container_description {
+  width: 48%;
+  padding: 0 30px; 
+}
 
-      font-size: 16px;
-      text-transform: uppercase;
-      margin:20px 0 50px 0;
-    }
-  }
+.description_text {
+  font-size: 24px;
+  font-family: 'URWGeometric-Medium';
+  text-align: left;
+  margin-bottom: 60px;
+}
 
+.row-card_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.row-card_item {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.card-item_icon {
+  width: 140px;
+  height: auto;
+}
+
+.card-item_content {
+  padding: 10px;
+  width: 470px;
+  height: auto;
+}
+
+.item-content_header {
+  font-size: 30px;
+  font-family: 'URWGeometric-ExtraBold';
+  text-align: left;
+  padding: 0 30px;
+}
+
+.item-content_text {
+  font-size: 24px;
+  font-family: 'URWGeometric-Medium';
+  text-align: left;
+  padding: 0 30px;
+}
+
+.item-content_link {
+  text-decoration: underline;
+  font-weight: 'URWGeometric-Bold';
+  font-size: inherit;
+  color: inherit;
 }
