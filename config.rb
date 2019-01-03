@@ -22,7 +22,6 @@ set :relative_links, true
 
 REDIRECTS = {
   "2014/02/25/go-is-now-open-source.html"      => "/2014/02/25/go-moving-to-open-source/index.html",
-  "2014/10/09/Distrubuted-Test-Execution.html" => "/2014/10/09/Distributed-Test-Execution/index.html",
   "2017/04/11/gocd-over-jenkins.html"          => "/2017/04/25/gocd-over-jenkins/index.html",
   "community/resources/index.html"             => "/resources/index.html",
   "community/events/index.html"                => "/events/index.html",
