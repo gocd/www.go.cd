@@ -96,7 +96,7 @@
   font-weight: 'URWGeometric-Bold';
   font-size: inherit;
   color: inherit;
-  transition: $transition;
+  transition: all 0.25s;
   &:hover {
     color: #000;
   }
