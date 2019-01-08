@@ -67,12 +67,16 @@
 }
 
 .card-item_icon {
-  width: 140px;
-  height: auto;
+  width: 75px;
+  height: 75px;
+  @media (min-width: $screen-md) {
+    width: 140px;
+    height: 140px;
+  }
 }
 
 .card-item_content {
-  padding: 10px;
+  padding: 0px 10px;
   width: 470px;
   height: auto;
 }
@@ -82,6 +86,7 @@
   font-family: 'URWGeometric-ExtraBold';
   text-align: left;
   padding: 0 30px;
+  margin: 0 0 10px;
 }
 
 .item-content_text {
