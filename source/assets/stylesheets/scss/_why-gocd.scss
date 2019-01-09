@@ -15,7 +15,7 @@
   height: auto;
   margin: 0px auto 40px;
 
-  @media(min-width: $screen-lg) {
+  @media(min-width: $screen-md) {
     width: 48%;
     margin: 0 auto;
   }
@@ -30,7 +30,7 @@
   width: 100%;
   padding: 0 30px; 
   text-align: center;
-  @media(min-width: $screen-lg) {
+  @media(min-width: $screen-md) {
     width: 48%;
     text-align: left;
   }
@@ -46,6 +46,25 @@
   }
   @media(min-width: $screen-lg) { 
     font-size: 24px;
+  }
+}
+
+.display_desktop {
+  display: none;
+  @media (min-width: $screen-lg){
+    display: block;
+  }
+}
+
+.display_mobile {
+  display: block;
+  width: 221px;
+  height: 47px;
+  margin: 0 auto 50px;
+  font-size: 14px;
+
+  @media (min-width: $screen-lg){
+    display: none;
   }
 }
 
@@ -96,7 +115,10 @@
 
   @media (min-width: $screen-md) { 
     padding: 0 30px;
-    font-size: 30px;
+  }
+
+  @media (min-width: $screen-lg) { 
+    font-size: 30px; 
   }
 }
 
