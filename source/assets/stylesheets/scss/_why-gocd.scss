@@ -68,6 +68,14 @@
   }
 }
 
+.feauters {
+  margin: 50px auto 0;
+  @media (min-width: $screen-lg) {
+    margin: 100px auto 0;
+  }
+  
+}
+
 .row-card_list {
   display: flex;
   flex-wrap: wrap;
@@ -113,10 +121,6 @@
   text-align: left;
   margin: 0 0 10px;
 
-  @media (min-width: $screen-md) { 
-    padding: 0 30px;
-  }
-
   @media (min-width: $screen-lg) { 
     font-size: 30px; 
   }
@@ -127,11 +131,6 @@
   font-family: 'URWGeometric-Medium';
   text-align: left;
   padding: 0px;
-
-  @media (min-width: $screen-md) {
-    padding: 0 30px;
-  }
-
   @media (min-width: $screen-lg) { 
     font-size: 24px;
   }
