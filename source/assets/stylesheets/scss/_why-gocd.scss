@@ -37,12 +37,14 @@
 }
 
 .description_text {
-  font-size: 14px;
+  font-size: 18px;
   font-family: 'URWGeometric-Medium';
   text-align: center;
   margin-bottom: 60px;
   @media(min-width: $screen-md) { 
     text-align: left;
+  }
+  @media(min-width: $screen-lg) { 
     font-size: 24px;
   }
 }
@@ -60,16 +62,21 @@
   padding: 20px;
   display: flex;
   flex-wrap: nowrap;
-
-  @media(min-width: $screen-md) {
+  justify-content: center;
+  @media(min-width: $screen-lg) {
     width: 50%;
   }
 }
 
 .card-item_icon {
-  width: 75px;
-  height: 75px;
+  display: none;
   @media (min-width: $screen-md) {
+    width: 96px;
+    height: 96px;
+    display: block;
+  }
+
+  @media (min-width: $screen-lg) {
     width: 140px;
     height: 140px;
   }
@@ -82,18 +89,30 @@
 }
 
 .item-content_header {
-  font-size: 30px;
+  font-size: 26px;
   font-family: 'URWGeometric-ExtraBold';
   text-align: left;
-  padding: 0 30px;
   margin: 0 0 10px;
+
+  @media (min-width: $screen-md) { 
+    padding: 0 30px;
+    font-size: 30px;
+  }
 }
 
 .item-content_text {
-  font-size: 24px;
+  font-size: 18px;
   font-family: 'URWGeometric-Medium';
   text-align: left;
-  padding: 0 30px;
+  padding: 0px;
+
+  @media (min-width: $screen-md) {
+    padding: 0 30px;
+  }
+
+  @media (min-width: $screen-lg) { 
+    font-size: 24px;
+  }
 }
 
 .item-content_link {
