@@ -90,6 +90,11 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+
+  @media(min-width: $screen-md) {
+    margin: 50px auto 0;
+  }
+  
   @media(min-width: $screen-lg) {
     width: 50%;
   }
