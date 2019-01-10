@@ -1,10 +1,11 @@
-Last updated: 2019-01-09 09:48:53 -0800
+Last updated: 2019-01-09 20:26:16 -0800
 
 Latest commit:
-    commit 7be6ab58f6e2cbd76c027fa0a61b621bb886a062
-    Merge: c40e946 55d1fb7
-    Author: dependabot[bot] <dependabot[bot]@users.noreply.github.com>
-    Date:   Wed Jan 9 17:37:57 2019 +0000
+    commit 8b8c7dcb3c37f9b2a364df38035be8deba6665ac
+    Author: Ketan Padegaonkar <KetanPadegaonkar@gmail.com>
+    Date:   Thu Jan 10 09:42:04 2019 +0530
     
-        Merge pull request #862 from gocd/dependabot/bundler/neat-3.0.1
+        Revert "Bump middleman-gh-pages from 0.3.1 to 0.4.1"
+        
+        This reverts commit a53d0fe7b372d408a57a27e4fdfba386a68a4007.
     
