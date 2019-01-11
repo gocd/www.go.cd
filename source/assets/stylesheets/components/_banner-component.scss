@@ -33,7 +33,11 @@ Style for Banner Component
 
 .banner-container {
   padding: 10px;
-  border: 1px solid #9b9b9b;
+  background-color: #1b1d21;
+  background: url('../../assets/images/pipelines-as-code/pipelines-as-code-banner.jpg');
+  background-size: cover;
+  background-position: left bottom;
+  color: #FFFFFF;
   @media (min-width: $screen-lg) {
     padding: 50px 100px 20px;
   }
@@ -41,6 +45,7 @@ Style for Banner Component
 
 .banner-container_heading {
   text-align: center;
+  color: #FFFFFF;
   @media (min-width: $screen-lg) {
     font-size: 60px;
   }
