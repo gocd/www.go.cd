@@ -4,7 +4,7 @@ title: Continuous Delivery Metrics Part 3&#58; How long does it take from commit
 type: post
 author: Aravind S.V and Suzie Prince
 excerpt: "This is the third post in the series - Actionable Continuous Delivery Metrics. Here we'll analyze lead time, the duration of time it takes to deployment"
-summary_image: "/assets/images/blog/cd-metrics/CD-metrics-part2.jpg"
+summary_image: "/assets/images/blog/cd-metrics/cd-metrics-lead-time.jpg"
 title_tag_of_header: "How often do you deploy to production? | GoCD Blog"
 meta_description: "This is the second post in the series - Actionable Continuous Delivery Metrics. Here we’ll dive deep into the first metric: deployment frequency."
 meta_keywords: "cd metrics, continuous delivery metrics, measure devops, lead time, failure rate, deployment frequency, throughput"
@@ -13,7 +13,7 @@ draft: true
 ---
 <% content_for :banner do %>
   <figure>
-<img src="/assets/images/blog/cd-metrics/CD-metrics-part2.jpg" alt="Continuous Delivery Metrics Part 2: How often do you deploy to production?"/>
+<img src="/assets/images/blog/cd-metrics/cd-metrics-lead-time.jpg" alt="Continuous Delivery Metrics Part 3: Lead Time"/>
   </figure>
 <% end %>
 
@@ -28,7 +28,7 @@ Whereas deployment frequency is the number of times deployment happened, lead ti
 
 You may see lead time used interchangeably with cycle time, and there is a lot of confusion around what these two terms mean. By definition, the lead time clock starts when the feature request is made and ends at delivery, while the cycle time clock starts when work begins on the request and ends when the item is ready for delivery. We are not going to distinguish these two terms in this post. We think the important thing is that you clearly define what you mean, and be consistent with your definition. In our context, we suggest avoid saying lead time or cycle time without qualifying the starting point and ending point.  
 
-IMAGE HERE
+<img src="/assets/images/blog/cd-metrics/lead-time-diagram.jpg" alt="Continuous Delivery Metrics Part 3: Lead Time Diagram"/>
 
 In the diagram above, we calculate time from a commit (at the start of a CD pipeline) until when that code commit goes to production (at the end of the CD pipeline). Although other points in the CD pipeline have happened multiple times, it was only after three days that the deployment happened, so we calculate the lead time for that commit as three days.
 
@@ -44,7 +44,7 @@ Finally, we recommend only considering the “delivery” part when calculating 
 
 We will continue with the hypothetical scenario we used in part 2 of the series, in this scenario, the development team received the complaint from their stakeholders that they didn’t get value very often. 
 
-IMAGE HERE
+<img src="/assets/images/blog/cd-metrics/cd-metrics-example-pipelines.png" alt="Continuous Delivery Metrics Part 3: Lead Time Diagram"/>
 
 This picture above is a quick refresher of this team’s CD pipelines represented in GoCD’s Value Stream Map (VSM). It includes some unit tests, integration tests and smoke tests in parallel, and then the regression tests. At the end, there are User Acceptance Tests (UAT) and a production deployment. 
 
@@ -52,11 +52,10 @@ In the previous post, we have found out the deployment frequency is as low as 8%
 
 In the screenshots below, you can see the average cycle time from BuildAndUnitTests to Production is 33m. When you drill down into each pipeline, you can see these details with wait times (shown in gray) ,and run times (shown in purple) towards production with each stage shown separately. From there, you can identify your slowest steps.
 
-IMAGE HERE
+<img src="/assets/images/blog/cd-metrics/average-cycle-time.png" alt="Continuous Delivery Metrics Part 3: Lead Time Diagram"/>
+<img src="/assets/images/blog/cd-metrics/lead-time-workflow-analytics.png" alt="Continuous Delivery Metrics Part 3: Lead Time Diagram"/>
 
 This process can also be done manually, or with another tool. When you track the time and plot the different parts of the workflow, you can achieve similar results. The example below is a possible representation of the process, when done outside of GoCD. You can see there are some long-running parts of your pipeline (as in “Regression” here) and some long delays due to manual approvals.
-
-IMAGE HERE
 
 As you can see from our example, with lead time metric and the supporting details, you can identify your problematic steps: steps that are slow to complete and require lots of wait time will lead to overall low deployment frequency. From here, we recommend 
 
