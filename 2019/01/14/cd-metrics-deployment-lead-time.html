@@ -10,12 +10,12 @@
     <meta name="twitter:site" content="@goforcd" />
     <meta name="twitter:title" content="How often do you deploy to production? | GoCD Blog" />
     <meta name="twitter:description" content="This is the second post in the series - Actionable Continuous Delivery Metrics. Here we’ll dive deep into the first metric: deployment frequency." />
-    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-metrics/CD-metrics-part2-08356f5b.jpg" />
-    <link rel="canonical" href="https://www.gocd.org/2019/01/09/cd-metrics-deployment-lead-time.html" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-metrics/cd-metrics-lead-time-1e8d759a.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2019/01/14/cd-metrics-deployment-lead-time.html" />
 
     <title>How often do you deploy to production? | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-18fe6340.css" rel="stylesheet" />
+    <link href="../../../assets/stylesheets/site-eddbb61c.css" rel="stylesheet" />
     <script src="../../../assets/javascripts/all-3d92583e.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
@@ -26,7 +26,7 @@
     </script>
   </head>
 
-  <body class="x2019 x2019_01 x2019_01_09 x2019_01_09_cd-metrics-deployment-lead-time">
+  <body class="x2019 x2019_01 x2019_01_14 x2019_01_14_cd-metrics-deployment-lead-time">
     <header class="top">
   <div class="container">
     <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
@@ -68,14 +68,14 @@
 
     <div class="post-banner">
         <figure>
-<img src="../../../assets/images/blog/cd-metrics/CD-metrics-part2-08356f5b.jpg" alt="Continuous Delivery Metrics Part 2: How often do you deploy to production?"/>
+<img src="../../../assets/images/blog/cd-metrics/cd-metrics-lead-time-1e8d759a.jpg" alt="Continuous Delivery Metrics Part 3: Lead Time"/>
   </figure>
 
     </div>
 
 
   <header class="blog-post-header">
-    <h1>Continuous Delivery Metrics Part 3&#58; How long does it take from committing code to production?</h1>
+    <h1>Continuous Delivery Metrics Part 3&#58; How long does it take to get from committing code to production?</h1>
     <h4>Aravind S.V and Suzie Prince</h4>
     <p class='tags'>
 <a href="../../../tags/cd-analytics.html" class="tag">        CD Analytics
@@ -84,55 +84,61 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>This is the second post in the series - <a href="https://www.gocd.org/tags/cd-analytics.html">Actionable Continuous Delivery Metrics</a>. <a href="https://www.gocd.org/2018/10/30/measure-continuous-delivery-process/">In the previous post</a>, we gave an overview of why metrics matter to your CD process and what metrics we recommend you measure. In this post, we’ll get deeper into the first metric: deployment frequency.</p>
+<p>This is the third post in the series - Actionable Continuous Delivery Metrics. In the previous posts, we gave an overview of why and what metrics matter to your CD process as well as an in depth discussion on deployment frequency. In this post, we’ll get deeper into lead time.</p>
 
-<h2 id="what-deployment-frequency-is">What Deployment Frequency Is</h2>
+<h2 id="what-lead-time-is"><strong>What Lead Time Is</strong></h2>
 
-<p>Deployment frequency otherwise known as throughput, is a measure of how frequently your team deploys code. This metric is often represented as a percentage and it answers the question “how often do we deploy to production or to another significant point in our CD pipeline such as a staging environment?”.</p>
+<p>Whereas deployment frequency is the number of times deployment happened, lead time for change is the cumulative lapsed time it took from start to deployment. This metric is represented as a duration and it helps answer the question “how long does it take to get from from code commit to production?”</p>
 
-<p><img src="../../../assets/images/blog/cd-metrics/deployment-frequency-concept-f47c6623.jpg" alt="deployment frequency concept" /></p>
+<p>You may see lead time used interchangeably with cycle time, and there is a lot of confusion around what these two terms mean. By definition, the lead time clock starts when the feature request is made and ends at delivery, while the cycle time clock starts when work begins on the request and ends when the item is ready for delivery. We are not going to distinguish these two terms in this post. We think the important thing is that you clearly define what you mean, and be consistent with your definition. In our context, we suggest avoid saying lead time or cycle time without qualifying the starting point and ending point.</p>
 
-<p>We consider production deployment as a significant point in the CD pipeline and we are counting the number of times a deployment to production happens versus not happening. In the example above, we have 8 instances or opportunities to deploy, with only  2 deployments happening, so the deployment frequency is 25%.</p>
+<p><img src="../../../assets/images/blog/cd-metrics/lead-time-diagram-a4a572a6.jpg" alt="Continuous Delivery Metrics Part 3: Lead Time Diagram" /></p>
 
-<h2 id="why-deployment-frequency-is-important">Why Deployment Frequency Is Important</h2>
+<p>In the diagram above, we calculate time from a commit (at the start of a CD pipeline) until when that code commit goes to production (at the end of the CD pipeline). Although other points in the CD pipeline have happened multiple times, it was only after three days that the deployment happened, so we calculate the lead time for that commit as three days.</p>
 
-<p>The word "continuous" in continuous delivery implies high deployment frequency. Having a high deployment frequency means that you have more deployments, and gives you more opportunities for feedback on your software. More importantly, higher deployment frequency means that you’re delivering value to end users and stakeholders more quickly.</p>
+<h2 id="why-lead-time-is-important"><strong>Why Lead Time is Important</strong></h2>
 
-<p>According to <a href="https://puppet.com/resources/whitepaper/2016-state-of-devops-report">the research done by the State of DevOps report team</a>, high functioning teams have higher deployment frequency as compared to their less efficient peers. It is good to baseline your deployment frequency and try to increase it as much as it makes sense, in the context of your organization’s business and goals.</p>
+<p>Lead time is a key element of lean theory. Focusing on reducing lead time will allow you to look at your process as a whole and understand the slowest parts. If teams and organizations only concentrated on lowering lead time they would improve and add more value to their organization.</p>
 
-<p>However, deployment frequency has to be balanced with quality. You don't want to increase deployment frequency by removing tests. You want to be able to deliver more often to production, while maintaining or even improving quality. That's what CD is about and what the deployment frequency metric captures.</p>
+<p>Lead time helps you answer questions like "When will this be done? If we start now when can we get it to production? Can we deliver this next week?"  It helps inform business decisions and helps with planning.</p>
 
-<h2 id="an-example-how-to-use-deployment-frequency">An Example: How to Use Deployment Frequency</h2>
+<p>Finally, we recommend only considering the “delivery” part when calculating lead time for your CD process. If you define the start time from first line of code, and remove the “fuzzy front-end”, which include activities like requirement gathering, system analysis, prioritization etc, it is a simple and very practical metric to calculate.</p>
 
-<p>If you are measuring your pipeline and have low deployment frequency, what can you do? We’ll take a hypothetical example, and use GoCD, our continuous delivery server, to take you through how you can identify and act on deployment frequency issues. In our example, the team received a complaint from the business that they don’t get value very often. Let’s find out why.</p>
+<h2 id="an-example-how-to-use-lead-time"><strong>An Example: How to Use Lead Time</strong></h2>
 
-<p><img src="../../../assets/images/blog/cd-metrics/cd-metrics-example-pipelines-11f24e33.png" alt="example pipelines" /></p>
+<p>We will continue with the hypothetical scenario we used in part 2 of the series, in this scenario, the development team received the complaint from their stakeholders that they didn’t get value very often.</p>
 
-<p>The picture above shows you the continuous delivery pipelines, represented in GoCD’s Value Stream Map (VSM). Here, GoCD runs through the value stream including some unit tests, then integration tests and smoke tests in parallel, and then eventually the regression tests. Finally, there are User Acceptance Tests (UAT) and a production deployment.</p>
+<p><img src="../../../assets/images/blog/cd-metrics/cd-metrics-example-pipelines-11f24e33.png" alt="Continuous Delivery Metrics Part 3: Lead Time Diagram" /></p>
 
-<p>To understand what is happening here, we start with finding out whether your deployment frequency is concerning. In our example, it’s easy to look this metric up in GoCD using the <a href="https://www.gocd.org/analytics.html">GoCD enterprise analytics plugin</a>: go to GoCD’s VSM view, select the part of the CD pipeline you care about, and see the deployment frequency (known as throughput in GoCD). We can see that the throughput is only 9%, which means out of the opportunities to deploy only 9% are reaching production. This number is too low.</p>
+<p>This picture above is a quick refresher of this team’s CD pipelines represented in GoCD’s Value Stream Map (VSM). It includes some unit tests, integration tests and smoke tests in parallel, and then the regression tests. At the end, there are User Acceptance Tests (UAT) and a production deployment.</p>
 
-<p><img src="../../../assets/images/blog/cd-metrics/throughput-gocd-3b8ad603.png" alt="deployment frequency in GoCD" /></p>
+<p>In the previous post, we have found out the deployment frequency is as low as 8%. Here, GoCD enterprise analytics plugin can help find out what parts of the CD pipeline are causing this low deployment frequency.</p>
 
-<p>These can also be tracked manually in a spreadsheet or other tool. If you note down the status each time <i>BuildAndUnitTests</i> ran, as well as the <i>production</i> pipeline ran, , you’ll see more failures on the way to the <i>production</i> part of the CD pipelines. In the table below, you can see when you track and plot the run times, in the same time period of five days, <i>BuildAndUnitTests</i> ran many more times than <i>Production</i>. Again, you see the deployment frequency is very low.</p>
+<p>In the screenshots below, you can see the average cycle time from BuildAndUnitTests to Production is 33m.</p>
 
-<p><img src="../../../assets/images/blog/cd-metrics/throughput-manual-feaec385.png" alt="deployment frequency in excel" /></p>
+<p><img src="../../../assets/images/blog/cd-metrics/average-cycle-time-8f93ba90.png" alt="Continuous Delivery Metrics Part 3: Lead Time Diagram" /></p>
 
-<p>The main signal here is clearly that the deployment frequency is low.  But why and how should we act on that?  There may be many reasons for this. We recommend checking the following potential causes:</p>
+<p>When you drill down into each pipeline, you can see these details with wait times (shown in gray), and run times (shown in purple) towards production with each stage shown separately. From there, you can identify your slowest steps.</p>
+
+<p><img src="../../../assets/images/blog/cd-metrics/lead-time-workflow-analytics-26c0182f.png" alt="Continuous Delivery Metrics Part 3: Lead Time Diagram" /></p>
+
+<p>This process can also be done manually, or with another tool. When you track the time and plot the different parts of the workflow, you can achieve similar results. The example below is a possible representation of the process, when done outside of GoCD. You can see there are some long-running parts of your pipeline (as in “Regression” here) and some long delays due to manual approvals.</p>
+
+<p><img src="../../../assets/images/blog/cd-metrics/manual-lead-time-30c8d15c.png" alt="Continuous Delivery Metrics Part 3: Lead Time" /></p>
+
+<p>As you can see from our example, with lead time metric and the supporting details, you can identify your problematic steps: steps that are slow to complete and require lots of wait time will lead to overall low deployment frequency. From here, we recommend</p>
 
 <ul>
-  <li>Is your build very slow? Is slowness and lack of feedback causing the development team to avoid  checking in often? Do the team respond by combining changes into bigger chunks and causing even longer delays?</li>
-  <li>Is your end-to-end lead time from commit to deployment too long?</li>
-  <li>Do you have builds that fail very often?</li>
-  <li>Do you have flaky tests? If tests are flaky consider understanding which ones are the biggest problem and <a href="https://gauge.org/2018/10/23/taiko-beta-reliable-browser-automation/">addressing the root cause</a>.</li>
-  <li>Are you <a href="http://gettingtolean.com/toyota-principle-5-build-culture-stopping-fix">stopping the line</a> to address other problems?</li>
-  <li>Do you have long-lived feature branches or pull-requests which are not merged often?. Very often we see the development team working hard on their branches, but the business won’t see that value until the changes are deployed.  If your problem is that you have work going on in long-lived branches, consider feature toggles and <a href="https://trunkbaseddevelopment.com/">trunk based development</a>.</li>
+  <li>focusing on the slowest steps first- that is what will give you the most gains.</li>
+  <li>converting manual approvals into automated ones, which will increase your level of confidence in the tests and automation.</li>
+  <li>Rewriting the tests in the slowest steps, if possible.</li>
 </ul>
 
-<h2 id="summary">Summary</h2>
+<p>Sometimes,  just focusing on optimizing a number of slow steps is not enough. Consider bigger changes to your pipelines. Start with drawing the value stream map and truly understanding the dependencies of your process. Identify opportunities to parallelize, rearrange your tests to start the slow-running tests earlier on in the process.</p>
 
-<p>In this post, we discussed what deployment frequency is, why it is important, and how to act on low deployment frequency. As we discussed in <a href="https://www.gocd.org/2018/10/30/measure-continuous-delivery-process/">our previous post</a>, there are three other important metrics we recommend measuring: lead time, change to fail percentage and MTTR. These metrics work closely with deployment frequency, and can will help you further understand the root cause of low deployment frequency. We we will cover the interrelationship of these metrics  in future posts.</p>
+<h2 id="summary"><strong>Summary</strong></h2>
 
+<p>In this post, we discussed what lead time is, why it is important, and how to act on long lead time. As we discussed in part 1, there are two other important metrics we recommend measuring: change fail percentage and MTTR. These metrics work closely with deployment frequency and lead time. We we will cover the interrelationship of these metrics in future posts.</p>
 
       </main>
     </div>
@@ -155,6 +161,11 @@
           <h2 class="section-title">Recent Articles</h2>
           <ol>
             <li>
+              <span class="post-date">Jan 14</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="cd-metrics-deployment-lead-time/">Continuous Delivery Metrics Part 3&#58; How long does it take to get from committing code to production?</a>
+            </li>
+            <li>
               <span class="post-date">Nov 30</span>
               <span class="post-author">Aravind S.V and Suzie Prince</span>
               <a href="../../../2018/11/30/deployment-frequency/">Continuous Delivery Metrics Part 2&#58; How often do you deploy to production?</a>
@@ -174,16 +185,12 @@
               <span class="post-author">Sheroy Marker</span>
               <a href="../../../2018/09/11/cd-microservices-remediation-strategy/">Remediation Strategy for Continuous Delivery of Microservices</a>
             </li>
-            <li>
-              <span class="post-date">Aug 21</span>
-              <span class="post-author">Ken Mugrage</span>
-              <a href="../../../2018/08/21/replacing-gocd-with-gocd/">Replacing GoCD with GoCD</a>
-            </li>
           </ol>
         </section>
         <section>
           <h2 class="section-title">By Year</h2>
           <ol>
+            <li><a href="../../">2019 (1)</a></li>
             <li><a href="../../../2018/">2018 (17)</a></li>
             <li><a href="../../../2017/">2017 (39)</a></li>
             <li><a href="../../../2016/">2016 (8)</a></li>
@@ -202,7 +209,7 @@
       <script>
         var disqus_config = function () {
           /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2019/01/09/cd-metrics-deployment-lead-time.html";
+          this.page.url = "https://www.go.cd/2019/01/14/cd-metrics-deployment-lead-time.html";
           this.page.identifier = this.page.url;
           this.shortname = 'gocdblog';
         };

@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2019-01-09T00:00:00Z</updated>
+  <updated>2019-01-14T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Continuous Delivery Metrics Part 3&amp;#58; How long does it take to get from committing code to production?</title>
+    <link rel="alternate" href="https://www.gocd.org/2019/01/14/cd-metrics-deployment-lead-time.html"/>
+    <id>https://www.gocd.org/2019/01/14/cd-metrics-deployment-lead-time.html</id>
+    <published>2019-01-14T00:00:00Z</published>
+    <updated>2019-01-14T00:00:00Z</updated>
+    <author>
+      <name>Aravind S.V and Suzie Prince</name>
+    </author>
+    <content type="html">This is the third post in the series - Actionable Continuous Delivery Metrics. Here we'll analyze lead time, the duration of time it takes to deployment</content>
+  </entry>
   <entry>
     <title>Continuous Delivery Metrics Part 2&amp;#58; How often do you deploy to production?</title>
     <link rel="alternate" href="https://www.gocd.org/2018/11/30/deployment-frequency.html"/>
@@ -107,16 +118,5 @@
       <name>Sheroy Marker</name>
     </author>
     <content type="html">In this post, we'll look at environment strategy including artifact promotion and leveraging modern infrastructure for dynamic environments.</content>
-  </entry>
-  <entry>
-    <title>Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/05/30/ci-microservices-feature-toggles-trunk-based-development.html"/>
-    <id>https://www.gocd.org/2018/05/30/ci-microservices-feature-toggles-trunk-based-development.html</id>
-    <published>2018-05-30T00:00:00Z</published>
-    <updated>2018-05-30T00:00:00Z</updated>
-    <author>
-      <name>Sheroy Marker</name>
-    </author>
-    <content type="html">Getting deeper into CD practices, we'll cover continuous integration, feature toggles, and the importance of trunk based development</content>
   </entry>
 </feed>
