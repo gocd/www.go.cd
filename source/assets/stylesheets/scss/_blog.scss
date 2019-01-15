@@ -333,6 +333,8 @@
     img {
       transform: scale(1);
       transition: all 0.3s ease-in-out;
+      height: 100%;
+      width: 100%;
     }
 
   }
@@ -407,7 +409,7 @@
   margin-bottom: 15px;
 
   @media (min-width:$screen-tablet) {
-    margin-bottom: 30px;
+    margin: 50px auto 30px;
   }
 
   figure {
@@ -493,14 +495,14 @@
     left: 10px;
     position: absolute;
     width: 6px;
-    top: 10px;
+    top: 6px;
   }
 
   &:after {
     background: #fff;
-    border-bottom: 13px solid transparent;
+    border-bottom: 10px solid transparent;
     border-left: 10px solid #ccc;
-    border-top: 13px solid transparent;
+    border-top: 10px solid transparent;
     content: '';
     position: absolute;
     right: 0;

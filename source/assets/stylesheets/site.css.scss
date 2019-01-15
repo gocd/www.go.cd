@@ -56,4 +56,13 @@
 @import "scss/cloud";
 @import "scss/marketo-overrides";
 @import "scss/gocd-demo";
+@import "scss/pipeline_conf";
 @import "chocolate_override";
+
+
+// Components
+@import "components/typography";
+@import "components/banner-component";
+@import "components/button";
+@import "components/card";
+

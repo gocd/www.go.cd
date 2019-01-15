@@ -1,0 +1,75 @@
+/*doc
+---
+title: card Component
+name: card-component
+category: index
+---
+
+Style for Card Component
+
+```html_example
+  <div class="container cards-container">
+    <div class="card">
+      <img src="http://via.placeholder.com/200" class="card_img" alt="card-img" />
+      <h2 class="card_heading"> Native Kubernetes Integration </h2>
+
+      <p class="card_desc">
+        GoCD gives you the flexibility to effectively represent CD pipelines that model your organization’s processes.
+        Kubernetes gives you a highly programmable delivery infrastructure platform. Together they provide the premiere
+        continuous delivery tool on modern infrastructure.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="http://via.placeholder.com/200" class="card_img" alt="card-img"/>
+      <h2 class="card_heading"> Elastic Agents </h2>
+
+      <p class="card_desc">
+        Elastic Agents, also known as on-demand agents, are the worker bees of GoCD. Scale them up and shut them down
+        as needed, giving you both flexibility and cost savings. We provide elastic agents for Docker, K8s, AWs and
+        other popular cloud providers.
+      </p>
+    </div>
+  </div>
+```
+*/
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+}
+
+.card {
+  width: 100%;
+  padding: 10px;
+  margin: 0px auto 40px;
+
+  @media (min-width: $screen-md) {
+    width: 50%;
+    padding: 30px;
+  }
+}
+
+.card_img {
+  display: block;
+  margin: 20px auto 20px;
+  height: 200px;
+  width: auto;
+}
+
+.card_heading {
+  text-align: center;
+  margin: 10px 0 20px;
+}
+
+.card_desc {
+  text-align: left;
+  padding: 0px 20px;
+  font-size: 20px;
+
+  @media (min-width: $screen-lg) {
+    padding: 0px 55px;
+  }
+  
+}

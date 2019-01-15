@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %> <% if title != '' %>&ndash;<% end %> <%= @config['global_title'] %></title>
+    <% if @config['css_include'].to_s.strip.length != 0 %>
+      <% @config['css_include'].each do |css| %>
+        <link rel="stylesheet" href="<%= css %>" />
+      <% end %>
+    <% end %>
+</head>
+
+  <body class="inner">  
+    <div class="top">
+      <div class="container">
+        <h1><%= @config['global_title'] %></h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="container-content">
+        <% unless @blocks.length == 0 %>
+          <div class="hgt-column one-fourth">
+            <nav class="hgt-menu">
+              <% @blocks.each do |block| %>
+                <% if not block[:parent] %>
+                  <a href="#<%= block[:name] %>" class="hgt-menu-item"><%= block[:title] %></a>
+                <% end %>
+              <% end %>
+            </nav>
+          </div>
+        <% end %>
+
+        <div class="container hgt-column three-fourths">
+          <div class="hgt-content">

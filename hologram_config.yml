@@ -1,0 +1,34 @@
+# Relative path(s) to your source files
+source: ./source/assets/stylesheets/components/
+
+# Relative path where you want the documentation to be built
+destination: ./source/styleguide/
+
+# The path that contains supporting assets for the documentation page
+documentation_assets: ./doc_assets
+
+# Category that will be used as the index.html (optional)
+index: styleguide
+
+# A list of relative paths to folders containing any dependencies to copy
+dependencies:
+  - 'build'
+# The CSS files to be included in the styleguide
+css_include:
+  - '/assets/vendor/stylesheets/github.css'
+  - '/assets/vendor/stylesheets/doc.css'
+  - '/assets/vendor/stylesheets/hgt-syntax.css'
+  - '/assets/vendor/stylesheets/hgt.css'
+  - '/assets/stylesheets/site.css'
+
+# The JavaScript files to included in the styleguide
+js_include:
+  - '/assets/javascripts/site.js'
+
+# The global title that is displayed at the top of the pages
+global_title: Styleguide
+
+
+
+
+
