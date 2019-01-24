@@ -1,62 +1,102 @@
-<h4>Manage Config Repositories through UI</h4>
+<h4>Improved Pipeline as Code experience.</h4>
 
-We have added a new Config Repositories page. This page lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page has the ability to show errors and allows users to force a check of the repository.
+* Continuing on the road towards improving GoCD's pipelines as code / config repositories experience, this release introduces the ability to export a GoCD pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). You can then check in these pipeline definitions to a repository and remove them from GoCD's config.
 
-  <figure class='shrink-figure-100'>
-    <%= image_tag 'releases/18.12.0/config_repo.png', alt: 'Config Repositories Page' %>
-  </figure>
-  <br/>
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.1.0/pipeline-export.gif', alt: 'Pipeline Export Feature' %>
+</figure>
+<br/>
+
+* <%= link_to_commit '45aab5e40d991f427cfb35a10463be3e9d58193b', 'Show validation errors on config repo SPA', 5711 %>
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.1.0/config-spa-error.png', alt: 'Pipeline Export Feature' %>
+</figure>
+<br/>
+
+* <%= link_to_commit '6c889299b130b13a86eebb652b10cba52ffde438', 'Performance improvement to loading multiple Config Repos on server restart.', 5663 %>
+
+<h4> GoCD Drain State (Maintenance mode) </h4>
+
+Drain mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up. Initiating drain mode will cause various sub-systems of GoCD to stop working making sure server is not performing any operation.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.1.0/drain-mode.gif', alt: 'Pipeline Export Feature' %>
+</figure>
+<br/>
+
+To know more about about GoCD Drain Mode click [here](https://docs.gocd.org/19.1.0/advanced_usage/drain_mode.html).
 
 <h4>UI/UX Improvements</h4>
 
-  **The Elastic profiles page now provides the ability to view jobs configured for an elastic profile.**
+* The Users Summary page is now renamed to Users Management and has been updated with a new UI. System Administrators can now filter users using User Roles, state and privileges.
 
-  <figure class='shrink-figure-70'>
-    <%= image_tag 'releases/18.12.0/elastic_profile_jobs.png', alt: 'Elastic Profile List Jobs' %>
-  </figure>
-  <br/>
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.1.0/user-filter.png', alt: 'Pipeline Export Feature' %>
+</figure>
+<br/>
 
-  **Admin Menu has been improved for better accessibility.**
+* Admins can now search for users on the Users Management page.
 
-  <figure class='shrink-figure-70'>
-    <%= image_tag 'releases/18.12.0/admin_menu.png', alt: 'Admin Menu' %>
-  </figure>
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.1.0/user-search.png', alt: 'Pipeline Export Feature' %>
+</figure>
+<br/>
 
-<h4>Other Improvements</h4>
-  * <%= link_to_commit '0a15ede4941e83916cdf7a50c34f25bba184dd27', 'Performance improvement to loading multiple Config Repos on server restart.', 5010 %>
-  * <%= link_to_commit 'df76be9984cf43d337791497c6dad57bd9c1a043', 'GoCD Admins can now configure the server to set HSTS header as part of HTTP response.', 5557 %> Refer [docs](https://docs.gocd.org/18.12.0/installation/ssl_tls/configuring_hsts_header.html) for configuring the header.
-  
+* Delegating GoCD System Administrator Privileges to a user is now made simple and can be controlled by the System Admin toggle for each user.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.1.0/admin-toggle.png', alt: 'Pipeline Export Feature' %>
+</figure>
+<br/>
+
 <h4>API Improvements</h4>
 
-  * Introduce <%= link_to_versioned_api('18.12.0', 'dashboard', 'V2 of Dashboard API') %>.
+* Introduce <%= link_to_versioned_api('19.1.0', 'get-stage-instance', 'V1 of Stage Instance API') %>.
+* Introduce <%= link_to_versioned_api('19.1.0', 'system-admins', 'V2 of System Admins API') %>.
+* Introduce <%= link_to_versioned_api('19.1.0', 'roles', 'V2 of Roles API') %>.
+* Introduce <%= link_to_versioned_api('19.1.0', 'users', 'V3 of Users API') %>.
 
+<h4>Plugin API improvements</h4>
 
+* <%= link_to_commit 'b851373603cbe93b95f69a23597caecb61f0e22', 'Adding Server version information in v2 ServerInfoProcessor', 5686%>
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_commit 'd6f7b49cfb2231a5e94e35c93ee84bae76de0d1c', 'Allow user to override server keystore password using system environment.', 5592 %>
+* <%= link_to_commit '51919ab43ad8a5bf14147e092b1917e3acb34afb', 'Set extra properties for the agent, from server.', 5666 %>
+* <%= link_to_commit '143054f55270911d2a87433d5ac3a2e3dbad765e', 'Plugin Info request processor versioning.', 5654 %>
+* <%= link_to_commit '792ae6134c0e1e0572835b1888d32ac66b08cdfd', 'Show cancelled by on the dashboard on hovering over a stage.', 5683 %>
+    
 <h4>Bug fixes</h4>
 
-  * <%= link_to_commit 'cb9ab57a3069b04b6f688cc7bbe72598db6f1d70', 'Fixed an issue where the first personalization tab showed all pipelines on page load.', 5512 %>
-  * <%= link_to_commit 'bbeebad6c03497cf3f5bf0bcddbe13bbc08a11c8', 'Fix for email notification not sent on job cancellation due to timeout.', 5370 %>
-  * <%= link_to_commit '0efb7d007d06e92279ff578947d807bb059867df', 'Allow javascript to be executed in the plugin settings modal.', 4797 %>
-  * <%= link_to_commit 'b00b026bfead77e2a42d690add07a596451e556f', 'Fixed links pointing to pipeline dependency graph.', 5535 %>
-
-<h4>Installer Changes</h4>
-
-  * OSX installers are now bundled with adoptopenjdk JRE 8, commit <%= link_to_commit '6814d48cf7f5e7da3353cbeb6abdad18d5be7519', 'fixes an issue with Server and Agent not working on JRE >=9.', 3934 %>
-
-  * Support for Java 11 was introduced in 18.10.0. Windows installers have been changed to bundle with OpenJDK 11.
+* <%= link_to_commit '9a1eaf337689b327f694fbbfe15b455d2b78b259', 'Do not remove MaterialHealthStateScope for config repo materials.', 5651 %>
+* <%= link_to_commit '773b68d761123811874ce7858243a957667c66d4', 'Fix for header issue on edit pipeline.', 5596 %>
+* <%= link_to_commit 'e6fd8f7eac0bb7763a83b4e8bc9ad5ee7ec033b7', 'Show error on delete when artifact store is referred in pipelines.', 5634 %>
+* <%= link_to_commit '90e25238aa9bd88e2105d30525f6e0ca4c51b0e6', 'Plugin settings modal show save failure error.', 5645 %>
+* <%= link_to_commit 'ee08190d044c48238aa2342f9a08ae422fa632b5', 'Decrease z-index to make admin menu render on top of console controls.', 5659 %>
+* <%= link_to_commit 'a9812de9a8c8a15e903e46f953ae4f3e8f1fc866', 'Toggle TFS workspace location on agent.', 5427 %>
+* <%= link_to_commit 'c647a9667fad35944f35bddf39b7a40e1e28af80', 'Artifact store delete message was not visible on error.'%>
+* <%= link_to_commit '70f9448f93c24a2f823c3e1095b205e689b60cef', 'Updated clone auth config message to use newly created auth config id.'%>
 
 <h4>Deprecations</h4>
 
-   * With the introduction of AES for encryption/decryption in release 18.7.0, we are deprecating support for DES. Support for DES is retained to support DES cipher-texts configured in config-repos and will be available till the last release of GoCD for the year 2018. The <%= link_to_versioned_api '18.8.0', 'encryption', 'Encryption API' %> is updated to return a AES cipher-text, users are encouraged to update their DES cipher-texts in config-repos using this API.
-   * The elastic agent plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
-   * The notification plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.
-   * The analytics plugin extension version 1 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.
-   * The Dashboard API v1 has been deprecated in this release. This version of the API will be removed in a release scheduled for March 2019. Version 2 of the API is available, and users are encouraged to use it.
+* The elastic agent plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
+* The notification plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.
+* The analytics plugin extension version 1 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.
+* The Get Server Info processor version 1 has been deprecated. This version will be removed in a release scheduled for April 2019. Plugin developers should use version 2 of the Get Server Info processor.
+* The Dashboard API v1 has been deprecated. This version of the API will be removed in a release scheduled for March 2019. Version 2 of the API is available, and users are encouraged to use it.
+* Unversioned Get Stage Instance API has been deprecated in favor of Get Stage Instance API v1. This version will be removed in a release scheduled for April 2019.
+* The Users API v2 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 3 of the API is available, and users are encouraged to use it.
+* The System Admins API v1 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 2 of the API is available, and users are encouraged to use it.
+* The Roles API v1 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 2 of the API is available, and users are encouraged to use it.
+
 
 
 <h4>Breaking Changes</h4>
 
-  * Windows installers are now bundled with OpenJDK 11. In absence of 32 bit JDK distributions from OpenJDK we have stopped providing 32 bit windows installers from this release.
-  * With this release there will be limited support for IE11. Visual bugs can be expected on this browser.
+* <%= link_to_commit 'f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c' , 'Remove the pipeline config spa.' %>
+* <%= link_to_commit '74e4e3c8a26b2b52141de4cc71f438f305100d52' , 'Remove support for DES.', 5646 %>
 
 
 <h4>Contributors</h4>
@@ -94,10 +134,9 @@ We have added a new Config Repositories page. This page lists existing config re
 ].sort.uniq.join(', ')
 %>
 
-
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 18.12' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.1' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
