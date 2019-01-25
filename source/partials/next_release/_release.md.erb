@@ -10,52 +10,51 @@
 * <%= link_to_commit '45aab5e40d991f427cfb35a10463be3e9d58193b', 'Show validation errors on config repo SPA', 5711 %>
 
 <figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.1.0/config-spa-error.png', alt: 'Pipeline Export Feature' %>
+    <%= image_tag 'releases/19.1.0/config-spa-error.png', alt: 'Config SPA Error' %>
 </figure>
 <br/>
 
 * <%= link_to_commit '6c889299b130b13a86eebb652b10cba52ffde438', 'Performance improvement to loading multiple Config Repos on server restart.', 5663 %>
 
-<h4> GoCD Drain State (Maintenance mode) </h4>
+<h4> GoCD Drain Mode (Maintenance mode) </h4>
 
 Drain mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up. Initiating drain mode will cause various sub-systems of GoCD to stop working making sure server is not performing any operation.
 
 <figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.1.0/drain-mode.gif', alt: 'Pipeline Export Feature' %>
+    <%= image_tag 'releases/19.1.0/drain-mode.gif', alt: 'Drain Mode Feature' %>
 </figure>
 <br/>
 
 To know more about about GoCD Drain Mode click [here](https://docs.gocd.org/19.1.0/advanced_usage/drain_mode.html).
 
-<h4>UI/UX Improvements</h4>
-
-* The Users Summary page is now renamed to Users Management and has been updated with a new UI. System Administrators can now filter users using User Roles, state and privileges.
+<h4>New Users Management Page (beta) </h4>
 
 <figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.1.0/user-filter.png', alt: 'Pipeline Export Feature' %>
+    <%= image_tag 'releases/19.1.0/users_management.png', alt: 'New Users Management UI' %>
 </figure>
 <br/>
 
-* Admins can now search for users on the Users Management page.
+* This release of GoCD ships with a 'preview' version of the new users management page.
 
-<figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.1.0/user-search.png', alt: 'Pipeline Export Feature' %>
-</figure>
-<br/>
+This feature can be turned on by executing:
 
-* Delegating GoCD System Administrator Privileges to a user is now made simple and can be controlled by the System Admin toggle for each user.
+    curl https://your-go-server/go/api/admin/feature_toggles/users_page_using_rails' \
+      -d toggle_value=off \
+      -H 'Confirm:true' \
+      -u username:password
 
-<figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.1.0/admin-toggle.png', alt: 'Pipeline Export Feature' %>
-</figure>
-<br/>
+The new and improved UI will help admins
+
+* Search for users from the users management page
+* Filter users based on their roles, privileges and state.
+* Improved UX for adding and removing GoCD System Administrators.
 
 <h4>API Improvements</h4>
 
-* Introduce <%= link_to_versioned_api('19.1.0', 'get-stage-instance', 'V1 of Stage Instance API') %>.
-* Introduce <%= link_to_versioned_api('19.1.0', 'system-admins', 'V2 of System Admins API') %>.
-* Introduce <%= link_to_versioned_api('19.1.0', 'roles', 'V2 of Roles API') %>.
-* Introduce <%= link_to_versioned_api('19.1.0', 'users', 'V3 of Users API') %>.
+* <%= link_to_pull_request 5619, "Introduce v1 of #{link_to_api 'get-stage-instance', 'Stage Instance'}." %>
+* <%= link_to_issue   5665, "Introduced v2 of  #{link_to_api 'roles', 'Roles'}." %>
+* <%= link_to_pull_request 5661, "Introduce v2 of #{link_to_api 'system-admins', 'System Admins'}." %>
+* <%= link_to_issue   5558, "Introduced v3 of  #{link_to_api 'users', 'Users'}." %>
 
 <h4>Plugin API improvements</h4>
 
@@ -67,6 +66,8 @@ To know more about about GoCD Drain Mode click [here](https://docs.gocd.org/19.1
 * <%= link_to_commit '51919ab43ad8a5bf14147e092b1917e3acb34afb', 'Set extra properties for the agent, from server.', 5666 %>
 * <%= link_to_commit '143054f55270911d2a87433d5ac3a2e3dbad765e', 'Plugin Info request processor versioning.', 5654 %>
 * <%= link_to_commit '792ae6134c0e1e0572835b1888d32ac66b08cdfd', 'Show cancelled by on the dashboard on hovering over a stage.', 5683 %>
+* <%= link_to_commit 'a06b4970c582d2379b30c35a2ecc3a347d5a66d3', 'Improved performance of Envrionments API.', 5698 %>
+
     
 <h4>Bug fixes</h4>
 
@@ -90,13 +91,12 @@ To know more about about GoCD Drain Mode click [here](https://docs.gocd.org/19.1
 * The Users API v2 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 3 of the API is available, and users are encouraged to use it.
 * The System Admins API v1 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 2 of the API is available, and users are encouraged to use it.
 * The Roles API v1 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 2 of the API is available, and users are encouraged to use it.
-
-
+* The Ubuntu 14.04 based docker image for gocd agent has been deprecated and will not be built after April 2019 release of GoCD. This will be done as Ubuntu 14.04 will reach end-of-life in April 2018.
 
 <h4>Breaking Changes</h4>
 
-* <%= link_to_commit 'f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c' , 'Remove the pipeline config spa.' %>
-* <%= link_to_commit '74e4e3c8a26b2b52141de4cc71f438f305100d52' , 'Remove support for DES.', 5646 %>
+* <%= link_to_commit 'f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c' , 'Remove the pipeline quick edit spa.' %>
+* <%= link_to_commit '74e4e3c8a26b2b52141de4cc71f438f305100d52' , 'Support for DES was deprecated as part of [18.7.0 release](https://www.gocd.org/releases/#18-7-0) in favor of AES.The support for DES is removed as part of this release. Users who have defined encrypted values in their configuration repositories should update them to use AES encryption', 5646 %>
 
 
 <h4>Contributors</h4>
@@ -106,9 +106,9 @@ To know more about about GoCD Drain Mode click [here](https://docs.gocd.org/19.1
   "Akshay Dewan",
   "Ankit Srivastava",
   "Aravind SV",
-  "Armin G Jazi",
   "Bhupendrakumar Piprava",
   "Chandrakanth Nagaraj",
+  "Eric Cheung",
   "Ganesh S Patil",
   "Huimin Li",
   "Isabelle Carter",
@@ -121,11 +121,13 @@ To know more about about GoCD Drain Mode click [here](https://docs.gocd.org/19.1
   "Lubaina R",
   "Mahesh Panchaksharaiah",
   "Marques Lee",
+  "Mansi Shah",
   "Naveen Bhaskar",
-  "Pranav Bansod",
+  "Prateek Baheti",
   "Rahul Pargaonkar",
   "Rajiesh N",
-  "Sana Jahan",
+  "Sanjana Bayya",
+  "Sheroy Marker",  
   "Steven Streisguth",
   "Tomasz Setkowski",
   "Varsha Varadarajan",
