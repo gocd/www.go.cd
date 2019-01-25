@@ -1,0 +1,117 @@
+/*doc
+---
+title: Cornered Banner
+name: cornered-banner
+category: index
+---
+
+Style for Cornered Banner Component
+
+```html_example
+  <div class="cornered-banner">
+      <p class="cornered-banner_conent">
+        Free GoCD Analytics trial is available
+      </p>
+
+      <a href="#" class="cornered-banner_cta">
+          SIGN UP
+      </a>
+
+    </div>
+    
+```
+*/
+
+.cornered-banner {
+  width: 280px;
+  height: 138px;
+  border: 1px solid $secondary-color;
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 35px auto;
+  border-radius: 2px;
+  padding: 20px;
+
+  &::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: -25px;
+    left: -25px;
+    background: #fff;
+    border-top: 1px solid $secondary-color;
+    transform: rotateZ(45deg);
+    border-radius: 2px;
+  }
+
+  @media (min-width: $screen-md) {
+    width: 720px;
+    height: 75px;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: 766px;
+    height: 75px;
+  }
+  
+}
+
+.cornered-banner_conent {
+  width: 100%;
+  font-size: 18px;
+  font-family: 'URWGeometric-SemiBold';
+  text-align: center;
+  margin: 0 auto;
+
+  @media (min-width: $screen-md) {
+    width: 70%;
+    font-size: 20px;
+  }
+  
+}
+
+.cornered-banner_cta {
+  width: 182px;
+  height: 30px;
+  line-height: 35px;
+  font-family: 'URWGeometric-SemiBold';
+  text-align: center;
+  background: $secondary-color;
+  border-radius: 5px;
+  color: #000;
+  transition: all 0.25s;
+  margin: 0 auto;
+
+  &:active {
+    background: #36b1bf;
+    color: #FFFFFF;
+    outline: 0;
+    color: $dark;
+  }
+    
+  &:hover {
+    opacity: 0.8;
+    outline: 0;
+    color: $dark;
+  }
+
+  &:focus {
+    outline: 0;
+    color: $dark;
+  }
+
+  @media (min-width: $screen-md) {
+    width: 159px;
+    height: 30px;
+    line-height: 35px;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: 208px;
+    height: 37px;
+    line-height: 40px;
+  }
+}
