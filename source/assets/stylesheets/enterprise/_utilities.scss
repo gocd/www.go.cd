@@ -221,11 +221,42 @@
 .mobile-border {
     background-color: $mobile-border-color;
     display: none;
-    margin: 50px auto;
-    height: 3px;
+    margin: 40px auto;
+    height: 2px;
     width: 90%;
     @media (max-width: $screen-md) {
         display: block;
+        margin: 20px auto 40px auto;
+    }
+}
+
+.addons-highlight-border-top {
+    background-color: $mobile-border-color;
+    margin: 20px auto;
+    height: 2px;
+    width: 100%;
+    @media (max-width: $screen-md) {
+        // background-color: green;
+        display: block;
+        width: 94%;
+        margin: 20px auto 40px auto;
+    }
+}
+
+.addons-highlight-border-bottom {
+    background-color: $mobile-border-color;
+    margin: 20px auto;
+    height: 2px;
+    width: 100%;
+    @media (max-width: $screen-md) {
+      display: none;
+    }
+}
+
+.addons-highlight {
+  font-family: $default-font-normal-bold;
+  @media (max-width: $screen-md) {
+    font-size: 20px;
     }
 }
 
