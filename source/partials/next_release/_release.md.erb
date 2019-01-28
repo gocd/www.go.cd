@@ -1,13 +1,13 @@
-<h4> GoCD Drain Mode (Maintenance mode) </h4>
+<h4> GoCD Maintenance mode </h4>
 
-Drain mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up. Initiating drain mode will cause various sub-systems of GoCD to stop working making sure server is not performing any operation.
+GoCD maintenance mode can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up. Initiating maintenance mode will cause various sub-systems of GoCD to stop working making sure server is not performing any operation.
 
 <figure class='shrink-figure-100'>
     <%= image_tag 'releases/19.1.0/drain-mode.gif', alt: 'Drain Mode Feature' %>
 </figure>
 <br/>
 
-To know more about about GoCD Drain Mode click [here](https://docs.gocd.org/19.1.0/advanced_usage/drain_mode.html).
+To know more about about GoCD Maintenance Mode click [here](https://docs.gocd.org/19.1.0/advanced_usage/drain_mode.html).
 
 <h4>Improved Pipeline as Code experience.</h4>
 
@@ -29,29 +29,6 @@ Continuing on the road towards improving GoCD's pipelines as code / config repos
 
 
 * <%= link_to_commit '6c889299b130b13a86eebb652b10cba52ffde438', 'Performance improvement to loading multiple Config Repos on server restart.', 5663 %>
-
-
-<h4>New Users Management Page (beta) </h4>
-
-<figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.1.0/users_management.png', alt: 'New Users Management UI' %>
-</figure>
-<br/>
-
-This release of GoCD ships with a 'preview' version of the new users management page.
-
-This feature can be turned on by executing:
-
-    curl 'https://your-go-server/go/api/admin/feature_toggles/users_page_using_rails' \
-      -d toggle_value=off \
-      -H 'Confirm:true' \
-      -u username:password
-
-The new and improved UI will help admins
-
-* Search for users from the users management page
-* Filter users based on their roles, privileges and state.
-* Improved UX for adding and removing GoCD System Administrators.
 
 <h4>API Improvements</h4>
 
