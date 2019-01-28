@@ -31,7 +31,6 @@ Style for Cornered Banner Component
   display: flex;
   flex-wrap: wrap;
   margin: 35px auto;
-  border-radius: 2px;
   padding: 20px;
 
   &::after{
@@ -63,12 +62,13 @@ Style for Cornered Banner Component
   width: 100%;
   font-size: 18px;
   font-family: 'URWGeometric-SemiBold';
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
 
   @media (min-width: $screen-md) {
-    width: 70%;
+    width: 55%;
     font-size: 20px;
+    margin: 0 50px;
   }
   
 }
@@ -80,7 +80,7 @@ Style for Cornered Banner Component
   font-family: 'URWGeometric-SemiBold';
   text-align: center;
   background: $secondary-color;
-  border-radius: 5px;
+  border-radius: 2px;
   color: #000;
   transition: all 0.25s;
   margin: 0 auto;
