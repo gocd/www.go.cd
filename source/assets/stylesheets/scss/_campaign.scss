@@ -43,13 +43,20 @@
 }
 
 .campaign-btn-download {
-    width: 100%;
+    width: auto;
     padding: 15px;
     font-size: 20px;
     margin-top: 30px;
     @media (min-width: $screen-tablet) {}
     @media (min-width:$screen-desktop) {}
     @media (min-width:$screen-lg-desktop) {}
+}
+
+.campaign-btn-download_lg {
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 30px;
 }
 
 h2.campaign-feature-title {
