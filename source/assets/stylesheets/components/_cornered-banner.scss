@@ -62,14 +62,14 @@ Style for Cornered Banner Component
   width: 100%;
   font-size: 18px;
   font-family: 'URWGeometric-SemiBold';
-  text-align: left;
+  text-align: center;
   margin: 0 auto;
 
   @media (min-width: $screen-md) {
     width: 55%;
     font-size: 20px;
     margin: 0 50px;
-    text-align: center;
+    text-align: left;
   }
   
 }
