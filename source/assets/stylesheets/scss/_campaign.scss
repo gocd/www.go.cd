@@ -186,6 +186,7 @@ h1.main-caption {
     .main-desc {
         text-align: left;
     }
+
     .main-features {
         padding: 0;
         @media (min-width: $screen-tablet) {
@@ -195,11 +196,13 @@ h1.main-caption {
             padding: 50px 0 30px;
         }
     }
+
     .campaign-body {
         p {
             margin-bottom: 30px;
         }
     }
+
     .campaign-btn-download {
         width: 240px;
         display: block;
@@ -208,6 +211,7 @@ h1.main-caption {
             width: 30%;
         }
     }
+
     .feature-box {
         padding: 20px;
         @media (min-width: $screen-md) {
@@ -238,15 +242,37 @@ h1.main-caption {
 
 //CD101
 .cd101 {
+    .full-w_item{
+        width: 100%;
+    }
+
     h1 {
         text-align: center;
-        font-size: 3em;
+        margin: 50px 0;
+        font-size: 2.5em;
     }
     .content_cd101 {
         margin-bottom: 2em;
     }
     .cta {
         margin-bottom: 4em;
+        text-align: center;
+    }
+
+    .cta-mobile {
+        display: block;
+
+        @media (min-width: $screen-md) {
+            display: none;
+        }
+    }
+
+    .cta-desktop {
+        display: none;
+
+        @media (min-width: $screen-md) {
+            display: block;
+        }
     }
 }
 
