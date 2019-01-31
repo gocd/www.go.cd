@@ -30,6 +30,15 @@
   contact_url: https://www.gocd.org/enterprise/pricing/
   paid: true
 
+- name: Microsoft Azure Elastic Agent
+  description: GoCD Elastic Agent Plugin for bringing up GoCD agents on Microsoft Azure virtual machines.
+  readmore_url: https://www.gocd.org/enterprise/addons/
+  author_url: https://www.thoughtworks.com/products/
+  author_name: ThoughtWorks Inc.
+  contact_url: https://www.gocd.org/enterprise/pricing/
+  paid: true
+
+
 - name: LDAP/AD Authorization Plugin
   description: GoCD LDAP/AD Plugin provides authentication and authorization services
   readmore_url: https://www.gocd.org/enterprise/addons/
