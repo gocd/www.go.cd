@@ -1,87 +1,153 @@
-.why-gocd {
-  .go {
-    text-transform: none;
+.why-GoCD {
+  margin: 150px auto 100px;
+}
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.header-container_image {
+  width: 100%;
+  height: auto;
+  margin: 0px auto 40px;
+
+  @media(min-width: $screen-md) {
+    width: 48%;
+    margin: 0 auto;
   }
 
-  .go-features {
-    .row {
-      @media (min-width:$screen-tablet) {
-        padding: 50px 0;
-      }
-
-    }
-
-    figure {
-      text-align: center;
-
-      img {
-        width: 180px;
-        max-height: 200px;
-
-        @media (min-width:$screen-tablet) {
-          width: auto;
-        }
-
-      }
-
-    }
-
-    
-
-
-    hr {
-      border-top: 1px dashed #ccc;
-      position: relative;
-      clear: both;
-
-      @media (min-width:$screen-tablet) {
-        top: 48px;
-      }
-
-    }
-
+  img {
+    display: block;
+    margin: 0 auto;
   }
 }
 
-.features__title {
-      font-weight: 300;
-      font-size: 22px;
-      margin-bottom: 20px;
-      text-align: center;
-
-      @media (min-width:$screen-tablet) {
-        font-size: 30px;
-        text-align: left;
-      }
-    }
-
-.screenshots{
-  .features__title{
-    margin-bottom: 30px;
-    @media (min-width:$screen-tablet) {
-        font-size: 30px;
-        text-align: center;
-      }
+.header-container_description {
+  width: 100%;
+  padding: 0 30px; 
+  text-align: center;
+  @media(min-width: $screen-md) {
+    width: 48%;
+    text-align: left;
   }
-  figure{
-    a{
-      border-radius:10px;
-        border:3px solid #fff;
-        display: block;
-      &:hover{
-      border:3px solid #4AD9D9;
-      }
-    }
-    img{
-      display:block;
-      border-radius:5px;
-    }
-    h5{
+}
 
-      font-size: 16px;
-      text-transform: uppercase;
-      margin:20px 0 50px 0;
-    }
+.description_text {
+  font-size: 18px;
+  font-family: 'URWGeometric-Medium';
+  text-align: center;
+  margin-bottom: 60px;
+  @media(min-width: $screen-md) { 
+    text-align: left;
+  }
+  @media(min-width: $screen-lg) { 
+    font-size: 24px;
+  }
+}
+
+.display_desktop {
+  display: none;
+  @media (min-width: $screen-lg){
+    display: block;
+  }
+}
+
+.display_mobile {
+  display: block;
+  width: 221px;
+  height: 47px;
+  margin: 0 auto 50px;
+  font-size: 14px;
+
+  @media (min-width: $screen-lg){
+    display: none;
+  }
+}
+
+.feauters {
+  margin: 50px auto 0;
+  @media (min-width: $screen-lg) {
+    margin: 100px auto 0;
+  }
+  
+}
+
+.row-card_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.row-card_item {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  @media(min-width: $screen-md) {
+    margin: 50px auto 0;
+  }
+  
+  @media(min-width: $screen-lg) {
+    width: 50%;
+  }
+}
+
+.card-item_icon {
+  display: none;
+  @media (min-width: $screen-md) {
+    width: 96px;
+    height: 96px;
+    display: block;
   }
 
+  @media (min-width: $screen-lg) {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.card-item_content {
+  padding: 0px 10px;
+  width: 470px;
+  height: auto;
+}
+
+.item-content_header {
+  font-size: 26px;
+  font-family: 'URWGeometric-ExtraBold';
+  text-align: left;
+  margin: 0 0 10px;
+
+  @media (min-width: $screen-lg) { 
+    font-size: 30px; 
+  }
+}
+
+.item-content_text {
+  font-size: 18px;
+  font-family: 'URWGeometric-Medium';
+  text-align: left;
+  padding: 0px;
+  @media (min-width: $screen-lg) { 
+    font-size: 24px;
+  }
+}
+
+.item-content_link {
+  text-decoration: underline;
+  font-weight: 'URWGeometric-Bold';
+  font-size: inherit;
+  color: inherit;
+  transition: all 0.25s;
+  &:hover {
+    color: #000;
+  }
 }
