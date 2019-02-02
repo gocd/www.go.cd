@@ -68,10 +68,10 @@
   }
 }
 
-.feauters {
+.features {
   margin: 50px auto 0;
   @media (min-width: $screen-lg) {
-    margin: 100px auto 0;
+    margin: 50px auto 0;
   }
   
 }
@@ -109,13 +109,13 @@
   }
 
   @media (min-width: $screen-lg) {
-    width: 140px;
-    height: 140px;
+    width: 110px;
+    height: 110px;
   }
 }
 
 .card-item_content {
-  padding: 0px 10px;
+  padding: 0px 20px;
   width: 470px;
   height: auto;
 }
