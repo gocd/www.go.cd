@@ -254,9 +254,16 @@ h1.main-caption {
     .content_cd101 {
         margin-bottom: 2em;
     }
-    .cta {
+    
+    .cd101-cta {
         margin-bottom: 4em;
         text-align: center;
+        background: $primary-color;
+        color: #fff;
+
+        &:hover{
+            color: #fff;
+        }
     }
 
     .cta-mobile {

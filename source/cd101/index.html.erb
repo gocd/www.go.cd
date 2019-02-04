@@ -22,10 +22,6 @@ show_features: true
       <div class="flex-items-container">
         <div class="flex-item_sm">
           <%= image_tag 'campaign/cd101/815-booklet-mockup.jpg', alt: 'Download the CD101 eBook', title: "Download the CD101 eBook" %>
-
-          <div class="cta cta-desktop">
-            <%= link_to 'Download for free', "/assets/images/campaign/cd101/ebook-continuous-delivery-101.pdf", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
-          </div>
         </div>
 
         <div class="flex-item_md content_cd101">
@@ -43,10 +39,10 @@ show_features: true
 
           <p>We also explore core development practices that are prerequisites for continuous delivery. We present questions you need to answer honestly about your own people, teams, and organization to determine your readiness for continuous delivery.</p>
         </div>
-          <div class="cta cta-mobile">
-            <%= link_to 'Download for free', "/assets/images/campaign/cd101/ebook-continuous-delivery-101.pdf", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
-          </div>
       </div>
+      
+        <%= link_to 'Download for free', "/assets/images/campaign/cd101/ebook-continuous-delivery-101.pdf", {:class => "btn  button-brand cd101-cta", "analytics-label" => "campaign-download-cta"} %>
+      
     </div>
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
