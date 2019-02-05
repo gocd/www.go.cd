@@ -251,6 +251,7 @@ h1.main-caption {
         margin: 50px 0;
         font-size: 2.5em;
     }
+
     .content_cd101 {
         margin-bottom: 2em;
     }
@@ -263,22 +264,6 @@ h1.main-caption {
 
         &:hover{
             color: #fff;
-        }
-    }
-
-    .cta-mobile {
-        display: block;
-
-        @media (min-width: $screen-md) {
-            display: none;
-        }
-    }
-
-    .cta-desktop {
-        display: none;
-
-        @media (min-width: $screen-md) {
-            display: block;
         }
     }
 }
