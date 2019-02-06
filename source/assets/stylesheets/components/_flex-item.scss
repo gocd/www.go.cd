@@ -1,0 +1,20 @@
+.flex-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.flex-item_sm {
+  width: 100%;
+
+  @media (min-width: $screen-md){
+    width: 30%;
+  }
+}
+
+.flex-item_md {
+  width: 100%;
+  @media (min-width: $screen-md){
+    width: 70%;
+  }
+}
