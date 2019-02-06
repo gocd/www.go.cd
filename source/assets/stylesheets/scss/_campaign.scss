@@ -265,6 +265,10 @@ h1.main-caption {
         &:hover{
             color: #fff;
         }
+        
+        @media (max-width: $screen-md-min) {
+            width: 100%;
+        }
     }
 }
 
