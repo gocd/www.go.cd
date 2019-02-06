@@ -1,0 +1,21 @@
+.analytics-trial_container {
+  margin: 100px auto 50px;
+
+  @media (min-width: $screen-md) {
+
+  }
+  @media (min-width: $screen-lg) {
+    margin: 100px auto 100px;
+  }
+}
+
+.container_content {
+  font-size: 18px;
+  margin: 20px auto;
+  font-family: "URWGeometric-Medium";
+
+  @media (min-width: $screen-lg) {
+    font-size: 20px;  
+    margin: 40px auto;
+  }
+}

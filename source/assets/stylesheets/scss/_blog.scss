@@ -544,3 +544,25 @@
     }
   }
 }
+
+div.blog-cornered-banner {
+  @media (min-width: $screen-md) {
+    width: 100%;
+    .cornered-banner_conent { 
+      width: 60%;
+      margin: 0 14px;
+    }
+  }
+
+  @media (min-width: $screen-lg) {
+    width: 100%;
+    .cornered-banner_conent {
+      margin: 0 25px;
+    }
+  }
+
+  @media (min-width: $screen-xl) {
+    width: 766px;
+    margin: 0 50px;
+  }
+}
