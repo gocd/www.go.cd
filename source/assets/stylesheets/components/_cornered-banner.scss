@@ -8,17 +8,16 @@ category: index
 Style for Cornered Banner Component
 
 ```html_example
-  <div class="cornered-banner">
-      <p class="cornered-banner_conent">
-        Free GoCD Analytics trial is available
-      </p>
 
-      <a href="#" class="cornered-banner_cta">
-          SIGN UP
-      </a>
+<div class="cornered-banner">
+  <p class="cornered-banner_content">
+    Free GoCD Analytics trial is available
+  </p>
+  <a href="#" class="cornered-banner_cta">
+    SIGN UP
+  </a>
+</div>
 
-    </div>
-    
 ```
 */
 
@@ -58,7 +57,7 @@ Style for Cornered Banner Component
   
 }
 
-.cornered-banner_conent {
+.cornered-banner_content {
   width: 100%;
   font-size: 18px;
   font-family: 'URWGeometric-SemiBold';
