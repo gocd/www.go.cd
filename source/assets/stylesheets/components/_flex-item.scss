@@ -18,3 +18,24 @@
     width: 70%;
   }
 }
+
+.grid-container {
+  @include grid-container;
+}
+
+.grid-col-7 {
+  @include grid-column(12);
+  @media (min-width: $screen-md){
+    @include grid-column(7);
+  }
+}
+
+.grid-col-5 {
+  @include grid-column(12);
+
+  @media (min-width: $screen-md) {
+    @include grid-column(5);
+  }
+}
+
+

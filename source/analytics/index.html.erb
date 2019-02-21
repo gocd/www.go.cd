@@ -14,37 +14,55 @@ show_features: true
 
     <div class="header">
       <div class="container">
-        <div class= "row">
-          <div class="col-md-10 col-md-offset-1">
+        
+          <div class="full-w_item">
             <h1>Get <span class="highlight">insights</span> into<br />your <span class="highlight">GoCD</span> pipelines</h1>
-          </div>
         </div>
     </div>
   </div>
 
     <div class="container intro-section">
-      <div class="row intro-row">
-        <div class="col-md-6 col-md-offset-3 intro-text">
-          <h3>Use metrics to improve your software delivery process</h3>
-          <ul>
-            <li>See, track and analyze your end-to-end cycle time</li>
-            <li>Real time visibility into your deployment pipelines</li>
-            <li>Identify bottlenecks of your delivery process</li>
-            <li>Optimize your resources for best throughput</li>
-          </ul>
+      <div class="grid-container">
+        <div class="grid-col-7 intro-video">
+          <div class="overlay-video-container">
+            <iframe  class="video-iframe" src="https://www.youtube.com/embed/o9q9ClZ5VTA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+
+          <div class="parent-video-container">
+            <video autoplay loop muted class="video_element">
+              <source src="/assets/video/gocd_analytics_edit.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+              <button class="play-button">
+                <i class="fa fa-play"></i>
+              </button>  
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="row cta-row">
-        <% link_to '#contact-form', class:'cta-analytics', 'data-link-target': '#contact-form', 'data-link-target-offset': '-60' do %>
-          <div class="cta-button ">
-            <h3>Start Free Trial</h3>
+
+        <div class="grid-col-5 intro-row">
+          <div class="col-md-6 col-md-offset-3 intro-text">
+            <h3>Use metrics to improve your software delivery process</h3>
+            <ul>
+              <li>See, track and analyze your end-to-end cycle time</li>
+              <li>Real time visibility into your deployment pipelines</li>
+              <li>Identify bottlenecks of your delivery process</li>
+              <li>Optimize your resources for best throughput</li>
+            </ul>
           </div>
-        <% end %>
-        <% link_to 'https://extensions-docs.gocd.org/analytics/current/' do %>
-          <div class="cta-button-ghost">
-            <h3>View Documentation</h3>
-          </div>
-        <% end %>
+
+          <% link_to '#contact-form', class:'cta-analytics', 'data-link-target': '#contact-form', 'data-link-target-offset': '-60' do %>
+            <div class="cta-button ">
+              <h3>Start Free Trial</h3>
+            </div>
+          <% end %>
+          <% link_to 'https://extensions-docs.gocd.org/analytics/current/' do %>
+            <div class="cta-button-ghost">
+              <h3>View Documentation</h3>
+            </div>
+          <% end %>
+        </div>
+
       </div>
 
       <div class="hr"></div>
@@ -52,13 +70,13 @@ show_features: true
 
     <div class="container plugins-section">
 
-      <div class="row plugins-row">
-        <div class="col-md-7">
+      <div class="grid-container plugins-row">
+        <div class="grid-col-7">
             <div class="plugin-image">
             <%= image_tag "campaign/analytics/vsm1.jpg", {:title => "Pipeline status at One Glance", :alt => "GoCD Build Time Graph", } %>
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="grid-col-5">
           <h3>See, track, and analyze your end-to-end cycle time</h3>
           <p>
             GoCD's Analytics plugin provides insights into your entire path to production. It tracks the end-to-end time of your value stream map, and helps you answer questions like "what is the throughput" and "how long will this take to reach the customer" more accurately. <a href="https://extensions-docs.gocd.org/analytics/current/analytics_vsm/">Read more</a>.
@@ -66,13 +84,13 @@ show_features: true
         </div>
       </div>
 
-      <div class="row plugins-row">
-        <div class="col-md-7">
+      <div class="grid-container plugins-row">
+        <div class="grid-col-7">
             <div class="plugin-image">
             <%= image_tag "campaign/analytics/pipeline1.png", {:title => "Real-time visibility into your release pipelines", :alt => "GoCD Value Stream Map", } %>
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="grid-col-5">
           <h3>Real-time visibility into your release pipelines</h3>
           <p>
             GoCD's analytics plugin gives real time visibility into your pipelines. Metrics like pipeline build times, wait times and mean time to recovery are at your fingertips.
@@ -80,13 +98,13 @@ show_features: true
         </div>
       </div>
 
-      <div class="row plugins-row">
-        <div class="col-md-7">
+      <div class="grid-container plugins-row">
+        <div class="grid-col-7">
           <div class="plugin-image">
           <%= image_tag "campaign/analytics/waittime1.png", {:title => "Pipeline Waiting Chart with Easy Drill-down", :alt => "GoCD Pipeline Utilization Chart", } %>
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="grid-col-5">
           <h3>Identify bottlenecks of your process</h3>
           <p>
             GoCD provides both in-context pipeline analytics and top-level metrics to illuminate bottlenecks in your deployment process and help you streamline it.
@@ -94,13 +112,13 @@ show_features: true
         </div>
       </div>
 
-      <div class="row plugins-row">
-        <div class="col-md-7">
+      <div class="grid-container plugins-row">
+        <div class="grid-col-7">
           <div class="plugin-image">
           <%= image_tag "campaign/analytics/util1.png", {:title => "Agent Utilization Chart with Easy Drill-down", :alt => "GoCD Agent Utilization Chart", } %>
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="grid-col-5">
           <h3>Optimize your resources for best throughput</h3>
           <p>
             Which jobs are the slowest? Which agents have the longest wait time? GoCD’s analytics plugin answers these questions and more, helping you optimize your resources for best throughput.
