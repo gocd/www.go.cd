@@ -22,6 +22,18 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
+.player-close {
+  font-size: 30px;
+  color: #fff;
+  position: absolute;
+  right: -5px;
+  top: -35px; 
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
 .play-button {
   font-size: 50px;
   position: absolute;
