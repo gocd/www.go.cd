@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
   $('.play-button').on('click', function(){
-    console.log('clicked');
     var times = 0, playY;
     var Player = $('.video-iframe');
     $('.overlay-video-container').addClass('show-overlay');
@@ -13,5 +12,5 @@ $(document).ready(function(){
         times = 1;
       }
   });
-
+  
 });

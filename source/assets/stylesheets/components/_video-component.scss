@@ -1,8 +1,8 @@
 .parent-video-container {
   position: relative;
-  width: 60%;
+  width: 100%;
   display: block;
-  margin: 100px auto;
+  margin: 1.5em auto;
   z-index: 98;
 }
 
@@ -32,6 +32,7 @@
   background: transparent;
   color: #fff;
   cursor: pointer;
+  transform: translate(-50%, -50%);
 }
 
 .overlay-video-container {
@@ -56,4 +57,41 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.video-content_header {
+  font-size: 24px;
+  text-align: left;
+
+  @media (min-width: $screen-lg) {
+    font-size: 32px;
+  }
+}
+
+.video-content_description {
+  margin: 0;
+  padding: 0 20px;
+}
+
+.video-containter_cta  {
+  flex-direction: column !important;
+  .cta-button {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: block;
+  }
+
+  .cta-button-ghost {
+    color: #1C425C;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: block;
+
+    &:hover {
+      color: #fff;
+    }
+  }
 }

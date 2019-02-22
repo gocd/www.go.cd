@@ -14,9 +14,8 @@ show_features: true
 
     <div class="header">
       <div class="container">
-        
-          <div class="full-w_item">
-            <h1>Get <span class="highlight">insights</span> into<br />your <span class="highlight">GoCD</span> pipelines</h1>
+        <div class="full-w_item">
+          <h1>Get <span class="highlight">insights</span> into<br />your <span class="highlight">GoCD</span> pipelines</h1>
         </div>
     </div>
   </div>
@@ -28,43 +27,35 @@ show_features: true
             <iframe  class="video-iframe" src="https://www.youtube.com/embed/o9q9ClZ5VTA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
 
-          <div class="parent-video-container">
-            <video autoplay loop muted class="video_element">
-              <source src="/assets/video/gocd_analytics_edit.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay">
-              <button class="play-button">
-                <i class="fa fa-play"></i>
-              </button>  
+            <div class="parent-video-container">
+              <video autoplay loop muted class="video_element">
+                <source src="/assets/video/gocd_analytics_edit.mp4" type="video/mp4">
+              </video>
+              <div class="video-overlay">
+                <button class="play-button">
+                  <i class="fa fa-play"></i>
+                </button>  
+              </div>
             </div>
-          </div>
         </div>
 
-        <div class="grid-col-5 intro-row">
-          <div class="col-md-6 col-md-offset-3 intro-text">
-            <h3>Use metrics to improve your software delivery process</h3>
-            <ul>
+        <div class="grid-col-5 video-content">
+          <div>
+            <h3 class="video-content_header">Use metrics to improve your software delivery process</h3>
+            <ul class="video-content_description">
               <li>See, track and analyze your end-to-end cycle time</li>
               <li>Real time visibility into your deployment pipelines</li>
               <li>Identify bottlenecks of your delivery process</li>
               <li>Optimize your resources for best throughput</li>
             </ul>
           </div>
-
-          <% link_to '#contact-form', class:'cta-analytics', 'data-link-target': '#contact-form', 'data-link-target-offset': '-60' do %>
-            <div class="cta-button ">
-              <h3>Start Free Trial</h3>
-            </div>
-          <% end %>
-          <% link_to 'https://extensions-docs.gocd.org/analytics/current/' do %>
-            <div class="cta-button-ghost">
-              <h3>View Documentation</h3>
-            </div>
-          <% end %>
+          
+          <div class="cta-row video-containter_cta">
+            <%= link_to 'Start Free Trial', '#contact-form', class: "cta-button"%>
+            <%= link_to 'View Documentation', 'https://extensions-docs.gocd.org/analytics/current/', class: "cta-button-ghost"%>
+          </div>
         </div>
-
       </div>
-
       <div class="hr"></div>
     </div>
 
