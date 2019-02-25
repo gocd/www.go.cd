@@ -28,7 +28,7 @@ GEM
       sass (>= 3.2, < 3.5)
     concurrent-ruby (1.1.4)
     contracts (0.13.0)
-    dotenv (2.6.0)
+    dotenv (2.7.1)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
