@@ -37,6 +37,12 @@
     right: 15%;
     top: 15%;  
   }
+
+  transition: all 0.25s;
+
+  &:hover {
+    color:#fff;
+  }
 }
 
 .play-button {
@@ -50,6 +56,11 @@
   color: #fff;
   cursor: pointer;
   transform: translate(-50%, -50%);
+  transition: all 0.25s;
+
+  &:hover {
+    color:  #e74c3c;
+  }
 }
 
 .overlay-video-container {
