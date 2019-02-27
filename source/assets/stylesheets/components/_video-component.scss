@@ -24,10 +24,10 @@
 
 .player-close {
   font-size: 30px;
-  color: #e74c3c;
+  color:#fff;
   position: absolute;
   right: 3%;
-  top: 25%; 
+  top: 23%; 
   cursor: pointer;
   border: none;
   outline: none;
@@ -35,13 +35,13 @@
 
   @media (min-width: $screen-lg) {
     right: 15%;
-    top: 15%;  
+    top: 13%;  
   }
 
   transition: all 0.25s;
 
   &:hover {
-    color:#fff;
+    color: #e74c3c;
   }
 }
 
@@ -59,7 +59,7 @@
   transition: all 0.25s;
 
   &:hover {
-    color:  #e74c3c;
+    color:#C8DB57;
   }
 }
 
