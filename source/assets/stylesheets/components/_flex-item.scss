@@ -5,17 +5,17 @@
 }
 
 .flex-item_sm {
-  width: 100%;
+  @include grid-column(12);
 
   @media (min-width: $screen-md){
-    width: 30%;
+    @include grid-column(4);
   }
 }
 
 .flex-item_md {
-  width: 100%;
+  @include grid-column(12);
   @media (min-width: $screen-md){
-    width: 70%;
+    @include grid-column(8);
   }
 }
 
