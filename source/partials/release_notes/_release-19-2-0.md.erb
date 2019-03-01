@@ -1,6 +1,6 @@
 <h4> Personal Access Tokens </h4>
 
-Personal access tokens can be utilized by the GoCD users to access GoCD API(s) without passing in their credentials(username & password). This allows user logged in GoCD server via web based plugins to generate a token and use that to make an API call. For this to happen, the plugin must have support for authorization extension v2.
+We have introduced support for personal access tokens. GoCD users can now generate tokens through the application or the Access Token API and use them to access the GoCD APIs rather than passing their username & password. The tokens have the same privileges as that of the user who created it.
 
 <figure class='shrink-figure-100'>
     <%= image_tag 'releases/19.2.0/personal-access-token.gif', alt: 'Personal Access Token' %>
@@ -17,8 +17,8 @@ Now user will see time when a pipeline was pased along with pause reason.
 </figure>
 <br/>
 
-<h4> Improved User Management SPA </h4>
-Now admins will be able to bulk delete users and to give/revoke system-admin priviliges to a user.
+<h4> New User Management Page </h4>
+We have rewritten the User Management page. There are multiple UX improvements, please do provide your feedback/comments.
 
 <figure class='shrink-figure-100'>
     <%= image_tag 'releases/19.2.0/user-management-spa.png', alt: 'User Management SPA' %>
@@ -29,8 +29,8 @@ Now admins will be able to bulk delete users and to give/revoke system-admin pri
 <h4> Config repo improvements </h4>
 
 * <%= link_to_commit 'b2c63848fd3abaa5c4812ea3bf95154e9a6d8426', 'Parse and merge ConfigRepos on any change in config repo configuration.', 5792 %>
-* <%= link_to_pull_request 5828, 'Allow user\'s to configure empty secure variables' %>
-* <%= link_to_pull_request 5895, 'Better error messages on Config Repository SPA in case if invalid Id ' %>
+* <%= link_to_commit 'ed0206904830aa8f6fadab0a2102023af94f7413', 'Allow user\'s to configure empty secure variables' %>
+* <%= link_to_commit '738f7633ef5d6f8d420865b9405fb518f6af1646', 'Better error messages on Config Repository SPA in case if invalid Id ' %>
 
 <h4>API Improvements</h4>
 
