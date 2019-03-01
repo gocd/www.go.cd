@@ -1,0 +1,131 @@
+<h4> Personal Access Tokens </h4>
+
+Personal access tokens can be utilized by the GoCD users to access GoCD API(s) without passing in their credentials(username & password). This allows user logged in GoCD server via web based plugins to generate a token and use that to make an API call. For this to happen, the plugin must have support for authorization extension v2.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.2.0/personal-access-token.gif', alt: 'Personal Access Token' %>
+</figure>
+<br/>
+
+To know more about about Personal Access Tokens click [here](https://docs.gocd.org/19.2.0/configuration/personal_access_tokens.html).
+
+<h4> Improved pipeline pause information </h4>
+Now user will see time when a pipeline was pased along with pause reason.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.2.0/pipeline-pause.png', alt: 'Pipeline Info when Paused' %>
+</figure>
+<br/>
+
+<h4> Improved User Management SPA </h4>
+Now admins will be able to bulk delete users and to give/revoke system-admin priviliges to a user.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.2.0/user-management-spa.png', alt: 'User Management SPA' %>
+</figure>
+<br/>
+
+
+<h4> Config repo improvements </h4>
+
+* <%= link_to_commit 'b2c63848fd3abaa5c4812ea3bf95154e9a6d8426', 'Parse and merge ConfigRepos on any change in config repo configuration.', 5792 %>
+* <%= link_to_pull_request 5828, 'Allow user\'s to configure empty secure variables' %>
+* <%= link_to_pull_request 5895, 'Better error messages on Config Repository SPA in case if invalid Id ' %>
+
+<h4>API Improvements</h4>
+
+* <%= link_to_issue   5354, "Introduced v1 of  #{link_to_api 'access-tokens', 'Personal Access Tokens'}." %>
+* Introduced v3 of [Dashboard API](https://api.gocd.org/19.2.0/#dashboard)
+
+<h4>Authorization extension version 2</h4>
+
+* <%= link_to_commit '32cfcc5055737b935e8eddf3e51182d7259753f9', 'Introduced Authorization Extension version 2'%>
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_commit 'd9d3c0aa402137988ded4e00595162c678f9a8bd', 'Expand the config repo panels that are in an error state', 5650 %>
+* <%= link_to_commit '33171234ed0a8550a9848e94030223db75bc7a73', 'Show maintenance mode updated by timestamp along with date', 5786 %>
+* <%= link_to_commit '2b64f3f913e3c70d7e1203667c374d6c6c2a7faf', 'Better error messages on plugins page when installed a plugin is incompatible with the GoCD server.', 5614 %>
+* <%= link_to_commit '6a560ee68b6c5b4950c2e7d6ea011aea6a2f6e25', 'Display pause timestamp on the dashboard when a pipeline is paused.',5719%>
+* <%= link_to_commit '2665b54a93898b8f7421e91185ca9deec6675f27', 'Show agents assigned to environments via config repository.',5761%>
+* <%= link_to_commit '33171234ed0a8550a9848e94030223db75bc7a73', 'Added time stamp for the last triggered maintenance mode.',5786%>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_commit '9a1eaf337689b327f694fbbfe15b455d2b78b259', 'Do not remove MaterialHealthStateScope for config repo materials.', 5651 %>
+* <%= link_to_commit 'ba495470c154cf46aadf3ac45c67544735391c61', 'Disable job settings link for pipelines defined in config repo on elastic profiles page.', 5604 %>
+* <%= link_to_commit '3f2fc49422a9fb93ccb6b938dfd8ea4ed75c92a2', 'Made status report button state on elastic profiles page consistent with the  status report button on plugins page ', 5776 %>
+* <%= link_to_commit '6c4da91079e3ea11e905da14f7cf709604e7d7a5', 'Fixed environments api version 2 etag generation issue.',  5807 %>
+* <%= link_to_commit '38e68d0ca9dfce367dd1d9a380e824595cd87d34', 'Render console log containing new line character ("\n").', 5037 %>
+* <%= link_to_issue 5705, 'Fix for high CPU usage on console logs/tests page.' %>
+* <%= link_to_pull_request 5897, 'Killing agent via stop command honors the process Id' %>
+* <%= link_to_issue 5788, 'Fixed back button navigation on dashboard.' %>
+
+
+<h4>Deprecations</h4>
+
+* The elastic agent plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
+* The notification plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.
+* The analytics plugin extension version 1 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.
+* The Get Server Info processor version 1 has been deprecated. This version will be removed in a release scheduled for April 2019. Plugin developers should use version 2 of the Get Server Info processor.
+* The Dashboard API v1 has been deprecated. This version of the API will be removed in a release scheduled for March 2019. Version 2 of the API is available, and users are encouraged to use it.
+* Unversioned Get Stage Instance API has been deprecated in favor of Get Stage Instance API v1. This version will be removed in a release scheduled for April 2019.
+* The Users API v2 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 3 of the API is available, and users are encouraged to use it.
+* The System Admins API v1 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 2 of the API is available, and users are encouraged to use it.
+* The Roles API v1 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 2 of the API is available, and users are encouraged to use it.
+* The Ubuntu 14.04 based docker image for gocd agent has been deprecated and will not be built after April 2019 release of GoCD. This will be done as Ubuntu 14.04 will reach end-of-life in April 2019.
+* The Alpine 3.6 based docker image for gocd agent has been deprecated and will not be built after May 2019 release of GoCD. This will be done as Alpine 3.6 will reach end-of-life in May 2019.
+* The Fedora 28 based docker image for gocd agent has been deprecated and will not be built after June 2019 release of GoCD. This will be done as Fedora 28 will reach end-of-life in June 2019.
+* The Dashboard API v2 has been deprecated. This version of the API will be removed in a release scheduled for June 2019. Version 3 of the API is available, and users are encouraged to use it.
+
+<h4>Breaking Changes</h4>
+
+* <%= link_to_commit 'f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c' , 'Remove the pipeline quick edit spa.' %>
+* <%= link_to_commit '74e4e3c8a26b2b52141de4cc71f438f305100d52' , 'Support for DES was deprecated as part of [18.7.0 release](https://www.gocd.org/releases/#18-7-0) in favor of AES.The support for DES is removed as part of this release. Users who have defined encrypted values in their configuration repositories should update them to use AES encryption', 5646 %>
+
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Ankit Srivastava",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Chandrakanth Nagaraj",
+  "Ganesh S Patil",
+  "Huimin Li",
+  "Isabelle Carter",
+  "Jen Marley",
+  "Jyoti Singh",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Kritika Singh",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Mansi Shah",
+  "Naveen Bhaskar",
+  "Prateek Baheti",
+  "Rahul Pargaonkar",
+  "Rajiesh N",
+  "Sanjana Bayya",
+  "Sheroy Marker",  
+  "Steven Streisguth",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan",
+  "Vishal Devgire",
+  "Vrushali Waykole",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.2.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
