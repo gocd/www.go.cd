@@ -10,7 +10,7 @@ We have introduced support for personal access tokens. GoCD users can now genera
 To know more about about Personal Access Tokens click [here](https://docs.gocd.org/19.2.0/configuration/personal_access_tokens.html).
 
 <h4> Improved pipeline pause information </h4>
-Now user will see time when a pipeline was pased along with pause reason.
+Now user will see time when a pipeline was paused along with the pause reason.
 
 <figure class='shrink-figure-100'>
     <%= image_tag 'releases/19.2.0/pipeline-pause.png', alt: 'Pipeline Info when Paused' %>
@@ -26,11 +26,12 @@ We have rewritten the User Management page. There are multiple UX improvements, 
 <br/>
 
 
-<h4> Config repo improvements </h4>
+<h4> Config Repo Improvements </h4>
 
-* <%= link_to_commit 'b2c63848fd3abaa5c4812ea3bf95154e9a6d8426', 'Parse and merge ConfigRepos on any change in config repo configuration.', 5792 %>
+* <%= link_to_commit 'b2c63848fd3abaa5c4812ea3bf95154e9a6d8426', 'Parse and merge ConfigRepos on any change in Config Repo configuration.', 5792 %>
 * <%= link_to_commit 'ed0206904830aa8f6fadab0a2102023af94f7413', 'Allow user\'s to configure empty secure variables' %>
-* <%= link_to_commit '738f7633ef5d6f8d420865b9405fb518f6af1646', 'Better error messages on Config Repository SPA in case if invalid Id ' %>
+* <%= link_to_commit '738f7633ef5d6f8d420865b9405fb518f6af1646', 'Better error messages on Config Repo SPA in case if invalid Id ' %>
+* <%= link_to_pull_request 5579, 'Introduced Config Repo preflight API v1 endpoint' %>
 
 <h4>API Improvements</h4>
 
@@ -43,22 +44,22 @@ We have rewritten the User Management page. There are multiple UX improvements, 
 
 <h4>Other Improvements</h4>
 
-* <%= link_to_commit 'd9d3c0aa402137988ded4e00595162c678f9a8bd', 'Expand the config repo panels that are in an error state', 5650 %>
+* <%= link_to_commit 'd9d3c0aa402137988ded4e00595162c678f9a8bd', 'Expand the Config Repo panels that are in an error state', 5650 %>
 * <%= link_to_commit '33171234ed0a8550a9848e94030223db75bc7a73', 'Show maintenance mode updated by timestamp along with date', 5786 %>
 * <%= link_to_commit '2b64f3f913e3c70d7e1203667c374d6c6c2a7faf', 'Better error messages on plugins page when installed a plugin is incompatible with the GoCD server.', 5614 %>
-* <%= link_to_commit '6a560ee68b6c5b4950c2e7d6ea011aea6a2f6e25', 'Display pause timestamp on the dashboard when a pipeline is paused.',5719%>
-* <%= link_to_commit '2665b54a93898b8f7421e91185ca9deec6675f27', 'Show agents assigned to environments via config repository.',5761%>
-* <%= link_to_commit '33171234ed0a8550a9848e94030223db75bc7a73', 'Added time stamp for the last triggered maintenance mode.',5786%>
+* <%= link_to_commit '6a560ee68b6c5b4950c2e7d6ea011aea6a2f6e25', 'Display pause timestamp on the dashboard when a pipeline is paused.', 5719%>
+* <%= link_to_commit '2665b54a93898b8f7421e91185ca9deec6675f27', 'Show agents assigned to environments via config repository.', 5761%>
+* <%= link_to_commit '33171234ed0a8550a9848e94030223db75bc7a73', 'Added time stamp for the last triggered maintenance mode.', 5786%>
 
 <h4>Bug fixes</h4>
 
-* <%= link_to_commit '9a1eaf337689b327f694fbbfe15b455d2b78b259', 'Do not remove MaterialHealthStateScope for config repo materials.', 5651 %>
-* <%= link_to_commit 'ba495470c154cf46aadf3ac45c67544735391c61', 'Disable job settings link for pipelines defined in config repo on elastic profiles page.', 5604 %>
+* <%= link_to_commit '9a1eaf337689b327f694fbbfe15b455d2b78b259', 'Do not remove MaterialHealthStateScope for Config Repo materials.', 5651 %>
+* <%= link_to_commit 'ba495470c154cf46aadf3ac45c67544735391c61', 'Disable job settings link for pipelines defined in Config Repo on elastic profiles page.', 5604 %>
 * <%= link_to_commit '3f2fc49422a9fb93ccb6b938dfd8ea4ed75c92a2', 'Made status report button state on elastic profiles page consistent with the  status report button on plugins page ', 5776 %>
-* <%= link_to_commit '6c4da91079e3ea11e905da14f7cf709604e7d7a5', 'Fixed environments api version 2 etag generation issue.',  5807 %>
+* <%= link_to_commit '6c4da91079e3ea11e905da14f7cf709604e7d7a5', 'Fixed environments api version 2 etag generation issue.', 5807 %>
 * <%= link_to_commit '38e68d0ca9dfce367dd1d9a380e824595cd87d34', 'Render console log containing new line character ("\n").', 5037 %>
 * <%= link_to_issue 5705, 'Fix for high CPU usage on console logs/tests page.' %>
-* <%= link_to_pull_request 5897, 'Killing agent via stop command honors the process Id' %>
+* <%= link_to_pull_request 5897, 'Killing agent via stop command honors the process ID' %>
 * <%= link_to_issue 5788, 'Fixed back button navigation on dashboard.' %>
 
 
@@ -80,8 +81,8 @@ We have rewritten the User Management page. There are multiple UX improvements, 
 
 <h4>Breaking Changes</h4>
 
-* <%= link_to_commit 'f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c' , 'Remove the pipeline quick edit spa.' %>
-* <%= link_to_commit '74e4e3c8a26b2b52141de4cc71f438f305100d52' , 'Support for DES was deprecated as part of [18.7.0 release](https://www.gocd.org/releases/#18-7-0) in favor of AES.The support for DES is removed as part of this release. Users who have defined encrypted values in their configuration repositories should update them to use AES encryption', 5646 %>
+* <%= link_to_commit 'f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c' , 'Remove the pipeline quick edit SPA.' %>
+* <%= link_to_commit '74e4e3c8a26b2b52141de4cc71f438f305100d52' , 'Support for DES was deprecated as part of [18.7.0 release](https://www.gocd.org/releases/#18-7-0) in favor of AES. The support for DES is removed as part of this release. Users who have defined encrypted values in their configuration repositories should update them to use AES encryption', 5646 %>
 
 
 <h4>Contributors</h4>
@@ -111,7 +112,7 @@ We have rewritten the User Management page. There are multiple UX improvements, 
   "Rahul Pargaonkar",
   "Rajiesh N",
   "Sanjana Bayya",
-  "Sheroy Marker",  
+  "Sheroy Marker",
   "Steven Streisguth",
   "Tomasz Setkowski",
   "Varsha Varadarajan",
