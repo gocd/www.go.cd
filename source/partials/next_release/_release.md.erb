@@ -1,65 +1,74 @@
-<h4> GoCD Maintenance mode </h4>
+<h4> Access Tokens </h4>
 
-GoCD maintenance mode can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up. Initiating maintenance mode will cause various sub-systems of GoCD to stop working making sure server is not performing any operation.
+We have introduced support for personal access tokens. GoCD users can now generate tokens through the application or the Access Token API and use them to access the GoCD APIs rather than passing their username & password. The tokens have the same privileges as that of the user who created it.
 
+Personal Access Token:
 <figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.1.0/server-maintenance-mode.gif', alt: 'Maintenance Mode Feature' %>
+    <%= image_tag 'releases/19.2.0/personal-access-token.gif', alt: 'Personal Access Token' %>
 </figure>
 <br/>
 
-To know more about about GoCD Maintenance Mode click [here](https://docs.gocd.org/19.1.0/advanced_usage/maintenance_mode.html).
-
-<h4>Improved Pipeline as Code experience.</h4>
-
-Continuing on the road towards improving GoCD's pipelines as code / config repositories experience, this release introduces the ability to export a GoCD pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). You can then check in these pipeline definitions to a repository and remove them from GoCD's config.
-
+Access Token Management
 <figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.1.0/pipeline-export.gif', alt: 'Pipeline Export Feature' %>
+    <%= image_tag 'releases/19.2.0/admin-access-token.gif', alt: 'Admin Access Token' %>
 </figure>
 <br/>
 
- More improvements to this feature are in pipeline. Add your feedback or suggestions [here](https://github.com/gocd/gocd/issues/5175)
+To know more about about Access Tokens click [here](https://docs.gocd.org/19.2.0/configuration/access_tokens.html).
 
-* <%= link_to_commit '45aab5e40d991f427cfb35a10463be3e9d58193b', 'Show validation errors on config repo SPA', 5711 %>
+<h4> Improved pipeline pause information </h4>
+Now user will see time when a pipeline was paused along with the pause reason.
 
 <figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.1.0/config-spa-error.png', alt: 'Config SPA Error' %>
+    <%= image_tag 'releases/19.2.0/pipeline-pause.png', alt: 'Pipeline Info when Paused' %>
+</figure>
+<br/>
+
+<h4> New User Management Page </h4>
+We have rewritten the User Management page. There are multiple UX improvements, please do provide your feedback/comments.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.2.0/user-management-spa.png', alt: 'User Management SPA' %>
 </figure>
 <br/>
 
 
-* <%= link_to_commit '6c889299b130b13a86eebb652b10cba52ffde438', 'Performance improvement to loading multiple Config Repos on server restart.', 5663 %>
+<h4> Config Repo Improvements </h4>
+
+* <%= link_to_commit 'b2c63848fd3abaa5c4812ea3bf95154e9a6d8426', 'Parse and merge ConfigRepos on any change in Config Repo configuration.', 5792 %>
+* <%= link_to_commit 'ed0206904830aa8f6fadab0a2102023af94f7413', 'Allow user\'s to configure empty secure variables' %>
+* <%= link_to_commit '738f7633ef5d6f8d420865b9405fb518f6af1646', 'Better error messages on Config Repo SPA in case if invalid Id ' %>
+* <%= link_to_pull_request 5579, 'Introduced Config Repo preflight API v1 endpoint' %>
 
 <h4>API Improvements</h4>
 
-* <%= link_to_pull_request 5619, "Introduce v1 of #{link_to_api 'get-stage-instance', 'Stage Instance'}." %>
-* <%= link_to_issue   5665, "Introduced v2 of  #{link_to_api 'roles', 'Roles'}." %>
-* <%= link_to_pull_request 5661, "Introduce v2 of #{link_to_api 'system-admins', 'System Admins'}." %>
-* <%= link_to_issue   5558, "Introduced v3 of  #{link_to_api 'users', 'Users'}." %>
+* <%= link_to_issue   5354, "Introduced v1 of  #{link_to_api 'access-tokens', 'Personal Access Tokens'}." %>
+* Introduced v3 of [Dashboard API](https://api.gocd.org/19.2.0/#dashboard)
 
-<h4>Plugin API improvements</h4>
+<h4>Authorization extension version 2</h4>
 
-* <%= link_to_commit 'b851373603cbe93b95f69a23597caecb61f0e22', 'Adding Server version information in v2 ServerInfoProcessor', 5686%>
+* <%= link_to_commit '32cfcc5055737b935e8eddf3e51182d7259753f9', 'Introduced Authorization Extension version 2'%>
 
 <h4>Other Improvements</h4>
 
-* <%= link_to_commit 'd6f7b49cfb2231a5e94e35c93ee84bae76de0d1c', 'Allow user to override server keystore password using system environment.', 5592 %>
-* <%= link_to_commit '51919ab43ad8a5bf14147e092b1917e3acb34afb', 'Set extra properties for the agent, from server.', 5666 %>
-* <%= link_to_commit '143054f55270911d2a87433d5ac3a2e3dbad765e', 'Plugin Info request processor versioning.', 5654 %>
-* <%= link_to_commit '792ae6134c0e1e0572835b1888d32ac66b08cdfd', 'Show cancelled by on the dashboard on hovering over a stage.', 5683 %>
-* <%= link_to_commit 'a06b4970c582d2379b30c35a2ecc3a347d5a66d3', 'Improved performance of Envrionments API.', 5698 %>
+* <%= link_to_commit 'd9d3c0aa402137988ded4e00595162c678f9a8bd', 'Expand the Config Repo panels that are in an error state', 5650 %>
+* <%= link_to_commit '33171234ed0a8550a9848e94030223db75bc7a73', 'Show maintenance mode updated by timestamp along with date', 5786 %>
+* <%= link_to_commit '2b64f3f913e3c70d7e1203667c374d6c6c2a7faf', 'Better error messages on plugins page when installed a plugin is incompatible with the GoCD server.', 5614 %>
+* <%= link_to_commit '6a560ee68b6c5b4950c2e7d6ea011aea6a2f6e25', 'Display pause timestamp on the dashboard when a pipeline is paused.', 5719%>
+* <%= link_to_commit '2665b54a93898b8f7421e91185ca9deec6675f27', 'Show agents assigned to environments via config repository.', 5761%>
+* <%= link_to_commit '33171234ed0a8550a9848e94030223db75bc7a73', 'Added time stamp for the last triggered maintenance mode.', 5786%>
 
-    
 <h4>Bug fixes</h4>
 
-* <%= link_to_commit '9a1eaf337689b327f694fbbfe15b455d2b78b259', 'Do not remove MaterialHealthStateScope for config repo materials.', 5651 %>
-* <%= link_to_commit '773b68d761123811874ce7858243a957667c66d4', 'Fix for header issue on edit pipeline.', 5596 %>
-* <%= link_to_commit 'e6fd8f7eac0bb7763a83b4e8bc9ad5ee7ec033b7', 'Show error on delete when artifact store is referred in pipelines.', 5634 %>
-* <%= link_to_commit '90e25238aa9bd88e2105d30525f6e0ca4c51b0e6', 'Plugin settings modal show save failure error.', 5645 %>
-* <%= link_to_commit 'ee08190d044c48238aa2342f9a08ae422fa632b5', 'Decrease z-index to make admin menu render on top of console controls.', 5659 %>
-* <%= link_to_commit 'a9812de9a8c8a15e903e46f953ae4f3e8f1fc866', 'Toggle TFS workspace location on agent.', 5427 %>
-* <%= link_to_commit 'c647a9667fad35944f35bddf39b7a40e1e28af80', 'Artifact store delete message was not visible on error.'%>
-* <%= link_to_commit '70f9448f93c24a2f823c3e1095b205e689b60cef', 'Updated clone auth config message to use newly created auth config id.'%>
+* <%= link_to_commit '9a1eaf337689b327f694fbbfe15b455d2b78b259', 'Do not remove MaterialHealthStateScope for Config Repo materials.', 5651 %>
+* <%= link_to_commit 'ba495470c154cf46aadf3ac45c67544735391c61', 'Disable job settings link for pipelines defined in Config Repo on elastic profiles page.', 5604 %>
+* <%= link_to_commit '3f2fc49422a9fb93ccb6b938dfd8ea4ed75c92a2', 'Made status report button state on elastic profiles page consistent with the  status report button on plugins page ', 5776 %>
+* <%= link_to_commit '6c4da91079e3ea11e905da14f7cf709604e7d7a5', 'Fixed environments api version 2 etag generation issue.', 5807 %>
+* <%= link_to_commit '38e68d0ca9dfce367dd1d9a380e824595cd87d34', 'Render console log containing new line character ("\n").', 5037 %>
+* <%= link_to_issue 5705, 'Fix for high CPU usage on console logs/tests page.' %>
+* <%= link_to_pull_request 5897, 'Killing agent via stop command honors the process ID' %>
+* <%= link_to_issue 5788, 'Fixed back button navigation on dashboard.' %>
+
 
 <h4>Deprecations</h4>
 
@@ -75,11 +84,12 @@ Continuing on the road towards improving GoCD's pipelines as code / config repos
 * The Ubuntu 14.04 based docker image for gocd agent has been deprecated and will not be built after April 2019 release of GoCD. This will be done as Ubuntu 14.04 will reach end-of-life in April 2019.
 * The Alpine 3.6 based docker image for gocd agent has been deprecated and will not be built after May 2019 release of GoCD. This will be done as Alpine 3.6 will reach end-of-life in May 2019.
 * The Fedora 28 based docker image for gocd agent has been deprecated and will not be built after June 2019 release of GoCD. This will be done as Fedora 28 will reach end-of-life in June 2019.
+* The Dashboard API v2 has been deprecated. This version of the API will be removed in a release scheduled for June 2019. Version 3 of the API is available, and users are encouraged to use it.
 
 <h4>Breaking Changes</h4>
 
-* <%= link_to_commit 'f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c' , 'Remove the pipeline quick edit spa.' %>
-* <%= link_to_commit '74e4e3c8a26b2b52141de4cc71f438f305100d52' , 'Support for DES was deprecated as part of [18.7.0 release](https://www.gocd.org/releases/#18-7-0) in favor of AES.The support for DES is removed as part of this release. Users who have defined encrypted values in their configuration repositories should update them to use AES encryption', 5646 %>
+* <%= link_to_commit 'f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c' , 'Remove the pipeline quick edit SPA.' %>
+* <%= link_to_commit '74e4e3c8a26b2b52141de4cc71f438f305100d52' , 'Support for DES was deprecated as part of [18.7.0 release](https://www.gocd.org/releases/#18-7-0) in favor of AES. The support for DES is removed as part of this release. Users who have defined encrypted values in their configuration repositories should update them to use AES encryption', 5646 %>
 
 
 <h4>Contributors</h4>
@@ -91,7 +101,6 @@ Continuing on the road towards improving GoCD's pipelines as code / config repos
   "Aravind SV",
   "Bhupendrakumar Piprava",
   "Chandrakanth Nagaraj",
-  "Eric Cheung",
   "Ganesh S Patil",
   "Huimin Li",
   "Isabelle Carter",
@@ -110,7 +119,7 @@ Continuing on the road towards improving GoCD's pipelines as code / config repos
   "Rahul Pargaonkar",
   "Rajiesh N",
   "Sanjana Bayya",
-  "Sheroy Marker",  
+  "Sheroy Marker",
   "Steven Streisguth",
   "Tomasz Setkowski",
   "Varsha Varadarajan",
@@ -121,7 +130,7 @@ Continuing on the road towards improving GoCD's pipelines as code / config repos
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.1.0' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.2.0' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
