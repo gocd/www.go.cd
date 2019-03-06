@@ -37,7 +37,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
     <div class="tab_container tab-container-marker">
       <%  releases.each_with_index do |release, index| %>
       <h3 class="tab-marker tab-accordion_heading<%= ' d_active' if index == 0 %>" rel="tab-<%= release.gsub('.', '-')%>"><%= release %><%= ' (latest)' if index == 0 %></h3>
-      <div id="tab-<%= release.gsub('.', '-')%>" class="tab_content release_notes_content" style="display: block;">
+      <div id="tab-<%= release.gsub('.', '-')%>" class="tab_content" style="display: block;">
         <div class="content">
           <%= partial "partials/release_notes/release-#{release.gsub('.', '-')}" %>
         </div>
