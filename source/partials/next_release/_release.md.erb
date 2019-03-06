@@ -1,6 +1,6 @@
 <h4> Access Tokens </h4>
 
-We have introduced support for personal access tokens. GoCD users can now generate tokens through the application or the Access Token API and use them to access the GoCD APIs rather than passing their username & password. The tokens have the same privileges as that of the user who created it.
+We have introduced support for personal access tokens. GoCD users can now generate tokens through the application or the Access Token API and use them to access the GoCD APIs rather than passing their username & password. The tokens inherit the privileges of the user who created them.
 
 Personal Access Token:
 <figure class='shrink-figure-100'>
@@ -17,7 +17,7 @@ Access Token Management
 To know more about about Access Tokens click [here](https://docs.gocd.org/19.2.0/configuration/access_tokens.html).
 
 <h4> Improved pipeline pause information </h4>
-Now user will see time when a pipeline was paused along with the pause reason.
+Paused pipelines now show the time at which they were paused, along with the reason for pausing.
 
 <figure class='shrink-figure-100'>
     <%= image_tag 'releases/19.2.0/pipeline-pause.png', alt: 'Pipeline Info when Paused' %>
@@ -25,7 +25,7 @@ Now user will see time when a pipeline was paused along with the pause reason.
 <br/>
 
 <h4> New User Management Page </h4>
-We have rewritten the User Management page. There are multiple UX improvements, please do provide your feedback/comments.
+We have rewritten the User summary page, now known as User Management, to improve the user experience. Please provide feedback / ideas by opening a GitHub issue
 
 <figure class='shrink-figure-100'>
     <%= image_tag 'releases/19.2.0/user-management-spa.png', alt: 'User Management SPA' %>
@@ -35,10 +35,15 @@ We have rewritten the User Management page. There are multiple UX improvements, 
 
 <h4> Config Repo Improvements </h4>
 
-* <%= link_to_commit 'b2c63848fd3abaa5c4812ea3bf95154e9a6d8426', 'Parse and merge ConfigRepos on any change in Config Repo configuration.', 5792 %>
-* <%= link_to_commit 'ed0206904830aa8f6fadab0a2102023af94f7413', 'Allow user\'s to configure empty secure variables' %>
-* <%= link_to_commit '738f7633ef5d6f8d420865b9405fb518f6af1646', 'Better error messages on Config Repo SPA in case if invalid Id ' %>
-* <%= link_to_pull_request 5579, 'Introduced Config Repo preflight API v1 endpoint' %>
+* <%= link_to_commit 'b2c63848fd3abaa5c4812ea3bf95154e9a6d8426', 'Reparse and merge ConfigRepos on any change in Config Repo configuration', 5792 %>
+* <%= link_to_commit 'ed0206904830aa8f6fadab0a2102023af94f7413', 'Allow users to configure empty secure environment variables.' %>
+* <%= link_to_commit '738f7633ef5d6f8d420865b9405fb518f6af1646', 'Better error messages on Config Repo SPA in case of invalid ID.' %>
+* <%= link_to_pull_request 5756, 'Added support to add global SCMs through config repo.' %>
+* <%= link_to_pull_request 5579, "Introduced Config Repo #{link_to_api 'preflight-check-of-config-repo-configurations', 'preflight API v1 endpoint'}" %>
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.2.0/config_repo_improvements.png', alt: 'Config repo improvements' %>
+</figure>
 
 <h4>API Improvements</h4>
 
@@ -53,7 +58,7 @@ We have rewritten the User Management page. There are multiple UX improvements, 
 
 * <%= link_to_commit 'd9d3c0aa402137988ded4e00595162c678f9a8bd', 'Expand the Config Repo panels that are in an error state', 5650 %>
 * <%= link_to_commit '33171234ed0a8550a9848e94030223db75bc7a73', 'Show maintenance mode updated by timestamp along with date', 5786 %>
-* <%= link_to_commit '2b64f3f913e3c70d7e1203667c374d6c6c2a7faf', 'Better error messages on plugins page when installed a plugin is incompatible with the GoCD server.', 5614 %>
+* <%= link_to_commit '2b64f3f913e3c70d7e1203667c374d6c6c2a7faf', 'Better error messages on plugins page when an installed plugin is incompatible with the GoCD server.', 5614 %>
 * <%= link_to_commit '6a560ee68b6c5b4950c2e7d6ea011aea6a2f6e25', 'Display pause timestamp on the dashboard when a pipeline is paused.', 5719%>
 * <%= link_to_commit '2665b54a93898b8f7421e91185ca9deec6675f27', 'Show agents assigned to environments via config repository.', 5761%>
 * <%= link_to_commit '33171234ed0a8550a9848e94030223db75bc7a73', 'Added time stamp for the last triggered maintenance mode.', 5786%>
@@ -69,9 +74,12 @@ We have rewritten the User Management page. There are multiple UX improvements, 
 * <%= link_to_pull_request 5897, 'Killing agent via stop command honors the process ID' %>
 * <%= link_to_issue 5788, 'Fixed back button navigation on dashboard.' %>
 
+<h4>New Deprecations</h4>
+* The Fedora 28 based docker image for gocd agent has been deprecated and will not be built after June 2019 release of GoCD. This will be done as Fedora 28 will reach end-of-life in June 2019.
+* The Dashboard API v2 has been deprecated. This version of the API will be removed in a release scheduled for June 2019. Version 3 of the API is available, and users are encouraged to use it.
+
 
 <h4>Deprecations</h4>
-
 * The elastic agent plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
 * The notification plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.
 * The analytics plugin extension version 1 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.
@@ -83,8 +91,6 @@ We have rewritten the User Management page. There are multiple UX improvements, 
 * The Roles API v1 has been deprecated. This version of the API will be removed in a release scheduled for April 2019. Version 2 of the API is available, and users are encouraged to use it.
 * The Ubuntu 14.04 based docker image for gocd agent has been deprecated and will not be built after April 2019 release of GoCD. This will be done as Ubuntu 14.04 will reach end-of-life in April 2019.
 * The Alpine 3.6 based docker image for gocd agent has been deprecated and will not be built after May 2019 release of GoCD. This will be done as Alpine 3.6 will reach end-of-life in May 2019.
-* The Fedora 28 based docker image for gocd agent has been deprecated and will not be built after June 2019 release of GoCD. This will be done as Fedora 28 will reach end-of-life in June 2019.
-* The Dashboard API v2 has been deprecated. This version of the API will be removed in a release scheduled for June 2019. Version 3 of the API is available, and users are encouraged to use it.
 
 <h4>Breaking Changes</h4>
 
