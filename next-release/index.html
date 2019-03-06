@@ -15,7 +15,7 @@
 
     <title>Next release of GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-ae44dcd5.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/site-fe33b56d.css" rel="stylesheet" />
     <script src="../assets/javascripts/all-3d92583e.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
@@ -80,81 +80,98 @@
       <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-next"> (next)</h3>
       <div id="tab-next" class="tab_content" style="display: block;">
         <div class="content">
-          <h4> GoCD Maintenance mode </h4>
+          <h4> Access Tokens </h4>
 
-<p>GoCD maintenance mode can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up. Initiating maintenance mode will cause various sub-systems of GoCD to stop working making sure server is not performing any operation.</p>
+<p>We have introduced support for personal access tokens. GoCD users can now generate tokens through the application or the Access Token API and use them to access the GoCD APIs rather than passing their username &amp; password. The tokens inherit the privileges of the user who created them.</p>
 
+<p>Personal Access Token:</p>
 <figure class="shrink-figure-100">
-    <img src="../assets/images/releases/19.1.0/server-maintenance-mode-9b7eb7ce.gif" alt="Maintenance Mode Feature" />
+    <img src="../assets/images/releases/19.2.0/personal-access-token-4768f301.gif" alt="Personal Access Token" />
 </figure>
 <p><br /></p>
 
-<p>To know more about about GoCD Maintenance Mode click <a href="https://docs.gocd.org/19.1.0/advanced_usage/maintenance_mode.html">here</a>.</p>
-
-<h4>Improved Pipeline as Code experience.</h4>
-
-<p>Continuing on the road towards improving GoCD's pipelines as code / config repositories experience, this release introduces the ability to export a GoCD pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). You can then check in these pipeline definitions to a repository and remove them from GoCD's config.</p>
-
+<p>Access Token Management</p>
 <figure class="shrink-figure-100">
-    <img src="../assets/images/releases/19.1.0/pipeline-export-111479b7.gif" alt="Pipeline Export Feature" />
+    <img src="../assets/images/releases/19.2.0/admin-access-token-70620ea3.gif" alt="Admin Access Token" />
 </figure>
 <p><br /></p>
 
-<p>More improvements to this feature are in pipeline. Add your feedback or suggestions <a href="https://github.com/gocd/gocd/issues/5175">here</a></p>
+<p>To know more about about Access Tokens click <a href="https://docs.gocd.org/19.2.0/configuration/access_tokens.html">here</a>.</p>
+
+<h4> Improved pipeline pause information </h4>
+<p>Paused pipelines now show the time at which they were paused, along with the reason for pausing.</p>
+
+<figure class="shrink-figure-100">
+    <img src="../assets/images/releases/19.2.0/pipeline-pause-80397fc8.png" alt="Pipeline Info when Paused" />
+</figure>
+<p><br /></p>
+
+<h4> New User Management Page </h4>
+<p>We have rewritten the User summary page, now known as User Management, to improve the user experience. Please provide feedback / ideas by opening a GitHub issue</p>
+
+<figure class="shrink-figure-100">
+    <img src="../assets/images/releases/19.2.0/user-management-spa-101c2e68.png" alt="User Management SPA" />
+</figure>
+<p><br /></p>
+
+<h4> Config Repo Improvements </h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/45aab5e40d991f427cfb35a10463be3e9d58193b">45aab5e</a></code> - Show validation errors on config repo SPA. (<a href="https://github.com/gocd/gocd/issues/5711">#5711</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/b2c63848fd3abaa5c4812ea3bf95154e9a6d8426">b2c6384</a></code> - Reparse and merge ConfigRepos on any change in Config Repo configuration. (<a href="https://github.com/gocd/gocd/issues/5792">#5792</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ed0206904830aa8f6fadab0a2102023af94f7413">ed02069</a></code> - Allow users to configure empty secure environment variables.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/738f7633ef5d6f8d420865b9405fb518f6af1646">738f763</a></code> - Better error messages on Config Repo SPA in case of invalid ID.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/5756">#5756</a> - Added support to add global SCMs through config repo.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/5579">#5579</a> - Introduced Config Repo <a href="https://api.gocd.org/current/#preflight-check-of-config-repo-configurations">preflight API v1 endpoint</a>.</li>
 </ul>
 
 <figure class="shrink-figure-100">
-    <img src="../assets/images/releases/19.1.0/config-spa-error-3c12e3b4.png" alt="Config SPA Error" />
+    <img src="../assets/images/releases/19.2.0/config_repo_improvements-b28ab6fc.png" alt="Config repo improvements" />
 </figure>
-<p><br /></p>
-
-<ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/6c889299b130b13a86eebb652b10cba52ffde438">6c88929</a></code> - Performance improvement to loading multiple Config Repos on server restart. (<a href="https://github.com/gocd/gocd/issues/5663">#5663</a>)</li>
-</ul>
 
 <h4>API Improvements</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/pull/5619">#5619</a> - Introduce v1 of <a href="https://api.gocd.org/current/#get-stage-instance">Stage Instance</a>.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/5665">#5665</a> - Introduced v2 of  <a href="https://api.gocd.org/current/#roles">Roles</a>.</li>
-  <li><a href="https://github.com/gocd/gocd/pull/5661">#5661</a> - Introduce v2 of <a href="https://api.gocd.org/current/#system-admins">System Admins</a>.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/5558">#5558</a> - Introduced v3 of  <a href="https://api.gocd.org/current/#users">Users</a>.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5354">#5354</a> - Introduced v1 of  <a href="https://api.gocd.org/current/#access-tokens">Personal Access Tokens</a>.</li>
+  <li>Introduced v3 of <a href="https://api.gocd.org/19.2.0/#dashboard">Dashboard API</a></li>
 </ul>
 
-<h4>Plugin API improvements</h4>
+<h4>Authorization extension version 2</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/b851373603cbe93b95f69a23597caecb61f0e22">b851373</a></code> - Adding Server version information in v2 ServerInfoProcessor. (<a href="https://github.com/gocd/gocd/issues/5686">#5686</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/32cfcc5055737b935e8eddf3e51182d7259753f9">32cfcc5</a></code> - Introduced Authorization Extension version 2.</li>
 </ul>
 
 <h4>Other Improvements</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/d6f7b49cfb2231a5e94e35c93ee84bae76de0d1c">d6f7b49</a></code> - Allow user to override server keystore password using system environment. (<a href="https://github.com/gocd/gocd/issues/5592">#5592</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/51919ab43ad8a5bf14147e092b1917e3acb34afb">51919ab</a></code> - Set extra properties for the agent, from server. (<a href="https://github.com/gocd/gocd/issues/5666">#5666</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/143054f55270911d2a87433d5ac3a2e3dbad765e">143054f</a></code> - Plugin Info request processor versioning. (<a href="https://github.com/gocd/gocd/issues/5654">#5654</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/792ae6134c0e1e0572835b1888d32ac66b08cdfd">792ae61</a></code> - Show cancelled by on the dashboard on hovering over a stage. (<a href="https://github.com/gocd/gocd/issues/5683">#5683</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/a06b4970c582d2379b30c35a2ecc3a347d5a66d3">a06b497</a></code> - Improved performance of Envrionments API. (<a href="https://github.com/gocd/gocd/issues/5698">#5698</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/d9d3c0aa402137988ded4e00595162c678f9a8bd">d9d3c0a</a></code> - Expand the Config Repo panels that are in an error state. (<a href="https://github.com/gocd/gocd/issues/5650">#5650</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/33171234ed0a8550a9848e94030223db75bc7a73">3317123</a></code> - Show maintenance mode updated by timestamp along with date. (<a href="https://github.com/gocd/gocd/issues/5786">#5786</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/2b64f3f913e3c70d7e1203667c374d6c6c2a7faf">2b64f3f</a></code> - Better error messages on plugins page when an installed plugin is incompatible with the GoCD server. (<a href="https://github.com/gocd/gocd/issues/5614">#5614</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/6a560ee68b6c5b4950c2e7d6ea011aea6a2f6e25">6a560ee</a></code> - Display pause timestamp on the dashboard when a pipeline is paused. (<a href="https://github.com/gocd/gocd/issues/5719">#5719</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/2665b54a93898b8f7421e91185ca9deec6675f27">2665b54</a></code> - Show agents assigned to environments via config repository. (<a href="https://github.com/gocd/gocd/issues/5761">#5761</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/33171234ed0a8550a9848e94030223db75bc7a73">3317123</a></code> - Added time stamp for the last triggered maintenance mode. (<a href="https://github.com/gocd/gocd/issues/5786">#5786</a>)</li>
 </ul>
 
 <h4>Bug fixes</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/9a1eaf337689b327f694fbbfe15b455d2b78b259">9a1eaf3</a></code> - Do not remove MaterialHealthStateScope for config repo materials. (<a href="https://github.com/gocd/gocd/issues/5651">#5651</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/773b68d761123811874ce7858243a957667c66d4">773b68d</a></code> - Fix for header issue on edit pipeline. (<a href="https://github.com/gocd/gocd/issues/5596">#5596</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/e6fd8f7eac0bb7763a83b4e8bc9ad5ee7ec033b7">e6fd8f7</a></code> - Show error on delete when artifact store is referred in pipelines. (<a href="https://github.com/gocd/gocd/issues/5634">#5634</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/90e25238aa9bd88e2105d30525f6e0ca4c51b0e6">90e2523</a></code> - Plugin settings modal show save failure error. (<a href="https://github.com/gocd/gocd/issues/5645">#5645</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/ee08190d044c48238aa2342f9a08ae422fa632b5">ee08190</a></code> - Decrease z-index to make admin menu render on top of console controls. (<a href="https://github.com/gocd/gocd/issues/5659">#5659</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/a9812de9a8c8a15e903e46f953ae4f3e8f1fc866">a9812de</a></code> - Toggle TFS workspace location on agent. (<a href="https://github.com/gocd/gocd/issues/5427">#5427</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/c647a9667fad35944f35bddf39b7a40e1e28af80">c647a96</a></code> - Artifact store delete message was not visible on error.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/70f9448f93c24a2f823c3e1095b205e689b60cef">70f9448</a></code> - Updated clone auth config message to use newly created auth config id.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/9a1eaf337689b327f694fbbfe15b455d2b78b259">9a1eaf3</a></code> - Do not remove MaterialHealthStateScope for Config Repo materials. (<a href="https://github.com/gocd/gocd/issues/5651">#5651</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ba495470c154cf46aadf3ac45c67544735391c61">ba49547</a></code> - Disable job settings link for pipelines defined in Config Repo on elastic profiles page. (<a href="https://github.com/gocd/gocd/issues/5604">#5604</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/3f2fc49422a9fb93ccb6b938dfd8ea4ed75c92a2">3f2fc49</a></code> - Made status report button state on elastic profiles page consistent with the  status report button on plugins page. (<a href="https://github.com/gocd/gocd/issues/5776">#5776</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/6c4da91079e3ea11e905da14f7cf709604e7d7a5">6c4da91</a></code> - Fixed environments api version 2 etag generation issue. (<a href="https://github.com/gocd/gocd/issues/5807">#5807</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/38e68d0ca9dfce367dd1d9a380e824595cd87d34">38e68d0</a></code> - Render console log containing new line character ("\n"). (<a href="https://github.com/gocd/gocd/issues/5037">#5037</a>)</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5705">#5705</a> - Fix for high CPU usage on console logs/tests page.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/5897">#5897</a> - Killing agent via stop command honors the process ID.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5788">#5788</a> - Fixed back button navigation on dashboard.</li>
+</ul>
+
+<h4>New Deprecations</h4>
+<ul>
+  <li>The Fedora 28 based docker image for gocd agent has been deprecated and will not be built after June 2019 release of GoCD. This will be done as Fedora 28 will reach end-of-life in June 2019.</li>
+  <li>The Dashboard API v2 has been deprecated. This version of the API will be removed in a release scheduled for June 2019. Version 3 of the API is available, and users are encouraged to use it.</li>
 </ul>
 
 <h4>Deprecations</h4>
-
 <ul>
   <li>The elastic agent plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.</li>
   <li>The notification plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.</li>
@@ -172,17 +189,17 @@
 <h4>Breaking Changes</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c">f12cbf3</a></code> - Remove the pipeline quick edit spa.</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/74e4e3c8a26b2b52141de4cc71f438f305100d52">74e4e3c</a></code> - Support for DES was deprecated as part of <a href="https://www.gocd.org/releases/#18-7-0">18.7.0 release</a> in favor of AES.The support for DES is removed as part of this release. Users who have defined encrypted values in their configuration repositories should update them to use AES encryption. (<a href="https://github.com/gocd/gocd/issues/5646">#5646</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/f12cbf3f9e9f53c2fdd921cb3dfcce87a4217c3c">f12cbf3</a></code> - Remove the pipeline quick edit SPA.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/74e4e3c8a26b2b52141de4cc71f438f305100d52">74e4e3c</a></code> - Support for DES was deprecated as part of <a href="https://www.gocd.org/releases/#18-7-0">18.7.0 release</a> in favor of AES. The support for DES is removed as part of this release. Users who have defined encrypted values in their configuration repositories should update them to use AES encryption. (<a href="https://github.com/gocd/gocd/issues/5646">#5646</a>)</li>
 </ul>
 
 <h4>Contributors</h4>
 
-<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Chandrakanth Nagaraj, Eric Cheung, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mansi Shah, Marques Lee, Naveen Bhaskar, Prateek Baheti, Rahul Pargaonkar, Rajiesh N, Sanjana Bayya, Sheroy Marker, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Vishal Devgire, Vrushali Waykole</p>
+<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Chandrakanth Nagaraj, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mansi Shah, Marques Lee, Naveen Bhaskar, Prateek Baheti, Rahul Pargaonkar, Rajiesh N, Sanjana Bayya, Sheroy Marker, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Vishal Devgire, Vrushali Waykole</p>
 
 <h4>Note</h4>
 
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+19.1.0%22+is%3Aclosed">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+19.2.0%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 
