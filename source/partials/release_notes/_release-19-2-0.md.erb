@@ -1,13 +1,20 @@
-<h4> Personal Access Tokens </h4>
+<h4> Access Tokens </h4>
 
 We have introduced support for personal access tokens. GoCD users can now generate tokens through the application or the Access Token API and use them to access the GoCD APIs rather than passing their username & password. The tokens have the same privileges as that of the user who created it.
 
+Personal Access Token:
 <figure class='shrink-figure-100'>
     <%= image_tag 'releases/19.2.0/personal-access-token.gif', alt: 'Personal Access Token' %>
 </figure>
 <br/>
 
-To know more about about Personal Access Tokens click [here](https://docs.gocd.org/19.2.0/configuration/personal_access_tokens.html).
+Access Token Management
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.2.0/admin-access-token.gif', alt: 'Admin Access Token' %>
+</figure>
+<br/>
+
+To know more about about Access Tokens click [here](https://docs.gocd.org/19.2.0/configuration/access_tokens.html).
 
 <h4> Improved pipeline pause information </h4>
 Now user will see time when a pipeline was paused along with the pause reason.
