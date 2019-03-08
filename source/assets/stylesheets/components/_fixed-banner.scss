@@ -1,66 +1,52 @@
 .banner-fixed-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	height: 60px;
 	position: fixed;
 	bottom: 0%;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	transition: all 0.5s;
-	font-family: sans-serif;
 	background-color: rgba(74,217,217,100);
-	color: #333;
-  z-index: 1000;
-  
-	&:hover {
-			background-color: #87e1e0;
-			cursor: pointer;
-	}
-	&:active {
-			background-color: #36b1bf;
-	}
-}
-
-i {
-	color: #333;
-	margin-right: 40px;
-	margin-left: 0;
 	z-index: 100;
-	
-	&:hover {
-		color: #e74c3c;
-		cursor: pointer;
-	}
 }
 
-.banner-fixed_text-container {
+.fixed-banner_text {
+	margin: 10px 0;
+	color: $dark;
+}
+
+.fixed_banner-button {
 	display: flex;
-	justify-content: center;
+	font-family: sans-serif;
 	align-items: center;
-	width: 100%;
-  height: 100%;
-  line-height: 60px;
-}
-
-.bold {
-  font-weight: 600;
-  color: inherit;
+	justify-content: center;
+	height: 40px;
+	width: 200px;
+	background-color: rgba(28,66,92,100);
+	color: #FFFFFF;
+	margin: 0 20px;
+	border-radius: 2px;
+	transition: all 0.25s;
+	&:hover{
+		color: #FFFFFF;
+		opacity: 0.8;
+	}
 }
 
 .slide-in-bottom {
 	-webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
-	        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+	animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
 }
 
 @-webkit-keyframes slide-in-bottom {
   0% {
     -webkit-transform: translateY(1000px);
-            transform: translateY(1000px);
+    transform: translateY(1000px);
     opacity: 0;
   }
   100% {
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
@@ -68,15 +54,16 @@ i {
 @keyframes slide-in-bottom {
   0% {
     -webkit-transform: translateY(1000px);
-            transform: translateY(1000px);
+    transform: translateY(1000px);
     opacity: 0;
   }
   100% {
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
+
 
 .hide-banner {
   opacity: 0;
