@@ -386,11 +386,17 @@ h1.main-caption {
             }
         }
     } //First Section
+
     .intro-section {
         .intro-row {
             margin-top: 1em;
             margin-bottom: 1em;
         }
+
+        .intro-video {
+            padding: 0 10px;
+        }
+        
         .intro-text {
             margin-bottom: 2em;
             @media(max-width: 991px) {
@@ -402,7 +408,9 @@ h1.main-caption {
         .vsm-illo {
             margin-bottom: 1em;
         }
-    } //Second Section, Features
+    } 
+
+    //Second Section, Features
     .feature-section {
         margin-bottom: 1em;
         margin-top: 3em;
@@ -1399,7 +1407,7 @@ h1.main-caption {
 .contact-form_analytics {
 
     margin-bottom: 150px;
-    #mktoForm_9095 {
+    #mktoForm_9095, #mktoForm_1136 {
       width: auto;
       @media (min-width: $screen-lg) {
         width: 65%;
