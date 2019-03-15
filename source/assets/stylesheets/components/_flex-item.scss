@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  @include grid-container;
 }
 
 .flex-item_sm {
@@ -19,6 +20,7 @@
   }
 }
 
+<<<<<<< HEAD
 .grid-container {
   @include grid-container;
 }
@@ -39,3 +41,8 @@
 }
 
 
+=======
+.flex-item-6 {
+  @include grid-column(6);
+}
+>>>>>>> basic layout complete- * Added all the required for the analytics-feedback page. *Basic layout styling done
