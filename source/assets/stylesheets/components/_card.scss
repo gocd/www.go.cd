@@ -38,6 +38,7 @@ Style for Card Component
   display: flex;
   flex-wrap: wrap;
   padding: 0px;
+  @include grid-container;
 }
 
 .card {
@@ -72,4 +73,8 @@ Style for Card Component
     padding: 0px 55px;
   }
   
+}
+
+.card-col-6 {
+  @include grid-column(6);
 }
