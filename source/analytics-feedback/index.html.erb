@@ -17,7 +17,7 @@ show_features: true
       We’re offering weekly surprise gifts and free books in exchange for your feedback. Here’s what you can win!
     </h2>
 
-    <div class="card-container analytics-fb-cards">
+    <div class="cards-container analytics-fb-cards">
       <div class="card-col-6">
         <%= image_tag "placeholder.jpg", {:title => "Placeholder", :alt => "Placeholder Iamge", class: "card-col-6_img"} %>
         <p class="text-center card-col-6_desc">
@@ -32,7 +32,7 @@ show_features: true
         </p>
       </div>
     </div>
-    <div class="card-container">
+    <div class="cards-container analytics-fb-cards">
       <div class="card-col-6">
         <%= image_tag "placeholder.jpg", {:title => "Placeholder", :alt => "Placeholder Iamge", class: "card-col-6_img"} %>
         <p class="text-center card-col-6_desc">
@@ -54,25 +54,23 @@ show_features: true
     <h2 class="text-center text-bold analytics-fd-form_header">
       How to join the GoCD Analytics Feedback Program:
     </h2>
+    <div class="gird-col-6 analytics-fd-form_content">
+      <ul class="analytics-fd-form_content_list">
+        <li>
+          Fill out the form to register for the program.
+        </li>
+        <li>
+          We will send you an email with instructions on how to get the latest GoCD Analytics plugin
+        </li>
+        <li>
+          Enjoy the Analytics plugin for 30 days!
+        </li>
+        <li>
+          Give us feedback along your journey via slack or email.
+        </li>
+      </ul>
 
-    <div class="flex-item-6 analytics-fd-form_content">
-      
-        <ul class="analytics-fd-form_content_list">
-          <li>
-            Fill out the form to register for the program.
-          </li>
-          <li>
-            We will send you an email with instructions on how to get the latest GoCD Analytics plugin
-          </li>
-          <li>
-            Enjoy the Analytics plugin for 30 days!
-          </li>
-          <li>
-            Give us feedback along your journey via slack or email.
-          </li>
-        </ul>
-      
-      <div>
+      <div class="display-desktop">
         <h6 class="header-small analytics-fd-info">
           Additional information:
         </h6>
@@ -88,7 +86,7 @@ show_features: true
         </p>
       </div>
     </div>
-    <div class="flex-item-6" id="contact-form">
+    <div class="gird-col-6" id="contact-form">
       <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
       <form id="mktoForm_1136"></form>
       <div class="form-loading-error"></div>
@@ -106,6 +104,23 @@ show_features: true
           }
         </style>
       </noscript>
+
+      <div class="display-mobile">
+        <h6 class="header-small analytics-fd-info">
+          Additional information:
+        </h6>
+
+        <p class="text-small">
+          This program only open to GoCD users , and participants will be selected based on how well your usage of
+          GoCD matches our study criteria.
+          The registration is open now until June 30,2019. The first batch of gifts will go out on **** the last
+          batch of gifts will go out ***
+          After the program ends, the Analytics plugin is only available for paid GoCD Enterprise customers. Your
+          license will expire, you won’t be able to continue to use it unless you decide to move forward with an
+          Enterprise tier.
+        </p>
+      </div>
     </div>
+
   </div>
 </div>
