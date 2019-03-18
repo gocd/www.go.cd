@@ -1,148 +1,77 @@
 ---
-title: GoCD - Test Drive
-title_tag_of_header: "Try GoCD with our Test Drive"
+layout: layout
+title: Interactive GoCD Demo
+title_tag_of_header: "Test Drive GoCD"
 meta_description: ""
 meta_keywords: ""
 ---
-<div class="inner-banner plugins">
-  <div class="container">
-    <div class="banner-content">
-      <h1 class="caption"><span>Try <span class="go">Go</span>CD</span></h1>
-    </div>
-  </div>
+
+<div class="header-bg">
+
 </div>
-<main>
-  <div class="container">
-    <div class="row dowload-content-container">
-      <div class="sidebar-left">
-        <nav class="sidebar-nav download-nav">
-          <ul class="verticalnav tab-container-marker" style="border:none;">
-            <li style="border:none;"><span class="tab-marker " rel="tab-windows">Windows</span></li>
-            <li style="border:none;"><span class="tab-marker " rel="tab-osx">OSX</span></li>
-            <li style="border:none;"><span class="tab-marker " rel="tab-linux">Linux</span></li>
+
+<div class="content-container container">
+
+<section class="content-lt">
+
+    <%= image_tag  "../assets/images/campaign/test-drive/gocd-test-drive-w.gif", class: "img-responsive test-drive-screenshot" %>
+
+    <div class="container-actions link-desktop">
+          <%= link_to "Visit the Github Repo", 'https://github.com/gocd/gocd-trial', class: 'button-brand' %>
+    </div>
+
+  </section>
+
+  <section class="content-rt">
+    <h1 class="content-header">Get Started with GoCD in 5 Minutes</h1>
+    <%= image_tag  "../assets/images/campaign/test-drive/gocd-test-drive-w.gif", class: "img-responsive hide-mob-desktop test-drive-screenshot"%>
+    <div class="steps-list">
+      <ul class="steps-list">
+            <li class="steps-list_item">
+              <h2 class="steps-heading">
+                Step 1:
+              </h2>
+              <h2 class="steps-heading">
+                Download it.
+              </h2>
+            </li>
+
+            <li class="steps-list_item">
+              <h2 class="steps-heading">
+                Step 2:
+              </h2>
+              <h2 class="steps-heading">
+                Try it.
+              </h2>
+            </li>
+
+            <li class="steps-list_item">
+              <h2 class="steps-heading">
+                Step 3:
+              </h2>
+              <h2 class="steps-heading">
+                Be Amazed.
+              </h2>
+            </li>
+
+            <li class="steps-list_item">
+              <h2 class="steps-heading">
+                Step 4:
+              </h2>
+              <h2 class="steps-heading">
+                Profit!
+              </h2>
+            </li>
           </ul>
-        </nav>
-      </div>
-      <div class="main-content">
-         <div class="loading-message-template" style="display: none">
-          <div class="load-message">
-            <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
-            <span>Please wait. Fetching information about available packages ...</span>
-          </div>
-        </div>
-        <div id="downloads"></div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<script id="downloads-help-links" type="text/x-handlebars-template">
-  <li><a href="https://docs.gocd.org/current/installation/system_requirements.html"  target="_blank">System requirements</a></li>
-</script>
-
-<script id="download-revisions-template" type="text/x-handlebars-template">
-  {{#*inline "show-releases-for-installer-type"}}
-  <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
-    <div class="go-releases">
-      <div class="latest">
-        {{#with latest_release}}
-        <div class="go-release {{display_version}} row">
-          <div class="col-xs-12">
-            <span class="version">Version: {{display_version}}</span>
-          </div>
-          {{#with (lookup . ../installer_type)}}
-          <div class="col-xs-12">
-            <div class="files">
-              {{> show-server-and-agent-installer latest=true}}
-              {{#if info }}
-              <div class="download-message">
-                {{{ info }}}
-              </div>
-              {{/if}}
-            </div>
-          </div>
-          {{/with}}
-        </div>
-        {{/with}}
-        <div class="notes">
-        <p class="small">* Requires Java Runtime Environment (JRE) version 8 (for releases 17.1.0 and higher)</p>
-        <p><a class="link-external" href="https://docs.gocd.org/current/installation/system_requirements.html" target="_blank">System Requirements </a></p>
-        </div>
-      </div>
     </div>
 
-    <div class="steps-section">
-      <h3>Download GoCD Test Drive </h3>
-      <p>The test drive contains both the GoCD server and agent with an existing configuration. It is not meant for production use. To install GoCD for more than just an evaluation, please proceed to the <a href="../download.html">download</a>page</p>
-      <ul class="recommended-list">
-        <li>1. Open zip file</li>
-        <li>2. Run `run-me`</li>
-        <li>3. Navigate to http://localhost:8153 in your browser</li>
-      </ul>
+    <div class="container-actions link-mobile">
+          <%= link_to "Visit the Github Repo", 'https://github.com/gocd/gocd-trial', class: 'button-brand' %>
+          <p class="actions_note">
+              Please note: If you like the test drive, remember GoCD is open source and free to use. Just follow <a href="https://github.com/gocd/gocd-trial#next-steps">these instructions</a>to move your test drive to production.
+              <br />
+              This trial does not currently work on Docker for Windows.
+          </p>
     </div>
-  </div>
-  {{/inline}}
-
-  {{#*inline "show-server-and-agent-installer"}}
-  <div>
-    {{> show-file server type="server" display_name="Test Drive" os=../../installer_type latest=latest}}
-  </div>
-  {{/inline}}
-
-
-  {{#*inline "show-file"}}
-  <div class="{{{type}}} file">
-    <div class="name">
-      <a id="{{{analytics_id}}}" href="{{{url}}}" class="btn btn-primary">
-        <i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}"> </i>
-        {{#if latest}}
-        <span>Download {{{display_name}}}</span>
-        {{else}}
-        <span>{{{display_name}}}</span>
-        {{/if}}
-        {{#if info}}
-        <span class="bit">{{{info}}}</span>
-        {{/if}}
-      </a>
-    </div>
-  </div>
-  {{/inline}}
-
-
-  <div class="download-area">
-  </div>
-  <div class="os-tab-content">
-    <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading dld-win" rel="tab-windows">Windows</h3>
-      {{> show-releases-for-installer-type installer_type="win" os_type="windows" heading="Windows" tab_id="tab-windows"}}
-      <h3 class="tab-marker tab-accordion_heading dld-osx" rel="tab-osx">OSX</h3>
-      {{> show-releases-for-installer-type installer_type="osx" os_type="osx" heading="OSX" tab_id="tab-osx"}}
-      <h3 class="tab-marker tab-accordion_heading dld-linux" rel="tab-linux">Linux</h3>
-      {{> show-releases-for-installer-type installer_type="linux" os_type="linux" heading="Linux" tab_id="tab-linux"}}
-    </div>
-  </div>
-</script>
-
-<script>
-  // <![CDATA[
-  jQuery(document).ready(function ($) {
-    var currentInstallerType = "stable";
-    var currentOSPackageType = determinePackageNameBasedOnOS();
-
-    /* Switch OSes. */
-    var target = $("body");
-    target.on('click', '.tab-container-marker .tab-marker', function () {
-      currentOSPackageType = $(this).attr('rel').replace('tab-', '');
-    });
-
-
-    showDownloadLinks({typeOfInstallersToShow: currentInstallerType})
-      .done(function () {
-        startTabContainer();
-        switchActiveTab(currentOSPackageType);
-      });
-
-    showHelpLinksFor(currentOSPackageType);
-  });
-  // ]]>
-</script>
+  </section>
+</div>
