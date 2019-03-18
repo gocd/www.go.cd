@@ -1,0 +1,46 @@
+body.test-drive {
+  .download-test-drive-links::after {
+    content: "";
+    clear:   both;
+    display: table;
+  }
+
+  .download-test-drive-package {
+    float: left;
+    margin-right: 10px;
+
+    .btn {
+      min-width: 80px;
+    }
+  }
+
+  .checksum-link {
+    display: block;
+    font: 11px system-ui;
+  }
+
+  .download-hint {
+    margin-top: 15px;
+
+    p {
+      color: #999;
+      margin: 0;
+      padding: 0;
+      line-height: initial;
+      font-size: 85%;
+    }
+  }
+
+  .terminal {
+    white-space: normal;
+    background: #444;
+    padding: 0.5em 1em;
+
+    code {
+      white-space: pre-line;
+      color: #fff;
+      .comment { color: #999; }
+      .prompt { color: #abff55; }
+    }
+  }
+}
