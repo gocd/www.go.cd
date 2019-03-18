@@ -8,26 +8,27 @@
 .flex-item_sm {
   @include grid-column(12);
 
-  @media (min-width: $screen-md){
+  @media (min-width: $screen-md) {
     @include grid-column(4);
   }
 }
 
 .flex-item_md {
   @include grid-column(12);
-  @media (min-width: $screen-md){
+
+  @media (min-width: $screen-md) {
     @include grid-column(8);
   }
 }
 
-<<<<<<< HEAD
 .grid-container {
   @include grid-container;
 }
 
 .grid-col-7 {
   @include grid-column(12);
-  @media (min-width: $screen-md){
+
+  @media (min-width: $screen-md) {
     @include grid-column(7);
   }
 }
@@ -40,9 +41,10 @@
   }
 }
 
+.gird-col-6 {
+  @include grid-column(12);
 
-=======
-.flex-item-6 {
-  @include grid-column(6);
+  @media (min-width: $screen-lg) {
+    @include grid-column(6);
+  }
 }
->>>>>>> basic layout complete- * Added all the required for the analytics-feedback page. *Basic layout styling done
