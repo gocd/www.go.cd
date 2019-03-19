@@ -442,18 +442,18 @@ $default-font-extra-bold: 'URWGeometric-ExtraBold';
     font-size: 48px;
 }
 
-.display-desktop {
+.text-desktop {
     display: block;
 
-    @media (max-width: $screen-md) {
+    @media (max-width: $screen-lg-min) {
         display: none;
     }
 }
 
-.display-mobile {
+.text-mobile-tablet {
     display: none;
 
-    @media (max-width: $screen-md) {
+    @media (max-width: $screen-lg) {
         display: block;
     }
 }
