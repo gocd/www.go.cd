@@ -3,11 +3,11 @@ layout: post
 title: Use OpenLDAP for User Authentication in GoCD
 type: post
 author: Ankit Srivistava
-excerpt: "This is the third post in the series - Actionable Continuous Delivery Metrics. Here we'll analyze lead time, the duration of time it takes to deployment"
+excerpt: "Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD"
 summary_image: "/assets/images/blog/cd-hacks/open-ldap-gocd.jpg"
-title_tag_of_header: "How often do you deploy to production? | GoCD Blog"
-meta_description: "This is the second post in the series - Actionable Continuous Delivery Metrics. Here we’ll dive deep into the first metric: deployment frequency."
-meta_keywords: "cd metrics, continuous delivery metrics, measure devops, lead time, failure rate, deployment frequency, throughput"
+title_tag_of_header: "OpenLDAP for User Authentication in GoCD | GoCD Blog"
+meta_description: "Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD"
+meta_keywords: "ldap, openldap, user authentication, ci cd, authenticate users, active directory"
 tags: CD Analytics
 draft: true
 ---
@@ -56,6 +56,7 @@ You should see below output:
 
 <img src="/assets/images/blog/cd-hacks/gocd-install-ldap.gif" alt="Open LDAP with GoCD"/>
 
+
 At this point, your LDAP server is configured and running. Open up the LDAP port on your firewall so external clients can connect:
 
 ~~~ shell
@@ -68,7 +69,7 @@ Let's test our LDAP connection using ldapwhoami, which should return the usernam
 ldapwhoami -H ldap:// -x
 ~~~
 
-**Output**
+Output:
 
 ~~~ shell
 anonymous
@@ -85,9 +86,10 @@ ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
 Next we'll add a user to the OpenLDAP server and see if we are able to connect.
 
 
-##**Step 2 — Add user to ldap server**
 
-Create an add.ldif file and add below content for user details.
+##**Step 2 — Add user to LDAP server**
+
+Create an add.ldif file and add below content for user details:
 
 ~~~ shell
 dn: ou=People,dc=gocd,dc=org
@@ -109,13 +111,13 @@ displayName: John Doe
 userPassword: badger
 ~~~
 
-Execute below command to add user to ldap.
+Execute below command to add user to LDAP:
 
 ~~~ shell
 ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add.ldif
 ~~~
 
-**Output**
+Output:
 
 ~~~ shell
 ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add.ldif
@@ -127,13 +129,13 @@ adding new entry  "ou=Groups,dc=gocd,dc=org"
 adding new entry  "uid=john,ou=People,dc=gocd,dc=org"
 ~~~
 
-Check if the user is successfully added.
+Check if the user is successfully added:
 
 ~~~ shell
 ldapsearch -x -LLL -b dc=gocd,dc=org 'uid=john' cn gidNumber
 ~~~
 
-**Output**
+Output:
 
 ~~~ shell
 ldapsearch -x -LLL -b dc=gocd,dc=org 'uid=john' cn gidNumber
@@ -167,15 +169,18 @@ Change user password:
 ldappasswd -x -D cn=admin,dc=gocd,dc=org -W -S "uid=john,ou=People,dc=gocd,dc=org"
 ~~~
 
+
 ##**Step 3 — Setup LDAP authentication for GoCD**
 
 This configuration will help you connect to the  OpenLDAP server you setup.
 
 <img src="/assets/images/blog/cd-hacks/gocd-authorize-config-ldap.gif" alt="Open LDAP with GoCD"/>
 
+
 [Screenshot of the GoCD LDAP authentication setup]
 
 <img src="/assets/images/blog/cd-hacks/gocd-add-auth-ldap.png" alt="Open LDAP with GoCD"/>
+
 
 Users can also configure this via **Config XML** tab on the Admin section:
 
