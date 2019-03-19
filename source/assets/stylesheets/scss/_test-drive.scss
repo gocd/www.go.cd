@@ -1,4 +1,17 @@
 body.test-drive {
+  .content-header {
+    padding-bottom: 10px;
+  }
+
+  .content-subheader {
+    padding: 0 30px;
+
+    h3 {
+      padding-bottom: 20px;
+      color: #fff;
+    }
+  }
+
   .download-test-drive-links::after {
     content: "";
     clear:   both;
