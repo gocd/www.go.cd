@@ -1,29 +1,58 @@
 body.test-drive {
+  .header-bg {
+    padding-top: 30px;
+  }
   .content-header {
+    margin-top: 30px;
     padding-bottom: 10px;
+    text-align: center;
   }
 
   .content-subheader {
     padding: 0 30px;
+    text-align: center;
+    color: #fff;
 
     h3 {
-      padding-bottom: 20px;
       color: #fff;
+      margin-bottom: 5px;
     }
   }
 
-  .download-test-drive-links::after {
-    content: "";
-    clear:   both;
-    display: table;
+  .content-lt, .content-rt {
+    margin-top: 0;
+  }
+
+  .content-lt {
+    .steps-heading {
+      text-align: right;
+      padding: 10px 0;
+    }
+  }
+
+  .steps-list_item {
+    margin: 100px auto;
+  }
+
+  .steps-list_divider {
+    height: 50px;
+  }
+
+  img.unzip {
+    width: 40%;
+    margin: 0;
+    margin-top: 150px;
+    margin-left: auto;
+  }
+
+  img.test-drive-screenshot {
+    margin-top: 230px;
   }
 
   .download-test-drive-package {
-    float: left;
-    margin-right: 10px;
-
     .btn {
-      min-width: 80px;
+      margin-top: 10px;
+      min-width: 180px;
     }
   }
 
