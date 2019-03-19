@@ -87,7 +87,11 @@
 
 .analytics-fd-form_content_list {
   margin: 20px 0 0;
-  padding: 0 15px;
+  padding: 0 0;
+
+  @media (min-width: $screen-lg) {
+    padding: 0 15px;
+  }
 }
 
 .analytics-fd-info {
