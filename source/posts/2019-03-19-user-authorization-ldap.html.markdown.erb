@@ -28,14 +28,14 @@ In this post, you will learn about setting upon OpenLDAP and then, setting up Go
 
 [OpenLDAP](https://www.openldap.org/) is an open-source implementation of the LDAP protocol.
 
-##Prerequisites
+##**Prerequisites**
 
-*Ubuntu
-*Latest GoCD server
+*Ubuntu<br>
+*Latest GoCD server<br>
 *Knowledge of LDAP (https://ldap.com/basic-ldap-concepts/)
 
 
-##Step 1 — Installing and Configuring the OpenLDAP server
+##**Step 1 — Installing and Configuring the OpenLDAP server**
 
 Our first step is to install the OpenLDAP server and some associated utilities. The packages we need are all available in Ubuntu's default repositories.
 
@@ -69,6 +69,7 @@ ldapwhoami -H ldap:// -x
 ```
 
 **Output**
+
 ```
 anonymous
 ```
@@ -217,7 +218,7 @@ Users can also configure this via **Config XML** tab on the Admin section:
         </authConfig>
       </authConfigs>
     </security>
-    ```
+```
     
 More info on GoCD LDAP configuration can be found here - [https://github.com/gocd/gocd-ldap-authentication-plugin](https://github.com/gocd/gocd-ldap-authentication-plugin)
 
