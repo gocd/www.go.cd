@@ -30,9 +30,9 @@ In this post, you will learn about setting upon OpenLDAP and then, setting up Go
 
 ##**Prerequisites**
 
-*Ubuntu<br>
-*Latest GoCD server<br>
-*Knowledge of LDAP (https://ldap.com/basic-ldap-concepts/)
+* Ubuntu<br>
+* Latest GoCD server<br>
+* Knowledge of LDAP (https://ldap.com/basic-ldap-concepts/)
 
 
 ##**Step 1 — Installing and Configuring the OpenLDAP server**
@@ -41,16 +41,16 @@ Our first step is to install the OpenLDAP server and some associated utilities. 
 
 Log into your server and run below commands.
 
-```
-sudo apt-get update	
+~~~ shell
+sudo apt-get update
 sudo apt-get install slapd ldap-utils
-```
+~~~
 
 The above will install and start an openLDAP server with the database suffix of dc=example,dc=com. In order to update suffix, run below command.
 
-```
+~~~ shell
 sudo dpkg-reconfigure slapd
-```
+~~~
 
 You should see below output:
 
@@ -58,38 +58,38 @@ You should see below output:
 
 At this point, your LDAP server is configured and running. Open up the LDAP port on your firewall so external clients can connect:
 
-```
+~~~ shell
 sudo ufw allow ldap
-```
+~~~
 
 Let's test our LDAP connection using ldapwhoami, which should return the username we're connected as:
 
-```
+~~~ shell
 ldapwhoami -H ldap:// -x
-```
+~~~
 
 **Output**
 
-```
+~~~ shell
 anonymous
-```
+~~~
 
 This should give you “anonymous” as result, since we ran it without logging into the LDAP server. This means the LDAP server is running and responding.
 
-If this gives you connect error something similar to below, try checking the ldap service status **/etc/init.d/slapd** status and restart if it is stopped.
+If this gives you connect error something similar to below, try checking the ldap service status **/etc/init.d/slapd status** and restart if it is stopped.
 
-```
+~~~ shell
 ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
-```
+~~~
 
 Next we'll add a user to the OpenLDAP server and see if we are able to connect.
 
 
-##Step 2 — Add user to ldap server
+##**Step 2 — Add user to ldap server**
 
 Create an add.ldif file and add below content for user details.
 
-```
+~~~ shell
 dn: ou=People,dc=gocd,dc=org
 objectClass: organizationalUnit
 ou: People
@@ -107,17 +107,17 @@ givenName: John
 cn: John Doe
 displayName: John Doe
 userPassword: badger
-```
+~~~
 
 Execute below command to add user to ldap.
 
-```
+~~~ shell
 ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add.ldif
-```
+~~~
 
 **Output**
 
-```
+~~~ shell
 ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add.ldif
 Enter LDAP Password:
 adding new entry  "ou=People,dc=gocd,dc=org"
@@ -125,25 +125,25 @@ adding new entry  "ou=People,dc=gocd,dc=org"
 adding new entry  "ou=Groups,dc=gocd,dc=org"
 
 adding new entry  "uid=john,ou=People,dc=gocd,dc=org"
-```
+~~~
 
-Check if the user is successfully added. 
+Check if the user is successfully added.
 
-```
+~~~ shell
 ldapsearch -x -LLL -b dc=gocd,dc=org 'uid=john' cn gidNumber
-```
+~~~
 
 **Output**
 
-```
+~~~ shell
 ldapsearch -x -LLL -b dc=gocd,dc=org 'uid=john' cn gidNumber
-dn:  uid=john,ou=People,dc=gocd,dc=org 
+dn:  uid=john,ou=People,dc=gocd,dc=org
 cn:  John Doe
-```
+~~~
 
 If you need to add another user at some point, you can do it by creating add_user.ldif file with below content.
 
-```
+~~~ shell
 dn: uid=bob,ou=People,dc=gocd,dc=org
 objectClass: inetOrgPerson
 objectClass: shadowAccount
@@ -153,21 +153,21 @@ givenName: bob
 cn: Bob Builder
 displayName: Bob Builder
 userPassword: badger
-```
+~~~
 
 Run below command to add another user:
 
-``` 
+~~~ shell
 ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add_user.ldif
-```
+~~~
 
 Change user password:
 
-```
+~~~ shell
 ldappasswd -x -D cn=admin,dc=gocd,dc=org -W -S "uid=john,ou=People,dc=gocd,dc=org"
-```
+~~~
 
-##Step 3 — Setup LDAP authentication for GoCD
+##**Step 3 — Setup LDAP authentication for GoCD**
 
 This configuration will help you connect to the  OpenLDAP server you setup.
 
@@ -179,7 +179,7 @@ This configuration will help you connect to the  OpenLDAP server you setup.
 
 Users can also configure this via **Config XML** tab on the Admin section:
 
-```
+~~~ xml
  <security>
       <authConfigs>
         <authConfig id="OpenLDAP" pluginId="cd.go.authentication.ldap">
@@ -218,13 +218,13 @@ Users can also configure this via **Config XML** tab on the Admin section:
         </authConfig>
       </authConfigs>
     </security>
-```
-    
+~~~
+
 More info on GoCD LDAP configuration can be found here - [https://github.com/gocd/gocd-ldap-authentication-plugin](https://github.com/gocd/gocd-ldap-authentication-plugin)
 
-##Conclusion
+##**Conclusion**
 
-Our goal is to provide flexible endpoints so that people can use any/multiple authorization service providers of their choice. As demonstrated in the above example, we were able to add a light-weight OpenLDAP server with ease. 
+Our goal is to provide flexible endpoints so that people can use any/multiple authorization service providers of their choice. As demonstrated in the above example, we were able to add a light-weight OpenLDAP server with ease.
 
 
 
