@@ -83,6 +83,7 @@ Style for Card Component
   @media (min-width: $screen-md) {
     @include grid-column(6);
     margin-bottom: 0px;
+    margin-left: 30px;
   }
 }
 
