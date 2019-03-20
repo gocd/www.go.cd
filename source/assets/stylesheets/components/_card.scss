@@ -78,9 +78,11 @@ Style for Card Component
 .card-col-6 {
   @include grid-column(12);
   height: auto;
+  margin-bottom: 35px;
 
   @media (min-width: $screen-md) {
     @include grid-column(6);
+    margin-bottom: 0px;
   }
 }
 
