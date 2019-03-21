@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD" name="description" />
+    <meta content="ldap, openldap, user authentication, ci cd, authenticate users, active directory" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="OpenLDAP for User Authentication in GoCD | GoCD Blog" />
+    <meta name="twitter:description" content="Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-hacks/open-ldap-gocd-04a9f314.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2019/03/19/user-authorization-ldap" />
+
+    <title>OpenLDAP for User Authentication in GoCD | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-586f4aa6.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-c302485f.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+  </head>
+
+  <body class="x2019 x2019_03 x2019_03_19 x2019_03_19_user-authorization-ldap x2019_03_19_user-authorization-ldap_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="download-btn-header" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+<img src="../../../../assets/images/blog/cd-hacks/open-ldap-gocd-04a9f314.jpg" alt="Open LDAP with GoCD"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Use OpenLDAP for User Authentication in <span class="go">Go</span>CD</h1>
+    <h4>Ankit Srivistava</h4>
+    <p class='tags'>
+<a href="../../../../tags/cd-hacks.html" class="tag">        CD Hacks
+</a>     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>A newly installed GoCD server does not require users to authenticate. This is great for a trial. However, it is one of the first things you should change, as soon as you decide to use GoCD more widely.</p>
+
+<p>GoCD has two methods of authentication built into it: Password-file based authentication and LDAP/Active Directory authentication. You can also choose from a collection of <a href="https://www.gocd.org/plugins/#authorization">community-maintained plugins</a> for other methods of authentication, such as using Google or GitHub OAuth.</p>
+
+<p>GoCD doesn’t restrict you to only one source of authentication but allows you to connect multiple authentication sources. For instance, a user can have combination of password-file based and LDAP authentication or GoCD can be setup to use multiple LDAP servers.</p>
+
+<p>In this post, you will learn about setting upon OpenLDAP and then, setting up GoCD to use that OpenLDAP instance for authentication.</p>
+
+<p><a href="https://www.openldap.org/">OpenLDAP</a> is an open-source implementation of the LDAP protocol.</p>
+
+<h2 id="prerequisites"><strong>Prerequisites</strong></h2>
+
+<ul>
+  <li>Ubuntu<br /></li>
+  <li>Latest GoCD server<br /></li>
+  <li>Knowledge of LDAP (https://ldap.com/basic-ldap-concepts/)</li>
+</ul>
+
+<h2 id="step-1--installing-and-configuring-the-openldap-server"><strong>Step 1 — Installing and Configuring the OpenLDAP server</strong></h2>
+
+<p>Our first step is to install the OpenLDAP server and some associated utilities. The packages we need are all available in Ubuntu's default repositories.</p>
+
+<p>Log into your server and run below commands.</p>
+
+<pre><code class="language-shell">sudo apt-get update
+sudo apt-get install slapd ldap-utils
+</code></pre>
+
+<p>The above will install and start an openLDAP server with the database suffix of dc=example,dc=com. In order to update suffix, run below command.</p>
+
+<pre><code class="language-shell">sudo dpkg-reconfigure slapd
+</code></pre>
+
+<p>You should see below output:</p>
+
+<p><img src="../../../../assets/images/blog/cd-hacks/gocd-install-ldap-603cddda.gif" alt="Open LDAP with GoCD" /></p>
+
+<p>At this point, your LDAP server is configured and running. Open up the LDAP port on your firewall so external clients can connect:</p>
+
+<pre><code class="language-shell">sudo ufw allow ldap
+</code></pre>
+
+<p>Let's test our LDAP connection using ldapwhoami, which should return the username we're connected as:</p>
+
+<pre><code class="language-shell">ldapwhoami -H ldap:// -x
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code class="language-shell">anonymous
+</code></pre>
+
+<p>This should give you “anonymous” as result, since we ran it without logging into the LDAP server. This means the LDAP server is running and responding.</p>
+
+<p>If this gives you connect error something similar to below, try checking the ldap service status <strong>/etc/init.d/slapd status</strong> and restart if it is stopped.</p>
+
+<pre><code class="language-shell">ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
+</code></pre>
+
+<p>Next we'll add a user to the OpenLDAP server and see if we are able to connect.</p>
+
+<h2 id="step-2--add-user-to-ldap-server"><strong>Step 2 — Add user to LDAP server</strong></h2>
+
+<p>Create an add.ldif file and add below content for user details:</p>
+
+<pre><code class="language-shell">dn: ou=People,dc=gocd,dc=org
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Groups,dc=gocd,dc=org
+objectClass: organizationalUnit
+ou: Groups
+
+dn: uid=john,ou=People,dc=gocd,dc=org
+objectClass: inetOrgPerson
+objectClass: shadowAccount
+uid: john
+sn: Doe
+givenName: John
+cn: John Doe
+displayName: John Doe
+userPassword: badger
+</code></pre>
+
+<p>Execute below command to add user to LDAP:</p>
+
+<pre><code class="language-shell">ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add.ldif
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code class="language-shell">ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add.ldif
+Enter LDAP Password:
+adding new entry  "ou=People,dc=gocd,dc=org"
+
+adding new entry  "ou=Groups,dc=gocd,dc=org"
+
+adding new entry  "uid=john,ou=People,dc=gocd,dc=org"
+</code></pre>
+
+<p>Check if the user is successfully added:</p>
+
+<pre><code class="language-shell">ldapsearch -x -LLL -b dc=gocd,dc=org 'uid=john' cn gidNumber
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code class="language-shell">ldapsearch -x -LLL -b dc=gocd,dc=org 'uid=john' cn gidNumber
+dn:  uid=john,ou=People,dc=gocd,dc=org
+cn:  John Doe
+</code></pre>
+
+<p>If you need to add another user at some point, you can do it by creating add_user.ldif file with below content.</p>
+
+<pre><code class="language-shell">dn: uid=bob,ou=People,dc=gocd,dc=org
+objectClass: inetOrgPerson
+objectClass: shadowAccount
+uid: bob
+sn: builder
+givenName: bob
+cn: Bob Builder
+displayName: Bob Builder
+userPassword: badger
+</code></pre>
+
+<p>Run below command to add another user:</p>
+
+<pre><code class="language-shell">ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add_user.ldif
+</code></pre>
+
+<p>Change user password:</p>
+
+<pre><code class="language-shell">ldappasswd -x -D cn=admin,dc=gocd,dc=org -W -S "uid=john,ou=People,dc=gocd,dc=org"
+</code></pre>
+
+<h2 id="step-3--setup-ldap-authentication-for-gocd"><strong>Step 3 — Setup LDAP authentication for GoCD</strong></h2>
+
+<p>This configuration will help you connect to the  OpenLDAP server you setup.</p>
+
+<p><img src="../../../../assets/images/blog/cd-hacks/gocd-authorize-config-ldap-2440fa39.gif" alt="Open LDAP with GoCD" /></p>
+
+<p>[Screenshot of the GoCD LDAP authentication setup]</p>
+
+<p><img src="../../../../assets/images/blog/cd-hacks/gocd-add-auth-ldap-397c6a4c.png" alt="Open LDAP with GoCD" /></p>
+
+<p>Users can also configure this via <strong>Config XML</strong> tab on the Admin section:</p>
+
+<pre><code class="language-xml"> &lt;security&gt;
+      &lt;authConfigs&gt;
+        &lt;authConfig id="OpenLDAP" pluginId="cd.go.authentication.ldap"&gt;
+          &lt;property&gt;
+            &lt;key&gt;Url&lt;/key&gt;
+            &lt;value&gt;ldap://&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;key&gt;SearchBases&lt;/key&gt;
+            &lt;value&gt;ou=People,dc=gocd,dc=org&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;key&gt;ManagerDN&lt;/key&gt;
+            &lt;value&gt;cn=admin,dc=gocd,dc=org&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;key&gt;Password&lt;/key&gt;
+            &lt;encryptedValue&gt;3mfoJ3hSBBM=&lt;/encryptedValue&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;key&gt;UserSearchFilter&lt;/key&gt;
+            &lt;value /&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;key&gt;UserLoginFilter&lt;/key&gt;
+            &lt;value&gt;uid={0}&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;key&gt;DisplayNameAttribute&lt;/key&gt;
+            &lt;value&gt;cn&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;key&gt;EmailAttribute&lt;/key&gt;
+            &lt;value /&gt;
+          &lt;/property&gt;
+        &lt;/authConfig&gt;
+      &lt;/authConfigs&gt;
+    &lt;/security&gt;
+</code></pre>
+
+<p>More info on GoCD LDAP configuration can be found here - <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">https://github.com/gocd/gocd-ldap-authentication-plugin</a></p>
+
+<h2 id="conclusion"><strong>Conclusion</strong></h2>
+
+<p>Our goal is to provide flexible endpoints so that people can use any/multiple authorization service providers of their choice. As demonstrated in the above example, we were able to add a light-weight OpenLDAP server with ease.</p>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../../assets/javascripts/marketo_popover-a55210a4.js" onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Mar 19</span>
+              <span class="post-author">Ankit Srivistava</span>
+              <a href="./">Use OpenLDAP for User Authentication in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 14</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="../../../01/14/cd-metrics-deployment-lead-time/">Continuous Delivery Metrics Part 3&#58; How long does it take to get from committing code to production?</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 30</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="../../../../2018/11/30/deployment-frequency/">Continuous Delivery Metrics Part 2&#58; How often do you deploy to production?</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 30</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="../../../../2018/10/30/measure-continuous-delivery-process/">Continuous Delivery Metrics Part 1&#58; Why measure your CD process</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 16</span>
+              <span class="post-author">Aravind S.V, Product Manager at GoCD</span>
+              <a href="../../../../2018/10/16/new-gocd-features/">What's new in GoCD</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2019 (2)</a></li>
+            <li><a href="../../../../2018/">2018 (17)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2019/03/19/user-authorization-ldap.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+            
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li> <a href="../../../../events/">WEBINARS + EVENTS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
