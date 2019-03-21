@@ -455,5 +455,6 @@ $default-font-extra-bold: 'URWGeometric-ExtraBold';
 
     @media (max-width: $screen-lg) {
         display: block;
+        padding: 0 30px;
     }
 }
