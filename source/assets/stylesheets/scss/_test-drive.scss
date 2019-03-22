@@ -30,12 +30,12 @@ body.test-drive {
     }
   }
 
-  .steps-list {
-    padding: 0 30px;
-  }
-
   .steps-list_item {
     margin: 100px auto;
+  }
+
+  .steps-list_divider {
+    height: 50px;
   }
 
   img.unzip {
