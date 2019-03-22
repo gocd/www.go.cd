@@ -1,4 +1,4 @@
-(function($, c, BASE_URL) {
+(function($, BASE_URL) {
 
   document.addEventListener("DOMContentLoaded", function initLinks() {
     var container = document.querySelector(".download-test-drive-links");
@@ -32,9 +32,9 @@
 
         if (!!meta) {
           links.appendChild(
-            c("div", {class: "download-test-drive-package"}, [
-              c("a", {href: downloadUrl(BASE_URL, plt, meta), class: "btn btn-primary"}, "osx" === plt ? "Mac OS X" : titleCase(plt)),
-              c("a", {href: downloadUrl(BASE_URL, plt, meta) + ".sha256", class: "checksum-link"}, "SHA-256")
+            el("div", {class: "download-test-drive-package"}, [
+              el("a", {href: downloadUrl(BASE_URL, plt, meta), class: "btn btn-primary"}, "osx" === plt ? "Mac OS X" : titleCase(plt)),
+              el("a", {href: downloadUrl(BASE_URL, plt, meta) + ".sha256", class: "checksum-link"}, "SHA-256")
             ])
           );
         }
@@ -44,8 +44,8 @@
 
 
       var hintfrag = document.createDocumentFragment();
-      hintfrag.appendChild(c("p", ["Approximately ", c("span", {class: "test-drive-file-size"}, filesize), " download."]));
-      hintfrag.appendChild(c("p", "GoCD test-drive requires a 64 bit machine."));
+      hintfrag.appendChild(el("p", {}, ["Approximately ", el("span", {class: "test-drive-file-size"}, filesize), " download."]));
+      hintfrag.appendChild(el("p", {}, "GoCD test-drive requires a 64 bit machine."));
       empty(hint).appendChild(hintfrag);
     });
 
@@ -60,6 +60,37 @@
       ["gocd", meta.version, meta.build, meta.trialbuild, plt + ".zip"].join("-")
     ].join("/")).toString()
   }
+
+  function el(tag, attrs, content, isHtml) {
+    var node = document.createElement(tag.toLowerCase());
+    if (attrs) {
+      for (var key in attrs) {
+        node.setAttribute(key, attrs[key]);
+      }
+    }
+    if (content) {
+      if ("string" === typeof content) {
+        if (isHtml) {
+          node.innerHTML = content;
+          return node;
+        }
+        content = document.createTextNode(content);
+      }
+
+      if (content.forEach) {
+        content.forEach(function(child) {
+          if ("string" === typeof child) {
+            child = document.createTextNode(child);
+          }
+          node.appendChild(child);
+        });
+      } else {
+        node.appendChild(content);
+      }
+    }
+    return node;
+  }
+
 
 
   function os() {
@@ -89,4 +120,4 @@
     return el;
   }
 
-})(jQuery, crel, "https://s3.amazonaws.com/gocd-test-drive-experimental"/* /installers/19.3.0-8719/14 */);
+})(jQuery, "https://s3.amazonaws.com/gocd-test-drive-experimental"/* /installers/19.3.0-8719/14 */);

@@ -5,7 +5,6 @@
 //= require 'lib/_handlebars-v4.0.5'
 //= require 'lib/_ramda'
 //= require 'lib/_jquery.chocolat'
-//= require 'lib/_crel-f842bfe'
 //= require 'bootstrap-sprockets'
 
 //= require 'app/_gdpr'
