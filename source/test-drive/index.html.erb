@@ -7,53 +7,31 @@ meta_keywords: ""
 ---
 
 <div class="header-bg">
-  <h1 class="content-header">Test Drive GoCD</h1>
-  <div class="content-subheader">
-    <h3>Looking for a quick way to evaluate GoCD? Try out our test drive below.</h3>
-    <p class="small">Note: This is for evaluation purposes only and not suitable for production.</p>
-  </div>
+
 </div>
 
 <div class="content-container container">
+
   <section class="content-lt">
-    <div>
-      <ul class="steps-list">
-        <li class="steps-list_item">
-          <h2 class="steps-heading">
-            Step 1: Download it.
-          </h2>
-        </li>
 
-        <li class="steps-list_divider"></li>
-
-        <li class="steps-list_item">
-          <%= image_tag "https://media.giphy.com/media/1Be4fZC14G7VY4GrCa/giphy.gif", class: "img-responsive unzip"%>
-        </li>
-
-        <li class="steps-list_divider"></li>
-
-        <li class="steps-list_item">
-          <h2 class="steps-heading">
-            Step 3: Run it.
-          </h2>
-        </li>
-
-        <li class="steps-list_divider"></li>
-
-        <li class="steps-list_item">
-          <%= image_tag  "../assets/images/campaign/test-drive/gocd-test-drive-w.gif", class: "img-responsive test-drive-screenshot" %>
-        </li>
-      </ul>
-    </div>
-
-
+    <%= image_tag  "../assets/images/campaign/test-drive/gocd-test-drive-w.gif", class: "img-responsive test-drive-screenshot" %>
 
   </section>
 
   <section class="content-rt">
-    <div>
+    <h1 class="content-header">Test Drive GoCD</h1>
+    <%= image_tag  "../assets/images/campaign/test-drive/gocd-test-drive-w.gif", class: "img-responsive hide-mob-desktop test-drive-screenshot"%>
+    <div class="content-subheader">
+      <h3>Looking for a quick way to evaluate GoCD? Try out our test drive below.</h3>
+      <p class="small">Note: This is for evaluation purposes only and not suitable for production.</p>
+    </div>
+
+    <div class="steps-list">
       <ul class="steps-list">
             <li class="steps-list_item">
+              <h2 class="steps-heading">
+                Step 1: Download it.
+              </h2>
               <div class="download-test-drive-links">
                 <div class="load-message">
                   <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
@@ -64,17 +42,17 @@ meta_keywords: ""
               <div class="download-hint"></div>
             </li>
 
-            <li class="steps-list_divider"></li>
-
             <li class="steps-list_item">
               <h2 class="steps-heading">
                 Step 2: Unzip it.
               </h2>
             </li>
 
-            <li class="steps-list_divider"></li>
-
             <li class="steps-list_item">
+              <h2 class="steps-heading">
+                Step 3: Run it.
+              </h2>
+
               Mac OS/Linux:
               <pre class="terminal">
                 <code><span class="comment"># cd into the unzipped directory</span>
@@ -88,8 +66,6 @@ meta_keywords: ""
               </pre>
             </li>
 
-            <li class="steps-list_divider"></li>
-
             <li class="steps-list_item">
               <h2 class="steps-heading">
                 Step 4: Try it.
@@ -97,8 +73,6 @@ meta_keywords: ""
               <p>Click on the "Add Pipeline" button to create and run your first pipeline in GoCD.</p>
               <p>Once you've completed your first pipeline, you'll have the opportunity to look under the hood at your build. </p>
             </li>
-
-            <li class="steps-list_divider"></li>
 
             <li class="steps-list_item">
               <h2 class="steps-heading">
