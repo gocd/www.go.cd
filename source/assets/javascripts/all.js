@@ -5,11 +5,13 @@
 //= require 'lib/_handlebars-v4.0.5'
 //= require 'lib/_ramda'
 //= require 'lib/_jquery.chocolat'
+//= require 'lib/_crel-f842bfe'
 //= require 'bootstrap-sprockets'
 
 //= require 'app/_gdpr'
 //= require 'app/_main'
 //= require 'app/_download'
+//= require 'app/_test_drive_download'
 //= require 'app/_getting_started'
 //= require 'app/_tabs'
 //= require 'app/_video-overlay'

@@ -49,19 +49,13 @@ meta_keywords: ""
       <ul class="steps-list">
             <li class="steps-list_item">
               <div class="download-test-drive-links">
-                <% ["OSX", "Windows", "Linux"].each do | os | %>
-                  <% dl_base_url = "https://s3.amazonaws.com/gocd-test-drive-experimental/installers/19.3.0-8719/14" -%>
-                  <div class="download-test-drive-package">
-                    <%= link_to os, "#{dl_base_url}/gocd-19.3.0-8719-14-#{os.downcase}.zip", { class: "btn btn-primary"} %>
-                    <%= link_to "SHA-256", "#{dl_base_url}/gocd-19.3.0-8719-14-#{os.downcase}.zip.sha256", { class: "checksum-link" } %>
-                  </div>
-                <% end %>
+                <div class="load-message">
+                  <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
+                  <span>Fetching download package information&hellip;</span>
+                </div>
               </div>
 
-              <div class="download-hint">
-                <p>Approximately 230 MB download. </p>
-                <p>GoCD test-drive requires a 64 bit machine.</p>
-              </div>
+              <div class="download-hint"></div>
             </li>
 
             <li class="steps-list_item">
