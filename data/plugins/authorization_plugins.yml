@@ -78,10 +78,10 @@
 
 - name: GoCD Guest Login Authentication plugin
   description: The plugin allows user to login in GoCD as a guest user
-  readmore_url: https://github.com/gocd-contrib/guest-login-plugin
+  readmore_url: https://github.com/gocd-contrib/gocd-guest-login-plugin
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
-  releases_url: https://github.com/gocd-contrib/guest-login-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=guest-login-plugin&type=watch&count=true
+  releases_url: https://github.com/gocd-contrib/gocd-guest-login-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-guest-login-plugin&type=watch&count=true
   paid: false
 
