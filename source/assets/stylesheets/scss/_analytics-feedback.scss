@@ -58,11 +58,11 @@
   margin: 35px auto 0px;
 }
 
-.analytics-fd-form-container {
+.analytics-fb-form-container {
   margin: 120px auto 0px;
 }
 
-.analytics-fd-form_header {
+.analytics-fb-form_header {
   margin: 0 auto 25px;
   font-size: 26px;
 
@@ -75,13 +75,13 @@
   }
 }
 
-.analytics-fd_grid-container {
+.analytics-fb_grid-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.analytics-fd-form_content {
+.analytics-fb-form_content {
   padding: 0 28px;
 
   @media (min-width: $screen-md) {
@@ -93,7 +93,7 @@
   }
 }
 
-.analytics-fd-form_content_header {
+.analytics-fb-form_content_header {
   font-size: 22px;
   text-align: left;
   font-weight: 600;
@@ -107,7 +107,7 @@
   }
 }
 
-.analytics-fd-form_content_list {
+.analytics-fb-form_content_list {
   margin: 20px 0 0;
   padding: 0 0;
 
@@ -116,7 +116,7 @@
   }
 }
 
-.analytics-fd-info {
+.analytics-fb-info {
   margin: 35px auto 0;
 
   @media (max-width: $screen-lg) {
