@@ -55,8 +55,8 @@
     return new URL([
       baseUrl,
       "installers",
-      meta.version + "-" + meta.build,
-      meta.trialbuild,
+      meta.version,
+      meta.build,
       ["gocd", meta.version, meta.build, meta.trialbuild, plt + ".zip"].join("-")
     ].join("/")).toString()
   }
