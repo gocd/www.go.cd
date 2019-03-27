@@ -160,4 +160,12 @@ jQuery(document).ready(function ($) {
 
   //why go-cd lightbox
   $('.chocolat-parent').Chocolat();
+
+  $(document).ready(function () {
+    var redirected = window.location.search.match(/(?:\?|&)redirected=([^&]+)(?:&|$)/);
+
+    if (redirected !== null && redirected[1] === "true") {
+     $('.redirect-notice').show();
+    }
+  });
 });
