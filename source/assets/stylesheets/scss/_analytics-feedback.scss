@@ -1,5 +1,5 @@
 .analytics-fb-header-container {
-  background: $dark url('');
+  background: $dark url("");
   height: 200px;
   width: 100%;
 
@@ -29,6 +29,22 @@
 
   @media (min-width: $screen-md) {
     font-size: 22px;
+  }
+}
+
+.analytics-fb-main-container {
+  @include grid-column(12);
+  @include grid-shift(0);
+  margin: 80px auto 100px;
+
+  @media (min-width: $screen-md) {
+    @include grid-column(10);
+    @include grid-shift(1);
+  }
+
+  @media (min-width: $screen-lg) {
+    @include grid-column(8);
+    @include grid-shift(2);
   }
 }
 
@@ -62,7 +78,7 @@
   margin: 120px auto 0px;
 }
 
-.analytics-fb-form_header {
+.analytics-fb-main_header {
   margin: 0 auto 25px;
   font-size: 26px;
 
@@ -73,6 +89,10 @@
   @media (min-width: $screen-lg) {
     font-size: 40px;
   }
+}
+
+.analytics-fb-main_description {
+  margin: 40px auto 0;
 }
 
 .analytics-fb_grid-container {
@@ -188,9 +208,9 @@
     width: 240px;
     height: 50px;
     border-radius: 2px;
-    background: #4AD9D9 !important;
+    background: #4ad9d9 !important;
     line-height: 18px;
-    border: 1px solid #4AD9D9 !important;
+    border: 1px solid #4ad9d9 !important;
     color: #000 !important;
     text-transform: uppercase;
     font-weight: bold;
