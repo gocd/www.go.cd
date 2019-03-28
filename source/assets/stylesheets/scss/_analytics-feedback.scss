@@ -33,8 +33,9 @@
 }
 
 .analytics-fb-main-container {
+  @include grid-container;
   @include grid-column(12);
-  @include grid-shift(0);
+  float: none;
   margin: 80px auto 100px;
 
   @media (min-width: $screen-md) {
@@ -102,12 +103,6 @@
 }
 
 .analytics-fb-form_content {
-  padding: 0 28px;
-
-  @media (min-width: $screen-md) {
-    padding: 0 10px;
-  }
-
   @media (min-width: $screen-lg) {
     padding: 0 40px;
   }
@@ -128,7 +123,7 @@
 }
 
 .analytics-fb-form_content_list {
-  margin: 20px 0 0;
+  margin: 20px 0 40px;
   padding: 0 0;
 
   @media (min-width: $screen-lg) {
@@ -161,15 +156,17 @@
   font-size: 16px;
 }
 
-#mktoForm_1136 {
-  width: auto;
+#mktoForm_9958 {
+  width: 100% !important;
+  padding: 0;
 
   @media (min-width: $screen-lg) {
-    width: 65%;
+    width: 100% !important;
+    padding: 0 0 0 100px;
   }
 
   textarea {
-    width: 100% !important;
+    // width: 100% !important;
     height: 100px !important;
     border-radius: 2px;
 
@@ -190,12 +187,23 @@
     }
   }
 
-  select {
-    border-radius: 0px !important;
+  label {
+    font-family: "URWGeometric-Medium";
+    font-size: 16px;
+    width: auto !important;
+  }
+
+  select,
+  input,
+  textarea {
     margin: 0 !important;
     font-size: 16px;
     font-style: oblique;
     color: #767676;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: none;
+    border: 1px solid #979797;
   }
 
   .mktoCheckboxList input[type="checkbox"] {
@@ -222,54 +230,22 @@
     }
   }
 
-  .mktoFormRow:nth-child(4) {
-    .mktoFormCol {
-      width: 100% !important;
-    }
+  .mktoFormCol,
+  .mktoFieldWrap,
+  .mktoButtonRow,
+  input,
+  select,
+  textarea {
+    width: 100% !important;
   }
 
-  .mktoFormRow:nth-child(5) {
-    display: flex;
-
-    .mktoFormCol:nth-child(1) {
-      width: 40px !important;
+  .mktoFormRow:nth-child(8) {
+    label {
+      width: 90% !important;
     }
-
-    .mktoFormCol:nth-child(2) {
-      width: 400px;
-      padding-left: 8px;
-      font-weight: bold;
-
-      @media (min-width: $screen-md) {
-        width: 470px;
-        text-indent: -10px;
-      }
-
-      @media (min-width: 480px) {
-        padding-left: 5px;
-        text-indent: 0px;
-      }
-
-      .mktoHtmlText {
-        width: 100% !important;
-      }
-    }
-
-    .mktoFormCol {
-      .mktoFormCol:nth-child(2) {
-        margin-top: 4px;
-      }
-    }
-  }
-
-  .mktoForm .mktoGutter {
-    height: 2.2em;
-  }
-
-  .mktoOffset {
-    width: 0px;
   }
 }
+
 
 // Noscript Stlyes
 .error-msg-container {
