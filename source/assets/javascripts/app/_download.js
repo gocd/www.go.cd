@@ -27,7 +27,9 @@ var showDownloadLinks = (function ($) {
       return (new Date() - new Date(timeInSecondsSinceEpoch * 1000)) < 3600 * 24 * 366 * 1000;
     });
 
-    var releasesLessThanAYearOld = R.filter(R.where({release_time: dateFilter}));
+    var releasesLessThanAYearOld = R.filter(R.where({
+      release_time: dateFilter
+    }));
 
     var addURLToFiles = function (release) {
       var addDetailsFrom = R.curry(function (release, analyticsIDPrefix, o) {
@@ -44,10 +46,22 @@ var showDownloadLinks = (function ($) {
           server32bit: addDetailsFrom(release, 'Windows-Server-32bit'),
           agent32bit: addDetailsFrom(release, 'Windows-Agent-32bit')
         },
-        osx: {server: addDetailsFrom(release, 'Mac-Server'), agent: addDetailsFrom(release, 'Mac-Agent')},
-        deb: {server: addDetailsFrom(release, 'LinuxDeb-Server'), agent: addDetailsFrom(release, 'LinuxDeb-Agent')},
-        rpm: {server: addDetailsFrom(release, 'LinuxRpm-Server'), agent: addDetailsFrom(release, 'LinuxRpm-Agent')},
-        generic: {server: addDetailsFrom(release, 'Package-Server'), agent: addDetailsFrom(release, 'Package-Agent')}
+        osx: {
+          server: addDetailsFrom(release, 'Mac-Server'),
+          agent: addDetailsFrom(release, 'Mac-Agent')
+        },
+        deb: {
+          server: addDetailsFrom(release, 'LinuxDeb-Server'),
+          agent: addDetailsFrom(release, 'LinuxDeb-Agent')
+        },
+        rpm: {
+          server: addDetailsFrom(release, 'LinuxRpm-Server'),
+          agent: addDetailsFrom(release, 'LinuxRpm-Agent')
+        },
+        generic: {
+          server: addDetailsFrom(release, 'Package-Server'),
+          agent: addDetailsFrom(release, 'Package-Agent')
+        }
       }, release);
     };
 
@@ -182,7 +196,8 @@ var switchDownloadType = function (currentInstallerType) {
 var displayAmiDropdown = function (currentOSPackageType) {
   if (currentOSPackageType === 'ami') {
     $('.select-dropdown').each(function () {
-      var $this = $(this), numberOfOptions = $(this).children('option').length;
+      var $this = $(this),
+        numberOfOptions = $(this).children('option').length;
 
       $this.addClass('select-hidden');
       $this.wrap('<div class="select"></div>');
@@ -281,3 +296,20 @@ Handlebars.registerHelper('size', function (array, operator, expectedSize, optio
       break;
   }
 });
+
+
+(function showPopup() {
+  var access_country;
+  var COUNTRY_CODES_EU = [
+    "AT", "BE", "BG", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT",
+    "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE", "GB", "US"
+  ]
+
+  $.get("https://ipinfo.io", function (response) {
+    access_country = response.country
+  }, "jsonp");
+
+  if ($.inArray(access_country, COUNTRY_CODES_EU) == -1) {
+    $('.banner-fixed-bottom slide-in-bottom').hide();
+  }
+})();
