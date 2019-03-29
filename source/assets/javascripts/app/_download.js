@@ -453,8 +453,7 @@ function showPopup() {
     "jsonp"
   );
 
-  if ($.inArray(access_country, COUNTRY_CODES_EU) == -1) {
-    $(".banner-fixed-bottom").remove();
-    console.log("done");
+  if ($.inArray(access_country, COUNTRY_CODES_EU) != -1) {
+    $(".banner-fixed-bottom").addClass("show-banner");
   }
 }
