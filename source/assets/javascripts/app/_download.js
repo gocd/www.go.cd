@@ -310,6 +310,6 @@ Handlebars.registerHelper('size', function (array, operator, expectedSize, optio
   }, "jsonp");
 
   if ($.inArray(access_country, COUNTRY_CODES_EU) == -1) {
-    $('.banner-fixed-bottom slide-in-bottom').hide();
+    $('.banner-fixed-bottom').hide();
   }
 })();
