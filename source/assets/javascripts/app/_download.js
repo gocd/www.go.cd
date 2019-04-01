@@ -409,7 +409,7 @@ Handlebars.registerHelper("size", function(
 });
 
 $(document).ready(function() {
-  showPopup();
+  setTimeout(showPopup, 100);
 });
 
 function showPopup() {
