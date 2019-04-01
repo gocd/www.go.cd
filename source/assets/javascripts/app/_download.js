@@ -450,14 +450,15 @@ function showPopup() {
     function(response) {
       access_country = response.country;
       console.log(access_country);
+      return access_country;
     },
     "jsonp"
   );
-  var is_access_country =
-    $.inArray(access_country, COUNTRY_CODES_EU) != -1 ? false : true;
 
-  if (is_access_country) {
+  if ($.inArray(access_country, COUNTRY_CODES_EU) != -1) {
     console.log(is_access_country);
     $(".banner-fixed-bottom").addClass("show-banner");
+  } else {
+    $(".banner-fixed-bottom").removeClass("show-banner");
   }
 }
