@@ -449,11 +449,15 @@ function showPopup() {
     "https://ipinfo.io",
     function(response) {
       access_country = response.country;
+      console.log(access_country);
     },
     "jsonp"
   );
+  var is_access_country =
+    $.inArray(access_country, COUNTRY_CODES_EU) != -1 ? false : true;
 
-  if ($.inArray(access_country, COUNTRY_CODES_EU) != -1) {
+  if (is_access_country) {
+    console.log(is_access_country);
     $(".banner-fixed-bottom").addClass("show-banner");
   }
 }
