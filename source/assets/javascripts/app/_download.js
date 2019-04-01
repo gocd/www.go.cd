@@ -413,7 +413,6 @@ $(document).ready(function() {
 });
 
 function showPopup() {
-  var access_country;
   var COUNTRY_CODES_EU = [
     "AT",
     "BE",
@@ -448,17 +447,14 @@ function showPopup() {
   $.get(
     "https://ipinfo.io",
     function(response) {
-      access_country = response.country;
-      console.log(access_country);
-      return access_country;
+      if ($.inArray(response.country, COUNTRY_CODES_EU) != -1) {
+        console.log("True statement");
+        $(".banner-fixed-bottom").addClass("show-banner");
+      } else {
+        console.log("False statement");
+        $(".banner-fixed-bottom").removeClass("show-banner");
+      }
     },
     "jsonp"
   );
-
-  if ($.inArray(access_country, COUNTRY_CODES_EU) != -1) {
-    console.log(is_access_country);
-    $(".banner-fixed-bottom").addClass("show-banner");
-  } else {
-    $(".banner-fixed-bottom").removeClass("show-banner");
-  }
 }
