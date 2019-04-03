@@ -1,21 +1,20 @@
-var showDownloadLinks = (function($) {
-  return function(options) {
+var showDownloadLinks = (function ($) {
+  return function (options) {
     var typeOfInstallersToShow = options.typeOfInstallersToShow;
 
     var settingsForAllTypes = {
       stable: {
         download_info_url: "https://download.gocd.org/releases.json",
         download_prefix: "https://download.gocd.org/binaries/",
-        version_to_show: function(release) {
+        version_to_show: function (release) {
           return release["go_version"];
         },
         cloud_info_url: "https://download.gocd.org/cloud.json"
       },
       experimental: {
-        download_info_url:
-          "https://download.gocd.org/experimental/releases.json",
+        download_info_url: "https://download.gocd.org/experimental/releases.json",
         download_prefix: "https://download.gocd.org/experimental/binaries/",
-        version_to_show: function(release) {
+        version_to_show: function (release) {
           return release["go_full_version"];
         },
         cloud_info_url: "https://download.gocd.org/cloud.json"
@@ -24,7 +23,7 @@ var showDownloadLinks = (function($) {
 
     var settings = settingsForAllTypes[typeOfInstallersToShow];
 
-    var dateFilter = R.curry(function(timeInSecondsSinceEpoch) {
+    var dateFilter = R.curry(function (timeInSecondsSinceEpoch) {
       return (
         new Date() - new Date(timeInSecondsSinceEpoch * 1000) <
         3600 * 24 * 366 * 1000
@@ -37,14 +36,14 @@ var showDownloadLinks = (function($) {
       })
     );
 
-    var addURLToFiles = function(release) {
-      var addDetailsFrom = R.curry(function(release, analyticsIDPrefix, o) {
+    var addURLToFiles = function (release) {
+      var addDetailsFrom = R.curry(function (release, analyticsIDPrefix, o) {
         var afterAddingURL = R.assoc(
           "url",
           settings.download_prefix +
-            release["go_full_version"] +
-            "/" +
-            o["file"],
+          release["go_full_version"] +
+          "/" +
+          o["file"],
           o
         );
         var afterAddingFilename = R.assoc(
@@ -62,8 +61,7 @@ var showDownloadLinks = (function($) {
         return afterAddingAnalyticsID;
       });
 
-      return R.evolve(
-        {
+      return R.evolve({
           win: {
             server: addDetailsFrom(release, "Windows-Server"),
             agent: addDetailsFrom(release, "Windows-Agent"),
@@ -91,7 +89,7 @@ var showDownloadLinks = (function($) {
       );
     };
 
-    var addDisplayVersion = R.curry(function(release) {
+    var addDisplayVersion = R.curry(function (release) {
       return R.assoc(
         "display_version",
         settings.version_to_show(release),
@@ -99,8 +97,8 @@ var showDownloadLinks = (function($) {
       );
     });
 
-    var compareVersions = function(propertyToCompareOn) {
-      return function(a, b) {
+    var compareVersions = function (propertyToCompareOn) {
+      return function (a, b) {
         var i, diff;
 
         var segmentsA = a[propertyToCompareOn].replace("-", ".").split(".");
@@ -118,15 +116,12 @@ var showDownloadLinks = (function($) {
       };
     };
 
-    var showReleases = function(releaseData, amiData) {
-      var addInfo = function(latestRelease) {
+    var showReleases = function (releaseData, amiData) {
+      var addInfo = function (latestRelease) {
         var notes = {
-          win:
-            "GoCD server and agent installers for Windows are packaged with 64 bit JRE. Starting with GoCD release v18.12.0, GoCD server and agent windows installers will not be shipped with 32 bit JRE.",
-          deb:
-            'Note: If you prefer to use the APT repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">instructions</a>.',
-          rpm:
-            'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.'
+          win: "GoCD server and agent installers for Windows are packaged with 64 bit JRE. Starting with GoCD release v18.12.0, GoCD server and agent windows installers will not be shipped with 32 bit JRE.",
+          deb: 'Note: If you prefer to use the APT repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">instructions</a>.',
+          rpm: 'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.'
         };
 
         for (var key in notes) {
@@ -171,7 +166,7 @@ var showDownloadLinks = (function($) {
       );
     };
 
-    var showFailureMessage = function(error) {
+    var showFailureMessage = function (error) {
       $("#downloads").html(
         '<p class="not-loaded">Sorry. Something went wrong and we could not list the download links. \
         Please report <a href="https://github.com/gocd/www.go.cd/issues">this issue</a>.</p>'
@@ -182,18 +177,18 @@ var showDownloadLinks = (function($) {
     $("#downloads").html($(".loading-message-template").html());
 
     return $.when(
-      downloadOrGetFromCache(settings.download_info_url),
-      downloadOrGetFromCache(settings.cloud_info_url)
-    )
+        downloadOrGetFromCache(settings.download_info_url),
+        downloadOrGetFromCache(settings.cloud_info_url)
+      )
       .done(showReleases)
       .fail(showFailureMessage);
   };
 })(jQuery);
 
-var downloadOrGetFromCache = (function($) {
+var downloadOrGetFromCache = (function ($) {
   var storedJSON = {};
 
-  return function(url) {
+  return function (url) {
     var deferred = $.Deferred();
 
     if (storedJSON.hasOwnProperty(url)) {
@@ -201,15 +196,15 @@ var downloadOrGetFromCache = (function($) {
       return deferred.promise();
     }
 
-    return $.getJSON(url).done(function(data) {
+    return $.getJSON(url).done(function (data) {
       storedJSON[url] = data;
     });
   };
 })(jQuery);
 
-var setupShowVerifyChecksumMessage = (function($) {
-  return function() {
-    $("body").on("click", "#downloads .verify-checksum", function(evt) {
+var setupShowVerifyChecksumMessage = (function ($) {
+  return function () {
+    $("body").on("click", "#downloads .verify-checksum", function (evt) {
       var checksumElement = $(evt.currentTarget);
       var template = Handlebars.compile(
         $("#verify-checksum-message-template").html()
@@ -227,7 +222,7 @@ var setupShowVerifyChecksumMessage = (function($) {
   };
 })(jQuery);
 
-var determinePackageNameBasedOnOS = function() {
+var determinePackageNameBasedOnOS = function () {
   var userDefinedPackageName = window.location.hash.substr(1);
   var validPackageNames = [
     "zip",
@@ -257,13 +252,13 @@ var determinePackageNameBasedOnOS = function() {
   return packageName;
 };
 
-var switchDownloadType = function(currentInstallerType) {
+var switchDownloadType = function (currentInstallerType) {
   $(".release-type input." + currentInstallerType).attr("checked", true);
 };
 
-var displayAmiDropdown = function(currentOSPackageType) {
+var displayAmiDropdown = function (currentOSPackageType) {
   if (currentOSPackageType === "ami") {
-    $(".select-dropdown").each(function() {
+    $(".select-dropdown").each(function () {
       var $this = $(this),
         numberOfOptions = $(this).children("option").length;
 
@@ -274,9 +269,9 @@ var displayAmiDropdown = function(currentOSPackageType) {
       var $styledSelect = $this.next("div.select-styled");
       $styledSelect.text(
         $this
-          .children("option")
-          .eq(0)
-          .text()
+        .children("option")
+        .eq(0)
+        .text()
       );
 
       var $list = $("<ul />", {
@@ -298,11 +293,11 @@ var displayAmiDropdown = function(currentOSPackageType) {
 
       var $listItems = $list.children("li");
 
-      $styledSelect.click(function(e) {
+      $styledSelect.click(function (e) {
         e.stopPropagation();
         $("div.select-styled.active")
           .not(this)
-          .each(function() {
+          .each(function () {
             $(this)
               .removeClass("active")
               .next("ul.select-options")
@@ -314,7 +309,7 @@ var displayAmiDropdown = function(currentOSPackageType) {
           .toggle();
       });
 
-      $listItems.click(function(e) {
+      $listItems.click(function (e) {
         e.stopPropagation();
         var previous_text = $styledSelect.text();
         $styledSelect.text($(this).text()).removeClass("active");
@@ -334,16 +329,16 @@ var displayAmiDropdown = function(currentOSPackageType) {
         //console.log($this.val());
       });
 
-      $(document).click(function() {
+      $(document).click(function () {
         $styledSelect.removeClass("active");
         $list.hide();
       });
     });
 
-    $(".table-c").each(function() {
+    $(".table-c").each(function () {
       $(this)
         .find("tr:gt(1)")
-        .each(function() {
+        .each(function () {
           var $this = $(this);
           $this.hide();
         });
@@ -351,8 +346,8 @@ var displayAmiDropdown = function(currentOSPackageType) {
   }
 };
 
-var showHelpLinksFor = (function($) {
-  return function(packageName) {
+var showHelpLinksFor = (function ($) {
+  return function (packageName) {
     var installer_type_to_help_link_type = {
       debian: "linux",
       redhat: "linux",
@@ -370,7 +365,7 @@ var showHelpLinksFor = (function($) {
   };
 })(jQuery);
 
-Handlebars.registerHelper("size", function(
+Handlebars.registerHelper("size", function (
   array,
   operator,
   expectedSize,
@@ -383,33 +378,33 @@ Handlebars.registerHelper("size", function(
 
   switch (operator) {
     case "lt":
-      return array.length < expectedSize
-        ? options.fn(this)
-        : options.inverse(this);
+      return array.length < expectedSize ?
+        options.fn(this) :
+        options.inverse(this);
     case "lte":
-      return array.length <= expectedSize
-        ? options.fn(this)
-        : options.inverse(this);
+      return array.length <= expectedSize ?
+        options.fn(this) :
+        options.inverse(this);
     case "eq":
-      return array.length === expectedSize
-        ? options.fn(this)
-        : options.inverse(this);
+      return array.length === expectedSize ?
+        options.fn(this) :
+        options.inverse(this);
     case "gt":
-      return array.length > expectedSize
-        ? options.fn(this)
-        : options.inverse(this);
+      return array.length > expectedSize ?
+        options.fn(this) :
+        options.inverse(this);
     case "gte":
-      return array.length >= expectedSize
-        ? options.fn(this)
-        : options.inverse(this);
+      return array.length >= expectedSize ?
+        options.fn(this) :
+        options.inverse(this);
     default:
       throw "Invalid operator " + operator + ".";
       break;
   }
 });
 
-$(document).ready(function() {
-  setTimeout(showPopup, 100);
+$(document).ready(function () {
+  // setTimeout(showPopup, 100);
 });
 
 function showPopup() {
@@ -446,12 +441,10 @@ function showPopup() {
 
   $.get(
     "https://ipinfo.io",
-    function(response) {
+    function (response) {
       if ($.inArray(response.country, COUNTRY_CODES_EU) != -1) {
-        console.log("True statement");
         $(".banner-fixed-bottom").addClass("show-banner");
       } else {
-        console.log("False statement");
         $(".banner-fixed-bottom").removeClass("show-banner");
       }
     },
