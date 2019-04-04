@@ -31,11 +31,12 @@
 	display: block;
 }
 
-i {
+.fixed-banner-close {
 	color: #333;
-	margin-right: 20px;
+	margin-right: 40px;
 	margin-left: 0;
 	z-index: 100;
+	font-size: 20px;
 
 	&:hover {
 		color: #e74c3c;
@@ -43,7 +44,15 @@ i {
 	}
 
 	@media (min-width: $screen-md) {
-		margin-right: 40px;
+		margin-right: 100px;
+	}
+}
+
+.fixed-banner_link {
+	color: inherit;
+
+	&:hover {
+		color: inherit;
 	}
 }
 
