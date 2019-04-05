@@ -80,7 +80,7 @@
           "<p>At the same time, a member of our team will be in touch with you soon.</p>";
       } else {
         return "<h3>Thank you!</h3>\n" +
-          "<p>A member of our team will be in touch with you soon.</p>";
+          "<p> A member of our team will be in touch with you within one business day.</p>";
       }
     } else {
       return "<h3>You are almost in!</h3>\n" +
