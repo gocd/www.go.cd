@@ -404,7 +404,7 @@ Handlebars.registerHelper("size", function (
 });
 
 $(document).ready(function () {
-  // setTimeout(showPopup, 100);
+  setTimeout(showPopup, 100);
 });
 
 function showPopup() {
