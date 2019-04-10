@@ -38,6 +38,7 @@ Style for Card Component
   display: flex;
   flex-wrap: wrap;
   padding: 0px;
+  width: 100%;
 }
 
 .card {
@@ -71,5 +72,25 @@ Style for Card Component
   @media (min-width: $screen-lg) {
     padding: 0px 55px;
   }
-  
+
+}
+
+.card-col-6 {
+  @include grid-column(12);
+  height: auto;
+  margin-bottom: 35px;
+
+  @media (min-width: $screen-md) {
+    @include grid-column(6);
+    margin-bottom: 0px;
+    margin-left: 30px;
+  }
+}
+
+.card-col-6_img {
+  margin: 0 auto 35px;
+}
+
+.card-col-6_desc {
+  margin: 0 auto 45px;
 }

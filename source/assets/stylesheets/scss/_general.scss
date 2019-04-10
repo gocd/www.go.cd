@@ -11,6 +11,7 @@ body {
     //For proper font rendering
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
     @media (min-width: $screen-tablet) {
         font-size: 16px; // line-height: 26px;
     }
@@ -21,6 +22,7 @@ dt,
 dd {
     font-family: 'URWGeometric-Medium';
     font-size: 14px;
+
     @media (min-width: $screen-lg-desktop) {
         font-size: 16px;
         line-height: 26px;
@@ -50,6 +52,7 @@ h3 {
 a {
     color: #4a90e2;
     ;
+
     &:hover,
     &:active,
     &:focus {
@@ -86,9 +89,11 @@ img {
     font-size: 40px;
     color: $gray-light;
     z-index: $backtotop; // transition: all 0.5s ease-in-out;
+
     @media (min-width: $screen-tablet) {
         bottom: 30px;
     }
+
     &:hover {
         transition: all 0.5s ease-in-out;
         color: $primary-color;
@@ -100,34 +105,41 @@ img {
     background: linear-gradient(to right, #94399E, #792C82);
     padding: 10px 0;
     position: relative;
+
     .banner-content {
         @include flexbox;
         @include flex-direction(column);
         @include justify-content(flex-start);
         position: relative;
     }
+
     @media (min-width: $screen-tablet) {
         padding: 10px 0;
     }
+
     .caption {
         font-size: 16px;
         color: #FFFFFF;
         font-family: URWGeometric-Medium;
         text-transform: uppercase;
         margin: 0;
+
         @media (min-width: $screen-tablet) {
             font-size: 22px;
         }
     }
+
     .subcaption {
         font-size: 14px;
         display: block;
         color: #FFFFFF;
+
         @media (min-width: $screen-tablet) {
             font-size: 16px;
             margin-bottom: 0;
         }
     }
+
     .container {
         position: relative;
     }
@@ -143,32 +155,40 @@ img {
     @media (min-width: $screen-tablet) {
         margin: 30px 0;
     }
+
     @media (min-width: $screen-lg-desktop) {
         margin: 50px 0;
     }
+
     h3 {
         font-weight: 500;
         text-align: center;
         margin-bottom: 20px;
     }
+
     figure {
         text-align: center;
         display: block;
         margin: 30px 0;
     }
+
     p {
         font-size: 14px;
     }
+
     .tile {
         border-bottom: 1px solid #ccc;
         padding-bottom: 20px;
+
         &.last {
             border: 0;
         }
+
         @media (min-width: $screen-tablet) {
             border: 0;
         }
     }
+
     .col-md-3 {
         margin-bottom: 30px;
     }
@@ -179,15 +199,18 @@ img {
     font-size: 17px;
     text-align: center;
     font-weight: 400;
+
     @media (min-width: $screen-tablet) {
         margin: 0 0 30px 0;
         font-size: 22px;
         line-height: 32px;
     }
+
     @media (min-width: $screen-desktop) {
         margin: 30px 10%;
         font-size: 22px;
     }
+
     @media (min-width: $screen-lg-desktop) {
         margin: 30px 0%;
         font-size: 28px;
@@ -200,6 +223,7 @@ img {
 $btn-dark-bg: #333;
 $btn-dark-color: #fff;
 $btn-dark-border: #333;
+
 .btn-dark {
     @include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
 }
@@ -208,6 +232,7 @@ $btn-dark-border: #333;
 .imagezoom {
     position: relative;
     cursor: pointer;
+
     &:after {
         position: absolute;
         right: 0px;
@@ -228,6 +253,7 @@ $btn-dark-border: #333;
     bottom: 0px;
     background: rgba(1, 1, 1, 0.3);
     display: none;
+
     .imagemodalcontent {
         width: 80%;
         height: 80%;
@@ -237,15 +263,18 @@ $btn-dark-border: #333;
         margin: 0 auto;
         margin-top: 90px;
     }
+
     img {
         width: auto;
         max-width: none;
         transform: scale(1);
         transform-origin: top left;
+
         @media (max-width: $screen-tablet) {
             transform: scale(1);
         }
     }
+
     .close {
         position: absolute;
         top: 90px;
@@ -298,6 +327,7 @@ $btn-dark-border: #333;
 }
 
 $nav-active: #4AD9D9;
+
 .enterprise_index {
     .link_overview {
         color: $nav-active !important; // had to use this because of other styles
@@ -359,13 +389,14 @@ $default-font-extra-bold: 'URWGeometric-ExtraBold';
     transition: all 0.25s;
     text-align: center;
     border-radius: 3px;
+
     &:active {
         background: #36b1bf;
         color: #FFFFFF;
         outline: 0;
         color: $dark;
     }
-    
+
     &:hover {
         opacity: 0.8;
         outline: 0;
@@ -373,8 +404,8 @@ $default-font-extra-bold: 'URWGeometric-ExtraBold';
     }
 
     &:focus {
-      outline: 0;
-      color: $dark;
+        outline: 0;
+        color: $dark;
     }
 
     @media(min-width: $screen-md) {
@@ -400,12 +431,29 @@ $default-font-extra-bold: 'URWGeometric-ExtraBold';
     background: transparent;
     border: 1px solid $brand-secondary;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
         background: $brand-secondary;
     }
-    
+
 }
 
 .header_container_header-lg {
     font-size: 48px;
+}
+
+.text-desktop {
+    display: block;
+
+    @media (max-width: $screen-lg-min) {
+        display: none;
+    }
+}
+
+.text-mobile-tablet {
+    display: none;
+
+    @media (max-width: $screen-lg) {
+        display: block;
+    }
 }
