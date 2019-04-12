@@ -13,4 +13,16 @@ body.roadmap .container {
       }
     }
   }
+
+  ol.spacedoutwide {
+    & > li {
+      margin-bottom: 24px;
+    }
+  }
+
+  ul.spacedoutsmall {
+    & > li {
+      margin-bottom: 8px;
+    }
+  }
 }
