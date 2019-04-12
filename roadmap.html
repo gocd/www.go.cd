@@ -15,8 +15,8 @@
 
     <title>Roadmap - GoCD Product Vision | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-d6d8c3f7.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-94551680.js"></script>
+    <link href="assets/stylesheets/site-fcf3c219.css" rel="stylesheet" />
+    <script src="assets/javascripts/all-bfc73b2d.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
     <script>
@@ -67,56 +67,104 @@
 
 <p></p>
 
-GoCD's current roadmap consists of:
+<h3>High level principles on which GoCD's roadmap is based</h3>
+<ul>
+  <li>Be universal and be extensible.</li>
 
-<ol>
-  <li>In progress: Improve experience of using pipelines as code (<a href="https://github.com/gocd/gocd/issues/5175">#5175</a>).</li>
-  <li>In progress: Improve overall user experience.</li>
-  <li>Upcoming: Better access tokens for authentication (<a href="https://github.com/gocd/gocd/issues/5321">#5321</a>).</li>
-  <li>Planned: Improved secrets management.</li>
+  <li>Improve support for APIs and configuration as code.</li>
+
+  <li>Improve user experience based on research into how GoCD is used.</li>
+
+  <li>Produce more supporting content for improving the way people do CD.</li>
+</ul>
+
+<h3>Recent work</h3>
+<ul>
+  <li>
+    Making GoCD more cloud native:
+    <ul>
+      <li>Easier installation experience on Kubernetes, using helm charts.</li>
+      <li>Automatically configuring GoCD elastic agents to make agent provisioning flexible and on-demand.</li>
+    </ul>
+  </li>
+
+  <li>Improving GoCD's trial experience by providing easier ways of trying it (for instance: docker-compose).</li>
+
+  <li>Commercial plugin for analytics.</li>
+</ul>
+
+<h3>Overall direction:</h3>
+
+<ol class="spacedoutwide">
+  <li>
+    <h4>Make GoCD fit more natively with cloud providers and container schedulers:</h4>
+
+    Container scheduling systems such as Kubernetes are all the rage and we think they’re great for Continuous Delivery. They provide great support for infrastructure as code and to run services and applications. CD, as a concept, is necessary in this world as well. We propose to enhance GoCD’s support for these systems by:
+
+    <p></p>
+
+    <ul class="spacedoutsmall">
+      <li>Enabling multi-cluster support for GoCD’s Kubernetes elastic agents and Amazon ECS elastic agents.</li>
+      <li>Implementation-specific support for Kubernetes node management for Amazon EKS and Google GKE.</li>
+      <li>Reducing the barriers to using elastic agents by bundling them with GoCD and defaulting to Docker container based elastic agents.</li>
+      <li>Closer integration with Kubernetes for deployment of applications.</li>
+    </ul>
+  </li>
+
+  <li>
+    <h4>Help teams optimize their end-to-end delivery workflow:</h4>
+
+    This will be supported by:
+
+    <p></p>
+
+    <ul>
+      <li>Enhancing GoCD analytics plugin to move from pull-based reporting to push-based insights on possible improvements to users’ defined end-to-end workflows.</li>
+      <li>More content and evangelism around the importance of metrics to Continuous Delivery.</li>
+    </ul>
+  </li>
+
+  <li>
+    <h4>Make it easier for organizations to allow teams to self-provision their CD infrastructure:</h4>
+
+    Organizations want teams to be in control of their part of the CD infrastructure, while expecting CD tools to provide the ability for different teams to be separated. They also expect the ability to have an overall view of workflows across the organization. GoCD already provides the ability to have separation at the level of pipeline groups. We propose to enhance these capabilities by:
+
+    <p></p>
+
+    <ul>
+      <li>Introducing personal access tokens for APIs.</li>
+      <li>Secrets management support, with integration with Hashicorp Vault.</li>
+      <li>More granular permissions such as:
+        <ul>
+          <li>Ability to restrict what API tokens can do.</li>
+          <li>Ability for super-admins to delegate control to non-admin users.</li>
+          <li>Ability to control what configuration as code repositories are allowed to do.</li>
+        </ul>
+      </li>
+      <li>Allow configuration as code repositories to control more entities than pipelines and related entities.</li>
+      <li>Allow defining which entities configuration as code repositories can affect (to be able to provide separate repositories to teams).</li>
+    </ul>
+  </li>
+
+  <li>
+    <h4>Improve the user experience of teams using GoCD:</h4>
+
+    We've leaned on user interviews and research to understand how people use GoCD and how teams practice Continuous Delivery. Based on insights from these conversations and research, we continuously improve the user experience of GoCD. Upcoming work in this area includes:
+
+    <p></p>
+
+    <ul>
+      <li>Improved configuration as code experience: Reducing the feedback loop between making changes to the code and seeing your changes in GoCD.</li>
+      <li>Improved experience of navigation from GoCD's dashboard to the logs of failing jobs.</li>
+    </ul>
+  </li>
 </ol>
 
-Apart from this, GoCD as a product continues to evolve along these values:
-<ul>
-  <li>Be universal and easily extensible.</li>
-
-  <li>Improve support for APIs and the ability for users to configure it without using the UI (this includes declarative
-    definitions of pipelines as code).</li>
-
-  <li>Produce more supporting content for improving the way people do CD (mostly on the GoCD blog).</li>
-</ul>
-
-Recent work has included:
-<ul>
-  <li>Easier to run GoCD on Kubernetes, using helm charts. See <a href="https://docs.gocd.org/current/gocd_on_kubernetes/introduction.html">documentation.</a></li>
-  <li>Quick way to trial GoCD using docker-compose. <a href="https://www.gocd.org/test-drive-gocd.html">Try it out now.</a></li>
-  <li>Commercial: Analytics plugin for GoCD. <a href="https://www.gocd.org/analytics/">Start a free trial now</a>.</li>
-</ul>
-
 <p></p>
 
-You might be able to see some of the work in progress already. If you haven't had a chance to provide feedback or ideas, please do so by
-opening an issue or writing to <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.
-
-<h2>Other</h2>
+Last updated: Apr 12, 2019
 
 <p></p>
-
-Though not part of this roadmap, there are other aspects such as better plugin management, more granularity in permissions, etc. which will
-continue to be worked on. This roadmap just talks about the bigger pieces and it will be changed to reflect changing priorities.
-
-<h2>About the roadmap:</h2>
-
-<p></p>
-
-The idea of this roadmap is to mention and explain the plans for GoCD in the near-term. It does not mention timelines
-explicitly, because none of this is set in stone. This can be changed based on your ideas and feedback. The goal is that
-the work mentioned above will be in progress or will start soon. The roadmap document itself will be updated as often as
-needed.
-
-<p></p>
-
-Last updated: Dec 7, 2018
 
 </div>
 </main>
