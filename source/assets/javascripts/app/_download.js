@@ -408,46 +408,5 @@ $(document).ready(function () {
 });
 
 function showPopup() {
-  var COUNTRY_CODES_EU = [
-    "AT",
-    "BE",
-    "BG",
-    "CY",
-    "CZ",
-    "DK",
-    "EE",
-    "FI",
-    "FR",
-    "DE",
-    "GR",
-    "HU",
-    "IE",
-    "IT",
-    "LV",
-    "LT",
-    "LU",
-    "MT",
-    "NL",
-    "PL",
-    "PT",
-    "RO",
-    "SK",
-    "SI",
-    "ES",
-    "SE",
-    "GB",
-    "US"
-  ];
-
-  $.get(
-    "https://ipinfo.io",
-    function (response) {
-      if ($.inArray(response.country, COUNTRY_CODES_EU) != -1) {
-        $(".banner-fixed-bottom").addClass("show-banner");
-      } else {
-        $(".banner-fixed-bottom").removeClass("show-banner");
-      }
-    },
-    "jsonp"
-  );
+  $(".banner-fixed-bottom").addClass("show-banner");
 }
