@@ -1,0 +1,91 @@
+---
+layout: layout
+title: Interactive GoCD Demo
+title_tag_of_header: "Test Drive GoCD"
+meta_description: ""
+meta_keywords: ""
+---
+
+<div class="header-bg">
+
+</div>
+
+<div class="content-container container">
+
+  <section class="content-rt">
+    <h1 class="content-header">Test Drive GoCD</h1>
+    <div class="content-subheader">
+      <h3>Looking for a quick way to evaluate GoCD? <br /> Try out our test drive below.</h3>
+      <p>Note: This version of GoCD is for evaluation purposes only and is not suitable for production use.</p>
+    </div>
+
+    <div class="steps-list">
+      <ul class="steps-list">
+        <li class="steps-list_item">
+          <div class="step-header">
+            <h2 class="steps-heading">
+              Step 1: Download it.
+            </h2>
+          </div>
+          <div class="step-content">
+            <div class="download-test-drive-links">
+              <div class="load-message">
+                <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
+                <span>Fetching download package information&hellip;</span>
+              </div>
+            </div>
+
+            <div class="download-hint"></div>
+          </div>
+        </li>
+
+        <li class="steps-list_item">
+          <div class="step-header">
+            <h2 class="steps-heading">
+              Step 2: Unzip and Run it.
+            </h2>
+          </div>
+
+          <div class="step-content">
+
+            Mac OS/Linux:
+            <pre class="terminal">
+                <code><span class="comment"># cd into the unzipped directory</span>
+                <span class="prompt">$</span> ./run-gocd</code>
+            </pre>
+
+            Windows:
+            <pre class="terminal">
+                <code><span class="comment">:: cd into the unzipped directory</span>
+                <span class="prompt">C:\gocd></span> run-gocd.exe</code>
+            </pre>
+            <p>Once it’s launched from the terminal, the GoCD server will load automatically in your default browser.</p>
+          </div>
+        </li>
+
+        <li class="steps-list_item">
+          <div class="step-header">
+            <h2 class="steps-heading">
+              Step 3: Try it.
+            </h2>
+          </div>
+          <div class="step-content">
+            <p>Click on the "Add Pipeline" button to create and run your first pipeline in GoCD.</p>
+            <p>Once you've completed your first pipeline, you'll have the opportunity to look under the hood at your build. </p>
+          </div>
+        </li>
+
+        <li class="steps-list_item">
+          <div class="step-header">
+            <h2 class="steps-heading">
+              Step 4: Move it to Production
+            </h2>
+          </div>
+          <div class="step-content">
+            We recommend <%= link_to 'downloading', '/download/index.html' %> and installing GoCD and following our complete <%= link_to 'introduction to setting up your own GoCD server', 'https://docs.gocd.org/current/installation/' %>.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>

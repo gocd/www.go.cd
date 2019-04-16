@@ -30,22 +30,6 @@ header.top {
     width: 74px;
 }
 
-.download-btn-header{
-    line-height: 40px !important;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid #fff;
-    transition: all 0.25s;
-    &::before{
-        display: none;
-    }
-
-    &:hover{
-        background: #c7db57;
-        border: 1px solid #c7db57;
-    }
-}
-
 .sticky{
     border: 1px solid $primary-color;
 }

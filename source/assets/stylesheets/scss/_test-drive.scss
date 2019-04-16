@@ -1,0 +1,180 @@
+body.test-drive {
+
+  .header-bg {
+    @media(max-width: $screen-sm) {
+      height: 336px;
+    }
+
+    @media(min-width: $screen-sm) and (max-width: $screen-lg) {
+      height: 236px;
+    }
+  }
+
+  section.content-rt {
+    width: 100%;
+
+    @media(max-width: $screen-sm) {
+      margin: -300px auto 75px;
+    }
+
+    @media(min-width: $screen-sm) and (max-width: $screen-lg) {
+      margin: -200px auto 75px;
+    }
+
+    @media (min-width: $screen-lg) {
+      width: 80%;
+    }
+  }
+
+  .content-header {
+    padding-bottom: 10px;
+    text-align: center;
+
+    @media (max-width: $screen-sm) {
+      margin: auto;
+      font-size: 50px;
+      width: 80%;
+    }
+  }
+
+  .content-subheader {
+    text-align: center;
+
+    h3 {
+      padding-bottom: 40px;
+      color: #fff;
+      text-align: center;
+
+      @media (max-width: $screen-sm) {
+        font-size: 30px;
+      }
+
+      @media (min-width: $screen-lg) {
+        padding-bottom: 18px;
+      }
+    }
+
+    p {
+      @media(min-width: $screen-sm) {
+        font-size: 22px;
+      }
+    }
+  }
+
+  div.steps-list, ul.steps-list {
+    margin: auto;
+    list-style: none;
+    padding: 0;
+
+    @media (min-width: $screen-md) {
+      margin: auto;
+    }
+
+    @media (min-width: $screen-lg) {
+      margin: auto;
+    }
+
+    .steps-list_item {
+      @media (min-width: $screen-sm) {
+        clear: both;
+        padding-top: 70px;
+      }
+
+      .step-header {
+        @media (min-width: $screen-sm) {
+          float: left;
+        }
+
+        @media (max-width: $screen-sm) {
+          margin: 20px auto;
+          text-align: center;
+        }
+
+        @media(min-width: $screen-sm) and (max-width: $screen-lg) {
+          width: 42%;
+        }
+
+        .steps-heading {
+          font-size: 26px;
+          font-family: $default-font-extra-bold;
+          margin: 0;
+          padding: 0;
+
+          &:nth-child(2) {
+            margin: 0 0 20px;
+          }
+
+          @media (min-width: $screen-lg) {
+            font-size: 30px;
+          }
+        }
+      }
+
+      .step-content {
+        @media (min-width: $screen-sm) {
+          float: right;
+          width: 55%;
+        }
+      }
+    }
+  }
+
+  .download-test-drive-links::after {
+    content: "";
+    clear:   both;
+    display: table;
+  }
+
+  .download-test-drive-package {
+    @media (min-width: $screen-sm) {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .btn {
+      min-width: 80px;
+
+      @media (max-width: $screen-sm) {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 20px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .checksum-link {
+    display: block;
+    margin-top: 5px;
+    font: 11px system-ui;
+
+    @media (max-width: $screen-sm) {
+      margin: 10px auto;
+    }
+  }
+
+  .download-hint {
+    margin-top: 15px;
+
+    p {
+      color: #999;
+      margin: 0;
+      padding: 0;
+      line-height: initial;
+      font-size: 85%;
+    }
+  }
+
+  .terminal {
+    white-space: normal;
+    background: #444;
+    padding: 0.5em 1em;
+
+    code {
+      white-space: pre-line;
+      color: #fff;
+      .comment { color: #999; }
+      .prompt { color: #abff55; }
+    }
+  }
+}
