@@ -402,11 +402,3 @@ Handlebars.registerHelper("size", function (
       break;
   }
 });
-
-$(document).ready(function () {
-  setTimeout(showPopup, 100);
-});
-
-function showPopup() {
-  $(".banner-fixed-bottom").addClass("show-banner");
-}
