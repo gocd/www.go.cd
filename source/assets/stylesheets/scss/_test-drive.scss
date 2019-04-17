@@ -156,6 +156,7 @@ body.test-drive {
     display: block;
     margin-top: 5px;
     font: 11px system-ui;
+    padding-left: 5px;
 
     @media (max-width: $screen-sm) {
       margin: 10px auto;
