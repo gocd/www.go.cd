@@ -29,6 +29,7 @@ body.test-drive {
   .content-header {
     padding-bottom: 10px;
     text-align: center;
+    font-family: $default-font-extra-bold;
 
     @media (max-width: $screen-sm) {
       margin: auto;
@@ -39,6 +40,7 @@ body.test-drive {
 
   .content-subheader {
     text-align: center;
+    font-family: $default-font-extra-bold;
 
     h3 {
       padding-bottom: 40px;
@@ -55,6 +57,7 @@ body.test-drive {
     }
 
     p {
+    font-family: $default-font-normal-bold;
       @media(min-width: $screen-sm) {
         font-size: 22px;
       }
@@ -111,7 +114,13 @@ body.test-drive {
       }
 
       .step-content {
-        @media (min-width: $screen-sm) {
+        font-family: "URWGeometric-Medium";
+        @media (min-width: $screen-md)  {
+          float: right;
+          width: 50%;
+        }
+
+        @media (min-width: $screen-sm) and (max-width: $screen-md) {
           float: right;
           width: 55%;
         }
@@ -169,6 +178,14 @@ body.test-drive {
     white-space: normal;
     background: #444;
     padding: 0.5em 1em;
+
+    @media (min-width: $screen-lg) {
+      font-size: 17px;
+    }
+
+    @media (max-width: $screen-lg) {
+      font-size: 15px;
+    }
 
     code {
       white-space: pre-line;
