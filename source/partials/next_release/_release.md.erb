@@ -13,6 +13,7 @@
 * <%= link_to_pull_request 6036, 'Improvements to the user management page.' %>
 * <%= link_to_issue 6042, 'Allow reordering of pipelines from config repositories.' %>. This adds an optional `display_order_weight` property for pipelines defined in config repositories, which allow you to order pipelines.
 * macOS installers will no longer ship as osx `.app` files. The installers now ship as a zip file, with a shell script. We believe this provides much better flexibility and allows users to run the GoCD agent and server in a location of their choice.
+* <%= link_to_issue 2123, 'Git shallow clone will also apply to submodules.' %>
 
 <h4>Bug fixes</h4>
 
@@ -23,6 +24,7 @@
 * <%= link_to_issue 5962, "GoCD shows HTTP Basic Auth dialog when after user is logged out." %>
 * <%= link_to_pull_request 6011, "Fix errors with parsing git log when coloring is turned on using `.gitconfig`." %>
 * <%= link_to_pull_request 5967, "Environments api should accept both `encrypted_value` and `value`." %>
+* <%= link_to_issue 3635, "GoCD can update git submodules if a custom name is provided for one." %>
 
 <h4>New Deprecations</h4>
 
@@ -49,6 +51,7 @@
 * <%= removed_docker_image_message 'Ubuntu', '14.04', 'April 2019' %>
 * The elastic agent plugin extension version 3 has been removed. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. Users should upgrade their plugins to the latest version to see these new features.
 * GoCD will now require minimum git version 1.9. This has been done to improve support for cloning git submodules.
+* For Pipelines using git materials, ignored files will also be cleaned from the working directory. The command has been changed to `git clean -dffx` instead of `git clean -dff`.
 
 <h4>Contributors</h4>
 
