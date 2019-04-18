@@ -6,6 +6,7 @@
 * <%= new_api_message 6007, 5, 'Plugin Info', 'plugin-info' %>
 * <%= new_api_message 5983, 2, 'Elastic Agent Profiles', 'elastic-agent-profiles' %>
 * <%= new_api_message 5938, 1, 'Cluster Profiles', 'cluster-profiles' %>
+* <%= new_api_message 5620, 1, 'Stage History', 'get-stage-history' %>
 
 <h4>Other Improvements</h4>
 
@@ -36,7 +37,7 @@
 * The notification plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 4 of the notification plugin api.
 * The analytics plugin extension version 1 has been deprecated. This version will be removed in a release scheduled for Mar 2019. Plugin developers should use version 2 of the analytics plugin api.
 * The Get Server Info processor version 1 has been deprecated. This version will be removed in a release scheduled for April 2019. Plugin developers should use version 2 of the Get Server Info processor.
-* Unversioned Get Stage Instance API has been deprecated in favor of Get Stage Instance API v1. This version will be removed in a release scheduled for April 2019.
+* Unversioned get stage history API has been deprecated in favor of get stage history API v1. This version will be removed in a release scheduled for July 2019.
 * <%= deprecated_api_message api_name: 'Dashboard', old_api_version: 2, new_api_version: 3, new_api_available_in_release: '19.3.0', api_section: 'dashboard', removal_date_and_year: 'June 2019' %>
 * <%= deprecated_api_message api_name: 'Plugin Info', old_api_version: 4, new_api_version: 5, new_api_available_in_release: '19.3.0', api_section: 'plugin-info', removal_date_and_year: 'July 2019' %>
 * <%= deprecated_docker_image_message 'Alpine', '3.6', 'May 2019' %>
@@ -48,6 +49,7 @@
 * <%= removed_api_message api_name: 'System Admins', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.1.0', api_section: 'system-admins' %>
 * <%= removed_api_message api_name: 'Roles', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.1.0', api_section: 'roles' %>
 * <%= removed_api_message api_name: 'Users', old_api_version: 2, new_api_version: 3, new_api_available_in_release: '19.1.0', api_section: 'users' %>
+* Unversioned Get Stage Instance API has been removed in favor of Get Stage Instance API v1.
 * <%= removed_docker_image_message 'Ubuntu', '14.04', 'April 2019' %>
 * The elastic agent plugin extension version 3 has been removed. Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. Users should upgrade their plugins to the latest version to see these new features.
 * GoCD will now require minimum git version 1.9. This has been done to improve support for cloning git submodules.

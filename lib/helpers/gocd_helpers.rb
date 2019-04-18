@@ -68,15 +68,6 @@ module GoCDHelpers
     concat_content(" of the API is available, and users are encouraged to use it.")
   end
 
-  def deprecated_plugin_api_message()
-    # The elastic agent plugin extension version 3 has been deprecated. This version will be removed in a release scheduled for Mar 2019.
-    # Plugin developers should use version 4 of the elastic agent plugin api to allow adding support for job completion request. The docker, docker swarm, kubernetes and ecs plugins have been migrated to the new versions, and users should upgrade their plugins to the latest version to see these new features.
-    concat_content("The #{opts[:plugin_type]} plugin extension version #{opts[:old_api_version]} has been deprecated. ")
-    concat_content("This version will be removed in a release scheduled for #{opts[:removal_date_and_year]}.")
-    concat_content(link_to_versioned_plugin_api(opts[:new_api_available_in_release], opts[:api_section], "Version #{opts[:new_api_version]}"))
-    concat_content(" of the API is available, and users are encouraged to use it.")
-  end
-
   def link_to_plugin_api(api_section, text='PLUGIN API')
     link_to text, "https://plugin-api.gocd.org/current/#{api_section}"
   end
