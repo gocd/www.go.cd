@@ -1,3 +1,112 @@
+.ea-banner-container {
+  background: url(../images/elastic-agents-desktop-bg.png);
+  padding: 0 0 100px;
+
+  @media (min-width: $screen-lg) {
+    padding: 0 0 75px;
+  }
+}
+
+.ea-banner_header {
+  font-size: 30px;
+  padding: 40px 0;
+
+  @media (min-width: $screen-md) {
+    font-size: 38px;
+  }
+
+  @media (min-width: $screen-lg) {
+    font-size: 48px;
+    padding: 40px 0 0;
+  }
+
+}
+
+.ea-banner_desc {
+  font-size: 18px;
+  padding: 25px 0 20px;
+
+  @media (min-width: $screen-lg) {
+    font-size: 22px;
+  }
+}
+
+.ea-feature-container {
+  padding: 75px 0;
+}
+
+.ea-feature_header {
+  padding: 15px 0;
+}
+
+.ea-feature_desc {
+  font-size: 18px;
+
+  @media (min-width: $screen-md) {
+    font-size: 20px;
+  }
+}
+
+.ea-feature-list_item {
+  margin: 45px auto;
+  float: none;
+}
+
 .ea-feature-list {
   list-style: none;
+  padding: 0;
+}
+
+.ea-enterprise-feature {
+  background: url(../images/elastic-agents-desktop-bg.png);
+  padding: 70px 0 145px;
+}
+
+.ea-enterprise-feature * {
+  color: #fff;
+}
+
+.ea-ent-feature_header {
+  margin: 45px auto;
+  font-size: 32px;
+
+  @media (min-width: $screen-lg) {
+    font-size: 40px;
+  }
+}
+
+.ea-ent-feature_desc {
+  font-size: 18px;
+
+  @media (min-width: $screen-lg) {
+    font-size: 20px;
+  }
+}
+
+.ea-ent-feature-list {
+  list-style: none;
+  margin: 40px auto 80px;
+  padding: 0;
+
+}
+
+.ea-ent-feature-list_item {
+  margin: 45px auto 0;
+
+  @media (min-width: $screen-lg) {
+    padding: 0 28px;
+  }
+
+}
+
+.ea-ent-feature-list_desc {
+  font-size: 18px;
+
+  @media (min-width: $screen-md) {
+    font-size: 20px;
+  }
+}
+
+.ea-ent-feature-list_header {
+  font-family: "URWGeometric-ExtraBold"
 }
