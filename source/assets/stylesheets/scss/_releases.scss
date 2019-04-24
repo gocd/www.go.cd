@@ -28,6 +28,15 @@
       }
     }
 
+    .release-date {
+      float: right;
+      display: inline;
+
+      & + h4 {
+        margin: 0 0 30px 0;
+      }
+    }
+
     .alert.warning {
       background-color: #e68489cc;
       padding: 10px;
