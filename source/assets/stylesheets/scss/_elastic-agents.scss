@@ -48,7 +48,7 @@
 }
 
 .ea-feature-list_item {
-  margin: 45px auto;
+  margin: 45px auto 0px;
   float: none;
 }
 
@@ -59,7 +59,7 @@
 
 .ea-enterprise-feature {
   background: url(../images/elastic-agents-desktop-bg.png);
-  padding: 70px 0 145px;
+  padding: 70px 0 45px;
 }
 
 .ea-enterprise-feature * {
@@ -85,7 +85,7 @@
 
 .ea-ent-feature-list {
   list-style: none;
-  margin: 40px auto 80px;
+  margin: 20px auto 80px;
   padding: 0;
 
 }
