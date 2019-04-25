@@ -110,3 +110,17 @@
 .ea-ent-feature-list_header {
   font-family: "URWGeometric-ExtraBold"
 }
+
+.ea-feature_hide-mobile {
+  display: none;
+
+  @media (min-width: $screen-md) {
+    display: block;
+  }
+}
+
+.ea-button {
+  @media(max-width: $screen-md-max) {
+    width: 100%;
+  }
+}
