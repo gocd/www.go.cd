@@ -1,19 +1,18 @@
 <h4>Multi-cluster support for Elastic Agent</h4>
 
-We have introduced support for multiple cluster for an elastic agent. Now elastic agent can be created in different cluster based on the cluster profile.
+Now elastic agent can be created in different cluster based on the cluster profile. Elastic Profiles SPA is updated to reflect cluster profiles and elastic agent profiles.
 
 <figure>
   <%= image_tag 'releases/19.3.0/elastic_profile.png', alt: 'Cluster Support' %>
 </figure>
 
 To know more about about Cluster Profiles click [here](https://docs.gocd.org/19.3.0/configuration/elastic_agents.html#concepts).
-We have also introduced elastic agent extension v5 to support the same. For more info refer Elastic Agent Plugin Endpoint [documentation](https://plugin-api.gocd.org/19.3.0/elastic-agents/#elastic-agents).
 
-We have also updated the Elastic Agents SPA to showcase both cluster and elastic agent profiles.
+Introduced elastic agent extension v5 to support cluster profiles. For more info refer Elastic Agent Plugin Endpoint [documentation](https://plugin-api.gocd.org/19.3.0/elastic-agents/#elastic-agents).
 
 <h4>Improved Backup SPA</h4>
 
-We have updated the SPA to show case the real time progress of the backup.
+SPA is updated to show real-time progress of your GoCD server backup.
 <figure>
   <%= image_tag 'releases/19.3.0/backup.png', alt: 'Backup SPA' %>
 </figure>
@@ -25,6 +24,7 @@ We have updated the SPA to show case the real time progress of the backup.
 * <%= new_api_message 5983, 2, 'Elastic Agent Profiles', 'elastic-agent-profiles' %>
 * <%= new_api_message 5938, 1, 'Cluster Profiles', 'cluster-profiles' %>
 * <%= new_api_message 5620, 1, 'Stage History', 'get-stage-history' %>
+* <%= new_api_message 5886, 5, 'Agents', 'agents' %>
 
 <h4>Other Improvements</h4>
 
