@@ -8,16 +8,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <h4>API Improvements</h4>
 
-* <%= new_api_message '19.4.0', 1234, 2, 'Flux Capacitor', 'flux-capacitor' %>
+* <%= new_api_message '19.4.0', 6218, 7, 'pipeline config', 'pipeline-config' %>
 
 <h4>Other Improvements</h4>
 
+* Introduced `username` and `password` (or `encryptedPassword`) attributes on Git and mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo plugins have been updated to allow these additional fields on material definitions.
+
 <h4>Bug fixes</h4>
+
+* <%= link_to_issue 6228, 'Personal access tokens taking too long to generate.' %>
 
 <h4>New Deprecations</h4>
 
-* elastic extension v4
-* elastic agent profile v1 (breaking change)
+* <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 6, new_api_version: 7, new_api_available_in_release: '19.4.0', api_section: 'pipeline-config', removal_date_and_year: 'Aug 2019' %>
 
 <h4>Deprecations</h4>
 
