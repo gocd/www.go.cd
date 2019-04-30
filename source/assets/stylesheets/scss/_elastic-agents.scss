@@ -48,14 +48,17 @@
   float: none;
 
   @media (min-width: $screen-md) {
-    margin: 45px auto 0px;
+    margin: 35px auto 0px;
   }
 }
 
-.ea-feature-list {
-  
+.ea-feature-list { 
   list-style: none;
   padding: 0;
+}
+
+.ea-feature-list:last-of-type {
+  margin-bottom: 80px; 
 }
 
 .ea-feature_header {
@@ -82,40 +85,23 @@
 }
 
 .ea-ent-feature_desc {
-  @include grid-column(12);
-  @include grid-push(0);
-  @include grid-shift(0);
   font-size: 18px;
   float: none;
-
   @media (min-width: $screen-lg) {
     font-size: 20px;
   }
 }
 
 .ea-ent-feature-list {
-  @include grid-container;
-  @include grid-column(12);
-  @include grid-push(0);
-  @include grid-shift(0);
   list-style: none;
-  margin: 0px auto 80px;
+  margin: 20px auto 80px;
   padding: 0;
   float: none;
-
 }
 
 .ea-ent-feature-list_item {
-  // margin: 45px auto 0;
-  @include grid-column(12);
-  @include grid-push(0);
-  @include grid-shift(0);
-  // @include grid-visual;
   float: none;
-
   @media (min-width: $screen-md) {
-    // padding: 0 28px;
-    @include grid-column(6);
   }
 
 }
