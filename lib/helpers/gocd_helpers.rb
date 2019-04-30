@@ -39,8 +39,8 @@ module GoCDHelpers
     link_to_versioned_api('current', api_section, text)
   end
 
-  def new_api_message(issue_number, api_version, api_name, api_section)
-    link_to_issue issue_number, "Introduced version #{api_version} of #{link_to_api(api_section, api_name)} API."
+  def new_api_message(gocd_version, issue_number, api_version, api_name, api_section)
+    link_to_issue issue_number, "Introduced version #{api_version} of #{link_to_versioned_api(gocd_version, api_section, api_name)} API."
   end
 
   def link_to_versioned_api(version, api_section, text='API')
@@ -57,7 +57,7 @@ module GoCDHelpers
 
   def deprecated_api_message(opts={})
     concat_content("The #{opts[:api_name]} API version #{opts[:old_api_version]} has been deprecated. ")
-    concat_content("This version will be removed in a release scheduled for #{opts[:removal_date_and_year]}.")
+    concat_content("This version will be removed in a release scheduled for #{opts[:removal_date_and_year]}. ")
     concat_content(link_to_versioned_api(opts[:new_api_available_in_release], opts[:api_section], "Version #{opts[:new_api_version]}"))
     concat_content(" of the API is available, and users are encouraged to use it.")
   end
