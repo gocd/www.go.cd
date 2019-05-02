@@ -18,7 +18,7 @@
     }
     h1 {
       color: hsla(0, 0, 100%, 1);
-      font-size: 78px;
+      font-size: 68px;
       width: 100%;
       text-align: center;
       padding-bottom: 20px;
@@ -50,8 +50,8 @@
     }
     p {
       color: hsla(0, 0, 100%, 1);
-      font-size: 22px;
-      line-height: 120%;
+      font-size: 36px;
+      line-height: 100%;
       letter-spacing: .5px;
       font-family: URWGeometric-SemiBold, Helvetica, sans-serif;
       padding-bottom: 1em;
@@ -128,62 +128,27 @@
 }
 
 .promo-banner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
+  display: block;
+  padding: 20px;
+  text-align: center;
   background-color: #4ad9d9;
-  .promo-banner-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    @media (max-width: 767px) {
-      flex-direction: column;
-      padding-bottom: 14px;
-    }
-    .promo-text {
-      text-align: center;
-      padding: 0 20px 0 20px;
-      h3 {
-        font-size: 20px;
-        color: #1c425c;
-        margin: 0;
-        @media(max-width: 767px) {
-          font-size: 18px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-        }
-      }
-    }
-    .promo-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 200px;
-      height: 40px;
-      margin: 0 20px 0 20px;
-      background-color: #1c425c;
-      border-radius: 2px;
-      &:hover {
-        background-color: hsla(69, 65%, 60%, 1);
-        border-color: hsla(69, 65%, 60%, 1);
-        color: hsla(0, 0, 100%, 1);
-      }
-      &:active {
-        background-color: hsla(69, 65%, 40%, 1);
-        border-color: hsla(69, 65%, 40%, 1);
-        color: hsla(0, 0, 100%, 1);
-      }
-      p {
-        font-weight: 600;
-        color: #FFFFFF;
-        padding: 0;
-        margin: 0;
-      }
-    }
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+
+  span {
+    font-weight: 600;
+  }
+
+  &:hover {
+    background-color: #87e1e0;
+    cursor: pointer;
+    color: #333;
+  }
+
+  &:active {
+    color: #333;
+    background-color: #36b1bf;
   }
 }
 
@@ -303,7 +268,7 @@
   }
 
   @media (min-width: $screen-lg){
-    font-size: 36px;  
+    font-size: 36px;
   }
 }
 
@@ -354,12 +319,12 @@
   }
 }
 
-.content { 
+.content {
   width: 100%;
   padding: 0 20px;
 
   @media (min-width: $screen-lg) {
-    width: 80%;  
+    width: 80%;
   }
 }
 
@@ -400,7 +365,7 @@ $learn-more-cta-hover-bg: #6ee0e0;
   margin-bottom: 20px;
   font-weight: 800;
 
-  @media  (min-width: $screen-md) { 
+  @media  (min-width: $screen-md) {
     font-size: 36px;
   }
 }
@@ -415,9 +380,9 @@ $learn-more-cta-hover-bg: #6ee0e0;
   line-height: 1.4;
   margin: 0 20px 30px 20px;
 
-  @media  (min-width: $screen-lg) { 
+  @media  (min-width: $screen-lg) {
     text-align: center;
-    font-size: 24px; 
+    font-size: 24px;
   }
 }
 
@@ -469,7 +434,7 @@ $learn-more-cta-hover-bg: #6ee0e0;
 .content_description {
   font-size: 18px;
   line-height: 1.5;
-  @media (min-width: $screen-lg) { 
+  @media (min-width: $screen-lg) {
     font-size: 20px;
   }
 }
