@@ -51,8 +51,7 @@ SPA is updated to show real-time progress of your GoCD server backup.
 
 <h4>New Deprecations</h4>
 
-* elastic extension v4
-* elastic agent profile v1 (breaking change)
+* The Elastic Agents plugin extension v4 has been deprecated. This version will be removed in a release scheduled for August 2019. Plugin developers should use version 5 of the plugin API.
 
 <h4>Deprecations</h4>
 
@@ -67,6 +66,7 @@ SPA is updated to show real-time progress of your GoCD server backup.
 
 <h4>Breaking Changes</h4>
 
+* <%= removed_api_message api_name: 'Elastic Agent Profiles', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.3.0', api_section: 'elastic-agent-profiles' %> With the introduction of support for clusters all Elastic Agent Profiles need to be associated with a cluster. Since version 1 of the API does not support clusters, as an exception this API had to be removed without deprecation.
 * <%= removed_api_message api_name: 'Dashboard', old_api_version: 1, new_api_version: 3, new_api_available_in_release: '19.3.0', api_section: 'dashboard' %>
 * <%= removed_api_message api_name: 'System Admins', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.1.0', api_section: 'system-admins' %>
 * <%= removed_api_message api_name: 'Roles', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.1.0', api_section: 'roles' %>
