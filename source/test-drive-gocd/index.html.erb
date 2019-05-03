@@ -12,80 +12,80 @@ meta_keywords: ""
 
 <div class="content-container container">
 
-<section class="content-lt">
-
-    <%= image_tag  "../assets/images/campaign/test-drive/gocd-test-drive-w.gif", class: "img-responsive test-drive-screenshot" %>
-
-    <div class="container-actions link-desktop">
-          <%= link_to "Visit the Github Repo", 'https://github.com/gocd/gocd-trial', class: 'button-brand' %>
-          <p class="actions_note">
-              Please note: If you like the test drive, remember GoCD is open source and free to use. Just follow <a href="https://github.com/gocd/gocd-trial#next-steps">these instructions</a> to move your test drive to production.
-            <br />
-              This trial does not currently work on Docker for Windows.
-          </p>
+  <section class="content-rt">
+    <h1 class="content-header">Test Drive GoCD</h1>
+    <div class="content-subheader">
+      <h3>Looking for a quick way to evaluate GoCD? <br /> Try out our test drive below.</h3>
+      <p>Note: This is for evaluation purposes only, and not intended for production use. We’ve created a streamlined experience to help you quickly understand GoCD. Please follow Step 4 to move to a production instance.</p>
     </div>
 
-  </section>
-
-  <section class="content-rt">
-    <h1 class="content-header">Get Started with GoCD in 5 Minutes</h1>
-    <%= image_tag  "../assets/images/campaign/test-drive/gocd-test-drive-w.gif", class: "img-responsive hide-mob-desktop test-drive-screenshot"%>
     <div class="steps-list">
       <ul class="steps-list">
-            <li class="steps-list_item">
-              <h2 class="steps-heading">
-                Step 1:
-              </h2>
-              <h2 class="steps-heading">
-                Download the Dependencies
-              </h2>
-              <p class="steps-desc">
-                All you need is Git, Docker, Docker Compose, and ensure Docker is running.
-              </p>
-            </li>
+        <li class="steps-list_item">
+          <div class="step-header">
+            <h2 class="steps-heading">
+              Step 1: Download it.
+            </h2>
+          </div>
+          <div class="step-content">
+            <div class="download-test-drive-links">
+              <div class="load-message">
+                <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
+                <span>Fetching download package information&hellip;</span>
+              </div>
+            </div>
 
-            <li class="steps-list_item">
-              <h2 class="steps-heading"> 
-                Step 2:
-              </h2>
-              <h2 class="steps-heading">
-                Run the Commands
-              </h2>
-              <p class="steps-desc">
-                <a href="https://github.com/gocd/gocd-trial">Visit the Github repo</a> and run the commands to get started.
-              </p>
-            </li>
+            <div class="download-hint"></div>
+          </div>
+        </li>
 
-            <li class="steps-list_item">
-              <h2 class="steps-heading"> 
-                Step 3:
-              </h2>
-              <h2 class="steps-heading">
-                Explore GoCD
-              </h2>
-                <ul class="steps-desc_list">
-                  <li>
-                    <p class="steps-desc">
-                      <a href="https://www.gocd.org/getting-started/part-1/">Learn about GoCD Concepts</a>
-                    </p>
-                  </li>
-                  <li>
-                    <p class="steps-desc">
-                      <a href="https://docs.gocd.org/current/">Visit GoCD Documentation</a>
-                    </p>
-                  </li>
-                </ul>
-            </li>
-          </ul>
-    </div>
+        <li class="steps-list_item">
+          <div class="step-header">
+            <h2 class="steps-heading">
+              Step 2: Unzip and Run it.
+            </h2>
+          </div>
 
-    <div class="container-actions link-mobile">
-          <%= link_to "Visit the Github Repo", 'https://github.com/gocd/gocd-trial', class: 'button-brand' %>
-          <p class="actions_note">
-              Please note: If you like the test drive, remember GoCD is open source and free to use. Just follow <a href="https://github.com/gocd/gocd-trial#next-steps">these instructions</a>to move your test drive to production.
-              <br />
-              This trial does not currently work on Docker for Windows.
-          </p>
+          <div class="step-content">
+
+            Mac OS/Linux:
+            <pre class="terminal">
+                <code><span class="comment"># cd into the unzipped directory</span>
+                <span class="prompt">$</span> ./run-gocd</code>
+            </pre>
+
+            Windows:
+            <pre class="terminal">
+                <code><span class="comment">:: cd into the unzipped directory</span>
+                <span class="prompt">C:\gocd></span> run-gocd.exe</code>
+            </pre>
+            <p>Once it’s launched from the terminal, the GoCD server will load automatically in your default browser.</p>
+          </div>
+        </li>
+
+        <li class="steps-list_item">
+          <div class="step-header">
+            <h2 class="steps-heading">
+              Step 3: Try it.
+            </h2>
+          </div>
+          <div class="step-content">
+            <p>Click on the "Add Pipeline" button to create and run your first pipeline in GoCD.</p>
+            <p>Once you've completed your first pipeline, you'll have the opportunity to look under the hood at your build. </p>
+          </div>
+        </li>
+
+        <li class="steps-list_item">
+          <div class="step-header">
+            <h2 class="steps-heading">
+              Step 4: Move it to Production
+            </h2>
+          </div>
+          <div class="step-content">
+            We recommend <%= link_to 'downloading', '/download/index.html' %> and installing GoCD and following our complete <%= link_to 'introduction to setting up your own GoCD server', 'https://docs.gocd.org/current/installation/' %>.
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 </div>
