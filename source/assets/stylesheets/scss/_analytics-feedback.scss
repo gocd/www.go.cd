@@ -93,13 +93,17 @@
 }
 
 .analytics-fb-main_description {
-  margin: 40px auto 0;
+  margin: 0 auto 0;
 }
 
 .analytics-fb_grid-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.analytics-fb-form_header {
+  margin-bottom: 40px;
 }
 
 .analytics-fb-form_content {
