@@ -120,4 +120,4 @@
     return el;
   }
 
-})(jQuery, "https://s3.amazonaws.com/gocd-test-drive-experimental"/* /installers/19.3.0-8719/14 */);
+})(jQuery, "https://download.gocd.org/test-drive");
