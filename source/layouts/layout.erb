@@ -15,14 +15,17 @@
 
     <title><%= value_or_title_as_default(:title_tag_of_header) %></title>
     <link href="<%= url_for '/assets/images/favicon.ico' %>" rel="shortcut icon" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag :all %>
     <%= auto_javascript_include_tag %>
     <%= feed_tag :atom, url_for("/feed.xml"), title: "GoCD blog feed" %>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       $(document).ready(function(){
-    $('.chocolat-parent').Chocolat();
-});
+      $('.chocolat-parent').Chocolat();
+      AOS.init();
+    });
     </script>
   </head>
 
