@@ -154,12 +154,12 @@
 <h4>API Improvements</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/issues/5781">#5781</a> - Introduced version 2 of <a href="https://api.gocd.org/current/#backups">Backup</a> API.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/6007">#6007</a> - Introduced version 5 of <a href="https://api.gocd.org/current/#plugin-info">Plugin Info</a> API.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/5983">#5983</a> - Introduced version 2 of <a href="https://api.gocd.org/current/#elastic-agent-profiles">Elastic Agent Profiles</a> API.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/5938">#5938</a> - Introduced version 1 of <a href="https://api.gocd.org/current/#cluster-profiles">Cluster Profiles</a> API.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/5620">#5620</a> - Introduced version 1 of <a href="https://api.gocd.org/current/#get-stage-history">Stage History</a> API.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/5886">#5886</a> - Introduced version 5 of <a href="https://api.gocd.org/current/#agents">Agents</a> API.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5781">#5781</a> - Introduced version 2 of <a href="https://api.gocd.org/19.3.0/#backups">Backup</a> API.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6007">#6007</a> - Introduced version 5 of <a href="https://api.gocd.org/19.3.0/#plugin-info">Plugin Info</a> API.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5983">#5983</a> - Introduced version 2 of <a href="https://api.gocd.org/19.3.0/#elastic-agent-profiles">Elastic Agent Profiles</a> API.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5938">#5938</a> - Introduced version 1 of <a href="https://api.gocd.org/19.3.0/#cluster-profiles">Cluster Profiles</a> API.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5620">#5620</a> - Introduced version 1 of <a href="https://api.gocd.org/19.3.0/#get-stage-history">Stage History</a> API.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5886">#5886</a> - Introduced version 5 of <a href="https://api.gocd.org/19.3.0/#agents">Agents</a> API.</li>
 </ul>
 
 <h4>Other Improvements</h4>
@@ -192,8 +192,7 @@
 <h4>New Deprecations</h4>
 
 <ul>
-  <li>elastic extension v4</li>
-  <li>elastic agent profile v1 (breaking change)</li>
+  <li>The Elastic Agents plugin extension v4 has been deprecated. This version will be removed in a release scheduled for August 2019. Plugin developers should use version 5 of the plugin API.</li>
 </ul>
 
 <h4>Deprecations</h4>
@@ -203,8 +202,8 @@
   <li>The analytics plugin extension version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the analytics plugin api.</li>
   <li>The Get Server Info processor version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the Get Server Info processor.</li>
   <li>Unversioned get stage history API has been deprecated in favor of get stage history API v1. This version will be removed in a release scheduled for July 2019.</li>
-  <li>The Dashboard API version 2 has been deprecated. This version will be removed in a release scheduled for June 2019.<a href="https://api.gocd.org/19.3.0/#dashboard">Version 3</a> of the API is available, and users are encouraged to use it.</li>
-  <li>The Plugin Info API version 4 has been deprecated. This version will be removed in a release scheduled for July 2019.<a href="https://api.gocd.org/19.3.0/#plugin-info">Version 5</a> of the API is available, and users are encouraged to use it.</li>
+  <li>The Dashboard API version 2 has been deprecated. This version will be removed in a release scheduled for June 2019. <a href="https://api.gocd.org/19.3.0/#dashboard">Version 3</a> of the API is available, and users are encouraged to use it.</li>
+  <li>The Plugin Info API version 4 has been deprecated. This version will be removed in a release scheduled for July 2019. <a href="https://api.gocd.org/19.3.0/#plugin-info">Version 5</a> of the API is available, and users are encouraged to use it.</li>
   <li>The Alpine 3.6 based docker image for GoCD Agent has been deprecated and will not be built after May 2019 release of GoCD. This will be done as Alpine 3.6 will reach end-of-life in May 2019.</li>
   <li>The Fedora 28 based docker image for GoCD Agent has been deprecated and will not be built after June 2019 release of GoCD. This will be done as Fedora 28 will reach end-of-life in June 2019.</li>
 </ul>
@@ -212,6 +211,7 @@
 <h4>Breaking Changes</h4>
 
 <ul>
+  <li>The Elastic Agent Profiles API version 1 has been removed. <a href="https://api.gocd.org/19.3.0/#elastic-agent-profiles">Version 2</a> of the API is available, and users are encouraged to use it. With the introduction of support for clusters all Elastic Agent Profiles need to be associated with a cluster. Since version 1 of the API does not support clusters, as an exception this API had to be removed without deprecation.</li>
   <li>The Dashboard API version 1 has been removed. <a href="https://api.gocd.org/19.3.0/#dashboard">Version 3</a> of the API is available, and users are encouraged to use it.</li>
   <li>The System Admins API version 1 has been removed. <a href="https://api.gocd.org/19.1.0/#system-admins">Version 2</a> of the API is available, and users are encouraged to use it.</li>
   <li>The Roles API version 1 has been removed. <a href="https://api.gocd.org/19.1.0/#roles">Version 2</a> of the API is available, and users are encouraged to use it.</li>
