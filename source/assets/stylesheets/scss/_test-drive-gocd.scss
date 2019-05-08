@@ -2,11 +2,11 @@ body.test-drive-gocd {
 
   .header-bg {
     @media(max-width: $screen-sm) {
-      height: 336px;
+      height: 300px;
     }
 
     @media(min-width: $screen-sm) and (max-width: $screen-lg) {
-      height: 236px;
+      height: 240px;
     }
   }
 
@@ -14,20 +14,23 @@ body.test-drive-gocd {
     width: 100%;
 
     @media(max-width: $screen-sm) {
-      margin: -300px auto 75px;
+      margin: -270px auto 75px;
     }
 
     @media(min-width: $screen-sm) and (max-width: $screen-lg) {
-      margin: -200px auto 75px;
+      margin: -220px auto 75px;
     }
 
     @media (min-width: $screen-lg) {
       width: 80%;
+      margin: -220px auto 75px;
     }
   }
 
   .content-header {
-    padding-bottom: 10px;
+    margin-top: 40px;
+    padding-bottom: 0;
+    margin-bottom: 0;
     text-align: center;
     font-family: $default-font-extra-bold;
 
@@ -48,18 +51,25 @@ body.test-drive-gocd {
       text-align: center;
 
       @media (max-width: $screen-sm) {
-        font-size: 30px;
+        font-size: 28px;
       }
 
       @media (min-width: $screen-lg) {
-        padding-bottom: 18px;
+        padding-bottom: 80px;
       }
     }
 
     p {
     font-family: $default-font-normal-bold;
       @media(min-width: $screen-sm) {
-        font-size: 22px;
+        font-size: 20px;
+      }
+
+      @media(min-width: $screen-sm) and (max-width: $screen-lg) {
+        margin: 80px auto 0;
+      }
+      @media(max-width: $screen-sm) {
+        margin: 100px auto 90px;
       }
     }
   }
@@ -142,6 +152,7 @@ body.test-drive-gocd {
 
     .btn {
       min-width: 80px;
+      font-family: $default-font-extra-bold;
 
       @media (max-width: $screen-sm) {
         width: 100%;
@@ -155,8 +166,9 @@ body.test-drive-gocd {
   .checksum-link {
     display: block;
     margin-top: 5px;
-    font: 11px system-ui;
-    padding-left: 5px;
+    font-size: 11px;
+    font-family: monospace;
+    text-decoration: underline;
 
     @media (max-width: $screen-sm) {
       margin: 10px auto;
