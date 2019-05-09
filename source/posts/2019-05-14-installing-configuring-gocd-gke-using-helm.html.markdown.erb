@@ -1,0 +1,190 @@
+---
+layout: post
+title: Use OpenLDAP for User Authentication in GoCD
+type: post
+author: Mohamed Najiullah
+excerpt: "Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD"
+summary_image: "/assets/images/blog/cd-hacks/open-ldap-gocd.jpg"
+title_tag_of_header: "OpenLDAP for User Authentication in GoCD | GoCD Blog"
+meta_description: "Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD"
+meta_keywords: "ldap, openldap, user authentication, ci cd, authenticate users, active directory"
+tags: CD Hacks
+draft: true
+---
+<% content_for :banner do %>
+  <figure>
+<img src="/assets/images/blog/cd-hacks/open-ldap-gocd.jpg" alt="Open LDAP with GoCD"/>
+  </figure>
+<% end %>
+
+
+Recently, a colleague and I had to spike on the possibility of migrating our CI/CD infrastructure from a VM based design to a Kubernetes based one.
+
+While exploring how to do it, we had to spend some time to find out all the information we needed just to install and configure GoCD without the migration. So I decided to write this post hoping someone like me would find it helpful.
+
+## Creating a Cluster
+
+You can create the cluster using multiple options. You can use
+
+*[google-cloud-sdk](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster)
+*GKE UI interface
+*[terraform](https://www.terraform.io/docs/providers/google/index.html)
+
+You can specify the zone, GKE master version, the machine type and number of nodes among other things as per your requirements. Remember to allocate enough vCPUs and RAM to run the GoCD server as well as the agents.
+
+##Deploy GoCD
+GoCD provides a [helm](https://github.com/helm/charts/tree/master/stable/gocd) chart to deploy GoCD easily in a cluster. You can also find a basic [tutorial](https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/helm_install.html) here which I’m repeating for better continuity.
+
+1.First you have to set the correct context so that we are able to deploy GoCD in the correct cluster.
+
+~~~
+gcloud container clusters get-credentials <CLUSTER-NAME> —- zone <ZONE-NAME> —- project <PROJECT-NAME>
+~~~
+
+2. Once the correct context is set, [helm](https://helm.sh/) needs to be installed. If you don’t have it in your machine, install it using one of the many options that helm offers. Then helm needs to be installed on the cluster. This can be done as
+
+~~~
+helm init
+~~~
+
+This will install *Tiller* which is the server side component of Helm on your cluster.
+
+3. Next we need to create a cluster role binding with the kube-system service account.
+
+~~~
+kubectl create clusterrolebinding clusterRoleBinding \
+--clusterrole=cluster-admin \
+--serviceaccount=kube-system:default
+~~~
+
+4. Now we add the repository where the GoCD chart is available as follows.
+
+
+~~~
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+~~~
+
+5. Now, all we have to do is just install the chart as
+
+~~~
+helm install stable/gocd —- name gocd —- namespace gocd
+~~~
+
+This will install GoCD on your server along with an ingress to allow access to the Go server over the internet.
+
+##GoCD Public IP Address
+
+You can use the following command to get the IP address of the Go server
+
+~~~
+kubectl get ingress --namespace gocd gocd-server -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
+~~~
+
+If you go to the server you’ll be able to see the GoCD dashboard with a *hello-world* pipeline executed just to verify if everything works.
+
+But executing the above command configures the Go server using the values available in this values.yaml file. If you are just playing around to get a feel of using GoCD in Kubernetes, this is fine. However if you are trying to configure the GoCD server with some basic options, then it’s better to use your own [values.yaml](https://github.com/helm/charts/blob/master/stable/gocd/values.yaml) file as follows
+
+~~~
+helm install —- name gocd-app —- namespace gocd -f values.yaml stable/gocd
+~~~
+
+##Configuring Password File based Authentication
+
+For our usecase we needed to add password based authentication in GoCD. Password based authentication is available in GoCD as a built-in plugin called Password File Authentication Plugin. The plugin uses a password file to authenticate whose location can be configured.
+
+The GoCD helm chart allows us to mount volumes using secrets. We can make use of this to mount the password file to a specific location. For example if your password file name is go-password, before installing the GoCD helm chart, you can create a secret in the gocd namespace in the cluster as
+
+~~~
+kubectl create secret generic go-password \
+--from-file=go-password=go-password \
+--namespace=gocd
+~~~
+
+Then you can go to the server.persistence.extraVolumes section and add the secret as
+
+~~~
+extraVolumes:
+ - name: go-password-volume-name
+   secret:
+     secretName: go-password
+     defaultMode: 0744
+~~~
+
+This will create a volume *(go-password-volume-name)* from the given secret name *(go-password)*. Now you can mount the volume to any location you want in the *server.persistence.extraVolumeMounts* section as follows
+
+~~~
+extraVolumeMounts:
+ - name: go-password-volume-name
+   mountPath: /etc/go
+   readOnly: true
+~~~
+
+This will mount the volume to the /etc/go location. You can now install the GoCD helm chart using the above modified values in the values.yaml.
+
+An important point to note is that this will only mount the password file in the given location. It will **NOT** enable password based authentication directly. To enable this, you need to add a new Authorization Configuration. This can be configured using either the UI or using a *POST* request.
+
+1. To use the UI to configure this, you can refer [here](https://docs.gocd.org/current/configuration/dev_authentication.html). Make sure to provide the Password file path correctly. In our case it will be */etc/go/go-password*
+2. To use a *POST* request, you can use this cURL command
+
+~~~
+curl "http://$gocd_public_ip/go/api/admin/security/auth_configs" \
+      -H 'Accept: application/vnd.go.cd.v1+json' \
+      -H 'Content-Type: application/json' \
+      -X POST -d '{
+        "id": "passwordfile",
+        "plugin_id": "cd.go.authentication.passwordfile",
+        "properties": [
+          {
+            "key": "PasswordFilePath",
+            "value": "/etc/go/go-password"
+          }
+        ]
+      }'
+~~~
+
+You can change the *$gocd_public_ip* with your GoCD dashboard public IP. You can get this IP from the GoCD Public IP Address section above.
+
+##Configuring Access to GitHub for GoCD Server
+
+Since we had all of our code hosted in GitHub, we also needed the GoCD server to have access to our GitHub repositories. One of the most used ways to give access to GitHub is SSH. The *values.yaml* file allows us to specify a secret that will contain the necessary SSH key files. For more information on generating SSH keys, you can refer [here](https://help.github.com/en/articles/connecting-to-github-with-ssh). For GoCD, the three files i.e *id_rsa, id_rsa.pub* and [known_hosts](https://docs.gocd.org/current/faq/docker_container_ssh_keys.html) have to be copied to the */etc/go/.ssh* folder. This is because GoCD operates with a username called *go*.
+
+Once you have created these three files you can create a kubernetes secret as
+
+~~~
+echo "Creating SSH secret to allow access to our Git Repos"
+kubectl create secret generic gocd-server-ssh \
+--from-file=id_rsa=ssh/id_rsa \
+--from-file=id_rsa.pub=ssh/id_rsa.pub \
+--from-file=known_hosts=ssh/known_hosts \
+--namespace=gocd
+~~~
+
+This creates a secret *gocd-server-ssh* in the cluster’s *gocd* namespace. We can then specify this secret in the *server.security.ssh* section as follows
+
+~~~
+security:
+  ssh:
+    # server.security.ssh.enabled is the toggle to enable/disable mounting of ssh secret on GoCD server pods
+    enabled: true
+    # server.security.ssh.secretName specifies the name of the k8s secret object that contains the ssh key and known hosts
+    secretName: gocd-server-ssh
+~~~
+
+##Configuring Access to GitHub for GoCD Agent
+
+Just because the GoCD Server has access doesn’t mean that it’s corresponding GoCD agents will also have access. Access for agents has to be configured separately. This is similar to configuring for the server. You can specify the secret name in the *agent.security.ssh* section as follows
+
+~~~
+security:
+  ssh:
+    # agent.security.ssh.enabled is the toggle to enable/disable mounting of ssh secret on GoCD agent pods
+    enabled: true
+    # agent.security.ssh.secretName specifies the name of the k8s secret object that contains the ssh key and known hosts
+    secretName: gocd-agent-ssh
+~~~
+
+Note: This will work only if you use static GoCD agents that are always running. It will **NOT** work if you use [elastic agents](https://www.gocd.org/elastic-agents.html via elastic agent profiles.
+
+So there you go. I hope you find it useful. If you have any questions, please feel free to comment and I’ll answer from whatever I’ve learnt so far.
+
+*This post was originally published [here](https://medium.com/@mohammed.najiullah/installing-and-configuring-gocd-on-gke-using-helm-1acf73649dc6).
