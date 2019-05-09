@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Use OpenLDAP for User Authentication in GoCD
+title: Installing and Configuring GoCD on GKE using Helm
 type: post
 author: Mohamed Najiullah
 excerpt: "Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD"
 summary_image: "/assets/images/blog/cd-hacks/open-ldap-gocd.jpg"
-title_tag_of_header: "OpenLDAP for User Authentication in GoCD | GoCD Blog"
+title_tag_of_header: "Installing and Configuring GoCD on GKE using Helm | GoCD Blog"
 meta_description: "Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD"
-meta_keywords: "ldap, openldap, user authentication, ci cd, authenticate users, active directory"
-tags: CD Hacks
+meta_keywords: "configuring gocd, gke, helm, kubernetes, ci/cd"
+tags: 
 draft: true
 ---
 <% content_for :banner do %>
@@ -22,26 +22,26 @@ Recently, a colleague and I had to spike on the possibility of migrating our CI/
 
 While exploring how to do it, we had to spend some time to find out all the information we needed just to install and configure GoCD without the migration. So I decided to write this post hoping someone like me would find it helpful.
 
-## Creating a Cluster
+##**Creating a Cluster**
 
 You can create the cluster using multiple options. You can use
 
-*[google-cloud-sdk](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster)
-*GKE UI interface
-*[terraform](https://www.terraform.io/docs/providers/google/index.html)
+-[google-cloud-sdk](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster)
+-GKE UI interface
+-[terraform](https://www.terraform.io/docs/providers/google/index.html)
 
 You can specify the zone, GKE master version, the machine type and number of nodes among other things as per your requirements. Remember to allocate enough vCPUs and RAM to run the GoCD server as well as the agents.
 
-##Deploy GoCD
+##**Deploy GoCD**
 GoCD provides a [helm](https://github.com/helm/charts/tree/master/stable/gocd) chart to deploy GoCD easily in a cluster. You can also find a basic [tutorial](https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/helm_install.html) here which I’m repeating for better continuity.
 
-1.First you have to set the correct context so that we are able to deploy GoCD in the correct cluster.
+1) First you have to set the correct context so that we are able to deploy GoCD in the correct cluster.
 
 ~~~
 gcloud container clusters get-credentials <CLUSTER-NAME> —- zone <ZONE-NAME> —- project <PROJECT-NAME>
 ~~~
 
-2. Once the correct context is set, [helm](https://helm.sh/) needs to be installed. If you don’t have it in your machine, install it using one of the many options that helm offers. Then helm needs to be installed on the cluster. This can be done as
+2) Once the correct context is set, [helm](https://helm.sh/) needs to be installed. If you don’t have it in your machine, install it using one of the many options that helm offers. Then helm needs to be installed on the cluster. This can be done as
 
 ~~~
 helm init
@@ -49,7 +49,7 @@ helm init
 
 This will install *Tiller* which is the server side component of Helm on your cluster.
 
-3. Next we need to create a cluster role binding with the kube-system service account.
+3) Next we need to create a cluster role binding with the kube-system service account.
 
 ~~~
 kubectl create clusterrolebinding clusterRoleBinding \
@@ -57,14 +57,14 @@ kubectl create clusterrolebinding clusterRoleBinding \
 --serviceaccount=kube-system:default
 ~~~
 
-4. Now we add the repository where the GoCD chart is available as follows.
+4) Now we add the repository where the GoCD chart is available as follows.
 
 
 ~~~
 helm repo add stable https://kubernetes-charts.storage.googleapis.com
 ~~~
 
-5. Now, all we have to do is just install the chart as
+5) Now, all we have to do is just install the chart as
 
 ~~~
 helm install stable/gocd —- name gocd —- namespace gocd
@@ -72,7 +72,7 @@ helm install stable/gocd —- name gocd —- namespace gocd
 
 This will install GoCD on your server along with an ingress to allow access to the Go server over the internet.
 
-##GoCD Public IP Address
+##**GoCD Public IP Address**
 
 You can use the following command to get the IP address of the Go server
 
@@ -88,7 +88,7 @@ But executing the above command configures the Go server using the values availa
 helm install —- name gocd-app —- namespace gocd -f values.yaml stable/gocd
 ~~~
 
-##Configuring Password File based Authentication
+##**Configuring Password File based Authentication**
 
 For our usecase we needed to add password based authentication in GoCD. Password based authentication is available in GoCD as a built-in plugin called Password File Authentication Plugin. The plugin uses a password file to authenticate whose location can be configured.
 
@@ -144,7 +144,7 @@ curl "http://$gocd_public_ip/go/api/admin/security/auth_configs" \
 
 You can change the *$gocd_public_ip* with your GoCD dashboard public IP. You can get this IP from the GoCD Public IP Address section above.
 
-##Configuring Access to GitHub for GoCD Server
+##**Configuring Access to GitHub for GoCD Server**
 
 Since we had all of our code hosted in GitHub, we also needed the GoCD server to have access to our GitHub repositories. One of the most used ways to give access to GitHub is SSH. The *values.yaml* file allows us to specify a secret that will contain the necessary SSH key files. For more information on generating SSH keys, you can refer [here](https://help.github.com/en/articles/connecting-to-github-with-ssh). For GoCD, the three files i.e *id_rsa, id_rsa.pub* and [known_hosts](https://docs.gocd.org/current/faq/docker_container_ssh_keys.html) have to be copied to the */etc/go/.ssh* folder. This is because GoCD operates with a username called *go*.
 
@@ -170,7 +170,7 @@ security:
     secretName: gocd-server-ssh
 ~~~
 
-##Configuring Access to GitHub for GoCD Agent
+##**Configuring Access to GitHub for GoCD Agent**
 
 Just because the GoCD Server has access doesn’t mean that it’s corresponding GoCD agents will also have access. Access for agents has to be configured separately. This is similar to configuring for the server. You can specify the secret name in the *agent.security.ssh* section as follows
 
