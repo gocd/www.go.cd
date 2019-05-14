@@ -8,7 +8,7 @@ summary_image: "/assets/images/blog/cd-hacks/gocd-gke-helm.jpg"
 title_tag_of_header: "Installing and Configuring GoCD on GKE using Helm | GoCD Blog"
 meta_description: "Installing and Configuring GoCD on GKE using Helm"
 meta_keywords: "configuring gocd, gke, helm, kubernetes, ci/cd"
-tags: 
+tags:
 draft: true
 ---
 <% content_for :banner do %>
@@ -26,9 +26,9 @@ While exploring how to do it, we had to spend some time to find out all the info
 
 You can create the cluster using multiple options. You can use
 
--[google-cloud-sdk](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster)
--GKE UI interface
--[terraform](https://www.terraform.io/docs/providers/google/index.html)
+* [google-cloud-sdk](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster)
+* GKE UI interface
+* [terraform](https://www.terraform.io/docs/providers/google/index.html)
 
 You can specify the zone, GKE master version, the machine type and number of nodes among other things as per your requirements. Remember to allocate enough vCPUs and RAM to run the GoCD server as well as the agents.
 
@@ -38,7 +38,8 @@ GoCD provides a [helm](https://github.com/helm/charts/tree/master/stable/gocd) c
 1) First you have to set the correct context so that we are able to deploy GoCD in the correct cluster.
 
 ~~~
-gcloud container clusters get-credentials <CLUSTER-NAME> —- zone <ZONE-NAME> —- project <PROJECT-NAME>
+gcloud container clusters get-credentials <CLUSTER-NAME> —- zone
+ <ZONE-NAME> —- project <PROJECT-NAME>
 ~~~
 
 2) Once the correct context is set, [helm](https://helm.sh/) needs to be installed. If you don’t have it in your machine, install it using one of the many options that helm offers. Then helm needs to be installed on the cluster. This can be done as
@@ -77,7 +78,8 @@ This will install GoCD on your server along with an ingress to allow access to t
 You can use the following command to get the IP address of the Go server
 
 ~~~
-kubectl get ingress --namespace gocd gocd-server -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
+kubectl get ingress --namespace gocd gocd-server -o jsonpath=
+"{.status.loadBalancer.ingress[0].ip}"
 ~~~
 
 If you go to the server you’ll be able to see the GoCD dashboard with a *hello-world* pipeline executed just to verify if everything works.
