@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Installing and Configuring GoCD on GKE using Helm" name="description" />
+    <meta content="configuring gocd, gke, helm, kubernetes, ci/cd" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Installing and Configuring GoCD on GKE using Helm | GoCD Blog" />
+    <meta name="twitter:description" content="Installing and Configuring GoCD on GKE using Helm" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-hacks/gocd-gke-helm-1bd3db0e.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2019/05/14/installing-configuring-gocd-gke-using-helm" />
+
+    <title>Installing and Configuring GoCD on GKE using Helm | GoCD Blog</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-6ea64878.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-30827340.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+    </script>
+  </head>
+
+  <body class="x2019 x2019_05 x2019_05_14 x2019_05_14_installing-configuring-gocd-gke-using-helm x2019_05_14_installing-configuring-gocd-gke-using-helm_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+<img src="../../../../assets/images/blog/cd-hacks/gocd-gke-helm-1bd3db0e.jpg" alt="Install and Configure GoCD on GKE using Helm"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Installing and Configuring <span class="go">Go</span>CD on GKE using Helm</h1>
+    <h4>Mohamed Najiullah</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>Recently, a colleague and I had to spike on the possibility of migrating our CI/CD infrastructure from a VM based design to a Kubernetes based one.</p>
+
+<p>While exploring how to do it, we had to spend some time to find out all the information we needed just to install and configure GoCD without the migration. So I decided to write this post hoping someone like me would find it helpful.</p>
+
+<h2 id="creating-a-cluster"><strong>Creating a Cluster</strong></h2>
+
+<p>You can create the cluster using multiple options. You can use</p>
+
+<ul>
+  <li><a href="https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster">google-cloud-sdk</a></li>
+  <li>GKE UI interface</li>
+  <li><a href="https://www.terraform.io/docs/providers/google/index.html">terraform</a></li>
+</ul>
+
+<p>You can specify the zone, GKE master version, the machine type and number of nodes among other things as per your requirements. Remember to allocate enough vCPUs and RAM to run the GoCD server as well as the agents.</p>
+
+<h2 id="deploy-gocd"><strong>Deploy GoCD</strong></h2>
+<p>GoCD provides a <a href="https://github.com/helm/charts/tree/master/stable/gocd">helm</a> chart to deploy GoCD easily in a cluster. You can also find a basic <a href="https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/helm_install.html">tutorial</a> here which I’m repeating for better continuity.</p>
+
+<p>1) First you have to set the correct context so that we are able to deploy GoCD in the correct cluster.</p>
+
+<pre><code>gcloud container clusters get-credentials &lt;CLUSTER-NAME&gt; —- zone
+ &lt;ZONE-NAME&gt; —- project &lt;PROJECT-NAME&gt;
+</code></pre>
+
+<p>2) Once the correct context is set, <a href="https://helm.sh/">helm</a> needs to be installed. If you don’t have it in your machine, install it using one of the many options that helm offers. Then helm needs to be installed on the cluster. This can be done as</p>
+
+<pre><code>helm init
+</code></pre>
+
+<p>This will install <em>Tiller</em> which is the server side component of Helm on your cluster.</p>
+
+<p>3) Next we need to create a cluster role binding with the kube-system service account.</p>
+
+<pre><code>kubectl create clusterrolebinding clusterRoleBinding \
+--clusterrole=cluster-admin \
+--serviceaccount=kube-system:default
+</code></pre>
+
+<p>4) Now we add the repository where the GoCD chart is available as follows.</p>
+
+<pre><code>helm repo add stable https://kubernetes-charts.storage.googleapis.com
+</code></pre>
+
+<p>5) Now, all we have to do is just install the chart as</p>
+
+<pre><code>helm install stable/gocd —- name gocd —- namespace gocd
+</code></pre>
+
+<p>This will install GoCD on your server along with an ingress to allow access to the Go server over the internet.</p>
+
+<h2 id="gocd-public-ip-address"><strong>GoCD Public IP Address</strong></h2>
+
+<p>You can use the following command to get the IP address of the Go server</p>
+
+<pre><code>kubectl get ingress --namespace gocd gocd-server -o jsonpath=
+"{.status.loadBalancer.ingress[0].ip}"
+</code></pre>
+
+<p>If you go to the server you’ll be able to see the GoCD dashboard with a <em>hello-world</em> pipeline executed just to verify if everything works.</p>
+
+<p>But executing the above command configures the Go server using the values available in this values.yaml file. If you are just playing around to get a feel of using GoCD in Kubernetes, this is fine. However if you are trying to configure the GoCD server with some basic options, then it’s better to use your own <a href="https://github.com/helm/charts/blob/master/stable/gocd/values.yaml">values.yaml</a> file as follows</p>
+
+<pre><code>helm install —- name gocd-app —- namespace gocd -f values.yaml stable/gocd
+</code></pre>
+
+<h2 id="configuring-password-file-based-authentication"><strong>Configuring Password File based Authentication</strong></h2>
+
+<p>For our usecase we needed to add password based authentication in GoCD. Password based authentication is available in GoCD as a built-in plugin called Password File Authentication Plugin. The plugin uses a password file to authenticate whose location can be configured.</p>
+
+<p>The GoCD helm chart allows us to mount volumes using secrets. We can make use of this to mount the password file to a specific location. For example if your password file name is go-password, before installing the GoCD helm chart, you can create a secret in the gocd namespace in the cluster as</p>
+
+<pre><code>kubectl create secret generic go-password \
+--from-file=go-password=go-password \
+--namespace=gocd
+</code></pre>
+
+<p>Then you can go to the server.persistence.extraVolumes section and add the secret as</p>
+
+<pre><code>extraVolumes:
+ - name: go-password-volume-name
+   secret:
+     secretName: go-password
+     defaultMode: 0744
+</code></pre>
+
+<p>This will create a volume <em>(go-password-volume-name)</em> from the given secret name <em>(go-password)</em>. Now you can mount the volume to any location you want in the <em>server.persistence.extraVolumeMounts</em> section as follows</p>
+
+<pre><code>extraVolumeMounts:
+ - name: go-password-volume-name
+   mountPath: /etc/go
+   readOnly: true
+</code></pre>
+
+<p>This will mount the volume to the /etc/go location. You can now install the GoCD helm chart using the above modified values in the values.yaml.</p>
+
+<p>An important point to note is that this will only mount the password file in the given location. It will <strong>NOT</strong> enable password based authentication directly. To enable this, you need to add a new Authorization Configuration. This can be configured using either the UI or using a <em>POST</em> request.</p>
+
+<ol>
+  <li>To use the UI to configure this, you can refer <a href="https://docs.gocd.org/current/configuration/dev_authentication.html">here</a>. Make sure to provide the Password file path correctly. In our case it will be <em>/etc/go/go-password</em></li>
+  <li>To use a <em>POST</em> request, you can use this cURL command</li>
+</ol>
+
+<pre><code>curl "http://$gocd_public_ip/go/api/admin/security/auth_configs" \
+      -H 'Accept: application/vnd.go.cd.v1+json' \
+      -H 'Content-Type: application/json' \
+      -X POST -d '{
+        "id": "passwordfile",
+        "plugin_id": "cd.go.authentication.passwordfile",
+        "properties": [
+          {
+            "key": "PasswordFilePath",
+            "value": "/etc/go/go-password"
+          }
+        ]
+      }'
+</code></pre>
+
+<p>You can change the <em>$gocd_public_ip</em> with your GoCD dashboard public IP. You can get this IP from the GoCD Public IP Address section above.</p>
+
+<h2 id="configuring-access-to-github-for-gocd-server"><strong>Configuring Access to GitHub for GoCD Server</strong></h2>
+
+<p>Since we had all of our code hosted in GitHub, we also needed the GoCD server to have access to our GitHub repositories. One of the most used ways to give access to GitHub is SSH. The <em>values.yaml</em> file allows us to specify a secret that will contain the necessary SSH key files. For more information on generating SSH keys, you can refer <a href="https://help.github.com/en/articles/connecting-to-github-with-ssh">here</a>. For GoCD, the three files i.e <em>id_rsa, id_rsa.pub</em> and <a href="https://docs.gocd.org/current/faq/docker_container_ssh_keys.html">known_hosts</a> have to be copied to the <em>/etc/go/.ssh</em> folder. This is because GoCD operates with a username called <em>go</em>.</p>
+
+<p>Once you have created these three files you can create a kubernetes secret as</p>
+
+<pre><code>echo "Creating SSH secret to allow access to our Git Repos"
+kubectl create secret generic gocd-server-ssh \
+--from-file=id_rsa=ssh/id_rsa \
+--from-file=id_rsa.pub=ssh/id_rsa.pub \
+--from-file=known_hosts=ssh/known_hosts \
+--namespace=gocd
+</code></pre>
+
+<p>This creates a secret <em>gocd-server-ssh</em> in the cluster’s <em>gocd</em> namespace. We can then specify this secret in the <em>server.security.ssh</em> section as follows</p>
+
+<pre><code>security:
+  ssh:
+    # server.security.ssh.enabled is the toggle to enable/disable mounting of ssh secret on GoCD server pods
+    enabled: true
+    # server.security.ssh.secretName specifies the name of the k8s secret object that contains the ssh key and known hosts
+    secretName: gocd-server-ssh
+</code></pre>
+
+<h2 id="configuring-access-to-github-for-gocd-agent"><strong>Configuring Access to GitHub for GoCD Agent</strong></h2>
+
+<p>Just because the GoCD Server has access doesn’t mean that it’s corresponding GoCD agents will also have access. Access for agents has to be configured separately. This is similar to configuring for the server. You can specify the secret name in the <em>agent.security.ssh</em> section as follows</p>
+
+<pre><code>security:
+  ssh:
+    # agent.security.ssh.enabled is the toggle to enable/disable mounting of ssh secret on GoCD agent pods
+    enabled: true
+    # agent.security.ssh.secretName specifies the name of the k8s secret object that contains the ssh key and known hosts
+    secretName: gocd-agent-ssh
+</code></pre>
+
+<p>Note: This will work only if you use static GoCD agents that are always running. It will <strong>NOT</strong> work if you use [elastic agents](https://www.gocd.org/elastic-agents.html via elastic agent profiles.</p>
+
+<p>So there you go. I hope you find it useful. If you have any questions, please feel free to comment and I’ll answer from whatever I’ve learnt so far.</p>
+
+<p>*This post was originally published on Mohamed Najiullah's <a href="https://medium.com/@mohammed.najiullah/installing-and-configuring-gocd-on-gke-using-helm-1acf73649dc6">Medium blog</a>.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../../assets/javascripts/marketo_popover-dbbdf145.js" onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">May 14</span>
+              <span class="post-author">Mohamed Najiullah</span>
+              <a href="./">Installing and Configuring GoCD on GKE using Helm</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 19</span>
+              <span class="post-author">Ankit Srivistava</span>
+              <a href="../../../03/19/user-authorization-ldap/">Use OpenLDAP for User Authentication in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 14</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="../../../01/14/cd-metrics-deployment-lead-time/">Continuous Delivery Metrics Part 3&#58; How long does it take to get from committing code to production?</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 30</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="../../../../2018/11/30/deployment-frequency/">Continuous Delivery Metrics Part 2&#58; How often do you deploy to production?</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 30</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="../../../../2018/10/30/measure-continuous-delivery-process/">Continuous Delivery Metrics Part 1&#58; Why measure your CD process</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2019 (3)</a></li>
+            <li><a href="../../../../2018/">2018 (17)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2019/05/14/installing-configuring-gocd-gke-using-helm.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li> <a href="../../../../events/">WEBINARS + EVENTS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
