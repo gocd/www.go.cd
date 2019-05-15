@@ -1,3 +1,38 @@
+
+/*doc
+---
+title: Items Container
+name: items-container
+category: index
+---
+
+Style for Flex Item Component
+
+```html_example
+
+<div class="flex-items-container">
+  <div class="flex-item_sm">
+    <img src="/assets/images/campaign/cd101/815-booklet-mockup.jpg" />
+  </div>
+  <div class="flex-item_md content_cd101">
+
+    <h3><b>Want to deploy code faster? React to changes quickly? Release more frequently?</b></h3>
+    <p>In this Continuous Delivery 101 eBook, we’ll take you back to the  basics.</p>     
+    <ul>
+      <li>What is continuous integration?</li>
+      <li>What is continuous delivery and continuous deployment? Are they different?</li>
+      <li>What is DevOps and how can you benefit from it?</li>
+      <li>Is your team ready for continuous delivery?</li>
+    </ul>
+    <p>We also explore core development practices that are prerequisites for continuous delivery.</p>
+  
+  </div>
+</div>
+
+
+```
+*/
+
 .flex-items-container {
   display: flex;
   flex-wrap: wrap;

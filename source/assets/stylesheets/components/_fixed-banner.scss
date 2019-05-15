@@ -1,3 +1,27 @@
+
+/*doc
+---
+title: Fixed Banner
+name: fixed-banner
+category: index
+---
+
+Style for Fixed Banner Component
+
+```html_example
+<h2>Fixed banner will be fixed at bottom of the screen.</h2>
+  <div class="banner-fixed-bottom slide-in-bottom show-banner">
+    <div class="banner-fixed_text-container">
+      <a href="../analytics-feedback.html" class="fixed-banner_link">
+      <p>Get weekly surprise gifts and free books.</p>
+      </a>
+    </div>
+    <i class="fa fa-times-circle fixed-banner-close"></i>
+    </div>
+  </div>
+
+```
+*/
 .banner-fixed-bottom {
   width: 100%;
   height: 110px;

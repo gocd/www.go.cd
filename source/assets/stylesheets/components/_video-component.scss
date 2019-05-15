@@ -1,3 +1,28 @@
+/*doc
+---
+title: Video Container
+name: video-container
+category: index
+---
+
+Style for Video Component
+
+```html_example
+
+  <div class="parent-video-container">
+    <video class="video_element"  autoplay="true" loop="true" muted="true"> 
+      <source src="../assets/video/gocd_analytics_edit.mp4" type="video/mp4" ></source>
+    </video>
+    <div class="video-overlay">
+      <button class="play-button">
+        <i class="fa fa-play"></i>
+      </button>
+    </div>
+  </div>
+
+```
+*/
+
 .parent-video-container {
   position: relative;
   width: 100%;
