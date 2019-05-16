@@ -115,6 +115,11 @@ footer {
 		justify-content: left;
 		line-height: 16px;
 
+		ul {
+			list-style: none;
+			padding:0px 5px;
+		}
+
 		li {
 			padding-bottom: 14px;
 		}
@@ -160,7 +165,4 @@ footer {
 		}
 	}
 
-	.unordered-list{
-		list-style: none;
-	}
 }
