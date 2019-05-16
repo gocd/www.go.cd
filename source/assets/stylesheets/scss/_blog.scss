@@ -183,17 +183,9 @@
     font-weight: 400;
   }
 
-  h2 {
-    font-size: 20px;
-  }
-
   figure {
     position: relative;
     margin-top: 30px;
-  }
-
-  h3 {
-    font-size: 17px;
   }
 
   pre {
@@ -534,7 +526,7 @@
     padding:15px 0;
   }
 
-  p {
+  p, li {
     font-size: 18px;  
     line-height: 1.5;
     letter-spacing: .1px;
