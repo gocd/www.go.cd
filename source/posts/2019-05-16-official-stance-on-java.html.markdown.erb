@@ -1,0 +1,64 @@
+---
+layout: post
+title: Effect of Java licensing changes on GoCD
+type: post
+author: GoCD Team
+excerpt: "Due to Java licensing changes by Oracle, GoCD's support for Java is changing."
+summary_image: "/assets/images/blog/cd-hacks/gocd-gke-helm.jpg"
+title_tag_of_header: "Effect of Java licensing changes on GoCD"
+meta_description: "Effect of Java licensing changes on GoCD"
+meta_keywords: "java, license, licence, gocd"
+draft: true
+---
+<% content_for :banner do %>
+  <figure>
+    <img src="/assets/images/blog/cd-hacks/gocd-gke-helm.jpg" alt="Effect of Java licensing changes on GoCD"/>
+  </figure>
+<% end %>
+
+In mid 2018, Oracle announced several changes to the licensing of Java Standard Edition (SE) that took effect in early 2019. Organizations that want to continue to use a supported and up-to-date Oracle JRE will be required to purchase a license from Oracle.
+
+Oracle also announced a new 6 month release cadence of Java SE. New releases of Java SE will be made available every 6 months. Each release  of Java SE will be end-of-life once a newer version is released. For organizations concerned with this release cadence, Oracle will designate some releases as long-term-support (LTS) releases. These editions will receive 8 years of *paid commercial* support from Oracle.
+
+For more information about this, take a look at:
+
+- [https://blogs.oracle.com/java-platform-group/oracle-jdk-releases-for-java-11-and-later](https://blogs.oracle.com/java-platform-group/oracle-jdk-releases-for-java-11-and-later)
+- [https://www.oracle.com/technetwork/java/java-se-support-roadmap.html](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html)
+- [https://www.oracle.com/technetwork/java/javase/overview/oracle-jdk-faqs.html](https://www.oracle.com/technetwork/java/javase/overview/oracle-jdk-faqs.html)
+- [https://medium.com/@javachampions/java-is-still-free-2-0-0-6b9aa8d6d244](https://medium.com/@javachampions/java-is-still-free-2-0-0-6b9aa8d6d244)
+- [https://blog.joda.org/2018/09/do-not-fall-into-oracles-java-11-trap.html](https://blog.joda.org/2018/09/do-not-fall-into-oracles-java-11-trap.html)
+- [http://mail.openjdk.java.net/pipermail/discuss/2017-September/004281.html](http://mail.openjdk.java.net/pipermail/discuss/2017-September/004281.html)
+
+## What are the options available?
+
+As an alternative to purchasing commercial support from Oracle, organisations may want to consider [OpenJDK](https://openjdk.java.net/), the free, open-source implementation of Java SE. The OpenJDK project will follow Oracle’s 6 month release cadence for Java, and will publish patches and security updates. There are commercially supported and open-source distributions of OpenJDK that GoCD users may possibly use:
+
+- [Zulu](https://www.azul.com/downloads/zulu/) from Azul Systems
+- [Corretto](https://aws.amazon.com/corretto/) from Amazon
+- RedHat’s [OpenJDK](https://developers.redhat.com/products/openjdk/overview/)
+- [AdoptOpenJDK](https://adoptopenjdk.net/)
+
+A comparison of the different JDK offerings, by Azul (creators of Zulu JDK) is [available here](https://www.azul.com/products/zulu-enterprise/jdk-comparison-matrix-2/). The GoCD team builds and tests all releases against an appropriate distribution of OpenJDK.
+
+## What does this mean for users of GoCD?
+
+GoCD bundles the OpenJDK JRE in certain cases: Docker images, Windows installers and Mac OSX installers. We want to ensure that what we ship does not cause infringement issues for organizations using GoCD. Based on conversations with our legal counsel, we believe that it is safe to bundle OpenJDK with GoCD, since it is licensed under [GPLv2+CPE (GNU General Public License, version 2, with the Classpath Exception)](https://openjdk.java.net/legal/gplv2+ce.html), and is free even for commercial uses.
+
+Given the 6-month release cycle, the effort required to maintain compatibility and test GoCD on several versions of Java can quickly become overwhelming. We also realize that due to operational and regulatory concerns, it *may* be infeasible to update Java versions every 6 months in production environments. So, GoCD will will support the **last 3 versions** of Java. This translates to support for Java versions roughly 18 months older than the current version. We recommend that users stay on the latest version of Java to ensure that they receive security updates or use a JRE from a vendor who backports security fixes and provides updates.
+
+The compiler target will be adjusted every 6 months when a new Java release is out. The compiler target will be (`LATEST_VERSION - 2`). For example: if the current GA Java version is 15, the compiler target will be set to 13.
+
+## The impact upon upgrading GoCD:
+
+Java 13 is expected to be out around September 2019, around the same time this policy kicks in. This will mean that in the GoCD release around September 2019, GoCD will support Java 11, 12, 13 only. If this is not already obvious: Support for Java 8, 9, 10 will be completely dropped in the September 2019 release.
+
+If you’re using a non-bundled JRE, with any version of GoCD, please make sure that you’re not using a commercial JRE such as Oracle JRE or JDK without a license. GoCD will still work with Oracle JRE, but you might get audited by Oracle and fined, if you are running it without a license.
+
+Glossary:
+
+- Java SE: Java Standard Edition, often just called “Java”.
+- JRE: Java SE Runtime Environment - needed to run Java SE programs.
+- JDK: Java SE Development Kit - needed to compile Java SE programs.
+- GA: General Availability. See the [Java release calendar](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html).
+
+**DISCLAIMER**: This does not constitute legal advice. You should consult with your legal counsel to ensure you are compliant with all applicable licensing and other legal or regulatory requirements applicable to your activities or arising from your use of GoCD, Java SE, OpenJDK, or any other software.
