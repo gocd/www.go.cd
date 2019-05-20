@@ -1,18 +1,21 @@
 <h4>Some feature</h4>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Introduced `username` and `password` (or `encryptedPassword`) attributes on Git and Mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo plugins have been updated to allow these additional fields on material definitions.
+Users can also utilize the newly introduced `branch` attribute on Mercurial materials tp specify the branch instead of specifying in the URL.
 
-<figure>
-  <%= image_tag 'releases/19.3.0/elastic_profile.png', alt: 'Cluster Support' %>
-</figure>
+**NOTE:**
+* Users are advised to move their credentials from the URLs into these attributes as it more secure way of defining the same and will stored as encrypted value in configuration.
+
+
+**WARNING:**
+* Changing the material config will be treated as a new material by the GoCD which might trigger other pipelines with the same material configs.
 
 <h4>API Improvements</h4>
 
 * <%= new_api_message '19.4.0', 6218, 7, 'pipeline config', 'pipeline-config' %>
+* <%= new_api_message '19.4.0', 6220, 2, 'config repo', 'config-repo' %>
 
 <h4>Other Improvements</h4>
-
-* Introduced `username` and `password` (or `encryptedPassword`) attributes on Git and mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo plugins have been updated to allow these additional fields on material definitions.
 
 <h4>Bug fixes</h4>
 
@@ -22,6 +25,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <h4>New Deprecations</h4>
 
 * <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 6, new_api_version: 7, new_api_available_in_release: '19.4.0', api_section: 'pipeline-config', removal_date_and_year: 'Aug 2019' %>
+* <%= deprecated_api_message api_name: 'Config repo', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.4.0', api_section: 'config-repo', removal_date_and_year: 'Aug 2019' %>
 
 <h4>Deprecations</h4>
 
