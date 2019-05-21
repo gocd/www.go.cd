@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2019-05-14T00:00:00Z</updated>
+  <updated>2019-05-21T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Effect of Java licensing changes on GoCD</title>
+    <link rel="alternate" href="https://www.gocd.org/2019/05/21/official-stance-on-java.html"/>
+    <id>https://www.gocd.org/2019/05/21/official-stance-on-java.html</id>
+    <published>2019-05-21T00:00:00Z</published>
+    <updated>2019-05-21T00:00:00Z</updated>
+    <author>
+      <name>GoCD Team</name>
+    </author>
+    <content type="html">Due to Java licensing changes by Oracle, GoCD's support for Java is changing.</content>
+  </entry>
   <entry>
     <title>Installing and Configuring GoCD on GKE using Helm</title>
     <link rel="alternate" href="https://www.gocd.org/2019/05/14/installing-configuring-gocd-gke-using-helm.html"/>
@@ -107,16 +118,5 @@
       <name>Sheroy Marker</name>
     </author>
     <content type="html">In this post, we'll look at three considerations for your microservices configuration strategy.</content>
-  </entry>
-  <entry>
-    <title>Improving GoCD through usage analytics</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/07/24/gocd-usage-analytics.html"/>
-    <id>https://www.gocd.org/2018/07/24/gocd-usage-analytics.html</id>
-    <published>2018-07-24T00:00:00Z</published>
-    <updated>2018-07-24T00:00:00Z</updated>
-    <author>
-      <name>GoCD Team</name>
-    </author>
-    <content type="html">GoCD started collecting and analyzing usage data in 18.7. This post explains the data collected and how to turn it off.</content>
   </entry>
 </feed>
