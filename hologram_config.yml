@@ -12,7 +12,7 @@ index: styleguide
 
 # A list of relative paths to folders containing any dependencies to copy
 dependencies:
-  - 'build'
+  # - 'build'
 # The CSS files to be included in the styleguide
 css_include:
   - '/assets/vendor/stylesheets/github.css'

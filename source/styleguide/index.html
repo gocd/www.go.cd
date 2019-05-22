@@ -1,58 +1,97 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>index &ndash; Styleguide</title>
+    <title>
+        index
+            &ndash;
+                
+                    Styleguide
+    </title>
     
-      
-        <link rel="stylesheet" href="/assets/vendor/stylesheets/github.css" />
-      
-        <link rel="stylesheet" href="/assets/vendor/stylesheets/doc.css" />
-      
-        <link rel="stylesheet" href="/assets/vendor/stylesheets/hgt-syntax.css" />
-      
-        <link rel="stylesheet" href="/assets/vendor/stylesheets/hgt.css" />
-      
-        <link rel="stylesheet" href="/assets/stylesheets/site.css" />
-      
-    
+        
+            <link rel="stylesheet" href="/assets/vendor/stylesheets/github.css" />
+            
+            <link rel="stylesheet" href="/assets/vendor/stylesheets/doc.css" />
+            
+            <link rel="stylesheet" href="/assets/vendor/stylesheets/hgt-syntax.css" />
+            
+            <link rel="stylesheet" href="/assets/vendor/stylesheets/hgt.css" />
+            
+            <link rel="stylesheet" href="/assets/stylesheets/site.css" />
+            
+                
 </head>
 
-  <body class="inner">  
+<body class="inner">
     <div class="top">
-      <div class="container">
-        <h1>Styleguide</h1>
-      </div>
+        <div class="container">
+            <h1>
+                Styleguide
+            </h1>
+        </div>
     </div>
 
     <div class="container">
-      <div class="container-content">
-        
-          <div class="hgt-column one-fourth">
-            <nav class="hgt-menu">
-              
+        <div class="container-content">
+            
+                <div class="hgt-column">
+                    <nav class="hgt-menu">
+                        
+                            
+                                <a href="#banner-component" class="hgt-menu-item">
+                                    Banner Component
+                                </a>
+                                
+                                    
+                            
+                                <a href="#button-component" class="hgt-menu-item">
+                                    Button
+                                </a>
+                                
+                                    
+                            
+                                <a href="#card-component" class="hgt-menu-item">
+                                    card Component
+                                </a>
+                                
+                                    
+                            
+                                <a href="#cornered-banner" class="hgt-menu-item">
+                                    Cornered Banner
+                                </a>
+                                
+                                    
+                            
+                                <a href="#fixed-banner" class="hgt-menu-item">
+                                    Fixed Banner
+                                </a>
+                                
+                                    
+                            
+                                <a href="#flex-items" class="hgt-menu-item">
+                                    Flex Items
+                                </a>
+                                
+                                    
+                            
+                                <a href="#Typography" class="hgt-menu-item">
+                                    Typography
+                                </a>
+                                
+                                    
+                            
+                                <a href="#video-component" class="hgt-menu-item">
+                                    Video Componenet
+                                </a>
+                                
+                                    
+                    </nav>
+                </div>
                 
-                  <a href="#banner-component" class="hgt-menu-item">Banner Component</a>
-                
-              
-                
-                  <a href="#button-component" class="hgt-menu-item">Button</a>
-                
-              
-                
-                  <a href="#card-component" class="hgt-menu-item">card Component</a>
-                
-              
-                
-                  <a href="#Typography" class="hgt-menu-item">Typography</a>
-                
-              
-            </nav>
-          </div>
-        
 
-        <div class="container hgt-column three-fourths">
-          <div class="hgt-content">
-<h1 id="banner-component" class="styleguide">Banner Component</h1>
+                    <div class="container hgt-column">
+                        <div class="hgt-content"><h1 id="banner-component" class="styleguide">Banner Component</h1>
 <p class="styleguide">Style for Banner Component</p><div class="codeExample">
   <div class="exampleOutput">
       <div class="banner-container">
@@ -173,29 +212,154 @@
   </div>
 </div>
 
-<h1 id="Typography" class="styleguide">Typography</h1>
-<p class="styleguide">Style of Typography</p><div class="codeExample">
+<h1 id="cornered-banner" class="styleguide">Cornered Banner</h1>
+<p class="styleguide">Style for Cornered Banner Component</p><div class="codeExample">
   <div class="exampleOutput">
     
-  <h1> Heading 1 </h1>
-  <h2> Heading 2 </h2>
-  <h3> Heading 3 </h3>
-  <h4> Heading 4 </h4>
-  <h5> Heading 5 </h5>
-  <h6> Heading 6 </h6>
-  <p> Paragraph Text style </p>
+<div class="cornered-banner">
+  <p class="cornered-banner_content">
+    Free GoCD Analytics trial is available
+  </p>
+  <a href="#" class="cornered-banner_cta">
+    SIGN UP
+  </a>
+</div>
 
 
   </div>
   <div class="codeBlock">
     <div class="highlight">
-      <pre><span class="nt">&lt;h1&gt;</span> Heading 1 <span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;h2&gt;</span> Heading 2 <span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h3&gt;</span> Heading 3 <span class="nt">&lt;/h3&gt;</span>
-  <span class="nt">&lt;h4&gt;</span> Heading 4 <span class="nt">&lt;/h4&gt;</span>
-  <span class="nt">&lt;h5&gt;</span> Heading 5 <span class="nt">&lt;/h5&gt;</span>
-  <span class="nt">&lt;h6&gt;</span> Heading 6 <span class="nt">&lt;/h6&gt;</span>
-  <span class="nt">&lt;p&gt;</span> Paragraph Text style <span class="nt">&lt;/p&gt;</span></pre>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"cornered-banner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"cornered-banner_content"</span><span class="nt">&gt;</span>
+    Free GoCD Analytics trial is available
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"cornered-banner_cta"</span><span class="nt">&gt;</span>
+    SIGN UP
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="fixed-banner" class="styleguide">Fixed Banner</h1>
+<p class="styleguide">Style for Fixed Banner Component</p><div class="codeExample">
+  <div class="exampleOutput">
+      <h2>Fixed banner Layout</h2>
+  <div class="banner-fixed-bottom slide-in-bottom">
+    <div class="banner-fixed_text-container">
+      <p>Fixed banner layout</p>
+    </div>
+  </div>
+
+
+  </div>
+  <div class="codeBlock">
+    <div class="highlight">
+      <pre><span class="nt">&lt;h2&gt;</span>Fixed banner Layout<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"banner-fixed-bottom slide-in-bottom"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"banner-fixed_text-container"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>Fixed banner layout<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="flex-items" class="styleguide">Flex Items</h1>
+<p class="styleguide">Style for Flex Items</p><div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="flex-items-container">
+  <div class="flex-item_sm">
+    <h3>Flex Items Layout</h3>
+  </div>
+
+  <div class="flex-item_md content_cd101">
+    <h3><b>Want to deploy code faster? React to changes quickly? Release more frequently?</b></h3>
+    <ul>
+      <li>What is continuous integration?</li>
+      <li>What is continuous delivery and continuous deployment? Are they different?</li>
+    </ul>
+  </div>
+</div>
+
+
+  </div>
+  <div class="codeBlock">
+    <div class="highlight">
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex-items-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex-item_sm"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>Flex Items Layout<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex-item_md content_cd101"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h3&gt;&lt;b&gt;</span>Want to deploy code faster? React to changes quickly? Release more frequently?<span class="nt">&lt;/b&gt;&lt;/h3&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li&gt;</span>What is continuous integration?<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;</span>What is continuous delivery and continuous deployment? Are they different?<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="Typography" class="styleguide">Typography</h1>
+<p class="styleguide">Style of Typography</p><div class="codeExample">
+  <div class="exampleOutput">
+    
+  <h1> Heading 1 (Font Size: 48px) </h1>
+  <h2> Heading 2 (Font Size: 36px) </h2>
+  <h3> Heading 3 (Font Size: 24px) </h3>
+  <h4> Heading 4 (Font Size: 18px) </h4>
+  <h5> Heading 5 (Font Size: 14px) </h5>
+  <h6> Heading 6 (Font Size: 12px) </h6>
+  <p> Paragraph Text style (Font Size: 18px) </p>
+
+
+  </div>
+  <div class="codeBlock">
+    <div class="highlight">
+      <pre><span class="nt">&lt;h1&gt;</span> Heading 1 (Font Size: 48px) <span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;h2&gt;</span> Heading 2 (Font Size: 36px) <span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;h3&gt;</span> Heading 3 (Font Size: 24px) <span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;h4&gt;</span> Heading 4 (Font Size: 18px) <span class="nt">&lt;/h4&gt;</span>
+  <span class="nt">&lt;h5&gt;</span> Heading 5 (Font Size: 14px) <span class="nt">&lt;/h5&gt;</span>
+  <span class="nt">&lt;h6&gt;</span> Heading 6 (Font Size: 12px) <span class="nt">&lt;/h6&gt;</span>
+  <span class="nt">&lt;p&gt;</span> Paragraph Text style (Font Size: 18px) <span class="nt">&lt;/p&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="video-component" class="styleguide">Video Componenet</h1>
+<p class="styleguide">Style for Video Component</p><div class="codeExample">
+  <div class="exampleOutput">
+    
+  <div class="parent-video-container">
+    <video class="video_element"  autoplay="true" loop="true" muted="true"> 
+      <source src="#" type="video/mp4" ></source>
+    </video>
+    <div class="video-overlay">
+      <button class="play-button">
+        <i class="fa fa-play"></i>
+      </button>
+    </div>
+  </div>
+
+
+  </div>
+  <div class="codeBlock">
+    <div class="highlight">
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parent-video-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;video</span> <span class="na">class=</span><span class="s">"video_element"</span>  <span class="na">autoplay=</span><span class="s">"true"</span> <span class="na">loop=</span><span class="s">"true"</span> <span class="na">muted=</span><span class="s">"true"</span><span class="nt">&gt;</span> 
+      <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"#"</span> <span class="na">type=</span><span class="s">"video/mp4"</span> <span class="nt">&gt;&lt;/source&gt;</span>
+    <span class="nt">&lt;/video&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"video-overlay"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"play-button"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-play"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span></pre>
     </div>
   </div>
 </div>

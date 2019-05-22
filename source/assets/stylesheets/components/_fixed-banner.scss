@@ -1,119 +1,128 @@
+/*doc
+---
+title: Fixed Banner
+name: fixed-banner
+category: index
+---
+
+Style for Fixed Banner Component
+
+```html_example
+  <h2>Fixed banner Layout</h2>
+  <div class="banner-fixed-bottom slide-in-bottom">
+    <div class="banner-fixed_text-container">
+      <p>Fixed banner layout</p>
+    </div>
+  </div>
+
+```
+*/
+
 .banner-fixed-bottom {
-  width: 100%;
-  height: 110px;
-  position: fixed;
-  bottom: 0%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  transition: all 0.5s;
-  font-family: sans-serif;
-  background-color: rgba(74, 217, 217, 100);
-  color: #333;
-  z-index: 1000;
-  display: none;
-
-  &:hover {
-    background-color: #87e1e0;
-    cursor: pointer;
-  }
-
-  &:active {
-    background-color: #36b1bf;
-  }
-
-  @media (min-width: $screen-md) {
-    height: 60px;
-  }
+    width: 100%;
+    height: 110px;
+    position: fixed;
+    bottom: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: all 0.5s;
+    font-family: sans-serif;
+    background-color: rgba(74, 217, 217, 100);
+    color: #333;
+    z-index: 1000;
+    display: none;
+    &:hover {
+        background-color: #87e1e0;
+        cursor: pointer;
+    }
+    &:active {
+        background-color: #36b1bf;
+    }
+    @media (min-width: $screen-md) {
+        height: 60px;
+    }
 }
 
 .show-banner {
-  display: flex;
+    display: flex;
 }
 
 .fixed-banner-close {
-  color: #333;
-  margin-right: 40px;
-  margin-left: 0;
-  z-index: 100;
-  font-size: 20px;
-
-  &:hover {
-    color: #e74c3c;
-    cursor: pointer;
-  }
-
-  @media (min-width: $screen-md) {
-    margin-right: 100px;
-  }
+    color: #333;
+    margin-right: 40px;
+    margin-left: 0;
+    z-index: 100;
+    font-size: 20px;
+    &:hover {
+        color: #e74c3c;
+        cursor: pointer;
+    }
+    @media (min-width: $screen-md) {
+        margin-right: 100px;
+    }
 }
 
 .fixed-banner_link {
-  color: inherit;
-
-  &:hover {
     color: inherit;
-  }
+    &:hover {
+        color: inherit;
+    }
 }
 
 .banner-fixed_text-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  line-height: 60px;
-  padding: 20px;
-
-  @media (min-width: $screen-md) {
-    text-align: left;
-  }
-
-  p {
-    margin: 10px auto;
-    text-align: center;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    padding: 20px;
     @media (min-width: $screen-md) {
-      text-align: left;
+        text-align: left;
     }
-  }
+    p {
+        margin: 10px auto;
+        text-align: center;
+        @media (min-width: $screen-md) {
+            text-align: left;
+        }
+    }
 }
 
 .slide-in-bottom {
-  -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
-  animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+    -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+    animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
 }
 
 @-webkit-keyframes slide-in-bottom {
-  0% {
-    -webkit-transform: translateY(1000px);
-    transform: translateY(1000px);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
+    0% {
+        -webkit-transform: translateY(1000px);
+        transform: translateY(1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @keyframes slide-in-bottom {
-  0% {
-    -webkit-transform: translateY(1000px);
-    transform: translateY(1000px);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
+    0% {
+        -webkit-transform: translateY(1000px);
+        transform: translateY(1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .hide-banner {
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
 }

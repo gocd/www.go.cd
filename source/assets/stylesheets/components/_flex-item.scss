@@ -1,50 +1,73 @@
+/*doc
+---
+title: Flex Items
+name: flex-items
+category: index
+---
+
+Style for Flex Items
+
+```html_example
+ 
+<div class="flex-items-container">
+  <div class="flex-item_sm">
+    <h3>Flex Items Layout</h3>
+  </div>
+
+  <div class="flex-item_md content_cd101">
+    <h3><b>Want to deploy code faster? React to changes quickly? Release more frequently?</b></h3>
+    <ul>
+      <li>What is continuous integration?</li>
+      <li>What is continuous delivery and continuous deployment? Are they different?</li>
+    </ul>
+  </div>
+</div>
+
+```
+*/
+
 .flex-items-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  @include grid-container;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    @include grid-container;
 }
 
 .flex-item_sm {
-  @include grid-column(12);
-
-  @media (min-width: $screen-md) {
-    @include grid-column(4);
-  }
+    @include grid-column(12);
+    @media (min-width: $screen-md) {
+        @include grid-column(4);
+    }
 }
 
 .flex-item_md {
-  @include grid-column(12);
-
-  @media (min-width: $screen-md) {
-    @include grid-column(8);
-  }
+    @include grid-column(12);
+    @media (min-width: $screen-md) {
+        @include grid-column(8);
+    }
 }
 
 .grid-container {
-  @include grid-container;
+    @include grid-container;
 }
 
 .grid-col-7 {
-  @include grid-column(12);
-
-  @media (min-width: $screen-md) {
-    @include grid-column(7);
-  }
+    @include grid-column(12);
+    @media (min-width: $screen-md) {
+        @include grid-column(7);
+    }
 }
 
 .grid-col-5 {
-  @include grid-column(12);
-
-  @media (min-width: $screen-md) {
-    @include grid-column(5);
-  }
+    @include grid-column(12);
+    @media (min-width: $screen-md) {
+        @include grid-column(5);
+    }
 }
 
 .gird-col-6 {
-  @include grid-column(12);
-
-  @media (min-width: $screen-lg) {
-    @include grid-column(6);
-  }
+    @include grid-column(12);
+    @media (min-width: $screen-lg) {
+        @include grid-column(6);
+    }
 }

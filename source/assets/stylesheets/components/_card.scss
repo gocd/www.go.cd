@@ -1,6 +1,6 @@
 /*doc
 ---
-title: card Component
+title: Card Component
 name: card-component
 category: index
 ---
@@ -35,62 +35,58 @@ Style for Card Component
 */
 
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0px;
-  width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px;
+    width: 100%;
 }
 
 .card {
-  width: 100%;
-  padding: 10px;
-  margin: 0px auto 40px;
-
-  @media (min-width: $screen-md) {
-    width: 50%;
-    padding: 30px;
-  }
+    width: 100%;
+    padding: 10px;
+    margin: 0px auto 40px;
+    @media (min-width: $screen-md) {
+        width: 50%;
+        padding: 30px;
+    }
 }
 
 .card_img {
-  display: block;
-  margin: 20px auto 20px;
-  height: 200px;
-  width: auto;
+    display: block;
+    margin: 20px auto 20px;
+    height: 200px;
+    width: auto;
 }
 
 .card_heading {
-  text-align: center;
-  margin: 10px 0 20px;
+    text-align: center;
+    margin: 10px 0 20px;
 }
 
 .card_desc {
-  text-align: left;
-  padding: 0px 20px;
-  font-size: 20px;
-
-  @media (min-width: $screen-lg) {
-    padding: 0px 55px;
-  }
-
+    text-align: left;
+    padding: 0px 20px;
+    font-size: 20px;
+    @media (min-width: $screen-lg) {
+        padding: 0px 55px;
+    }
 }
 
 .card-col-6 {
-  @include grid-column(12);
-  height: auto;
-  margin-bottom: 35px;
-
-  @media (min-width: $screen-md) {
-    @include grid-column(6);
-    margin-bottom: 0px;
-    margin-left: 30px;
-  }
+    @include grid-column(12);
+    height: auto;
+    margin-bottom: 35px;
+    @media (min-width: $screen-md) {
+        @include grid-column(6);
+        margin-bottom: 0px;
+        margin-left: 30px;
+    }
 }
 
 .card-col-6_img {
-  margin: 0 auto 35px;
+    margin: 0 auto 35px;
 }
 
 .card-col-6_desc {
-  margin: 0 auto 45px;
+    margin: 0 auto 45px;
 }
