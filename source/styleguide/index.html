@@ -43,7 +43,15 @@
                 
               
                 
+                  <a href="#cornered-banner" class="hgt-menu-item">Cornered Banner</a>
+                
+              
+                
                   <a href="#Typography" class="hgt-menu-item">Typography</a>
+                
+              
+                
+                  <a href="#Video" class="hgt-menu-item">Video Component</a>
                 
               
             </nav>
@@ -173,6 +181,35 @@
   </div>
 </div>
 
+<h1 id="cornered-banner" class="styleguide">Cornered Banner</h1>
+<p class="styleguide">Style for Cornered Banner Component</p><div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="cornered-banner">
+  <p class="cornered-banner_content">
+    Free GoCD Analytics trial is available
+  </p>
+  <a href="#" class="cornered-banner_cta">
+    SIGN UP
+  </a>
+</div>
+
+
+  </div>
+  <div class="codeBlock">
+    <div class="highlight">
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"cornered-banner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"cornered-banner_content"</span><span class="nt">&gt;</span>
+    Free GoCD Analytics trial is available
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"cornered-banner_cta"</span><span class="nt">&gt;</span>
+    SIGN UP
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
 <h1 id="Typography" class="styleguide">Typography</h1>
 <p class="styleguide">Style of Typography</p><div class="codeExample">
   <div class="exampleOutput">
@@ -196,6 +233,57 @@
   <span class="nt">&lt;h5&gt;</span> Heading 5 <span class="nt">&lt;/h5&gt;</span>
   <span class="nt">&lt;h6&gt;</span> Heading 6 <span class="nt">&lt;/h6&gt;</span>
   <span class="nt">&lt;p&gt;</span> Paragraph Text style <span class="nt">&lt;/p&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="Video" class="styleguide">Video Component</h1>
+<p class="styleguide">Style of Typography</p><div class="codeExample">
+  <div class="exampleOutput">
+    
+  <div class="overlay-video-container">
+            <button class="player-close">
+              <i class="fa fa-times"></i>
+            </button>
+            <iframe class="video-iframe" src="https://www.youtube.com/embed/o9q9ClZ5VTA?version=3" frameborder="0" allowfullscreen="true">
+            </iframe>
+          </div>
+
+
+          <div class="parent-video-container">
+            <video class="video_element"  autoplay="true" loop="true" muted="true"> 
+              <source src="../assets/video/gocd_analytics_edit.mp4" type="video/mp4" ></source>
+            </video>
+            <div class="video-overlay">
+              <button class="play-button">
+                <i class="fa fa-play"></i>
+              </button>
+            </div>
+          </div>
+
+
+  </div>
+  <div class="codeBlock">
+    <div class="highlight">
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"overlay-video-container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"player-close"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-times"</span><span class="nt">&gt;&lt;/i&gt;</span>
+            <span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;iframe</span> <span class="na">class=</span><span class="s">"video-iframe"</span> <span class="na">src=</span><span class="s">"https://www.youtube.com/embed/o9q9ClZ5VTA?version=3"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">allowfullscreen=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/iframe&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+
+
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parent-video-container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;video</span> <span class="na">class=</span><span class="s">"video_element"</span>  <span class="na">autoplay=</span><span class="s">"true"</span> <span class="na">loop=</span><span class="s">"true"</span> <span class="na">muted=</span><span class="s">"true"</span><span class="nt">&gt;</span> 
+              <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"../assets/video/gocd_analytics_edit.mp4"</span> <span class="na">type=</span><span class="s">"video/mp4"</span> <span class="nt">&gt;&lt;/source&gt;</span>
+            <span class="nt">&lt;/video&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"video-overlay"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"play-button"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-play"</span><span class="nt">&gt;&lt;/i&gt;</span>
+              <span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span></pre>
     </div>
   </div>
 </div>

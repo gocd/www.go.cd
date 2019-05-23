@@ -1,3 +1,36 @@
+/*doc
+---
+title: Video Component
+name: Video
+category: index
+---
+
+Style of Typography
+
+```html_example
+
+  <div class="overlay-video-container">
+            <button class="player-close">
+              <i class="fa fa-times"></i>
+            </button>
+            <iframe class="video-iframe" src="https://www.youtube.com/embed/o9q9ClZ5VTA?version=3" frameborder="0" allowfullscreen="true">
+            </iframe>
+          </div>
+
+
+          <div class="parent-video-container">
+            <video class="video_element"  autoplay="true" loop="true" muted="true"> 
+              <source src="../assets/video/gocd_analytics_edit.mp4" type="video/mp4" ></source>
+            </video>
+            <div class="video-overlay">
+              <button class="play-button">
+                <i class="fa fa-play"></i>
+              </button>
+            </div>
+          </div>
+  
+```
+*/
 .parent-video-container {
   position: relative;
   width: 100%;
