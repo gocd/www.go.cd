@@ -172,6 +172,9 @@
     text-decoration: none;
     flex: 1;
     text-align: center;
+    border-right: 2px solid #eee;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 
 .hgt-menu-item:hover {
@@ -445,4 +448,8 @@
 .hgt-footer:before {
     display: table;
     content: "";
+}
+
+.highlight pre span:first-child {
+    padding-left: 17px;
 }
