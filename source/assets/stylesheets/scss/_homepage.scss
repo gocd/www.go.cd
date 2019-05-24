@@ -163,10 +163,12 @@
   border: 1px solid $primary-color;
   overflow: hidden;
   margin: 0 auto;
+  text-align: center;
   @extend %flexbox;
   @include justify-content(flex-start);
   @include align-items(center);
   @include flex-direction(column);
+
   @media (min-width: $screen-tablet) {
     @include flex-direction(row);
     padding: 0px 0 0;
