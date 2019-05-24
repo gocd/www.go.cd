@@ -15,7 +15,7 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-85fc00c5.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-e37a5352.css" rel="stylesheet" />
     <script src="assets/javascripts/all-30827340.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -143,6 +143,10 @@
 <p>To know more about about Cluster Profiles click <a href="https://docs.gocd.org/19.3.0/configuration/elastic_agents.html#concepts">here</a>.</p>
 
 <p>Introduced elastic agent extension v5 to support cluster profiles. For more info refer Elastic Agent Plugin Endpoint <a href="https://plugin-api.gocd.org/19.3.0/elastic-agents/#elastic-agents">documentation</a>.</p>
+
+<div class="information">
+  Upgrade instructions: In order to perform a graceful upgrade, it's advised to use the <a href="https://docs.gocd.org/19.3.0/advanced_usage/maintenance_mode.html">maintenance mode</a> to make sure that all running elastic agent jobs have finished, before upgrading to 19.3.0 or a later release of GoCD. If not, you might need to cancel any previously started elastic agent jobs after the upgrade.
+</div>
 
 <h4>Improved Backup SPA</h4>
 
