@@ -1,14 +1,14 @@
 <h4>Introduction of new attributes</h4>
 
-Introduced `username` and `password` (or `encryptedPassword`) attributes on Git and Mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo plugins have been updated to allow these additional fields on material definitions.
-Users can also utilize the newly introduced `branch` attribute on Mercurial materials tp specify the branch instead of specifying in the URL.
+Introduced `username` and `password` (or `encryptedPassword`) attributes on Git and Mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo <%= link_to 'plugins', 'https://www.gocd.org/plugins/#config-repo' %> have been updated to allow these additional fields on material definitions.
+Users can also utilize the newly introduced `branch` attribute on Mercurial materials to specify the branch instead of specifying in the URL.
 
 **NOTE:**
-* Users are advised to move their credentials from the URLs into these attributes as it more secure way of defining the same and will stored as encrypted value in configuration.
+* Users are advised to move their credentials from the URLs into these attributes. Secured attributes like `password` and `encrypted_password` are stored as encrypted value in the configuration.
 
 
 **WARNING:**
-* Changing the material config will be treated as a new material by the GoCD which might trigger other pipelines with the same material configs.
+* Changing the material configuration will be treated as a new material by GoCD and can trigger dependent pipelines.
 
 <h4>Java support changes</h4>
 
@@ -23,7 +23,7 @@ See this <%= link_to 'blog', 'https://www.gocd.org/2019/05/21/official-stance-on
 
 <h4>Other Improvements</h4>
 
-* Starting this release, we are also publishing Fedora 30 based docker image for GoCD Agent.
+* Starting this release, Fedora 30 based docker images for GoCD Agent are available.
 * <%= link_to_issue 6131, 'Show the affected pipelines in Server Health Messages when material update fails.' %>
 * <%= link_to_issue 6245, 'Remove redundant pluginId attribute from agentProfile tag.' %>
 * <%= link_to_issue 5923, 'Improve logging for Access Token API requests.' %>
@@ -76,7 +76,6 @@ See this <%= link_to 'blog', 'https://www.gocd.org/2019/05/21/official-stance-on
   "Jen Marley",
   "Jyoti Singh",
   "Ketan Padegaonkar",
-  "Ketan Sangle",
   "Kiera Radman",
   "Kritika Singh",
   "Louda Peña",
@@ -88,7 +87,6 @@ See this <%= link_to 'blog', 'https://www.gocd.org/2019/05/21/official-stance-on
   "Prateek Baheti",
   "Rahul Pargaonkar",
   "Rajiesh N",
-  "Sandro Heinzelmann",
   "Sheroy Marker",
   "Steven Streisguth",
   "Tomasz Setkowski",
