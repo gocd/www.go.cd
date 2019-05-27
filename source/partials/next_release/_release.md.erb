@@ -18,11 +18,19 @@ Users can also utilize the newly introduced `branch` attribute on Mercurial mate
 <h4>Other Improvements</h4>
 
 * Starting this release, we are also publishing Fedora 30 based docker image for GoCD Agent.
+* <%= link_to_issue 6131, 'Show the affected pipelines in Server Health Messages when material update fails.' %>
+* <%= link_to_issue 6245, 'Remove redundant pluginId attribute from agentProfile tag.' %>
+* <%= link_to_issue 5923, 'Improve logging for Access Token API requests.' %>
 
 <h4>Bug fixes</h4>
 
+* <%= link_to_issue 6216, 'Fix encryption API to honour "go.encryption.api.max.requests" system property.' %>
+* <%= link_to_issue 6030, 'Modification check failed for material for pipelines that polling is disabled and or are paused.' %>
+* <%= link_to_issue 6143, 'Config Save successfully completes without updating the changes.' %>
+* <%= link_to_issue 6304, 'Allow editing pipelines, agents and env vars for environment with special characters in name.' %>
 * <%= link_to_issue 6228, 'Personal access tokens taking too long to generate.' %>
 * <%= link_to_issue 6030, 'Server health message noise for disabled or paused pipelines with failed modification checks' %>
+* A security vulnerability regarding GoCD cruise-config.xml save has been identified and fixed in the current release.
 
 <h4>New Deprecations</h4>
 
