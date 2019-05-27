@@ -80,30 +80,15 @@
       <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-next"> (next)</h3>
       <div id="tab-next" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Some feature</h4>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-<figure>
-  <img src="assets/images/releases/19.3.0/elastic_profile-51501be1.png" alt="Cluster Support" />
-</figure>
+          <h4>some feature</h4>
 
 <h4>API Improvements</h4>
-
-<ul>
-  <li><a href="https://github.com/gocd/gocd/issues/1234">#1234</a> - Introduced version 2 of <a href="https://api.gocd.org/19.4.0/#flux-capacitor">Flux Capacitor</a> API.</li>
-</ul>
 
 <h4>Other Improvements</h4>
 
 <h4>Bug fixes</h4>
 
 <h4>New Deprecations</h4>
-
-<ul>
-  <li>elastic extension v4</li>
-  <li>elastic agent profile v1 (breaking change)</li>
-</ul>
 
 <h4>Deprecations</h4>
 
@@ -114,15 +99,20 @@
   <li>Unversioned get stage history API has been deprecated in favor of get stage history API v1. This version will be removed in a release scheduled for July 2019.</li>
   <li>The Dashboard API version 2 has been deprecated. This version will be removed in a release scheduled for June 2019. <a href="https://api.gocd.org/19.3.0/#dashboard">Version 3</a> of the API is available, and users are encouraged to use it.</li>
   <li>The Plugin Info API version 4 has been deprecated. This version will be removed in a release scheduled for July 2019. <a href="https://api.gocd.org/19.3.0/#plugin-info">Version 5</a> of the API is available, and users are encouraged to use it.</li>
-  <li>The Alpine 3.6 based docker image for GoCD Agent has been deprecated and will not be built after May 2019 release of GoCD. This will be done as Alpine 3.6 will reach end-of-life in May 2019.</li>
-  <li>The Fedora 28 based docker image for GoCD Agent has been deprecated and will not be built after June 2019 release of GoCD. This will be done as Fedora 28 will reach end-of-life in June 2019.</li>
+  <li>The Pipeline config API version 6 has been deprecated. This version will be removed in a release scheduled for Aug 2019. <a href="https://api.gocd.org/19.4.0/#pipeline-config">Version 7</a> of the API is available, and users are encouraged to use it.</li>
+  <li>The Config repo API version 1 has been deprecated. This version will be removed in a release scheduled for Aug 2019. <a href="https://api.gocd.org/19.4.0/#config-repo">Version 2</a> of the API is available, and users are encouraged to use it.</li>
+  <li>Support for Java 8 has been deprecated. The support for the same will be removed in a release scheduled for November 2018.</li>
 </ul>
 
 <h4>Breaking Changes</h4>
 
+<ul>
+  <li>The Fedora 28 based docker image for GoCD Agent has been removed. Fedora 28 has reached end-of-life in June 2019. Please use an image based on a newer version of the Fedora.</li>
+</ul>
+
 <h4>Contributors</h4>
 
-<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Chandrakanth Nagaraj, Dhanashri Pagar, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Ketan Sangle, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mansi Shah, Marques Lee, Naveen Bhaskar, Prateek Baheti, Rahul Pargaonkar, Rajiesh N, Sandro Heinzelmann, Sheroy Marker, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Viraj Patil, Vishal Devgire, Vrushali Waykole</p>
+<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Chandrakanth Nagaraj, Dhanashri Pagar, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mansi Shah, Marques Lee, Naveen Bhaskar, Prateek Baheti, Rahul Pargaonkar, Rajiesh N, Sheroy Marker, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Viraj Patil, Vishal Devgire, Vrushali Waykole</p>
 
 <h4>Note</h4>
 
