@@ -133,24 +133,25 @@
       <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-19-4-0">19.4.0 (latest)</h3>
       <div id="tab-19-4-0" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Improved configurations for Git and Mercurial material credentials</h4>
+          <h4>Improved Git and Mercurial material configurations</h4>
 
-<p>Introduced <code>username</code> and <code>password</code> (or <code>encryptedPassword</code>) attributes on Git and Mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo <a href="https://www.gocd.org/plugins/#config-repo">plugins</a> have been updated to allow these additional fields on material definitions.
-Users can also utilize the newly introduced <code>branch</code> attribute on Mercurial materials to specify the branch instead of specifying in the URL.</p>
+<p>Introduced <code>username</code> and <code>password</code> (or <code>encryptedPassword</code>) attributes on Git and Mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo <a href="https://www.gocd.org/plugins/#config-repo">plugins</a> have been updated to allow these additional fields on material definitions.</p>
+
+<p>Users can also utilize the newly introduced <code>branch</code> attribute on Mercurial materials to specify the branch instead of specifying in the URL.</p>
 
 <div class="information">
- Users are advised to move their credentials from the URLs into these attributes. Secured attributes like <code>password</code> and <code>encrypted_password</code> are stored as encrypted value in the configuration.
+ Users are advised to move their credentials from the URLs into these attributes. This allows passwords to be encrypted and stored in the configuration. 
 </div>
 <p><br /></p>
 <div class="alert warning">
- Changing the material configuration will be treated as a new material by GoCD and can trigger dependent pipelines.
+ Changing the material configuration will be treated as a new material for the corresponding pipeline, which in turn will trigger the pipeline.
 </div>
 
 <h4>Introduced support for Java 12</h4>
 
 <p>Starting this release, GoCD has now added support for Java 12. All the docker images and installers for Windows and OSX are bundled with the supported Java versions.</p>
 
-<p>See this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blog</a> for more information.</p>
+<p>Please refer this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blogpost</a> for our official stance on supported Java versions going forward.</p>
 
 <h4>API Improvements</h4>
 
@@ -185,7 +186,7 @@ Users can also utilize the newly introduced <code>branch</code> attribute on Mer
 <ul>
   <li>The Pipeline config API version 6 has been deprecated. This version will be removed in a release scheduled for Aug 2019. <a href="https://api.gocd.org/19.4.0/#pipeline-config">Version 7</a> of the API is available, and users are encouraged to use it.</li>
   <li>The Config repo API version 1 has been deprecated. This version will be removed in a release scheduled for Aug 2019. <a href="https://api.gocd.org/19.4.0/#config-repo">Version 2</a> of the API is available, and users are encouraged to use it.</li>
-  <li>Support for Java 8 has been deprecated. The support for the same will be removed in a release scheduled for November 2018.</li>
+  <li>Support for Java 8 and Java 10 has been deprecated. The support for the same will be removed in a release scheduled for September 2019.</li>
 </ul>
 
 <h4>Deprecations</h4>
