@@ -1,4 +1,4 @@
-<h4>Some feature</h4>
+<h4>Introduction of new attributes</h4>
 
 Introduced `username` and `password` (or `encryptedPassword`) attributes on Git and Mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo plugins have been updated to allow these additional fields on material definitions.
 Users can also utilize the newly introduced `branch` attribute on Mercurial materials tp specify the branch instead of specifying in the URL.
@@ -9,6 +9,12 @@ Users can also utilize the newly introduced `branch` attribute on Mercurial mate
 
 **WARNING:**
 * Changing the material config will be treated as a new material by the GoCD which might trigger other pipelines with the same material configs.
+
+<h4>Java support changes</h4>
+
+Introduced support for Java 12. All the docker images and installers for Windows and OSX are bundled with the supported Java versions.
+
+See this <%= link_to 'blog', 'https://www.gocd.org/2019/05/21/official-stance-on-java/' %> for more information.
 
 <h4>API Improvements</h4>
 
@@ -36,6 +42,7 @@ Users can also utilize the newly introduced `branch` attribute on Mercurial mate
 
 * <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 6, new_api_version: 7, new_api_available_in_release: '19.4.0', api_section: 'pipeline-config', removal_date_and_year: 'Aug 2019' %>
 * <%= deprecated_api_message api_name: 'Config repo', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.4.0', api_section: 'config-repo', removal_date_and_year: 'Aug 2019' %>
+* The support for Java 8 has been deprecated.
 
 <h4>Deprecations</h4>
 
