@@ -1,21 +1,22 @@
-<h4>Improved configurations for Git and Mercurial material credentials</h4>
+<h4>Improved Git and Mercurial material configurations</h4>
 
 Introduced `username` and `password` (or `encryptedPassword`) attributes on Git and Mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo <%= link_to 'plugins', 'https://www.gocd.org/plugins/#config-repo' %> have been updated to allow these additional fields on material definitions.
+
 Users can also utilize the newly introduced `branch` attribute on Mercurial materials to specify the branch instead of specifying in the URL.
 
 <div class="information">
- Users are advised to move their credentials from the URLs into these attributes. Secured attributes like <code>password</code> and <code>encrypted_password</code> are stored as encrypted value in the configuration.
+ Users are advised to move their credentials from the URLs into these attributes. This allows passwords to be encrypted and stored in the configuration. 
 </div>
 <br />
 <div class="alert warning">
- Changing the material configuration will be treated as a new material by GoCD and can trigger dependent pipelines.
+ Changing the material configuration will be treated as a new material for the corresponding pipeline, which in turn will trigger the pipeline.
 </div>
 
 <h4>Introduced support for Java 12</h4>
 
 Starting this release, GoCD has now added support for Java 12. All the docker images and installers for Windows and OSX are bundled with the supported Java versions.
 
-See this <%= link_to 'blog', 'https://www.gocd.org/2019/05/21/official-stance-on-java/' %> for more information.
+Please refer this <%= link_to 'blogpost', 'https://www.gocd.org/2019/05/21/official-stance-on-java/' %> for our official stance on supported Java versions going forward.
 
 <h4>API Improvements</h4>
 
