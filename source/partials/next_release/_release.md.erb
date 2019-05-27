@@ -1,4 +1,4 @@
-<h4>Introduction of new attributes</h4>
+<h4>Improved configurations for Git and Mercurial material credentials</h4>
 
 Introduced `username` and `password` (or `encryptedPassword`) attributes on Git and Mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo <%= link_to 'plugins', 'https://www.gocd.org/plugins/#config-repo' %> have been updated to allow these additional fields on material definitions.
 Users can also utilize the newly introduced `branch` attribute on Mercurial materials to specify the branch instead of specifying in the URL.
@@ -10,9 +10,9 @@ Users can also utilize the newly introduced `branch` attribute on Mercurial mate
 **WARNING:**
 * Changing the material configuration will be treated as a new material by GoCD and can trigger dependent pipelines.
 
-<h4>Java support changes</h4>
+<h4>Introduced support for Java 12</h4>
 
-Introduced support for Java 12. All the docker images and installers for Windows and OSX are bundled with the supported Java versions.
+Starting this release, GoCD has now added support for Java 12. All the docker images and installers for Windows and OSX are bundled with the supported Java versions.
 
 See this <%= link_to 'blog', 'https://www.gocd.org/2019/05/21/official-stance-on-java/' %> for more information.
 
@@ -36,13 +36,13 @@ See this <%= link_to 'blog', 'https://www.gocd.org/2019/05/21/official-stance-on
 * <%= link_to_issue 6304, 'Allow editing pipelines, agents and env vars for environment with special characters in name.' %>
 * <%= link_to_issue 6228, 'Personal access tokens taking too long to generate.' %>
 * <%= link_to_issue 6030, 'Server health message noise for disabled or paused pipelines with failed modification checks' %>
-* A security vulnerability regarding GoCD cruise-config.xml save has been identified and fixed in the current release.
+* A security fix regarding GoCD cruise-config.xml save has been identified and fixed in the current release. Users are advised to update their GoCD servers to the latest version.
 
 <h4>New Deprecations</h4>
 
 * <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 6, new_api_version: 7, new_api_available_in_release: '19.4.0', api_section: 'pipeline-config', removal_date_and_year: 'Aug 2019' %>
 * <%= deprecated_api_message api_name: 'Config repo', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.4.0', api_section: 'config-repo', removal_date_and_year: 'Aug 2019' %>
-* The support for Java 8 has been deprecated.
+* Support for Java 8 has been deprecated. The support for the same will be removed in a release scheduled for November 2018.
 
 <h4>Deprecations</h4>
 
