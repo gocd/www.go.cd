@@ -1,0 +1,108 @@
+<h4>Improved configurations for Git and Mercurial material credentials</h4>
+
+Introduced `username` and `password` (or `encryptedPassword`) attributes on Git and Mercurial materials. Users can now use these fields to setup credentials in a secure manner, instead of putting credentials in the URL. The YAML, JSON and Groovy config repo <%= link_to 'plugins', 'https://www.gocd.org/plugins/#config-repo' %> have been updated to allow these additional fields on material definitions.
+Users can also utilize the newly introduced `branch` attribute on Mercurial materials to specify the branch instead of specifying in the URL.
+
+<div class="information">
+ Users are advised to move their credentials from the URLs into these attributes. Secured attributes like <code>password</code> and <code>encrypted_password</code> are stored as encrypted value in the configuration.
+</div>
+<br />
+<div class="alert warning">
+ Changing the material configuration will be treated as a new material by GoCD and can trigger dependent pipelines.
+</div>
+
+<h4>Introduced support for Java 12</h4>
+
+Starting this release, GoCD has now added support for Java 12. All the docker images and installers for Windows and OSX are bundled with the supported Java versions.
+
+See this <%= link_to 'blog', 'https://www.gocd.org/2019/05/21/official-stance-on-java/' %> for more information.
+
+<h4>API Improvements</h4>
+
+* <%= new_api_message '19.4.0', 6218, 7, 'pipeline config', 'pipeline-config' %>
+* <%= new_api_message '19.4.0', 6220, 2, 'config repo', 'config-repo' %>
+
+<h4>Other Improvements</h4>
+
+* Starting this release, Fedora 30 based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-fedora-30' %>.
+* <%= link_to_issue 6131, 'Show the affected pipelines in Server Health Messages when material update fails.' %>
+* <%= link_to_issue 6245, 'Remove redundant pluginId attribute from agentProfile tag.' %>
+* <%= link_to_issue 5923, 'Improve logging for Access Token API requests.' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 6216, 'Fix encryption API to honour "go.encryption.api.max.requests" system property.' %>
+* <%= link_to_issue 6030, 'Modification check failed for material for pipelines that polling is disabled and or are paused.' %>
+* <%= link_to_issue 6143, 'Config Save successfully completes without updating the changes.' %>
+* <%= link_to_issue 6304, 'Allow editing pipelines, agents and env vars for environment with special characters in name.' %>
+* <%= link_to_issue 6228, 'Personal access tokens taking too long to generate.' %>
+* <%= link_to_issue 6030, 'Server health message noise for disabled or paused pipelines with failed modification checks' %>
+* A security fix regarding GoCD cruise-config.xml save has been identified and fixed in the current release. Users are advised to update their GoCD servers to the latest version.
+
+<h4>New Deprecations</h4>
+
+* <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 6, new_api_version: 7, new_api_available_in_release: '19.4.0', api_section: 'pipeline-config', removal_date_and_year: 'Aug 2019' %>
+* <%= deprecated_api_message api_name: 'Config repo', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.4.0', api_section: 'config-repo', removal_date_and_year: 'Aug 2019' %>
+* Support for Java 8 has been deprecated. The support for the same will be removed in a release scheduled for November 2018.
+
+<h4>Deprecations</h4>
+
+* The notification plugin extension version 3 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 4 of the notification plugin api.
+* The analytics plugin extension version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the analytics plugin api.
+* The Get Server Info processor version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the Get Server Info processor.
+* Unversioned get stage history API has been deprecated in favor of get stage history API v1. This version will be removed in a release scheduled for July 2019.
+* <%= deprecated_api_message api_name: 'Dashboard', old_api_version: 2, new_api_version: 3, new_api_available_in_release: '19.3.0', api_section: 'dashboard', removal_date_and_year: 'June 2019' %>
+* <%= deprecated_api_message api_name: 'Plugin Info', old_api_version: 4, new_api_version: 5, new_api_available_in_release: '19.3.0', api_section: 'plugin-info', removal_date_and_year: 'July 2019' %>
+* <%= deprecated_docker_image_message 'Fedora', '28', 'June 2019' %>
+
+<h4>Breaking Changes</h4>
+
+* TFS workspace location on GoCD agents has been changed to be a server workspace, rather than a local workspace. See: <%= link_to_issue 5427, 'for more information' %>. This can affect users who use TFS materials.
+* <%= removed_docker_image_message 'Alpine', '3.6', 'May 2019' %>
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Ankit Srivastava",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Chandrakanth Nagaraj",
+  "Dhanashri Pagar",
+  "Ganesh S Patil",
+  "Huimin Li",
+  "Isabelle Carter",
+  "Jen Marley",
+  "Jyoti Singh",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Kritika Singh",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Mansi Shah",
+  "Marques Lee",
+  "Naveen Bhaskar",
+  "Prateek Baheti",
+  "Rahul Pargaonkar",
+  "Rajiesh N",
+  "Sheroy Marker",
+  "Steven Streisguth",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan",
+  "Viraj Patil",
+  "Vishal Devgire",
+  "Vrushali Waykole",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.4.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
