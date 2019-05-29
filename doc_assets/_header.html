@@ -18,7 +18,7 @@
 <body class="inner">
     <div class="top">
         <div class="container">
-            <h1>
+            <h1 class="styleguide--heading">
                 <%= @config['global_title'] %>
             </h1>
         </div>
@@ -26,19 +26,18 @@
 
     <div class="container">
         <div class="container-content">
-            <% unless @blocks.length == 0 %>
-                <div class="hgt-column">
-                    <nav class="hgt-menu">
-                        <% @blocks.each do |block| %>
-                            <% if not block[:parent] %>
-                                <a href="#<%= block[:name] %>" class="hgt-menu-item">
-                                    <%= block[:title] %>
-                                </a>
-                                <% end %>
-                                    <% end %>
-                    </nav>
-                </div>
-                <% end %>
-
-                    <div class="container hgt-column">
-                        <div class="hgt-content">
+            <div class="container hgt-column">
+                <div class="hgt-content">
+                    <% unless @blocks.length == 0 %>
+                        <div class="hgt-column ">
+                            <nav class="hgt-menu hgt-sticky--nav">
+                                <% @blocks.each do |block| %>
+                                    <% if not block[:parent] %>
+                                        <a href="#<%= block[:name] %>" class="hgt-menu-item">
+                                            <%= block[:title] %>
+                                        </a>
+                                        <% end %>
+                                            <% end %>
+                            </nav>
+                        </div>
+                        <% end %>
