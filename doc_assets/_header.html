@@ -29,8 +29,8 @@
             <div class="container hgt-column">
                 <div class="hgt-content">
                     <% unless @blocks.length == 0 %>
-                        <div class="hgt-column ">
-                            <nav class="hgt-menu hgt-sticky--nav">
+                        <div class="hgt-column hgt-sticky--nav">
+                            <nav class="hgt-menu ">
                                 <% @blocks.each do |block| %>
                                     <% if not block[:parent] %>
                                         <a href="#<%= block[:name] %>" class="hgt-menu-item">

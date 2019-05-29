@@ -9,11 +9,13 @@ Style for Fixed Banner Component
 
 ```html_example
   <h2>Fixed banner Layout</h2>
-  <div class="banner-fixed-bottom slide-in-bottom">
     <div class="banner-fixed_text-container">
-      <p>Fixed banner layout</p>
+        <div class="banner-fixed-bottom slide-in-bottom">
+            <div class="banner-fixed_text-container">
+            <p>Fixed banner layout</p>
+            </div>
+        </div>
     </div>
-  </div>
 
 ```
 */
@@ -31,7 +33,6 @@ Style for Fixed Banner Component
     background-color: rgba(74, 217, 217, 100);
     color: #333;
     z-index: 1000;
-    display: none;
     &:hover {
         background-color: #87e1e0;
         cursor: pointer;
