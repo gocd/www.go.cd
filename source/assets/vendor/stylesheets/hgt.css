@@ -159,6 +159,7 @@
     list-style: outside none none;
     background-color: #eee;
     border-radius: 3px;
+    flex-wrap: wrap;
 }
 
 .hgt-menu-item {
@@ -167,14 +168,13 @@
     padding: 18px 10px;
     color: #4078C0;
     text-shadow: 0 1px 0 #FFF;
-    border-bottom: 1px solid #EEE;
     text-decoration: none;
     flex: 1;
     text-align: center;
     border-right: 2px solid #eee;
     text-transform: capitalize;
     font-weight: 500;
-    border-right: 1px solid #fffcfc;
+    border: 1px solid #fff;
 }
 
 .hgt-menu-item:hover {
