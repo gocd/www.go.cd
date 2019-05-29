@@ -173,7 +173,8 @@
     text-align: center;
     border-right: 2px solid #eee;
     text-transform: capitalize;
-    font-weight: 500;
+    font-weight: bold;
+    font-size: 12px;
     border: 1px solid #fff;
 }
 
