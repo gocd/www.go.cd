@@ -72,6 +72,10 @@ module GoCDHelpers
     link_to text, "https://plugin-api.gocd.org/current/#{api_section}"
   end
 
+  def link_to_plugin_api_fragment(api_section, fragment, text='PLUGIN API')
+    link_to text, "https://plugin-api.gocd.org/current/#{api_section}##{fragment}"
+  end
+
   def link_to_issue(number, text='')
     number = number.to_s.gsub(/#.*/, '')
 
