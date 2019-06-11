@@ -134,18 +134,17 @@
       <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-19-5-0">19.5.0 (latest)</h3>
       <div id="tab-19-5-0" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Replacing X.509 with simpler HTTP authentication for Agent-Server Communication - Beta feature</h4>
+          <h4>Replacing X.509 with simpler HTTPs token-based authentication for Agent-Server Communication - Beta feature</h4>
 
-<p>This is beta feature, agent-server commnication can be toggled to use token based auth instead of self-signed X.509 certificates from server.
-To enable token based auth, set the environment variable <code>GO_USE_TOKEN_AUTH</code> on the agent.</p>
+<p>This is a beta feature: agent-server commnication can be toggled to use token-based authentication instead of self-signed X.509 certificates from the GoCD server.
+To enable token-based auth, set the environment variable <code>GO_USE_TOKEN_AUTH</code> on the GoCD agent to <code>true</code>.</p>
 
-<p>With token based auth enabled, agents can use load balancer or reverse proxy DNS names
-and not GoCD server DNS/IP, also not required to expose 8154 port on server machine</p>
+<p>With token-based authentication enabled, agents can use load balancers or reverse proxy DNS names and not GoCD server DNS/IP. It is also not required to expose port 8154 on the GoCD server. TLS termination can happen at the reverse proxy instead.</p>
 
 <h4>Other Improvements</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/pull/6299">#6299</a> - Introduced <a href="https://plugin-api.gocd.org/current/elastic-agents/#log-messages-to-job-console">Console log request processor</a> for the plugins.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/6299">#6299</a> - A new request has been added to the plugin API endpoint to allow elastic agent plugins to <a href="https://plugin-api.gocd.org/current/elastic-agents/#log-messages-to-job-console">log messages to the job console</a>.</li>
 </ul>
 
 <h4>Bug fixes</h4>
@@ -154,9 +153,20 @@ and not GoCD server DNS/IP, also not required to expose 8154 port on server mach
   <li><a href="https://github.com/gocd/gocd/issues/6295">#6295</a> - Improved errors UI in Config Repo.</li>
   <li><a href="https://github.com/gocd/gocd/issues/5667">#5667</a> - Do not validate plugin properties while deleting a plugin profile entity.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6278">#6278</a> - All rails APIs return strong Etag.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/6337">#6337</a> - Start Docker deamon process for dind image</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6337">#6337</a> - Start Docker deamon process for dind image.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6325">#6325</a> - Supress warnings thrown in server logs when a user visits job console of jobs either not assigned or not started writing to console.</li>
 </ul>
+
+<h4>Versions of Java this release of GoCD works with</h4>
+
+<ul>
+  <li>Java 8 (Deprecated)</li>
+  <li>Java 10 (Deprecated)</li>
+  <li>Java 11</li>
+  <li>Java 12</li>
+</ul>
+
+<p>Please refer to this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blog post</a> for GoCD official stance on supported Java versions.</p>
 
 <h4>Deprecations</h4>
 
@@ -177,7 +187,7 @@ and not GoCD server DNS/IP, also not required to expose 8154 port on server mach
 
 <h4>Contributors</h4>
 
-<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Dhanashri Pagar, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mansi Shah, Marques Lee, Naveen Bhaskar, Prateek Baheti, Rahul Pargaonkar, Rajiesh N, Saurabh Mistry, Sheroy Marker, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Viraj Patil, Vrushali Waykole</p>
+<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Dhanashri Pagar, Ganesh S Patil, Huimin Li, Isabelle Carter, Jen Marley, Ketan Padegaonkar, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mansi Shah, Marques Lee, Naveen Bhaskar, Rajiesh N, Saurabh Mistry, Sheroy Marker, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Viraj Patil, Vrushali Waykole</p>
 
 <h4>Note</h4>
 
@@ -201,7 +211,7 @@ and not GoCD server DNS/IP, also not required to expose 8154 port on server mach
 <p>Users can also utilize the newly introduced <code>branch</code> attribute on Mercurial materials to specify the branch instead of specifying in the URL.</p>
 
 <div class="information">
- Users are advised to move their credentials from the URLs into these attributes. This allows passwords to be encrypted and stored in the configuration. 
+ Users are advised to move their credentials from the URLs into these attributes. This allows passwords to be encrypted and stored in the configuration.
 </div>
 <p><br /></p>
 <div class="alert warning">
@@ -212,7 +222,7 @@ and not GoCD server DNS/IP, also not required to expose 8154 port on server mach
 
 <p>Starting this release, GoCD has now added support for Java 12. All the docker images and installers for Windows and OSX are bundled with a supported version of Java (not necessarily 12).</p>
 
-<p>Please refer this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blogpost</a> for our official stance on supported Java versions going forward.</p>
+<p>Please refer to this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blog post</a> for our official stance on supported Java versions going forward.</p>
 
 <h4>Versions of Java this release of GoCD works with</h4>
 
