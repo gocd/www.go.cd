@@ -1,14 +1,14 @@
-<h4>Replacing X.509 with simpler HTTP authentication for Agent-Server Communication - Beta feature</h4>
+<h4>Replacing X.509 with simpler HTTPs token-based authentication for Agent-Server Communication - Beta feature</h4>
 
-This is beta feature, agent-server commnication can be toggled to use token based auth instead of self-signed X.509 certificates from server.
-To enable token based auth, set the environment variable `GO_USE_TOKEN_AUTH` on the agent.
+This is a beta feature: agent-server commnication can be toggled to use token-based authentication instead of self-signed X.509 certificates from the GoCD server.
+To enable token-based auth, set the environment variable `GO_USE_TOKEN_AUTH` on the GoCD agent to `true`.
 
-With token based auth enabled, agents can use load balancer or reverse proxy DNS names
-and not GoCD server DNS/IP, also not required to expose 8154 port on server machine
+With token-based authentication enabled, agents can use load balancers or reverse proxy DNS names and not GoCD server DNS/IP. It is also not required to expose port 8154 on the GoCD server. TLS termination can happen at the reverse proxy instead.
+
 
 <h4>Other Improvements</h4>
 
-* <%= link_to_pull_request 6299, "Introduced #{link_to_plugin_api 'elastic-agents/#log-messages-to-job-console', 'Console log request processor'} for the plugins." %>
+* <%= link_to_pull_request 6299, "A new request has been added to the plugin API endpoint to allow elastic agent plugins to #{link_to_plugin_api 'elastic-agents/#log-messages-to-job-console', 'log messages to the job console' }." %>
 
 
 <h4>Bug fixes</h4>
@@ -16,8 +16,20 @@ and not GoCD server DNS/IP, also not required to expose 8154 port on server mach
 * <%= link_to_issue 6295, 'Improved errors UI in Config Repo.' %>
 * <%= link_to_issue 5667, 'Do not validate plugin properties while deleting a plugin profile entity.' %>
 * <%= link_to_issue 6278, 'All rails APIs return strong Etag.' %>
-* <%= link_to_issue 6337, 'Start Docker deamon process for dind image' %>
+* <%= link_to_issue 6337, 'Start Docker deamon process for dind image.' %>
 * <%= link_to_issue 6325, 'Supress warnings thrown in server logs when a user visits job console of jobs either not assigned or not started writing to console.' %>
+
+
+<h4>Versions of Java this release of GoCD works with</h4>
+
+<ul>
+  <li>Java 8 (Deprecated)</li>
+  <li>Java 10 (Deprecated)</li>
+  <li>Java 11</li>
+  <li>Java 12</li>
+</ul>
+
+Please refer to this <%= link_to 'blog post', 'https://www.gocd.org/2019/05/21/official-stance-on-java/' %> for GoCD official stance on supported Java versions.
 
 
 <h4>Deprecations</h4>
@@ -46,7 +58,6 @@ and not GoCD server DNS/IP, also not required to expose 8154 port on server mach
   "Huimin Li",
   "Isabelle Carter",
   "Jen Marley",
-  "Jyoti Singh",
   "Ketan Padegaonkar",
   "Kiera Radman",
   "Kritika Singh",
@@ -56,12 +67,10 @@ and not GoCD server DNS/IP, also not required to expose 8154 port on server mach
   "Mansi Shah",
   "Marques Lee",
   "Naveen Bhaskar",
-  "Prateek Baheti",
-  "Rahul Pargaonkar",
   "Rajiesh N",
+  "Saurabh Mistry",
   "Sheroy Marker",
   "Steven Streisguth",
-  "Saurabh Mistry",
   "Tomasz Setkowski",
   "Varsha Varadarajan",
   "Viraj Patil",
