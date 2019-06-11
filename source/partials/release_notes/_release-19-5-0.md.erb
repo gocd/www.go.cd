@@ -1,0 +1,84 @@
+<h4>Replacing X509 with simpler HTTP authentication for Agent-Server Communication - Beta feature</h4>
+
+This is beta feature, agent-server commnication can be toggled to use token based auth instead of self-signed X509 certificates from server.
+To enable token based auth, set the environment variable `GO_USE_TOKEN_AUTH` on the agent.
+
+An agent would now be expected to send the following headers:
+
+```
+X-Agent-GUID: some-guid
+Authorization: token
+```
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_pull_request 6131, 'Introduce ConsoleLogRequestProcessor.' %>
+
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 6295, 'Improve errors UI in Config Repo.' %>
+* <%= link_to_issue 5667, 'Do not validate plugin properties while deleting a plugin profile entity.' %>
+* <%= link_to_issue 6278, 'GET plugin API returns weak ETag validator.' %>
+* <%= link_to_issue 6337, 'Docker dind image doesnt have dockerd running.' %>
+* <%= link_to_issue 6325, 'Warning thrown in server logs when a user visits job console of jobs either not assigned or not started writing to console.' %>
+
+
+<h4>Deprecations</h4>
+
+* The notification plugin extension version 3 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 4 of the notification plugin api.
+* The analytics plugin extension version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the analytics plugin api.
+* The Get Server Info processor version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the Get Server Info processor.
+* Unversioned get stage history API has been deprecated in favor of get stage history API v1. This version will be removed in a release scheduled for July 2019.
+* <%= deprecated_api_message api_name: 'Plugin Info', old_api_version: 4, new_api_version: 5, new_api_available_in_release: '19.3.0', api_section: 'plugin-info', removal_date_and_year: 'July 2019' %>
+
+<h4>Breaking Changes</h4>
+
+* <%= removed_api_message api_name: 'Dashboard', old_api_version: 2, new_api_version: 3, new_api_available_in_release: '19.5.0', api_section: 'get-dashboard' %>
+* <%= removed_docker_image_message 'Fedora', '28', 'June 2019' %>
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Ankit Srivastava",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Dhanashri Pagar",
+  "Ganesh S Patil",
+  "Huimin Li",
+  "Isabelle Carter",
+  "Jen Marley",
+  "Jyoti Singh",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Kritika Singh",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Mansi Shah",
+  "Marques Lee",
+  "Naveen Bhaskar",
+  "Prateek Baheti",
+  "Rahul Pargaonkar",
+  "Rajiesh N",
+  "Sheroy Marker",
+  "Steven Streisguth",
+  "Saurabh Mistry",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan",
+  "Viraj Patil",
+  "Vrushali Waykole",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.5.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
