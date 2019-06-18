@@ -1,4 +1,3 @@
-
 /*doc
 ---
 title: Button
@@ -20,7 +19,7 @@ $default-font-normal-bold: 'URWGeometric-Semibold';
 
 .button-brand {
   background: $brand-secondary;
-  color: $dark;
+  color: $dark !important;
   display: block;
   font-family: $default-font-normal-bold;
   line-height: 0.2;
@@ -34,16 +33,17 @@ $default-font-normal-bold: 'URWGeometric-Semibold';
   transition: all 0.25s;
   text-align: center;
   border-radius: 5px;
+
   &:active {
-      background: #36b1bf;
-      color: #FFFFFF;
-      outline: 0;
+    background: #36b1bf;
+    color: #FFFFFF !important;
+    outline: 0;
   }
-  
+
   &:hover {
-      opacity: 0.8;
-      outline: 0;
-      color: $dark;
+    opacity: 0.8;
+    outline: 0;
+    color: $dark;
   }
 
   &:focus {
@@ -51,9 +51,9 @@ $default-font-normal-bold: 'URWGeometric-Semibold';
   }
 
   @media(min-width: $screen-md) {
-      height: 37px;
-      font-size: 22px;
-      width: 424px;
-      margin: 40px auto 40px auto;
+    height: 37px;
+    font-size: 22px;
+    width: 424px;
+    margin: 40px auto 40px auto;
   }
 }

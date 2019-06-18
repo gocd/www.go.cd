@@ -32,8 +32,17 @@
 @import "scss/form";
 @import "scss/gdpr";
 
-//pages
+// Components
+@import "components/typography";
+@import "components/banner-component";
+@import "components/button";
+@import "components/card";
+@import "components/cornered-banner";
+@import "components/flex-item";
+@import "components/video-component";
+@import "components/fixed-banner";
 
+//pages
 @import "scss/homepage";
 @import "scss/plugins";
 @import "scss/help";
@@ -61,14 +70,4 @@
 @import "scss/analytics-trial";
 @import "scss/analytics-feedback";
 @import "chocolate_override";
-
-
-// Components
-@import "components/typography";
-@import "components/banner-component";
-@import "components/button";
-@import "components/card";
-@import "components/cornered-banner";
-@import "components/flex-item";
-@import "components/video-component";
-@import "components/fixed-banner";
+@import "scss/elastic-agents";

@@ -1,79 +1,121 @@
 ---
-layout: campaignlanding
-title: "Elastic Agents on GoCD"
-title_tag_of_header: "Elastic Agents | GoCD"
-page_caption: GoCD's ELASTIC AGENTS<br/>GIVES YOU THE FLEXIBILITY AND SAVINGS YOU NEED
-meta_description: "GoCD Elastic Agent plugin and API help users scale while optimizing utilization and costs."
-meta_keywords: "GoCD, continuous delivery, elastic agent, gocd elastic agent, AWS elastic agent, AWS ECS, AWS ECS Elastic Agent, elastic agent plugin"
+layout: layout
+title: "Elastic Agents"
+title_tag_of_header: "Elastic Agents"
+page_caption:
+meta_description: "Elastic Agent plugin and API help users scale while optimizing utilization and costs.""
+meta_keywords: "GoCD, continuous delivery, elastic agent, gocd elastic agent, AWS elastic agent, AWS ECS, AWS ECS
+Elastic Agent, elastic agent plugin"
 show_features: true
 ---
-<!-- banner image goes here -->
-<% content_for :banner do %>
-    <figure>
-      <%= image_tag 'campaign/elastic-agents/elastic-agents-banner.jpg', alt: 'GoCD and Chef', title: "GoCD and Chef" %>
-    </figure>
-<% end %>
-<% content_for :maincontent do %>
-    <% if current_page.data.show_features %>
-        <div class="section">
-          <div class="container">
-            <h1 class="main-caption">Optimize Utilization and Costs Savings with Elastic Agents</h1>
-            <p class="main-desc">GoCD operates on a server-agent model where a server communicates with many agents. Agents are the workers in GoCD ecosystem. Rather than having dedicated idle agents at all times, elastic agents allow you to scale up, with on-demand agents, based on the need of the task being executed. This saves you both time and costs.</p>
-          </div>
-        </div>
-        <!-- three column area -->
-        <div class='main-features'>
-          <div class="container">
-            <div class="row features">
-              <div class=" col-sm-12 col-md-4">
-                <div class="feature-box">
-                  <h3>Optimize Utilization &amp; Save Costs</h3>
-                  <figure>
-                    <%= image_tag "campaign/elastic-agents/771-spot_illo_1.png", {:title => "Optimize Utilization &amp; Save Costs", :alt => "Optimize Utilization & Save Costs"} %>
-                  </figure>
-                  <p>Use the Elastic Agent capability to spawn and terminate Agents to tailor to your individual
-                    projects. Scale flexibly to optimize your utilization and reduce costs.
-                  </p>
-                </div>
-              </div>
-              <div class=" col-sm-12 col-md-4">
-                <div class="feature-box">
-                  <h3>Community &amp; Commercial Plugins</h3>
-                  <figure>
-                    <%= image_tag "campaign/elastic-agents/771-spot_illo_3.png", {:title => "Community &amp; Commercial Plugins", :alt => "Community &amp; Commercial Plugins"} %>
-                  </figure>
-                  <p>GoCD has community supported and commercial
-                    <a href="https://www.gocd.org/plugins/#elastic-agents">Elastic Agent plugins</a> for Docker, Docker Swarm, Marathon, Azure,
-                    Kubernetes and AWS. </p>
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-4">
-                <div class="feature-box">
-                    <h3>Elastic Agent API Endpoint</h3>
-                    <figure>
-                      <%= image_tag "campaign/elastic-agents/771-spot_illo_2.png", {:title => "Elastic Agent API Endpoint", :alt => "Elastic Agent API Endpoint"} %>
-                    </figure>
-                    <p><a href="https://plugin-api.gocd.org/current/elastic-agents/">GoCD’s Elastic Agent extension </a>
-                      allows plugin developers to write plugins that allow GoCD to leverage technologies like Docker (<a href="https://github.com/gocd-contrib/docker-elastic-agents">Reference</a>), AWS, GCE etc.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    <% end %>
-    <!-- description and download -->
-    <div class="container">
-      <div class='row campaign-body'>
-        <div class='col-sm-12'>
-          <h1 class="main-caption">Get started by installing your preferred Elastic Agent plugin and start saving!</h1>
-          <p>A guiding principle for GoCD is to keep it as agnostic as possible. We'd like, you, the user to choose what technology you want to use and provision agents there. Therefore, we put a lot of time and effort into our API, so you can just plug in any cloud provider you have or build your own plugin. </p>
-          <p>We have a whole bunch of plugins for you to use Elastic Agents. If you're running builds on OpenStack, Docker or Docker Swarm, we've got you covered.</p>
-          <p>Learn more about our <a href="https://thoughtworks.com/go">commercial plugins</a>.</p>
-        </div>
-        <div class='col-sm-12'>
-          <!-- call to action -->
-          <%= link_to 'View Plugins', "https://www.gocd.org/plugins/#elastic-agents", {:class => "btn btn-primary campaign-btn-download", "analytics-label" => "campaign-download-cta"} %>
-        </div>
-      </div>
+
+<header class="banner-container ea-banner-container">
+  <div class="container">
+    <div class="grid-shift">
+      <h1 class="banner-container_heading ea-banner_header">
+        COST SAVINGS AND INTELLIGENT SCALABILITY WITH GoCD’S ELASTIC AGENTS
+      </h1>
+
+      <p class="banner-container_content ea-banner_desc">
+        GoCD operates on a server-agent model where a server communicates with many agents. Agents are the workers in
+        the GoCD ecosystem. Rather than having dedicated idle agents at all times, elastic agents allow you to scale up,
+        with on-demand agents, based on the needs of the pipeline being executed.
+      </p>
     </div>
-<% end %>
+  </div>
+</header>
+
+
+<section class="ea-feature-container" data-aos="fade-up"
+     data-aos-duration="500" data-aos-offset="100">
+  <div class="container">
+    <h2 class="text-center ea-ent-feature_header">OPEN SOURCE PLUGINS</h2>
+    <p class="grid-shift ea-feature_desc">
+      GoCD has several community supported plugins, allowing you to connect to and configure your agents on both
+      physical and cloud environments.
+    </p>
+
+    <ul class="flex-items-container ea-feature-list">
+      <li class="flex-item_sm ea-feature-list_item" data-aos="fade-up"
+     data-aos-duration="500" data-aos-offset="100">
+        <h3 class="ea-feature_header">Docker</h3>
+        <p class="ea-ent-feature-list_desc">
+          GoCD Elastic agent plugin for Docker
+        </p>
+      </li>
+
+      <li class="flex-item_sm ea-feature-list_item" data-aos="fade-up"
+     data-aos-duration="500" data-aos-offset="100">
+        <h3 class="ea-feature_header">
+          Docker Swarm
+        </h3>
+        <p class="ea-ent-feature-list_desc">
+          GoCD Elastic agent plugin for Docker Swarm
+        </p>
+      </li>
+    </ul>
+    <ul class="flex-items-container ea-feature-list">
+      <li class="flex-item_sm ea-feature-list_item" data-aos="fade-up"
+     data-aos-duration="500" data-aos-offset="100">
+        <h3 class="ea-feature_header">
+          Kubernetes
+        </h3>
+        <p class="ea-ent-feature-list_desc">
+          GoCD Elastic Agent plugin for bringing up GoCD agents on a Kubernetes cluster on demand.
+        </p>
+      </li>
+
+      <li class="flex-item_sm ea-feature-list_item" data-aos="fade-up"
+     data-aos-duration="500" data-aos-offset="100">
+        <h3 class="ea-feature_header">
+          OpenStack
+        </h3>
+        <p class="ea-ent-feature-list_desc">
+          GoCD Elastic Agent plugin for bringing up GoCD agents on a Kubernetes cluster on demand.
+        </p>
+      </li>
+
+    </ul>
+    <a href="#" class="button-brand ea-button"> Get Started </a>
+  </div>
+</section>
+
+
+<section class="ea-enterprise-feature" data-aos="fade-up"
+     data-aos-duration="500" data-aos-offset="100">
+  <div class="container">
+    <div class="grid-shift">
+      <h2 class="text-center ea-ent-feature_header"> ENTERPRISE ADD-ONS </h2>
+      <p class="ea-ent-feature_desc">
+        For enterprises, GoCD provides enterprise addons to support Amazon ECS and Microsoft Azure, and allows you to
+        get the most flexibility and financial benefits out of your cloud infrastructure.
+      </p>
+    </div>
+    <ul class="grid-container ea-ent-feature-list">
+      <li class="gird-col-6_mobile" data-aos="fade-up"
+     data-aos-duration="500" data-aos-offset="100">
+        <h3 class="ea-ent-feature-list_header">
+          Run elastic agents on Amazon ECS
+        </h3>
+        <p class="ea-ent-feature-list_desc">
+          You can configure how many EC2 instances to bring up or reuse, how many ECS elastic agents within these EC2 to
+          bring up, what AMI to use for the EC2 instance, the instance type, security groups, the Docker image for the
+          ECS container and memory limits etc.
+        </p>
+      </li>
+
+      <li class="gird-col-6_mobile" data-aos="fade-up"
+     data-aos-duration="500" data-aos-offset="100">
+        <h3 class="ea-ent-feature-list_header">
+          Run elastic agents on Windows Azure
+        </h3>
+        <p class="ea-ent-feature-list_desc">
+          You can configure the plugin to use a Azure virtual network, resource group and region. The elastic profiles
+          can be configured to use an image from Azure marketplace or a custom image from your subscription. You can
+          configure the size of the VM, disk space and more.
+        </p>
+      </li>
+    </ul>
+    <a href="#" class="button-brand ea-button"> Get Started </a>
+  </div>
+</section>
