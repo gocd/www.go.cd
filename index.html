@@ -15,14 +15,19 @@
 
     <title>Open Source Continuous Delivery and Release Automation Server | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-e37a5352.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="assets/stylesheets/site-f7da3501.css" rel="stylesheet" />
     <script src="assets/javascripts/all-30827340.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       $(document).ready(function(){
-    $('.chocolat-parent').Chocolat();
-});
+      $('.chocolat-parent').Chocolat();
+      AOS.init({
+        once: true
+      });
+    });
     </script>
   </head>
 
@@ -81,7 +86,7 @@
   <div class="container">
     <div class="two-row-col">
       <div class="two-row-col_item">
-        <h1 class="item-heading">End to End Visualization</h1>
+        <h1 class="item-heading"> End to End Visualization </h1>
         <figure class="img-feature img-mobile">
           <img src="assets/images/home/end-to-end-e50a03a0.svg" title="End to End Visualization" alt="End to End Visualization" />
         </figure>
@@ -111,7 +116,7 @@
       </div>
     </div>
 
-    <div class="two-row-col">
+    <div class="two-row-col" >
       <div class="two-row-col_item">
         <h1 class="item-heading">Complex Workflow Modeling</h1>
         <figure class="img-feature img-mobile">
@@ -158,7 +163,7 @@
   </div>
 </section>
 
-<section class="plugins-community-section">
+<section class="plugins-community-section"> 
   <div class="container">
     <div class="two-row-col">
       <div class="two-row-col_item">

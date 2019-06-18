@@ -15,14 +15,19 @@
 
     <title>Analytics Feedback</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-e37a5352.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="../assets/stylesheets/site-f7da3501.css" rel="stylesheet" />
     <script src="../assets/javascripts/all-30827340.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       $(document).ready(function(){
-    $('.chocolat-parent').Chocolat();
-});
+      $('.chocolat-parent').Chocolat();
+      AOS.init({
+        once: true
+      });
+    });
     </script>
   </head>
 
@@ -64,171 +69,16 @@
   </div>
 </header>
 
-<div class="flex-container analytics-fb-main-container">
-  <div class="container">
-    <h2 class="text-center text-bold analytics-fb-form_header">
-      Feedback Topic: Analytics Plugin
-    </h2>
-    <p class="analytics-fb-main_description">
-      If you are an existing GoCD user and interested in CD analytics, register today! We are looking for people to try
-      our new analytics plugin and give us feedback.
-      <br />  <br />
-      What is GoCD Analytics Plugin? It's an enterprise plugin we build to provide insights into your pipelines. It helps you answer questions like:
-    </p>
-    <ul class="analytics-fb-main_description">
-      <li>How long do pipelines take?</li>
-      <li>How quickly do we recover from failures?</li>
-      <li>Which jobs are slow? Do we need to add more resources?</li>
-    </ul>
-    <br />
-    <p class="analytics-fb-main_description">
-      If you register and get qualified, we will start sending you a weekly gift throughout this 30-day program.
-      Qualification for this program is based on how long and how extensively you have been using GoCD, so please
-      include your GoCD usage information at your registration. <br />  <br />
-      Along your feedback journey, we will have dedicated people from the GoCD team to help you get the plugin
-      installed, answer your questions and listen to your feedback. You can use Slack or email to provide us feedback at
-      your preferred cadence.
-    </p>
+<div class="registration-closed-container">
+  <div class="registration-closed-content">
+    <h2>Registration is now closed.</h2>
+    <p>Thank you for your interest. Our registration for GoCD Analytics Plugin feedback is now closed. If you are interested in GoCD Analytics, you can sign up our <a href="../analytics.html">free 30 day trial</a>.</p>
+    <p>Want other ways to win GoCD gifts? We are assembling a research group to help us better understand user behavior in the continuous delivery space. <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsxfQbVbuVVRizNaDmD1_6nyyG5WNn4pKtfHElzO9kblnz5Q/viewform">You can take our short survey</a> for the chance to join our CD research group for the future studies.</p>
   </div>
 </div>
 
-<div class="flex-container analytics-fb-form-container">
-  <div class="container">
-    <div class="gird-col-6 analytics-fb-form_content">
-      <h3 class="analytics-fb-form_content_header">What you need to do:</h3>
-      <ul class="analytics-fb-form_content_list">
-        <li>
-          Register here (we will let you know whether you are qualified within one business day via email)
-        </li>
-        <li>
-          Receive a link to download the latest GoCD Analytics plugin via email
-        </li>
-        <li>
-          Install and use the Analytics plugin for 30 days
-        </li>
-        <li>
-          Give us feedback along your journey via slack or email
-        </li>
-        <li>
-          Await your weekly gift!
-        </li>
-      </ul>
 
-      <div class="text-desktop">
-        <h6 class="header-small analytics-fb-info">
-          More information:
-        </h6>
-        <ul class="analytics-fb-info_list">
-          <li class="text-small">
-            This program is only open to current GoCD users , and participants will be selected based on how well your
-            usage of GoCD matches our study criteria.
-          </li>
 
-          <li class="text-small">
-            The registration is open now until June 1, 2019
-          </li>
-
-          <li class="text-small">
-            After the program ends, the Analytics plugin is only available for paid GoCD Enterprise customers. Your license will expire, and you won’t be able to continue to use it unless you decide to move forward with an Enterprise contract.
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="gird-col-6" id="contact-form">
-      <script src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
-      <form id="mktoForm_9958"></form>
-      <div class="form-loading-error"></div>
-      <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
-      <script defer="true" src="../assets/javascripts/marketo_popover-dbbdf145.js"
-        onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(9958)"></script>
-      <noscript>
-        <div class="error-msg-container">
-          <p class="error-msg_text">
-            It looks like our signup form was blocked by an adblocker in your browser! Please email us directly at gocd-analytics-feedback@thoughtworks.com or pause your adblocker to use the form.
-          </p>
-        </div>
-        <style>
-          footer {
-            position: relative;
-          }
-        </style>
-      </noscript>
-
-    </div>
-
-  </div>
-</div>
-
-<section class="main analytics-fb-content-container">
-  <div class="container">
-    <h2 class="text-center text-bold anlaytics-fb-sec-header">
-      Here’s what you can win!
-    </h2>
-
-    <div class="cards-container analytics-fb-cards">
-
-      <div class="card-col-6">
-        <img src="../assets/images/analytics-feedback/1053-devops-9230560f.jpg" title="Placeholder" alt="Share your DevOps metrics experience!" class="card-col-6_img" />
-        <p class="text-center card-col-6_desc">
-          A chance to share your DevOps metrics experience
-        </p>
-      </div>
-
-      <div class="card-col-6">
-        <img src="../assets/images/analytics-feedback/1053-prizes-bedc6f56.jpg" title="Placeholder" alt="Surprise GoCD gifts!" class="card-col-6_img" />
-        <p class="text-center card-col-6_desc">
-          Surprise GoCD gifts from us every week!
-        </p>
-      </div>
-
-      <div class="card-col-6">
-        <img src="../assets/images/analytics-feedback/1053-accelerate-5cedeb47.jpg" title="Placeholder" alt="Accelerate Book" class="card-col-6_img" />
-        <p class="text-center card-col-6_desc">
-          A copy of industry leading DevOps Metrics book,
-          <a href="https://itrevolution.com/book/accelerate/" class="link">Accelerate</a>
-        </p>
-      </div>
-
-      <div class="card-col-6">
-        <img src="../assets/images/analytics-feedback/1053-future-81b38bba.jpg" title="Placeholder" alt="Shape the future of GoCD" class="card-col-6_img" />
-        <p class="text-center card-col-6_desc">
-          An opportunity to shape the future of GoCD
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="text-mobile-tablet card-col-6_desc analytics-fb-info">
-    <div class="container">
-      <h6 class="header-small">
-        More information:
-      </h6>
-      <ul class="analytics-fb-info_list">
-        <li class="text-small">
-          This program is only open to current GoCD users, and participants will be selected based on how well your
-          usage of GoCD matches our study criteria.
-        </li>
-
-        <li class="text-small">
-          The registration is open now until June 1, 2019.
-        </li>
-
-        <li class="text-small">
-          After the program ends, the Analytics plugin is only available for paid GoCD Enterprise customers. Your
-          license will expire, and you won’t be able to continue to use it unless you decide to move forward with an
-          Enterprise contract.
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="analytics-fb-info">
-    <div class="container">
-      <p class="text-small text-italic">
-        This program is designed and managed at the sole discretion of ThoughtWorks. ThoughtWorks reserves the right to
-        change, modify, add, remove, alter any criteria/qualification for this program.
-      </p>
-    </div>
-  </div>
-</section>
 
     <footer>
   <div class="join-community">
