@@ -1,3 +1,4 @@
+
 .analytics-fb-header-container {
   background: $dark url("");
   height: 200px;
@@ -32,246 +33,28 @@
   }
 }
 
-.analytics-fb-main-container {
-  @include grid-container;
-  @include grid-column(12);
-  float: none;
-  margin: 80px auto 100px;
-
-  @media (min-width: $screen-md) {
-    @include grid-column(10);
-    @include grid-shift(1);
-  }
-
-  @media (min-width: $screen-lg) {
-    @include grid-column(8);
-    @include grid-shift(2);
-  }
-}
-
-.analytics-fb-content-container {
-  @include grid-container;
-  margin: 20px auto 80px;
-}
-
-.anlaytics-fb-sec-header {
-  @include grid-column(12);
-  margin: 40px auto 50px;
-  line-height: 40px;
-  font-size: 26px;
-  float: none;
-
-  @media (min-width: $screen-md) {
-    @include grid-column(8);
-    @include grid-shift(2);
-    float: left;
-    line-height: 50px;
-    font-size: 30px;
-    margin: 40px auto 50px;
-  }
-}
-
-.analytics-fb-cards {
-  margin: 35px auto 0px;
-}
-
-.analytics-fb-form-container {
-  margin: 120px auto 0px;
-}
-
-.analytics-fb-main_header {
-  margin: 0 auto 25px;
-  font-size: 26px;
-
-  @media (min-width: $screen-md) {
-    font-size: 30px;
-  }
-
-  @media (min-width: $screen-lg) {
-    font-size: 40px;
-  }
-}
-
-.analytics-fb-main_description {
-  margin: 0 auto 0;
-}
-
-.analytics-fb_grid-container {
+.registration-closed-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+  flex-direction: column;
+  align-items: center;
 
-.analytics-fb-form_header {
+  min-height: 300px;
+  margin-top: 40px;
   margin-bottom: 40px;
 }
 
-.analytics-fb-form_content {
-  @media (min-width: $screen-lg) {
-    padding: 0 40px;
+.registration-closed-content {
+  h2 {
+    text-align: center;
+  }
+
+  @media (min-width: $screen-sm) {
+    width: 50vw;
+  }
+  @media (max-width: $screen-sm) {
+    margin: 20px 20px 60px 20px;
   }
 }
 
-.analytics-fb-form_content_header {
-  font-size: 22px;
-  text-align: left;
-  font-weight: 600;
 
-  @media (min-width: $screen-md) {
-    font-size: 26px;
-  }
 
-  @media (min-width: $screen-lg) {
-    font-size: 30px;
-  }
-}
-
-.analytics-fb-form_content_list {
-  margin: 20px 0 40px;
-  padding: 0 0;
-
-  @media (min-width: $screen-lg) {
-    padding: 0 15px;
-  }
-}
-
-.analytics-fb-info {
-  margin: 35px auto 0;
-
-  @media (max-width: $screen-lg) {
-    padding: 0 70px;
-  }
-
-  @media (max-width: $screen-lg) {
-    padding: 0 30px;
-  }
-}
-
-.analytics-fb-info_list {
-  padding: 0 16px;
-}
-
-.text-bold {
-  font-weight: bold;
-}
-
-.header-small {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.text-small {
-  font-size: 16px;
-}
-
-.text-italic {
-  font-style: italic;
-}
-
-#mktoForm_9958 {
-  width: 100% !important;
-  padding: 0;
-
-  @media (min-width: $screen-lg) {
-    width: 100% !important;
-    padding: 0 0 0 100px;
-  }
-
-  textarea {
-    height: 100px !important;
-    border-radius: 2px;
-
-    &::placeholder {
-      font-size: 16px;
-      font-style: oblique;
-    }
-  }
-
-  .mktoTextField,
-  .mktoEmailField,
-  select {
-    height: 50px;
-
-    &::placeholder {
-      font-size: 16px;
-      font-style: oblique;
-    }
-  }
-
-  label {
-    font-family: "URWGeometric-Medium";
-    font-size: 16px;
-    width: auto !important;
-  }
-
-  select,
-  input,
-  textarea {
-    margin: 0 !important;
-    font-size: 16px;
-    font-style: oblique;
-    color: #767676;
-    outline: none;
-    border-radius: 10px;
-    box-shadow: none;
-    border: 1px solid #979797;
-  }
-
-  .mktoCheckboxList input[type="checkbox"] {
-    display: inline !important;
-  }
-
-  .mktoButton {
-    display: block;
-    margin: 30px auto;
-    width: 240px;
-    height: 50px;
-    border-radius: 2px;
-    background: #4ad9d9 !important;
-    line-height: 18px;
-    border: 1px solid #4ad9d9 !important;
-    color: #000 !important;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: all 0.25s;
-    font-size: 18px !important;
-
-    &:hover {
-      background: #6ee0e0 !important;
-    }
-  }
-
-  .mktoFormCol,
-  .mktoFieldWrap,
-  .mktoButtonRow,
-  input,
-  select,
-  textarea {
-    width: 100% !important;
-  }
-
-  .mktoFormRow:nth-child(8) {
-    label {
-      width: 90% !important;
-    }
-  }
-}
-
-.survey-from_submit-msg {
-  display: none;
-  font-size: 18px;
-  font-family: "URWGeometric-Medium";
-  text-align: center;
-}
-
-// Noscript Stlyes
-.error-msg-container {
-  border: 1px solid red;
-  color: red;
-  padding: 20px;
-}
-
-.error-msg_text {
-  font-size: 18px;
-  line-height: 1.5;
-}

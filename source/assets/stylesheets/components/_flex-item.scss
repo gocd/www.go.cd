@@ -41,14 +41,14 @@
   }
 }
 
-.gird-col-6 {
+.grid-col-6 {
   @include grid-column(12);
   @media (min-width: $screen-lg) {
     @include grid-column(6);
   }
 }
 
-.gird-col-6_mobile {
+.grid-col-6_mobile {
   @include grid-column(12);
   @media (min-width: $screen-md) {
     @include grid-column(6);
