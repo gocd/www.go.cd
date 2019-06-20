@@ -1,0 +1,187 @@
+---
+layout: post
+title: Running Dockerized GoCD Containers as Non Root
+type: post
+author: GoCD Team
+excerpt: "To provide addition security against container(s) achieving escalated permissions on the host node, GoCD supports running container(s) using a Non root user."
+summary_image: "/assets/images/blog/security-devops-minimizing-risk/security-devops-hero.jpg"
+title_tag_of_header: "Running Dockerized GoCD Containers as Non Root"
+meta_description: "Running Dockerized GoCD Containers as Non Root"
+meta_keywords: "gocd, docker, containers, security, root, non-root"
+draft:
+---
+<% content_for :banner do %>
+  <figure>
+    <img src="/assets/images/blog/security-devops-minimizing-risk/security-devops-hero.jpg" alt="Running Dockerized GoCD Containers as Non Root"/>
+  </figure>
+<% end %>
+
+
+Docker images run with root privileges by default. `root` user in the container is the same root (_uid:0_) as on the host machine. If a user manages to break out of an application running as `root` in a container, (s)he may be able to gain access to the host machine with the same `root` user.
+Running containers using non-root user provides an additional security against processes escaping the container due to a container engine vulnerability and thereby achieving escalated permissions on the host node.
+
+
+Starting from GoCD release `v19.6.0`, GoCD supports running GoCD containers as non-root user by default. The Dockerized GoCD application will run as `go:root` (_uid:1000_, _gid:0_) user instead of running as root:root (_uid:0_, _gid:0_).
+
+## What are the changes made to GoCD Docker Images to support running containers as non-root?
+
+
+### <u>1. Add USER instruction in the Dockerfile:</u>
+
+The USER instruction sets the user name (or UID) to use when running the image and for any instructions that follow it in the Dockerfile.
+
+GoCD Dockerfile(s) add a USER instruction to change the current user from the root user to `go` (_uid:1000_) user. This instruction will make sure that the `go` (_uid:1000_) user is used while running the docker container and also for any `RUN`, `CMD` and `ENTRYPOINT` instructions that follow it in the Dockerfile.
+
+
+### <u>2. Add go user to root group:</u>
+
+OpenShift Container Platform manages containers lifecycle with security in mind at every stage and every layer of application deployments.
+
+By default, OpenShift prevents root user containers by running containers using an arbitrarily assigned user ID. This arbitrary user ID in the container is always a member of `root` group on OCP platform. For an image to support running as an arbitrary user, directories and files that may be written to by processes in the image should be owned by the root group and be read/writable by that group.
+
+Hence, to allow GoCD application to be deployed on OCP platform, Dockerized GoCD applications run with `go:root` user.
+
+**Note** : The root group does not have any special permissions (unlike the `root` user) so there are no security concerns with this arrangement.
+
+For more information, checkout [OCP General Container Image Guidelines](https://docs.openshift.com/container-platform/3.5/creating_images/guidelines.html).
+
+
+### <u>3. Modify GoCD Directories and File permissions:</u>
+
+The GoCD server stores all configuration, pipeline history database, artifacts, plugins, addons and logs into `/godata`, whereas, additional information such as secure credentials, ssh keys can additionally be stored at `/home/go`.
+
+As the existing container user has changed from `go:go` to `go:root` the file permissions of the above mentioned directories and files are changed to `go:root`.
+
+
+## What are the Breaking Changes in GoCD Docker Image?
+
+### <u>1. Creating Root Directories:</u>
+
+    FROM gocd/gocd-server:v19.5.0
+
+    RUN mkdir /.ssh
+
+
+Moving files or directories into or out of system directories (i.e., directories that are critical to the functioning of the operating system), copying files into system directories requires root privileges.  As GoCD containers does not run as root, `RUN mkdir /.ssh` command would result into `mkdir: /.ssh: Permission denied` error.
+
+In General, root privileges are not needed by applications running inside container. In GoCD's context, application related files and directories should be created under `/home/go`.
+
+    FROM gocd/gocd-server:v19.6.0
+
+    RUN mkdir /home/go/.ssh
+
+
+Alternatively, if an application requires to create root directories, it can be achieved by [switching user in the Dockerfile](#multiple-user-instructions) and executing the root directory creation instruction.
+
+
+### <u>2. Installing packages:</u>
+
+    FROM gocd/gocd-server:v19.5.0
+
+    RUN apk --update add jq
+
+
+Root privileges are usually required for installing software in RPM (Red Hat Package Manager) package format because of the need to write to system directories. Packages can be installed by [switching user in the Dockerfile](#multiple-user-instructions).
+
+### <u>3. go group migration:</u>
+
+    FROM gocd/gocd-server:v19.5.0
+
+    RUN mkdir /home/go/creds
+
+    RUN chown go:go /home/go/creds
+
+
+As the `go` user belongs to `root` group instead of `go` group, the above Dockerfile can be changed to:
+
+    FROM gocd/gocd-server:v19.6.0
+
+    RUN mkdir /home/go/creds
+
+    RUN chown go:root /home/go/creds
+
+
+**Note**: Any files/directories owned by `go` group need to change the ownership to `root` group as there will no longer be a `go` group on GoCD Images.
+
+
+### <u>4. Custom Entrypoint Scripts:</u>
+
+GoCD allows running custom entrypoint scripts to configure GoCD Server before starting. These encrypoint scripts could involve instructions for installing required plugins, configuring basic authentication, etc.
+
+Starting from GoCD release `v19.6.0`, custom encrypoint scripts will run as go user (instead of root user). We recommend users to not include scripts requiring root privileges as part custom entrypoint scripts.
+
+Any pre-configuration instructions requiring root privileges should be included in Dockerfile.
+
+
+## Multiple USER instructions
+
+The USER instruction in the dockerfile changes the user to the specified user for the subsequent instructions in the dockerfile. Multiple USER instruction can be used to switch the user context from root to non-root user.
+
+Example:
+
+    FROM gocd/gocd-server:v19.6.0
+
+    USER root
+
+    RUN mkdir /creds
+    RUN chown -r go:root /creds
+    RUN apk --update add jq
+
+    USER go
+
+
+In the above example, the following instruction block is executed as `root` user because of preceding `USER root` instruction. And finally, the user is switched by `go` using `USER go` instruction.
+
+    RUN mkdir /creds
+    RUN chown -r go:root /creds
+    RUN apk --update add jq
+
+
+**Note**: The `USER go` instruction after the instruction requiring root privileges is required to change the user back to `go`. Failing to add `USER go` instruction at the end would make container to execute as root user.
+
+
+## How to verify the container user?
+
+To verify whether the user running inside the container is root or non-root, we can execute following command(s):
+
+### <u>1. Verify the UID of container user is non-zero:</u>
+
+    $ docker container run gocd/gocd-server:v19.6.0 id
+    > uid=1000(go) gid=0(root) groups=0(root)
+
+### <u>2. Verify the container user the does have access to root directory:</u>
+
+    $ docker container run gocd/gocd-server:v19.6.0 ls /root/
+    > ls: can't open '/root/': Permission denied
+
+
+## But, what if I want to run containers as root?
+
+Sometimes, the application container requires access to the privileged resources in order to perform its required function(s). It can be achieved by granting certain privileges to the user, or running the application container as root user.
+
+### <u>1. Using USER root instruction:</u>
+
+    FROM gocd/gocd-server:v19.6.0
+
+    USER root
+
+
+A `USER root` instruction can be added to the extending image to change the user context from `go` user to `root` user.
+
+
+### <u>2. Using --user argument:</u>
+
+    docker container run --user root:root gocd/gocd-server:v19.6.0
+
+The container user can be specified using `--user` option to the `docker container run` command while starting the container from command line.
+
+**Note**: Well designed systems adhere to the principle of least privilege(s). This simply states that an application should only have access to the resources it needs in order to perform its required function.
+
+GoCD containerized processes are application services and therefore don’t require root access. We strongly recommend users to grant require privileges to `go` user and avoid running as `root`.
+
+
+
+
+
+
+
