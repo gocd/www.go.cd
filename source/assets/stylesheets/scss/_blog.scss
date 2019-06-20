@@ -218,6 +218,15 @@
     padding: 3px;
   }
 
+  code {
+    font-family: 'Courier New', monospace;
+    font-size: medium;
+  }
+
+  pre > code {
+    font-family: monospace;
+    font-size: inherit;
+  }
 }
 
 .blog-post-header {
@@ -527,7 +536,7 @@
   }
 
   p, li {
-    font-size: 18px;  
+    font-size: 18px;
     line-height: 1.5;
     letter-spacing: .1px;
     color: #333333;
@@ -542,18 +551,18 @@
     @media (min-width: $screen-md) {
       width: 100%;
     }
-  
+
     @media (min-width: $screen-lg) {
       width: 100%;
     }
-  
+
     @media (min-width: $screen-xl) {
       width: 766px;
       margin: 40px 50px 10px;
     }
   }
 
-  .cornered-banner_content { 
+  .cornered-banner_content {
     width: 100%;
     margin: 0 14px;
     text-align: center;
@@ -562,7 +571,7 @@
       width: 60%;
       text-align: left;
     }
-    
+
     @media (min-width: $screen-lg) {
       margin: 0 25px;
     }
