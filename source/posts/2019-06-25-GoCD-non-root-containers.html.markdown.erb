@@ -151,7 +151,7 @@ To verify whether the user running inside the container is root or non-root, we 
     $ docker container run gocd/gocd-server:v19.6.0 id
     > uid=1000(go) gid=0(root) groups=0(root)
 
-### <u>2. Verify the container user the does have access to root directory:</u>
+### <u>2. Verify the container user does have access to root directory:</u>
 
     $ docker container run gocd/gocd-server:v19.6.0 ls /root/
     > ls: can't open '/root/': Permission denied
