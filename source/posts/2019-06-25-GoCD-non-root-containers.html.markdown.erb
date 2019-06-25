@@ -115,6 +115,18 @@ Any pre-configuration instructions requiring root privileges should be included 
 
 <a name="multiple-user-instructions-head"></a>
 
+
+### <u>5. Shared Volume Permissions:</u>
+
+GoCD stores all configuration, pipeline history database, artifacts, plugins, and logs into `/godata`. Whereas, secure credentials like SSH private keys among other things, can be mounted at `/home/go`.
+
+For GoCD to persist these configurations across container restarts, `/godata` and `/home/go` directories can be volume mounted inside the container.
+
+Prior to GoCD `v19.6.0`, GoCD containers are run as `root` user, because of which, the container user has permissions to the volume mounted folders/files. Starting from GoCD release `v19.6.0`, the GoCD container user will be running as `go`(`uid:1000`) user. As a result, the container non-root user will not have permissions to the volume mounted folder/files (by default).
+
+In the Docker context, container's users are mapped with host's users. Similarly, the permissions for host mounted volumes comes from the host OS. To allow `go`(`uid:1000`) within the container to have permissions to the mounted volume folders/files requires changing the mounted volume ownership to `go:root`.
+
+
 ## Multiple USER instructions
 
 The USER instruction in the Dockerfile changes the user to the specified user for the subsequent instructions in the Dockerfile. Multiple USER instructions can be used to switch the user context from root to non-root user.
