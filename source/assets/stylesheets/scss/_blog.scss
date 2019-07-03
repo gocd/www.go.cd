@@ -548,6 +548,7 @@
 
 .blog-post {
   .cornered-banner {
+
     @media (min-width: $screen-md) {
       width: 100%;
     }
@@ -558,13 +559,13 @@
 
     @media (min-width: $screen-xl) {
       width: 766px;
-      margin: 40px 50px 10px;
+      margin: 40px auto 10px;
     }
   }
 
   .cornered-banner_content {
     width: 100%;
-    margin: 0 14px;
+    margin: 10px 14px;
     text-align: center;
 
     @media (min-width: $screen-md) {
