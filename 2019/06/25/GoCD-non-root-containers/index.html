@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Running Dockerized GoCD Containers as Non Root" name="description" />
+    <meta content="GoCD, docker, containers, security, root, non-root" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Running Dockerized GoCD Containers as Non Root" />
+    <meta name="twitter:description" content="Running Dockerized GoCD Containers as Non Root" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/security-devops-minimizing-risk/security-devops-hero-3e9a0f07.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2019/06/25/GoCD-non-root-containers" />
+
+    <title>Running Dockerized GoCD Containers as Non Root</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="../../../../assets/stylesheets/site-63fdf39f.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-30827340.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+      AOS.init({
+        once: true
+      });
+    });
+    </script>
+  </head>
+
+  <body class="x2019 x2019_06 x2019_06_25 x2019_06_25_GoCD-non-root-containers x2019_06_25_GoCD-non-root-containers_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../../assets/images/blog/security-devops-minimizing-risk/security-devops-hero-3e9a0f07.jpg" alt="Running Dockerized GoCD Containers as Non Root"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Running Dockerized <span class="go">Go</span>CD Containers as Non Root</h1>
+    <h4>GoCD Team</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>Docker images run with root privileges by default. <code>root</code> user in the container is the same root (<code>uid:0</code>) as on the host machine. If a user manages to break out of an application running as <code>root</code> in a container, they may be able to gain access to the host machine with the same <code>root</code> user.</p>
+
+<p>Running containers using non-root user provides an additional layer of security against processes escaping the container due to a container engine vulnerability and thereby achieving escalated permissions on the host node.</p>
+
+<p>Starting from GoCD release <code>v19.6.0</code>, GoCD containers run as non-root user, by default. The Dockerized GoCD application will run as <code>go:root</code> (<code>uid:1000</code>, <code>gid:0</code>) user instead of running as <code>root:root</code> (<code>uid:0</code>, <code>gid:0</code>).</p>
+
+<h2 id="what-are-the-changes-made-to-gocd-docker-images-to-support-running-containers-as-non-root">What are the changes made to GoCD Docker Images to support running containers as non-root?</h2>
+
+<h3 id="u1-add-user-instruction-in-the-dockerfileu"><u>1. Add USER instruction in the Dockerfile:</u></h3>
+
+<p>The USER instruction sets the user name (or UID) to use when running the container and for any instructions that follow it in the Dockerfile.</p>
+
+<p>GoCD Dockerfile adds a USER instruction to change the current user from the <code>root</code> user to <code>go</code> (<code>uid:1000</code>) user. This instruction will make sure that the <code>go</code> (<code>uid:1000</code>) user is used while running the docker container and also for any <code>RUN</code>, <code>CMD</code> and <code>ENTRYPOINT</code> instructions that follow it in the Dockerfile.</p>
+
+<h3 id="u2-add-go-user-to-root-groupu"><u>2. Add go user to root group:</u></h3>
+
+<p>OpenShift Container Platform (OCP) manages containers life-cycle with security in mind at every stage and every layer of application deployments.</p>
+
+<p>By default, OpenShift prevents root user containers by running containers using an arbitrarily assigned user ID. This arbitrary user ID in the container is always a member of <code>root</code> group on OCP. For an image to support running as an arbitrary user, directories and files that may be written to by processes in the image should be owned by the root group and be read/writable by that group.</p>
+
+<p>Hence, to allow GoCD application to be deployed on OCP, dockerized GoCD applications run with <code>go:root</code> user.</p>
+
+<p><strong>Note</strong> : The root group does not have any special permissions (unlike the <code>root</code> user). So, there are no security concerns with this arrangement.</p>
+
+<p>For more information, checkout <a href="https://docs.openshift.com/container-platform/3.5/creating_images/guidelines.html">OCP General Container Image Guidelines</a>.</p>
+
+<h3 id="u3-modify-gocd-directories-and-file-permissionsu"><u>3. Modify GoCD Directories and File permissions:</u></h3>
+
+<p>The GoCD server stores all configuration, pipeline history database, artifacts, plugins, addons and logs into <code>/godata</code>, whereas, additional information such as secure credentials, ssh keys can additionally be stored at <code>/home/go</code>.</p>
+
+<p>As the existing container user has changed from <code>go:go</code> to <code>go:root</code>, the file permissions of the above mentioned directories and files are changed to <code>go:root</code>.</p>
+
+<h2 id="what-are-the-breaking-changes-in-gocd-docker-image">What are the Breaking Changes in GoCD Docker Image?</h2>
+
+<h3 id="u1-creating-directories-in-file-system-rootu"><u>1. Creating directories in file-system root:</u></h3>
+
+<pre><code>FROM gocd/gocd-server:v19.5.0
+
+RUN mkdir /.ssh
+</code></pre>
+
+<p>Moving files or directories into or out of system directories (i.e., directories that are critical to the functioning of the operating system), copying files into system directories requires root privileges.  As GoCD containers do not run as root, <code>RUN mkdir /.ssh</code> command would result in <code>mkdir: /.ssh: Permission denied</code> error.</p>
+
+<p>In general, root privileges should not be needed by applications running inside the container. In GoCD's context, application-related files and directories should be created under <code>/home/go</code>.</p>
+
+<pre><code>FROM gocd/gocd-server:v19.6.0
+
+RUN mkdir /home/go/.ssh
+</code></pre>
+
+<p>Alternatively, if an application requires creating root directories, it can be achieved by <a href="#multiple-user-instructions-head">switching users in the Dockerfile</a> and executing the root directory creation instruction.</p>
+
+<h3 id="u2-installing-packagesu"><u>2. Installing packages:</u></h3>
+
+<pre><code>FROM gocd/gocd-server:v19.5.0
+
+RUN apk --update add jq
+</code></pre>
+
+<p>Root privileges are usually required for installing software because of the need to write to system directories. Packages can be installed by <a href="#multiple-user-instructions-head">switching users in the Dockerfile</a>.</p>
+
+<h3 id="u3-go-group-migrationu"><u>3. go group migration:</u></h3>
+
+<pre><code>FROM gocd/gocd-server:v19.5.0
+
+RUN mkdir /home/go/creds
+
+RUN chown go:go /home/go/creds
+</code></pre>
+
+<p>As the <code>go</code> user belongs to <code>root</code> group instead of <code>go</code> group, the above Dockerfile can be changed to:</p>
+
+<pre><code>FROM gocd/gocd-server:v19.6.0
+
+RUN mkdir /home/go/creds
+
+RUN chown go:root /home/go/creds
+</code></pre>
+
+<p><strong>Note</strong>: Ownership of any files/directories owned by <code>go</code> group needs to be changed to <code>root</code> group as there will no longer be a <code>go</code> group on GoCD images.</p>
+
+<h3 id="u4-custom-entrypoint-scriptsu"><u>4. Custom Entrypoint Scripts:</u></h3>
+
+<p>GoCD allows running custom entrypoint scripts to configure GoCD Server before starting. These entrypoint scripts could involve instructions for installing required plugins, configuring basic authentication, etc.</p>
+
+<p>Starting from GoCD release <code>v19.6.0</code>, custom entrypoint scripts will run as <code>go</code> user (instead of <code>root</code> user). We recommend users to not include scripts requiring root privileges as part of custom entrypoint scripts.</p>
+
+<p>Any pre-configuration instructions requiring root privileges should be included in a Dockerfile.</p>
+
+<p><a name="multiple-user-instructions-head"></a></p>
+
+<h2 id="multiple-user-instructions">Multiple USER instructions</h2>
+
+<p>The USER instruction in the Dockerfile changes the user to the specified user for the subsequent instructions in the Dockerfile. Multiple USER instructions can be used to switch the user context from root to non-root user.</p>
+
+<p>Example:</p>
+
+<pre><code>FROM gocd/gocd-server:v19.6.0
+
+USER root
+
+RUN mkdir /creds
+RUN chown -r go:root /creds
+RUN apk --update add jq
+
+USER go
+</code></pre>
+
+<p>In the above example, the following instruction block is executed as <code>root</code> user because of the preceding <code>USER root</code> instruction. And finally, the user is switched back to <code>go</code> using <code>USER go</code> instruction.</p>
+
+<pre><code>RUN mkdir /creds
+RUN chown -r go:root /creds
+RUN apk --update add jq
+</code></pre>
+
+<p><strong>Note</strong>: The <code>USER go</code> instruction after the instruction requiring root privileges is required to change the user back to <code>go</code>. Failing to add <code>USER go</code> instruction at the end would make container to execute as <code>root</code> user.</p>
+
+<h2 id="how-to-verify-the-container-user">How to verify the container user?</h2>
+
+<p>To verify whether the user running inside the container is root or non-root, we can execute following command(s):</p>
+
+<h3 id="u1-verify-the-uid-of-container-user-is-non-zerou"><u>1. Verify the UID of container user is non-zero:</u></h3>
+
+<pre><code>$ docker container run gocd/gocd-server:v19.6.0 id
+&gt; uid=1000(go) gid=0(root) groups=0(root)
+</code></pre>
+
+<h3 id="u2-verify-the-container-user-does-have-access-to-root-directoryu"><u>2. Verify the container user does have access to root directory:</u></h3>
+
+<pre><code>$ docker container run gocd/gocd-server:v19.6.0 ls /root/
+&gt; ls: can't open '/root/': Permission denied
+</code></pre>
+
+<h2 id="but-what-if-i-want-to-run-containers-as-root">But, what if I want to run containers as root?</h2>
+
+<p>Sometimes, the application container requires access to the privileged resources in order to perform its required function(s). It can be achieved by granting certain privileges to the user, or running the application container as root user.</p>
+
+<h3 id="u1-using-user-root-instructionu"><u>1. Using USER root instruction:</u></h3>
+
+<pre><code>FROM gocd/gocd-server:v19.6.0
+
+USER root
+</code></pre>
+
+<p>A <code>USER root</code> instruction can be added to the extending image to change the user context from <code>go</code> user to <code>root</code> user.</p>
+
+<h3 id="u2-using---user-argumentu"><u>2. Using --user argument:</u></h3>
+
+<pre><code>docker container run --user root:root gocd/gocd-server:v19.6.0
+</code></pre>
+
+<p>The container user can be specified using <code>--user</code> option to the <code>docker container run</code> command while starting the container from command line.</p>
+
+<p><strong>Note</strong>: Well designed systems adhere to the principle of least privilege. This simply states that an application should only have access to the resources it needs in order to perform its required function.</p>
+
+<p>GoCD containerized processes are application services and therefore don’t require root access. We strongly recommend users to grant required privileges to the <code>go</code> user and avoid running as <code>root</code>.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../../assets/javascripts/marketo_popover-dbbdf145.js" onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">May 21</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../../05/21/official-stance-on-java/">Effect of Java licensing changes on GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">May 14</span>
+              <span class="post-author">Mohamed Najiullah</span>
+              <a href="../../../05/14/installing-configuring-gocd-gke-using-helm/">Installing and Configuring GoCD on GKE using Helm</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 19</span>
+              <span class="post-author">Ankit Srivistava</span>
+              <a href="../../../03/19/user-authorization-ldap/">Use OpenLDAP for User Authentication in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jan 14</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="../../../01/14/cd-metrics-deployment-lead-time/">Continuous Delivery Metrics Part 3&#58; How long does it take to get from committing code to production?</a>
+            </li>
+            <li>
+              <span class="post-date">Nov 30</span>
+              <span class="post-author">Aravind S.V and Suzie Prince</span>
+              <a href="../../../../2018/11/30/deployment-frequency/">Continuous Delivery Metrics Part 2&#58; How often do you deploy to production?</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2019 (4)</a></li>
+            <li><a href="../../../../2018/">2018 (17)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2019/06/25/GoCD-non-root-containers.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li> <a href="../../../../events/">WEBINARS + EVENTS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
