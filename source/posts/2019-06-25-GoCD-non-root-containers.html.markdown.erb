@@ -72,7 +72,7 @@ In general, root privileges should not be needed by applications running inside 
     RUN mkdir /home/go/.ssh
 
 
-Alternatively, if an application requires creating root directories, it can be achieved by [switching users in the Dockerfile](#multiple-user-instructions) and executing the root directory creation instruction.
+Alternatively, if an application requires creating root directories, it can be achieved by [switching users in the Dockerfile](#multiple-user-instructions-head) and executing the root directory creation instruction.
 
 
 ### <u>2. Installing packages:</u>
@@ -82,7 +82,7 @@ Alternatively, if an application requires creating root directories, it can be a
     RUN apk --update add jq
 
 
-Root privileges are usually required for installing software because of the need to write to system directories. Packages can be installed by [switching users in the Dockerfile](#multiple-user-instructions).
+Root privileges are usually required for installing software because of the need to write to system directories. Packages can be installed by [switching users in the Dockerfile](#multiple-user-instructions-head).
 
 ### <u>3. go group migration:</u>
 
@@ -113,7 +113,7 @@ Starting from GoCD release `v19.6.0`, custom entrypoint scripts will run as `go`
 
 Any pre-configuration instructions requiring root privileges should be included in a Dockerfile.
 
-<a name="multiple-user-instructions"></a>
+<a name="multiple-user-instructions-head"></a>
 
 ## Multiple USER instructions
 
