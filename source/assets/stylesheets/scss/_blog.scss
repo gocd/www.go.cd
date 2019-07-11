@@ -547,34 +547,4 @@
 }
 
 .blog-post {
-  .cornered-banner {
-
-    @media (min-width: $screen-md) {
-      width: 100%;
-    }
-
-    @media (min-width: $screen-lg) {
-      width: 100%;
-    }
-
-    @media (min-width: $screen-xl) {
-      width: 766px;
-      margin: 40px auto 10px;
-    }
-  }
-
-  .cornered-banner_content {
-    width: 100%;
-    margin: 10px 14px;
-    text-align: center;
-
-    @media (min-width: $screen-md) {
-      width: 60%;
-      text-align: left;
-    }
-
-    @media (min-width: $screen-lg) {
-      margin: 0 25px;
-    }
-  }
 }
