@@ -22,7 +22,7 @@ Style for Cornered Banner Component
 */
 
 .cornered-banner {
-  width: 80%;
+  width: 90%;
   border: 1px solid $secondary-color;
   background: #fff;
   position: relative;
@@ -48,6 +48,7 @@ Style for Cornered Banner Component
 
   @media (max-width: $screen-lg) {
     flex-direction: column;
+    width: 80%;
   }
   
 }
