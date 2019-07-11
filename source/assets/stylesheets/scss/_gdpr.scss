@@ -1,4 +1,4 @@
-$header-height-with-gdpr-banner: $header-height+42px;
+$header-height-with-gdpr-banner: $header-height;
 .with-gdpr {
     margin-top: $header-height-with-gdpr-banner;
     min-height: calc(100vh - #{$header-height-with-gdpr-banner});
@@ -6,13 +6,13 @@ $header-height-with-gdpr-banner: $header-height+42px;
         height: $header-height-with-gdpr-banner;
     }
     .gdpr-cookie-banner {
-        background: #fff;
+        background: #1B1E21;
+        color: #fff;
         padding: 10px 66px;
         position: fixed;
         width: 100%;
         box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
         bottom: 0px;
-        border-top: 1px solid #fafafa;
         z-index: 100;
         p {
             margin: 0;
@@ -25,6 +25,9 @@ $header-height-with-gdpr-banner: $header-height+42px;
             top: 50%;
             margin-top: -8px;
             cursor: pointer;
+        }
+        .gdpr-close:hover {
+            color: #e74c3c;
         }
     }
 }
