@@ -16,7 +16,7 @@
     <title>Running Dockerized GoCD Containers as Non Root</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link href="../../../../assets/stylesheets/site-63fdf39f.css" rel="stylesheet" />
+    <link href="../../../../assets/stylesheets/site-affe21f8.css" rel="stylesheet" />
     <script src="../../../../assets/javascripts/all-30827340.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
@@ -178,6 +178,16 @@ RUN chown go:root /home/go/creds
 <p>Any pre-configuration instructions requiring root privileges should be included in a Dockerfile.</p>
 
 <p><a name="multiple-user-instructions-head"></a></p>
+
+<h3 id="u5-shared-volume-permissionsu"><u>5. Shared Volume Permissions:</u></h3>
+
+<p>GoCD stores all configuration, pipeline history database, artifacts, plugins, and logs into <code>/godata</code>. Whereas, secure credentials like SSH private keys among other things, can be mounted at <code>/home/go</code>.</p>
+
+<p>For GoCD to persist these configurations across container restarts, <code>/godata</code> and <code>/home/go</code> directories can be volume mounted inside the container.</p>
+
+<p>Prior to GoCD <code>v19.6.0</code>, GoCD containers are run as <code>root</code> user, because of which, the container user has permissions to the volume mounted folders/files. Starting from GoCD release <code>v19.6.0</code>, the GoCD container user will be running as <code>go</code>(<code>uid:1000</code>) user. As a result, the container non-root user will not have permissions to the volume mounted folder/files (by default).</p>
+
+<p>In the Docker context, container's users are mapped with host's users. Similarly, the permissions for host mounted volumes comes from the host OS. To allow <code>go</code>(<code>uid:1000</code>) within the container to have permissions to the mounted volume folders/files requires changing the mounted volume ownership to <code>go:root</code>.</p>
 
 <h2 id="multiple-user-instructions">Multiple USER instructions</h2>
 
