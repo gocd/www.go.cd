@@ -1,26 +1,24 @@
-$header-height-with-gdpr-banner: $header-height + 42px;
-
+$header-height-with-gdpr-banner: $header-height+42px;
 .with-gdpr {
     margin-top: $header-height-with-gdpr-banner;
     min-height: calc(100vh - #{$header-height-with-gdpr-banner});
-
     .top {
         height: $header-height-with-gdpr-banner;
     }
-
     .gdpr-cookie-banner {
         background: #fff;
         padding: 10px 66px;
         position: fixed;
         width: 100%;
-        box-shadow: 0 3px 4px 0 rgba(0,0,0,.2);
-
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
+        bottom: 0px;
+        border-top: 1px solid #fafafa;
+        z-index: 100;
         p {
             margin: 0;
             padding: 0;
             text-align: center;
         }
-
         .gdpr-close {
             position: absolute;
             right: 40px;
