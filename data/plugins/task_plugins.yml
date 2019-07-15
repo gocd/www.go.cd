@@ -248,3 +248,12 @@
   releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases
   github_stars: http://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-b2-artifacts&type=watch&count=true
   first_available_date: 05/2018
+  
+- name: Dunner - Docker Task Runner Plugin
+  description: Execute tasks inside Docker using Dunner, the docker task runner.
+  readmore_url: https://github.com/leopardslab/dunner-gocd-plugin
+  author_url: https://github.com/leopardslab
+  author_name: LeopardsLab Community
+  releases_url: https://github.com/leopardslab/dunner-gocd-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=leopardslab&repo=dunner-gocd-plugin&type=watch&count=true
+  first_available_date: 07/2019
