@@ -46,9 +46,7 @@ Starting from GoCD release `v19.6.0`, GoCD containers run as non-root user, by d
 * The notification plugin extension version 3 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 4 of the notification plugin api.
 * The analytics plugin extension version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the analytics plugin api.
 * The Get Server Info processor version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the Get Server Info processor.
-* Unversioned get stage history API has been deprecated in favor of get stage history API v1. This version will be removed in a release scheduled for July 2019.
 * <%= deprecated_api_message api_name: 'Dashboard', old_api_version: 2, new_api_version: 3, new_api_available_in_release: '19.3.0', api_section: 'dashboard', removal_date_and_year: 'June 2019' %>
-* <%= deprecated_api_message api_name: 'Plugin Info', old_api_version: 4, new_api_version: 5, new_api_available_in_release: '19.3.0', api_section: 'plugin-info', removal_date_and_year: 'July 2019' %>
 * <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 6, new_api_version: 7, new_api_available_in_release: '19.4.0', api_section: 'pipeline-config', removal_date_and_year: 'Aug 2019' %>
 * <%= deprecated_api_message api_name: 'Config repo', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.4.0', api_section: 'config-repo', removal_date_and_year: 'Aug 2019' %>
 * Support for Java 8 has been deprecated. The support for the same will be removed in a release scheduled for November 2018.
@@ -56,6 +54,8 @@ Starting from GoCD release `v19.6.0`, GoCD containers run as non-root user, by d
 <h4>Breaking Changes</h4>
 
 * <%= removed_docker_image_message 'Fedora', '28', 'June 2019' %>
+* The Stage History unversioned API has been removed. <%= link_to 'Version 1', 'https://api.gocd.org/current/#get-stage-history' %> of the API is available, and users are encouraged to use it.
+* <%= removed_api_message api_name: 'Plugin Info', old_api_version: 4, new_api_version: 6, new_api_available_in_release: '19.6.0', api_section: 'plugin-info' %>
 
 <h4>Contributors</h4>
 
