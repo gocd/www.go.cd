@@ -1,4 +1,14 @@
-<h4>some feature</h4>
+<h4>Secrets Management</h4>
+
+We have enhanced support for managing secrets in GoCD. GoCD now provides an ability to refer to secrets defined in an external Secret Manager. With this, apart from referring to secrets, users can manage permissions for these secrets and rotate them without any changes to GoCD configuration.
+
+Support for Secrets Management is provided using plugins. We have introduced a new secrets extension using which plugin authors can write a plugin to support a Secret Manager of their choice. We have built a File based Secret Management plugin which is bundled along with GoCD.
+
+Please refer to the [Secret Management Docs](https://docs.gocd.org/19.6.0/configuration/secrets_management.html) for more info.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.6.0/secret-config-spa.gif', alt: 'Secret Management SPA' %>
+</figure>
 
 <h4>Versions of Java this release of GoCD works with</h4>
 
@@ -11,6 +21,8 @@
 
 <h4>API Improvements</h4>
 
+* <%= new_api_message '19.6.0', 6061, 1, 'Secret Config', 'secret-configs' %>
+* <%= new_api_message '19.6.0', 6231, 6, 'Plugin Info', 'plugin-info' %>
 
 <h4>Other Improvements</h4>
 
@@ -20,6 +32,7 @@
 
 <h4>New Deprecations</h4>
 
+* <%= deprecated_api_message api_name: 'Plugin Info', old_api_version: 5, new_api_version: 6, new_api_available_in_release: '19.6.0', api_section: 'plugin-info', removal_date_and_year: 'Sept 2019' %>
 
 <h4>Deprecations</h4>
 
