@@ -10,6 +10,17 @@
     <name>GoCD Team</name>
   </author>
   <entry>
+    <title>Running Dockerized GoCD Containers as Non Root</title>
+    <link rel="alternate" href="https://www.gocd.org/2019/06/25/GoCD-non-root-containers.html"/>
+    <id>https://www.gocd.org/2019/06/25/GoCD-non-root-containers.html</id>
+    <published>2019-06-25T00:00:00Z</published>
+    <updated>2019-06-25T00:00:00Z</updated>
+    <author>
+      <name>GoCD Team</name>
+    </author>
+    <content type="html">To provide addition security against container(s) achieving escalated permissions on the host node, GoCD supports running container(s) using a Non root user.</content>
+  </entry>
+  <entry>
     <title>Effect of Java licensing changes on GoCD</title>
     <link rel="alternate" href="https://www.gocd.org/2019/05/21/official-stance-on-java.html"/>
     <id>https://www.gocd.org/2019/05/21/official-stance-on-java.html</id>
@@ -107,16 +118,5 @@
       <name>Ken Mugrage</name>
     </author>
     <content type="html">GoCD has made major changes recently, and if you haven't tried it lately, you haven't tried it at all.</content>
-  </entry>
-  <entry>
-    <title>Configuration Strategy for Continuous Delivery of Microservices</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy.html"/>
-    <id>https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy.html</id>
-    <published>2018-07-31T00:00:00Z</published>
-    <updated>2018-07-31T00:00:00Z</updated>
-    <author>
-      <name>Sheroy Marker</name>
-    </author>
-    <content type="html">In this post, we'll look at three considerations for your microservices configuration strategy.</content>
   </entry>
 </feed>
