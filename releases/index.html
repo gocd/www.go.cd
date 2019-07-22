@@ -140,7 +140,16 @@
       <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-19-6-0">19.6.0 (latest)</h3>
       <div id="tab-19-6-0" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Secrets Management</h4>
+          <div class="information">
+  Under investigation: A potential issue affecting the <a href="https://hub.docker.com/r/gocd/gocd-agent-docker-dind/">GoCD agent Docker-in-Docker (dind) image</a>, when used with the <code>--privileged</code> flag is being investigated. If you use it, please hold off on upgrading until it is resolved.
+
+  <br />
+  <br />
+
+  Updated: Mon Jul 22 18:30:00 UTC 2019
+</div>
+
+<h4>Secrets Management</h4>
 
 <p>We have enhanced support for managing secrets in GoCD. GoCD now provides an ability to refer to secrets defined in an external Secret Manager. With this, apart from referring to secrets, users can manage permissions for these secrets and rotate them without any changes to GoCD configuration.</p>
 
@@ -156,9 +165,9 @@
 
 <p>There is some variation in how GoCD server and agents across multiple different operating systems and installer types need to be managed by system admins. To reduce the maintenance overhead and cognitive load, all the installers have undergone varying degrees of changes.</p>
 
-<p>If you are an existing GoCD user upgrading from an older version of GoCD, please read the documentation <a href="https://github.com/gocd/gocd/issues/6627">here</a> before performing an upgrade.</p>
-
-<p>Users installing GoCD for the first time should not be affected.</p>
+<div class="information">
+  If you are an existing GoCD user upgrading from an older version of GoCD, please read <a href="https://github.com/gocd/gocd/issues/6627">about the changes</a> before performing an upgrade. Users installing GoCD for the first time should not be affected.
+</div>
 
 <h4>Running Dockerized GoCD Containers as Non Root</h4>
 
