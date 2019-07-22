@@ -1,34 +1,4 @@
-<h4>Secrets Management</h4>
-
-We have enhanced support for managing secrets in GoCD. GoCD now provides an ability to refer to secrets defined in an external Secret Manager. With this, apart from referring to secrets, users can manage permissions for these secrets and rotate them without any changes to GoCD configuration.
-
-Support for Secrets Management is provided using plugins. We have introduced a new secrets extension using which plugin authors can write a plugin to support a Secret Manager of their choice. We have built a File based Secret Management plugin which is bundled along with GoCD.
-
-Please refer to the [Secret Management Documentation](https://docs.gocd.org/19.6.0/configuration/secrets_management.html) for more information.
-
-<figure class='shrink-figure-100'>
-    <%= image_tag 'releases/19.6.0/secret-config-spa.gif', alt: 'Secret Management SPA' %>
-</figure>
-
-<h4> GoCD Installer Changes </h4>
-
-There is some variation in how GoCD server and agents across multiple different operating systems and installer types need to be managed by system admins. To reduce the maintenance overhead and cognitive load, all the installers have undergone varying degrees of changes.
-
-If you are an existing GoCD user upgrading from an older version of GoCD, please read the documentation [here](https://github.com/gocd/gocd/issues/6627) before performing an upgrade.
-
-Users installing GoCD for the first time should not be affected.
-
-<h4>Running Dockerized GoCD Containers as Non Root</h4>
-
-Starting from this release, GoCD containers run as non-root user, by default. The Dockerized GoCD application will run as `go:root` (`uid:1000`, `gid:0`) user instead of running as `root:root` (`uid:0`, `gid:0`). For more information, checkout [Running Dockerized GoCD Containers as Non Root](https://www.gocd.org/2019/06/25/GoCD-non-root-containers/) blog post.
-
-
-<h4>Simpler HTTP authentication for agent-server communication</h4>
-
-Historically, GoCD agent server communication required SSL/TLS mutual authentication using X509 certificates. GoCD version 19.6 disables mutual TLS by default. This will allow GoCD administrators to terminate agent-server communication at load balancers or reverse proxies.
-
-To turn on the old behavior and enable mutual TLS, set the environment variable `GO_USE_TOKEN_AUTH` to `false`.
-
+<h4>some feature</h4>
 
 <h4>Versions of Java this release of GoCD works with</h4>
 <ul>
@@ -40,44 +10,15 @@ To turn on the old behavior and enable mutual TLS, set the environment variable 
 
 <h4>API Improvements</h4>
 
-* <%= new_api_message '19.6.0', 6061, 1, 'Secret Config', 'secret-configs' %>
-* <%= new_api_message '19.6.0', 6231, 6, 'Plugin Info', 'plugin-info' %>
-* <%= new_api_message '19.6.0', 6287, 8, 'pipeline config', 'pipeline-config' %>
-* <%= new_api_message '19.6.0', 6618, 1, 'backup config', 'backup-config' %>
-* <%= new_api_message '19.6.0', 6324, 1, 'Materials', 'get-all-materials' %>
 
 <h4>Other Improvements</h4>
 
-* Starting this release, Alpine 3.10 based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-alpine-3.10' %>.
-* <%= link_to_issue 6567, 'Order pipeline group names in alphabetical order when cloning a pipeline.' %>
-* <%= link_to_issue 6225, 'Introduce stage building animation on dashboard.' %>
-* <%= link_to_issue 6471, 'Display pipelines and environments defined by config repository.' %>
-* <%= link_to_issue 6423, 'Collect Metrics for Trial XP in GoCD as part of GoCD data sharing.' %>
-
-<h4>Security</h4>
-
-We regularly fix security issues reported by security researchers. Upgrading to the latest release is always recommended.
-In this release, a security issue responsibly disclosed by [Heinrich](https://hackerone.com/heinrichdonabad) was fixed.
 
 <h4>Bug fixes</h4>
-
-* <%= link_to_issue 6628, 'Fix internal server error on consuming Packages Index API.' %>
-* <%= link_to_issue 6630, 'Fix internal server error on consuming Package Repositories Index API.' %>
-* <%= link_to_issue 6615, 'Fix Job requiring elastic agent starves forever in case of multiple reschedule.' %>
-* <%= link_to_issue 6468, 'Shouldn\'t allow to save pipeline config with empty template.' %>
-* <%= link_to_issue 6328, 'Cancel the scheduled elastic agent jobs on GoCD upgrade from version prior to 19.3.0.' %>
-* <%= link_to_issue 6565, 'Show spinner in modal when performing save/update.' %>
-* <%= link_to_issue 6547, 'Update footer banner message when server is in maintenance mode.' %>
-* <%= link_to_issue 6017, 'Improved error messages in APIs consuming environment variables.' %>
-* <%= link_to_issue 6350, 'Show Raw console logs of a building job.' %>
-* <%= link_to '2ad7510', 'https://github.com/gocd/gocd/commit/2ad75103a1e507f18aa3c33bd33fb93053b4e388' %> - fixed subversion SASL auth error when subversion material use the svn protocol.
 
 
 <h4>New Deprecations</h4>
 
-* <%= deprecated_api_message api_name: 'Plugin Info', old_api_version: 5, new_api_version: 6, new_api_available_in_release: '19.6.0', api_section: 'plugin-info', removal_date_and_year: 'Sept 2019' %>
-* <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 7, new_api_version: 8, new_api_available_in_release: '19.6.0', api_section: 'pipeline-config', removal_date_and_year: 'Oct 2019' %>
-* Unversioned get all materials API has been deprecated in favor of get all materials API v1. This version will be removed in a release scheduled for Oct 2019.
 
 <h4>Deprecations</h4>
 
@@ -87,12 +28,11 @@ In this release, a security issue responsibly disclosed by [Heinrich](https://ha
 * <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 6, new_api_version: 8, new_api_available_in_release: '19.6.0', api_section: 'pipeline-config', removal_date_and_year: 'Aug 2019' %>
 * <%= deprecated_api_message api_name: 'Config repo', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.4.0', api_section: 'config-repo', removal_date_and_year: 'Aug 2019' %>
 * Support for Java 8 has been deprecated. The support for the same will be removed in a release scheduled for November 2019.
+* <%= deprecated_api_message api_name: 'Plugin Info', old_api_version: 5, new_api_version: 6, new_api_available_in_release: '19.6.0', api_section: 'plugin-info', removal_date_and_year: 'Sept 2019' %>
+* Unversioned get all materials API has been deprecated in favor of get all materials API v1. This version will be removed in a release scheduled for Oct 2019.
 
 <h4>Breaking Changes</h4>
 
-* <%= removed_docker_image_message 'Fedora', '28', 'June 2019' %>
-* The Stage History unversioned API has been removed. <%= link_to 'Version 1', 'https://api.gocd.org/current/#get-stage-history' %> of the API is available, and users are encouraged to use it.
-* <%= removed_api_message api_name: 'Plugin Info', old_api_version: 4, new_api_version: 6, new_api_available_in_release: '19.6.0', api_section: 'plugin-info' %>
 
 <h4>Contributors</h4>
 
