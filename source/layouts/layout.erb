@@ -15,11 +15,9 @@
 
     <title><%= value_or_title_as_default(:title_tag_of_header) %></title>
     <link href="<%= url_for '/assets/images/favicon.ico' %>" rel="shortcut icon" />
-    <%= stylesheet_link_tag 'aos-3.0.0-beta.6' %>
     <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag :all %>
     <%= auto_javascript_include_tag %>
-    <%= javascript_include_tag 'aos-3.0.0-beta.6.js' %>
     <%= feed_tag :atom, url_for("/feed.xml"), title: "GoCD blog feed" %>
     <script>
       $(document).ready(function(){

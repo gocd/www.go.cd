@@ -15,3 +15,5 @@
 //= require 'app/_tabs'
 //= require 'app/_video-overlay'
 //= require 'app/_fixed-banner'
+
+//= require 'aos-3.0.0-beta.6'
