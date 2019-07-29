@@ -6,17 +6,17 @@ meta_keywords: "continuous delivery, continuous integration, continuous integrat
 ---
 <div class="banner">
   <div class="container">
-    <div class="row caption">
-      <div class="col-xs-12">
-        <h1>free &amp; open source ci/cd server</h1>
+    <div class="banner--caption">
+      <div class="grid-col-12">
+        <h1 class="banner--heading">free &amp; open source ci/cd server</h1>
       </div>
     </div>
-    <div class="row subcaption">
-      <div class="col-lg-7">
+    <div class="banner--subcaption">
+      <div class="grid-col-7">
         <%= image_tag "home/ui_illo.svg", {:title => "GoCD illustration", :alt => "GoCD Value Stream Map", :class => 'ui-illo'} %>
       </div>
-      <div class="col-lg-5">
-        <p>Easily model and visualize complex workflows with GoCD.</p>
+      <div class="grid-col-5">
+        <p class="banner--content">Easily model and visualize complex workflows with GoCD.</p>
         <%= link_to 'test drive gocd', "/test-drive-gocd/index.html", {:class => "btn btn-download", "analytics-label" => "home-download-cta"} %>
       </div>
     </div>
@@ -28,9 +28,10 @@ meta_keywords: "continuous delivery, continuous integration, continuous integrat
 <% end %>
 
 <section class="features-section">
+  
   <div class="container">
-    <div class="two-row-col">
-      <div class="two-row-col_item">
+    <div class="grid-container features-grid">
+      <div class="grid-col-6_mobile">
         <h1 class="item-heading"> End to End Visualization </h1>
         <figure class="img-feature img-mobile">
           <%= image_tag "home/end-to-end.svg", {:title => "End to End Visualization", :alt => "End to End Visualization"} %>
@@ -38,21 +39,21 @@ meta_keywords: "continuous delivery, continuous integration, continuous integrat
         <p class="item-description">GoCD’s value stream map shows your entire path to production in a single view. Easily navigate across jobs, spot inefficiencies, and optimize your process.
         <br /> No plugin required, out of box CD. </p>
       </div>
-      <div class="two-row-col_item">
+      <div class="grid-col-6_mobile">
         <figure class="img-feature img-desktop-tablet">
           <%= image_tag "home/end-to-end.svg", {:title => "End to End Visualisation", :alt => "End to End Visualisation"} %>
         </figure>
       </div>
     </div>
 
-    <div class="two-row-col mob-order-reverse_item">
-      <div class="two-row-col_item">
+    <div class="grid-container features-grid mob-order-reverse_item">
+      <div class="grid-col-6_mobile">
         <figure class="img-feature img-desktop-tablet cloud-native-img">
           <%= image_tag "home/cloud-native.svg", {:title => "Cloud Native", :alt => "Cloud Native"} %>
         </figure>
       </div>
 
-      <div class="two-row-col_item">
+      <div class="grid-col-6_mobile">
         <h1 class="item-heading">Cloud Native Deployments</h1>
         <figure class="img-feature img-mobile">
           <%= image_tag "home/cloud-native.svg", {:title => "Cloud Native", :alt => "Cloud Native"} %>
@@ -61,8 +62,8 @@ meta_keywords: "continuous delivery, continuous integration, continuous integrat
       </div>
     </div>
 
-    <div class="two-row-col" >
-      <div class="two-row-col_item">
+    <div class="grid-container features-grid" >
+      <div class="grid-col-6_mobile">
         <h1 class="item-heading">Complex Workflow Modeling</h1>
         <figure class="img-feature img-mobile">
           <%= image_tag "home/complex-workflow.svg", {:title => "Complex Workflow Modeling", :alt => "Complex Workflow Modeling"} %>
@@ -71,21 +72,21 @@ meta_keywords: "continuous delivery, continuous integration, continuous integrat
         <br /> No plugin required, out of box CD. </p>
       </div>
 
-      <div class="two-row-col_item">
+      <div class="grid-col-6_mobile">
         <figure class="img-feature img-desktop-tablet">
           <%= image_tag "home/complex-workflow.svg", {:title => "Complex Workflow Modeling", :alt => "Complex Workflow Modeling"} %>
         </figure>
       </div>
     </div>
 
-    <div class="two-row-col mob-order-reverse_item">
-      <div class="two-row-col_item">
+    <div class="grid-container features-grid mob-order-reverse_item">
+      <div class="grid-col-6_mobile">
         <figure class="img-feature img-desktop-tablet">
           <%= image_tag "home/traceability.svg", {:title => "Advanced Traceability", :alt => "Advanced Traceability"} %>
         </figure>
       </div>
 
-      <div class="two-row-col_item">
+      <div class="grid-col-6_mobile">
         <h1 class="item-heading">Advanced Traceability</h1>
         <figure class="img-feature img-mobile">
           <%= image_tag "home/traceability.svg", {:title => "Advanced Traceability", :alt => "Advanced Traceability"} %>
@@ -110,8 +111,8 @@ meta_keywords: "continuous delivery, continuous integration, continuous integrat
 
 <section class="plugins-community-section"> 
   <div class="container">
-    <div class="two-row-col">
-      <div class="two-row-col_item">
+    <div class="grid-container">
+      <div class="grid-col-6 plugins__col-item">
         <figure class="img-icon img-desktop">
           <%= image_tag "icons/go.cd_plugins.svg", {:title => "GoCD open source plugins", :alt => "GoCD open source plugins"} %>
         </figure>
@@ -125,7 +126,7 @@ meta_keywords: "continuous delivery, continuous integration, continuous integrat
         </div>
       </div>
 
-      <div class="two-row-col_item">
+      <div class="grid-col-6 plugins__col-item">
         <figure class="img-icon img-desktop">
           <%= image_tag "icons/go.cd_community.svg", {:title => "GoCD open source community", :alt => "GoCD open source community"}  %>
         </figure>
