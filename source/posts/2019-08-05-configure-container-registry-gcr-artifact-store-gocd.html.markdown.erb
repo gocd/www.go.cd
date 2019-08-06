@@ -35,6 +35,7 @@ Trying to configure GCR in both the versions seems a bit confusing as GCR best p
 
 Now if you try to create a service account, you might get a json file with the following fields:
 
+~~~
 ```json
 {
   "type": "service_account",
@@ -49,6 +50,7 @@ Now if you try to create a service account, you might get a json file with the f
   "client_x509_cert_url": "<client-x509-cert-url>"
 }
 ```
+~~~
 
 This json file contains the keys necessary for authenticating with GCR to push or pull docker images. Going through the GitHub repository for information regarding how we can use the service account credentials, we came across [this issue](https://github.com/gocd/docker-registry-artifact-plugin/issues/9#issuecomment-426709466) that had a comment on how to use the service account.
 
@@ -56,6 +58,7 @@ According to the comment, we had to use *_json_key* as the username and just use
 
 You can also set this up using a `cURL` command to make a `POST` call to the API exposed by the GoCD server.
 
+~~~
 curl "http://$gocd_public_ip/go/api/admin/artifact_stores" \
   -u "$USERNAME:$PASSWORD" \
   -H 'Accept: application/vnd.go.cd.v1+json' \
@@ -85,6 +88,7 @@ curl "http://$gocd_public_ip/go/api/admin/artifact_stores" \
 }"
     }]
 }'
+~~~
 
 Replace the `$gocd_public_ip` with the public IP of the GoCD server along with `$USERNAME` and `$PASSWORD` of an admin account before running the above command with the values from your service account json file.
 
@@ -92,7 +96,7 @@ This should give your GoCD server access to your GCR images. If your GoCD Agent 
 
 *Note: This will work directly only if you are using GKE for your GoCD cluster. For other providers like EKS, AKS or even Minikube, you'll need to do a few additional steps of adding `imagePullSecrets` to the service account. You can find this information [here](https://ryaneschinger.com/blog/using-google-container-registry-gcr-with-minikube/).*
 
-**##Pushing Images to an Artifact Store**
+##**Pushing Images to an Artifact Store**
 
 If your pipelines involve creating a docker image and pushing it to a registry/repository, you can use the above steps to create an Artifact Store with that registry.
 
