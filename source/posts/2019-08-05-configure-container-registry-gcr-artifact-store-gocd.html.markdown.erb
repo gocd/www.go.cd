@@ -25,7 +25,7 @@ GoCD allows configuration of artifact stores such as Dockerhub, Amazon's ECR, Go
 
 <img src="/assets/images/blog/cd-hacks/gocd-create-artifact-store.png" alt="Configuring Google Container Registry as an Artifact Store in GoCD"/>
 
-There are two options based on the Registry Type. The first one is Amazon ECR. There are corresponding options for ECR Registry ID, AWS Region, AWS Access Key Id and AWS Secret Access Key.The second one says ‘Others' and lists Dockerhub, GCR and private. For Dockerhub there are fields for username and password along with Docker Registry URL.
+There are two options based on the Registry Type. The first one is Amazon ECR. There are corresponding options for ECR Registry ID, AWS Region, AWS Access Key Id and AWS Secret Access Key.The second one says 'Others' and lists Dockerhub, GCR and private. For Dockerhub there are fields for username and password along with Docker Registry URL.
 
 The older plugin version does not have a separate option for Amazon ECR. It just has the same fields for all stores
 
@@ -36,7 +36,6 @@ Trying to configure GCR in both the versions seems a bit confusing as GCR best p
 Now if you try to create a service account, you might get a json file with the following fields:
 
 ~~~
-```json
 {
   "type": "service_account",
   "project_id": "<project-id>",
@@ -49,7 +48,6 @@ Now if you try to create a service account, you might get a json file with the f
   "auth_provider_x509_cert_url": "<auth-provider-x509-cert-url>",
   "client_x509_cert_url": "<client-x509-cert-url>"
 }
-```
 ~~~
 
 This json file contains the keys necessary for authenticating with GCR to push or pull docker images. Going through the GitHub repository for information regarding how we can use the service account credentials, we came across [this issue](https://github.com/gocd/docker-registry-artifact-plugin/issues/9#issuecomment-426709466) that had a comment on how to use the service account.
