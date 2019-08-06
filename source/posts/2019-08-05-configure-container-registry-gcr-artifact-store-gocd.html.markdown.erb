@@ -3,16 +3,16 @@ layout: post
 title: Configuring Google Container Registry (GCR) as an Artifact Store in GoCD
 type: post
 author: Mohamed Najiullah
-excerpt: "To provide addition security against container(s) achieving escalated permissions on the host node, GoCD supports running container(s) using a Non root user."
+excerpt: "If your pipelines involve creating a docker image and pushing it to a registry/repository, you can use the above steps to create an Artifact Store with that registry."
 summary_image: "/assets/images/blog/security-devops-minimizing-risk/security-devops-hero.jpg"
-title_tag_of_header: "Running Dockerized GoCD Containers as Non Root"
-meta_description: "Running Dockerized GoCD Containers as Non Root"
-meta_keywords: "GoCD, docker, containers, security, root, non-root"
+title_tag_of_header: "Configuring Google Container Registry (GCR) as an Artifact Store in GoCD"
+meta_description: "Configuring Google Container Registry (GCR) as an Artifact Store in GoCD"
+meta_keywords: "gcr, google container registry, artifact store, continuous delivery, ci cd, docker"
 draft: false
 ---
 <% content_for :banner do %>
   <figure>
-    <img src="/assets/images/blog/security-devops-minimizing-risk/security-devops-hero.jpg" alt="Running Dockerized GoCD Containers as Non Root"/>
+    <img src="/assets/images/blog/cd-hacks/google-container-registry-artifact-store.jpg" alt="Configuring Google Container Registry as an Artifact Store in GoCD"/>
   </figure>
 <% end %>
 
@@ -23,13 +23,13 @@ draft: false
 
 GoCD allows configuration of artifact stores such as Dockerhub, Amazon's ECR, Google's GCR to store and pull docker image artifacts. Depending on your version you can get two types of configuration windows. Let me show the latest configuration window of the artifact store`
 
-INSERT IMAGE HERE
+<img src="/assets/images/blog/cd-hacks/gocd-create-artifact-store.png" alt="Configuring Google Container Registry as an Artifact Store in GoCD"/>
 
 There are two options based on the Registry Type. The first one is Amazon ECR. There are corresponding options for ECR Registry ID, AWS Region, AWS Access Key Id and AWS Secret Access Key.The second one says ‘Others' and lists Dockerhub, GCR and private. For Dockerhub there are fields for username and password along with Docker Registry URL.
 
 The older plugin version does not have a separate option for Amazon ECR. It just has the same fields for all stores
 
-INSERT IMAGE HERE
+<img src="/assets/images/blog/cd-hacks/gocd-create-artifact-store-2.png" alt="Configuring Google Container Registry as an Artifact Store in GoCD"/>
 
 Trying to configure GCR in both the versions seems a bit confusing as GCR best practices state the use of a service account for CI/CD pipelines. 
 
@@ -38,15 +38,15 @@ Now if you try to create a service account, you might get a json file with the f
 ```json
 {
   "type": "service_account",
-  "project_id": "<project-id>”,
+  "project_id": "<project-id>",
   "private_key_id": "<private-key-id>",
-  "private_key": "<private-key>”,
+  "private_key": "<private-key>",
   "client_email": "<client-email>,
   "client_id": "<client-id>",
   "auth_uri": "<auth-uri>",
   "token_uri": "<token-uri>",
   "auth_provider_x509_cert_url": "<auth-provider-x509-cert-url>",
-  "client_x509_cert_url": "<client-x509-cert-url>”
+  "client_x509_cert_url": "<client-x509-cert-url>"
 }
 ```
 
