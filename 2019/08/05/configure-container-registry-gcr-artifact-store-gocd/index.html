@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Configuring Google Container Registry (GCR) as an Artifact Store in GoCD" name="description" />
+    <meta content="gcr, google container registry, artifact store, continuous delivery, ci cd, docker" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Configuring Google Container Registry (GCR) as an Artifact Store in GoCD" />
+    <meta name="twitter:description" content="Configuring Google Container Registry (GCR) as an Artifact Store in GoCD" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-hacks/google-container-registry-artifact-store-034f7207.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2019/08/05/configure-container-registry-gcr-artifact-store-gocd" />
+
+    <title>Configuring Google Container Registry (GCR) as an Artifact Store in GoCD</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-217bb825.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-74c4efb8.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+    });
+    </script>
+  </head>
+
+  <body class="x2019 x2019_08 x2019_08_05 x2019_08_05_configure-container-registry-gcr-artifact-store-gocd x2019_08_05_configure-container-registry-gcr-artifact-store-gocd_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../../assets/images/blog/cd-hacks/google-container-registry-artifact-store-034f7207.jpg" alt="Configuring Google Container Registry as an Artifact Store in GoCD"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Configuring Google Container Registry (GCR) as an Artifact Store in <span class="go">Go</span>CD</h1>
+    <h4>Mohamed Najiullah</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p><em>Recently, a colleague and I had to spike on the possibility of migrating our CI/CD infrastructure from a VM based design to a Kubernetes based one.</em></p>
+
+<p><em>While exploring how to do it, we had to spend some time to find out all the information we needed just to install and configure GoCD without the migration. So I decided to write this and a few other posts hoping someone like me would find it helpful. This is the second part on Configuring Google Container Registry (GCR) as an Artifact Store in GoCD. You can find the first part on <a href="https://www.gocd.org/2019/05/14/installing-configuring-gocd-gke-using-helm/">Installing and Configuring GoCD on GKE using Helm</a>.</em></p>
+
+<p>GoCD allows configuration of artifact stores such as Dockerhub, Amazon's ECR, Google's GCR to store and pull docker image artifacts. Depending on your version you can get two types of configuration windows. Let me show the latest configuration window of the artifact store`</p>
+
+<p><img src="../../../../assets/images/blog/cd-hacks/gocd-create-artifact-store-f8aef3b8.png" alt="Configuring Google Container Registry as an Artifact Store in GoCD" /></p>
+
+<p>There are two options based on the Registry Type. The first one is Amazon ECR. There are corresponding options for ECR Registry ID, AWS Region, AWS Access Key Id and AWS Secret Access Key.The second one says 'Others' and lists Dockerhub, GCR and private. For Dockerhub there are fields for username and password along with Docker Registry URL.</p>
+
+<p>The older plugin version does not have a separate option for Amazon ECR. It just has the same fields for all stores</p>
+
+<p><img src="../../../../assets/images/blog/cd-hacks/gocd-create-artifact-store-2-089da79f.png" alt="Configuring Google Container Registry as an Artifact Store in GoCD" /></p>
+
+<p>Trying to configure GCR in both the versions seems a bit confusing as GCR best practices state the use of a service account for CI/CD pipelines.</p>
+
+<p>Now if you try to create a service account, you might get a json file with the following fields:</p>
+
+<pre><code>{
+  "type": "service_account",
+  "project_id": "&lt;project-id&gt;",
+  "private_key_id": "&lt;private-key-id&gt;",
+  "private_key": "&lt;private-key&gt;",
+  "client_email": "&lt;client-email&gt;,
+  "client_id": "&lt;client-id&gt;",
+  "auth_uri": "&lt;auth-uri&gt;",
+  "token_uri": "&lt;token-uri&gt;",
+  "auth_provider_x509_cert_url": "&lt;auth-provider-x509-cert-url&gt;",
+  "client_x509_cert_url": "&lt;client-x509-cert-url&gt;"
+}
+</code></pre>
+
+<p>This json file contains the keys necessary for authenticating with GCR to push or pull docker images. Going through the GitHub repository for information regarding how we can use the service account credentials, we came across <a href="https://github.com/gocd/docker-registry-artifact-plugin/issues/9#issuecomment-426709466">this issue</a> that had a comment on how to use the service account.</p>
+
+<p>According to the comment, we had to use <em>_json_key</em> as the username and just use the entire json file content as the password. You can see this in the above image of the configuration window. While this seemed odd, it worked!</p>
+
+<p>You can also set this up using a <code>cURL</code> command to make a <code>POST</code> call to the API exposed by the GoCD server.</p>
+
+<pre><code>curl "http://$gocd_public_ip/go/api/admin/artifact_stores" \
+  -u "$USERNAME:$PASSWORD" \
+  -H 'Accept: application/vnd.go.cd.v1+json' \
+  -H 'Content-Type: application/json' \
+  -X POST -d '{
+    "id": "docker",
+    "plugin_id": "cd.go.artifact.docker.registry",
+    "properties" : [ {
+      "key" : "RegistryURL",
+      "value" : "&lt;registry-url&gt;"
+    }, {
+      "key" : "Username",
+      "value" : "_json_key"
+    }, {
+      "key" : "Password",
+      "value" : "{
+  \"type\": \"service_account\",
+  \"project_id\": \"&lt;project-id&gt;\",
+  \"private_key_id\": \"&lt;private-key-id&gt;\",
+  \"private_key\": \"&lt;private-key&gt;\",
+  \"client_email\": \"&lt;client-email&gt;\",
+  \"client_id\": \"&lt;client-id&gt;\",
+  \"auth_uri\": \"&lt;auth-uri&gt;\",
+  \"token_uri\": \"&lt;token-uri&gt;\",
+  \"auth_provider_x509_cert_url\": \"&lt;auth-provider-x509-cert-url&gt;\",
+  \"client_x509_cert_url\": \"&lt;client-x509-cert-url&gt;\"
+}"
+    }]
+}'
+</code></pre>
+
+<p>Replace the <code>$gocd_public_ip</code> with the public IP of the GoCD server along with <code>$USERNAME</code> and <code>$PASSWORD</code> of an admin account before running the above command with the values from your service account json file.</p>
+
+<p>This should give your GoCD server access to your GCR images. If your GoCD Agent image is in this GCR repository, you should be able to use the images present here for your GoCD Agents.</p>
+
+<p><em>Note: This will work directly only if you are using GKE for your GoCD cluster. For other providers like EKS, AKS or even Minikube, you'll need to do a few additional steps of adding <code>imagePullSecrets</code> to the service account. You can find this information <a href="https://ryaneschinger.com/blog/using-google-container-registry-gcr-with-minikube/">here</a>.</em></p>
+
+<h2 id="pushing-images-to-an-artifact-store"><strong>Pushing Images to an Artifact Store</strong></h2>
+
+<p>If your pipelines involve creating a docker image and pushing it to a registry/repository, you can use the above steps to create an Artifact Store with that registry.</p>
+
+<p>This comes with a significant advantage that your GoCD Agents do NOT need to have access to the registry/repository as your GoCD Server will push the image instead of the Go Agents.</p>
+
+<p>All you have to do is to configure the generated image as an external artifact. You can find the steps to do that here.</p>
+
+<p>So there you go. I hope you find it useful. If you have any questions, please feel free to comment and I'll answer from whatever I've learnt so far.</p>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../../assets/javascripts/marketo_popover-dbbdf145.js" onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Aug  5</span>
+              <span class="post-author">Mohamed Najiullah</span>
+              <a href="./">Configuring Google Container Registry (GCR) as an Artifact Store in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 25</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../../06/25/GoCD-non-root-containers/">Running Dockerized GoCD Containers as Non Root</a>
+            </li>
+            <li>
+              <span class="post-date">May 21</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../../05/21/official-stance-on-java/">Effect of Java licensing changes on GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">May 14</span>
+              <span class="post-author">Mohamed Najiullah</span>
+              <a href="../../../05/14/installing-configuring-gocd-gke-using-helm/">Installing and Configuring GoCD on GKE using Helm</a>
+            </li>
+            <li>
+              <span class="post-date">Mar 19</span>
+              <span class="post-author">Ankit Srivistava</span>
+              <a href="../../../03/19/user-authorization-ldap/">Use OpenLDAP for User Authentication in GoCD</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2019 (6)</a></li>
+            <li><a href="../../../../2018/">2018 (17)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2019/08/05/configure-container-registry-gcr-artifact-store-gocd.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li> <a href="../../../../events/">WEBINARS + EVENTS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

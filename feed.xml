@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2019-06-25T00:00:00Z</updated>
+  <updated>2019-08-05T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Configuring Google Container Registry (GCR) as an Artifact Store in GoCD</title>
+    <link rel="alternate" href="https://www.gocd.org/2019/08/05/configure-container-registry-gcr-artifact-store-gocd.html"/>
+    <id>https://www.gocd.org/2019/08/05/configure-container-registry-gcr-artifact-store-gocd.html</id>
+    <published>2019-08-05T00:00:00Z</published>
+    <updated>2019-08-05T00:00:00Z</updated>
+    <author>
+      <name>Mohamed Najiullah</name>
+    </author>
+    <content type="html">If your pipelines involve creating a docker image and pushing it to a registry/repository, you can use the above steps to create an Artifact Store with that registry.</content>
+  </entry>
   <entry>
     <title>Running Dockerized GoCD Containers as Non Root</title>
     <link rel="alternate" href="https://www.gocd.org/2019/06/25/GoCD-non-root-containers.html"/>
@@ -107,16 +118,5 @@
       <name>Sheroy Marker</name>
     </author>
     <content type="html">In this post, we'll look at remediation strategies when there's instability or bugs.</content>
-  </entry>
-  <entry>
-    <title>Replacing GoCD with GoCD</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/08/21/replacing-gocd-with-gocd.html"/>
-    <id>https://www.gocd.org/2018/08/21/replacing-gocd-with-gocd.html</id>
-    <published>2018-08-21T00:00:00Z</published>
-    <updated>2018-08-21T00:00:00Z</updated>
-    <author>
-      <name>Ken Mugrage</name>
-    </author>
-    <content type="html">GoCD has made major changes recently, and if you haven't tried it lately, you haven't tried it at all.</content>
   </entry>
 </feed>
