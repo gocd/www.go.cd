@@ -13,202 +13,202 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery tool, continuous 
 </div>
 <main>
   <div class="container">
-    <div class="go-features">
-      <div class="row">
-        <div class="col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows, dependency management and deployment pipelines", :alt => "Model complex workflows and deployment pipelines"} %>
+    <div class="gofeatures__container">
+      <div class="gofeatures--item">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_model-complex-workflows.svg", {:title => "Model complex workflows, dependency management and deployment pipelines", :alt => "Model complex workflows and deployment pipelines", :class => "gofeatures--item__image" } %>
           </figure>
         </div>
-        <div class="col-sm-8">
-          <h2 class="features__title"> Model complex workflows</h2>
-          <p>
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title"> Model complex workflows</h2>
+          <p class="gofeatures--item__content">
             With its parallel and sequential execution, GoCD can easily configure dependencies for fast feedback and
             on-demand deployment. Its fan-in/fan-out dependency management always does the "right thing," avoiding
             spurious builds.
           </p>
         </div>
-        <hr/>
       </div>
-      <div class="row">
-        <div class="col-sm-push-8 col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_promote-trusted-artifacts.svg", {:title => "Promote trusted artifacts in deployment pipelines and stages", :alt => "Promote trusted artifacts"} %>
+      <hr/> 
+      <div class="gofeatures--item features__reverse--order">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_promote-trusted-artifacts.svg", {:title => "Promote trusted artifacts in deployment pipelines and stages", :alt => "Promote trusted artifacts", :class => "gofeatures--item__image"} %>
           </figure>
         </div>
-        <div class="col-sm-pull-4 col-sm-8">
-          <h2 class="features__title">Promote trusted artifacts</h2>
-          <p>
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title">Promote trusted artifacts</h2>
+          <p class="gofeatures--item__content">
             Every pipeline instance is anchored to a particular changeset. GoCD makes it easy to pass once-built
             binaries between stages so you know exactly what's being deployed and that the binary has been tested.
           </p>
         </div>
-        <hr/>
       </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_see-how-things-really-work.svg", {:title => "Visualize your workflow with continuous delivery value stream map", :alt => "Visualize your workflow"} %>
+      <hr/>
+      <div class="gofeatures--item">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_see-how-things-really-work.svg", {:title => "Visualize your workflow with continuous delivery value stream map", :alt => "Visualize your workflow", :class => "gofeatures--item__image"} %>
           </figure>
         </div>
-        <div class="col-sm-8">
-          <h2 class="features__title">See how your workflow really works </h2>
-          <p>
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title">See how your workflow really works </h2>
+          <p class="gofeatures--item__content">
             GoCD's real power is in the visibility it provides over your end-to-end workflow. GoCD's Value Stream Map
             lets you track a change from commit to deploy at a glance. And when things go wrong, it's easy to see both
             the upstream cause and the downstream effects.
           </p>
         </div>
-        <hr/>
       </div>
-      <div class="row">
-        <div class=" col-sm-push-8 col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_deploy-any-version-anytime.svg", {:title => "Continuous Delivery, deploy any version, any time", :alt => "Deploy any version at any time"} %>
+      <hr/>
+      <div class="gofeatures--item features__reverse--order">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_deploy-any-version-anytime.svg", {:title => "Continuous Delivery, deploy any version, any time", :alt => "Deploy any version at any time", :class => "gofeatures--item__image"} %>
           </figure>
         </div>
-        <div class="col-sm-pull-4 col-sm-8">
-          <h2 class="features__title">Deploy any version, any time</h2>
-          <p>
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title">Deploy any version, any time</h2>
+          <p class="gofeatures--item__content">
             GoCD's manual triggers allow you to deploy any known good version of your application to wherever you
             like. This increases reliability of pushing to production, and empowers QA teams with self-service
             environments. And, if necessary, it's securable and auditable.
           </p>
         </div>
-        <hr/>
       </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_run-and-grok-your-tests.svg", {:title => "Run and grok your automated tests", :alt => "Run and grok your tests"} %>
+      <hr/>
+      <div class="gofeatures--item">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_run-and-grok-your-tests.svg", {:title => "Run and grok your automated tests", :alt => "Run and grok your tests", :class => "gofeatures--item__image"} %>
           </figure>
         </div>
-        <div class="col-sm-8">
-          <h2 class="features__title">Run and grok your tests</h2>
-          <p>
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title">Run and grok your tests</h2>
+          <p class="gofeatures--item__content">
             Verification is a key piece of any deployment pipeline. GoCD will execute tests written in most languages or
             frameworks. GoCD's agent grid provides parallel and cross-platform execution. GoCD's test reporting will tell
             you in exactly which changeset and on which platform a test started breaking, which comes in extremely handy
             when fixing a complex broken build.
           </p>
         </div>
-        <hr/>
       </div>
-      <div class='row'>
-        <%= partial 'partials/_cornered-banner-test-drive.html.erb'%>
+      <hr/>
+      <div class='gofeatures--item'>
+        <%= partial "partials/cornered-banner-test-drive" %>
       </div>
-      <div class="row">
-        <div class="col-sm-push-8 col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_compare-builds.svg", {:title => "Compare builds - continuous delivery deployment pipelines", :alt => "Compare builds"} %>
+      <div class="gofeatures--item features__reverse--order">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_compare-builds.svg", {:title => "Compare builds - continuous delivery deployment pipelines", :alt => "Compare builds", :class => "gofeatures--item__image"} %>
           </figure>
         </div>
-        <div class="col-sm-pull-4 col-sm-8">
-          <h2 class="features__title">Compare builds</h2>
-          <p>
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title">Compare builds</h2>
+          <p class="gofeatures--item__content">
             GoCD's compare builds feature can provide a simple bill of materials for any deployment. Perhaps more
             powerful is its ability to compare the content - both files and commit messages - across any two arbitrary
             builds. This is invaluable when troubleshooting a broken pipeline.
           </p>
         </div>
-        <hr/>
       </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_eliminate-bottlenecks.svg", {:title => "Eliminate bottlenecks", :alt => "Eliminate bottlenecks"} %>
+      <hr/>
+      <div class="gofeatures--item">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_eliminate-bottlenecks.svg", {:title => "Eliminate bottlenecks", :alt => "Eliminate bottlenecks", :class => "gofeatures--item__image"} %>
           </figure>
         </div>
-        <div class="col-sm-8">
-          <h2 class="features__title">Eliminate bottlenecks</h2>
-          <p>
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title">Eliminate bottlenecks</h2>
+          <p class="gofeatures--item__content">
             GoCD's agent grid eliminates bottlenecks, providing trivial parallel execution across pipelines, platforms,
             versions, branches, etc.
           </p>
         </div>
-        <hr/>
       </div>
-      <div class="row">
-        <div class="col-sm-push-8 col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_keep-configuration-tidy.svg", {:title => "Keep pipeline configuration tidy", :alt => "Keep pipeline configuration tidy"} %>
+      <hr/>
+      <div class="gofeatures--item features__reverse--order">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_keep-configuration-tidy.svg", {:title => "Keep pipeline configuration tidy", :alt => "Keep pipeline configuration tidy", :class => "gofeatures--item__image"} %>
           </figure>
         </div>
-        <div class="col-sm-pull-4 col-sm-8">
-          <h2 class="features__title">Keep configuration tidy</h2>
-          <p>
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title">Keep configuration tidy</h2>
+          <p class="gofeatures--item__content">
             Easily reuse pipeline configurations via GoCD's template system. This makes managing pipelines for versions
             and branches easy as pie.
           </p>
         </div>
-        <hr/>
       </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_trust-your-team.svg", {:title => "Trust your team - be responsible", :alt => "Trust your team"} %>
+      <hr/>
+      <div class="gofeatures--item">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_trust-your-team.svg", {:title => "Trust your team - be responsible", :alt => "Trust your team", :class => "gofeatures--item__image"} %>
           </figure>
         </div>
-        <div class="col-sm-8">
-          <h2 class="features__title">Trust your team; be responsible</h2>
-          <p>
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title">Trust your team; be responsible</h2>
+          <p class="gofeatures--item__content">
             While most enterprise applications go overboard with their permission model, GoCD seeks to provide just
             enough. In particular, GoCD supports auditable deployment and can delegate the configuration of pipelines to
             users without full-blown admin privileges.
           </p>
         </div>
-        <hr/>
       </div>
-      <div class="row">
-        <div class="col-sm-push-8 col-sm-4">
-          <figure>
-            <%= image_tag "icons/go.cd_plugins.svg", {:title => "GoCD open source plugins", :alt => "GoCD open source plugins"} %>
+      <hr/>
+      <div class="gofeatures--item features__reverse--order">
+        <div class="grid-col-4">
+          <figure class="gofeatures--item__figure">
+            <%= image_tag "icons/go.cd_plugins.svg", {:title => "GoCD open source plugins", :alt => "GoCD open source plugins", :class => "gofeatures--item__image"} %>
           </figure>
         </div>
-        <div class="col-sm-pull-4 col-sm-8">
-          <h2 class="features__title">Plugins</h2>
-          <p>
-            GoCD has extension points for which plugins can be created. There are <%= link_to 'numerous plugins', '/plugins/index.html', "analytics-label" => "link_whygocd_plugins" %> already available, or if you don't see what you need, you can <%= link_to 'write your own', 'https://plugin-api.gocd.org/current/', "analytics-label" => "link_whygocd_plugin_writing_docs" %>.
+        <div class="grid-col-8">
+          <h2 class="gofeatures--item__title">Plugins</h2>
+          <p class="gofeatures--item__content">
+            GoCD has extension points for which plugins can be created. There are <%= link_to 'numerous plugins', '/plugins/index.html', "analytics-label" => "link_whygocd_plugins" %> already available, or if you don't see what you need, you can <%= link_to 'write your own', 'https://developer.gocd.org/current/writing_go_plugins/go_plugins_basics.html', "analytics-label" => "link_whygocd_plugin_writing_docs" %>.
           </p>
         </div>
-        <hr/>
       </div>
     </div>
+    <hr/>
   <div class="screenshots chocolat-parent"  data-chocolat-title="set title">
-    <h2 class="features__title">Screenshots</h2>
-    <div class="row">
-      <div class="col-sm-6">
-        <figure>
+    <h2 class="screenshots--features__title">Screenshots</h2>
+    <div class="grid-container">
+      <div class="grid-col-6_mobile">
+        <figure class="screenshots--item__figure">
           <a href="../assets/images/screenshots/dashboard.png" class="chocolat-image" title="Dashboard">
-            <%= image_tag "screenshots/thumb/dashboard-one-red-dpr-2.jpg", {:title => "Dashboard", :alt => "Dashboard"} %>
+            <%= image_tag "screenshots/thumb/dashboard-one-red-dpr-2.jpg", {:title => "Dashboard", :alt => "Dashboard", :class => "screenshots--item__image"} %>
           </a>
-          <h5>Dashboard</h5>
+          <h5 class="screenshots--item__title">Dashboard</h5>
         </figure>
       </div>
-      <div class="col-sm-6">
-        <figure>
+      <div class="grid-col-6_mobile">
+        <figure class="screenshots--item__figure">
           <a href="../assets/images/screenshots/console-timestamp.png"  class="chocolat-image" title="Console with timestamp">
-            <%= image_tag "screenshots/thumb/console-with-timestamps-dpr-2.jpg", {:title => "Console with timestamp", :alt => "Console with timestamp"} %>
+            <%= image_tag "screenshots/thumb/console-with-timestamps-dpr-2.jpg", {:title => "Console with timestamp", :alt => "Console with timestamp", :class => "screenshots--item__image"} %>
           </a>
-          <h5>Console with timestamp</h5>
+          <h5 class="screenshots--item__title">Console with timestamp</h5>
         </figure>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <figure>
+    <div class="grid-container">
+      <div class="grid-col-6_mobile">
+        <figure class="screenshots--item__figure">
           <a href="../assets/images/screenshots/agents.png" class="chocolat-image"  title="Agents (workers)">
-            <%= image_tag "screenshots/thumb/agent-dpr-2.jpg", {:title => "Agents", :alt => "Agents"} %>
+            <%= image_tag "screenshots/thumb/agent-dpr-2.jpg", {:title => "Agents", :alt => "Agents", :class => "screenshots--item__image"} %>
           </a>
-          <h5>Agents</h5>
+          <h5 class="screenshots--item__title">Agents</h5>
         </figure>
       </div>
-      <div class="col-sm-6">
-        <figure>
+      <div class="grid-col-6_mobile">
+        <figure class="screenshots--item__figure">
           <a href="../assets/images/screenshots/vsm.png" class="chocolat-image"  title="Value Stream Map">
-            <%= image_tag "screenshots/thumb/value-stream-map-thumb.jpg", {:title => "Value stream map", :alt => "Value stream map"} %>
+            <%= image_tag "screenshots/thumb/value-stream-map-thumb.jpg", {:title => "Value stream map", :alt => "Value stream map", :class => "screenshots--item__image"} %>
           </a>
-          <h5>Value stream map</h5>
+          <h5 class="screenshots--item__title">Value stream map</h5>
         </figure>
       </div>
     </div>
