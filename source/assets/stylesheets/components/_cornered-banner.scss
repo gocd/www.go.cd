@@ -4,11 +4,8 @@ title: Cornered Banner
 name: cornered-banner
 category: index
 ---
-
 Style for Cornered Banner Component
-
 ```html_example
-
 <div class="cornered-banner">
   <p class="cornered-banner_content">
     Free GoCD Analytics trial is available
@@ -17,73 +14,66 @@ Style for Cornered Banner Component
     SIGN UP
   </a>
 </div>
-
 ```
 */
 
 .cornered-banner {
-  width: 280px;
-  height: 138px;
+  width: 90%;
   border: 1px solid $secondary-color;
   background: #fff;
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
   margin: 35px auto;
-  padding: 20px;
+
 
   &::after{
     content: '';
     position: absolute;
-    width: 50px;
-    height: 50px;
-    bottom: -25px;
-    left: -25px;
+    width: 40px;
+    height: 40px;
+    bottom: -20px;
+    left: -20px;
     background: #fff;
     border-top: 1px solid $secondary-color;
     transform: rotateZ(45deg);
     border-radius: 2px;
   }
 
-  @media (min-width: $screen-md) {
-    width: 720px;
-    height: 75px;
-  }
-
-  @media (min-width: $screen-lg) {  
-    width: 766px;
-    height: 75px;
+  @media (max-width: $screen-lg) {
+    flex-direction: column;
+    width: 80%;
   }
   
 }
 
 .cornered-banner_content {
-  width: 100%;
   font-size: 18px;
   font-family: 'URWGeometric-SemiBold';
-  text-align: center;
-  margin: 0 auto;
+  margin-bottom: 0;
 
-  @media (min-width: $screen-md) {
-    width: 55%;
-    font-size: 20px;
-    margin: 0 50px;
-    text-align: left;
+  @media (max-width: $screen-lg) {
+    margin-bottom: 10px;
+    text-align: center;
   }
-  
 }
 
 .cornered-banner_cta {
-  width: 182px;
-  height: 30px;
-  line-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-family: 'URWGeometric-SemiBold';
   text-align: center;
   background: $secondary-color;
   border-radius: 2px;
   color: #000;
   transition: all 0.25s;
-  margin: 0 auto;
+
+  padding: 10px 25px;
+
 
   &:active {
     background: #36b1bf;
@@ -101,17 +91,5 @@ Style for Cornered Banner Component
   &:focus {
     outline: 0;
     color: $dark;
-  }
-
-  @media (min-width: $screen-md) {
-    width: 159px;
-    height: 30px;
-    line-height: 35px;
-  }
-
-  @media (min-width: $screen-lg) {
-    width: 208px;
-    height: 35px;
-    line-height: 40px;
   }
 }
