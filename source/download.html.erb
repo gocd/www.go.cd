@@ -216,94 +216,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   {{/inline}}
 
 
-  {{#*inline "show-amis"}}
-  <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
-    <div>
-      <p>The Demo AMI is for users to get started with GoCD. It contains both the GoCD server and agent with an existing
-        configuration.</p></div>
-    {{#with latest_cloud_release}}
-    <div class="row go-release {{go_version}}">
-      <div class="col-xs-12">
-        <span class="version">Version: {{go_version}}</span>
-      </div>
-      <div class="col-xs-12">
-        {{> show-ami-release server_amis=server_amis demo_amis=demo_amis}}
-      </div>
-      {{/with}}
-    </div>
-    <div class="other-releases">
-      <button class="btn-release" analytics-label="show-old-releases"><span>Show</span> old releases</button>
-    </div>
-    <div class="old-release">
-      {{#each all_other_cloud_releases}}
-      <div class="row go-release {{go_version}}">
-        <div class="col-xs-12">
-          <span class="version">Version: {{go_version}}</span>
-        </div>
-        <div class="col-xs-12">
-          <div class="files">
-            {{> show-ami-release}}
-          </div>
-        </div>
-      </div>
-      {{/each}}
-    </div>
-  </div>
-  {{/inline}}
-
-
-  {{#*inline "show-ami-release"}}
-  <h3>Demo AMI</h3>
-  {{> ami-table-with-dropdown amis=demo_amis}}
-
-  <h3>Server AMI</h3>
-  {{> ami-table-with-dropdown amis=server_amis}}
-  {{/inline}}
-
-
-  {{#*inline "ami-table-with-dropdown"}}
-  {{#size amis 'eq' 1}}
-  <table class="table">
-    <tr>
-      <th>Region</th>
-      <th>AMI ID</th>
-    </tr>
-    <tr class="{{amis.0.region}}">
-      <td>{{amis.0.region}}</td>
-      <td><a href="{{amis.0.href}}">{{amis.0.ami_id}}</a></td>
-    </tr>
-  </table>
-  {{/size}}
-  {{#size amis 'gt' 1}}
-  <div>Select a region</div>
-  <div class="table-c">
-    <select id="{{go_version}}" class="select-dropdown">
-      {{#each amis}}
-      <option value="{{region}}">{{region}}</option>
-      {{/each}}
-    </select>
-    {{> ami-table amis=amis}}
-  </div>
-  {{/size}}
-  {{/inline}}
-
-
-  {{#*inline "ami-table"}}
-  <table class="table">
-    <tr>
-      <th>Region</th>
-      <th>AMI ID</th>
-    </tr>
-    {{#each amis}}
-    <tr class="{{region}}">
-      <td>{{region}}</td>
-      <td><a href="{{href}}">{{ami_id}}</a></td>
-    </tr>
-    {{/each}}
-  </table>
-  {{/inline}}
-
-
   {{#*inline "show-docker"}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <div class="latest">
@@ -434,7 +346,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       <h3 class="tab-marker tab-accordion_heading dld-zip" rel="tab-zip">Zip</h3>
       {{> show-releases-for-installer-type installer_type="generic" os_type="zip" heading="Zip" tab_id="tab-zip"}}
       <h2 class="installer-type cloud">Cloud Providers</h2>
-      {{> show-amis installer_type="ami" tab_id="tab-ami"}}
       <h3 class="tab-marker tab-accordion_heading dld-docker" rel="tab-docker">Docker</h3>
       {{> show-docker installer_type="docker" tab_id="tab-docker"}}
       <h3 class="tab-marker tab-accordion_heading dld-k8s" rel="tab-helm">Kubernetes/Helm</h3>
@@ -456,7 +367,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       currentOSPackageType = $(this).attr('rel').replace('tab-', '');
 
       showHelpLinksFor(currentOSPackageType);
-      displayAmiDropdown(currentOSPackageType);
     });
 
     /* Switch between stable and experimental. */
@@ -467,7 +377,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         .done(function () {
           switchActiveTab(currentOSPackageType);
           switchDownloadType(currentInstallerType);
-          displayAmiDropdown(currentOSPackageType);
         });
     });
 
@@ -475,7 +384,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       .done(function () {
         startTabContainer();
         switchActiveTab(currentOSPackageType);
-        displayAmiDropdown(currentOSPackageType);
       });
 
     showHelpLinksFor(currentOSPackageType);

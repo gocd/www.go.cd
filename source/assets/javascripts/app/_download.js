@@ -116,7 +116,7 @@ var showDownloadLinks = (function ($) {
       };
     };
 
-    var showReleases = function (releaseData, amiData) {
+    var showReleases = function (releaseData, cloudData) {
       var addInfo = function (latestRelease) {
         var notes = {
           win: "GoCD server and agent installers for Windows are packaged with 64 bit JRE. Starting with GoCD release v18.12.0, GoCD server and agent windows installers will not be shipped with 32 bit JRE.",
@@ -137,13 +137,13 @@ var showDownloadLinks = (function ($) {
         R.map(addURLToFiles),
         R.map(addDisplayVersion)
       )(releaseData[0]);
-      var amiReleases = R.compose(
+      var cloudReleases = R.compose(
         releasesLessThanAYearOld,
         R.sort(compareVersions("go_version"))
-      )(amiData[0]);
+      )(cloudData[0]);
 
-      var latest_cloud_release = R.head(amiReleases);
-      var other_cloud_releases = R.tail(amiReleases);
+      var latest_cloud_release = R.head(cloudReleases);
+      var other_cloud_releases = R.tail(cloudReleases);
       var latestRelease = addInfo(R.head(releases));
       var template = Handlebars.compile(
         $("#download-revisions-template").html()
@@ -230,7 +230,6 @@ var determinePackageNameBasedOnOS = function () {
     "osx",
     "debian",
     "redhat",
-    "ami",
     "docker"
   ];
   if (
@@ -254,96 +253,6 @@ var determinePackageNameBasedOnOS = function () {
 
 var switchDownloadType = function (currentInstallerType) {
   $(".release-type input." + currentInstallerType).attr("checked", true);
-};
-
-var displayAmiDropdown = function (currentOSPackageType) {
-  if (currentOSPackageType === "ami") {
-    $(".select-dropdown").each(function () {
-      var $this = $(this),
-        numberOfOptions = $(this).children("option").length;
-
-      $this.addClass("select-hidden");
-      $this.wrap('<div class="select"></div>');
-      $this.after('<div class="select-styled"></div>');
-
-      var $styledSelect = $this.next("div.select-styled");
-      $styledSelect.text(
-        $this
-        .children("option")
-        .eq(0)
-        .text()
-      );
-
-      var $list = $("<ul />", {
-        class: "select-options"
-      }).insertAfter($styledSelect);
-
-      for (var i = 0; i < numberOfOptions; i++) {
-        $("<li />", {
-          text: $this
-            .children("option")
-            .eq(i)
-            .text(),
-          rel: $this
-            .children("option")
-            .eq(i)
-            .val()
-        }).appendTo($list);
-      }
-
-      var $listItems = $list.children("li");
-
-      $styledSelect.click(function (e) {
-        e.stopPropagation();
-        $("div.select-styled.active")
-          .not(this)
-          .each(function () {
-            $(this)
-              .removeClass("active")
-              .next("ul.select-options")
-              .hide();
-          });
-        $(this)
-          .toggleClass("active")
-          .next("ul.select-options")
-          .toggle();
-      });
-
-      $listItems.click(function (e) {
-        e.stopPropagation();
-        var previous_text = $styledSelect.text();
-        $styledSelect.text($(this).text()).removeClass("active");
-        $this.val($(this).attr("rel"));
-        $list.hide();
-        var previously_selected_row = "table ." + previous_text;
-        var current_selected_row = "table ." + $styledSelect.text();
-
-        $styledSelect
-          .closest(".table-c")
-          .find(previously_selected_row)
-          .hide();
-        $styledSelect
-          .closest(".table-c")
-          .find(current_selected_row)
-          .show();
-        //console.log($this.val());
-      });
-
-      $(document).click(function () {
-        $styledSelect.removeClass("active");
-        $list.hide();
-      });
-    });
-
-    $(".table-c").each(function () {
-      $(this)
-        .find("tr:gt(1)")
-        .each(function () {
-          var $this = $(this);
-          $this.hide();
-        });
-    });
-  }
 };
 
 var showHelpLinksFor = (function ($) {
