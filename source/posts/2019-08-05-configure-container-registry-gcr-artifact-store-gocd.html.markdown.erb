@@ -31,7 +31,7 @@ The older plugin version does not have a separate option for Amazon ECR. It just
 
 <img src="/assets/images/blog/cd-hacks/gocd-create-artifact-store-2.png" alt="Configuring Google Container Registry as an Artifact Store in GoCD"/>
 
-Trying to configure GCR in both the versions seems a bit confusing as GCR best practices state the use of a service account for CI/CD pipelines. 
+Trying to configure GCR in both the versions seems a bit confusing as GCR best practices state the use of a service account for CI/CD pipelines.
 
 Now if you try to create a service account, you might get a json file with the following fields:
 
@@ -103,6 +103,6 @@ This comes with a significant advantage that your GoCD Agents do NOT need to hav
 All you have to do is to configure the generated image as an external artifact. You can find the steps to do that [here](https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html#publish-your-application-image-to-docker-hub).
 
 So there you go. I hope you find it useful. If you have any questions, please feel free to comment and I'll answer from whatever I've learnt so far.
-    
+
 *This post was originally published on Mohamed Najiullah's [Medium blog](https://medium.com/@mohammed.najiullah/configuring-google-container-registry-gcr-as-an-artifact-store-in-gocd-5453f8037e8c).
 
