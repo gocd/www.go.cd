@@ -12,8 +12,8 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
 
 <main>
   <div class="container">
-    <div class="row plugin-content">
-      <div class="col-md-12">
+    <div class="grid-container plugin--content">
+      <div class="grid-col-12">
         <p>
           Below is a list of currently supported plugins for GoCD. These include plugins contributed by the community
           (that are not bundled with the GoCD Server). Please refer
@@ -39,7 +39,7 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
     </div>
 
     <p>
-      <em>Officially maintained ThoughtWorks plugins are tagged with a <%= image_tag "go-logo-small.png" , :class => "go-tag", :alt => "GoCD logo" %> icon.</em>
+      <em>Officially maintained ThoughtWorks plugins are tagged with a <%= image_tag "go-logo-small.png" , :class => "go--tag", :alt => "GoCD logo" %> icon.</em>
     </p>
 
     <% plugin_categories = [
@@ -71,30 +71,30 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
           </h3>
 
           <div id="<%= tab_id %>" class="tab_content">
-            <div class="plugins-container">
+            <div class="plugins--container">
               <% if category[:deprecated]%>
                 <p class="alert warning"><%= category[:deprecation_message]%></p>
               <% end %>
-              <ul class="plugins-list">
+              <ul class="plugins--list">
 
                 <% category[:plugins].each do |p| %>
-                  <li>
-                    <span class="logo"></span>
-                    <div class="details">
-                      <%= image_tag "go-logo-small.png" , :class => "go-logo", :alt => "GoCD logo" if p.bundled || p.paid || p.supported %>
-                      <h5 class="name"> <%= escape_html(p.name) %> </h5>
+                  <li class="plugin--list-item">
+                    <span class="plugin--logo"></span>
+                    <div class="plugin--details">
+                      <%= image_tag "go-logo-small.png" , :class => "plugin--go-logo", :alt => "GoCD logo" if p.bundled || p.paid || p.supported %>
+                      <h5 class="plugin--name"> <%= escape_html(p.name) %> </h5>
                       <% if p.paid %>
-                      <span class="paid">Paid</span>
+                      <span class="plugin--paid">Paid</span>
                       <% end %>
-                      <p class="more-details">
+                      <p class="plugin--more-details">
                         <%= escape_html(p.description) %>
                         <%= link_to('Read more', p.readmore_url) %>
                       </p>
-                      <span class="created-by">by
+                      <span class="plugin--created-by">by
                         <%= link_to(escape_html(p.author_name), p.author_url)  %>
                       </span>
                     </div>
-                    <div class="actions">
+                    <div class="plugin--actions">
                       <% if p.bundled %>
                         <span class="with-go">Bundled with GoCD</span>
                       <% elsif p.paid %>
@@ -111,8 +111,8 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
                   </li>
                 <% end %>
 
-                <li class=" contribute_tile">
-                  <div class="contribute-plugin">
+                <li class="contribute--tile">
+                  <div class="contribute--plugin">
 
                     <i class="fa fa-star"></i>
                     <h5>Want to contribute?</h5>
@@ -126,8 +126,8 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
       </div>
     </div>
 
-    <div class="row plugin-content">
-      <div class="col-md-12">
+    <div class="grid-container plugin--content">
+      <div class="grid-col-12">
         <p class="note">
           <strong>Note:</strong> Plugins for GoCD are distributed under license from the copyright holder. In addition,
           notwithstanding who the copyright holder is, all plugins on this page are made available for download "as is
@@ -139,9 +139,10 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
     </div>
   </div>
 </main>
-
+ 
 <script>
- jQuery(document).ready(function($) {
-   startTabContainer();
- });
+  jQuery(document).ready(function($) {
+    startTabContainer();
+  });
 </script>
+
