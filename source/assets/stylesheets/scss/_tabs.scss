@@ -102,7 +102,7 @@ ul.tabs {
         display: none;
         width: 100%;
         @media (min-width: $screen-tablet) {
-            width: 180px;
+            width: 215px;
             border-right: 0;
             border-bottom: 0;
             display: block;
@@ -132,7 +132,7 @@ ul.tabs {
                 color: $primary-color;
                 border-right: 1px solid $plugins-tab-container-bg;
                 display: block;
-                width: 180px;
+                width: 215px;
                 border-left: 5px solid $primary-color;
             }
             &:last-child {

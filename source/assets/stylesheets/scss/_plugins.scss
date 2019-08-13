@@ -23,18 +23,18 @@ $actions-bg-hover: $primary-color;
     }
 }
 
-.plugin-content {
-    margin-bottom: 20px;
+.plugin--content {
+   margin:20px 0px;
 }
 
-.plugins-container {
+.plugins--container {
     @media (min-width: $screen-tablet) {
         margin-top: 10px;
         min-height: 400px;
     }
 }
 
-.plugin-info {
+.plugin--info {
     font-size: 12px; 
     line-height: normal;
     border-radius: 10px; 
@@ -49,15 +49,15 @@ $actions-bg-hover: $primary-color;
     }
 }
 
-.go-tag {
+.go--tag {
     margin: 0 5px;
 }
 
-.contribute_tile {
+.contribute--tile {
     width: 100%;
 }
 
-.contribute-plugin {
+.contribute--plugin {
     @extend %flexbox;
     @include flex-direction(column);
     @include justify-content(center);
@@ -81,7 +81,7 @@ $actions-bg-hover: $primary-color;
     }
 }
 
-.plugins-list {
+.plugins--list {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -97,99 +97,103 @@ $actions-bg-hover: $primary-color;
     @media (min-width:$screen-lg-desktop) {
         margin: 30px 15px 10px 30px;
     }
-    li {
-        margin: 10px;
-        width: 100%;
-        .details {
-            background: #fff;
-            padding: 20px;
-            width: 100%;
-            position: relative;
-            align-items: stretch;
-            transition: all 0.5s ease;
-            height: 175px;
-            @media (min-width: $screen-md) {
-                height: 195px;
-            }
-        }
-        @media (min-width:$screen-md) {
-            width: 45%;
-        }
-        @media (min-width:$screen-lg) {
-            width: 30%;
-        }
-        .go-logo {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-        }
-        .name {
-            font-size: 17px;
-            @media (min-width: $screen-md) {
-                // height: 44px;
-            }
-        }
-        .more-details {
-            font-size: 12px;
-            line-height: 20px; // color: $subtext;
-            @media (min-width: $screen-md) {}
-        }
-        .created-by {
-            margin-bottom: 10px;
-            display: block;
-            font-size: 12px;
-        }
+}
+.plugin--list-item , .contribute--tile {
+    margin: 10px;
+    width: 100%;
+    
+    @media (min-width:$screen-md) {
+        width: 45%;
+    }
+    @media (min-width:$screen-lg) {
+        width: 30%;
+    }
+    &:hover {
+        -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
+        transition: all 0.5s ease;
         .actions {
-            background: $actions-bg;
-            padding: 10px 20px;
-            @include clearfix;
+            background: $actions-bg-hover;
             transition: all 0.5s ease;
-            color: #333;
-            .fa {
-                margin-right: 3px;
-            }
         }
-        .with-go,
-        .download-plugin,
-        .contactus-plugin {
-            float: left;
+    }
+    &.contribute--tile {
+        background: #333333;
+        color: #fff;
+        a,
+        h5 {
             color: #fff;
-            transition: all 0.5s ease;
-            a {
-                color: #fff;
-                transition: all 0.5s ease;
-            }
         }
-        .github-star-button {
-            float: right;
-        }
-        &:hover {
-            -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
-            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
-            transition: all 0.5s ease;
-            .actions {
-                background: $actions-bg-hover;
-                transition: all 0.5s ease;
-            }
-        }
-        &.contribute_tile {
-            background: #333333;
-            color: #fff;
-            a,
-            h5 {
-                color: #fff;
-            }
-        }
-        &.go {
-            @media (max-width: $screen-xs-max) {
-                width: 100%;
-            }
+    }
+    &.go {
+        @media (max-width: $screen-xs-max) {
+            width: 100%;
         }
     }
 }
 
-.paid {
+
+
+.with-go,
+    .download-plugin,
+    .contactus-plugin {
+        float: left;
+        color: #fff;
+        transition: all 0.5s ease;
+        a {
+            color: #fff;
+            transition: all 0.5s ease;
+        }
+}
+.github-star-button {
+    float: right;
+}
+
+.plugin--details {
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    align-items: stretch;
+    transition: all 0.5s ease;
+    height: 175px;
+    @media (min-width: $screen-md) {
+        height: 195px;
+    }
+}
+.plugin--go-logo {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.plugin--name {
+    font-size: 17px;
+    @media (min-width: $screen-md) {
+        // height: 44px;
+    }
+}
+.plugin--more-details {
+    font-size: 12px;
+    line-height: 20px; // color: $subtext;
+    @media (min-width: $screen-md) {}
+}
+.plugin--created-by {
+    margin-bottom: 10px;
+    display: block;
+    font-size: 12px;
+}
+.plugin--actions {
+    background: $actions-bg;
+    padding: 10px 20px;
+    @include clearfix;
+    transition: all 0.5s ease;
+    color: #333;
+    .fa {
+        margin-right: 3px;
+    }
+}
+.plugin--paid {
     background: $primary-color;
     display: block;
     font-size: 12px;
@@ -201,6 +205,6 @@ $actions-bg-hover: $primary-color;
     margin: -6px 0 10px 0;
 }
 
-#tab-commercial .plugins-list li:last-child {
+#tab-commercial .plugins--list li:last-child {
     display: none;
 }
