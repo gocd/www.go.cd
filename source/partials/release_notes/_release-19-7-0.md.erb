@@ -1,4 +1,12 @@
-<h4>some feature</h4>
+<h4>Bug Fixes</h4>
+
+* <%= link_to_issue 6666, 'Fixes issue with GoCD server/agent not automatically starting on a server restart.' %>
+* <%= link_to_issue 6674, 'Fixes issues with migrating user defined Environment Variables on upgrade to 19.6.0' %>
+* <%= link_to_issue 6677, 'Disable directory listing for assets directory.' %>
+* <%= link_to_issue 6684, 'Bring back GO_ENVIRONMENT_NAME environment variable as part of Job Console.' %>
+* <%= link_to_issue 6690, 'Fixes issue with dependency on sysvinit-tools for RPM distros.' %>
+* <%= link_to_issue 6699, 'Allow exiting running GoCD docker containers by sending SIGINT ctrl-c signal.' %>
+
 
 <h4>Versions of Java this release of GoCD works with</h4>
 <ul>
@@ -8,20 +16,10 @@
   <li>Java 12</li>
 </ul>
 
-<h4>API Improvements</h4>
-
-
-<h4>Other Improvements</h4>
-
-
-<h4>Bug fixes</h4>
-
-
-<h4>New Deprecations</h4>
-
 
 <h4>Deprecations</h4>
 
+* The Elastic Agents plugin extension v4 has been deprecated. This version will be removed in a release scheduled for August 2019. Plugin developers should use version 5 of the plugin API.
 * The notification plugin extension version 3 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 4 of the notification plugin api.
 * The analytics plugin extension version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the analytics plugin api.
 * The Get Server Info processor version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the Get Server Info processor.
@@ -29,10 +27,8 @@
 * <%= deprecated_api_message api_name: 'Config repo', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.4.0', api_section: 'config-repo', removal_date_and_year: 'Aug 2019' %>
 * Support for Java 8 has been deprecated. The support for the same will be removed in a release scheduled for November 2019.
 * <%= deprecated_api_message api_name: 'Plugin Info', old_api_version: 5, new_api_version: 6, new_api_available_in_release: '19.6.0', api_section: 'plugin-info', removal_date_and_year: 'Sept 2019' %>
+* <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 7, new_api_version: 8, new_api_available_in_release: '19.6.0', api_section: 'pipeline-config', removal_date_and_year: 'Oct 2019' %>
 * Unversioned get all materials API has been deprecated in favor of get all materials API v1. This version will be removed in a release scheduled for Oct 2019.
-
-<h4>Breaking Changes</h4>
-
 
 <h4>Contributors</h4>
 
@@ -42,10 +38,8 @@
   "Ankit Srivastava",
   "Aravind SV",
   "Bhupendrakumar Piprava",
-  "Chandrakanth Nagaraj",
   "Dhanashri Pagar",
   "Ganesh S Patil",
-  "Huimin Li",
   "Isabelle Carter",
   "Jen Marley",
   "Jyoti Singh",
@@ -71,7 +65,7 @@
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.4.0' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.7.0' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 

@@ -62,7 +62,6 @@
 @import "scss/innerpages";
 @import "scss/campaign";
 @import "scss/continuousdelivery";
-@import "scss/cloud";
 @import "scss/marketo-overrides";
 @import "scss/gocd-demo";
 @import "scss/test-drive-gocd";
@@ -71,3 +70,5 @@
 @import "scss/analytics-feedback";
 @import "chocolate_override";
 @import "scss/elastic-agents";
+
+@import "aos-3.0.0-beta.6.css";
