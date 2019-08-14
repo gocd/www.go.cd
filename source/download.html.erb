@@ -135,8 +135,11 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       <div class="latest">
         {{#with latest_release}}
         <div class="go-release {{display_version}} row">
-          <div class="col-xs-12">
+          <div class="col-xs-7">
             <span class="version">Version: {{display_version}}</span>
+          </div>
+          <div class="col-xs-5">
+            <span class="version">Released: {{release_date}}</span>
           </div>
           {{#with (lookup . ../installer_type)}}
           <div class="col-xs-12">
@@ -191,8 +194,11 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     <div class="old-release">
       {{#each all_other_releases}}
       <div class="row go-release {{display_version}}">
-        <div class="col-xs-12">
+        <div class="col-xs-7">
           <span class="version">Version: {{display_version}}</span>
+        </div>
+        <div class="col-xs-5">
+          <span class="version">Released: {{release_date}}</span>
         </div>
         {{#if (lookup . ../installer_type)}}
         {{#with (lookup . ../installer_type)}}
