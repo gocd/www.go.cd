@@ -97,6 +97,14 @@ var showDownloadLinks = (function ($) {
       );
     });
 
+    var addReleaseDate = R.curry(function (release) {
+      return R.assoc(
+        "release_date",
+        new Date(release["release_time_readable"]).toDateString(),
+        release
+      );
+    });
+
     var compareVersions = function (propertyToCompareOn) {
       return function (a, b) {
         var i, diff;
@@ -135,7 +143,8 @@ var showDownloadLinks = (function ($) {
         releasesLessThanAYearOld,
         R.sort(compareVersions("go_full_version")),
         R.map(addURLToFiles),
-        R.map(addDisplayVersion)
+        R.map(addDisplayVersion),
+        R.map(addReleaseDate)
       )(releaseData[0]);
       var cloudReleases = R.compose(
         releasesLessThanAYearOld,
