@@ -16,7 +16,7 @@
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../assets/stylesheets/site-11b2663d.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-487189ff.js"></script>
+    <script src="../assets/javascripts/all-8dd4da1c.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -187,8 +187,11 @@
       <div class="latest">
         {{#with latest_release}}
         <div class="go-release {{display_version}} row">
-          <div class="col-xs-12">
+          <div class="col-xs-7">
             <span class="version">Version: {{display_version}}</span>
+          </div>
+          <div class="col-xs-5">
+            <span class="version">Released: {{release_date}}</span>
           </div>
           {{#with (lookup . ../installer_type)}}
           <div class="col-xs-12">
@@ -243,8 +246,11 @@
     <div class="old-release">
       {{#each all_other_releases}}
       <div class="row go-release {{display_version}}">
-        <div class="col-xs-12">
+        <div class="col-xs-7">
           <span class="version">Version: {{display_version}}</span>
+        </div>
+        <div class="col-xs-5">
+          <span class="version">Released: {{release_date}}</span>
         </div>
         {{#if (lookup . ../installer_type)}}
         {{#with (lookup . ../installer_type)}}
