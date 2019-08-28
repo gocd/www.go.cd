@@ -11,9 +11,9 @@ module GoCDHelpers
     text.gsub(/GoCD/, '<span class="go">Go</span>CD')
   end
 
-  def link_to_github_user(login, display_name=nil)
+  def link_to_github_user(login, display_name = nil)
     display_name = login if display_name.blank?
-    link_to(display_name, "https://github.com/#{login}", )
+    link_to(display_name, "https://github.com/#{login}",)
   end
 
   def link_to_pull_request(number, text)
@@ -35,7 +35,7 @@ module GoCDHelpers
     end
   end
 
-  def link_to_api(api_section, text='API')
+  def link_to_api(api_section, text = 'API')
     link_to_versioned_api('current', api_section, text)
   end
 
@@ -43,7 +43,7 @@ module GoCDHelpers
     link_to_issue issue_number, "Introduced version #{api_version} of #{link_to_versioned_api(gocd_version, api_section, api_name)} API."
   end
 
-  def link_to_versioned_api(version, api_section, text='API')
+  def link_to_versioned_api(version, api_section, text = 'API')
     link_to text, "https://api.gocd.org/#{version}/##{api_section}"
   end
 
@@ -55,24 +55,28 @@ module GoCDHelpers
     concat_content("The #{distro_name} #{distro_version} based docker image for GoCD Agent has been removed. #{distro_name} #{distro_version} has reached end-of-life in #{removal_date_and_year}. Please use an image based on a newer version of the #{distro_name}.")
   end
 
-  def deprecated_api_message(opts={})
+  def deprecated_api_message(opts = {})
     concat_content("The #{opts[:api_name]} API version #{opts[:old_api_version]} has been deprecated. ")
     concat_content("This version will be removed in a release scheduled for #{opts[:removal_date_and_year]}. ")
     concat_content(link_to_versioned_api(opts[:new_api_available_in_release], opts[:api_section], "Version #{opts[:new_api_version]}"))
     concat_content(" of the API is available, and users are encouraged to use it.")
   end
 
-  def removed_api_message(opts={})
+  def removed_api_message(opts = {})
     concat_content("The #{opts[:api_name]} API version #{opts[:old_api_version]} has been removed. ")
     concat_content(link_to_versioned_api(opts[:new_api_available_in_release], opts[:api_section], "Version #{opts[:new_api_version]}"))
     concat_content(" of the API is available, and users are encouraged to use it.")
   end
 
-  def link_to_plugin_api(api_section, text='PLUGIN API')
-    link_to text, "https://plugin-api.gocd.org/current/#{api_section}"
+  def link_to_plugin_api(api_section, text = 'PLUGIN API')
+    link_to_versioned_plugin_api 'current', api_section, text
   end
 
-  def link_to_issue(number, text='')
+  def link_to_versioned_plugin_api(version, api_section, text = 'PLUGIN API')
+    link_to text, "https://plugin-api.gocd.org/#{version}/#{api_section}"
+  end
+
+  def link_to_issue(number, text = '')
     number = number.to_s.gsub(/#.*/, '')
 
     concat_content(link_to("##{number}", "https://github.com/gocd/gocd/issues/#{number}"))
@@ -121,7 +125,9 @@ module GoCDHelpers
   end
 
   def selected_articles_for_display_in(articles)
-    articles.reject do |article| !should_show_drafts? && is_draft?(article) end
+    articles.reject do |article|
+      !should_show_drafts? && is_draft?(article)
+    end
   end
 
   def canonical_link_for(page_or_article)
