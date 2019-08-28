@@ -13,9 +13,9 @@ It is now possible to omit the version number by specifying `Accept: application
 
 <h4>API Improvements</h4>
 
-* <%= new_api_message '19.8.0', 6766, 9, 'Pipeline Config', 'pipeline-config' %>
 * <%= new_api_message '19.8.0', 6570, 1, 'Mail Server config', 'mailserver-config' %>
 * <%= new_api_message '19.8.0', 6760, 1, 'Cancel Stage', 'cancel-stage' %>
+* <%= new_api_message '19.8.0', 6766, 9, 'Pipeline Config', 'pipeline-config' %>
 * <%= link_to_issue 6784, 'Introduced Delete Pluggable SCM API' %>
 
 <h4>Other Improvements</h4>
@@ -28,11 +28,14 @@ It is now possible to omit the version number by specifying `Accept: application
 
 <h4>Bug fixes</h4>
 
+* <%= link_to_issue 6409, 'No indication of failure when subsequent stages are run after material config is changed post first stage run' %>
 * <%= link_to_issue 6682, 'Environments Get API does not honor If-None-Match header' %>
+* <%= link_to_issue 6688, 'Allow plugins to execute javascript as part of angular plugin view' %>
 * <%= link_to_issue 6727, 'Template Authorization API returns 404' %>
 * <%= link_to_issue 6815, 'Fix for world-writable files in go-agent and go-server packages.' %>
 * <%= link_to_issue 6826, 'Reduce GoCD Server and Agent Docker Image size' %>
-* <%= link_to_issue 6688, 'Allow plugins to execute javascript as part of angular plugin view' %>
+* <%= link_to_issue 6832, 'User information synchronisation with external sources' %>
+
 
 <h4>New Deprecations</h4>
 
