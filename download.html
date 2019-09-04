@@ -15,7 +15,7 @@
 
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-11b2663d.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-5607c390.css" rel="stylesheet" />
     <script src="assets/javascripts/all-8dd4da1c.js"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -326,22 +326,28 @@
     <h3>GoCD Server Docker Image</h3>
     <ul class="docker-list server">
       {{#each server_docker}}
-      {{> show-docker-command image_name=image_name version=../go_version}}
+      {{> show-server-docker-command image_name=image_name version=../go_version}}
       {{/each}}
     </ul>
     <h3>GoCD Agent Docker Images</h3>
     <ul class="docker-list agents">
       {{#each agents_docker}}
-      {{> show-docker-command image_name=image_name version=../go_version}}
+      {{> show-agent-docker-command image_name=image_name version=../go_version}}
       {{/each}}
     </ul>
   </div>
   {{/inline}}
 
 
-  {{#*inline "show-docker-command"}}
-  <li><a href="https://hub.docker.com/r/gocd/{{image_name}}">{{image_name}}</a>
-    <span class="command">docker pull gocd/{{image_name}}:v{{version}}</span>
+  {{#*inline "show-server-docker-command"}}
+  <li>More info at: <a href="https://hub.docker.com/r/gocd/{{image_name}}">{{image_name}}</a>
+    <span class="command">docker run -d -p8153:8153 -p8154:8154 gocd/{{image_name}}:v{{version}}</span>
+  </li>
+  {{/inline}}
+
+  {{#*inline "show-agent-docker-command"}}
+  <li>More info at: <a href="https://hub.docker.com/r/gocd/{{image_name}}">{{image_name}}</a>
+    <span class="command">docker run -d -e GO_SERVER_URL=... gocd/{{image_name}}:v{{version}}</span>
   </li>
   {{/inline}}
 
