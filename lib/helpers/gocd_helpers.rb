@@ -73,7 +73,7 @@ module GoCDHelpers
   end
 
   def link_to_versioned_plugin_api(version, api_section, text = 'PLUGIN API')
-    link_to text, "https://plugin-api.gocd.org/#{version}/#{api_section}"
+    link_to text, "https://plugin-api.gocd.org/#{version}/##{api_section}"
   end
 
   def link_to_issue(number, text = '')

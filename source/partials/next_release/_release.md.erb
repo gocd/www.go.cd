@@ -1,7 +1,8 @@
 <h4>Introduce support for `latest` API</h4>
 
-It is now possible to omit the version number by specifying `Accept: application/vnd.go.cd+json`. This will render the latest version of the API endpoint being invoked.
+It is now possible to omit the version number by specifying `Accept: application/vnd.go.cd+json`. This will render the latest version of the API endpoint being invoked. More information can be found [here](https://github.com/gocd/gocd/issues/6620).
 
+Please feel free to report a bug by opening up an issue [here](https://github.com/gocd/gocd/issues).
 
 <h4>Versions of Java this release of GoCD works with</h4>
 <ul>
@@ -11,37 +12,40 @@ It is now possible to omit the version number by specifying `Accept: application
   <li>Java 12</li>
 </ul>
 
-<h4>API Improvements</h4>
-
-* <%= new_api_message '19.8.0', 6570, 1, 'Mail Server config', 'mailserver-config' %>
-* <%= new_api_message '19.8.0', 6760, 1, 'Cancel Stage', 'cancel-stage' %>
-* <%= new_api_message '19.8.0', 6766, 9, 'Pipeline Config', 'pipeline-config' %>
-* <%= link_to_issue 6784, 'Introduced Delete Pluggable SCM API' %>
-
 <h4>Other Improvements</h4>
 
 * Starting this release, Debian Buster (10) based images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-debian-10' %>.
-* <%= link_to_commit 'fc61beb9b34540a9068a20aecbe42326483d1e3f', 'Fix the DIND image' %>
+* <%= link_to_commit '08f7b6eb1eb357a93d9dae7c483c0734a33d59cc', 'Slim down the windows installer sizes' %>
+* <%= link_to_commit '0a2d20f68762ed387e935925fb332558f9e670b8', 'Ensure that service is started on server startup.' %>
 * <%= link_to_issue 6294, 'Ability to configure stage to only allow manual trigger on success of previous stage' %>
-* <%= link_to_issue 6640, 'Pipeline pause message is not shown completely on dashboard' %>
+* <%= link_to_issue 6688, 'Allow plugins to execute javascript as part of angular plugin view' %>
 * <%= link_to_issue 6802, 'Add git, hg, svn, p4 version info to support output' %>
+* <%= link_to_issue 6815, 'Fix for world-writable files in go-agent and go-server packages.' %>
+* <%= link_to_issue 6826, 'Optimized GoCD server and agent docker image size' %>
+* <%= link_to_issue 6832, 'Synchronize user info with external sources' %>
 
 <h4>Bug fixes</h4>
 
+* <%= link_to_commit 'fc61beb9b34540a9068a20aecbe42326483d1e3f', 'Fix the DIND image' %>
+* <%= link_to_commit 'f10025be36aadf4ecf51b2bf7259ec2f8d387dd8', 'On uninstall cleanup temp dirs that are left behind by server process.' %>
+* <%= link_to_issue 5587, 'Re-running failed jobs leaves a warning with null exception in the logs' %>
+* <%= link_to_issue 6376, 'Rerun old stage failing without providing console output' %>
 * <%= link_to_issue 6409, 'No indication of failure when subsequent stages are run after material config is changed post first stage run' %>
+* <%= link_to_issue 6640, 'Pipeline pause message is not shown completely on dashboard' %>
 * <%= link_to_issue 6682, 'Environments Get API does not honor If-None-Match header' %>
-* <%= link_to_issue 6688, 'Allow plugins to execute javascript as part of angular plugin view' %>
 * <%= link_to_issue 6727, 'Template Authorization API returns 404' %>
-* <%= link_to_issue 6815, 'Fix for world-writable files in go-agent and go-server packages.' %>
-* <%= link_to_issue 6826, 'Reduce GoCD Server and Agent Docker Image size' %>
-* <%= link_to_issue 6832, 'User information synchronisation with external sources' %>
+* <%= link_to_issue 6827, 'Upgrade from 19.7.0 to 19.8.0 overwrites wrapper-properties.conf file' %>
+* <%= link_to_issue 6855, 'GoCD server emits "Weak cipher suite" warnings on startup' %>
+* <%= link_to_issue 6879, 'Sync environments when a config repo is deleted' %>
+
+<h4>API</h4>
+
+* The list of API deprecations can be found <%= link_to_versioned_api '19.8.0','changes-in-19-8-0', 'here' %>.
+* The list of Plugin API deprecations can be found <%= link_to_versioned_plugin_api '19.8.0','changes-in-gocd-19-8-0', 'here' %>.
 
 <h4>Deprecations</h4>
 
 * Support for Java 8 has been deprecated. The support for the same will be removed in a release scheduled for November 2019.
-* The list of API deprecations can be found <%= link_to_versioned_api '19.8.0','changes-in-19-8-0', 'here' %>.
-* The list of Plugin API deprecations can be found <%= link_to_versioned_plugin_api '19.8.0','changes-in-gocd-19-8-0', 'here' %>.
-
 
 <h4>Contributors</h4>
 
@@ -70,6 +74,7 @@ It is now possible to omit the version number by specifying `Accept: application
   "Rajiesh N",
   "Saurabh Mistry",
   "Sheroy Marker",
+  "Sneha Patil",
   "Steven Streisguth",
   "Tomasz Setkowski",
   "Varsha Varadarajan",
