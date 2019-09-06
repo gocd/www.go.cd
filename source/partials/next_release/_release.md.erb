@@ -1,13 +1,3 @@
-<h4>Introduce support for latest API version</h4>
-
-GoCD API's are versioned, accessing an API enpoint required providing a version number as part of the `Accept: application/vnd.go.cd.v3+json` header.
-
-GoCD now allows accessing the latest version of an API, this can be done by omitting the version number in the request header `Accept: application/vnd.go.cd+json`. More information can be found [here](https://github.com/gocd/gocd/issues/6620).
-
-<h4>Ability to only trigger a stage if previous stage succeeded</h4>
-
-Introduced the attribute `allowOnlyOnSuccess` for `approval` at stage level. If the attribute is set to `true`, the stage can be manually triggered only if the previous stage (if there is one) has resulted in success. More information can be found [here](https://github.com/gocd/gocd/issues/6294).
-
 <h4> New Pipeline Creation Wizard </h4>
 
 We have introduced a new simplified pipeline creation wizard towards improving the user experience.
@@ -18,19 +8,20 @@ Feedback/ideas are welcome, please open an issue [here](https://github.com/gocd/
     <%= image_tag 'releases/19.8.0/new-pipeline-wizard.gif', alt: 'New Pipeline Creation Wizard' %>
 </figure>
 
+<h4>Introduce support for latest API version</h4>
 
-<h4>Java 8 deprecation</h4>
+GoCD API's are versioned, accessing an API enpoint required providing a version number as part of the `Accept: application/vnd.go.cd.v3+json` header.
 
-Support for Java 8 will be removed in the next release of GoCD. GoCD (depending on the OS and installer) comes bundled with the supported Java Runtime, hence installing the latest GoCD versions on agent and server should suffice unless you are using a custom Java version.
-The removal of Java 8 support is in line with the Java Licensing Changes we had announced earlier this year in this [blog](https://www.gocd.org/2019/05/21/official-stance-on-java/).
+GoCD now allows accessing the latest version of an API, this can be done by omitting the version number in the request header `Accept: application/vnd.go.cd+json`. More information can be found [here](https://github.com/gocd/gocd/issues/6620).
 
-<h4>Versions of Java this release of GoCD works with</h4>
-<ul>
-  <li>Java 8 (Deprecated)</li>
-  <li>Java 10 (Deprecated)</li>
-  <li>Java 11</li>
-  <li>Java 12</li>
-</ul>
+<h4>Ability to trigger a stage only if previous stage succeeded</h4>
+
+Introduced the attribute `allowOnlyOnSuccess` for `approval` at stage level. If the attribute is set to `true`, the stage can be manually triggered only if the previous stage (if there is one) has resulted in success. More information can be found [here](https://github.com/gocd/gocd/issues/6294).
+
+<h4>Java 8 and 10 deprecation</h4>
+
+Support for Java 8 and 10 will be removed in the next release of GoCD. GoCD installers come with Java Runtime pre-bundled, so users no longer need to install it separately.
+The removal of Java versions is in line with the Java Licensing Changes we had announced earlier this year in this [blog](https://www.gocd.org/2019/05/21/official-stance-on-java/).
 
 <h4>Other Improvements</h4>
 
