@@ -1,6 +1,6 @@
 <h4> New Pipeline Creation Wizard </h4>
 
-We have introduced a new simplified pipeline creation wizard towards improving the user experience.
+We have introduced a new simplified pipeline creation wizard as part of our ongoing UI/UX refresh for improving the user experience.
 
 Feedback/ideas are welcome, please open an issue [here](https://github.com/gocd/gocd/issues) to add your comments.
 
@@ -10,11 +10,10 @@ Feedback/ideas are welcome, please open an issue [here](https://github.com/gocd/
 
 <h4>Introduce support for latest API version</h4>
 
-GoCD API's are versioned, accessing an API enpoint required providing a version number as part of the `Accept: application/vnd.go.cd.v3+json` header.
+GoCD API's are versioned, accessing an API endpoint required providing a version number as part of the `Accept: application/vnd.go.cd.v3+json` header.
+GoCD now allows accessing the latest version of an API by omitting the version number in the request header `Accept: application/vnd.go.cd+json`. More information can be found [here](https://github.com/gocd/gocd/issues/6620).
 
-GoCD now allows accessing the latest version of an API, this can be done by omitting the version number in the request header `Accept: application/vnd.go.cd+json`. More information can be found [here](https://github.com/gocd/gocd/issues/6620).
-
-<h4>Ability to trigger a stage only if previous stage succeeded</h4>
+<h4>Ability to trigger a stage only if the previous stage has succeeded</h4>
 
 Introduced the attribute `allowOnlyOnSuccess` for `approval` at stage level. If the attribute is set to `true`, the stage can be manually triggered only if the previous stage (if there is one) has resulted in success. More information can be found [here](https://github.com/gocd/gocd/issues/6294).
 
@@ -48,7 +47,7 @@ The removal of Java versions is in line with the Java Licensing Changes we had a
 * <%= link_to_issue 6827, 'Upgrading GoCD linux packages from 19.7.0 to 19.8.0 overwrites wrapper-properties.conf file' %>
 * <%= link_to_issue 6855, 'GoCD server emits "Weak cipher suite" warnings on startup' %>
 * <%= link_to_issue 6879, 'Sync environments when a config repo is deleted' %>
-* <%= link_to_issue 6892, 'Windows installer fails to install' %>
+* <%= link_to_issue 6892, 'Fixed issue with GoCD installation on Windows' %>
 
 <h4>API</h4>
 
