@@ -1,37 +1,58 @@
-<h4>some feature</h4>
+<h4> New Pipeline Creation Wizard </h4>
 
-<h4>Versions of Java this release of GoCD works with</h4>
-<ul>
-  <li>Java 8 (Deprecated)</li>
-  <li>Java 10 (Deprecated)</li>
-  <li>Java 11</li>
-  <li>Java 12</li>
-</ul>
+We have introduced a new simplified pipeline creation wizard as part of our ongoing UI/UX refresh for improving the user experience.
 
-<h4>API Improvements</h4>
+Feedback/ideas are welcome, please open an issue [here](https://github.com/gocd/gocd/issues) to add your comments.
 
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.8.0/new-pipeline-wizard.gif', alt: 'New Pipeline Creation Wizard' %>
+</figure>
+
+<h4>Introduce support for latest API version</h4>
+
+GoCD API's are versioned, accessing an API endpoint required providing a version number as part of the `Accept: application/vnd.go.cd.v3+json` header.
+GoCD now allows accessing the latest version of an API by omitting the version number in the request header `Accept: application/vnd.go.cd+json`. More information can be found [here](https://github.com/gocd/gocd/issues/6620).
+
+<h4>Ability to trigger a stage only if the previous stage has succeeded</h4>
+
+Introduced the attribute `allowOnlyOnSuccess` for `approval` at stage level. If the attribute is set to `true`, the stage can be manually triggered only if the previous stage (if there is one) has resulted in success. More information can be found [here](https://github.com/gocd/gocd/issues/6294).
+
+<h4>Java 8 and 10 deprecation</h4>
+
+Support for Java 8 and 10 will be removed in the next release of GoCD. GoCD installers come with Java Runtime pre-bundled, so users no longer need to install it separately.
+The removal of Java versions is in line with the Java Licensing Changes we had announced earlier this year in this [blog](https://www.gocd.org/2019/05/21/official-stance-on-java/).
 
 <h4>Other Improvements</h4>
 
+* Starting this release, Debian Buster (10) based images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-debian-10' %>.
+* <%= link_to_commit '08f7b6eb1eb357a93d9dae7c483c0734a33d59cc', 'Slim down the windows installer sizes' %>
+* <%= link_to_issue 6688, 'Allow plugins to execute javascript as part of angular plugin view' %>
+* <%= link_to_issue 6802, 'Add git, hg, svn, p4 version info to support output' %>
+* <%= link_to_issue 6826, 'Optimized GoCD server and agent docker image size' %>
+* <%= link_to_issue 6832, 'Synchronize user info with external sources' %>
 
 <h4>Bug fixes</h4>
 
+* <%= link_to_commit '6731045bfda31118b45ebd962dfcccd79ecda879', 'Fixed issue with analytics not loading up if AdBlock is enabled. A new version of analytics plugin has been released. Users will have to update to the same.' %>
+* <%= link_to_commit '35021fb30d51d929da63d95e9709eae85924b11e', 'Fix jetty warning on agent connection' %>
+* <%= link_to_commit 'fc61beb9b34540a9068a20aecbe42326483d1e3f', 'Fix the DIND image. Now the docker service is started using root user.' %>
+* <%= link_to_commit 'f10025be36aadf4ecf51b2bf7259ec2f8d387dd8', 'On uninstall, cleanup temp dirs that are left behind by server process.' %>
+* <%= link_to_issue 5587, 'Re-running failed jobs leaves a warning with null exception in the logs' %>
+* <%= link_to_issue 6376, 'Rerun old stage failing without providing console output' %>
+* <%= link_to_issue 6409, 'No indication of failure when subsequent stages are run after material config is changed post first stage run' %>
+* <%= link_to_issue 6640, 'Pipeline pause message is not shown completely on dashboard' %>
+* <%= link_to_issue 6682, 'Environments Get API does not honor If-None-Match header' %>
+* <%= link_to_issue 6727, 'Template Authorization API returns 404' %>
+* <%= link_to_issue 6815, 'Fix for world-writable files in go-agent and go-server packages.' %>
+* <%= link_to_issue 6827, 'Upgrading GoCD linux packages from 19.7.0 to 19.8.0 overwrites wrapper-properties.conf file' %>
+* <%= link_to_issue 6855, 'GoCD server emits "Weak cipher suite" warnings on startup' %>
+* <%= link_to_issue 6879, 'Sync environments when a config repo is deleted' %>
+* <%= link_to_issue 6892, 'Fixed issue with GoCD installation on Windows' %>
 
-<h4>New Deprecations</h4>
+<h4>API</h4>
 
-
-<h4>Deprecations</h4>
-
-* The notification plugin extension version 3 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 4 of the notification plugin api.
-* The analytics plugin extension version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the analytics plugin api.
-* The Get Server Info processor version 1 has been deprecated. This version will be removed in an upcoming release. Plugin developers should use version 2 of the Get Server Info processor.
-* <%= deprecated_api_message api_name: 'Pipeline config', old_api_version: 6, new_api_version: 8, new_api_available_in_release: '19.6.0', api_section: 'pipeline-config', removal_date_and_year: 'Aug 2019' %>
-* <%= deprecated_api_message api_name: 'Config repo', old_api_version: 1, new_api_version: 2, new_api_available_in_release: '19.4.0', api_section: 'config-repo', removal_date_and_year: 'Aug 2019' %>
-* Support for Java 8 has been deprecated. The support for the same will be removed in a release scheduled for November 2019.
-* <%= deprecated_api_message api_name: 'Plugin Info', old_api_version: 5, new_api_version: 6, new_api_available_in_release: '19.6.0', api_section: 'plugin-info', removal_date_and_year: 'Sept 2019' %>
-* Unversioned get all materials API has been deprecated in favor of get all materials API v1. This version will be removed in a release scheduled for Oct 2019.
-
-<h4>Breaking Changes</h4>
+* The API change log can be found <%= link_to_versioned_api '19.8.0','changes-in-19-8-0', 'here' %>.
+* The Plugin API change log can be found <%= link_to_versioned_plugin_api '19.8.0','changes-in-gocd-19-8-0', 'here' %>.
 
 
 <h4>Contributors</h4>
@@ -42,10 +63,8 @@
   "Ankit Srivastava",
   "Aravind SV",
   "Bhupendrakumar Piprava",
-  "Chandrakanth Nagaraj",
   "Dhanashri Pagar",
   "Ganesh S Patil",
-  "Huimin Li",
   "Isabelle Carter",
   "Jen Marley",
   "Jyoti Singh",
@@ -61,9 +80,11 @@
   "Rajiesh N",
   "Saurabh Mistry",
   "Sheroy Marker",
+  "Sneha Patil",
   "Steven Streisguth",
   "Tomasz Setkowski",
   "Varsha Varadarajan",
+  "Veerababu Kona",
   "Viraj Patil",
   "Vrushali Waykole",
 ].sort.uniq.join(', ')
@@ -71,7 +92,7 @@
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.4.0' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.8.0' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
