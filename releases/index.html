@@ -78,7 +78,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker">
-      <li rel="tab-19-7-0" class="tab-marker active">19.7.0 (latest)</li>
+      <li rel="tab-19-8-0" class="tab-marker active">19.8.0 (latest)</li>
+      <li rel="tab-19-7-0" class="tab-marker">19.7.0</li>
       <li rel="tab-19-6-0" class="tab-marker">19.6.0</li>
       <li rel="tab-19-5-0" class="tab-marker">19.5.0</li>
       <li rel="tab-19-4-0" class="tab-marker">19.4.0</li>
@@ -133,10 +134,100 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-19-7-0">19.7.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-19-8-0">19.8.0 (latest)</h3>
+      <div id="tab-19-8-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4> New Pipeline Creation Wizard </h4>
+
+<p>We have introduced a new simplified pipeline creation wizard as part of our ongoing UI/UX refresh for improving the user experience.</p>
+
+<p>Feedback/ideas are welcome, please open an issue <a href="https://github.com/gocd/gocd/issues">here</a> to add your comments.</p>
+
+<figure class="shrink-figure-100">
+    <img src="../assets/images/releases/19.8.0/new-pipeline-wizard-b98bde85.gif" alt="New Pipeline Creation Wizard" />
+</figure>
+
+<h4>Introduce support for latest API version</h4>
+
+<p>GoCD API's are versioned, accessing an API endpoint required providing a version number as part of the <code>Accept: application/vnd.go.cd.v3+json</code> header.
+GoCD now allows accessing the latest version of an API by omitting the version number in the request header <code>Accept: application/vnd.go.cd+json</code>. More information can be found <a href="https://github.com/gocd/gocd/issues/6620">here</a>.</p>
+
+<h4>Ability to trigger a stage only if the previous stage has succeeded</h4>
+
+<p>Introduced the attribute <code>allowOnlyOnSuccess</code> for <code>approval</code> at stage level. If the attribute is set to <code>true</code>, the stage can be manually triggered only if the previous stage (if there is one) has resulted in success. More information can be found <a href="https://github.com/gocd/gocd/issues/6294">here</a>.</p>
+
+<h4>Java 8 and 10 deprecation</h4>
+
+<p>Support for Java 8 and 10 will be removed in the next release of GoCD. GoCD installers come with Java Runtime pre-bundled, so users no longer need to install it separately.
+The removal of Java versions is in line with the Java Licensing Changes we had announced earlier this year in this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blog</a>.</p>
+
+<h4>Other Improvements</h4>
+
+<ul>
+  <li>Starting this release, Debian Buster (10) based images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-10">available</a>.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/08f7b6eb1eb357a93d9dae7c483c0734a33d59cc">08f7b6e</a></code> - Slim down the windows installer sizes.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6688">#6688</a> - Allow plugins to execute javascript as part of angular plugin view</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6802">#6802</a> - Add git, hg, svn, p4 version info to support output</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6826">#6826</a> - Optimized GoCD server and agent docker image size</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6832">#6832</a> - Synchronize user info with external sources</li>
+</ul>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/6731045bfda31118b45ebd962dfcccd79ecda879">6731045</a></code> - Fixed issue with analytics not loading up if AdBlock is enabled. A new version of analytics plugin has been released. Users will have to update to the same.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/35021fb30d51d929da63d95e9709eae85924b11e">35021fb</a></code> - Fix jetty warning on agent connection.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/fc61beb9b34540a9068a20aecbe42326483d1e3f">fc61beb</a></code> - Fix the DIND image. Now the docker service is started using root user.</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/f10025be36aadf4ecf51b2bf7259ec2f8d387dd8">f10025b</a></code> - On uninstall, cleanup temp dirs that are left behind by server process.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5587">#5587</a> - Re-running failed jobs leaves a warning with null exception in the logs</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6376">#6376</a> - Rerun old stage failing without providing console output</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6409">#6409</a> - No indication of failure when subsequent stages are run after material config is changed post first stage run</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6640">#6640</a> - Pipeline pause message is not shown completely on dashboard</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6682">#6682</a> - Environments Get API does not honor If-None-Match header</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6727">#6727</a> - Template Authorization API returns 404</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6815">#6815</a> - Fix for world-writable files in go-agent and go-server packages.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6827">#6827</a> - Upgrading GoCD linux packages from 19.7.0 to 19.8.0 overwrites wrapper-properties.conf file</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6855">#6855</a> - GoCD server emits "Weak cipher suite" warnings on startup</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6879">#6879</a> - Sync environments when a config repo is deleted</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6892">#6892</a> - Fixed issue with GoCD installation on Windows</li>
+</ul>
+
+<h4>API</h4>
+
+<ul>
+  <li>The API change log can be found <a href="https://api.gocd.org/19.8.0/#changes-in-19-8-0">here</a>.</li>
+  <li>The Plugin API change log can be found <a href="https://plugin-api.gocd.org/19.8.0/#changes-in-gocd-19-8-0">here</a>.</li>
+</ul>
+
+<h4>Contributors</h4>
+
+<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Dhanashri Pagar, Ganesh S Patil, Isabelle Carter, Jen Marley, Jyoti Singh, Ketan Padegaonkar, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mansi Shah, Marques Lee, Naveen Bhaskar, Rajiesh N, Saurabh Mistry, Sheroy Marker, Sneha Patil, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Veerababu Kona, Viraj Patil, Vrushali Waykole</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+19.8.0%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+<p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>.</p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-19-7-0">19.7.0</h3>
       <div id="tab-19-7-0" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Bug Fixes</h4>
+          <div class="information">
+  Windows Installer Issue: There is a known issue with the fresh install of 19.7.0 windows installers: <a href="https://github.com/gocd/gocd/issues/6892" target="_blank" rel="noopener">GitHub issue #6892</a>. There is a 19.8.0 release, which fixes this issue. It is recommended to use 19.8.0 windows installers.
+
+  <br />
+  <br />
+
+  Updated: Friday 06 SEP at 07:25:00 UTC 2019
+</div>
+
+<h4>Bug Fixes</h4>
 
 <ul>
   <li><a href="https://github.com/gocd/gocd/issues/6666">#6666</a> - Fixes issue with GoCD server/agent not automatically starting on a server restart.</li>
@@ -194,8 +285,11 @@
 
   <br />
   <br />
+  Windows Installer Issue: There is a known issue with the fresh install of 19.6.0 windows installers: <a href="https://github.com/gocd/gocd/issues/6892" target="_blank" rel="noopener">GitHub issue #6892</a>. There is a 19.8.0 release, which fixes this issue. It is recommended to use 19.8.0 windows installers.
+  <br />
+  <br />
 
-  Updated: Wed 01 Aug at 04:15:00 UTC 2019
+  Updated: Friday 06 SEP at 07:25:00 UTC 2019
 </div>
 
 <h4>Secrets Management</h4>
@@ -310,7 +404,7 @@ In this release, a security issue responsibly disclosed by <a href="https://hack
 
 <h4>Note</h4>
 
-<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+19.4.0%22+is%3Aclosed">here.</a></p>
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+19.6.0%22+is%3Aclosed">here.</a></p>
 
 <p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
 
@@ -333,7 +427,7 @@ To enable token-based auth, set the environment variable <code>GO_USE_TOKEN_AUTH
 <h4>Other Improvements</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/pull/6299">#6299</a> - A new request has been added to the plugin API endpoint to allow elastic agent plugins to <a href="https://plugin-api.gocd.org/current/elastic-agents/#log-messages-to-job-console">log messages to the job console</a>.</li>
+  <li><a href="https://github.com/gocd/gocd/pull/6299">#6299</a> - A new request has been added to the plugin API endpoint to allow elastic agent plugins to <a href="https://plugin-api.gocd.org/current/#elastic-agents/#log-messages-to-job-console">log messages to the job console</a>.</li>
 </ul>
 
 <h4>Bug fixes</h4>
@@ -3104,7 +3198,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 
 <h4>Plugin enhancements</h4>
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/3c001b1d376263e964495723fb76a4771ca8a705">3c001b1</a></code> - V2 of <a href="https://plugin-api.gocd.org/current/notifications">Notification endpoint</a>. (<a href="https://github.com/gocd/gocd/issues/3030">#3030</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/3c001b1d376263e964495723fb76a4771ca8a705">3c001b1</a></code> - V2 of <a href="https://plugin-api.gocd.org/current/#notifications">Notification endpoint</a>. (<a href="https://github.com/gocd/gocd/issues/3030">#3030</a>)</li>
 </ul>
 
 <h4>Other Improvements</h4>
