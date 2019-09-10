@@ -10,17 +10,16 @@ Feedback/ideas are welcome, please open an issue [here](https://github.com/gocd/
 
 <h4>Introduce support for latest API version</h4>
 
-GoCD API's are versioned, accessing an API endpoint required providing a version number as part of the `Accept: application/vnd.go.cd.v3+json` header.
-GoCD now allows accessing the latest version of an API by omitting the version number in the request header `Accept: application/vnd.go.cd+json`. More information can be found [here](https://github.com/gocd/gocd/issues/6620).
+GoCD’s APIs are versioned. Accessing an API endpoint requires providing a version number as part of the `Accept` header. GoCD now allows accessing the latest version of an API by omitting the version number in the header. For instance, you can use `Accept: application/vnd.go.cd+json` instead of `Accept: application/vnd.go.cd.v3+json`. More information can be found on [GitHub issue #6620](https://github.com/gocd/gocd/issues/6620).
 
 <h4>Ability to trigger a stage only if the previous stage has succeeded</h4>
 
-Introduced the attribute `allowOnlyOnSuccess` for `approval` at stage level. If the attribute is set to `true`, the stage can be manually triggered only if the previous stage (if there is one) has resulted in success. More information can be found [here](https://github.com/gocd/gocd/issues/6294).
+Introduced the attribute `allowOnlyOnSuccess` for `approval` at stage level. If the attribute is set to `true`, the stage can be manually triggered only if the previous stage (if there is one) has resulted in success. More information can be found on [GitHub issue #6294](https://github.com/gocd/gocd/issues/6294).
 
 <h4>Java 8 and 10 deprecation</h4>
 
 Support for Java 8 and 10 will be removed in the next release of GoCD. GoCD installers come with Java Runtime pre-bundled, so users no longer need to install it separately.
-The removal of Java versions is in line with the Java Licensing Changes we had announced earlier this year in this [blog](https://www.gocd.org/2019/05/21/official-stance-on-java/).
+The removal of Java versions is in line with the Java Licensing Changes we had announced earlier this year in this [blog post](https://www.gocd.org/2019/05/21/official-stance-on-java/).
 
 <h4>Other Improvements</h4>
 
@@ -49,10 +48,9 @@ The removal of Java versions is in line with the Java Licensing Changes we had a
 * <%= link_to_issue 6879, 'Sync environments when a config repo is deleted' %>
 * <%= link_to_issue 6892, 'Fixed issue with GoCD installation on Windows' %>
 
-<h4>API</h4>
+<h4>APIs</h4>
 
-* The API change log can be found <%= link_to_versioned_api '19.8.0','changes-in-19-8-0', 'here' %>.
-* The Plugin API change log can be found <%= link_to_versioned_plugin_api '19.8.0','changes-in-gocd-19-8-0', 'here' %>.
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '19.8.0','changes-in-19-8-0', 'API changelog for 19.8.0' %> and <%= link_to_versioned_plugin_api '19.8.0','changes-in-gocd-19-8-0', 'Plugin API changelog for 19.8.0' %>.
 
 
 <h4>Contributors</h4>
