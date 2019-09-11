@@ -1,19 +1,19 @@
 ---
 layout: post
-title: Configuring GoCD Agents in GoCD in Kubernetes
+title: Configuring GoCD Agents in Kubernetes
 type: post
 author: Mohamed Najiullah
 excerpt: "If your pipelines involve creating a docker image and pushing it to a registry/repository, you can use the above steps to create an Artifact Store with that registry."
-summary_image: "/assets/images/blog/cd-hacks/google-container-registry-artifact-store.jpg"
-title_tag_of_header: "Configuring Google Container Registry (GCR) as an Artifact Store in GoCD"
-meta_description: "Configuring Google Container Registry (GCR) as an Artifact Store in GoCD"
-meta_keywords: "gcr, google container registry, artifact store, continuous delivery, ci cd, docker"
+summary_image: "/assets/images/blog/cd-hacks/configure-gocd-kubernetes.jpg"
+title_tag_of_header: "Configuring GoCD Agents in Kubernetes"
+meta_description: "Configuring GoCD Agents in Kubernetes"
+meta_keywords: "agents, workers, gocd, kubernetes, k8s, continuous delivery, ci cd, "
 draft: true
 ---
 
 <% content_for :banner do %>
   <figure>
-    <img src="/assets/images/blog/cd-hacks/google-container-registry-artifact-store.jpg" alt="Configuring Google Container Registry as an Artifact Store in GoCD"/>
+    <img src="/assets/images/blog/cd-hacks/configure-gocd-kubernetes.jpg" alt="Configuring Google Container Registry as an Artifact Store in GoCD"/>
   </figure>
 <% end %>
 
@@ -24,12 +24,12 @@ While exploring how to do it, we had to spend some time to find out all the info
 
 While carrying out our spike on our CI/CD infrastructure from a VM based design to a Kubernetes based one, we also had to configure GoCD Agents. According to the official documentation,
 
->GoCD Agents are the workers in the GoCD ecosystem. All tasks configured in the system run on GoCD Agents.
+>*GoCD Agents are the workers in the GoCD ecosystem. All tasks configured in the system run on GoCD Agents.*
 
 The latest version of GoCD offers two types of GoCD agents, Static and Elastic.
 
 ##Static Agents
-In our old system, we have a predefined number of Go Agents. These agents are VMs that we had created, provisioned and connected to the Go Server using Infrastructure as Code tools like Puppet. The agents needed a number of tools and packages to do the things we needed them to do. All these tools and packages had to be provisioned into all the agents individually once we had created them.
+In our old system, we have a predefined number of GoCD Agents. These agents are VMs that we had created, provisioned and connected to the Go Server using Infrastructure as Code tools like Puppet. The agents needed a number of tools and packages to do the things we needed them to do. All these tools and packages had to be provisioned into all the agents individually once we had created them.
 
 But for a GoCD setup on Kubernetes, it becomes much simpler to maintain agents as every agent is simply a pod. The GoCD Helm chart allows us to configure always running agents using the values in the values.yaml file I’ve mentioned in my previous post.
 
@@ -144,6 +144,7 @@ As you can see the pod spec has been specified in YAML. You will have to set the
 
 If you want the pod to have SSH access to a Git service, you can create a secret with the SSH files and then mount it like shown in the pod spec above. Doing this should give your elastic agents access to your Git repositories.
 
-*This article was originally posted on [Mohamed Najiullah blog](https://mohamednajiullah.tech/configuring-go-agents-in-gocd-in-kubernetes-static-and-elastic-agents-c5dbf5f6a01d)*
-
 So there you go. I hope you find it useful. If you have any questions, please feel free to comment and I’ll answer from whatever I’ve learnt so far.
+        
+*This article was originally posted on [Mohamed Najiullah's blog](https://mohamednajiullah.tech/configuring-go-agents-in-gocd-in-kubernetes-static-and-elastic-agents-c5dbf5f6a01d)*
+
