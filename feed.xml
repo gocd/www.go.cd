@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2019-08-05T00:00:00Z</updated>
+  <updated>2019-09-17T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Configuring GoCD Agents in Kubernetes</title>
+    <link rel="alternate" href="https://www.gocd.org/2019/09/17/configure-gocd-agents-kubernetes-static-elastic.html"/>
+    <id>https://www.gocd.org/2019/09/17/configure-gocd-agents-kubernetes-static-elastic.html</id>
+    <published>2019-09-17T00:00:00Z</published>
+    <updated>2019-09-17T00:00:00Z</updated>
+    <author>
+      <name>Mohamed Najiullah</name>
+    </author>
+    <content type="html">If your pipelines involve creating a docker image and pushing it to a registry/repository, you can use the above steps to create an Artifact Store with that registry.</content>
+  </entry>
   <entry>
     <title>Configuring Google Container Registry (GCR) as an Artifact Store in GoCD</title>
     <link rel="alternate" href="https://www.gocd.org/2019/08/05/configure-container-registry-gcr-artifact-store-gocd.html"/>
@@ -107,16 +118,5 @@
       <name>Aravind S.V, Product Manager at GoCD</name>
     </author>
     <content type="html">GoCD has released several new features recently. Here's an overview of what you can look forward to using.</content>
-  </entry>
-  <entry>
-    <title>Remediation Strategy for Continuous Delivery of Microservices</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/09/11/cd-microservices-remediation-strategy.html"/>
-    <id>https://www.gocd.org/2018/09/11/cd-microservices-remediation-strategy.html</id>
-    <published>2018-09-11T00:00:00Z</published>
-    <updated>2018-09-11T00:00:00Z</updated>
-    <author>
-      <name>Sheroy Marker</name>
-    </author>
-    <content type="html">In this post, we'll look at remediation strategies when there's instability or bugs.</content>
   </entry>
 </feed>

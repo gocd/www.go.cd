@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Configuring GoCD Agents in Kubernetes" name="description" />
+    <meta content="agents, workers, gocd, kubernetes, k8s, continuous delivery, ci cd" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Configuring GoCD Agents in Kubernetes" />
+    <meta name="twitter:description" content="Configuring GoCD Agents in Kubernetes" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-hacks/configure-gocd-kubernetes-54b43f25.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2019/09/17/configure-gocd-agents-kubernetes-static-elastic" />
+
+    <title>Configuring GoCD Agents in Kubernetes</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-5607c390.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-8dd4da1c.js"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+    });
+    </script>
+  </head>
+
+  <body class="x2019 x2019_09 x2019_09_17 x2019_09_17_configure-gocd-agents-kubernetes-static-elastic x2019_09_17_configure-gocd-agents-kubernetes-static-elastic_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+
+        <li class="dropdown"><a href="../../../../enterprise/" class="link_enterprise" analytics-label="Enterprise">Enterprise</a>
+          <ul class="level1 mobile-nav">
+            <li><a href="../../../../enterprise/" class="link_overview">Overview</a></li>
+            <li><a href="../../../../enterprise/addons/" class="link_addons">Add-ons</a></li>
+            <li><a href="../../../../enterprise/support/" class="link_support">Support</a></li>
+            <li><a href="../../../../enterprise/pricing/" class="link_pricing">Pricing</a></li>
+            <li><a href="../../../../enterprise/contact/" class="link_contact">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../../assets/images/blog/cd-hacks/configure-gocd-kubernetes-54b43f25.jpg" alt="Configuring Google Container Registry as an Artifact Store in GoCD"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Configuring <span class="go">Go</span>CD Agents in Kubernetes</h1>
+    <h4>Mohamed Najiullah</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>Recently, a colleague and I had to spike on the possibility of migrating our CI/CD infrastructure from a VM based design to a Kubernetes based one.</p>
+
+<p>While exploring how to do it, we had to spend some time to find out all the information we needed just to install and configure GoCD without the migration. So I decided to write this and a few other posts hoping someone like me would find it helpful. This is the third part on Configuring Go Agents in GoCD in Kubernetes: Static and Elastic Agents. You can find the first part on Installing and Configuring GoCD on GKE using Helm here and the second part on Configuring Google Container Registry (GCR) as an Artifact Store in GoCD here.</p>
+
+<p>While carrying out our spike on our CI/CD infrastructure from a VM based design to a Kubernetes based one, we also had to configure GoCD Agents. According to the official documentation,</p>
+
+<blockquote>
+  <p><em>GoCD Agents are the workers in the GoCD ecosystem. All tasks configured in the system run on GoCD Agents.</em></p>
+</blockquote>
+
+<p>The latest version of GoCD offers two types of GoCD agents, Static and Elastic.</p>
+
+<h2 id="static-agents">Static Agents</h2>
+<p>In our old system, we have a predefined number of GoCD Agents. These agents are VMs that we had created, provisioned and connected to the Go Server using Infrastructure as Code tools like Puppet. The agents needed a number of tools and packages to do the things we needed them to do. All these tools and packages had to be provisioned into all the agents individually once we had created them.</p>
+
+<p>But for a GoCD setup on Kubernetes, it becomes much simpler to maintain agents as every agent is simply a pod. The GoCD Helm chart allows us to configure always running agents using the values in the values.yaml file I’ve mentioned in my previous post.</p>
+
+<p>This greatly simplifies provisioning the agents as all we have to do is create a Docker image with all the tools and packages installed in it. Once we have this image ready we can specify it in the agent.image section of the values.yaml fileas follows</p>
+
+<pre><code>agent:
+  image:
+    # agent.image.repository is the GoCD Agent image name
+    repository: "gocd/gocd-agent-alpine-3.9"# agent.image.tag is the GoCD Agent image's tag
+    tag: v19.3
+    # agent.image.pullPolicy is the GoCD Agent image's pull policy
+    pullPolicy: "IfNotPresent" # agent.replicaCount is the GoCD Agent replicas Count. Specify the number of GoCD agents to run
+  replicaCount: 2
+</code></pre>
+
+<p>The above example states that the agent repository is gocd/gocd-agent-alpine-3.9 with the version being v19.3. You can also the specify the replica count. This is the number of agents that will be running once the values are deployed.</p>
+
+<p>Every time a new tool or package is to be added to the agent, a new image can be created. Then this image can be referenced in the given image fields before being applied. This greatly simplifies the upgrade process.</p>
+
+<p>*Note:</p>
+
+<ol>
+  <li>The given repository should be public. If a private repository is used, then the Go server should have access to it. I have mentioned how to configure access for a private repository using the Docker Artifact Store plugin here.</li>
+  <li>All agents that are created after applying the values will be in a pending state. They have to be manually enabled.*</li>
+</ol>
+
+<p>There are many other configuration options available in the <a href="https://github.com/helm/charts/blob/master/stable/gocd/values.yaml">values.yaml</a> that can be used to configure the agents. One important example is the security.ssh section that allows us to mount a SSH files using a kubernetes secret. This can be used to allow access to various VCS that use SSH to control access. I’ve explained it in a little more detail in the first post of this series. You can also specify the <a href="https://github.com/helm/charts/blob/480ad2744095a7ca62699c7cd97d20e2491a4852/stable/gocd/values.yaml#L268">storage</a>, <a href="https://github.com/helm/charts/blob/480ad2744095a7ca62699c7cd97d20e2491a4852/stable/gocd/values.yaml#L348">memory as well as maximum CPU allocation</a> for the agents.</p>
+
+<h2 id="elastic-agents">Elastic Agents:</h2>
+
+<p>We also experimented with elastic agents which is a relatively new feature offered by GoCD. According to the official documentation</p>
+
+<p>Elastic Agents is an extension-point in GoCD that allows for on-demand agents which are created and provisioned by an elastic-agent plugin when there are jobs to be executed, and terminated when the agents are running idle.</p>
+
+<p>Elastic Agents have a significant advantage in that they get created when there is a pending job and get destroyed when the job gets completed. This can theoretically result in a lot of cost saving as the agents don’t have to keep on waiting for a job but rather are created only when necessary.</p>
+
+<p>I can explain a scenario of how using elastic agents can result in cost savings. You can provision a cluster with a single n1-standard-1 VM (3.5GB RAM, 1vCPU) to start with. You can then enable the auto-scaling feature with a reasonable maximum node limit. This will ensure that when no jobs are running all nodes except the first node will be deleted resulting in cost saving compared to have a fixed number of static Go agents.</p>
+
+<p>GoCD offers a number of <a href="https://www.gocd.org/plugins/#elastic-agents">plugins</a> that support different Cloud providers like AWS or Azure or different orchestration platforms like DockerSwarm or Kubernetes. Considering that we were trying this out on Kubernetes we used the GoCD Elastic Agent plugin for Kubernetes.</p>
+
+<h2 id="elastic-agent-profiles">Elastic Agent Profiles</h2>
+
+<p>Elastic Agent Profiles allows you to configure elastic agents. This configuration allows you to specify the following</p>
+
+<ul>
+  <li>Container Image with its tag</li>
+  <li>Max Memory and CPU</li>
+  <li>Security Context</li>
+  <li>Volume Mounts</li>
+  <li>Environment Variables</li>
+</ul>
+
+<p>The configuration can be specified using the UI or by making a <em>cURL</em> request to the API exposed by the Go Server.</p>
+
+<h2 id="configuration-using-ui">Configuration Using UI</h2>
+
+<p>The UI option can be found under the Elastic Profiles section in the Admin menu of the Go Dashboard. You’ll be able to see a cluster profile called k8-cluster-profile. You can see the existing elastic agent profiles if you expand the section. You’ll find an option to add an Elastic Agent Profile. If you select it, you’ll be able to see a pop-up window with 3 options on how to specify the Agent Pod configuration. You can either</p>
+
+<ul>
+  <li>Use the config properties option to add the configuration using the various fields.</li>
+  <li>Use the Pod Yaml option to specify the pod’s configuration in yaml.</li>
+  <li>Use the Remote file option to specify the pod’s configuration using an external <em>json</em> or <em>yaml</em> file.</li>
+</ul>
+
+<h2 id="configuration-using-api-post-request">Configuration Using API POST Request</h2>
+
+<p>You can also configure an Elastic Agent profile using the API that the GoCD server exposes. You can simply make a POST call using cURL like the following</p>
+
+<pre><code>curl -vi "[http://$gocd_public_ip/go/api/elastic/profiles](http://$gocd_public_ip/go/api/elastic/profiles)" \
+           -u "$USERNAME:$PASSWORD" \
+           -H 'Accept: application/vnd.go.cd.v2+json' \
+           -H 'Content-Type: application/json' \
+           -X POST -d '{
+        "id": "goagent-1",
+        "plugin_id": "cd.go.contrib.elasticagent.kubernetes",
+        "cluster_profile_id": "k8-cluster-profile",
+        "properties": [
+          {
+            "key": "PodConfiguration",
+            "value": "apiVersion: v1
+kind: Pod
+metadata:
+  name: gocd-agent-{{ POD_POSTFIX }}
+  labels:
+    app: web
+spec:
+  serviceAccountName: default
+  containers:
+    - name: gocd-agent-container-{{ CONTAINER_POSTFIX }}
+      image: &lt;image-name-with-version&gt;
+      volumeMounts:
+      - name: gocd-agent-ssh
+        mountPath: \"/home/go/.ssh\"
+        readOnly: true
+  volumes:
+  - name: gocd-agent-ssh
+    secret:
+      secretName: gocd-agent-ssh"
+          },
+          {
+            "key": "PodSpecType",
+            "value": "yaml"
+          },
+          {
+            "key": "Privileged",
+            "value": "true"
+          }
+        ]
+      }'
+</code></pre>
+
+<p>As you can see the pod spec has been specified in YAML. You will have to set the variables <strong>_$gocd_public_ip</strong> , <strong>$USERNAME</strong> <em>and</em> <strong>$PASSWORD</strong> with the appropriate values. The username and password should be of a user that has admin privileges to run the above command. If you want to configure using other options, you can use the appropriate keys in the properties array.</p>
+
+<h2 id="git-repositories-access-using-git">Git Repositories Access Using Git</h2>
+
+<p>If you want the pod to have SSH access to a Git service, you can create a secret with the SSH files and then mount it like shown in the pod spec above. Doing this should give your elastic agents access to your Git repositories.</p>
+
+<p>So there you go. I hope you find it useful. If you have any questions, please feel free to comment and I’ll answer from whatever I’ve learnt so far.</p>
+
+<p><em>This article was originally posted on <a href="https://mohamednajiullah.tech/configuring-go-agents-in-gocd-in-kubernetes-static-and-elastic-agents-c5dbf5f6a01d">Mohamed Najiullah's blog</a></em></p>
+
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-ariticles">
+          <section class='post'>
+            <div class='subscribe-to-blog blogpost'>
+   <h3 class='subscribe-title'>Subscribe to The Pipeline</h3>
+   <p style="font-size:12px; font-weight:300">A bi-monthly newsletter with continuous delivery news and events.</p>
+    <div id="subscribe-info">
+      <form id="mktoForm_5414"></form>
+      <div class="form-loading-error"></div>
+    </div>
+    <script defer="true" src="//app-e.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script defer="true" src="../../../../assets/javascripts/marketo_popover-dbbdf145.js" onload="new MarketoForm('//app-e.marketo.com', '199-QDE-291').init(5414)"></script>
+</div>
+
+          </section>
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Sep 17</span>
+              <span class="post-author">Mohamed Najiullah</span>
+              <a href="./">Configuring GoCD Agents in Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Aug  5</span>
+              <span class="post-author">Mohamed Najiullah</span>
+              <a href="../../../08/05/configure-container-registry-gcr-artifact-store-gocd/">Configuring Google Container Registry (GCR) as an Artifact Store in GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 25</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../../06/25/GoCD-non-root-containers/">Running Dockerized GoCD Containers as Non Root</a>
+            </li>
+            <li>
+              <span class="post-date">May 21</span>
+              <span class="post-author">GoCD Team</span>
+              <a href="../../../05/21/official-stance-on-java/">Effect of Java licensing changes on GoCD</a>
+            </li>
+            <li>
+              <span class="post-date">May 14</span>
+              <span class="post-author">Mohamed Najiullah</span>
+              <a href="../../../05/14/installing-configuring-gocd-gke-using-helm/">Installing and Configuring GoCD on GKE using Helm</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2019 (7)</a></li>
+            <li><a href="../../../../2018/">2018 (17)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (26)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2019/09/17/configure-gocd-agents-kubernetes-static-elastic.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/goforcd" target="_blank" analytics-label="twitter">
+          <i class="icon fa fa-twitter fa-4x follow-us" aria-hidden="true"></i>
+          <span>follow us</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="../../../../subscribe/"><i class= 'icon fa fa-envelope fa-4x subscribe' aria-hidden='true'></i> <span>subscribe</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li> <a href="../../../../events/">WEBINARS + EVENTS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../enterprise/support/">ENTERPRISE SUPPORT</a> </li>
+            <li><a href="https://support.thoughtworks.com/hc/en-us/requests/new" target="_blank">SUBMIT A TICKET</a></li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>
