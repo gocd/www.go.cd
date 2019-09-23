@@ -1,5 +1,10 @@
 $dark-text-color: #25282D;
 $signup-button-bg: #4ad9d9;
+
+.support-testimonial-section {
+  padding-bottom: 60px;
+}
+
 .support-banner-container {
   padding: 20px 0;
   display: flex;
@@ -78,7 +83,6 @@ $signup-button-bg: #4ad9d9;
 
 .support-banner-cta {
   margin: 20px auto;
-  text-transform: uppercase;
   background: $signup-button-bg;
   @media (min-width: $screen-md) {
     margin: 30px auto;
