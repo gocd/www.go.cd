@@ -132,3 +132,13 @@
   releases_url: https://github.com/tomzo/gocd-rocketchat-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=tomzo&repo=gocd-rocketchat-plugin&type=watch&count=true
   first_available_date: 09/2018
+  
+- name: HTTP Notifications
+  description: Plugin to send GoCD Notifications for agent and stage status to arbitrary number of endpoints via POST request
+  readmore_url: https://github.com/matic-insurance/gocd-http-notifications-plugin
+  author_url: https://github.com/volodymyr-mykhailyk
+  author_name: Volodymyr Mykhailyk
+  releases_url: https://github.com/matic-insurance/gocd-http-notifications-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=matic-insurance&repo=gocd-http-notifications-plugin&type=watch&count=true
+  first_available_date: 09/2019
+
