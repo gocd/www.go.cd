@@ -10,7 +10,7 @@
     var manifest = paramToggle(window.location.search, "dl", "latest") ? "latest.json" : "stable.json";
 
     $.ajax({
-      url: new URL(BASE_URL + "/" + manifest).toString(),
+      url: [BASE_URL, manifest].join("/"),
       dataType: "json"
     }).done(function(data) {
       data = data || {};
@@ -22,11 +22,11 @@
 
       for (var i = 0, plt, meta, len = platforms.length; i < len; i++) {
         plt = platforms[i];
-        meta = data[plt]
+        meta = data[plt];
 
         if (null === filesize) {
           if (plt === os() || i === len - 1) {
-            filesize = meta.size
+            filesize = meta.size;
           }
         }
 
@@ -52,13 +52,13 @@
   }, false);
 
   function downloadUrl(baseUrl, plt, meta) {
-    return new URL([
+    return [
       baseUrl,
       "installers",
       meta.version,
       meta.build,
       ["gocd", meta.version, meta.build, meta.trialbuild, plt + ".zip"].join("-")
-    ].join("/")).toString()
+    ].join("/");
   }
 
   function el(tag, attrs, content, isHtml) {
