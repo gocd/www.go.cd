@@ -1,0 +1,71 @@
+<h4>Support for Java 8 and 10 removed</h4>
+
+Support for Java 8 and 10 has been dropped from this release. This is in line with our [official stance on Java](https://www.gocd.org/2019/05/21/official-stance-on-java/) we announced earlier this year post the Java Licensing Changes.
+
+Starting 19.9.0, GoCD Server and Agent would only support Java 11 or 12. Support for Java 13 will be introduced soon. GoCD installers from 19.6.0 come with Java Runtime pre-bundled, so users no longer need to install it separately.
+
+Users might need to upgrade the GoCD Agent Bootstrapper. More information can be found [here](https://github.com/gocd/gocd/issues/7007)
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_issue 911, 'Moved agent configuration out of the main xml configuration.' %>
+* <%= link_to_issue 6919, 'Improve performance of artifact download and digesting.' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_commit '4c54c9b5fcc0fe0f47f014b062d7644eac6b1b32', 'Fix git failure on Centos 7 based GoCD agent docker images' %>
+* <%= link_to_issue 6918, 'Error on opening on job details in the absence of cluster profile ' %>
+* <%= link_to_issue 6942, 'Rules reordering not working on edit of secret config' %>
+* <%= link_to_issue 6952, 'GoCD page suddenly asking for client certificate' %>
+* <%= link_to_issue 6968, 'Materials API return 404 for existing materials and modifications in 19.8.0' %>
+* <%= link_to_issue 6973, 'Ignore unknown properties while upgrading plugin profile configuration' %>
+* <%= link_to_issue 6979, 'Add missing working directory replacement during agent duplication' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '19.9.0','changes-in-19-9-0', 'API changelog for 19.9.0' %> and <%= link_to_versioned_plugin_api '19.9.0','changes-in-gocd-19-9-0', 'Plugin API changelog for 19.9.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Ankit Srivastava",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Dhanashri Pagar",
+  "Ganesh S Patil",
+  "Isabelle Carter",
+  "Jen Marley",
+  "Jyoti Singh",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Kritika Singh",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Mansi Shah",
+  "Marques Lee",
+  "Rajiesh N",
+  "Saurabh Mistry",
+  "Sebastian Goral",
+  "Sheroy Marker",
+  "Sneha Patil",
+  "Steven Streisguth",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan",
+  "Veerababu Kona",
+  "Viraj Patil",
+  "Vrushali Waykole",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.9.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
