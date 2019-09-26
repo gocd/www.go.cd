@@ -1,12 +1,12 @@
-Last updated: 2019-09-25 23:53:24 -0700
+Last updated: 2019-09-26 16:13:31 -0700
 
 Latest commit:
-    commit 5c0223290f3ca2df4e233843934acdb9f6e9437f
-    Merge: 46cb8d2 ce2473d
-    Author: Kritika <kritika.singh@thoughtworks.com>
-    Date:   Thu Sep 26 12:12:59 2019 +0530
+    commit ed08dd3fbe71099fc891aaba7392f26276694ff7
+    Merge: 5c02232 2b4bbca
+    Author: marques-work <marques.lee@thoughtworks.com>
+    Date:   Thu Sep 26 13:40:58 2019 -0700
     
-        Merge pull request #1065 from viraj2712/release-notes-fot-19.9.0
+        Merge pull request #1064 from marques-work/master
         
-        Release notes for 19.9.0
+        Fix Test Drive download to be compatible with legacy browsers, namely IE.
     
