@@ -28,7 +28,7 @@ meta_keywords: "GoCD, continuous delivery, goforcd, open source, software, contr
   <% end.sort.reverse.collect(&:to_s) %>
 
   <div class="v-tabs all-releases">
-    <ul class="tabs tab-container-marker">
+    <ul class="tabs tab-container-marker release-versions">
       <%  releases.each_with_index do |release, index| %>
       <li rel="tab-<%= release.gsub('.', '-') %>" class="tab-marker<%= ' active' if index == 0 %>"><%= release %><%= ' (latest)' if index == 0 %></li>
       <% end %>
