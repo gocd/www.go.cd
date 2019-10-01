@@ -12,7 +12,10 @@
 .all-releases {
   @include clearfix;
   margin: 30px 0;
-
+  .release-versions {
+    height: 500px;
+    overflow-y: scroll;
+  }
   .content {
     width: 100%;
 
