@@ -138,10 +138,77 @@ body.test-drive-gocd {
     }
   }
 
-  .download-test-drive-links::after {
-    content: "";
-    clear:   both;
-    display: table;
+  .download-test-drive-links {
+    &:after {
+      content: "";
+      clear:   both;
+      display: table;
+    }
+
+    .platform-selector {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .platform {
+      flex-basis: 33%;
+      font-weight: bold;
+      text-decoration: none;
+      color: #444;
+      padding: 5px;
+      text-align: center;
+
+      &:hover {
+        border-bottom: 4px solid #ddd;
+      }
+
+      &.selected, &.selected:hover {
+        border-bottom: 4px solid #666;
+      }
+    }
+  }
+
+  .one-liners {
+    vertical-align: middle;
+    pre[class*=language-] {
+      display: inline-block;
+      padding: 8px 15px;
+      height: 42px;
+      margin: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      width: calc(100% - 50px);
+      vertical-align: middle;
+
+      code[class*=language-] {
+        display: inline-block;
+        line-height: 26px;
+        height: 26px;
+      }
+    }
+
+    .click-to-copy {
+      vertical-align: middle;
+      display: inline-block;
+      margin: 0;
+      padding: 8px;
+      border-radius: 3px;
+      border: 1px solid #e2e2e2;
+      background: #f3f3f3;
+      line-height: 26px;
+      height: 42px;
+      width: 35px;
+      color: #666;
+      cursor: pointer;
+
+      &:focus, &:active {
+        outline: none;
+      }
+
+      &:hover {
+        background: #fff;
+      }
+    }
   }
 
   .download-test-drive-package {

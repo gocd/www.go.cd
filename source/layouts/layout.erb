@@ -16,7 +16,7 @@
     <title><%= value_or_title_as_default(:title_tag_of_header) %></title>
     <link href="<%= url_for '/assets/images/favicon.ico' %>" rel="shortcut icon" />
     <%= stylesheet_link_tag :site %>
-    <%= javascript_include_tag :all %>
+    <%= javascript_include_tag :all, {:"data-manual" => true} %>
     <%= auto_javascript_include_tag %>
     <%= feed_tag :atom, url_for("/feed.xml"), title: "GoCD blog feed" %>
     <script>
