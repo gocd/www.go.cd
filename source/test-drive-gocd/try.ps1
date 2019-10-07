@@ -40,7 +40,12 @@ function Main {
 
   Emph "Unpacking archive ${filename}"
 
-  try { Expand-Archive -Path "$filename" -Force -DestinationPath . } catch {  "Failed to unpack archive ${filename}" }
+  try {
+    [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
+    [System.IO.Compression.ZipFile]::ExtractToDirectory($(Join-Path -Path $(Get-Location) -ChildPath $filename), $(Get-Location))
+  } catch {
+    "Failed to unpack archive ${filename}"
+  }
 
   if (-not (Test-Path "$install_dir" -PathType Container)) {
     Die "Did not unpack to the expected folder: ${install_dir}"
