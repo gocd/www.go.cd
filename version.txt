@@ -1,9 +1,9 @@
-Last updated: 2019-10-07 15:56:35 -0700
+Last updated: 2019-10-07 16:24:18 -0700
 
 Latest commit:
-    commit f1a0907d4aa10a1c76634720799c6728c1e5766f
+    commit 25ea8553d5f215481142d4f1e395e5eec4a0d8eb
     Author: Marques Lee <marques.lee@thoughtworks.com>
-    Date:   Mon Oct 7 15:39:33 2019 -0700
+    Date:   Mon Oct 7 16:10:37 2019 -0700
     
-        Use older dotnet unzip method for powershell one-liner to support server 2012 and windows 8.1
+        Use plain console out instead of Write-Progress as that has a big impact on performance for all but the latest powershell versions
     

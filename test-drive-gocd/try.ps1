@@ -41,6 +41,7 @@ function Main {
   Emph "Unpacking archive ${filename}"
 
   try {
+    # Expand-Archive is not available in Server 2012 and Windows 8.1 be default
     [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
     [System.IO.Compression.ZipFile]::ExtractToDirectory($(Join-Path -Path $(Get-Location) -ChildPath $filename), $(Get-Location))
   } catch {
@@ -103,7 +104,8 @@ function WebGet {
     $len = $rstr.Read($buf, 0, $buf.length)
     $soFar = $soFar + $len
 
-    Write-Progress -activity "  -> '$file'" -status "Downloaded ($([System.Math]::Floor($soFar/1024))K of $($total)K): " -PercentComplete ((([System.Math]::Floor($soFar/1024)) / $total)  * 100)
+    [System.Console]::CursorLeft = 0
+    [System.Console]::Write("Downloaded {0}K of {1}K", [System.Math]::Floor($soFar/1024), $total)
   }
 
   "`nDownload complete: $file"
