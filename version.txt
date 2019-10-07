@@ -1,12 +1,9 @@
-Last updated: 2019-09-26 16:13:31 -0700
+Last updated: 2019-10-07 15:56:35 -0700
 
 Latest commit:
-    commit ed08dd3fbe71099fc891aaba7392f26276694ff7
-    Merge: 5c02232 2b4bbca
-    Author: marques-work <marques.lee@thoughtworks.com>
-    Date:   Thu Sep 26 13:40:58 2019 -0700
+    commit f1a0907d4aa10a1c76634720799c6728c1e5766f
+    Author: Marques Lee <marques.lee@thoughtworks.com>
+    Date:   Mon Oct 7 15:39:33 2019 -0700
     
-        Merge pull request #1064 from marques-work/master
-        
-        Fix Test Drive download to be compatible with legacy browsers, namely IE.
+        Use older dotnet unzip method for powershell one-liner to support server 2012 and windows 8.1
     
