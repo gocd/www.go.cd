@@ -1,9 +1,9 @@
-Last updated: 2019-10-07 16:24:18 -0700
+Last updated: 2019-10-10 01:32:31 -0700
 
 Latest commit:
-    commit 25ea8553d5f215481142d4f1e395e5eec4a0d8eb
-    Author: Marques Lee <marques.lee@thoughtworks.com>
-    Date:   Mon Oct 7 16:10:37 2019 -0700
+    commit 629fa10df7aa2032d49ea0c5659287eb1c0ea880
+    Author: Mahesh Panchaksharaiah <maheshp@thoughtworks.com>
+    Date:   Thu Oct 10 13:45:47 2019 +0530
     
-        Use plain console out instead of Write-Progress as that has a big impact on performance for all but the latest powershell versions
+        List GoCD Vault Secrets Plugin (#1072)
     
