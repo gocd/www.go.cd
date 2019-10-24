@@ -20,14 +20,19 @@ On an upgrade to 19.10.0 server startup may experience slowness depending on the
 
 <h4>Other Improvements</h4>
 
+* <%= link_to_issue 7016, 'Support for Optional upstream dependencies through UI, API and Config Repo' %>
+* <%= link_to_issue 6289, 'Expose scm material url and branch as environment variables to tasks' %>
 * <%= link_to_commit '03d829708c7b51cb1be4d07806edcbcf2510df4f', "Added 'group' property to show call of Pipeline Config API" %>
 * <%= link_to_commit '818f6ceeda0573fcb1fc790f89aa7ad8896bc9b4', "Dashboard will show an info icon instead of settings icon for pipeline-as-code pipelines" %>
-* <%= link_to_issue 7016, 'Support for Optional upstream dependencies through UI, API and Config Repo' %>
+* <%= link_to_commit '2c931959cbb6713608d637fb94be5430a75a7c57', 'Bundle jre 13.33 for all installers' %>
+
 
 <h4>Bug fixes</h4>
 
 * <%= link_to_issue 7067, 'Fix for Notification preferences not persisted' %>
-* <%= link_to_issue 7037, 'Brought back UUID support in SVN post commit hook API' %>
+* <%= link_to_issue 7037, 'Bring back UUID support in SVN post commit hook API' %>
+* <%= link_to_issue 7002, 'Honour hostname in agent autoregister properties' %>
+
 
 
 <h4>APIs</h4>
