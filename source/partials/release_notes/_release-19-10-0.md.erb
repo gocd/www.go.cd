@@ -10,16 +10,22 @@ Agents page has been improved in this release. Now it will have 2 tabs - Static 
     <%= image_tag 'releases/19.10.0/new-agents-page-elastic-agents.png', alt: 'New Agents page - Elastic agents' %>
 </figure>
 
+<h4>Optional upstream dependencies</h4>
+
+Introduced `ignore for scheduling` flag at the pipeline dependency material level to facilitate the pipeline scheduling model as described by a user in [this](https://github.com/gocd/gocd/issues/4931) issue.
+The flag comes handy in cases where downstream piepline should not run for the upstream pipeline changes, but only when SCM or other materials got any update and with that pick the changes from upstream pipeline.
+This flag is available on material edit page, Pipeline Config API and bundled JSON/YAML Config repo plugins
+
+
 <h4>Delete DB cruft during upgrade</h4>
 
 * <%= link_to_commit '7d5d01f55320d7d70ec80d4af646120635842f61', "Delete cruft from the DB for jobs that are completed" %>
 
 There are quite some unwanted data present in the DB tables `environmentVariables`, `artifactPlans`, `resources`, `jobAgentMetadata` for completed jobs.
-DB cleanup scripts added in this release will delete those data only for completed jobs. Depending on the size of your database, you may experience some delay during startup as the data is being removed from the database. Please do not kill the GoCD server until the database upgrade completes.
+DB cleanup scripts added in this release will delete those data only for completed jobs. Depending on the size of your database, you may experience some delay during startup as the data is being removed from the database. Ensure GoCD server backup is taken before upgrade. Please do not kill the GoCD server until the database upgrade completes.
 
 <h4>Other Improvements</h4>
 
-* <%= link_to_issue 7016, 'Support for Optional upstream dependencies through UI, API and Config Repo' %>
 * <%= link_to_issue 6289, 'Expose scm material url and branch as environment variables to tasks' %>
 * <%= link_to_commit '03d829708c7b51cb1be4d07806edcbcf2510df4f', "Added 'group' property to show call of Pipeline Config API" %>
 * <%= link_to_commit '818f6ceeda0573fcb1fc790f89aa7ad8896bc9b4', "Dashboard will show an info icon instead of settings icon for pipeline-as-code pipelines" %>
@@ -72,7 +78,7 @@ Improvements, deprecations and breaking changes in the API and plugin API have b
 
 <h4>Note</h4>
 
-A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.9.0' %>
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.10.0' %>
 
 Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
 
