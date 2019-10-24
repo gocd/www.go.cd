@@ -1,0 +1,78 @@
+<h4>Improved Agents page</h4>
+
+Agents page has been improved in this release. Now it will have 2 tabs - Static and Elastic - for easy viewing and searching of static and elastic agents.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.10.0/new-agents-page-static-agents.png', alt: 'New Agents page - Static agents' %>
+</figure>
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.10.0/new-agents-page-elastic-agents.png', alt: 'New Agents page - Elastic agents' %>
+</figure>
+
+<h4>Delete DB cruft during upgrade</h4>
+
+* <%= link_to_commit '7d5d01f55320d7d70ec80d4af646120635842f61', "Delete cruft from the DB for jobs that are completed" %>
+
+There are quite some unwanted data present in the DB tables `environmentVariables`, `artifactPlans`, `resources`, `jobAgentMetadata` for completed jobs.
+DB cleanup scripts added in this release will delete those data only for completed jobs.
+On an upgrade to 19.10.0 server startup may experience slowness depending on the DB size due to these delete queries to complete. Please wait until the database upgrade completes
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_commit '03d829708c7b51cb1be4d07806edcbcf2510df4f', "Added 'group' property to show call of Pipeline Config API" %>
+* <%= link_to_commit '818f6ceeda0573fcb1fc790f89aa7ad8896bc9b4', "Dashboard will show an info icon instead of settings icon for pipeline-as-code pipelines" %>
+* <%= link_to_issue 7016, 'Support for Optional upstream dependencies through UI, API and Config Repo' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 7067, 'Fix for Notification preferences not persisted' %>
+* <%= link_to_issue 7037, 'Brought back UUID support in SVN post commit hook API' %>
+
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '19.10.0','changes-in-19-10-0', 'API changelog for 19.10.0' %> and <%= link_to_versioned_plugin_api '19.10.0','changes-in-gocd-19-10-0', 'Plugin API changelog for 19.10.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Ankit Srivastava",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Dhanashri Pagar",
+  "Ganesh S Patil",
+  "Isabelle Carter",
+  "Jen Marley",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Kritika Singh",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Mansi Shah",
+  "Marques Lee",
+  "Rajiesh N",
+  "Rodny",
+  "Sheroy Marker",
+  "Sneha Patil",
+  "Steven Streisguth",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan",
+  "Veerababu Kona",
+  "Viraj Patil",
+  "Vrushali Waykole",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.9.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
