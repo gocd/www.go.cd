@@ -15,8 +15,7 @@ Agents page has been improved in this release. Now it will have 2 tabs - Static 
 * <%= link_to_commit '7d5d01f55320d7d70ec80d4af646120635842f61', "Delete cruft from the DB for jobs that are completed" %>
 
 There are quite some unwanted data present in the DB tables `environmentVariables`, `artifactPlans`, `resources`, `jobAgentMetadata` for completed jobs.
-DB cleanup scripts added in this release will delete those data only for completed jobs.
-On an upgrade to 19.10.0 server startup may experience slowness depending on the DB size due to these delete queries to complete. Please wait until the database upgrade completes
+DB cleanup scripts added in this release will delete those data only for completed jobs. Depending on the size of your database, you may experience some delay during startup as the data is being removed from the database. Please wait until the database upgrade completes
 
 <h4>Other Improvements</h4>
 
@@ -24,7 +23,7 @@ On an upgrade to 19.10.0 server startup may experience slowness depending on the
 * <%= link_to_issue 6289, 'Expose scm material url and branch as environment variables to tasks' %>
 * <%= link_to_commit '03d829708c7b51cb1be4d07806edcbcf2510df4f', "Added 'group' property to show call of Pipeline Config API" %>
 * <%= link_to_commit '818f6ceeda0573fcb1fc790f89aa7ad8896bc9b4', "Dashboard will show an info icon instead of settings icon for pipeline-as-code pipelines" %>
-* <%= link_to_commit '2c931959cbb6713608d637fb94be5430a75a7c57', 'Bundle jre 13.33 for all installers' %>
+* <%= link_to_commit '2c931959cbb6713608d637fb94be5430a75a7c57', 'Bundle Java 13 for all installers' %>
 
 
 <h4>Bug fixes</h4>
@@ -32,7 +31,6 @@ On an upgrade to 19.10.0 server startup may experience slowness depending on the
 * <%= link_to_issue 7067, 'Fix for Notification preferences not persisted' %>
 * <%= link_to_issue 7037, 'Bring back UUID support in SVN post commit hook API' %>
 * <%= link_to_issue 7002, 'Honour hostname in agent autoregister properties' %>
-
 
 
 <h4>APIs</h4>
