@@ -15,7 +15,7 @@ Agents page has been improved in this release. Now it will have 2 tabs - Static 
 * <%= link_to_commit '7d5d01f55320d7d70ec80d4af646120635842f61', "Delete cruft from the DB for jobs that are completed" %>
 
 There are quite some unwanted data present in the DB tables `environmentVariables`, `artifactPlans`, `resources`, `jobAgentMetadata` for completed jobs.
-DB cleanup scripts added in this release will delete those data only for completed jobs. Depending on the size of your database, you may experience some delay during startup as the data is being removed from the database. Please wait until the database upgrade completes
+DB cleanup scripts added in this release will delete those data only for completed jobs. Depending on the size of your database, you may experience some delay during startup as the data is being removed from the database. Please do not kill the GoCD server until the database upgrade completes.
 
 <h4>Other Improvements</h4>
 
