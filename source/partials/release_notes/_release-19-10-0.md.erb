@@ -1,3 +1,16 @@
+<h4>Database cruft cleanup during upgrade</h4>
+
+<div class="information">
+  Ensure GoCD server backup is taken before upgrade to 19.10.0
+</div>
+
+<br>
+
+There are quite some unwanted data present in the DB tables `environmentVariables`, `artifactPlans`, `resources`, `jobAgentMetadata` for completed jobs.
+DB cleanup scripts added in this release will delete those data only for completed jobs. Depending on the size of your database, you may experience some delay during startup as the data is being removed from the database. Please do not kill the GoCD server until the database upgrade completes.
+
+* <%= link_to_commit '7d5d01f55320d7d70ec80d4af646120635842f61', "Delete cruft from the DB for jobs that are completed" %>
+
 <h4>Improved Agents page</h4>
 
 Agents page has been improved in this release. Now it will have 2 tabs - Static and Elastic - for easy viewing and searching of static and elastic agents.
@@ -17,12 +30,6 @@ The flag comes handy in cases where downstream piepline should not run for the u
 This flag is available on material edit page, Pipeline Config API and bundled JSON/YAML Config repo plugins
 
 
-<h4>Delete DB cruft during upgrade</h4>
-
-* <%= link_to_commit '7d5d01f55320d7d70ec80d4af646120635842f61', "Delete cruft from the DB for jobs that are completed" %>
-
-There are quite some unwanted data present in the DB tables `environmentVariables`, `artifactPlans`, `resources`, `jobAgentMetadata` for completed jobs.
-DB cleanup scripts added in this release will delete those data only for completed jobs. Depending on the size of your database, you may experience some delay during startup as the data is being removed from the database. Ensure GoCD server backup is taken before upgrade. Please do not kill the GoCD server until the database upgrade completes.
 
 <h4>Other Improvements</h4>
 
