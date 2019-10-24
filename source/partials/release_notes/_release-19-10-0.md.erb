@@ -1,13 +1,17 @@
-<h4>Database cruft cleanup during upgrade</h4>
+<h4>Database cleanup</h4>
 
 <div class="information">
-  Ensure GoCD server backup is taken before upgrade to 19.10.0
+  Please make sure that a GoCD server backup is taken before upgrading to 19.10.0.
 </div>
 
 <br>
 
-There are quite some unwanted data present in the DB tables `environmentVariables`, `artifactPlans`, `resources`, `jobAgentMetadata` for completed jobs.
-DB cleanup scripts added in this release will delete those data only for completed jobs. Depending on the size of your database, you may experience some delay during startup as the data is being removed from the database. Please do not kill the GoCD server until the database upgrade completes.
+There are some unnecessary data in the GoCD database which will be removed upon the first server start after upgrading to 19.10.0.
+This cleanup will be done only for completed jobs and will remove historical data related to environment variables, artifact plans, resources and job-related metadata.
+This will not affect any information in GoCD's configuration file.
+
+Depending on the size of your database, you may experience some delay during startup while the data is being removed from the database. Please do not kill the GoCD server until the database upgrade completes.
+If you do end up killing it, you might need to restore the database from the backup taken before this upgrade.
 
 * <%= link_to_commit '7d5d01f55320d7d70ec80d4af646120635842f61', "Delete cruft from the DB for jobs that are completed" %>
 
@@ -25,9 +29,9 @@ Agents page has been improved in this release. Now it will have 2 tabs - Static 
 
 <h4>Optional upstream dependencies</h4>
 
-Introduced `ignore for scheduling` flag at the pipeline dependency material level to facilitate the pipeline scheduling model as described by a user in [this](https://github.com/gocd/gocd/issues/4931) issue.
-The flag comes handy in cases where downstream piepline should not run for the upstream pipeline changes, but only when SCM or other materials got any update and with that pick the changes from upstream pipeline.
-This flag is available on material edit page, Pipeline Config API and bundled JSON/YAML Config repo plugins
+Introduced `ignore for scheduling` flag at the pipeline dependency level to improve GoCD's ability to model pipelines, as described in [this issue](https://github.com/gocd/gocd/issues/4931).
+This flag allows run of an upstream pipeline to be ignored by the downstream pipeline.
+This is useful in cases where a downstream pipeline has multiple materials and wants to have fine-grained control over which materials cause it to run. Previously, this was available only for SCM materials (like git, mercurial, etc). This flag is available on the material edit page, Pipeline Config API and the bundled JSON/YAML config repo plugins.
 
 
 
