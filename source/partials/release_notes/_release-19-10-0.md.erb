@@ -1,0 +1,99 @@
+<h4>Database cleanup</h4>
+
+<div class="information">
+  Please make sure that a GoCD server backup is taken before upgrading to 19.10.0.
+</div>
+
+<br>
+
+There are some unnecessary data in the GoCD database which will be removed upon the first server start after upgrading to 19.10.0.
+This cleanup will be done only for completed jobs and will remove historical data related to environment variables, artifact plans, resources and job-related metadata.
+This will not affect any information in GoCD's configuration file.
+
+Depending on the size of your database, you may experience some delay during startup while the data is being removed from the database. Please do not kill the GoCD server until the database upgrade completes.
+If you do end up killing it, you might need to restore the database from the backup taken before this upgrade.
+
+* <%= link_to_commit '7d5d01f55320d7d70ec80d4af646120635842f61', "Delete cruft from the DB for jobs that are completed" %>
+
+<h4>Improved Agents page</h4>
+
+Agents page has been improved in this release. Now it will have 2 tabs - Static and Elastic - for easy viewing and searching of static and elastic agents.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.10.0/new-agents-page-static-agents.png', alt: 'New Agents page - Static agents' %>
+</figure>
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.10.0/new-agents-page-elastic-agents.png', alt: 'New Agents page - Elastic agents' %>
+</figure>
+
+<h4>Optional upstream dependencies</h4>
+
+Introduced `ignore for scheduling` flag at the pipeline dependency level to improve GoCD's ability to model pipelines, as described in [this issue](https://github.com/gocd/gocd/issues/4931).
+This flag allows run of an upstream pipeline to be ignored by the downstream pipeline.
+This is useful in cases where a downstream pipeline has multiple materials and wants to have fine-grained control over which materials cause it to run. Previously, this was available only for SCM materials (like git, mercurial, etc). This flag is available on the material edit page, Pipeline Config API and the bundled JSON/YAML config repo plugins.
+
+
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_issue 6289, 'Expose scm material url and branch as environment variables to tasks' %>
+* <%= link_to_commit '03d829708c7b51cb1be4d07806edcbcf2510df4f', "Added 'group' property to show call of Pipeline Config API" %>
+* <%= link_to_commit '818f6ceeda0573fcb1fc790f89aa7ad8896bc9b4', "Dashboard will show an info icon instead of settings icon for pipeline-as-code pipelines" %>
+* <%= link_to_commit '2c931959cbb6713608d637fb94be5430a75a7c57', 'Bundle Java 13 for all installers' %>
+
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 7067, 'Fix for Notification preferences not persisted' %>
+* <%= link_to_issue 7037, 'Bring back UUID support in SVN post commit hook API' %>
+* <%= link_to_issue 7002, 'Honour hostname in agent autoregister properties' %>
+* <%= link_to_issue 7064, 'Authorization config update API should not need id value' %>
+
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '19.10.0','changes-in-19-10-0', 'API changelog for 19.10.0' %> and <%= link_to_versioned_plugin_api '19.10.0','changes-in-gocd-19-10-0', 'Plugin API changelog for 19.10.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Ankit Srivastava",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Dhanashri Pagar",
+  "Ganesh S Patil",
+  "Isabelle Carter",
+  "Jen Marley",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Kritika Singh",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Mansi Shah",
+  "Marques Lee",
+  "Rajiesh N",
+  "Rodny",
+  "Sheroy Marker",
+  "Sneha Patil",
+  "Steven Streisguth",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan",
+  "Veerababu Kona",
+  "Viraj Patil",
+  "Vrushali Waykole",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.10.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
