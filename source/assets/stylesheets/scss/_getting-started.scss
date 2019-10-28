@@ -260,6 +260,9 @@ nav.sidebar-nav {
     background: $primary-color;
     color: #fff;
     transition: all 0.25s;
+    font-family: 'URWGeometric-Medium', sans-serif!important;
+    text-transform: capitalize; 
+    padding: 5px 12px;
 
     &:hover{
       opacity: 0.8;
