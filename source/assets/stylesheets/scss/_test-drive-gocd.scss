@@ -27,12 +27,13 @@ body.test-drive-gocd {
     }
   }
 
-  .content-header {
+  .content--header {
     margin-top: 40px;
     padding-bottom: 0;
     margin-bottom: 0;
     text-align: center;
     font-family: $default-font-extra-bold;
+    color:#fff;
 
     @media (max-width: $screen-sm) {
       margin: auto;
@@ -41,38 +42,38 @@ body.test-drive-gocd {
     }
   }
 
-  .content-subheader {
+  .content--subheader {
     text-align: center;
     font-family: $default-font-extra-bold;
+  }
+  .content--heading {
+    padding-bottom: 40px;
+    color: #fff;
+    text-align: center;
 
-    h3 {
-      padding-bottom: 40px;
-      color: #fff;
-      text-align: center;
-
-      @media (max-width: $screen-sm) {
-        font-size: 28px;
-      }
-
-      @media (min-width: $screen-lg) {
-        padding-bottom: 80px;
-      }
+    @media (max-width: $screen-sm) {
+      font-size: 28px;
     }
 
-    p {
-    font-family: $default-font-normal-bold;
-      @media(min-width: $screen-sm) {
-        font-size: 20px;
-      }
-
-      @media(min-width: $screen-sm) and (max-width: $screen-lg) {
-        margin: 80px auto 0;
-      }
-      @media(max-width: $screen-sm) {
-        margin: 100px auto 90px;
-      }
+    @media (min-width: $screen-lg) {
+      padding-bottom: 80px;
     }
   }
+
+  .content--para {
+  font-family: $default-font-normal-bold;
+    @media(min-width: $screen-sm) {
+      font-size: 20px;
+    }
+
+    @media(min-width: $screen-sm) and (max-width: $screen-lg) {
+      margin: 80px auto 0;
+    }
+    @media(max-width: $screen-sm) {
+      margin: 100px auto 90px;
+    }
+  }
+  
 
   div.steps-list, ul.steps-list {
     margin: auto;
