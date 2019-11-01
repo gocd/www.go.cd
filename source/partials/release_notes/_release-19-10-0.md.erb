@@ -29,27 +29,34 @@ Agents page has been improved in this release. Now it will have 2 tabs - Static 
 
 <h4>Optional upstream dependencies</h4>
 
-Introduced `ignore for scheduling` flag at the pipeline dependency level to improve GoCD's ability to model pipelines, as described in [this issue](https://github.com/gocd/gocd/issues/4931).
+Introduced `ignore_for_scheduling` flag at the pipeline dependency level to improve GoCD's ability to model pipelines, as described in [this issue](https://github.com/gocd/gocd/issues/4931).
 This flag allows run of an upstream pipeline to be ignored by the downstream pipeline.
 This is useful in cases where a downstream pipeline has multiple materials and wants to have fine-grained control over which materials cause it to run. Previously, this was available only for SCM materials (like git, mercurial, etc). This flag is available on the material edit page, Pipeline Config API and the bundled JSON/YAML config repo plugins.
 
 
-
 <h4>Other Improvements</h4>
 
-* <%= link_to_issue 6289, 'Expose scm material url and branch as environment variables to tasks' %>
-* <%= link_to_commit '03d829708c7b51cb1be4d07806edcbcf2510df4f', "Added 'group' property to show call of Pipeline Config API" %>
-* <%= link_to_commit '818f6ceeda0573fcb1fc790f89aa7ad8896bc9b4', "Dashboard will show an info icon instead of settings icon for pipeline-as-code pipelines" %>
+* Starting this release, Centos 8 based images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-centos-8' %>
 * <%= link_to_commit '2c931959cbb6713608d637fb94be5430a75a7c57', 'Bundle Java 13 for all installers' %>
-
+* <%= link_to_issue 4756, "Provide an option to sort by duration on the job run history page" %>
+* <%= link_to_issue 6289, 'Expose scm material url and branch as environment variables to tasks' %>
+* <%= link_to_issue 6602, "Dashboard will show an info icon instead of settings icon for pipeline-as-code pipelines" %>
+* <%= link_to_issue 7113, "Added 'group' property to Get Pipeline Config API" %>
+* <%= link_to_issue 7155, "Added support for 'group' attribute in Update Pipeline Config API" %>
 
 <h4>Bug fixes</h4>
 
-* <%= link_to_issue 7067, 'Fix for Notification preferences not persisted' %>
-* <%= link_to_issue 7037, 'Bring back UUID support in SVN post commit hook API' %>
 * <%= link_to_issue 7002, 'Honour hostname in agent autoregister properties' %>
+* <%= link_to_issue 7037, 'Bring back UUID support in SVN post commit hook API' %>
 * <%= link_to_issue 7064, 'Authorization config update API should not need id value' %>
+* <%= link_to_issue 7067, 'Fix for Notification preferences not persisted' %>
+* <%= link_to_issue 7068, 'Enable email support link is pointing to wrong link under preferences tab' %>
+* <%= link_to_issue 7107, 'Fix for job details page error if agent is not yet assigned' %>
+* <%= link_to_issue 7126, "Fixed no response on deleting an auth config" %>
 
+<h4>Deprecations</h4>
+
+* Starting this release, Fedora based docker image for GoCD Agent will not be published. Users can continue to use the older images and the agent will get auto-upgraded.
 
 <h4>APIs</h4>
 
