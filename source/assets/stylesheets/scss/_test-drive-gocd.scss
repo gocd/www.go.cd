@@ -63,7 +63,7 @@ body.test-drive-gocd {
   .content--para {
   font-family: $default-font-normal-bold;
     @media(min-width: $screen-sm) {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     @media(min-width: $screen-sm) and (max-width: $screen-lg) {
@@ -174,7 +174,7 @@ body.test-drive-gocd {
     pre[class*=language-] {
       display: inline-block;
       padding: 8px 15px;
-      height: 42px;
+      height: 50px;
       margin: 0;
       overflow-x: auto;
       overflow-y: hidden;
