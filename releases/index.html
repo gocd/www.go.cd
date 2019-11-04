@@ -15,7 +15,7 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-ec1fead3.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/site-d08e4116.css" rel="stylesheet" />
     <script src="../assets/javascripts/all-714c9915.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
@@ -78,7 +78,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker release-versions">
-      <li rel="tab-19-9-0" class="tab-marker active">19.9.0 (latest)</li>
+      <li rel="tab-19-10-0" class="tab-marker active">19.10.0 (latest)</li>
+      <li rel="tab-19-9-0" class="tab-marker">19.9.0</li>
       <li rel="tab-19-8-0" class="tab-marker">19.8.0</li>
       <li rel="tab-19-7-0" class="tab-marker">19.7.0</li>
       <li rel="tab-19-6-0" class="tab-marker">19.6.0</li>
@@ -135,7 +136,97 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-19-9-0">19.9.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-19-10-0">19.10.0 (latest)</h3>
+      <div id="tab-19-10-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Database cleanup</h4>
+
+<div class="information">
+  Please make sure that a GoCD server backup is taken before upgrading to 19.10.0.
+</div>
+
+<p><br /></p>
+
+<p>There are some unnecessary data in the GoCD database which will be removed upon the first server start after upgrading to 19.10.0.
+This cleanup will be done only for completed jobs and will remove historical data related to environment variables, artifact plans, resources and job-related metadata.
+This will not affect any information in GoCD's configuration file.</p>
+
+<p>Depending on the size of your database, you may experience some delay during startup while the data is being removed from the database. Please do not kill the GoCD server until the database upgrade completes.
+If you do end up killing it, you might need to restore the database from the backup taken before this upgrade.</p>
+
+<ul>
+  <li><code><a href="https://github.com/gocd/gocd/commit/7d5d01f55320d7d70ec80d4af646120635842f61">7d5d01f</a></code> - Delete cruft from the DB for jobs that are completed.</li>
+</ul>
+
+<h4>Improved Agents page</h4>
+
+<p>Agents page has been improved in this release. Now it will have 2 tabs - Static and Elastic - for easy viewing and searching of static and elastic agents.</p>
+
+<figure class="shrink-figure-100">
+    <img src="../assets/images/releases/19.10.0/new-agents-page-static-agents-36c50ab2.png" alt="New Agents page - Static agents" />
+</figure>
+
+<figure class="shrink-figure-100">
+    <img src="../assets/images/releases/19.10.0/new-agents-page-elastic-agents-4ff88a93.png" alt="New Agents page - Elastic agents" />
+</figure>
+
+<h4>Optional upstream dependencies</h4>
+
+<p>Introduced <code>ignore_for_scheduling</code> flag at the pipeline dependency level to improve GoCD's ability to model pipelines, as described in <a href="https://github.com/gocd/gocd/issues/4931">this issue</a>.
+This flag allows run of an upstream pipeline to be ignored by the downstream pipeline.
+This is useful in cases where a downstream pipeline has multiple materials and wants to have fine-grained control over which materials cause it to run. Previously, this was available only for SCM materials (like git, mercurial, etc). This flag is available on the material edit page, Pipeline Config API and the bundled JSON/YAML config repo plugins.</p>
+
+<h4>Other Improvements</h4>
+
+<ul>
+  <li>Starting this release, Centos 8 based images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-8">available</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/2c931959cbb6713608d637fb94be5430a75a7c57">2c93195</a></code> - Bundle Java 13 for all installers.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4756">#4756</a> - Provide an option to sort by duration on the job run history page</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6289">#6289</a> - Expose scm material url and branch as environment variables to tasks</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6602">#6602</a> - Dashboard will show an info icon instead of settings icon for pipeline-as-code pipelines</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7113">#7113</a> - Added 'group' property to Get Pipeline Config API</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7155">#7155</a> - Added support for 'group' attribute in Update Pipeline Config API</li>
+</ul>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/7002">#7002</a> - Honour hostname in agent autoregister properties</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7037">#7037</a> - Bring back UUID support in SVN post commit hook API</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7064">#7064</a> - Authorization config update API should not need id value</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7067">#7067</a> - Fix for Notification preferences not persisted</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7068">#7068</a> - Enable email support link is pointing to wrong link under preferences tab</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7107">#7107</a> - Fix for job details page error if agent is not yet assigned</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7126">#7126</a> - Fixed no response on deleting an auth config</li>
+</ul>
+
+<h4>Deprecations</h4>
+
+<ul>
+  <li>Starting this release, Fedora based docker image for GoCD Agent will not be published. Users can continue to use the older images and the agent will get auto-upgraded.</li>
+</ul>
+
+<h4>APIs</h4>
+
+<p>Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <a href="https://api.gocd.org/19.10.0/#changes-in-19-10-0">API changelog for 19.10.0</a> and <a href="https://plugin-api.gocd.org/19.10.0/#changes-in-gocd-19-10-0">Plugin API changelog for 19.10.0</a>.</p>
+
+<h4>Contributors</h4>
+
+<p>Aditya Sood, Akshay Dewan, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Dhanashri Pagar, Ganesh S Patil, Isabelle Carter, Jen Marley, Ketan Padegaonkar, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mansi Shah, Marques Lee, Rajiesh N, Rodny, Sheroy Marker, Sneha Patil, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Veerababu Kona, Viraj Patil, Vrushali Waykole</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+19.10.0%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+<p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>.</p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-19-9-0">19.9.0</h3>
       <div id="tab-19-9-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Support for Java 8 and 10 removed</h4>
