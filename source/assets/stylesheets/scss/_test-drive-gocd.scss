@@ -139,6 +139,11 @@ body.test-drive-gocd {
     }
   }
 
+  .add-pipeline-img {
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+  }
+
   .download-test-drive-links {
     &:after {
       content: "";
