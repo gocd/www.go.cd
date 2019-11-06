@@ -37,20 +37,10 @@ footer {
             }
             @media (min-width: 320px) and (max-width: $screen-lg-min) {
                 margin: 0;
-                width: 50%;
-                padding: 5px;
+                width: 100%;
+                padding: 8px 0 0 0;
                 border-top: 2px solid $navbar-dark;
                 border-right: 0px;
-                &:nth-child(even) {
-                    border-right: 2px solid $navbar-dark;
-                }
-                &:first-child {
-                    width: 100%;
-                }
-                &:nth-child(4),
-                &:last-child {
-                    border-bottom: 2px solid $navbar-dark;
-                }
             }
             &:hover {
                 .icon {
