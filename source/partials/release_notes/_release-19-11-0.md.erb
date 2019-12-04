@@ -1,0 +1,100 @@
+<h4>Role Based Access Control</h4>
+
+Traditionally roles in GoCD has been a group of users. With this release we have enchanced the purpose of roles. Roles can now be used to control access of different entities in GoCD which earlier were accessible only by System Administrators.
+
+System Adminstrators can configure permissions for a given role using policies at a granular level. This release adds support to configure access to environments, support for more entities will be added in subsequent releases.
+
+Read the GoCD Policy [documentation](https://docs.gocd.org/19.11.0/configuration/policy_in_gocd.html) for more details.
+
+<h4>UI/UX refresh</h4>
+As part of our ongoing effort towards making the UI/UX consistent across all pages of GoCD, in this release we have rebuilt the following pages,
+
+<h4>Server Configuration Page</h4>
+  <figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.11.0/server-config-page.png', alt: 'New Server Configuration Page' %>
+  </figure>
+
+<h4>Environments Page</h4>
+  <figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.11.0/environments-page.png', alt: 'New Environments Page' %>
+  </figure>
+
+<h4>Templates Page</h4>
+  <figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.11.0/templates-page.png', alt: 'New Templates Page' %>
+  </figure>
+
+<h4>Pipelines Page</h4>
+  <figure class='shrink-figure-100'>
+    <%= image_tag 'releases/19.11.0/pipelines-page.png', alt: 'New Pipelines Page' %>
+  </figure>
+
+<h4>Other Improvments</h4>
+
+* <%= link_to_issue 7229, 'Performance improvements to Pipeline Config updates through UI.' %>
+* <%= link_to_issue 6956, 'Added support to load multiple plugins as a bundle.' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 7296, 'Fix issue with mounting directories as docker volume, if directories already exist' %>
+* <%= link_to_issue 7281, 'Fix for Agents page constant shuffle.' %>
+* <%= link_to_issue 7285, 'Fixed issue with weird lines showing up on agents table' %>
+* <%= link_to_issue 7138, 'Fix for Agent Job History order inconsistency' %>
+* <%= link_to_issue 7212, 'Error messages on agents SPA not getting displayed.' %>
+* <%= link_to_issue 2048, 'Fixed issue with incorrect job cancel, in case of canceling run on all agent job' %>
+* <%= link_to_issue 7172, 'Set JVM Properties in docker-gocd-agent-ubuntu' %>
+* <%= link_to_issue 7177, 'Show appropriate error when user does not have permissions to operate on a pipeline or pipeline group.' %>
+* <%= link_to_issue 6754, 'Fix for systemd not detected on Amazon Linux 2' %>
+* <%= link_to_issue 7301, 'Include wrapper-config files to the GoCD backup process' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '19.11.0','changes-in-19-11-0', 'API changelog for 19.11.0' %> and <%= link_to_versioned_plugin_api '19.11.0','changes-in-gocd-19-11-0', 'Plugin API changelog for 19.11.0' %>.
+
+<h4>Security</h4>
+
+We regularly fix security issues reported by security researchers. Upgrading to the latest release is always recommended.
+In this release, a security issue responsibly disclosed by [Wasin Sae-ngow](https://hackerone.com/chrsow) was fixed.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Ankit Srivastava",
+  "Antonio Masucci",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Dhanashri Pagar",
+  "Ganesh S Patil",
+  "Isabelle Carter",
+  "Jen Marley",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Kritika Singh",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Mansi Shah",
+  "Marques Lee",
+  "Rajiesh N",
+  "Riko Stave",
+  "Sheroy Marker",
+  "Steven Streisguth",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan",
+  "Veerababu Kona",
+  "Viraj Patil",
+  "Vrushali Waykole",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 19.11.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
