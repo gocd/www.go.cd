@@ -14,14 +14,6 @@
   github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=gocd-ldap-authentication-plugin&type=watch&count=true 
   bundled: true
 
-- name: LDAP/AD Authorization Plugin
-  description: GoCD LDAP/AD Plugin provides authentication and authorization services
-  readmore_url: https://extensions-docs.gocd.org/ldap/current/
-  author_url: https://www.thoughtworks.com/products/
-  author_name: ThoughtWorks Inc.
-  contact_url: https://www.gocd.org/enterprise/pricing/
-  paid: true
-  
 - name: Atlassian Crowd Authentication Plugin
   description: Delegates authentication services to Atlasian Crowd
   readmore_url: https://github.com/mgambini/crowd-integration-plugin
