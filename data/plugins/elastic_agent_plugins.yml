@@ -1,19 +1,3 @@
-- name: ECS Elastic Agent
-  description: GoCD Elastic Agent Plugin for Amazon Elastic Container Service
-  readmore_url: https://extensions-docs.gocd.org/ecs/current/
-  author_url: https://www.thoughtworks.com/products/
-  author_name: ThoughtWorks Inc.
-  contact_url: https://www.gocd.org/enterprise/pricing/
-  paid: true
-
-- name: Microsoft Azure Elastic Agent
-  description: GoCD Elastic Agent Plugin for bringing up GoCD agents on Microsoft Azure virtual machines.
-  readmore_url: https://extensions-docs.gocd.org/azure/current/
-  author_url: https://www.thoughtworks.com/products/
-  author_name: ThoughtWorks Inc.
-  contact_url: https://www.gocd.org/enterprise/pricing/
-  paid: true
-
 - name: GoCD Elastic agent plugin for Docker
   description: GoCD Elastic agent plugin for Docker
   readmore_url: https://github.com/gocd-contrib/docker-elastic-agents
