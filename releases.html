@@ -130,7 +130,21 @@
       <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-19-11-0">19.11.0 (latest)</h3>
       <div id="tab-19-11-0" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Role Based Access Control</h4>
+          <div class="information">
+  <b>Issue with Environment Variables of Environment</b>: There is a known issue with GoCD release v19.11.0: <a href="https://github.com/gocd/gocd/issues/7481" target="_blank" rel="noopener">Github issue #7481</a> causing the secure environment variables coming from the environment not being persisted on the server. The upcoming GoCD release v19.12.0 is planned to fix this issue.
+
+  <br />
+  <br />
+
+  Users on GoCD release v19.11.0 are recommended to use the alternatives mentioned as part of the <a href="https://github.com/gocd/gocd/issues/7481#issuecomment-567906013" target="_blank" rel="noopener">Github Comment</a> to avoid this issue.
+
+  <br />
+  <br />
+
+  Updated: Friday 20 DEC at 01:00:00 UTC 2019
+</div>
+
+<h4>Role Based Access Control</h4>
 
 <p>Traditionally, a Role in GoCD is a group of users. With this release, we are enhancing the purpose of Roles. Roles can now be used to control the access of different entities in GoCD, which earlier were accessible only by System Administrators.</p>
 
