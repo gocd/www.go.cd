@@ -1,11 +1,12 @@
-Last updated: 2020-01-15 02:12:57 -0800
+Last updated: 2020-01-28 10:08:27 -0800
 
 Latest commit:
-    commit 2d2c501e907840d2a30f06f8a04838cce1caa66e
-    Author: Aravind SV <mail@arvindsv.com>
-    Date:   Wed Jan 15 09:10:16 2020 +0000
+    commit 57a728697548e4e2464eb18df2354b1059a663ee
+    Merge: ca957a5 1fe4430
+    Author: Mahesh Panchaksharaiah <maheshp@thoughtworks.com>
+    Date:   Tue Jan 28 09:09:27 2020 -0800
     
-        Bring back EULA and terms.
+        Merge pull request #1127 from maheshp/list_aws_secrets_plugin
         
-        They're used in contracts, etc.
+        List AWS Secrets Manager plugin
     
