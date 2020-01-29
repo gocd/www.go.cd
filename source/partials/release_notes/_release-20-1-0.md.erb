@@ -1,0 +1,97 @@
+<h4>Improvements to Role Based Access Control</h4>
+
+As part of GoCD release `v19.11.0`, GoCD roles were enhanced to support granular authorization.
+
+This release adds support to configure access permissions for cluster profiles and elastic agent profiles. Support for other GoCD entities will be added in subsequent releases.
+
+Please refer to the [Policy Documentation for Elastic Agent Configurations](https://docs.gocd.org/20.1.0/configuration/policy_in_gocd.html#elastic-agent-configuration) for more information.
+
+<h4>UI/UX refresh</h4>
+
+As part of our ongoing effort towards making the UI/UX consistent across all pages of GoCD, in this release we have rebuilt the following pages:
+
+<h4>Pipeline Group Authorization Edit Page</h4>
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.1.0/pipeline_grp_edit.png', alt: 'Pipeline Group Authorization Edit Page' %>
+</figure>
+
+<h4>Support for Postgres 10 and above</h4>
+
+From this release the commercial GoCD PostgreSQL Addon will support Postgres version 10, 11 and 12.
+
+Note: As per earlier [announcement](https://groups.google.com/forum/#!topic/go-cd/EXwfvZZeLrM) this Addon is expected to be open sourced in Q2 of 2020.
+
+
+<h4>Other Improvements</h4>
+
+* Starting this release, Alpine 3.11 based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-alpine-3.11' %>.
+* <%= link_to_issue 1364, 'Introduce Get Job Instance API' %>
+* <%= link_to_issue 2990, 'Make \'material name\' accessible through Pipeline instance API' %>
+* <%= link_to_issue 3326, 'History APIs for pipeline/stage/job instances should allow defining page size' %>
+* <%= link_to_issue 5717, 'Showcase config repository validation errors on separate line' %>
+* <%= link_to_issue 7560, 'Enable job settings link in elastic agent profile usages modal for pipelines coming from config-repos' %>
+* <%= link_to_issue 7575, 'Expose current agent resources as GO_AGENT_RESOURCES environment variable' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 7498, 'Handle failing stage status animation' %>
+* <%= link_to_issue 7472, 'Cancelled icon is not rendered for cancelled jobs on stage details page' %>
+* <%= link_to_issue 7509, 'Config Repositories does not refresh when an elastic profile is added' %>
+* <%= link_to_issue 7534, 'Pipeline Group API update gives 200 even when a non-existent role is passed' %>
+* <%= link_to_issue 7557, 'Unable to run commands with multi-line arguments configured via UI' %>
+* <%= link_to_issue 7572, 'Dashboard UI not updating on pipeline group authorization updates' %>
+* <%= link_to_issue 7603, 'CPU Spike while visiting Elastic Agents Configuration page' %>
+* <%= link_to_issue 7654, 'Fix for 19.12.0 upgrade failures if pipeline label contains package material name.' %>
+* <%= link_to_issue 7656, 'Pipeline Group Admin should receive a 403 on create pipeline if the group specified does not exist' %>
+
+<h4>Deprecations</h4>
+
+* <%= removed_docker_image_message 'Alpine', '3.7', 'Nov 2019' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.1.0','changes-in-20-1-0', 'API changelog for 20.1.0' %> and <%= link_to_versioned_plugin_api '20.1.0','changes-in-gocd-20-1-0', 'Plugin API changelog for 20.1.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Andrew Bentley", #external contributor
+  "Ankit Srivastava",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Dhanashri Pagar",
+  "Ganesh S Patil",
+  "Isabelle Carter",
+  "Jen Marley",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Kritika Singh",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Mansi Shah",
+  "Marques Lee",
+  "Rajiesh N",
+  "Sheroy Marker",
+  "Steven Streisguth",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan",
+  "Veerababu Kona",
+  "Viraj Patil",
+  "Vrushali Waykole",
+  "Zamfir Catalin Alexandru"
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.1.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
