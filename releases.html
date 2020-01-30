@@ -68,7 +68,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker release-versions">
-      <li rel="tab-19-12-0" class="tab-marker active">19.12.0 (latest)</li>
+      <li rel="tab-20-1-0" class="tab-marker active">20.1.0 (latest)</li>
+      <li rel="tab-19-12-0" class="tab-marker">19.12.0</li>
       <li rel="tab-19-11-0" class="tab-marker">19.11.0</li>
       <li rel="tab-19-10-0" class="tab-marker">19.10.0</li>
       <li rel="tab-19-9-0" class="tab-marker">19.9.0</li>
@@ -128,7 +129,86 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-19-12-0">19.12.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-20-1-0">20.1.0 (latest)</h3>
+      <div id="tab-20-1-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <h4>Improvements to Role Based Access Control</h4>
+
+<p>As part of GoCD release <code>v19.11.0</code>, GoCD roles were enhanced to support granular authorization.</p>
+
+<p>This release adds support to configure access permissions for cluster profiles and elastic agent profiles. Support for other GoCD entities will be added in subsequent releases.</p>
+
+<p>Please refer to the <a href="https://docs.gocd.org/20.1.0/configuration/policy_in_gocd.html#elastic-agent-configuration">Policy Documentation for Elastic Agent Configurations</a> for more information.</p>
+
+<h4>UI/UX refresh</h4>
+
+<p>As part of our ongoing effort towards making the UI/UX consistent across all pages of GoCD, in this release we have rebuilt the following pages:</p>
+
+<h4>Pipeline Group Authorization Edit Page</h4>
+
+<figure class="shrink-figure-100">
+    <img src="assets/images/releases/20.1.0/pipeline_grp_edit-ac8877a7.png" alt="Pipeline Group Authorization Edit Page" />
+</figure>
+
+<h4>Support for Postgres 10 and above</h4>
+
+<p>From this release the commercial GoCD PostgreSQL Addon will support Postgres version 10, 11 and 12.</p>
+
+<p>Note: As per earlier <a href="https://groups.google.com/forum/#!topic/go-cd/EXwfvZZeLrM">announcement</a> this Addon is expected to be open sourced in Q2 of 2020.</p>
+
+<h4>Other Improvements</h4>
+
+<ul>
+  <li>Starting this release, Alpine 3.11 based docker images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.11">available</a>.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/1364">#1364</a> - Introduce Get Job Instance API</li>
+  <li><a href="https://github.com/gocd/gocd/issues/2990">#2990</a> - Make 'material name' accessible through Pipeline instance API</li>
+  <li><a href="https://github.com/gocd/gocd/issues/3326">#3326</a> - History APIs for pipeline/stage/job instances should allow defining page size</li>
+  <li><a href="https://github.com/gocd/gocd/issues/5717">#5717</a> - Showcase config repository validation errors on separate line</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7560">#7560</a> - Enable job settings link in elastic agent profile usages modal for pipelines coming from config-repos</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7575">#7575</a> - Expose current agent resources as GO_AGENT_RESOURCES environment variable</li>
+</ul>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/7498">#7498</a> - Handle failing stage status animation</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7472">#7472</a> - Cancelled icon is not rendered for cancelled jobs on stage details page</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7509">#7509</a> - Config Repositories does not refresh when an elastic profile is added</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7534">#7534</a> - Pipeline Group API update gives 200 even when a non-existent role is passed</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7557">#7557</a> - Unable to run commands with multi-line arguments configured via UI</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7572">#7572</a> - Dashboard UI not updating on pipeline group authorization updates</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7603">#7603</a> - CPU Spike while visiting Elastic Agents Configuration page</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7654">#7654</a> - Fix for 19.12.0 upgrade failures if pipeline label contains package material name.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7656">#7656</a> - Pipeline Group Admin should receive a 403 on create pipeline if the group specified does not exist</li>
+</ul>
+
+<h4>Deprecations</h4>
+
+<ul>
+  <li>The Alpine 3.7 based docker image for GoCD Agent has been removed. Alpine 3.7 has reached end-of-life in Nov 2019. Please use an image based on a newer version of the Alpine.</li>
+</ul>
+
+<h4>APIs</h4>
+
+<p>Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <a href="https://api.gocd.org/20.1.0/#changes-in-20-1-0">API changelog for 20.1.0</a> and <a href="https://plugin-api.gocd.org/20.1.0/#changes-in-gocd-20-1-0">Plugin API changelog for 20.1.0</a>.</p>
+
+<h4>Contributors</h4>
+
+<p>Aditya Sood, Akshay Dewan, Andrew Bentley, Ankit Srivastava, Aravind SV, Bhupendrakumar Piprava, Dhanashri Pagar, Ganesh S Patil, Isabelle Carter, Jen Marley, Ketan Padegaonkar, Kiera Radman, Kritika Singh, Louda Peña, Lubaina R, Mahesh Panchaksharaiah, Mansi Shah, Marques Lee, Rajiesh N, Sheroy Marker, Steven Streisguth, Tomasz Setkowski, Varsha Varadarajan, Veerababu Kona, Viraj Patil, Vrushali Waykole, Zamfir Catalin Alexandru</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+20.1.0%22+is%3Aclosed">here.</a></p>
+
+<p>Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a>.</p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+<p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>.</p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-19-12-0">19.12.0</h3>
       <div id="tab-19-12-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Read Only View for Config Repository Pipelines</h4>
