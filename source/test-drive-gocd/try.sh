@@ -30,7 +30,7 @@ function main() {
   if test -f "$filename" && verify "$filename" "$filehash"; then
     echo "Cached ${filename} matches checksum; no need to freshen the download"
   else
-    if [ -d "$filename"]; then
+    if [ -d "$filename" ]; then
       die "You have a directory named ${filename}; please remove this before running the GoCD Test Drive"
     fi
 
