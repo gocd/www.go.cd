@@ -1,0 +1,84 @@
+<h4>Support for Rules on Config Repositories (Pipeline as Code)</h4>
+
+In order to provide fine-grained access control over the entities that are created by a config repository, GoCD adds support for defining rules on config repositories that specifies which environments, pipeline groups, pipelines the repository can refer to.
+Please refer to the [Specifying rules on Config Repository](https://docs.gocd.org/20.2.0/advanced_usage/pipelines_as_code.html#specifying-rules) for more information.
+
+
+<h4>Removal of Default SSL Support from GoCD</h4>
+
+Starting with GoCD 20.2.0, GoCD will no longer support configuring TLS. See [this Github Issue](https://github.com/gocd/gocd/pull/7669#issuecomment-580290432) for more information.
+
+
+<h4>Other Improvements</h4>
+
+* Starting this release, Alpine 3.11 and CentOS 8 based docker images for GoCD Server are <%= link_to 'available', 'https://hub.docker.com/search?q=gocd%2Fgocd-server&type=image' %>.
+* <%= link_to_issue 6031, 'Improve Pipeline Material auto update mismatch error' %>
+* <%= link_to_issue 7736, 'Improvements to wrapper properties examples' %>
+* <%= link_to_issue 7748, 'Improve Logging - Add plugin load/update/remove logs' %>
+* <%= link_to_issue 7713, 'Provide additional information about GoCD deprecated APIs' %>
+* <%= link_to_issue 3194, 'Add the possibility to retrieve template parameters through the template API' %>
+
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 7737, 'Fixed issue with moving pipeline between groups' %>
+* <%= link_to_issue 7676, 'Fixed invalid run_instance_count during pipeline export' %>
+* <%= link_to_issue 7822, 'Missing response body error when submitted Pipeline JSON has duplicate job name error' %>
+* <%= link_to_issue 7824, 'Pipeline Config API does not return any error message for invalid job resources' %>
+* <%= link_to_issue 7830, 'Don\'t showcase pending agents in edit agents modal' %>
+* <%= link_to_issue 7853, 'Cannot search when type config repo name in the search box' %>
+* <%= link_to_issue 7709, 'Leading space in commit message breaks material modification check' %>
+* <%= link_to_issue 7752, 'Modification check failed for material: special characters are not allowed' %>
+* <%= link_to_issue 3103, 'Missing parameter in dependent pipeline leads to unknown error in template configuration' %>
+* <%= link_to_issue 7747, 'Operate permission cannot View pipeline group' %>
+
+<h4>Breaking Changes</h4>
+
+* Starting this release, <%= link_to 'GoCD Server docker image', 'https://hub.docker.com/r/gocd/gocd-server' %> will be based on Alpine 11 instead of Alpine 9.
+* Starting this release, the newer GoCD release tags will not be published for <%= link_to 'CentOS 7 based docker image for GoCD Server', 'https://hub.docker.com/r/gocd/gocd-server-centos-7' %>.  <%= link_to 'CentOS 8 based docker image for GoCD Server', 'https://hub.docker.com/r/gocd/gocd-server-centos-8' %> is available, and users are encouraged to use it.
+
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.2.0','changes-in-20-2-0', 'API changelog for 20.2.0' %> and <%= link_to_versioned_plugin_api '20.2.0','changes-in-gocd-20-2-0', 'Plugin API changelog for 20.2.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Sood",
+  "Akshay Dewan",
+  "Ankit Srivastava",
+  "Aravind SV",
+  "Bhupendrakumar Piprava",
+  "Dhanashri Pagar",
+  "Ganesh S Patil",
+  "Isabelle Carter",
+  "Jen Marley",
+  "Ketan Padegaonkar",
+  "Kiera Radman",
+  "Kritika Singh",
+  "Louda Peña",
+  "Lubaina R",
+  "Mahesh Panchaksharaiah",
+  "Mansi Shah",
+  "Marques Lee",
+  "Rajiesh N",
+  "Sheroy Marker",
+  "Steven Streisguth",
+  "Tomasz Setkowski",
+  "Varsha Varadarajan",
+  "Veerababu Kona",
+  "Viraj Patil",
+  "Vrushali Waykole",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.2.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
