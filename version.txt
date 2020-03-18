@@ -1,17 +1,9 @@
-Last updated: 2020-03-18 01:20:11 -0700
+Last updated: 2020-03-18 04:13:38 -0700
 
 Latest commit:
-    commit bdcb47620f9eb009310e3561bd1a0b7c8c91e5ec
-    Author: Ganesh S Patil <ganeshpl@thoughtworks.com>
-    Date:   Wed Mar 18 12:31:57 2020 +0530
+    commit 7eac59758051caa01d5d2a46c0dd0f408276075e
+    Author: Kritika Singh <kritika.singh1994@gmail.com>
+    Date:   Wed Mar 18 16:31:04 2020 +0530
     
-        Release notes for v20.2.0 (#1135)
-        
-        * Release notes for v20.2.0
-        
-        * update docs related to ssl
-        
-        * Minor edit
-        
-        Co-authored-by: Kritika <kritika.singh@thoughtworks.com>
+        Correct the alpine version for gocd server image breaking changes
     
