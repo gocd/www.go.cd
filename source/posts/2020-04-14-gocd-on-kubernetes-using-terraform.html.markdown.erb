@@ -1,0 +1,197 @@
+---
+layout: post
+title: GoCD on Kubernetes using Terraform
+type: post
+author: Guest post by Abilash Rajasekaran
+excerpt: "Use Terraform scripts to setup GoCD on Google Kubernetes Engine in minutes."
+summary_image: "/assets/images/blog/cd-hacks/gocd-k8s-terraform.jpg"
+title_tag_of_header: "GoCD on Kubernetes using Terraform"
+meta_description: "GoCD on Kubernetes using Terraform"
+meta_keywords: "gocd, kubernetes, k8s, continuous delivery, ci cd, terraform, helm, gke, google kubernetes engine"
+---
+
+<% content_for :banner do %>
+  <figure>
+    <img src="/assets/images/blog/cd-hacks/gocd-k8s-terraform.jpg" alt="GoCD on Kubernetes using Terraform"/>
+  </figure>
+<% end %>
+
+Have you ever been in a team where you had to setup GoCD server and agents (without Kubernetes)? It could be tiring and some of the
+challenges that we face with agents are not limited to continuously monitoring the load of it, agents running idle, clear segregation of
+environments and so on. Overall the effort and the cost is enormous.
+
+Can you think of setting up GoCD as one time effort and that too by maximum one hour? Thanks to Kubernetes and the supporting tools that
+made the job easier for us. Let us see how to achieve it.
+
+We will use Terraform to deploy on Google Kubernetes Engine. The steps should be similar for any other cloud providers.
+
+>*Note: Version of tools/libraries are subject to change. We have used the latest version as of date.*
+
+## Create Kubernetes Cluster
+Create a file with `.tf` extension.
+
+Step 1: First part of the file contain the provider.
+
+~~~
+provider "google" {
+  credentials = "${file("./<service-account-cred>.json")}"
+  project = "<project-id>"
+  region = "us-east4-a"
+}
+~~~
+
+Replace `./<service-account-cred>.json` to the path where you have the service account key downloaded. [Create service account key if you haven't created.](https://cloud.google.com/iam/docs/understanding-service-accounts)
+
+Replace `<project-id>` with the project ID.
+
+---------------------------
+
+Step 2: Next, we need to provide a VPC network. If not, it defaults to the default VPC network. It is recommended to create our own VPC
+network to avoid conflict.
+
+~~~
+resource "google_compute_network" "vpc_network" {
+  name = "gocd-vpc-network"
+}
+~~~
+
+---------------------------
+
+Step 3. Now we need to create the Kubernetes cluster. It is good practice to avoid using default node pools. We are using custom node pools
+and these nodes can auto scale based on the `min_node_count` and `max_node_count`.
+
+~~~
+resource "google_container_cluster" "ci" {
+  name = "gocd-cluster"
+  network = google_compute_network.vpc_network.name
+  location = "us-east4-a"
+  initial_node_count = 1
+  remove_default_node_pool = true
+  depends_on = [
+    "google_compute_network.vpc_network"]
+}
+
+resource "google_container_node_pool" "ci_nodes" {
+  name = "gocd-node-pool"
+  location = "us-east4-a"
+  cluster = google_container_cluster.ci.name
+
+  node_config {
+    machine_type = "n1-standard-2"
+  }
+
+  autoscaling {
+    min_node_count = 3
+    max_node_count = 5
+  }
+  depends_on = [
+    "google_container_cluster.ci"]
+}
+~~~
+
+---------------------------
+
+Step 4: It is time to deploy our Terraform script. To run Terraform script for the first time, You need to [install
+Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) in a local machine and run the scripts below.
+
+~~~
+terraform init
+~~~
+
+~~~
+terraform plan
+~~~
+
+~~~
+terraform apply
+~~~
+
+It will take some time to create the cluster. You can view the created cluster at [https://console.cloud.google.com/kubernetes/list](https://console.cloud.google.com/kubernetes/list).
+
+## Setup GoCD
+
+Our Kubernetes cluster is ready. Now, we will be using Helm chart to setup GoCD. For helm and kubernetes to interact with the cluster, we need to configure the Terraform provider.
+
+Mention the latest [Terraform provider helm version](https://github.com/terraform-providers/terraform-provider-helm/releases).
+
+~~~
+data "google_client_config" "current" {}
+
+provider "helm" {
+  version = "v1.1.1"
+  kubernetes {
+    load_config_file = false
+    host = "${google_container_cluster.ci.endpoint}"
+    token = "${data.google_client_config.current.access_token}"
+    client_certificate = "${base64decode(google_container_cluster.ci.master_auth.0.client_certificate)}"
+    client_key = "${base64decode(google_container_cluster.ci.master_auth.0.client_key)}"
+    cluster_ca_certificate = "${base64decode(google_container_cluster.ci.master_auth.0.cluster_ca_certificate)}"
+  }
+}
+
+provider "kubernetes" {
+  load_config_file = false
+  host = "${google_container_cluster.ci.endpoint}"
+  token = "${data.google_client_config.current.access_token}"
+  client_certificate = "${base64decode(google_container_cluster.ci.master_auth.0.client_certificate)}"
+  client_key = "${base64decode(google_container_cluster.ci.master_auth.0.client_key)}"
+  cluster_ca_certificate = "${base64decode(google_container_cluster.ci.master_auth.0.cluster_ca_certificate)}"
+}
+~~~
+
+Create a namespace (say `gocd`) to install helm in the `gocd` namespace.
+
+~~~
+resource "kubernetes_namespace" "gocd_namespace" {
+  metadata {
+    name = "gocd"
+  }
+  depends_on = [google_container_node_pool.ci_nodes]
+}
+~~~
+
+~~~
+resource "helm_release" "gocd" {
+  name = "gocd"
+  chart = "stable/gocd"
+  namespace = kubernetes_namespace.gocd_namespace.metadata.0.name
+  depends_on = [kubernetes_namespace.gocd_namespace]
+}
+~~~
+Download the plugins for provider helm and kubernetes. Apply the changes.
+
+~~~
+terraform init
+~~~
+
+~~~
+terraform apply
+~~~
+
+## Verification
+
+Locally you should have gcloud and kubectl to verify.
+
+Step 1: Use gcloud to authenticate with the cluster. [https://console.cloud.google.com/kubernetes/list](https://console.cloud.google.com/kubernetes/list) -> connect - will give the command to connect to the cluster. Execute it.
+
+---------------------------
+
+Step 2: You can see the state of GoCD server by running:
+
+~~~
+kubectl get pods -n gocd
+~~~
+
+---------------------------
+
+Step 3: GoCD is still not exposed to public. You can port forward to get to the UI.
+
+~~~
+kubectl port-forward svc/gocd-server 8153:8153 -n gocd
+~~~
+
+After running the above command, you can view the GoCD UI at [http://localhost:8153](http://localhost:8153/).
+
+---------------------------
+
+We have successfully deployed GoCD on Google Kubernetes Engine. This post was originally published on [Abilash Rajasekaran's blog](https://abilashr.hashnode.dev/gocd-on-kubernetes-using-terraform-setting-up-gocd-ck7dj3w6f0afrdfs10a239e3c). A blog series which details the setup of Let's Encrypt and Github OAuth with GoCD can be found there as well.
