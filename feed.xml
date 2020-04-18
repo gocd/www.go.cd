@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed.xml" rel="self"/>
-  <updated>2019-09-17T00:00:00Z</updated>
+  <updated>2020-04-14T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>GoCD on Kubernetes using Terraform</title>
+    <link rel="alternate" href="https://www.gocd.org/2020/04/14/gocd-on-kubernetes-using-terraform.html"/>
+    <id>https://www.gocd.org/2020/04/14/gocd-on-kubernetes-using-terraform.html</id>
+    <published>2020-04-14T00:00:00Z</published>
+    <updated>2020-04-14T00:00:00Z</updated>
+    <author>
+      <name>Guest post by Abilash Rajasekaran</name>
+    </author>
+    <content type="html">Use Terraform scripts to setup GoCD on Google Kubernetes Engine in minutes.</content>
+  </entry>
   <entry>
     <title>Configuring GoCD Agents in Kubernetes</title>
     <link rel="alternate" href="https://www.gocd.org/2019/09/17/configure-gocd-agents-kubernetes-static-elastic.html"/>
@@ -107,16 +118,5 @@
       <name>Aravind S.V and Suzie Prince</name>
     </author>
     <content type="html">To understand whether you are improving and delivering on your goals, you need to measure you CD process. Here is an overview of where you should begin</content>
-  </entry>
-  <entry>
-    <title>What's new in GoCD</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/10/16/new-gocd-features.html"/>
-    <id>https://www.gocd.org/2018/10/16/new-gocd-features.html</id>
-    <published>2018-10-16T00:00:00Z</published>
-    <updated>2018-10-16T00:00:00Z</updated>
-    <author>
-      <name>Aravind S.V, Product Manager at GoCD</name>
-    </author>
-    <content type="html">GoCD has released several new features recently. Here's an overview of what you can look forward to using.</content>
   </entry>
 </feed>
