@@ -2,25 +2,42 @@
 
 We have introduced a new Pluggable SCMs page to create and manage Plugin Materials.
 
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.3.0/pluggable_scm_spa.png', alt: 'Pluggable SCMs page' %>
+</figure>
 
-<h4>New Packages Page</h4>
+<h4>UI/UX refresh</h4>
 
 As part of our ongoing UI/UX refresh for improving the user experience, we have rewritten the Packages page to keep it in sync with other pages and retaining the existing functionality.
 
+<h4>New Packages Page</h4>
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.3.0/package_repository_spa.png', alt: 'Package Repository page' %>
+</figure>
+
+<h4>Comparison Page</h4>
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.3.0/comparison_spa.png', alt: 'Comparison page' %>
+</figure>
+
 <h4>Other Improvements</h4>
 
+* <%= link_to_issue 2947, 'Custom SCM material plugins do not show up in the list of materials when creating a new pipeline' %>
+* <%= link_to_issue 7022, 'Pipeline creation wizard missing package material type' %>
+* <%= link_to_issue 7860, 'Pipelines page: disable delete for pipelines with dependent pipelines' %>
 * <%= link_to_issue 7889, '[Performace Improvement] Remove unnecessary group by cause while loading dashboard pipeline' %>
-* <%= link_to_issue 7860, 'Pipelines page, disable delete for pipleines with dependent pipelines' %>
 * <%= link_to_issue 8021, 'New Pipeline wizard supports selecting Packages and Pluggable SCM Materials' %>
 
 
 <h4>Bug fixes</h4>
 
-* <%= link_to_issue 7865, 'PipelineConfig create API endpoint, ensures pipeline group name check is case-insensitive' %>
+* <%= link_to_issue 2197, 'Incorrect error message for invalid template name' %>
+* <%= link_to_issue 7865, 'PipelineConfig Create API: ensures pipeline group name check is case-insensitive' %>
 * <%= link_to_issue 7903, 'Maintenance mode message not showed in some pages' %>
-* <%= link_to_issue 8012, 'PipelineConfig API, incorrect error mapping for stage authorization errors' %>
-* <%= link_to_issue 7914, 'Error creating pipeline when material name provided as empty string' %>
-* <%= link_to_issue 2197, 'Incorrect error message with invalid template name' %>
+* <%= link_to_issue 7982, 'Fix fingerprint generation for Plugin and Package materials' %>
+* <%= link_to_issue 8012, 'PipelineConfig API: incorrect error mapping for stage authorization errors' %>
 
 
 <h4>APIs</h4>
