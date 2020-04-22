@@ -1,0 +1,68 @@
+<h4>New Pluggable SCMs Page</h4>
+
+We have introduced a new Pluggable SCMs page to create and manage Plugin Materials.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.3.0/pluggable_scm_spa.png', alt: 'Pluggable SCMs page' %>
+</figure>
+
+<h4>UI/UX refresh</h4>
+
+As part of our ongoing UI/UX refresh for improving the user experience, we have rewritten the Packages and Comparisons page to keep it in sync with other pages and retaining the existing functionality.
+
+<h4>Packages Page</h4>
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.3.0/package_repository_spa.png', alt: 'Package Repository page' %>
+</figure>
+
+<h4>Comparison Page</h4>
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.3.0/comparison_spa.png', alt: 'Comparison page' %>
+</figure>
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_issue 2947, 'Custom SCM material plugins do not show up in the list of materials when creating a new pipeline' %>
+* <%= link_to_issue 7022, 'Pipeline creation wizard missing package material type' %>
+* <%= link_to_issue 7860, 'Pipelines page: disable delete for pipelines with dependent pipelines' %>
+* <%= link_to_issue 7889, '[Performace Improvement] Remove unnecessary group by cause while loading dashboard pipeline' %>
+
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 2197, 'Incorrect error message for invalid template name' %>
+* <%= link_to_issue 7865, 'PipelineConfig Create API: ensures pipeline group name check is case-insensitive' %>
+* <%= link_to_issue 7903, 'Maintenance mode message not showed in some pages' %>
+* <%= link_to_issue 7982, 'Fix fingerprint generation for Plugin and Package materials' %>
+* <%= link_to_issue 8012, 'PipelineConfig API: incorrect error mapping for stage authorization errors' %>
+
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.3.0','changes-in-20-3-0', 'API changelog for 20.3.0' %> and <%= link_to_versioned_plugin_api '20.3.0','changes-in-gocd-20-3-0', 'Plugin API changelog for 20.3.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Ganesh S Patil",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Steven Streisguth",
+  "Varsha Varadarajan",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.3.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
