@@ -1,0 +1,55 @@
+<h4>Default authorization on new pipeline groups</h4>
+
+Starting from 20.4.0, all pipeline groups with no authorization setup can no longer be viewed and operated by everyone. They can only be viewed and operated by GoCD system administrators.
+
+<h4>UI/UX refresh</h4>
+
+As part of our ongoing UI/UX refresh for improving the user experience, we have rewritten the Pipeline Config Edit page to keep it in sync with other pages and retaining the existing functionality.
+Feedback/ideas are welcome, please open an issue [here](https://github.com/gocd/gocd/issues) to add your comments.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.4.0/pipeline-config-spa.gif', alt: 'Pipeline Config Edit' %>
+</figure>
+
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_issue 8118, 'Update Package and Pluggable SCM page to support auto_update' %>
+* <%= link_to_issue 8140, 'Improving config repository error message while parsing related to rules' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 8119, 'Adding a package material via Package page causes the pipeline to fail' %>
+* <%= link_to_issue 8132, 'Fixed Template API update failure when parameter resolution has errors' %>
+
+<h4>Deprecations</h4>
+
+* <%= removed_docker_image_message 'Alpine', '3.8', 'May 2020' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.4.0','changes-in-20-4-0', 'API changelog for 20.4.0' %> and <%= link_to_versioned_plugin_api '20.4.0','changes-in-gocd-20-4-0', 'Plugin API changelog for 20.4.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Ganesh S Patil",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Steven Streisguth",
+  "Varsha Varadarajan",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.4.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
