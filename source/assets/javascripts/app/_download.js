@@ -9,7 +9,8 @@ var showDownloadLinks = (function ($) {
         version_to_show: function (release) {
           return release["go_version"];
         },
-        cloud_info_url: "https://download.gocd.org/cloud.json"
+        cloud_info_url: "https://download.gocd.org/cloud.json",
+        docker_org: 'gocd'
       },
       experimental: {
         download_info_url: "https://download.gocd.org/experimental/releases.json",
@@ -17,7 +18,8 @@ var showDownloadLinks = (function ($) {
         version_to_show: function (release) {
           return release["go_full_version"];
         },
-        cloud_info_url: "https://download.gocd.org/cloud.json"
+        cloud_info_url: "https://download.gocd.org/experimental/cloud.json",
+        docker_org: 'gocdexperimental'
       }
     };
 
@@ -157,6 +159,13 @@ var showDownloadLinks = (function ($) {
       var template = Handlebars.compile(
         $("#download-revisions-template").html()
       );
+
+      const assocDockerOrg = function (val) {
+        return R.assoc('docker_org', settings.docker_org, val);
+      };
+      // adding the docker organisation
+      latest_cloud_release = R.assoc('docker_org', settings.docker_org, latest_cloud_release);
+      other_cloud_releases = R.map(assocDockerOrg, other_cloud_releases);
 
       $("#downloads").html(
         template({
