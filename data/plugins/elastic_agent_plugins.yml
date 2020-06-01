@@ -1,3 +1,21 @@
+- name: ECS Elastic Agent
+  description: GoCD Elastic Agent Plugin for Amazon Elastic Container Service
+  readmore_url: https://github.com/gocd/gocd-ecs-elastic-agent
+  author_url: https://github.com/gocd
+  author_name: GoCD Contributors
+  releases_url: https://github.com/gocd/gocd-ecs-elastic-agent/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=gocd-ecs-elastic-agent&type=watch&count=true
+  first_available_date: 5/2020
+
+- name: Microsoft Azure Elastic Agent
+  description: GoCD Elastic Agent Plugin for bringing up GoCD agents on Microsoft Azure virtual machines.
+  readmore_url: https://github.com/gocd/azure-elastic-agent-plugin
+  author_url: https://github.com/gocd
+  author_name: GoCD Contributors
+  releases_url: https://github.com/gocd/azure-elastic-agent-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=azure-elastic-agent-plugin&type=watch&count=true
+  first_available_date: 5/2020
+
 - name: GoCD Elastic agent plugin for Docker
   description: GoCD Elastic agent plugin for Docker
   readmore_url: https://github.com/gocd-contrib/docker-elastic-agents
