@@ -1,8 +1,8 @@
 <h4>Support for multiple databases</h4>
 
-GoCD used H2 as default database, support for PostgreSQL was provided through a commercial addon. GoCD 20.5.0 while continuing to use H2 as default database introduces support for PostgreSQL without a need for the commercial addon. As part of these changes GoCD moved away from using the unmaintained dbdeploy to liquibase for automated database migrations. These changes require a one-time manual migration of the GoCD database running on versions <= 20.4.0 to one complaint with GoCD 20.5.0.
+GoCD 20.5.0, while continuing to use H2 as the default database, introduces support for PostgreSQL without a need for the (previously used) commercial addon. As part of these changes GoCD moved away from using the unmaintained dbdeploy to liquibase for automated database migrations. These changes require a one-time manual migration of the GoCD database running on versions <= 20.4.0 to one compliant with GoCD 20.5.0 and beyond.
 
-Please refer to the GoCD Database migration document for steps to migrate your db.
+Please refer to [the GoCD Database migration document](TODO) for steps to migrate your database.
 
 <h4>UI/UX refresh</h4>
 
@@ -15,14 +15,14 @@ As part of the ongoing UI/UX refresh for improving the user experience, the Temp
 
 <h4>Other Improvements</h4>
 
-* <%= link_to_issue 150, 'Agents API provides information about Agent and Agent Bootstrapper version.' %>
-* <%= link_to_issue 8223, 'Specified units for Artifact cleanup options.' %>
+* <%= link_to_issue 150, 'Agents API (on GoCD server side) provides information about Agent and Agent Bootstrapper versions.' %>
 * <%= link_to_issue 8127, 'Improved performance of pipeline edit on Environments page' %>
 * <%= link_to_issue 8114, 'Agents API to force kill tasks on an agent stuck in Building(Cancelled) state.' %>
+* <%= link_to_issue 8223, 'Improved help text in UI for artifact cleanup options.' %>
 
 <h4>Bug fixes</h4>
 
-* <%= link_to_issue 8220, 'Fixed JSON error when adding Notifications.' %>
+* <%= link_to_issue 8220, 'Fixed bug when adding notifications using the Notification Filters API.' %>
 
 <h4>Deprecations</h4>
 
