@@ -1,0 +1,58 @@
+<h4>Support for multiple databases</h4>
+
+GoCD 20.5.0, while continuing to use H2 as the default database, introduces support for PostgreSQL without a need for the (previously used) commercial addon. As part of these changes GoCD moved away from using the unmaintained dbdeploy to liquibase for automated database migrations. These changes require a one-time manual migration of the GoCD database running on versions <= 20.4.0 to one compliant with GoCD 20.5.0 and beyond.
+
+Please refer to [the GoCD Database migration document](https://docs.gocd.org/20.5.0/installation/upgrade_to_gocd_20.5.0.html) for steps to migrate your database.
+
+If you are using GoCD commercial addons, please follow the [additional instructions](https://extensions-docs.gocd.org/upgrade_to_gocd_20.5.0/) to upgrade your GoCD server with addons.
+
+<h4>UI/UX refresh</h4>
+
+As part of the ongoing UI/UX refresh for improving the user experience, the Templates Authorization page has been rewritten to keep it in sync with other pages, while retaining existing functionality.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.5.0/template_authorization_spa.png', alt: 'Template Authorization' %>
+</figure>
+
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_issue 150, 'Agents API (on GoCD server side) provides information about Agent and Agent Bootstrapper versions.' %>
+* <%= link_to_issue 8127, 'Improved performance of pipeline edit on Environments page' %>
+* <%= link_to_issue 8114, 'Agents API to force kill tasks on an agent stuck in Building(Cancelled) state.' %>
+* <%= link_to_issue 8223, 'Improved help text in UI for artifact cleanup options.' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 8220, 'Fixed bug when adding notifications using the Notification Filters API.' %>
+
+<h4>Deprecations</h4>
+
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.5.0','changes-in-20-5-0', 'API changelog for 20.5.0' %> and <%= link_to_versioned_plugin_api '20.5.0','changes-in-gocd-20-5-0', 'Plugin API changelog for 20.5.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Ganesh S Patil",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Steven Streisguth",
+  "Varsha Varadarajan",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.5.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
