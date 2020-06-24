@@ -100,7 +100,7 @@ var showDownloadLinks = (function ($) {
     var addReleaseDate = R.curry(function (release) {
       return R.assoc(
         "release_date",
-        new Date(release["release_time_readable"]).toDateString(),
+        new Date(release["release_time_readable"]).toDateString().substr(4),
         release
       );
     });
