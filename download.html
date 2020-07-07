@@ -16,7 +16,7 @@
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
     <link href="assets/stylesheets/site-bfa048f4.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-26f74511.js" data-manual="true"></script>
+    <script src="assets/javascripts/all-667de1bb.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
     <script>
@@ -256,12 +256,18 @@
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <div class="latest">
       {{#with latest_cloud_release}}
+      <div class="release-type">
+        <input type="radio" id="stable-docker" name="typeOfDownloads-docker" checked="checked" value="stable" class="stable" />
+        <label for="stable-docker">Stable</label>
+        <input type="radio" id="experimental-docker" name="typeOfDownloads-docker" value="experimental" class="experimental" />
+        <label for="experimental-docker">Experimental</label>
+      </div>
       <div class="go-release {{go_version}} row">
         <div class=" col-xs-12">
           <span class="version">Version: {{go_version}}</span>
         </div>
         <div class="col-xs-12">
-          {{> show-docker-release server_docker=server_docker agents_docker=agents_docker}}
+          {{> show-docker-release server_docker=server_docker agents_docker=agents_docker docker_org=docker_org }}
         </div>
       </div>
       {{/with}}
@@ -276,7 +282,7 @@
           <span class="version">Version: {{go_version}}</span>
         </div>
         <div class="col-xs-12">
-          {{> show-docker-release server_docker=server_docker agents_docker=agents_docker}}
+          {{> show-docker-release server_docker=server_docker agents_docker=agents_docker docker_org=docker_org }}
         </div>
       </div>
       {{/each}}
@@ -312,13 +318,13 @@
     <h3>GoCD Server Docker Image</h3>
     <ul class="docker-list server">
       {{#each server_docker}}
-      {{> show-server-docker-command image_name=image_name version=../go_version}}
+      {{> show-server-docker-command image_name=image_name version=../go_version docker_org=../docker_org }}
       {{/each}}
     </ul>
     <h3>GoCD Agent Docker Images</h3>
     <ul class="docker-list agents">
       {{#each agents_docker}}
-      {{> show-agent-docker-command image_name=image_name version=../go_version}}
+      {{> show-agent-docker-command image_name=image_name version=../go_version docker_org=../docker_org }}
       {{/each}}
     </ul>
   </div>
@@ -326,14 +332,14 @@
 
 
   {{#*inline "show-server-docker-command"}}
-  <li>More info at: <a href="https://hub.docker.com/r/gocd/{{image_name}}">{{image_name}}</a>
-    <span class="command">docker run -d -p8153:8153 -p8154:8154 gocd/{{image_name}}:v{{version}}</span>
+  <li>More info at: <a href="https://hub.docker.com/r/{{docker_org}}/{{image_name}}">{{image_name}}</a>
+    <span class="command">docker run -d -p8153:8153 -p8154:8154 {{docker_org}}/{{image_name}}:v{{version}}</span>
   </li>
   {{/inline}}
 
   {{#*inline "show-agent-docker-command"}}
-  <li>More info at: <a href="https://hub.docker.com/r/gocd/{{image_name}}">{{image_name}}</a>
-    <span class="command">docker run -d -e GO_SERVER_URL=... gocd/{{image_name}}:v{{version}}</span>
+  <li>More info at: <a href="https://hub.docker.com/r/{{docker_org}}/{{image_name}}">{{image_name}}</a>
+    <span class="command">docker run -d -e GO_SERVER_URL=... {{docker_org}}/{{image_name}}:v{{version}}</span>
   </li>
   {{/inline}}
 
@@ -420,7 +426,7 @@
     });
 
     /* Switch between stable and experimental. */
-    target.on('change', 'input[type=radio][name=typeOfDownloads-rpm], input[type=radio][name=typeOfDownloads-deb], input[type=radio][name=typeOfDownloads-osx], input[type=radio][name=typeOfDownloads-win], input[type=radio][name=typeOfDownloads-generic]', function () {
+    target.on('change', 'input[type=radio][name=typeOfDownloads-rpm], input[type=radio][name=typeOfDownloads-deb], input[type=radio][name=typeOfDownloads-osx], input[type=radio][name=typeOfDownloads-win], input[type=radio][name=typeOfDownloads-generic], input[type=radio][name=typeOfDownloads-docker]', function () {
       currentInstallerType = $(this).val();
 
       showDownloadLinks({typeOfInstallersToShow: currentInstallerType})
@@ -489,7 +495,7 @@
         <div class="col-md-2">
           <ul class="unordered-list">
             <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
-            <li><a href="https://brandfolder.com/twproducts">LOGOS + BRAND</a> </li>
+            <li><a href='assets/gocd-brand-styleguide.zip'>LOGOS + BRAND</a></li>
             <li><a href="contribute/">CONTRIBUTE</a></li>
           </ul>
         </div>
