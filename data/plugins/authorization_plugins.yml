@@ -30,7 +30,6 @@
   author_name: Di.Tech S.p.A.
   releases_url: https://github.com/mgambini/crowd-integration-plugin/releases
   contact_url: mailto:marco.gambini@ditechspa.it?subject=Info about Crowd Authentication Plugin
-  paid: false
 
 - name: GitHub OAuth authorization plugin
   description: The plugin allows user to login in GoCD using GitHub(or GitHub Enterprise).
@@ -39,7 +38,6 @@
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/github-oauth-authorization-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=github-oauth-authorization-plugin&type=watch&count=true
-  paid: false
 
 - name: Google OAuth authorization plugin
   description: The plugin allows user to login in GoCD using a Google account.
@@ -48,7 +46,6 @@
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/google-oauth-authorization-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=google-oauth-authorization-plugin&type=watch&count=true
-  paid: false
 
 - name: Okta OAuth authorization plugin
   description: The plugin allows user to login in GoCD using an Okta account.
@@ -57,7 +54,6 @@
   author_name: Svetlin Zamfirov
   releases_url: https://github.com/szamfirov/gocd-okta-oauth-authorization-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=szamfirov&repo=gocd-okta-oauth-authorization-plugin&type=watch&count=true
-  paid: false
 
 - name: TLS Client Certificate Authentication plugin
   description: Using headers set by a TLS-terminating reverse proxy, details from a client certificate are used to log in
@@ -66,7 +62,6 @@
   author_name: Chris Northwood
   releases_url: https://github.com/cnorthwood/gocd-tls-auth/releases
   github_stars: http://ghbtns.com/github-btn.html?user=cnorthwood&repo=gocd-tls-auth&type=watch&count=true
-  paid: false
 
 - name: GitLab OAuth authorization plugin
   description: The plugin allows user to login in GoCD using GitLab(or GitLab Enterprise).
@@ -75,7 +70,6 @@
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gitlab-oauth-authorization-plugin&type=watch&count=true
-  paid: false
 
 - name: GoCD Guest Login Authentication plugin
   description: The plugin allows user to login in GoCD as a guest user
@@ -84,5 +78,3 @@
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/gocd-guest-login-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-guest-login-plugin&type=watch&count=true
-  paid: false
-
