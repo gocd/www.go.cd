@@ -1,16 +1,17 @@
-<h4>Add Pipeline-as-code creation page</h4>
+<h4>New Pipeline as code wizard</h4>
 
-Now the GoCD users can create config-repo pipeline definitions using the new SPA.
+The Pipeline as code wizard makes it easier for users to define and generate pipeline definitions using the config repo plugin of their choice.
 
 <h4>SSL support - Breaking Changes</h4>
 
-In GoCD 20.2.0 we had [announced](https://github.com/gocd/gocd/issues/7872) removal of support for TLS on port 8154 using a self-signed certificate. To minimize disruptions, GoCD temporarily provided an option to enable the TLS port.
+In GoCD 20.2.0 we had [announced](https://github.com/gocd/gocd/issues/7872) the removal of support for TLS on port 8154 using a self-signed certificate. To minimize disruptions, GoCD temporarily provided an option to enable the TLS port.
 
-With this release, GOCD no longer support configuring TLS within GoCD and will stop bringing up TLS on port 8154. If you have temporarily enabled TLS, and if the agents are configured to use the TLS port 8154 they will have to reconfigured to use port 8153, else the agent will stop connecting to the server.
+With this release, GOCD no longer supports configuring TLS within GoCD and will stop bringing up TLS on port 8154. If you have temporarily enabled TLS, and if the agents are configured to use the TLS port 8154 they will have to reconfigured to use port 8153, else the agent will stop connecting to the server.
 
-<h4>Added business continuity support</h4>
+<h4>Business Continuity</h4>
 
-The Business continuity Addon has been merged into GoCD core. Please refer to the [docs](add-docs-link) for steps on how to use the same.
+GoCD had a failover mechanism to decrease the impact of server failure. This feature was available as part of the paid offering through the Business Continuity Addon.
+As part of open sourcing all the commercial components, the Business continuity feature has been incorporated into GoCD core. Please refer to the [documentation](https://docs.gocd.org/20.6.0/advanced_usage/business_continuity/introduction.html) to know more about the Business Continuity feature.
 
 <h4>Data Sharing</h4>
 
@@ -18,6 +19,7 @@ The Data Sharing feature has been removed from GoCD.
 
 <h4>Other Improvements</h4>
 
+* <%= link_to_issue 8210, 'Allow `git` material to honor a refSpec as the branch name' %>
 * <%= link_to_issue 6722, 'Showcase a help component for concepts on all SPAs' %>
 * <%= link_to_issue 8256, 'Improvements on Pipeline Config SPA' %>
 * <%= link_to_issue 8263, 'Better naming for whitelist/blacklist options' %>
