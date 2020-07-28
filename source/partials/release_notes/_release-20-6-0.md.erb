@@ -1,0 +1,75 @@
+<h4>New Pipeline as code wizard</h4>
+
+The Pipeline as code wizard makes it easier for users to define and generate pipeline definitions using the config repo plugin of their choice.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.6.0/pipeline_as_code_wizard.png', alt: 'Pipeline as code wizard' %>
+</figure>
+
+<h4>SSL support - Breaking Changes</h4>
+
+In GoCD 20.2.0 we had [announced](https://github.com/gocd/gocd/issues/7872) the removal of support for TLS on port 8154 using a self-signed certificate. To minimize disruptions, GoCD temporarily provided an option to enable the TLS port.
+
+With this release, GOCD no longer supports configuring TLS within GoCD and will stop bringing up TLS on port 8154. If you have temporarily enabled TLS, and if the agents are configured to use the TLS port 8154 they will have to reconfigured to use port 8153, else the agent will stop connecting to the server.
+
+<h4>Business Continuity</h4>
+
+GoCD had a failover mechanism to decrease the impact of server failure. This feature was available as part of the paid offering through the Business Continuity Addon.
+As part of open sourcing all the commercial components, the Business continuity feature has been incorporated into GoCD core. Please refer to the [documentation](https://docs.gocd.org/20.6.0/advanced_usage/business_continuity/introduction.html) to know more about the Business Continuity feature.
+
+<h4>Data Sharing</h4>
+
+The Data Sharing feature has been removed from GoCD.
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_issue 8210, 'Allow `git` material to honor a refSpec as the branch name' %>
+* <%= link_to_issue 8263, 'Better naming for whitelist/blacklist options' %>
+* <%= link_to_issue 6722, 'Showcase a help component for concepts on all SPAs' %>
+* <%= link_to_issue 8315, 'Show help text when plugin role selector is disabled on Roles SPA' %>
+* <%= link_to_issue 8327, 'Show branch name on materials table' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 8231, 'Fix rule circumvention issue that allows partials from config-repository to be merged even if rules are violated' %>
+* <%= link_to_issue 8314, 'Fix Users update API to return appropriate status code on update user failure' %>
+* <%= link_to_issue 8298, 'Fix duplicate error message from the Stage Trigger API' %>
+* <%= link_to_issue 8335, 'Fix NPE issue while using access token which has reference to invalid authorization configuration' %>
+* <%= link_to_issue 8345, 'Stale response while using Stage History API' %>
+* <%= link_to_issue 8350, 'Resolve secret params during check connection' %>
+* <%= link_to_issue 8308, 'Validate empty tasks in a job' %>
+* <%= link_to_issue 8261, 'Added toggle icon to view the text while editing for secure environment variables' %>
+* <%= link_to_issue 8141, 'Improvements and Bug Fixes on Pipeline Config SPA' %>
+* <%= link_to_issue 8361, 'Add client side validations for environment variables on Pipeline Config SPA' %>
+
+<h4>Removal</h4>
+
+* <%= removed_docker_image_message 'Debian', '8 (jessie)', 'June 2020' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.6.0','changes-in-20-6-0', 'API changelog for 20.6.0' %> and <%= link_to_versioned_plugin_api '20.6.0','changes-in-gocd-20-6-0', 'Plugin API changelog for 20.6.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Ganesh S Patil",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Steven Streisguth",
+  "Varsha Varadarajan",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.6.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
