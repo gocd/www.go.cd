@@ -1,9 +1,22 @@
-Last updated: 2020-07-07 04:05:49 -0700
+Last updated: 2020-07-29 00:40:19 -0700
 
 Latest commit:
-    commit b49c9b120cca77d007586f95bb21c782a3fa3e1d
-    Author: Kritika Singh <kritika.singh1994@gmail.com>
-    Date:   Thu May 28 13:05:59 2020 +0530
+    commit f71573ff2113d2142bfe0b519a4999d22da109b3
+    Author: Kritika <kritika.singh@thoughtworks.com>
+    Date:   Tue Jul 28 09:46:25 2020 +0530
     
-        Show an experimental docker images section which points to `gocdexperimental/{image_name}`
+        Add 20.6.0 release notes (#1159)
+        
+        * Add 20.6.0 release notes
+        
+        * More changes to the release notes
+        
+        * Adding an image for pipeline as code wizard
+        
+        * Fix comments
+        
+        * Add more items to the bug-fixes and improvements section
+        
+        Co-authored-by: Mahesh Panchaksharaiah <maheshp@thoughtworks.com>
+        Co-authored-by: GaneshSPatil <ganeshpl@thoughtworks.com>
     
