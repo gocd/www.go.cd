@@ -1,0 +1,52 @@
+<h4>Dashboard Improvements</h4>
+
+In this release, there have been significant improvements to the GoCD dashboard UX:
+
+ - We have introduced a new stage overview which provides users with quick access to stage details on the dashboard. The stage overview provides information about all the jobs in a stage, gives an option to re-run jobs and to quickly access the job console from the dashboard.
+ - The GoCD dashboard now provides an ability to trigger manual stages.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.7.0/stage_overview.gif', alt: 'Quick stage overview on dashboard' %>
+</figure>
+
+
+<h4>Other Improvements</h4>
+
+* Starting this release, Alpine 3.12 based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-alpine-3.12' %>.
+* The bundled yum package material plugin has been updated to work on RHEL 8
+* <%= link_to_issue 8411, 'Allow only admins and pipeline group admins to perform check connection on pipeline materials.' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 8416, 'Agent SSL Verification with reverse proxy fails' %>
+* <%= link_to_issue 8427, 'Agents going Lost Contact after a while and warnings in the server about remoteBuildRepository' %>
+* <%= link_to_issue 8460, 'Mask authentication credentials in urls on materials tab on pipeline config edit page' %>
+* <%= link_to_issue 8463, 'Fail to perform any GoCD updates due to invalid config repository configuration' %>
+* <%= link_to_issue 8464, 'Added validation for null arguments for exec command' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.7.0','changes-in-20-7-0', 'API changelog for 20.7.0' %> and <%= link_to_versioned_plugin_api '20.7.0','changes-in-gocd-20-7-0', 'Plugin API changelog for 20.7.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Ganesh S Patil",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Varsha Varadarajan",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.7.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
