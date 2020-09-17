@@ -54,7 +54,7 @@ Every time a new tool or package is to be added to the agent, a new image can be
 1. The given repository should be public. If a private repository is used, then the Go server should have access to it. I have mentioned how to configure access for a private repository using the Docker Artifact Store plugin here.
 2. All agents that are created after applying the values will be in a pending state. They have to be manually enabled.*
 
-There are many other configuration options available in the [values.yaml](https://github.com/helm/charts/blob/master/stable/gocd/values.yaml) that can be used to configure the agents. One important example is the security.ssh section that allows us to mount a SSH files using a kubernetes secret. This can be used to allow access to various VCS that use SSH to control access. I’ve explained it in a little more detail in the first post of this series. You can also specify the [storage](https://github.com/helm/charts/blob/480ad2744095a7ca62699c7cd97d20e2491a4852/stable/gocd/values.yaml#L268), [memory as well as maximum CPU allocation](https://github.com/helm/charts/blob/480ad2744095a7ca62699c7cd97d20e2491a4852/stable/gocd/values.yaml#L348) for the agents.
+There are many other configuration options available in the [values.yaml](https://github.com/gocd/helm-chart/blob/master/gocd/values.yaml) that can be used to configure the agents. One important example is the security.ssh section that allows us to mount a SSH files using a kubernetes secret. This can be used to allow access to various VCS that use SSH to control access. I’ve explained it in a little more detail in the first post of this series. You can also specify the [storage](https://github.com/gocd/helm-chart/blob/master/gocd/values.yaml), [memory as well as maximum CPU allocation](https://github.com/gocd/helm-chart/blob/master/gocd/values.yaml) for the agents.
 
 ##Elastic Agents:
 
@@ -144,6 +144,6 @@ As you can see the pod spec has been specified in YAML. You will have to set the
 If you want the pod to have SSH access to a Git service, you can create a secret with the SSH files and then mount it like shown in the pod spec above. Doing this should give your elastic agents access to your Git repositories.
 
 So there you go. I hope you find it useful. If you have any questions, please feel free to comment and I’ll answer from whatever I’ve learnt so far.
-        
+
 *This article was originally posted on [Mohamed Najiullah's blog](https://mohamednajiullah.tech/configuring-go-agents-in-gocd-in-kubernetes-static-and-elastic-agents-c5dbf5f6a01d)*
 
