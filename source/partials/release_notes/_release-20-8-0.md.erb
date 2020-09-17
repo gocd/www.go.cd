@@ -1,0 +1,66 @@
+<h4>Materials Page</h4>
+
+We have introduced a new Materials Page which lists all the configured materials. The page provides an ability to trigger a material update. For each material you can view the modifications with a corresponding link to VSM.
+
+<figure class='shrink-figure-100'>
+    <%= image_tag 'releases/20.8.0/materials_spa.gif', alt: 'Materials SPA' %>
+</figure>
+
+<h4>Support for Branch and Pull Requests</h4>
+
+The GoCD Groovy DSL Configuration Plugin adds support for PR and branches in the [latest version](https://github.com/gocd-contrib/gocd-groovy-dsl-config-plugin/releases/tag/v1.1.0-233) of the plugin. The plugin provides an ability to templatize a pipeline or an entire workflow to run your builds against each branch and PR. Once a template is defined, the plugin scans the configured repository at a regular interval and for each available branch/PR it builds the corresponding pipelines.
+
+Refer the [plugin documentation](https://github.com/gocd-contrib/gocd-groovy-dsl-config-plugin#support-for-branches-and-prs) for comprehensive examples to use this feature.
+
+<h4>Stage Overview on Pipeline Activity Page</h4>
+
+Staring this release, the users can utilize the stage overview on Pipeline Activity page. Earlier, it was only available on the Dashboard.
+
+<figure class='shrink-figure-60'>
+    <%= image_tag 'releases/20.8.0/stage_overview.png', alt: 'Stage overview on pipeline activity' %>
+</figure>
+
+<h4>Other Improvements</h4>
+
+* <%= link_to_issue 3962, 'Support allowlist for pluggable SCM materials' %>
+* <%= link_to_issue 8234, 'Support for secrets management interpolation on Pluggable SCM materials' %>
+* <%= link_to_issue 8367, 'Add support for denylist for plugin materials on the edit material popup' %>
+* <%= link_to_issue 8522, 'Exponential backoff material update in case of failures' %>
+* <%= link_to_issue 8558, "Add support for secrets in Package configurations" %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 8490, 'Invalid stage settings link on stage overview when a pipeline is defined from a template' %>
+* <%= link_to_issue 8492, 'ConfigRepoPlugin should decrypt all of the configuration properties when including them in the request.' %>
+* <%= link_to_issue 8502, 'Dashboard UI issue: Repeated trigger buttons' %>
+* <%= link_to_issue 8511, 'Allow group admin users to check connection for Pluggable SCM config' %>
+* <%= link_to_issue 8524, "Test Connection with ## in Repository URL doesn't work in Pipeline Wizard" %>
+* <%= link_to_issue 8525, "Backup breaks when WRAPPER_CONF_DIR is not set" %>
+* <%= link_to_issue 8540, "Fix job rerun icon positioning on stage overview" %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.8.0','changes-in-20-8-0', 'API changelog for 20.8.0' %> and <%= link_to_versioned_plugin_api '20.8.0','changes-in-gocd-20-8-0', 'Plugin API changelog for 20.8.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Ganesh S Patil",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Varsha Varadarajan",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.8.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
