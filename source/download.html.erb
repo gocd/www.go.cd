@@ -252,16 +252,16 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <h3>Running GoCD On Kubernetes</h3>
     <div class="command k8s">
-    <p>helm repo add stable https://kubernetes-charts.storage.googleapis.com</p>
+    <p>helm repo add gocd https://gocd.github.io/helm-chart</p>
     </div>
     <h4> For Helm 3 and above</h4>
     <div class="command k8s">
       <p>kubectl create ns gocd</p>
-      <p>helm install gocd stable/gocd --namespace gocd</p>
+      <p>helm install gocd gocd/gocd --namespace gocd</p>
     </div>
     <h4>For Helm 2</h4>
     <div class="command k8s">
-      <p>helm install --name gocd-app --namespace gocd stable/gocd</p>
+      <p>helm install --name gocd-app --namespace gocd gocd/gocd</p>
     </div>
     <div class="download-message k8s">
      <p>Refer to the <a href="https://docs.gocd.org/current/gocd_on_kubernetes">Getting Started Documentation</a> .</p>
