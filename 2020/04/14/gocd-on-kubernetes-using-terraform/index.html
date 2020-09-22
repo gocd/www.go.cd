@@ -203,7 +203,7 @@ provider "kubernetes" {
 
 <pre><code>resource "helm_release" "gocd" {
   name = "gocd"
-  chart = "stable/gocd"
+  chart = "gocd/gocd"
   namespace = kubernetes_namespace.gocd_namespace.metadata.0.name
   depends_on = [kubernetes_namespace.gocd_namespace]
 }

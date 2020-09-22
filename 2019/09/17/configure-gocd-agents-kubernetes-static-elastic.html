@@ -113,7 +113,7 @@
   <li>All agents that are created after applying the values will be in a pending state. They have to be manually enabled.*</li>
 </ol>
 
-<p>There are many other configuration options available in the <a href="https://github.com/helm/charts/blob/master/stable/gocd/values.yaml">values.yaml</a> that can be used to configure the agents. One important example is the security.ssh section that allows us to mount a SSH files using a kubernetes secret. This can be used to allow access to various VCS that use SSH to control access. I’ve explained it in a little more detail in the first post of this series. You can also specify the <a href="https://github.com/helm/charts/blob/480ad2744095a7ca62699c7cd97d20e2491a4852/stable/gocd/values.yaml#L268">storage</a>, <a href="https://github.com/helm/charts/blob/480ad2744095a7ca62699c7cd97d20e2491a4852/stable/gocd/values.yaml#L348">memory as well as maximum CPU allocation</a> for the agents.</p>
+<p>There are many other configuration options available in the <a href="https://github.com/gocd/helm-chart/blob/master/gocd/values.yaml">values.yaml</a> that can be used to configure the agents. One important example is the security.ssh section that allows us to mount a SSH files using a kubernetes secret. This can be used to allow access to various VCS that use SSH to control access. I’ve explained it in a little more detail in the first post of this series. You can also specify the <a href="https://github.com/gocd/helm-chart/blob/master/gocd/values.yaml">storage</a>, <a href="https://github.com/gocd/helm-chart/blob/master/gocd/values.yaml">memory as well as maximum CPU allocation</a> for the agents.</p>
 
 <h2 id="elastic-agents">Elastic Agents:</h2>
 
