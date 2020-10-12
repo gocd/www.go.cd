@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Restore Backup for GoCD on Kubernetes" name="description" />
+    <meta content="gocd, kubernetes, k8s, continuous delivery, ci cd, terraform, helm, gke, google kubernetes engine, backup, automated backup, restore backup" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Restore Backup for GoCD on Kubernetes" />
+    <meta name="twitter:description" content="Restore Backup for GoCD on Kubernetes" />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/cd-hacks/gocd-gke-helm-1bd3db0e.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2020/10/11/restore-backup-for-gocd-on-kubernetes" />
+
+    <title>Restore Backup for GoCD on Kubernetes</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-bfa048f4.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-667de1bb.js" data-manual="true"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+    });
+    </script>
+  </head>
+
+  <body class="x2020 x2020_10 x2020_10_11 x2020_10_11_restore-backup-for-gocd-on-kubernetes x2020_10_11_restore-backup-for-gocd-on-kubernetes_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+        <figure>
+    <img src="../../../../assets/images/blog/cd-hacks/gocd-gke-helm-1bd3db0e.jpg" alt="Restore Backup for GoCD on Kubernetes"/>
+  </figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>Restore Backup for <span class="go">Go</span>CD on Kubernetes</h1>
+    <h4>Guest post by Abilash Rajasekaran</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>We must have backup zip before attempting to restore. Or else make sure to download and have the backup zip in local. So, how to Backup? Refer to <a href="https://www.gocd.org/2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>.</p>
+
+<p>The steps to restore backup are similar as mentioned in <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">Backup GoCD Server</a>.</p>
+
+<p>But some complications arise when performing the same when GoCD is running on kubernetes, it is because of the latest release that incorporated additional security layer to run as <a href="https://www.gocd.org/2019/06/25/GoCD-non-root-containers/#:~:text=Running%20containers%20using%20non%2Droot,%2Droot%20user%2C%20by%20default">non root user in GoCD server</a>. Because of this it is not possible to directly exec into GoCD server pod and change the files.</p>
+
+<hr />
+
+<p>When GoCD server pod is running in kubernetes, it gets attached with one PVC(Persistence Volume Claim). This PVC cannot be attached to multiple pod. In our case, GoCD server pod is already attached with a PVC, we need to follow below steps to restore the backup:</p>
+
+<ol>
+  <li>Detach PVC from server pod.</li>
+  <li>Introduce another temporary pod that can attach to the same PVC.</li>
+  <li>Restore the files from the backup.</li>
+  <li>Finally reverse the process, by detaching temporary pod and hooking it to the GoCD server pod.</li>
+</ol>
+
+<p>Let's walk through each step with commands to achieve the above steps.</p>
+
+<h3 id="step-1-detach-pvc-from-server-pod"><em>Step 1:</em> Detach PVC from server pod</h3>
+
+<p>Stop the running GoCD server to disconnect from the PV by using one of the following approaches:</p>
+
+<ol>
+  <li><a href="https://helm.sh/docs/helm/helm_uninstall/">Uninstall GoCD helm release</a> from the cluster.</li>
+  <li>Stop the GoCD server pod using <a href="https://github.com/IBM/helm-stop">helm-stop plugin</a>.</li>
+</ol>
+
+<hr />
+
+<h3 id="step-2-introduce-another-temporary-pod-that-can-attach-to-the-same-pvc"><em>Step 2:</em> Introduce another temporary pod that can attach to the same PVC</h3>
+
+<p>Get the name of the pvc.</p>
+
+<pre><code>kubectl get pvc -n gocd
+</code></pre>
+
+<p>Now, create a file by name <code>gocd-backup.yaml</code> and paste the below Pod configuration.</p>
+
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: connect-to-gocd-pv-pod
+  namespace: gocd
+spec:
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: &lt;pvc-name&gt;
+  containers:
+    - name: task-pv-container
+      image: nginxinc/nginx-unprivileged
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/godata"
+          name: task-pv-storage
+      securityContext:
+        runAsUser: 1000
+</code></pre>
+
+<p>Rename <code>&lt;pvc-name&gt;</code> with the pvc name that we got previously.</p>
+
+<p>Apply <code>gocd-backup.yaml</code> by running:</p>
+
+<pre><code>kubectl create -f gocd-backup.yaml -n gocd
+</code></pre>
+
+<hr />
+
+<h3 id="step-3-restore-the-files-from-the-backup"><em>Step 3:</em> Restore the files from the backup</h3>
+
+<p>The pvc that was existing should have attached to this temporary pod. Exec into this pod, copy the backup files from local using <code>kubectl cp .....</code>, then place them into respective folders as mentioned in <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">Backup GoCD Server</a>.</p>
+
+<hr />
+
+<h3 id="step-4-finally-reverse-the-process-by-detaching-temporary-pod-and-hooking-in-server-pod"><em>Step 4:</em> Finally reverse the process, by detaching temporary pod and hooking in server pod</h3>
+
+<p>It is time to drop the temporary pod and install the GoCD helm again. When running GoCD server pod, you should observe that the pvc we modified gets attached to the GoCD server pod. We can check this by describing the pod.</p>
+
+<pre><code>kubectl describe &lt;pod-name&gt; -n gocd
+</code></pre>
+
+<p>We have successfully restored the backup. Great work.</p>
+
+<hr />
+
+<p>Credits to <a href="https://www.linkedin.com/in/ganeshp8996/?originalSubdomain=in">Ganesh Patil</a> and <a href="https://www.linkedin.com/in/kritikasingh3/?originalSubdomain=in">Kritika Singh</a> for directions.</p>
+
+<p>This post was originally published on <a href="https://abilashr.hashnode.dev/restore-backup-for-gocd-on-kubernetes-ckfi8uhga015kots10gu6bie7">Abilash Rajasekaran's blog</a>.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-articles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="./">Restore Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 14</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../04/14/gocd-on-kubernetes-using-terraform/">GoCD on Kubernetes using Terraform</a>
+            </li>
+            <li>
+              <span class="post-date">Sep 17</span>
+              <span class="post-author">Mohamed Najiullah</span>
+              <a href="../../../../2019/09/17/configure-gocd-agents-kubernetes-static-elastic/">Configuring GoCD Agents in Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Aug  5</span>
+              <span class="post-author">Mohamed Najiullah</span>
+              <a href="../../../../2019/08/05/configure-container-registry-gcr-artifact-store-gocd/">Configuring Google Container Registry (GCR) as an Artifact Store in GoCD</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2020 (3)</a></li>
+            <li><a href="../../../../2019/">2019 (7)</a></li>
+            <li><a href="../../../../2018/">2018 (17)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (25)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
+          this.page.url = "https://www.go.cd/2020/10/11/restore-backup-for-gocd-on-kubernetes.html";
+          this.page.identifier = this.page.url;
+          this.shortname = 'gocdblog';
+        };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gocdblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href='../../../../assets/gocd-brand-styleguide.zip'>LOGOS + BRAND</a></li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
+            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+// <![CDATA[
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5T5PTB');
+// ]]>
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Marketo async-->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('199-QDE-291');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End Marketo async-->
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nw15k');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+</html>

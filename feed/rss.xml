@@ -5,10 +5,32 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2020-04-14T00:00:00Z</updated>
+  <updated>2020-10-11T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>Restore Backup for GoCD on Kubernetes</title>
+    <link rel="alternate" href="https://www.gocd.org/2020/10/11/restore-backup-for-gocd-on-kubernetes.html"/>
+    <id>https://www.gocd.org/2020/10/11/restore-backup-for-gocd-on-kubernetes.html</id>
+    <published>2020-10-11T00:00:00Z</published>
+    <updated>2020-10-11T00:00:00Z</updated>
+    <author>
+      <name>Guest post by Abilash Rajasekaran</name>
+    </author>
+    <content type="html">Restore Backup for GoCD on Kubernetes.</content>
+  </entry>
+  <entry>
+    <title>Perform Backup for GoCD on Kubernetes</title>
+    <link rel="alternate" href="https://www.gocd.org/2020/10/11/perform-backup-for-gocd-on-kubernetes.html"/>
+    <id>https://www.gocd.org/2020/10/11/perform-backup-for-gocd-on-kubernetes.html</id>
+    <published>2020-10-11T00:00:00Z</published>
+    <updated>2020-10-11T00:00:00Z</updated>
+    <author>
+      <name>Guest post by Abilash Rajasekaran</name>
+    </author>
+    <content type="html">Perform Backup for GoCD on Kubernetes.</content>
+  </entry>
   <entry>
     <title>GoCD on Kubernetes using Terraform</title>
     <link rel="alternate" href="https://www.gocd.org/2020/04/14/gocd-on-kubernetes-using-terraform.html"/>
@@ -96,27 +118,5 @@
       <name>Aravind S.V and Suzie Prince</name>
     </author>
     <content type="html">This is the third post in the series - Actionable Continuous Delivery Metrics. Here we'll analyze lead time, the duration of time it takes to deployment</content>
-  </entry>
-  <entry>
-    <title>Continuous Delivery Metrics Part 2&amp;#58; How often do you deploy to production?</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/11/30/deployment-frequency.html"/>
-    <id>https://www.gocd.org/2018/11/30/deployment-frequency.html</id>
-    <published>2018-11-30T00:00:00Z</published>
-    <updated>2018-11-30T00:00:00Z</updated>
-    <author>
-      <name>Aravind S.V and Suzie Prince</name>
-    </author>
-    <content type="html">This is the second post in the series - Actionable Continuous Delivery Metrics. Here we’ll dive deep into the first metric: deployment frequency. </content>
-  </entry>
-  <entry>
-    <title>Continuous Delivery Metrics Part 1&amp;#58; Why measure your CD process</title>
-    <link rel="alternate" href="https://www.gocd.org/2018/10/30/measure-continuous-delivery-process.html"/>
-    <id>https://www.gocd.org/2018/10/30/measure-continuous-delivery-process.html</id>
-    <published>2018-10-30T00:00:00Z</published>
-    <updated>2018-10-30T00:00:00Z</updated>
-    <author>
-      <name>Aravind S.V and Suzie Prince</name>
-    </author>
-    <content type="html">To understand whether you are improving and delivering on your goals, you need to measure you CD process. Here is an overview of where you should begin</content>
   </entry>
 </feed>
