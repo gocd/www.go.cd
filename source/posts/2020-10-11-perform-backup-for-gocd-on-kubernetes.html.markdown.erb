@@ -1,0 +1,105 @@
+---
+layout: post
+title: Perform Backup for GoCD on Kubernetes
+type: post
+author: Guest post by Abilash Rajasekaran
+excerpt: "Perform Backup for GoCD on Kubernetes."
+summary_image: "/assets/images/blog/gocd-kubernetes-helm-chart/gocd-kubernetes-helm-chart-hero.jpg"
+title_tag_of_header: "Perform Backup for GoCD on Kubernetes"
+meta_description: "Perform Backup for GoCD on Kubernetes"
+meta_keywords: "gocd, kubernetes, k8s, continuous delivery, ci cd, terraform, helm, gke, google kubernetes engine, backup, automated backup, perform backup"
+---
+
+<% content_for :banner do %>
+  <figure>
+    <img src="/assets/images/blog/gocd-kubernetes-helm-chart/gocd-kubernetes-helm-chart-hero.jpg" alt="Perform Backup for GoCD on Kubernetes"/>
+  </figure>
+<% end %>
+
+Backup is essential as it helps to restore the setup. Possibility of crash or mistake are high and we need to prepare ourselves for the worst case. Backup can give life to the devs. Let's see the ways to backup GoCD when running on Kubernetes.
+
+
+If you are attempting to restore backup, please refer to [Restore Backup for GoCD on Kubernetes](https://www.gocd.org/2020/10/11/restore-backup-for-gocd-on-kubernetes/).
+
+Backup can be performed manually or we can configure automated backup. It is a good practice to configure automated backup and we have to aim for it. Below are the detailed steps for both manual and automated backup.
+
+## Manual Backup:
+
+*Step 1:* [Enable Maintenance Mode](https://abilashr.hashnode.dev/Maintenance%20Mode) - Navigate to `Admin -> Server Maintenance Mode` and toggle on `Enable Maintenance Mode`.
+
+---------------------------
+
+*Step 2:* Navigate to `Admin -> Backup` and click `Perform Backup`. Once the backup is complete, we will be able to see the backup folder in `/go-working-dir/artifacts/serverBackups`. Take a copy and store it in a safe place. You could use the command `kubectl cp ...` to achieve it.
+
+---------------------------
+
+*Step 3:* Toggle of Maintenance Mode.
+
+## Automated Backup:
+
+We shall walk through the steps to backup and push into Google Storage Bucket. Steps should be similar if we use any other cloud providers whereas tools can differ.
+
+*Step 1:* Navigate to `Admin -> Backup -> Configure backup settings`. Where we can provide `Backup Schedule` to something like `0 0 0 ? * 3 *`(Every week backup).
+
+---------------------------
+
+*Step 2:* Provide path to our sh script in `Post backup script`. In our case it is `/home/go/backup.sh`. Here, `backup.sh` contains the script file.
+
+---------------------------
+
+*Step 3:* Generate Personal Access Token to `Enable Maintenance Mode` via [API](https://api.gocd.org/current/#enable-maintenance-mode). Token can be generated as mentioned in [Access Token](https://docs.gocd.org/current/configuration/access_tokens.html). Keep it safe as we need it in the step 7. Moreover, this step is recommended but not mandatory because generation of token depends on the authentication plugin we have leveraged. In our case we were using okta plugin where token generation was not supported. Certainly it is a good practice to make sure that we do not have any running subsystems that would be interrupted during backup.
+
+---------------------------
+
+*Step 4:* Now, we had to create `backup.sh` file in the GoCD server. Exec into the GoCD server pod by using command:
+
+~~~
+kubectl exec <pod_name> -it sh -n <namespace_name>
+~~~
+
+---------------------------
+
+*Step 5:* Navigate to `/home/go` and install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install#linux).
+
+---------------------------
+
+*Step 6:* Create a service account with relevant permission and use that service account to login. We can copy the service account from local to pod using the `kubectl cp .....` and then authenticate gcloud using the command
+
+~~~
+/home/go/google-cloud-sdk/gcloud auth activate-service-account --key-file=<service-account-file>.json
+~~~
+
+---------------------------
+
+*Step 7:* Create a file called `backup.sh` in path `/home/go` and paste the below script:
+
+~~~
+curl 'https://<gocd-domain>/go/api/admin/maintenance_mode/enable' -X POST -H 'Authorization: Bearer <personal-access-token>' -H 'X-GoCD-Confirm:true' -H 'Accept: application/vnd.go.cd.v1+json'
+/home/go/google-cloud-sdk/bin/gsutil cp -R $GOCD_BACKUP_PATH gs://<bucket-name>
+rm -R $GOCD_BACKUP_PATH
+curl 'https://<gocd-domain>/go/api/admin/maintenance_mode/disable' -X POST -H 'Authorization: Bearer <personal-access-token>' -H 'X-GoCD-Confirm:true' -H 'Accept: application/vnd.go.cd.v1+json'
+Replace <bucket-name> with the bucket you have created in GCP
+~~~
+
+Replace `<bucket-name>` with the bucket you have created in GCP. Replace `<gocd-domain>` with your domain name. Replace `<personal-access-token>` with the access token we have created in step 3.
+
+The above script will get called whenever automated backup kicks in and does the below execution in order.
+
+1. Enable Maintenance mode.
+2. Push the backup to the Google Storage Bucket.
+3. Remove the backup folder so it does not accumulate and use the storage space of the pod.
+4. Disable Maintenance mode.
+
+>*If you were not able to generate `Personal Access Token` as mentioned in step 4, remove the first and the last script.*
+
+Now we have configured the automation and it is time to sit relax without reminding ourselves to backup each time.
+
+## Further Thoughts:
+
+Remember if PVC(Persistence Volume Claim) is deleted, we might loose all the data and even the backup script. We might have to do all the automation setup again, so to not lose we could create a Docker image from the GoCD server base image and that would help to avoid do any of the steps mentioned above when PVC is deleted.
+
+---------------------------
+
+Credits to [Ganesh Patil](https://www.linkedin.com/in/ganeshp8996/?originalSubdomain=in) and [Kritika Singh](https://www.linkedin.com/in/kritikasingh3/?originalSubdomain=in) for directions.
+
+This post was originally published on [Abilash Rajasekaran's blog](https://abilashr.hashnode.dev/perform-backup-for-gocd-on-kubernetes-ckfi7zcqr011bnws1e090ccrg). 
