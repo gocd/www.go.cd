@@ -1,0 +1,111 @@
+---
+layout: post
+title: Restore Backup for GoCD on Kubernetes
+type: post
+author: Guest post by Abilash Rajasekaran
+excerpt: "Restore Backup for GoCD on Kubernetes."
+summary_image: "/assets/images/blog/cd-hacks/gocd-gke-helm.jpg"
+title_tag_of_header: "Restore Backup for GoCD on Kubernetes"
+meta_description: "Restore Backup for GoCD on Kubernetes"
+meta_keywords: "gocd, kubernetes, k8s, continuous delivery, ci cd, terraform, helm, gke, google kubernetes engine, backup, automated backup, restore backup"
+---
+
+<% content_for :banner do %>
+  <figure>
+    <img src="/assets/images/blog/cd-hacks/gocd-gke-helm.jpg" alt="Restore Backup for GoCD on Kubernetes"/>
+  </figure>
+<% end %>
+
+We must have backup zip before attempting to restore. Or else make sure to download and have the backup zip in local. So, how to Backup? Refer to [Perform Backup for GoCD on Kubernetes](https://www.gocd.org/2020/10/11/perform-backup-for-gocd-on-kubernetes/).
+
+
+The steps to restore backup are similar as mentioned in [Backup GoCD Server](https://docs.gocd.org/current/advanced_usage/one_click_backup.html).
+
+But some complications arise when performing the same when GoCD is running on kubernetes, it is because of the latest release that incorporated additional security layer to run as [non root user in GoCD server](https://www.gocd.org/2019/06/25/GoCD-non-root-containers/#:~:text=Running%20containers%20using%20non%2Droot,%2Droot%20user%2C%20by%20default). Because of this it is not possible to directly exec into GoCD server pod and change the files.
+
+---------------------------
+
+When GoCD server pod is running in kubernetes, it gets attached with one PVC(Persistence Volume Claim). This PVC cannot be attached to multiple pod. In our case, GoCD server pod is already attached with a PVC, we need to follow below steps to restore the backup:
+
+1. Detach PVC from server pod.
+2. Introduce another temporary pod that can attach to the same PVC.
+3. Restore the files from the backup.
+4. Finally reverse the process, by detaching temporary pod and hooking it to the GoCD server pod.
+
+Let's walk through each step with commands to achieve the above steps.
+
+
+### *Step 1:* Detach PVC from server pod
+
+Stop the running GoCD server to disconnect from the PV by using one of the following approaches:
+
+1. [Uninstall GoCD helm release](https://helm.sh/docs/helm/helm_uninstall/) from the cluster.
+2. Stop the GoCD server pod using [helm-stop plugin](https://github.com/IBM/helm-stop).
+
+---------------------------
+
+### *Step 2:* Introduce another temporary pod that can attach to the same PVC
+
+Get the name of the pvc.
+
+~~~
+kubectl get pvc -n gocd
+~~~
+
+Now, create a file by name `gocd-backup.yaml` and paste the below Pod configuration.
+
+~~~
+apiVersion: v1
+kind: Pod
+metadata:
+  name: connect-to-gocd-pv-pod
+  namespace: gocd
+spec:
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: <pvc-name>
+  containers:
+    - name: task-pv-container
+      image: nginxinc/nginx-unprivileged
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/godata"
+          name: task-pv-storage
+      securityContext:
+        runAsUser: 1000
+~~~
+
+Rename `<pvc-name>` with the pvc name that we got previously.
+
+Apply `gocd-backup.yaml` by running:
+
+~~~
+kubectl create -f gocd-backup.yaml -n gocd
+~~~
+
+---------------------------
+
+### *Step 3:* Restore the files from the backup
+
+The pvc that was existing should have attached to this temporary pod. Exec into this pod, copy the backup files from local using `kubectl cp .....`, then place them into respective folders as mentioned in [Backup GoCD Server](https://docs.gocd.org/current/advanced_usage/one_click_backup.html).
+
+---------------------------
+
+### *Step 4:* Finally reverse the process, by detaching temporary pod and hooking in server pod
+
+It is time to drop the temporary pod and install the GoCD helm again. When running GoCD server pod, you should observe that the pvc we modified gets attached to the GoCD server pod. We can check this by describing the pod.
+
+~~~
+kubectl describe <pod-name> -n gocd
+~~~
+
+We have successfully restored the backup. Great work.
+
+---------------------------
+
+Credits to [Ganesh Patil](https://www.linkedin.com/in/ganeshp8996/?originalSubdomain=in) and [Kritika Singh](https://www.linkedin.com/in/kritikasingh3/?originalSubdomain=in) for directions.
+
+This post was originally published on [Abilash Rajasekaran's blog](https://abilashr.hashnode.dev/restore-backup-for-gocd-on-kubernetes-ckfi8uhga015kots10gu6bie7). 
