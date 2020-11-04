@@ -1,12 +1,19 @@
+<h4>Preference Page</h4>
+As part of the ongoing UI/UX refresh for improving the user experience, the Prefernce page has been rewritten to keep it in sync with other pages, while retaining existing functionality. Feedback/ideas are welcome, please open an issue [here](https://github.com/gocd/gocd/issues) to add your comments.
+
+<figure class='shrink-figure-60'>
+    <%= image_tag 'releases/20.9.0/preference_page.png', alt: 'Preference page' %>
+</figure>
+
 <h4>Stage Overview on VSM Page</h4>
 
-Staring this release, the users can utilize the stage overview on VSM page. Earlier, it was available on the Dashboard and Pipeline Activity Page.
+Staring this release, the users can view the stage overview on VSM page. Earlier, it was available on the Dashboard and Pipeline Activity Page.
 
 <figure class='shrink-figure-60'>
     <%= image_tag 'releases/20.9.0/stage_overview.png', alt: 'Stage overview on VSM page' %>
 </figure>
 
-Also, the users can now view the older stage runs from the stage overview as well.
+In case of stage re-runs, the stage overview now provides an option to view previous stage runs.
 
 <figure class='shrink-figure-60'>
     <%= image_tag 'releases/20.9.0/stage_instances.png', alt: 'Stage instances on stage overview' %>
@@ -20,6 +27,7 @@ Also, the users can now view the older stage runs from the stage overview as wel
 * <%= link_to_issue 8170, 'Support for webhook integration with Pluggable SCM materials' %>
 * <%= link_to_issue 8592, 'Add secrets support in elastic agent configurations' %>
 * <%= link_to_issue 8599, 'Load GoCD configurations from config repositories on GoCD startup' %>
+* <%= link_to_issue 8667, 'Auto Update of Config Repo materials can be turned off now' %>
 
 <h4>Bug fixes</h4>
 
