@@ -1,0 +1,39 @@
+<h4>Improvements</h4>
+
+* <%= link_to_issue 8729, 'Modal UX improvements, for validation failures errors indicated next to the save button' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 8774, 'Agent resource tags are case-sensitive when referenced from a job' %>
+* <%= link_to_issue 8730, 'Unexplained performance degradation/lock-ups after 20.5.0 to 20.8.0 upgrade' %>
+* <%= link_to_issue 8741, 'Pipeline Activity column headings not aligned with progress blobs' %>
+* <%= link_to_issue 8767, 'Agents API is slow when there are too many secure variables in GoCD environment' %>
+* <%= link_to_issue 8775, 'Make ignore_for_scheduling field read-only on pipeline config edit SPA, for configs from Config Repo' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.19.0','changes-in-20-10-0', 'API changelog for 20.10.0' %> and <%= link_to_versioned_plugin_api '20.10.0','changes-in-gocd-20-10-0', 'Plugin API changelog for 20.10.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Ganesh S Patil",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Shakir Shakiel",
+  "Varsha Varadarajan",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.10.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
