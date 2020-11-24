@@ -78,3 +78,11 @@
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/gocd-guest-login-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-guest-login-plugin&type=watch&count=true
+
+- name: Keycloak OAuth authorization plugin
+  description: The plugin allows user to login in GoCD using an Keycloak account.
+  readmore_url: https://github.com/klinux/gocd-keycloak-oauth-authorization-plugin
+  author_url: https://github.com/klinux
+  author_name: Kleber Rocha
+  releases_url: https://github.com/klinux/gocd-keycloak-oauth-authorization-plugin/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=klinux&repo=gocd-keycloak-oauth-authorization-plugin&type=watch&count=true
