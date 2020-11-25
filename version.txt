@@ -1,12 +1,12 @@
-Last updated: 2020-11-23 20:20:48 -0800
+Last updated: 2020-11-25 05:33:32 -0800
 
 Latest commit:
-    commit 58cdd2d256caa1541e72a4f60f6e15b6c6874f1f
+    commit 00348d051362292be5f0c25466a7d8ec47abd453
+    Merge: 58cdd2d25 3cfa1d4fb
     Author: Mahesh Panchaksharaiah <maheshp@thoughtworks.com>
-    Date:   Tue Nov 24 09:38:51 2020 +0530
+    Date:   Wed Nov 25 12:06:54 2020 +0530
     
-        GoCD 20.10.0 release notes (#1200)
+        Merge pull request #1202 from klinux/master
         
-        * GoCD 20.10.0 release notes
-        Co-authored-by: Kritika Singh <kritika.singh1994@gmail.com>
+        Add Keycloak plugin authorization
     
