@@ -257,3 +257,12 @@
   releases_url: https://github.com/leopardslab/dunner-gocd-plugin/releases
   github_stars: http://ghbtns.com/github-btn.html?user=leopardslab&repo=dunner-gocd-plugin&type=watch&count=true
   first_available_date: 07/2019
+
+- name: CMake
+  description: Build cmake based projects.
+  readmore_url: https://github.com/Tectu/gocd-cmake-task/blob/master/README.md
+  author_url: https://silizium.io
+  author_name: Joel Bodenmann
+  releases_url: https://github.com/Tectu/gocd-cmake-task/releases
+  github_stars: https://ghbtns.com/github-btn.html?user=tectu&repo=gocd-cmake-task&type=watch&count=true
+  first_available_date: 12/2020
