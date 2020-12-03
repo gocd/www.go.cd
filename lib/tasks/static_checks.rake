@@ -12,7 +12,7 @@ namespace :static_checks do
   end
 
   options = {
-      :disable_external     => should_not_run_external_url_checks?,
+      :disable_external     => true,
       :url_ignore           => [/([https]:\/\/(localhost)|(github)|(linkedin):*)/],
       :allow_hash_href      => true,
       :allow_missing_href   => true,
@@ -45,19 +45,5 @@ namespace :static_checks do
     end
   end
 
-  task :all => [:html_proofer]
+  task :all => [:build, :html_proofer]
 end
-
-task :build do
-  Rake::Task['static_checks:all'].invoke
-end
-
-task publish: [:clean, :build, 'static_checks:all'] do
-  if ENV['S3_BUCKET']
-    sh('bundle exec middleman s3_sync -i')
-  else
-    puts "WARNING: Not pushing to S3, since S3_BUCKET is not set"
-  end
-end
-
-Rake::Task[:publish].prerequisites.unshift "clobber"
