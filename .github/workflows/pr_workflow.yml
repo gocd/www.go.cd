@@ -1,0 +1,36 @@
+# This workflow will build a middleman project with bundle
+
+name: Testing For PRs
+
+on: [ pull_request ]
+
+env:
+  RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
+
+jobs:
+  build_and_push_to_preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true # would run bundle install
+      - name: Set up user in git config
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+      - name: Run the build
+        run: bundle exec rake static_checks:all --verbose
+      - name: Push to preview
+        env:
+          USER: "${{ secrets.USER_TO_WRITE }}"
+          TOKEN: "${{ secrets.USER_TO_WRITE_ACCESS_TOKEN }}"
+        run: |
+          export PR_NO=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          git clone --depth=1 --branch=gh-pages "https://${USER}:${TOKEN}@github.com/gocd/pr-review.gocd.org" website
+          rm -rf website/pr-${PR_NO}
+          mv build website/pr-${PR_NO}
+          cd website && git config core.filemode false && git add -A .
+          git commit -m "Update website to ${PR_NO}" && git push
