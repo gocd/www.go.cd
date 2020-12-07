@@ -1,0 +1,36 @@
+# This workflow will build a middleman project with bundle
+
+name: Publish
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on: [ workflow_dispatch ]
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    env:
+      USER: "${{ secrets.USER_TO_WRITE }}"
+      TOKEN: "${{ secrets.USER_TO_WRITE_ACCESS_TOKEN }}"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true # would run bundle install
+      - name: Set up user in git config
+        run: |
+          git config --global user.name "${USER}"
+          git config --global user.email "${USER}@github.com"
+      - name: Set up upstream and publish to gh pages
+        run: |
+          git remote add real https://${USER}:${TOKEN}@github.com/gocd/www.go.cd.git
+          bundle exec rake publish --trace
+        env:
+          REMOTE_NAME: "real"
+          ALLOW_DIRTY: true
+          BASE_URL: 'https://www.gocd.org'
+          DEPLOY_ENVIRONMENT: 'live'

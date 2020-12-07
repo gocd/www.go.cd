@@ -1,6 +1,6 @@
 # This workflow will build a middleman project with bundle
 
-name: Build and Publish
+name: Build and Preview
 
 on:
   push:
