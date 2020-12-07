@@ -23,6 +23,9 @@ jobs:
           git config --global user.email "github-actions@github.com"
       - name: Run the build
         run: bundle exec rake static_checks:all --verbose
+      - name: Build failed
+        if: ${{ failure() }}
+        run: bundle exec middleman build --verbose
       - name: Push to preview
         env:
           USER: "${{ secrets.USER_TO_WRITE }}"
