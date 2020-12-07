@@ -13,8 +13,8 @@ jobs:
   build_and_release:
     runs-on: ubuntu-latest
     env:
-      USER: "${{ secrets.USER_TO_WRITE }}"
-      TOKEN: "${{ secrets.USER_TO_WRITE_ACCESS_TOKEN }}"
+      USER: "github-actions"
+      TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     steps:
       - uses: actions/checkout@v2
         with:
