@@ -1,0 +1,53 @@
+# This workflow will build a middleman project with bundle
+
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
+
+jobs:
+  complete_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true # would run bundle install
+      - name: Run the build
+        run: bundle exec rake static_checks:all --verbose
+  push_to_gh_pages:
+    needs: complete_build
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PASSWORD: "${{ secrets.GITHUB_TOKEN }}"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true # would run bundle install
+      - name: Set up user in git config
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+      - name: Set up upstream and publish to gh pages
+        run: |
+          git remote add preview https://${USER}:${TOKEN}@github.com/gocd/preview.go.cd.git
+          bundle exec rake publish --trace
+        env:
+          USER: "${{ secrets.USER_TO_WRITE }}"
+          TOKEN: "${{ secrets.USER_TO_WRITE_ACCESS_TOKEN }}"
+          REMOTE_NAME: "preview"
+          ALLOW_DIRTY: true
+          BASE_URL: 'https://preview.gocd.org'
+          DEPLOY_ENVIRONMENT: 'preview'
