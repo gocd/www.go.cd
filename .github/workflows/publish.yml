@@ -6,6 +6,9 @@ name: Publish
 # or API.
 on: [ workflow_dispatch ]
 
+env:
+  RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
+
 jobs:
   build_and_release:
     runs-on: ubuntu-latest
