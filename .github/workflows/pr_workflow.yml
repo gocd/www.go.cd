@@ -19,7 +19,7 @@ jobs:
           bundler-cache: true # would run bundle install
       - name: Set up user in git config
         env:
-          USER: "${{ secrets.USER_TO_WRITE }}"
+          USER: "github-actions"
         run: |
           git config --global user.name "${USER}"
           git config --global user.email "${USER}@github.com"
