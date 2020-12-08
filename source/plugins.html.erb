@@ -34,6 +34,7 @@ meta_keywords: "GoCD, continuous delivery, software, continuous integration, ope
     </p>
 
     <% plugin_categories = [
+        {id: 'analytics', kind: "Analytics plugins", version_info: ">= GoCD v18.1", plugins: data.plugins.analytics_plugins},
         {id: 'artifact', kind: "Artifact plugins", version_info: ">= GoCD v18.7", plugins: data.plugins.artifact_plugins},
         {id: 'authorization', kind: "Authorization plugins", version_info: ">= GoCD v17.5", plugins: data.plugins.authorization_plugins},
         {id: 'config-repo', kind: "Configuration Repository", version_info: ">= GoCD v16.7", plugins: data.plugins.config_repo_plugins},
