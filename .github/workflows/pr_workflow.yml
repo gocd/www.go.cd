@@ -18,9 +18,11 @@ jobs:
           ruby-version: 2.7.2
           bundler-cache: true # would run bundle install
       - name: Set up user in git config
+        env:
+          USER: "${{ secrets.USER_TO_WRITE }}"
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          git config --global user.name "${USER}"
+          git config --global user.email "${USER}@github.com"
       - name: Run the build
         run: bundle exec rake static_checks:all --verbose
       - name: Build failed
