@@ -6,7 +6,6 @@ on: [ pull_request ]
 
 env:
   RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
-  USER: "${{ secrets.USER_TO_WRITE }}"
 
 jobs:
   build_and_push_to_preview:
@@ -19,6 +18,8 @@ jobs:
           ruby-version: 2.7.2
           bundler-cache: true # would run bundle install
       - name: Set up user in git config
+        env:
+          USER: "${{ secrets.USER_TO_WRITE }}"
         run: |
           git config --global user.name "${USER}"
           git config --global user.email "${USER}@github.com"
@@ -28,8 +29,6 @@ jobs:
         if: ${{ failure() }}
         run: bundle exec middleman build --verbose
       - name: Push to preview
-        env:
-          TOKEN: "${{ secrets.USER_TO_WRITE_ACCESS_TOKEN }}"
         run: |
           export PR_NO=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
           git clone --depth=1 --branch=gh-pages "https://${USER}:${TOKEN}@github.com/gocd/pr-review.gocd.org" website
@@ -37,3 +36,6 @@ jobs:
           mv build website/pr-${PR_NO}
           cd website && git config core.filemode false && git add -A .
           git commit -m "Update website to ${PR_NO}" && git push
+        env:
+          USER: "${{ secrets.USER_TO_WRITE }}"
+          TOKEN: "${{ secrets.USER_TO_WRITE_ACCESS_TOKEN }}"
