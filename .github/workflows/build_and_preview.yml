@@ -21,7 +21,7 @@ jobs:
           ruby-version: 2.7.2
           bundler-cache: true # would run bundle install
       - name: Run the build
-        run: bundle exec rake static_checks:all --verbose
+        run: bundle exec rake build --verbose
   push_to_gh_pages:
     needs: complete_build
     runs-on: ubuntu-latest
