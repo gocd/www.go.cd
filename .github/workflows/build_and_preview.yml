@@ -53,3 +53,6 @@ jobs:
           ALLOW_DIRTY: true
           BASE_URL: 'https://preview.gocd.org'
           DEPLOY_ENVIRONMENT: 'preview'
+          S3_BUCKET: "${{ secrets.PREVIEW_S3_BUCKET }}"
+          AWS_ACCESS_KEY_ID: "${{ secrets.PREVIEW_AWS_ACCESS_KEY_ID }}"
+          AWS_SECRET_ACCESS_KEY: "${{ secrets.PREVIEW_AWS_SECRET_ACCESS_KEY }}"
