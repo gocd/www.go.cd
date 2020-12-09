@@ -45,5 +45,20 @@ namespace :static_checks do
     end
   end
 
+  task :all => [:html_proofer]
+end
+
+task :build do
+  Rake::Task['static_checks:all'].invoke
   task :all => [:build, :html_proofer]
 end
+
+task publish: [:clean, :build, 'static_checks:all'] do
+  if ENV['S3_BUCKET']
+    sh('bundle exec middleman s3_sync -i')
+  else
+    puts "WARNING: Not pushing to S3, since S3_BUCKET is not set"
+  end
+end
+
+Rake::Task[:publish].prerequisites.unshift "clobber"

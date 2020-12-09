@@ -24,7 +24,7 @@ jobs:
           git config --global user.name "${USER}"
           git config --global user.email "${USER}@github.com"
       - name: Run the build
-        run: bundle exec rake static_checks:all --verbose
+        run: bundle exec rake build --verbose
       - name: Build failed
         if: ${{ failure() }}
         run: bundle exec middleman build --verbose
