@@ -1,9 +1,9 @@
-Last updated: 2020-12-09 05:06:31 +0000
+Last updated: 2020-12-18 01:37:49 +0000
 
 Latest commit:
-    commit 2b3ca09fdfba74a5f61bed67bb933f3e6d2a2bd2
-    Author: Kritika Singh <kritika.singh1994@gmail.com>
-    Date:   Wed Dec 9 10:21:31 2020 +0530
+    commit 556e0335cc8a4aebf57831b4db445cb6231a48d7
+    Author: Marques Lee <marques.lee@thoughtworks.com>
+    Date:   Thu Dec 17 17:25:25 2020 -0800
     
-        Use build task
+        The test-drive copy-paste installer should only use curl, and not both curl and wget
     

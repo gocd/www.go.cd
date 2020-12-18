@@ -70,23 +70,14 @@ function prerequisites() {
 
 function read_url() {
   local url="$1"
-
-  if type wget &> /dev/null; then
-    wget -q -O - "$url"
-  else
-    curl -fsSL "$url"
-  fi
+  curl -fsSL "$url"
 }
 
 function download() {
   local url="$1"
   local file="$2"
 
-  if type wget &> /dev/null; then
-    wget "$url" -O "$file"
-  else
-    curl -fSL "$url" -o "$file"
-  fi
+  curl -fSL "$url" -o "$file"
 }
 
 function verify() {
