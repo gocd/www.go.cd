@@ -1,9 +1,15 @@
-Last updated: 2020-12-18 01:37:49 +0000
+Last updated: 2020-12-18 02:25:22 +0000
 
 Latest commit:
-    commit 556e0335cc8a4aebf57831b4db445cb6231a48d7
+    commit 1278485142847f631d7a8f7788201104527e6e34
     Author: Marques Lee <marques.lee@thoughtworks.com>
-    Date:   Thu Dec 17 17:25:25 2020 -0800
+    Date:   Thu Dec 17 18:11:42 2020 -0800
     
-        The test-drive copy-paste installer should only use curl, and not both curl and wget
+        Reduce hard prerequisites of try.sh
+        
+        - Removes dependency on `grep`
+        - Fully checks for non-bash-builtin prerequisites
+        - Also, try our best to verify the SHA, even falling back
+          to openssl
+            - If no way to verify, just print a warning and carry on
     
