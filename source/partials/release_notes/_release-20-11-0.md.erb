@@ -1,0 +1,38 @@
+<h4> Webhook support for Config Repositories </h4>
+
+Starting GoCD 20.11.0, the config repositories can be refreshed or updated via a webhook trigger. The config repositories page will now showcase the URL required to configure the same (if auto update has been turned off).
+
+<figure class='shrink-figure-60'>
+  <%= image_tag 'releases/20.11.0/config_repo_webhook.png', alt: 'Config Repositories with webhook' %>
+</figure>
+
+<h4>Improvements</h4>
+
+* <%= link_to_issue 8900, 'Improve UX - add search functionality on page' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '20.11.0','changes-in-20-11-0', 'API changelog for 20.11.0' %> and <%= link_to_versioned_plugin_api '20.11.0','changes-in-gocd-20-11-0', 'Plugin API changelog for 20.11.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Ganesh S Patil",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Varsha Varadarajan",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 20.11.0' %>
+
+Have ideas and want to contribute? Need some help getting started? We're here to help. Reach out to us at <%= mail_to 'support@thoughtworks.com' %>.
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
