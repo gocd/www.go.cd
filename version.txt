@@ -1,15 +1,9 @@
-Last updated: 2020-12-18 02:25:22 +0000
+Last updated: 2020-12-28 07:34:46 +0000
 
 Latest commit:
-    commit 1278485142847f631d7a8f7788201104527e6e34
-    Author: Marques Lee <marques.lee@thoughtworks.com>
-    Date:   Thu Dec 17 18:11:42 2020 -0800
+    commit 95181255a206e2a317ad0de5974b10647093caa9
+    Author: Kritika Singh <kritika.singh1994@gmail.com>
+    Date:   Mon Dec 28 12:48:45 2020 +0530
     
-        Reduce hard prerequisites of try.sh
-        
-        - Removes dependency on `grep`
-        - Fully checks for non-bash-builtin prerequisites
-        - Also, try our best to verify the SHA, even falling back
-          to openssl
-            - If no way to verify, just print a warning and carry on
+        Use the correct syntax to slice a string
     
