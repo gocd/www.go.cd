@@ -24,7 +24,7 @@ module GoCDHelpers
   end
 
   def link_to_commit(sha, text, issue = nil)
-    concat_content(content_tag(:code, link_to("#{sha.slice(7)}", "https://github.com/gocd/gocd/commit/#{sha}")))
+    concat_content(content_tag(:code, link_to("#{sha.slice(0,7)}", "https://github.com/gocd/gocd/commit/#{sha}")))
     concat_content(' - ')
     concat_content(text.strip)
     concat_content('.') unless text.strip.end_with?('.')
