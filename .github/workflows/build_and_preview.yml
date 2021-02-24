@@ -15,7 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUNDLE_BUILD__SASSC: --disable-march-tune-native
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
