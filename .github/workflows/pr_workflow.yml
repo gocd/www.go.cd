@@ -35,6 +35,7 @@ jobs:
           rm -rf website/pr-${PR_NO}
           mv build website/pr-${PR_NO}
           cd website && git config core.filemode false && git add -A .
+          git config --list
           git commit -m "Update website to ${PR_NO}" && git push
         env:
           USER: "${{ secrets.USER_TO_WRITE }}"
