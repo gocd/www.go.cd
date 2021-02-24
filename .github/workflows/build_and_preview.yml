@@ -13,6 +13,8 @@ env:
 jobs:
   complete_build:
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_BUILD__SASSC: --disable-march-tune-native
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
@@ -21,9 +23,7 @@ jobs:
           ruby-version: 2.7.2
           bundler-cache: true # would run bundle install
       - name: Run the build
-        run: |
-          bundle config --local build.sassc --disable-march-tune-native
-          bundle exec rake build --verbose
+        run: bundle exec rake build --verbose
   push_to_gh_pages:
     needs: complete_build
     runs-on: ubuntu-latest
