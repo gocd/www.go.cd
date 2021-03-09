@@ -175,7 +175,7 @@ GEM
       ffi (~> 1.0)
     redcarpet (3.5.1)
     rouge (3.14.0)
-    ruby-progressbar (1.10.1)
+    ruby-progressbar (1.11.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -207,7 +207,6 @@ PLATFORMS
   x86_64-darwin-15
   x86_64-darwin-17
   x86_64-darwin-18
-
 
 DEPENDENCIES
   bootstrap-sass
