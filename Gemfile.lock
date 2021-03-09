@@ -32,7 +32,7 @@ GEM
     ethon (0.12.0)
       ffi (>= 1.3.0)
     eventmachine (1.2.7)
-    excon (0.78.1)
+    excon (0.79.0)
     execjs (2.7.0)
     fast_blank (1.0.0)
     fastimage (2.1.7)
@@ -207,7 +207,6 @@ PLATFORMS
   x86_64-darwin-15
   x86_64-darwin-17
   x86_64-darwin-18
-
 
 DEPENDENCIES
   bootstrap-sass
