@@ -1,11 +1,9 @@
-Last updated: 2021-02-24 22:00:04 +0000
+Last updated: 2021-03-17 12:35:24 +0000
 
 Latest commit:
-    commit 77044deacd84f49007c418e15d82f7a05d6734d4
-    Author: Aravind SV <mail@arvindsv.com>
-    Date:   Wed Feb 24 19:31:03 2021 +0000
+    commit 32c4b1bd3c037d9400bbc036b18984d30683880a
+    Author: Kritika <kritika.singh@thoughtworks.com>
+    Date:   Wed Mar 17 17:54:14 2021 +0530
     
-        Attempt to get rid of bundle cache
-        
-        GitHub actions uses SHA256 sum of Gemfile.lock to decide on the bundler cache to use. Attempt to fix sassc issue needs a new bundle cache to be created.
+        update publish workflow for sassc fix as well
     
