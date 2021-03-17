@@ -9,12 +9,11 @@ on:
 
 env:
   RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
+  BUNDLE_BUILD__SASSC: --disable-march-tune-native
 
 jobs:
   complete_build:
     runs-on: ubuntu-latest
-    env:
-      BUNDLE_BUILD__SASSC: --disable-march-tune-native
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
