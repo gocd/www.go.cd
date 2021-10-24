@@ -36,11 +36,11 @@
   
 - name: Build BitKeeper Pull Requests
   description: Plugin that polls a BitKeeper repository for pull requests and triggers a build for each of them.
-  readmore_url: https://github.com/bdpiparva/bitkeeper-repo-poller
-  author_url: https://github.com/bdpiparva
+  readmore_url: https://github.com/bdpiprava/bitkeeper-repo-poller
+  author_url: https://github.com/bdpiprava
   author_name: Bhupendrakumar Piprava
-  releases_url: https://github.com/bdpiparva/bitkeeper-repo-poller/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=bdpiparva&repo=bitkeeper-repo-poller&type=watch&count=true
+  releases_url: https://github.com/bdpiprava/bitkeeper-repo-poller/releases
+  github_stars: http://ghbtns.com/github-btn.html?user=bdpiprava&repo=bitkeeper-repo-poller&type=watch&count=true
   first_available_date: 02/2015
   
 - name: Artifactory SCM
@@ -69,3 +69,12 @@
   releases_url: https://github.com/kszatan/gocd-phabricator-staging-material/releases
   github_stars: https://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-phabricator-staging-material&type=star&count=true
   first_available_data: 07/2017
+
+- name: FTP Server SCM
+  description: Plugin that downloads the source codes/files from FTP Server from a configured directory path.
+  readmore_url: https://github.com/sekhar-rangam/gocd-ftp-server-plugin
+  author_url: https://github.com/sekhar-rangam
+  author_name: Sekhar Rangam
+  releases_url: https://github.com/sekhar-rangam/gocd-ftp-server-plugin/releases
+  github_stars: https://ghbtns.com/github-btn.html?user=sekhar-rangam&repo=gocd-ftp-server-plugin&type=star&count=true
+  first_available_data: 02/2021

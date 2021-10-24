@@ -9,6 +9,7 @@ on:
 
 env:
   RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
+  BUNDLE_BUILD__SASSC: --disable-march-tune-native
 
 jobs:
   complete_build:
@@ -19,9 +20,12 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
-          bundler-cache: true # would run bundle install
+          bundler-cache: false # true would run bundle install
       - name: Run the build
-        run: bundle exec rake build --verbose
+        run: |
+          bundle config --local build.sassc --disable-march-tune-native
+          bundle install
+          bundle exec rake build --verbose
   push_to_gh_pages:
     needs: complete_build
     runs-on: ubuntu-latest
@@ -35,7 +39,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
-          bundler-cache: true # would run bundle install
+          bundler-cache: false # true would run bundle install
       - name: Set up user in git config
         env:
           USER: "${{ secrets.USER_TO_WRITE }}"
@@ -44,6 +48,8 @@ jobs:
           git config --global user.email "${USER}@github.com"
       - name: Set up upstream and publish to gh pages
         run: |
+          bundle config --local build.sassc --disable-march-tune-native
+          bundle install
           git remote add preview https://${USER}:${TOKEN}@github.com/gocd/preview.go.cd.git
           bundle exec rake publish --trace
         env:

@@ -23,13 +23,15 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
-          bundler-cache: true # would run bundle install
+          bundler-cache: false # true would run bundle install
       - name: Set up user in git config
         run: |
           git config --global user.name "${USER}"
           git config --global user.email "${USER}@github.com"
       - name: Set up upstream and publish to gh pages
         run: |
+          bundle config --local build.sassc --disable-march-tune-native
+          bundle install
           git remote add real https://${USER}:${TOKEN}@github.com/gocd/www.go.cd.git
           bundle exec rake publish --trace
         env:
