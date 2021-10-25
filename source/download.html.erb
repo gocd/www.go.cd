@@ -291,7 +291,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 
   {{#*inline "show-server-docker-command"}}
   <li>More info at: <a href="https://hub.docker.com/r/{{docker_org}}/{{image_name}}">{{image_name}}</a>
-    <span class="command">docker run -d -p8153:8153 -p8154:8154 {{docker_org}}/{{image_name}}:v{{version}}</span>
+    <span class="command">docker run -d -p8153:8153 {{docker_org}}/{{image_name}}:v{{version}}</span>
   </li>
   {{/inline}}
 
