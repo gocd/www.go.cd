@@ -15,8 +15,8 @@
 
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-bfa048f4.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-667de1bb.js" data-manual="true"></script>
+    <link href="../assets/stylesheets/site-62835b63.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all-dcb74fc3.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -333,7 +333,7 @@
 
   {{#*inline "show-server-docker-command"}}
   <li>More info at: <a href="https://hub.docker.com/r/{{docker_org}}/{{image_name}}">{{image_name}}</a>
-    <span class="command">docker run -d -p8153:8153 -p8154:8154 {{docker_org}}/{{image_name}}:v{{version}}</span>
+    <span class="command">docker run -d -p8153:8153 {{docker_org}}/{{image_name}}:v{{version}}</span>
   </li>
   {{/inline}}
 

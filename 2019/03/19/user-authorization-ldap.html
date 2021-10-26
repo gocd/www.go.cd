@@ -15,8 +15,8 @@
 
     <title>OpenLDAP for User Authentication in GoCD | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-bfa048f4.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-667de1bb.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-62835b63.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-dcb74fc3.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -98,14 +98,14 @@
 
 <p>Log into your server and run below commands.</p>
 
-<pre><code class="language-shell">sudo apt-get update
-sudo apt-get install slapd ldap-utils
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>slapd ldap-utils
+</code></pre></div></div>
 
 <p>The above will install and start an openLDAP server with the database suffix of dc=example,dc=com. In order to update suffix, run below command.</p>
 
-<pre><code class="language-shell">sudo dpkg-reconfigure slapd
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg-reconfigure slapd
+</code></pre></div></div>
 
 <p>You should see below output:</p>
 
@@ -113,25 +113,25 @@ sudo apt-get install slapd ldap-utils
 
 <p>At this point, your LDAP server is configured and running. Open up the LDAP port on your firewall so external clients can connect:</p>
 
-<pre><code class="language-shell">sudo ufw allow ldap
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ufw allow ldap
+</code></pre></div></div>
 
 <p>Let's test our LDAP connection using ldapwhoami, which should return the username we're connected as:</p>
 
-<pre><code class="language-shell">ldapwhoami -H ldap:// -x
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ldapwhoami <span class="nt">-H</span> ldap:// <span class="nt">-x</span>
+</code></pre></div></div>
 
 <p>Output:</p>
 
-<pre><code class="language-shell">anonymous
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>anonymous
+</code></pre></div></div>
 
 <p>This should give you “anonymous” as result, since we ran it without logging into the LDAP server. This means the LDAP server is running and responding.</p>
 
 <p>If this gives you connect error something similar to below, try checking the ldap service status <strong>/etc/init.d/slapd status</strong> and restart if it is stopped.</p>
 
-<pre><code class="language-shell">ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ldap_sasl_bind<span class="o">(</span>SIMPLE<span class="o">)</span>: Can<span class="s1">'t contact LDAP server (-1)
+</span></code></pre></div></div>
 
 <p>Next we'll add a user to the OpenLDAP server and see if we are able to connect.</p>
 
@@ -139,15 +139,15 @@ sudo apt-get install slapd ldap-utils
 
 <p>Create an add.ldif file and add below content for user details:</p>
 
-<pre><code class="language-shell">dn: ou=People,dc=gocd,dc=org
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dn: <span class="nv">ou</span><span class="o">=</span>People,dc<span class="o">=</span>gocd,dc<span class="o">=</span>org
 objectClass: organizationalUnit
 ou: People
 
-dn: ou=Groups,dc=gocd,dc=org
+dn: <span class="nv">ou</span><span class="o">=</span>Groups,dc<span class="o">=</span>gocd,dc<span class="o">=</span>org
 objectClass: organizationalUnit
 ou: Groups
 
-dn: uid=john,ou=People,dc=gocd,dc=org
+dn: <span class="nv">uid</span><span class="o">=</span>john,ou<span class="o">=</span>People,dc<span class="o">=</span>gocd,dc<span class="o">=</span>org
 objectClass: inetOrgPerson
 objectClass: shadowAccount
 uid: john
@@ -156,39 +156,39 @@ givenName: John
 cn: John Doe
 displayName: John Doe
 userPassword: badger
-</code></pre>
+</code></pre></div></div>
 
 <p>Execute below command to add user to LDAP:</p>
 
-<pre><code class="language-shell">ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add.ldif
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ldapadd <span class="nt">-x</span> <span class="nt">-D</span> <span class="nv">cn</span><span class="o">=</span>admin,dc<span class="o">=</span>gocd,dc<span class="o">=</span>org <span class="nt">-W</span> <span class="nt">-f</span> add.ldif
+</code></pre></div></div>
 
 <p>Output:</p>
 
-<pre><code class="language-shell">ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add.ldif
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ldapadd <span class="nt">-x</span> <span class="nt">-D</span> <span class="nv">cn</span><span class="o">=</span>admin,dc<span class="o">=</span>gocd,dc<span class="o">=</span>org <span class="nt">-W</span> <span class="nt">-f</span> add.ldif
 Enter LDAP Password:
-adding new entry  "ou=People,dc=gocd,dc=org"
+adding new entry  <span class="s2">"ou=People,dc=gocd,dc=org"</span>
 
-adding new entry  "ou=Groups,dc=gocd,dc=org"
+adding new entry  <span class="s2">"ou=Groups,dc=gocd,dc=org"</span>
 
-adding new entry  "uid=john,ou=People,dc=gocd,dc=org"
-</code></pre>
+adding new entry  <span class="s2">"uid=john,ou=People,dc=gocd,dc=org"</span>
+</code></pre></div></div>
 
 <p>Check if the user is successfully added:</p>
 
-<pre><code class="language-shell">ldapsearch -x -LLL -b dc=gocd,dc=org 'uid=john' cn gidNumber
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ldapsearch <span class="nt">-x</span> <span class="nt">-LLL</span> <span class="nt">-b</span> <span class="nv">dc</span><span class="o">=</span>gocd,dc<span class="o">=</span>org <span class="s1">'uid=john'</span> cn gidNumber
+</code></pre></div></div>
 
 <p>Output:</p>
 
-<pre><code class="language-shell">ldapsearch -x -LLL -b dc=gocd,dc=org 'uid=john' cn gidNumber
-dn:  uid=john,ou=People,dc=gocd,dc=org
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ldapsearch <span class="nt">-x</span> <span class="nt">-LLL</span> <span class="nt">-b</span> <span class="nv">dc</span><span class="o">=</span>gocd,dc<span class="o">=</span>org <span class="s1">'uid=john'</span> cn gidNumber
+dn:  <span class="nv">uid</span><span class="o">=</span>john,ou<span class="o">=</span>People,dc<span class="o">=</span>gocd,dc<span class="o">=</span>org
 cn:  John Doe
-</code></pre>
+</code></pre></div></div>
 
 <p>If you need to add another user at some point, you can do it by creating add_user.ldif file with below content.</p>
 
-<pre><code class="language-shell">dn: uid=bob,ou=People,dc=gocd,dc=org
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dn: <span class="nv">uid</span><span class="o">=</span>bob,ou<span class="o">=</span>People,dc<span class="o">=</span>gocd,dc<span class="o">=</span>org
 objectClass: inetOrgPerson
 objectClass: shadowAccount
 uid: bob
@@ -197,17 +197,17 @@ givenName: bob
 cn: Bob Builder
 displayName: Bob Builder
 userPassword: badger
-</code></pre>
+</code></pre></div></div>
 
 <p>Run below command to add another user:</p>
 
-<pre><code class="language-shell">ldapadd -x -D cn=admin,dc=gocd,dc=org -W -f add_user.ldif
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ldapadd <span class="nt">-x</span> <span class="nt">-D</span> <span class="nv">cn</span><span class="o">=</span>admin,dc<span class="o">=</span>gocd,dc<span class="o">=</span>org <span class="nt">-W</span> <span class="nt">-f</span> add_user.ldif
+</code></pre></div></div>
 
 <p>Change user password:</p>
 
-<pre><code class="language-shell">ldappasswd -x -D cn=admin,dc=gocd,dc=org -W -S "uid=john,ou=People,dc=gocd,dc=org"
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ldappasswd <span class="nt">-x</span> <span class="nt">-D</span> <span class="nv">cn</span><span class="o">=</span>admin,dc<span class="o">=</span>gocd,dc<span class="o">=</span>org <span class="nt">-W</span> <span class="nt">-S</span> <span class="s2">"uid=john,ou=People,dc=gocd,dc=org"</span>
+</code></pre></div></div>
 
 <h2 id="step-3--setup-ldap-authentication-for-gocd"><strong>Step 3 — Setup LDAP authentication for GoCD</strong></h2>
 
@@ -221,45 +221,45 @@ userPassword: badger
 
 <p>Users can also configure this via <strong>Config XML</strong> tab on the Admin section:</p>
 
-<pre><code class="language-xml"> &lt;security&gt;
-      &lt;authConfigs&gt;
-        &lt;authConfig id="OpenLDAP" pluginId="cd.go.authentication.ldap"&gt;
-          &lt;property&gt;
-            &lt;key&gt;Url&lt;/key&gt;
-            &lt;value&gt;ldap://&lt;/value&gt;
-          &lt;/property&gt;
-          &lt;property&gt;
-            &lt;key&gt;SearchBases&lt;/key&gt;
-            &lt;value&gt;ou=People,dc=gocd,dc=org&lt;/value&gt;
-          &lt;/property&gt;
-          &lt;property&gt;
-            &lt;key&gt;ManagerDN&lt;/key&gt;
-            &lt;value&gt;cn=admin,dc=gocd,dc=org&lt;/value&gt;
-          &lt;/property&gt;
-          &lt;property&gt;
-            &lt;key&gt;Password&lt;/key&gt;
-            &lt;encryptedValue&gt;3mfoJ3hSBBM=&lt;/encryptedValue&gt;
-          &lt;/property&gt;
-          &lt;property&gt;
-            &lt;key&gt;UserSearchFilter&lt;/key&gt;
-            &lt;value /&gt;
-          &lt;/property&gt;
-          &lt;property&gt;
-            &lt;key&gt;UserLoginFilter&lt;/key&gt;
-            &lt;value&gt;uid={0}&lt;/value&gt;
-          &lt;/property&gt;
-          &lt;property&gt;
-            &lt;key&gt;DisplayNameAttribute&lt;/key&gt;
-            &lt;value&gt;cn&lt;/value&gt;
-          &lt;/property&gt;
-          &lt;property&gt;
-            &lt;key&gt;EmailAttribute&lt;/key&gt;
-            &lt;value /&gt;
-          &lt;/property&gt;
-        &lt;/authConfig&gt;
-      &lt;/authConfigs&gt;
-    &lt;/security&gt;
-</code></pre>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;security&gt;</span>
+      <span class="nt">&lt;authConfigs&gt;</span>
+        <span class="nt">&lt;authConfig</span> <span class="na">id=</span><span class="s">"OpenLDAP"</span> <span class="na">pluginId=</span><span class="s">"cd.go.authentication.ldap"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;key&gt;</span>Url<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;value&gt;</span>ldap://<span class="nt">&lt;/value&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;key&gt;</span>SearchBases<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;value&gt;</span>ou=People,dc=gocd,dc=org<span class="nt">&lt;/value&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;key&gt;</span>ManagerDN<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;value&gt;</span>cn=admin,dc=gocd,dc=org<span class="nt">&lt;/value&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;key&gt;</span>Password<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;encryptedValue&gt;</span>3mfoJ3hSBBM=<span class="nt">&lt;/encryptedValue&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;key&gt;</span>UserSearchFilter<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;value</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;key&gt;</span>UserLoginFilter<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;value&gt;</span>uid={0}<span class="nt">&lt;/value&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;key&gt;</span>DisplayNameAttribute<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;value&gt;</span>cn<span class="nt">&lt;/value&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;key&gt;</span>EmailAttribute<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;value</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;/authConfig&gt;</span>
+      <span class="nt">&lt;/authConfigs&gt;</span>
+    <span class="nt">&lt;/security&gt;</span>
+</code></pre></div></div>
 
 <p>More info on GoCD LDAP configuration can be found here - <a href="https://github.com/gocd/gocd-ldap-authentication-plugin">https://github.com/gocd/gocd-ldap-authentication-plugin</a></p>
 
@@ -278,12 +278,12 @@ userPassword: badger
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+              <a href="../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+              <a href="../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Apr 14</span>
