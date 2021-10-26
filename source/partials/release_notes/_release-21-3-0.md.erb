@@ -1,0 +1,45 @@
+<h4>Security Fixes</h4>
+
+This release has <b>important security fixes</b> and upgrades to lots of internal components. We recommend all users to upgrade to this version to safeguard your GoCD server.
+
+The [Business Continuity](https://docs.gocd.org/21.2.0/advanced_usage/business_continuity.html) feature has been temporarily disabled as a part of these changes. If you are not able to upgrade immediately, please make sure to disable the route `/add-on/business-continuity/*` while you make plans to upgrade.
+
+Security fixes in this release were due to vulnerabilities responsibly discosed by Simon Scannell, Thomas Chauchefoin, and Paul Gerste of SonarSource. Many thanks to them for the disclosures, discussions and ideas around mitigation.
+
+<h4>Changes</h4>
+
+* All materials URLs for Git, Mercurial, Subversion and TFS materials will now need to start with an alphanumeric character or a `/`. Please open a GitHub issue if this is a problem for you. There is a temporary flag available for this change.
+* <%= link_to_issue 9662, 'Remove "Failures" tab in Job Details page.' %>
+* <%= link_to_issue 9797, 'Build the default GoCD Server image on Alpine 3.13.' %>
+* Starting this release, Alpine 3.14 based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-alpine-3.14' %>.
+
+<h4>Upcoming changes</h4>
+
+GoCD doesn't yet work with Java 16+. The upgrade to Java 16 requires quite a few changes, which will be attempted in the near future. Given changes in the Java ecosystem (such as Adoptium not providing a JRE any more), we might need to re-think sticking with the latest JVM and maybe consider LTS releases.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '21.3.0','changes-in-21-3-0', 'API changelog for 21.3.0' %> and <%= link_to_versioned_plugin_api '21.3.0','changes-in-gocd-21-3-0', 'Plugin API changelog for 21.3.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "Hussein Kadiri",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "Paul Gerste",
+  "Simon Scannell",
+  "Thomas Chauchefoin",
+].sort.uniq.join(', ')
+
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 21.3.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
