@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2020-10-11T00:00:00Z</updated>
+  <updated>2021-12-14T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>GoCD and the Log4j vulnerability - CVE-2021-44228</title>
+    <link rel="alternate" href="https://www.gocd.org/2021/12/14/log4j-vulnerability.html"/>
+    <id>https://www.gocd.org/2021/12/14/log4j-vulnerability.html</id>
+    <published>2021-12-14T00:00:00Z</published>
+    <updated>2021-12-14T00:00:00Z</updated>
+    <author>
+      <name>Aravind SV</name>
+    </author>
+    <content type="html">The linked GitHub discussion has more information.</content>
+  </entry>
   <entry>
     <title>Restore Backup for GoCD on Kubernetes</title>
     <link rel="alternate" href="https://www.gocd.org/2020/10/11/restore-backup-for-gocd-on-kubernetes.html"/>
@@ -107,16 +118,5 @@
       <name>Ankit Srivistava</name>
     </author>
     <content type="html">Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD</content>
-  </entry>
-  <entry>
-    <title>Continuous Delivery Metrics Part 3&amp;#58; How long does it take to get from committing code to production?</title>
-    <link rel="alternate" href="https://www.gocd.org/2019/01/14/cd-metrics-deployment-lead-time.html"/>
-    <id>https://www.gocd.org/2019/01/14/cd-metrics-deployment-lead-time.html</id>
-    <published>2019-01-14T00:00:00Z</published>
-    <updated>2019-01-14T00:00:00Z</updated>
-    <author>
-      <name>Aravind S.V and Suzie Prince</name>
-    </author>
-    <content type="html">This is the third post in the series - Actionable Continuous Delivery Metrics. Here we'll analyze lead time, the duration of time it takes to deployment</content>
   </entry>
 </feed>
