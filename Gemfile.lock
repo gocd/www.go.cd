@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4.1)
+    activesupport (6.1.4.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -96,7 +96,7 @@ GEM
     middleman-autoprefixer (3.0.0)
       autoprefixer-rails (~> 10.0)
       middleman-core (>= 4.0.0)
-    middleman-blog (4.0.1)
+    middleman-blog (4.0.3)
       addressable (~> 2.3)
       middleman-core (>= 4.0.0)
       tzinfo (>= 0.3.0)
