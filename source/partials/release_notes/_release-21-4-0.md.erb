@@ -1,0 +1,53 @@
+<h4>Preparation for Java 17</h4>
+
+This release focuses on internal changes, dependency upgrades and build/test automation changes required for GoCD to support Java 17. Since Java 17 is a long-term-support (LTS) release and Java 16 is now end-of-life, we intend to skip specific validation against Java 16.
+
+While we are not quite ready, most required changes are part of the 21.4.0 release, so we expect experimental builds to be made available soon in preparation for a subsequent release.
+
+<h4>Security Fixes</h4>
+
+This release improves GoCD's security posture further by
+
+* correcting a reflected XSS issue on API error responses. Thank you to dmxjon (aka DiMaX) for responsibly disclosing this issue.
+* upgrading a number of internal components, some of which have known vulnerabilities.
+
+We do not have evidence that the upgraded dependencies pose any specific risk in GoCD's usage, however we endeavour to minimise <%= link_to 'dependency drift', 'https://www.thoughtworks.com/radar/techniques/dependency-drift-fitness-function' %>.
+
+<h4>Changes</h4>
+
+* <%= link_to_issue 9828, 'Build the default GoCD Server image on Alpine 3.14' %>
+* <%= link_to_issue 9966, 'Migrate Centos 8 Agent and Server images to Centos Stream' %>
+* Starting this release, Alpine 3.15 based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-alpine-3.15' %>.
+* Starting this release, Debian 11 based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-debian-11' %>.
+
+<h4>Bug Fixes</h4>
+
+* <%= link_to_issue 9914, 'GoCD Server on MacOS not running with packaged JRE by default' %>
+* <%= link_to_issue 9992, 'Remove broken "more..." link from Job Detail pages' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '21.4.0','changes-in-21-4-0', 'API changelog for 21.4.0' %> and <%= link_to_versioned_plugin_api '21.4.0','changes-in-gocd-21-4-0', 'Plugin API changelog for 21.4.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "dmxjon (aka DiMaX)",
+  "Ganesh S Patil",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+].sort.uniq.join(', ')
+
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 21.4.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
