@@ -1,12 +1,12 @@
-Last updated: 2021-12-31 14:49:11 +0000
+Last updated: 2022-01-03 14:00:44 +0000
 
 Latest commit:
-    commit 33d9258e71ad86fe9fa30e3fa9344d91cd51430c
-    Merge: d691a7933 72ca06d69
+    commit 4410b402400c29297f2ef4b666f00049e75f18a6
+    Merge: 33d9258e7 f54e57570
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Fri Dec 31 20:35:29 2021 +0800
+    Date:   Mon Jan 3 21:00:53 2022 +0800
     
-        Merge pull request #1326 from gocd/dependabot/bundler/autoprefixer-rails-10.4.0.0
+        Merge pull request #1327 from gocd/add-missing-note-on-debian-slim
         
-        Bump autoprefixer-rails from 10.3.3.0 to 10.4.0.0
+        Missed from release notes the switch to Debian slim for agent images
     
