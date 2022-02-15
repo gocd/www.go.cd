@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4.4)
+    activesupport (6.1.4.6)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -38,11 +38,10 @@ GEM
     fast_blank (1.0.1)
     fastimage (2.2.6)
     ffi (1.15.5)
-    fog-aws (3.12.0)
+    fog-aws (3.13.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
-      ipaddress (~> 0.8)
     fog-core (2.2.4)
       builder
       excon (~> 0.71)
@@ -78,7 +77,6 @@ GEM
     http_parser.rb (0.8.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    ipaddress (0.8.3)
     kramdown (2.3.1)
       rexml
     listen (3.0.8)
@@ -96,7 +94,7 @@ GEM
     middleman-autoprefixer (3.0.0)
       autoprefixer-rails (~> 10.0)
       middleman-core (>= 4.0.0)
-    middleman-blog (4.0.1)
+    middleman-blog (4.0.3)
       addressable (~> 2.3)
       middleman-core (>= 4.0.0)
       tzinfo (>= 0.3.0)
