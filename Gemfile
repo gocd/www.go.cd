@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 # Middleman Gems
 gem 'middleman'
 gem 'middleman-livereload'
-gem 'middleman-blog'
+gem 'middleman-blog', '4.0.1'
 gem 'middleman-gh-pages'
 gem 'middleman-s3_sync'
 gem 'rake'
