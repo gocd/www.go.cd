@@ -1,0 +1,89 @@
+<h4>Security Fixes</h4>
+
+This release has <b>important security fixes</b> and upgrades to a number of internal components.
+
+This is an especially important upgrade due to two remote code execution vulnerabilities that could allow existing *authenticated
+users* with malicious intent to trigger remote code execution on the GoCD Server, within
+
+* the <%= link_to 'LDAP Authentication Plugin', 'https://github.com/gocd/gocd-ldap-authentication-plugin' %>
+* use of Mercurial source control materials or configuration repositories
+
+If you are **unable to upgrade immediately**, you can mitigate the high severity issues by
+
+1. removing any <%= link_to 'authorization configurations', 'https://docs.gocd.org/22.1.0/configuration/dev_authentication.html#ldapad-authentication' %> for the bundled LDAP Authentication plugin
+    * if LDAP login is required, consider migrating your configuration to a patched (`v4.2.0-73`+) version of the <%= link_to 'LDAP Authorization Plugin', 'https://github.com/gocd/gocd-ldap-authorization-plugin' %>, which supports both authentication and (optional) authorization
+2. uninstalling the `hg`/Mercurial binary from the underlying GoCD Server operating system or Docker image
+
+Security fixes in this release were due to vulnerabilities responsibly disclosed by Alessio Della Libera (of the Snyk Security Team),
+Alexey Solovyev (solev9ev) and SuperXX (Xiao Xiong). Many thanks to them for the disclosures, discussions and ideas around mitigation.
+
+<h4>Java 17 Support</h4>
+
+This release includes compatibility changes within the GoCD Server to support Java 17.
+
+Java 16+ includes a number of restrictions on access to Java Runtime internals that required either GoCD changes or
+specific "opt-outs" to be included in GoCD server's start-up arguments. Currently, there are no opt-outs known
+to be required on GoCD agents.
+
+If you use the regular GoCD start-up scripts, and/or the packaged Java Runtime Environments with our installers and/or
+Docker images, there is _nothing extra you should need to do to run with Java 16+_.
+<br/>
+<br/>
+
+<h5>Plugin Compatibility with Java 17</h5>
+GoCD has many plugins and while we have sanity checked many, it is not practical for us to test every plugin.
+Plugins are also constrained by these Java Runtime restrictions, and if they either rely on access to Java Runtime
+internals or use libraries that do so, they may experience issues.
+
+If you experience issues with a plugin, or GoCD Server or a GoCD Agent
+
+* try working around the issue by following <%= link_to 'this guide', 'https://github.com/gocd/gocd/issues/10265' %>
+* please report the issue, *including a full stack trace* from the logs
+  * for plugin issues, on the relevant plugin's GitHub repository (these are linked from the _Author_ of each plugin in _Admin -> Plugins_)
+  * for GoCD Server/Agent issues, on our [GitHub issues](https://github.com/gocd/gocd/issues)
+* if you are not sure if a plugin or GoCD is at fault, feel free to start a discussion in our <%= link_to 'GitHub discussions', 'https://github.com/gocd/gocd/discussions/new' %>
+or via <%= link_to 'the GoCD Google Group', 'https://groups.google.com/g/go-cd' %>
+
+<h4>Changes</h4>
+
+* <%= link_to_issue 9918,  'Upgrade GoCD to run and build with Java 17' %>
+* <%= link_to_issue 10025, 'Build the default GoCD Server image on Alpine 3.15' %>
+* <%= link_to_issue 10153, 'Drop source/target compatibility back to Java 11 LTS' %>
+* <%= link_to_issue 10071, 'Support Bitbucket push webhooks that contain multiple changes' %>
+
+<h4>Bug Fixes</h4>
+
+* <%= link_to_issue 9902,  'Cannot input multiple lines for Perforce material view' %>
+* <%= link_to_issue 9927,  'Clean working directory sometimes fails on POSIX file systems with GoCD 21.3' %>
+* <%= link_to_issue 10086, 'GoCD Server fails to start when commit GPG signing is enabled at system/user level' %>
+* <%= link_to_issue 10169, 'Correct message displayed when agents are stuck cancelling jobs' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs - <%= link_to_versioned_api '22.1.0','changes-in-22-1-0', 'API changelog for 22.1.0' %> and <%= link_to_versioned_plugin_api '22.1.0','changes-in-gocd-22-1-0', 'Plugin API changelog for 22.1.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Alessio Della Libera (of the Snyk Security Team)",
+  "Alexey Solovyev (solev9ev)",
+  "Aravind SV",
+  "Chad Wilson",
+  "Ganesh S Patil",
+  "Jeroen Oortwijn",
+  "Ketan Padegaonkar",
+  "Kritika Singh",
+  "Mahesh Panchaksharaiah",
+  "Marques Lee",
+  "SuperXX (Xiao Xiong)",
+].sort.uniq.join(', ')
+
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 22.1.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
