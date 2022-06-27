@@ -1,8 +1,8 @@
 (function ($) {
   "use strict";
 
-  var LOAD_ERR_MSG = "It looks like our signup form was blocked by an adblocker in your browser! Please email us directly at support@thoughtworks.com or pause your adblocker to use the form.",
-    LOAD_ERR_MSG_FFOX = "It looks like our signup form was blocked by an adblocker in your browser! Please email us directly at support@thoughtworks.com or pause your adblocker to use the form.",
+  var LOAD_ERR_MSG = "It looks like our signup form was blocked by an adblocker in your browser! Please pause your adblocker to use the form.",
+    LOAD_ERR_MSG_FFOX = "It looks like our signup form was blocked by an adblocker in your browser! Please pause your adblocker to use the form.",
 
     CONTACT_FORM_SUBSCR_FIELD = "Subscription_Enterprise_CD__c",
     SUBSCR_FORM_SUSCR_FIELD = "surveySTWhatwouldyouliketohearabout",
