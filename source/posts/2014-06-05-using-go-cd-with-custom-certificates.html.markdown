@@ -12,7 +12,7 @@ meta_keywords: "GoCD, continuous delivery, continuous delivery software, continu
 
 The following post will help you setting up [GoCD](https://www.gocd.org) to use your custom certificate instead of the self-signed certificate that GoCD ships with.
 
-Note: This post is a copy of the one available [here](http://sachinsudheendra.github.io/2014/03/08/using-go-cd-with-custom-certificates.html)
+Note: This post is a copy of the one available [here](https://sachinsudheendra.github.io/2014/03/08/using-go-cd-with-custom-certificates.html)
 
 > Assumption: You have the certificate key (\*.key) and an X509 certificate (\*.crt).
 
@@ -85,4 +85,4 @@ Post this, when you access the GoCD Server over HTTPS (https://<go-server>:8154)
 ## References
 
 - [#gocd](https://www.gocd.org)
-- [Setting up self-signed SSL certificates for your Jetty instance (experiments with Noir and Clojure)](http://sharetheconversation.blogspot.in/2012/01/setting-up-self-signed-ssl-certificates.html)
+- [Setting up self-signed SSL certificates for your Jetty instance (experiments with Noir and Clojure)](https://sharetheconversation.blogspot.in/2012/01/setting-up-self-signed-ssl-certificates.html)

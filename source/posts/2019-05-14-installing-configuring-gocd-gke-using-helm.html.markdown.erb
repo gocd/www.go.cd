@@ -129,7 +129,7 @@ An important point to note is that this will only mount the password file in the
 2. To use a *POST* request, you can use this cURL command
 
 ~~~
-curl "http://$gocd_public_ip/go/api/admin/security/auth_configs" \
+curl "https://$gocd_public_ip/go/api/admin/security/auth_configs" \
       -H 'Accept: application/vnd.go.cd.v1+json' \
       -H 'Content-Type: application/json' \
       -X POST -d '{

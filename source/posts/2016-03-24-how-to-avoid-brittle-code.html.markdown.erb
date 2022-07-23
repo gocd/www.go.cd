@@ -22,7 +22,7 @@ The most common problem with legacy code is brittleness. A brittle codebase is o
 
 You should aspire to upgrade your dependencies and frameworks all the time. OK, so maybe this is almost in the realm of the obvious now. But very few people thought so 10 years ago. And I wonder whether even teams who *know* this is the right thing to do, *actually* prioritize it. It just needs to be something you do all the time and not left to be handled via technical debt. Here's why:
 
-1. **[If it hurts, do it more often](http://martinfowler.com/bliki/FrequencyReducesDifficulty.html)**. One of the most obvious reasons to upgrade all the time is that upgrading can be hard. There's very often an unpredictable cascade of broken dependencies. The amount of work is mostly unknown. Do it more often and it becomes a non-issue. But there's more to this than simple pain avoidance.
+1. **[If it hurts, do it more often](https://martinfowler.com/bliki/FrequencyReducesDifficulty.html)**. One of the most obvious reasons to upgrade all the time is that upgrading can be hard. There's very often an unpredictable cascade of broken dependencies. The amount of work is mostly unknown. Do it more often and it becomes a non-issue. But there's more to this than simple pain avoidance.
 
 2. Another motivator for upgrading dependencies is **fixing security vulnerabilities**. One of the biggest differences in building software now versus 10 years ago is the seemingly non-stop flow of vulnerability reports against our libraries, frameworks and applications. Fixing vulnerabilities will almost always involve upgrading some of your dependencies. The upgrades must to be easy in order to quickly ship vulnerability fixes.
 
@@ -46,7 +46,7 @@ Long-lived products are going to have a number of tech leads over the years. A c
 
 A new tech lead should not swap out any tech until they've been working on the team for two to three months. There's too much context to understand. The new tech lead needs to learn empathy for the team and the codebase. The team and tech lead need to build trust and a rhythm. Better decisions will be made with an initial pause.
 
-The typical means of swapping out new tech (outside the absurdity of long-lived branches) is to utilize [Branch by Abstraction](http://martinfowler.com/bliki/BranchByAbstraction.html):
+The typical means of swapping out new tech (outside the absurdity of long-lived branches) is to utilize [Branch by Abstraction](https://martinfowler.com/bliki/BranchByAbstraction.html):
 
 * An abstraction is placed in front of component X.
 * Component Y is introduced as a replacement for X

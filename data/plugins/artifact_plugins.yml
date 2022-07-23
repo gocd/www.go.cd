@@ -1,9 +1,9 @@
 - name: Docker Registry Artifact Plugin
   description: The docker registry artifact plugin provides a way to push and pull docker images on GoCD 
   readmore_url: https://github.com/gocd/docker-registry-artifact-plugin
-  author_url: http://www.thoughtworks.com/products/
+  author_url: https://www.thoughtworks.com/products/
   author_name: ThoughtWorks Inc.
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=docker-registry-artifact-plugin&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=gocd&repo=docker-registry-artifact-plugin&type=watch&count=true
   releases_url: https://github.com/gocd/docker-registry-artifact-plugin/releases
   supported: true
 

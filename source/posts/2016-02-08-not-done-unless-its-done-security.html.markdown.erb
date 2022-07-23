@@ -29,7 +29,7 @@ tags: It's Not CD if You Can't Deploy Right Now
 
 ##Automation is one part of the solution
 
-Security has to be addressed in a holistic way. Automation is a way to get fast feedback on common security issues. A talented [penetration tester](http://security.stackexchange.com/questions/46021/what-is-a-pen-tester/46028#46028) will consider scenarios and methods that are not usually automated.
+Security has to be addressed in a holistic way. Automation is a way to get fast feedback on common security issues. A talented [penetration tester](https://security.stackexchange.com/questions/46021/what-is-a-pen-tester/46028#46028) will consider scenarios and methods that are not usually automated.
 
 The goal of automation is to catch the "low-hanging fruit". Are we pushing things to Git we shouldn't be? Are we using an old, vulnerable package we shouldn't? Are we violating our own company's rules?
 
@@ -37,7 +37,7 @@ The goal of automation is to catch the "low-hanging fruit". Are we pushing thing
 
 There is a lot you can—and should—do before your code even gets to a pipeline. Generally speaking, CD servers watch your source code repositories for changes and then act on those changes. For many issues, this is too late!
 
-One of the biggest recurring stories we hear about SSH keys, auth tokens, private keys etc., being checked into source control. There was [a story](http://www.wired.com/2013/01/users-scramble-as-github-search-exposes-passwords-security-details/) a few years ago where a basic search for private id_rsa keys returned over 600 matches on GitHub alone.
+One of the biggest recurring stories we hear about SSH keys, auth tokens, private keys etc., being checked into source control. There was [a story](https://www.wired.com/2013/01/users-scramble-as-github-search-exposes-passwords-security-details/) a few years ago where a basic search for private id_rsa keys returned over 600 matches on GitHub alone.
 
 Consider incorporating tools that check for these things before they are actually added!
 
@@ -45,25 +45,25 @@ ThoughtWorks recently created [Talisman](https://github.com/thoughtworks/talisma
 
 ###Static Application Security Testing (SAST)
 
-[Gartner](http://www.gartner.com/it-glossary/static-application-security-testing-sast) defines SAST  as "a set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the 'inside out' in a nonrunning state."
+[Gartner](https://www.gartner.com/it-glossary/static-application-security-testing-sast) defines SAST  as "a set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the 'inside out' in a nonrunning state."
 
 This starts with having good unit test coverage. Can you authenticate as you should be able to? Are bad authentication requests refused? Are retries being limited properly? Are password policies being properly enforced?
 
 Very early in your build process, your CD server can run some security-specific, source code level tests. These could look for issues ranging from bad code to policy violations.
 
-For Ruby applications, this category includes tools like [Brakeman](http://brakemanscanner.org/docs/introduction/) and [Bundler-audit](https://github.com/rubysec/bundler-audit).
+For Ruby applications, this category includes tools like [Brakeman](https://brakemanscanner.org/docs/introduction/) and [Bundler-audit](https://github.com/rubysec/bundler-audit).
 
-Brakeman scans the application's source code and can give out lots of different [warning types](http://brakemanscanner.org/docs/warning_types/). I particularly like what I'll call policy checking. Someone implements basic authorization when you don't want to allow that? Pipeline stage fails.
+Brakeman scans the application's source code and can give out lots of different [warning types](https://brakemanscanner.org/docs/warning_types/). I particularly like what I'll call policy checking. Someone implements basic authorization when you don't want to allow that? Pipeline stage fails.
 
 Bundler-audit does pretty much what it sounds like. It checks to see if you're using Gems that have known vulnerabilities.
 
-For Java applications, [Sonatype](http://www.sonatype.com/) has some impressive tools in this area. According to one Sonatype [study](http://www.sonatype.com/assessments/known-vulnerabilities) "of the 106 component ‘parts' used in a typical application, on average 24 have known cyber vulnerabilities, which are rated either critical or severe."
+For Java applications, [Sonatype](https://www.sonatype.com/) has some impressive tools in this area. According to one Sonatype [study](https://www.sonatype.com/assessments/known-vulnerabilities) "of the 106 component ‘parts' used in a typical application, on average 24 have known cyber vulnerabilities, which are rated either critical or severe."
 
 ###Dynamic Application Security Testing (DAST)
 
-Again quoting [Gartner's](http://www.gartner.com/it-glossary/dynamic-application-security-testing-dast/) definition, these are tools which are "designed to detect conditions indicative of a security vulnerability in an application in its running state".
+Again quoting [Gartner's](https://www.gartner.com/it-glossary/dynamic-application-security-testing-dast/) definition, these are tools which are "designed to detect conditions indicative of a security vulnerability in an application in its running state".
 
-The tools that run against your code are a good start, but they aren't accessing the application like a user. Tools such as [Burp](https://portswigger.net/burp/), [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://www.arachni-scanner.com/), w3af and [Vega](https://subgraph.com/vega/index.en.html) access the application itself, looking for exploit vectors like SQL Injection and cross-site scripting.
+The tools that run against your code are a good start, but they aren't accessing the application like a user. Tools such as [Burp](https://portswigger.net/burp/), [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](https://www.arachni-scanner.com/), w3af and [Vega](https://subgraph.com/vega/index.en.html) access the application itself, looking for exploit vectors like SQL Injection and cross-site scripting.
 
 ##Who creates the tests?
 

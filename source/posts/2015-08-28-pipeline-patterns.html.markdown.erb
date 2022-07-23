@@ -15,7 +15,7 @@ specific "one off" manner. This article walks through 5 key patterns to setting 
 including designing parallel workflows, running tests in parallel, and more.
 
 In 2007 GoCD (then called "Cruise") introduced build pipelines to the masses. Shortly after, Jez Humble (GoCD's original
-product manager) and David Farley published [Continuous Delivery](http://www.amazon.com/gp/product/0321601912). With these
+product manager) and David Farley published [Continuous Delivery](https://www.amazon.com/gp/product/0321601912). With these
 concepts becoming more mainstream, some patterns have emerged. There are certainly more, but these are some that
 stick out.
 
@@ -36,7 +36,7 @@ sure that you're running your functional tests on the exact thing you built and 
 ##2. Run tests in parallel
 
 Any moderately complicated application is likely to have a very large number of of automated tests. Every time someone on the
-[Mingle](http://www.thoughtworks.com/mingle/) team at ThoughtWorks commits some code, the application is subjected to well
+[Mingle](https://www.thoughtworks.com/mingle/) team at ThoughtWorks commits some code, the application is subjected to well
 over 11,000 automated tests. If the team ran those tests back to back, they would take a couple days. Of course you can't
 wait a couple days before you know the state of your software.
 
@@ -82,7 +82,7 @@ Jez Humble tells a story about developing and testing a Java application on Wind
 Solaris. The short version of the story; it didn't work.
 
 Ideally you should be staging and testing on the same set up. If your staging and production environments are exactly the same,
-you can even use them interchangeably in a [blue / green deployment pattern](http://martinfowler.com/bliki/BlueGreenDeployment.html).
+you can even use them interchangeably in a [blue / green deployment pattern](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 It's hard to imagine a better way to be sure your software will work when you turn users loose on it.
 
 If you're deploying to very large environments where it's just not practical to have an exact duplicate, you should still
