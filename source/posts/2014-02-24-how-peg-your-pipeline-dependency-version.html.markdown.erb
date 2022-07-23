@@ -18,7 +18,7 @@ Say we have a set up like the one below. We have two pipelines -- one for compon
 
 ###Fluid dependencies
 
-Now by default in GoCD, a pipeline gets scheduled when there is a change to any of its upstream dependencies. This behavior is referred to as a *fluid dependency* in the [Continuous delivery](http://continuousdelivery.com/) book (the book refers to a paper by Alex Chaffee).
+Now by default in GoCD, a pipeline gets scheduled when there is a change to any of its upstream dependencies. This behavior is referred to as a *fluid dependency* in the [Continuous delivery](https://continuousdelivery.com/) book (the book refers to a paper by Alex Chaffee).
 
 > Chaffee's proposal is to introduce a new piece of state into the dependency graph—whether a particular upstream dependency is static, guarded, or ﬂuid. Changes in a static upstream dependency do not trigger a new build.Changes in a ﬂuid upstream dependency always trigger a new build.
 
@@ -42,4 +42,4 @@ Say C2 is pegged to version 100 of C1. A week passes and C1 has progressed to 11
 We have two options. We could revert to last known good version by [retriggering manual gate with version](https://docs.gocd.org/current/advanced_usage/trigger_with_options.html) 100 of C1. Or we could keep bisecting the range between 100 and 110 to find the most recent version of C1 that works for C2.
 
 
-<div class="highlight">This post is also cross-posted <a href="http://www.thoughtworks.com/insights/blog/how-peg-your-pipeline-dependency-version">here</a>.</div>
+<div class="highlight">This post is also cross-posted <a href="https://www.thoughtworks.com/insights/blog/how-peg-your-pipeline-dependency-version">here</a>.</div>

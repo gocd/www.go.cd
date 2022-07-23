@@ -21,11 +21,11 @@ This is the third part of a series called <%= link_to "It's not Continuous Deliv
 
 Years ago, when I was in management, I had a favorite rule. If asked "is something done?" the answer could not include the word "except" or any of its synonyms.
 
-Performance testing as part of a Continuous Delivery (CD) pipeline is rare. In fact, it's so rare that HP [applied for a patent](http://www.google.com/patents/WO2014027990A1?cl=en) on it. To quote from the patent application:
+Performance testing as part of a Continuous Delivery (CD) pipeline is rare. In fact, it's so rare that HP [applied for a patent](https://www.google.com/patents/WO2014027990A1?cl=en) on it. To quote from the patent application:
 
 >*Load and performance tests are rarely included in the [CD] tests due to cost and time constraints since the execution time of performance and load tests are longer than unit tests and application programming interface tests. As a result, the tests lack a quality guarantee since the test sets do not include tests that measure performance of the code changes under testing conditions.*
 
-The fact that so few organizations are doing performance testing is especially scary since performance has such a huge impact on your business. In 2007, [Amazon found](http://pearanalytics.com/blog/2009/how-webpage-load-time-related-to-visitor-loss/) that for every 100 millisecond increase in load time, sales decreased by 1 percent. And that was nine years ago!
+The fact that so few organizations are doing performance testing is especially scary since performance has such a huge impact on your business. In 2007, [Amazon found](https://pearanalytics.com/blog/2009/how-webpage-load-time-related-to-visitor-loss/) that for every 100 millisecond increase in load time, sales decreased by 1 percent. And that was nine years ago!
 
 The intent of this article is to provide you with some pointers on the types of testing you can do on a regular basis, and to give some strategies for implementation.
 
@@ -33,7 +33,7 @@ The intent of this article is to provide you with some pointers on the types of 
 
 ### Load testing
 
-Load testing an application generally means that you're measuring performance with a specific predetermined amount of load. This is a good way to make sure that you haven't introduced a change that has impacted your overall application. There has been [quite a bit](http://ux.stackexchange.com/questions/58163/acceptable-waiting-time-for-users-in-time-sensitive-actions) written on "acceptable" performance for a web application. A 20 percent increase in response time probably isn't going to generate a monitoring alert, but it may very well be killing your business.
+Load testing an application generally means that you're measuring performance with a specific predetermined amount of load. This is a good way to make sure that you haven't introduced a change that has impacted your overall application. There has been [quite a bit](https://ux.stackexchange.com/questions/58163/acceptable-waiting-time-for-users-in-time-sensitive-actions) written on "acceptable" performance for a web application. A 20 percent increase in response time probably isn't going to generate a monitoring alert, but it may very well be killing your business.
 
 Once you set a baseline, this is the easiest type of performance testing to include in a CD pipeline, since you already have an expectation of how long it'll take.
 
@@ -89,7 +89,7 @@ The cost of performance testing does force a bit of a reality check on the "run 
 
 ## Tools
 
-There are several tools available for performance testing, I won't try to list them all. Software Testing Help has a fairly [recent blog post](http://www.softwaretestinghelp.com/performance-testing-tools-load-testing-tools/) highlighting several of the most popular.
+There are several tools available for performance testing, I won't try to list them all. Software Testing Help has a fairly [recent blog post](https://www.softwaretestinghelp.com/performance-testing-tools-load-testing-tools/) highlighting several of the most popular.
 
 As always, tools are a vital component, but they aren't a substitute for real-world knowledge.
 

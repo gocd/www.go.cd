@@ -1,17 +1,17 @@
 - name: File based plugin
   description: Bundled plugin to support password file based authentication.
   readmore_url: https://github.com/gocd/filebased-authentication-plugin
-  author_url: http://www.thoughtworks.com/products/
+  author_url: https://www.thoughtworks.com/products/
   author_name: ThoughtWorks Inc.
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=filebased-authentication-plugin&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=gocd&repo=filebased-authentication-plugin&type=watch&count=true
   bundled: true
 
 - name: LDAP/AD plugin
   description: Bundled plugin to support LDAP/AD authentication.
   readmore_url: https://github.com/gocd/gocd-ldap-authentication-plugin
-  author_url: http://www.thoughtworks.com/products/
+  author_url: https://www.thoughtworks.com/products/
   author_name: ThoughtWorks Inc.
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=gocd-ldap-authentication-plugin&type=watch&count=true 
+  github_stars: https://ghbtns.com/github-btn.html?user=gocd&repo=gocd-ldap-authentication-plugin&type=watch&count=true
   bundled: true
 
 - name: LDAP/AD Authorization Plugin
@@ -20,13 +20,13 @@
   author_url: https://github.com/gocd
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd/gocd-ldap-authorization-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd&repo=gocd-ldap-authorization-plugin&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=gocd&repo=gocd-ldap-authorization-plugin&type=watch&count=true
   first_available_date: 5/2020
 
 - name: Atlassian Crowd Authentication Plugin
   description: Delegates authentication services to Atlasian Crowd
   readmore_url: https://github.com/mgambini/crowd-integration-plugin
-  author_url: http://www.ditechonline.it/
+  author_url: https://www.ditechonline.it/
   author_name: Di.Tech S.p.A.
   releases_url: https://github.com/mgambini/crowd-integration-plugin/releases
   contact_url: mailto:marco.gambini@ditechspa.it?subject=Info about Crowd Authentication Plugin
@@ -37,7 +37,7 @@
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/github-oauth-authorization-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=github-oauth-authorization-plugin&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=gocd-contrib&repo=github-oauth-authorization-plugin&type=watch&count=true
 
 - name: Google OAuth authorization plugin
   description: The plugin allows user to login in GoCD using a Google account.
@@ -45,7 +45,7 @@
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/google-oauth-authorization-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=google-oauth-authorization-plugin&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=gocd-contrib&repo=google-oauth-authorization-plugin&type=watch&count=true
 
 - name: Okta OAuth authorization plugin
   description: The plugin allows user to login in GoCD using an Okta account.
@@ -53,7 +53,7 @@
   author_url: https://github.com/szamfirov
   author_name: Svetlin Zamfirov
   releases_url: https://github.com/szamfirov/gocd-okta-oauth-authorization-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=szamfirov&repo=gocd-okta-oauth-authorization-plugin&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=szamfirov&repo=gocd-okta-oauth-authorization-plugin&type=watch&count=true
 
 - name: TLS Client Certificate Authentication plugin
   description: Using headers set by a TLS-terminating reverse proxy, details from a client certificate are used to log in
@@ -61,7 +61,7 @@
   author_url: https://cjn.me.uk/
   author_name: Chris Northwood
   releases_url: https://github.com/cnorthwood/gocd-tls-auth/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=cnorthwood&repo=gocd-tls-auth&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=cnorthwood&repo=gocd-tls-auth&type=watch&count=true
 
 - name: GitLab OAuth authorization plugin
   description: The plugin allows user to login in GoCD using GitLab(or GitLab Enterprise).
@@ -69,7 +69,7 @@
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gitlab-oauth-authorization-plugin&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gitlab-oauth-authorization-plugin&type=watch&count=true
 
 - name: GoCD Guest Login Authentication plugin
   description: The plugin allows user to login in GoCD as a guest user
@@ -77,7 +77,7 @@
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/gocd-guest-login-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-guest-login-plugin&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-guest-login-plugin&type=watch&count=true
 
 - name: Keycloak OAuth authorization plugin
   description: The plugin allows user to login in GoCD using an Keycloak account.
@@ -85,4 +85,4 @@
   author_url: https://github.com/klinux
   author_name: Kleber Rocha
   releases_url: https://github.com/klinux/gocd-keycloak-oauth-authorization-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=klinux&repo=gocd-keycloak-oauth-authorization-plugin&type=watch&count=true
+  github_stars: https://ghbtns.com/github-btn.html?user=klinux&repo=gocd-keycloak-oauth-authorization-plugin&type=watch&count=true

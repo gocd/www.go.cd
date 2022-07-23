@@ -27,7 +27,7 @@ GoCD works with a system of pipelines. The pipeline can have one or many stages,
 
 In order to execute a pipeline, its stages are ran on an agent. An agent is a worker with a given set of features. Each stage is deployed in its own workspace. It executes its jobs until the end then it exits. Many stages could run on one agent.
 
-When the number of pipelines increases, the complexity of your tests and the time it takes to run them, increases as well. You may also want to deploy some more infrastructure for your tests on your backend. For example, for your end to end tests, you could deploy your own [Selenium Grid](http://www.seleniumhq.org/projects/grid/). However, it makes your architecture a *bit* more complicated to maintain.
+When the number of pipelines increases, the complexity of your tests and the time it takes to run them, increases as well. You may also want to deploy some more infrastructure for your tests on your backend. For example, for your end to end tests, you could deploy your own [Selenium Grid](https://www.seleniumhq.org/projects/grid/). However, it makes your architecture a *bit* more complicated to maintain.
 
 ## 1. The context
 
@@ -35,7 +35,7 @@ Here, we will talk about the front-end e2e tests. Let’s say that we have 50 br
 
 Such as what I described earlier, if you want to add some tests in your release flow, it can become quite a huge infrastructure, quite hard and quite *painful* to use and to maintain.
 
-Our e2e tests are written in NodeJS using the framework [webdriver.io](http://webdriver.io/) . We use Babel for some sugar syntax (*JavaScript hipsters*). The project is stored in a Git repository. The main users of the e2e tests are our front-end developers. They develop the UI then create page objects for writing the scenarios for the tests.
+Our e2e tests are written in NodeJS using the framework [webdriver.io](https://webdriver.io/) . We use Babel for some sugar syntax (*JavaScript hipsters*). The project is stored in a Git repository. The main users of the e2e tests are our front-end developers. They develop the UI then create page objects for writing the scenarios for the tests.
 
 Each time we are building one of the 50 websites, we are running the e2e tests for this website against Chrome and Firefox. Until they have passed, the site won’t be deployed to production. It means that each time that I want to release all websites, I have to clone 2 times my repository, perform 2 `npm install` for each site. I am so running 2 * 50 times my e2e tests.
 
@@ -175,7 +175,7 @@ At first, we create a given namespace for running our jobs and declare the main 
                   image: my-repository-name/container-e2e
                   env:
                   - name: "TARGET_URL"
-                    value: "http://www.mywebsite.com"
+                    value: "https://www.mywebsite.com"
                   - name: "BROWSER"
                     value: "chrome"
                   - name: "SELENIUM_HOST"
@@ -291,7 +291,7 @@ When your main container completes, you can get its status and its exit code usi
 
 For going further, you could automate all the steps we went through for triggering the job and killing it in your CI.
 
-Here, we did everything manually (triggering the job, killing the job). However, today, you can find some tools for managing and monitoring your Kubernetes jobs such as [Azure Brigade](http://brigade.sh/) or [Apache Airflow](https://airflow.apache.org/).
+Here, we did everything manually (triggering the job, killing the job). However, today, you can find some tools for managing and monitoring your Kubernetes jobs such as [Azure Brigade](https://brigade.sh/) or [Apache Airflow](https://airflow.apache.org/).
 
 Also, because we are pushing our reports to a Google Cloud Storage Bucket, you could quite easily implement some parsing of them using a [Google Cloud Function](https://cloud.google.com/functions/). From that, you could build a custom alerting system using Slack.
 

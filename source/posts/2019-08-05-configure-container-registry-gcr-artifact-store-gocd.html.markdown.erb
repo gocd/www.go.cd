@@ -57,7 +57,7 @@ According to the comment, we had to use *_json_key* as the username and just use
 You can also set this up using a `cURL` command to make a `POST` call to the API exposed by the GoCD server.
 
 ~~~
-curl "http://$gocd_public_ip/go/api/admin/artifact_stores" \
+curl "https://$gocd_public_ip/go/api/admin/artifact_stores" \
   -u "$USERNAME:$PASSWORD" \
   -H 'Accept: application/vnd.go.cd.v1+json' \
   -H 'Content-Type: application/json' \

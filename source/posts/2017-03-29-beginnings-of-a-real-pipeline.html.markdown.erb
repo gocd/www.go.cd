@@ -63,7 +63,7 @@ A setup such as the one described above might look like this:
   <span class='info_txt'>Click image to zoom in</span>
 </div>
 
-Hopefully, that change didn't feel like the "How to draw an owl" [image](http://sethgodin.typepad.com/seths_blog/2014/01/how-to-draw-an-owl.html)!
+Hopefully, that change didn't feel like the "How to draw an owl" [image](https://sethgodin.typepad.com/seths_blog/2014/01/how-to-draw-an-owl.html)!
 
 Since stages run one after another, only if Stage 1 passes does it go to Stage 2 and so on. Also, since jobs run parallelly (assuming agents are available), the two jobs which run tests in Stage 2 can potentially run parallelly and provide quicker feedback than when run serially. Also, if both unit tests and integration tests fail for a changeset, then both parts of that feedback will be available simultaneously (in a single pipeline run). This is different from when they were all run serially as tasks in a single job.
 

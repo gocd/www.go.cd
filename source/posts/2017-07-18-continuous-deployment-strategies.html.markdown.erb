@@ -23,7 +23,7 @@ Along with similar deployment strategies, many developers also continue to use t
 
 ## Snowflake servers
 
-While [this approach](http://martinfowler.com/bliki/SnowflakeServer.html) may work great for small webapps, it quickly falls apart when you're managing anything but a couple of servers.
+While [this approach](https://martinfowler.com/bliki/SnowflakeServer.html) may work great for small webapps, it quickly falls apart when you're managing anything but a couple of servers.
 
 It is generally difficult to set up a new server if your existing server has problems. If you're looking to scale by adding more servers, it's difficult to keep each server's software, configuration and services in sync. You may not be in a position to replicate a production (or production-like) environment for testing.
 
@@ -31,13 +31,13 @@ Over time, one loses track of the magic configuration files, packages and servic
 
 ## Phoenix servers
 
-Some of these issues [can be addressed](http://martinfowler.com/bliki/PhoenixServer.html) by using a bit of configuration management tools like [chef](https://www.chef.io/), [puppet](https://puppetlabs.com/), or [ansible](http://www.ansible.com/home) among a few others.
+Some of these issues [can be addressed](https://martinfowler.com/bliki/PhoenixServer.html) by using a bit of configuration management tools like [chef](https://www.chef.io/), [puppet](https://puppetlabs.com/), or [ansible](https://www.ansible.com/home) among a few others.
 
 These tools help avoid configuration drift, the sort of one-off changes that go unnoticed and undocumented.
 
-An important point to note is that these tools only apply the configuration that they are asked to. If you applied any additional configuration outside of what these tools are aware of, or if you forgot to un-apply or remove some configuration, you'd be out of luck. This what [Ranjib Dey](https://github.com/ranjib) calls the [Accumulator Anti-Pattern](http://server.dzone.com/articles/infrastructure-tooling-anti).
+An important point to note is that these tools only apply the configuration that they are asked to. If you applied any additional configuration outside of what these tools are aware of, or if you forgot to un-apply or remove some configuration, you'd be out of luck. This what [Ranjib Dey](https://github.com/ranjib) calls the [Accumulator Anti-Pattern](https://server.dzone.com/articles/infrastructure-tooling-anti).
 
-A much better alternative is to tear down servers periodically and apply configuration changes every once in a while. This helps avoid and catch any configuration drift outside of configuration management tools. Eventually one can move to deploying new servers on every configuration change. This strategy is known as an [Immutable Server](http://martinfowler.com/bliki/ImmutableServer.html).
+A much better alternative is to tear down servers periodically and apply configuration changes every once in a while. This helps avoid and catch any configuration drift outside of configuration management tools. Eventually one can move to deploying new servers on every configuration change. This strategy is known as an [Immutable Server](https://martinfowler.com/bliki/ImmutableServer.html).
 
 ## How does this apply to Continuous Deployment?
 

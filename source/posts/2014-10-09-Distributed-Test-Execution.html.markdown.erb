@@ -24,7 +24,7 @@ GoCD improves the cycle time of its own build by making test execution faster, d
 
 ### Test Load Balancer (TLB)
 
-[TLB](http://test-load-balancer.github.io) is an open-source library which provides the ability to break up a test suite into pieces and run a part. It guarantees 'Mutual Exclusion' & 'Collective Exhaustion' properties that are essential to reliably running tests in distributed fashion.
+[TLB](https://test-load-balancer.github.io) is an open-source library which provides the ability to break up a test suite into pieces and run a part. It guarantees 'Mutual Exclusion' & 'Collective Exhaustion' properties that are essential to reliably running tests in distributed fashion.
 
 TLB's strength lies in intelligent test distribution which is based on time, i.e. the tests will be distributed based on time they take to execute, making the jobs close to equal runs which leads to better resource utilization. It falls back on count based splitting if test times are not available. It also runs tests in 'Failed First' order, so if a test has failed in previous run it will be run before other tests which means faster feedback.
 
@@ -40,17 +40,17 @@ Unzip `tlb-complete-0.3.2.tar.gz` to `tlb-complete-0.3.2`:
     $ chmod +x server.sh
     $ ./server.sh start
 
-This should start server at `http://host-ip-address:7019`
+This should start server at `https://host-ip-address:7019`
 
 *Resources:*
 
-* [Getting Started](http://test-load-balancer.github.io/doc-0_3_2/getting_started_with_tlb.html)
-* [Concepts](http://test-load-balancer.github.io/doc-0_3_2/concepts.html)
-* [Configuration](http://test-load-balancer.github.io/doc-0_3_2/configuration.html)
+* [Getting Started](https://test-load-balancer.github.io/doc-0_3_2/getting_started_with_tlb.html)
+* [Concepts](https://test-load-balancer.github.io/doc-0_3_2/concepts.html)
+* [Configuration](https://test-load-balancer.github.io/doc-0_3_2/configuration.html)
 
 ### GoCD
 
-[GoCD](http://www.gocd.org/) is an open-source CI/CD tool. Its well known for its powerful modelling, tracing & visualization capabilities.
+[GoCD](https://www.gocd.org/) is an open-source CI/CD tool. Its well known for its powerful modelling, tracing & visualization capabilities.
 
 While TLB is doing all the distribution, GoCD does what it does best - orchestrate the parallel execution. 
 
@@ -91,7 +91,7 @@ Upload junit xmls as test artifacts.
           <job name="test-split" runInstanceCount="3">
             <environmentvariables>
               <variable name="TLB_BASE_URL">
-                <value>http://localhost:7019</value>
+                <value>https://localhost:7019</value>
               </variable>
               <variable name="TLB_TMP_DIR">
                 <value>/tmp</value>
