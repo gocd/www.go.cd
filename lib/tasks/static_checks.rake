@@ -13,21 +13,21 @@ namespace :static_checks do
 
   options = {
       :disable_external     => true,
-      :url_ignore           => [/([https]:\/\/(localhost)|(github)|(linkedin):*)/],
+      :ignore_urls          => [/([https]:\/\/(localhost)|(github)|(linkedin):*)/],
       :allow_hash_href      => true,
       :allow_missing_href   => true,
+      :check_external_hash  => true,
       :href_ignore          => ['/https:\/\/www\.youtube\.com\/.*/'],
       :validation           => {
           :report_invalid_tags  => false,
           :report_script_embeds => false,
-          :report_missing_names => false ,
+          :report_missing_names => false,
       },
-      :external_only        => false ,
-      :check_html           => false,
       :typhoeus => {
-          :ssl_verifypeer => false,
+          :followlocation => true,
+          :connecttimeout => 500,
       },
-      :empty_alt_ignore     => true,
+      :ignore_missing_alt   => true,
       :log_level            => :info
   }
 
