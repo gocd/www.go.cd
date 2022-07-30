@@ -25,8 +25,6 @@ REDIRECTS = {
   "2014/10/09/Distrubuted-Test-Execution.html" => "/2014/10/09/Distributed-Test-Execution/index.html",
   "2017/04/11/gocd-over-jenkins.html"          => "/2017/04/25/gocd-over-jenkins/index.html",
   "community/resources/index.html"             => "/resources/index.html",
-  "community/events/index.html"                => "/events/index.html",
-  "community/partners/index.html"              => "/partners/index.html",
   "community/plugins/index.html"               => "/plugins/index.html",
   "contribute/cla/index.html"                  => "/contributor-license-agreement/index.html",
   "contribute/roadmap/index.html"              => "/roadmap/index.html",
@@ -51,7 +49,11 @@ REDIRECTS = {
   "101/index.html"                             => "/tags/cd-101.html",
   "community/index.html"                       => "https://groups.google.com/forum/#!forum/go-cd",
   "chef/index.html"                            => "/index.html",
-  "enterprise/index.html"                      => "/index.html"
+  "events/index.html"                          => "/index.html",
+  "partners/index.html"                        => "/index.html",
+  "enterprise/index.html"                      => "/index.html",
+  "enterprise-campaign/index.html"             => "/index.html",
+  "thoughtworks-support-services-general-terms"=> "/enterprise/thoughtworks-support-services-general-terms/"
 }
 
 #To ignore HtmlCheck for URL's with &, update file_ignore options in lib/tasks/static_checks.rake

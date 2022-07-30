@@ -837,51 +837,6 @@ body.download {
   .k8s p {
     margin-bottom: 0;
   }
-
-  //subscribe form styles in download page
-  .subscribe-to-blog {
-    text-align: left;
-    padding: 0;
-    margin-top: 0px;
-
-    .subscribe-title {
-      line-height: 20px;
-      font-weight: 300;
-      font-size: 16px;
-
-      @media (max-width: $screen-xs-max) {
-        margin-bottom: 10px;
-      }
-
-      @media (min-width: $screen-tablet) {
-        line-height: 24px;
-      }
-    }
-
-    form {
-      margin-top: 0 !important;
-    }
-
-    #mktoForm_6699 {
-      text-align: left;
-      margin: 10px 0;
-      padding: 0;
-    }
-  }
-
-  .mktoForm {
-    margin: 0;
-  }
-
-  #subscribe-info {
-    margin-top: 0
-  }
-
-  .mktoButton {
-    @media (min-width: $screen-tablet) {
-      margin-top: 20px !important;
-    }
-  }
 }
 
 .dld-win {
@@ -954,48 +909,7 @@ body.download {
   margin-left: 5px;
 }
 
-.subscribe-band {
-  border-top: 1px solid #DDDDDD;
-  border-bottom: 1px solid #DDDD;
-  padding: 30px 0px;
-  text-align: center;
-}
-
-.subscribe-band_text {
-  font-family: 'URWGeometric-Semibold';
-  font-size: 20px;
-  color: #333333;
-}
-
-.subscribe-band_cta {
-  display: block;
-  margin: 0 auto;
-  width: 144px;
-  height: 28px;
-  line-height: 28px;
-  text-transform: uppercase;
-  font-family: 'URWGeometric-Semibold';
-  font-size: 14px;
-  color: #333333;
-  border: 1px solid #4FE0E1;
-  background: #4FE0E1;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-    outline: 0;
-    color: #333333;
-  }
-
-  &:active {
-    background: #36b1bf;
-    color: #FFFFFF;
-    outline: 0
-  }
-}
-
-
-.dowload-content-container {
+.download-content-container {
   @include grid-container;
 
   .sidebar-left {
