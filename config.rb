@@ -55,7 +55,7 @@ REDIRECTS = {
   "partners/index.html"                                    => "/index.html",
   "enterprise/index.html"                                  => "/index.html",
   "enterprise-campaign/index.html"                         => "/index.html",
-  "thoughtworks-support-services-general-terms/index.html" => "/enterprise/thoughtworks-support-services-general-terms"
+  "thoughtworks-support-services-general-terms/index.html" => "/enterprise/thoughtworks-support-services-general-terms.html"
 }
 
 #To ignore HtmlCheck for URL's with &, update file_ignore options in lib/tasks/static_checks.rake
