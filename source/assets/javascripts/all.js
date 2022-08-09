@@ -1,6 +1,5 @@
 //= require 'lib/_promise-polyfill.min'
 //= require 'lib/_copy_to_clipboard'
-//= require 'lib/_cookies-v1.0.0-3'
 //= require 'lib/_prism-core.min'
 //= require 'lib/_prism-bash.min'
 //= require 'lib/_prism-powershell.min'
@@ -12,7 +11,6 @@
 //= require 'lib/_jquery.chocolat'
 //= require 'bootstrap-sprockets'
 
-//= require 'app/_gdpr'
 //= require 'app/_main'
 //= require 'app/_download'
 //= require 'app/_test_drive_download'

@@ -10,8 +10,6 @@ page '/*.txt', layout: false
 deploy_environment = (ENV['DEPLOY_ENVIRONMENT'] || 'preview')
 
 set :base_url, ENV['BASE_URL'] || 'http://localhost:4567'
-# Repeated, just to show that it is important. Changing this might mean you lose Disqus comments.
-set :base_url_for_blog_posts, "https://www.go.cd"
 set :deploy_environment, deploy_environment
 
 set :js_dir, "assets/javascripts"
