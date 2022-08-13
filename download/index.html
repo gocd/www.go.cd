@@ -15,8 +15,8 @@
 
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-56101aff.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-71cbc85a.js" data-manual="true"></script>
+    <link href="../assets/stylesheets/site-47a18279.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all-f18396f9.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -66,9 +66,9 @@
               <span class="head">OS Types</span>
               <ul>
                 <li><span class="tab-marker dld-win" rel="tab-windows">Windows</span></li>
-                <li><span class="tab-marker dld-osx" rel="tab-osx">OSX</span></li>
-                <li><span class="tab-marker dld-deb" rel="tab-debian"> Debian/APT</span></li>
-                <li><span class="tab-marker dld-rpm" rel="tab-redhat">RPM/YUM</span></li>
+                <li><span class="tab-marker dld-osx" rel="tab-osx">macOS</span></li>
+                <li><span class="tab-marker dld-deb" rel="tab-debian"> Debian / APT</span></li>
+                <li><span class="tab-marker dld-rpm" rel="tab-redhat">RPM / YUM / DNF</span></li>
                 <li><span class="tab-marker dld-zip" rel="tab-zip">Zip</span></li>
               </ul>
             </li>
@@ -76,7 +76,7 @@
               <span class="head">Cloud Providers</span>
               <ul>
                 <li><span class="tab-marker dld-docker" rel="tab-docker">Docker</span></li>
-                <li><span class="tab-marker dld-k8s" rel="tab-helm">Kubernetes/Helm</span></li>
+                <li><span class="tab-marker dld-k8s" rel="tab-helm">Kubernetes / Helm</span></li>
               </ul>
             </li>
           </ul>
@@ -87,7 +87,7 @@
           <div class="verify-checksum-message">
             <div class="content">
               <button class="close-message">X</button>
-              <p>You can verify the checksum on Linux or Mac OSX by doing this:</p>
+              <p>You can verify the checksum on Linux or macOS by doing this:</p>
               <div class="code">
                 <p class="prompts">
                   user@shell: <br/>
@@ -186,8 +186,7 @@
         </div>
         {{/with}}
         <div class="notes">
-        <p class="imp">To run <span class="go">Go</span>CD, you'll need both server and agent *</p>
-        <p class="small">* Zip version requires Java / JRE version 11-17 (version 13-15 for releases 21.1.0 to 21.4.0)</p>
+          <p class="imp">To run <span class="go">Go</span>CD, you'll need both server and agent</p>
         </div>
       </div>
     </div>
@@ -202,7 +201,7 @@
           <li>4. Install Server <a href="https://docs.gocd.org/current/installation/install/server/{{os_type}}.html"  target="_blank" class="link-external">GoCD Server Installation Instructions</a> </li>
           <li>5. Install Agent <a href="https://docs.gocd.org/current/installation/install/agent/{{os_type}}.html"  target="_blank" class="link-external">GoCD Agent Installation Instructions</a></li>
         {{/if}}
-        <li>6.
+        <li>6. Get started
             <ul class="recommended-list_child">
               <li>If this your first time using GoCD, we recommend following our <a href="../getting-started/part-1/">Introduction to GoCD</a> guide</li>
               <li>If you have prior experience with GoCD, here is our <a class="link-external" href="https://docs.gocd.org/current/">product documentation</a></li>
@@ -294,19 +293,13 @@
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <h3>Running GoCD On Kubernetes</h3>
     <div class="command k8s">
-    <p>helm repo add gocd https://gocd.github.io/helm-chart</p>
-    </div>
-    <h4> For Helm 3 and above</h4>
-    <div class="command k8s">
-      <p>kubectl create ns gocd</p>
-      <p>helm install gocd gocd/gocd --namespace gocd</p>
-    </div>
-    <h4>For Helm 2</h4>
-    <div class="command k8s">
-      <p>helm install --name gocd-app --namespace gocd gocd/gocd</p>
+      helm repo add gocd https://gocd.github.io/helm-chart<br/>
+      helm install gocd gocd/gocd --namespace gocd --create-namespace
     </div>
     <div class="download-message k8s">
-     <p>Refer to the <a href="https://docs.gocd.org/current/gocd_on_kubernetes">Getting Started Documentation</a> .</p>
+     <p>Refer to the <a class="link-external" href="https://docs.gocd.org/current/gocd_on_kubernetes">Getting Started documentation</a> and
+       <a class="link-external" href="https://github.com/gocd/helm-chart/blob/master/gocd/README.md">configuration details</a>.
+     </p>
     </div>
 
   </div>
@@ -393,18 +386,18 @@
      <h2 class="installer-type">OS Types</h2>
       <h3 class="tab-marker tab-accordion_heading dld-win" rel="tab-windows">Windows</h3>
       {{> show-releases-for-installer-type installer_type="win" os_type="windows" heading="Windows" tab_id="tab-windows"}}
-      <h3 class="tab-marker tab-accordion_heading dld-osx" rel="tab-osx">OSX</h3>
-      {{> show-releases-for-installer-type installer_type="osx" os_type="osx" heading="OSX" tab_id="tab-osx"}}
-      <h3 class="tab-marker tab-accordion_heading dld-deb" rel="tab-debian">Debian/APT</h3>
+      <h3 class="tab-marker tab-accordion_heading dld-osx" rel="tab-osx">macOS</h3>
+      {{> show-releases-for-installer-type installer_type="osx" os_type="osx" heading="macOS" tab_id="tab-osx"}}
+      <h3 class="tab-marker tab-accordion_heading dld-deb" rel="tab-debian">Debian / APT</h3>
       {{> show-releases-for-installer-type installer_type="deb" os_type="linux" heading="Debian" tab_id="tab-debian"}}
-      <h3 class="tab-marker tab-accordion_heading dld-rpm" rel="tab-redhat">RPM/YUM</h3>
+      <h3 class="tab-marker tab-accordion_heading dld-rpm" rel="tab-redhat">RPM / YUM / DNF</h3>
       {{> show-releases-for-installer-type installer_type="rpm" os_type="linux" heading="RPM" tab_id="tab-redhat"}}
       <h3 class="tab-marker tab-accordion_heading dld-zip" rel="tab-zip">Zip</h3>
       {{> show-releases-for-installer-type installer_type="generic" os_type="zip" heading="Zip" tab_id="tab-zip"}}
       <h2 class="installer-type cloud">Cloud Providers</h2>
       <h3 class="tab-marker tab-accordion_heading dld-docker" rel="tab-docker">Docker</h3>
       {{> show-docker installer_type="docker" tab_id="tab-docker"}}
-      <h3 class="tab-marker tab-accordion_heading dld-k8s" rel="tab-helm">Kubernetes/Helm</h3>
+      <h3 class="tab-marker tab-accordion_heading dld-k8s" rel="tab-helm">Kubernetes / Helm</h3>
       {{> show-helm installer_type="helm" tab_id="tab-helm"}}
     </div>
     <div id="verify-checksum-message"></div>
