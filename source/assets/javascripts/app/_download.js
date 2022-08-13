@@ -130,7 +130,8 @@ var showDownloadLinks = (function ($) {
       var addInfo = function (latestRelease) {
         var notes = {
           deb: 'Note: If you prefer to use the APT repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">instructions</a>.',
-          rpm: 'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.'
+          rpm: 'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.',
+          generic: 'Note: Zip versions require a Java JRE/JDK of version 11 - 17.'
         };
 
         for (var key in notes) {
