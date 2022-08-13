@@ -62,7 +62,7 @@
               href: buildDownloadUrl(BASE_URL, plt, meta),
               class: plt === os() ? "platform selected" : "platform",
               "data-filesize": meta.size
-            }, "osx" === plt ? "Mac OS X" : titleCase(plt)), "click", function (e) {
+            }, "osx" === plt ? "macOS" : titleCase(plt)), "click", function (e) {
               e.preventDefault();
               e.stopPropagation();
 

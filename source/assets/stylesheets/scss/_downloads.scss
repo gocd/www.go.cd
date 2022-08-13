@@ -523,7 +523,8 @@ body.download {
                 display: block;
                 padding: 5px 20px;
                 color: $link-color;
-                line-height: 18px;
+                line-height: 34px;
+                vertical-align: center;
 
                 @media (min-width: $screen-desktop) {
                   padding: 10px 20px 10px 50px;
@@ -609,10 +610,11 @@ body.download {
         border-color: #979797;
         border-top: 0;
         margin: 0;
-        padding: 10px 20px 10px 40px;
+        padding: 10px 20px 10px 45px;
         display: block;
         cursor: pointer;
         font-weight: normal;
+        line-height: 34px;
 
         &.d_active {
           border-bottom-color: $primary-color;
@@ -804,16 +806,6 @@ body.download {
     }
   }
 
-  #tab-ami {
-    h3 {
-      margin: 15px 0;
-    }
-
-    .version {
-      margin-top: 15px;
-    }
-  }
-
   .helm {
     h3 {
       font-size: 20px;
@@ -841,42 +833,37 @@ body.download {
 
 .dld-win {
   background: url(../images/dld-win.svg) no-repeat 5px 8px;
-  background-size: 24px;
+  background-size: 34px;
 }
 
 .dld-osx {
-  background: url(../images/dld-osx.svg) no-repeat 5px 6px;
-  background-size: 24px;
+  background: url(../images/dld-osx.svg) no-repeat 5px 10px;
+  background-size: 34px;
 }
 
 .dld-deb {
   background: url(../images/dld-deb.svg) no-repeat 5px 5px;
-  background-size: 24px;
+  background-size: 34px;
 }
 
 .dld-rpm {
-  background: url(../images/dld-rpm.svg) no-repeat 5px 5px;
-  background-size: 24px;
+  background: url(../images/dld-rpm.svg) no-repeat 5px 10px;
+  background-size: 34px;
 }
 
 .dld-zip {
   background: url(../images/dld-zip.svg) no-repeat 5px 5px;
-  background-size: 24px;
-}
-
-.dld-ami {
-  background: url(../images/dld-ami.svg) no-repeat 5px 15px;
-  background-size: 24px;
+  background-size: 34px;
 }
 
 .dld-docker {
   background: url(../images/dld-docker.svg) no-repeat 5px 10px;
-  background-size: 24px;
+  background-size: 34px;
 }
 
 .dld-k8s {
   background: url(../images/dld-k8s.svg) no-repeat 5px 10px;
-  background-size: 20px;
+  background-size: 34px;
 }
 
 .steps-section {
@@ -896,7 +883,6 @@ body.download {
 
 .recommended-list_child {
   list-style: disc;
-  margin-top: -20px;
 }
 
 .link-external::after {
