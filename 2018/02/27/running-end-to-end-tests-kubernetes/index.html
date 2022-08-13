@@ -15,8 +15,8 @@
 
     <title>Running your end to end tests on Kubernetes | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-62835b63.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-dcb74fc3.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-56101aff.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-71cbc85a.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -85,7 +85,7 @@
 
 <p>In order to execute a pipeline, its stages are ran on an agent. An agent is a worker with a given set of features. Each stage is deployed in its own workspace. It executes its jobs until the end then it exits. Many stages could run on one agent.</p>
 
-<p>When the number of pipelines increases, the complexity of your tests and the time it takes to run them, increases as well. You may also want to deploy some more infrastructure for your tests on your backend. For example, for your end to end tests, you could deploy your own <a href="http://www.seleniumhq.org/projects/grid/">Selenium Grid</a>. However, it makes your architecture a <em>bit</em> more complicated to maintain.</p>
+<p>When the number of pipelines increases, the complexity of your tests and the time it takes to run them, increases as well. You may also want to deploy some more infrastructure for your tests on your backend. For example, for your end to end tests, you could deploy your own <a href="https://www.seleniumhq.org/projects/grid/">Selenium Grid</a>. However, it makes your architecture a <em>bit</em> more complicated to maintain.</p>
 
 <h2 id="the-context">1. The context</h2>
 
@@ -93,7 +93,7 @@
 
 <p>Such as what I described earlier, if you want to add some tests in your release flow, it can become quite a huge infrastructure, quite hard and quite <em>painful</em> to use and to maintain.</p>
 
-<p>Our e2e tests are written in NodeJS using the framework <a href="http://webdriver.io/">webdriver.io</a> . We use Babel for some sugar syntax (<em>JavaScript hipsters</em>). The project is stored in a Git repository. The main users of the e2e tests are our front-end developers. They develop the UI then create page objects for writing the scenarios for the tests.</p>
+<p>Our e2e tests are written in NodeJS using the framework <a href="https://webdriver.io/">webdriver.io</a> . We use Babel for some sugar syntax (<em>JavaScript hipsters</em>). The project is stored in a Git repository. The main users of the e2e tests are our front-end developers. They develop the UI then create page objects for writing the scenarios for the tests.</p>
 
 <p>Each time we are building one of the 50 websites, we are running the e2e tests for this website against Chrome and Firefox. Until they have passed, the site won’t be deployed to production. It means that each time that I want to release all websites, I have to clone 2 times my repository, perform 2 <code>npm install</code> for each site. I am so running 2 * 50 times my e2e tests.</p>
 
@@ -241,7 +241,7 @@ spec:
               image: my-repository-name/container-e2e
               env:
               - name: "TARGET_URL"
-                value: "http://www.mywebsite.com"
+                value: "https://www.mywebsite.com"
               - name: "BROWSER"
                 value: "chrome"
               - name: "SELENIUM_HOST"
@@ -366,7 +366,7 @@ volumeMounts:
 
 <p>For going further, you could automate all the steps we went through for triggering the job and killing it in your CI.</p>
 
-<p>Here, we did everything manually (triggering the job, killing the job). However, today, you can find some tools for managing and monitoring your Kubernetes jobs such as <a href="http://brigade.sh/">Azure Brigade</a> or <a href="https://airflow.apache.org/">Apache Airflow</a>.</p>
+<p>Here, we did everything manually (triggering the job, killing the job). However, today, you can find some tools for managing and monitoring your Kubernetes jobs such as <a href="https://brigade.sh/">Azure Brigade</a> or <a href="https://airflow.apache.org/">Apache Airflow</a>.</p>
 
 <p>Also, because we are pushing our reports to a Google Cloud Storage Bucket, you could quite easily implement some parsing of them using a <a href="https://cloud.google.com/functions/">Google Cloud Function</a>. From that, you could build a custom alerting system using Slack.</p>
 
@@ -388,12 +388,12 @@ volumeMounts:
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Apr 14</span>
@@ -424,33 +424,7 @@ volumeMounts:
       </aside>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-9">
-      <div id="disqus_thread"></div>
-      <script>
-        var disqus_config = function () {
-          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2018/02/27/running-end-to-end-tests-kubernetes.html";
-          this.page.identifier = this.page.url;
-          this.shortname = 'gocdblog';
-        };
-        (function() {  // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-
-        s.src = '//gocdblog.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-    </div>
-  </div>
 </div>
-
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
 
     <footer>
   <div class="join-community">
@@ -509,8 +483,8 @@ volumeMounts:
 
         <div class="col-md-4">
           <p>
-            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
-            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
           </p>
         </div>
       </div>
@@ -526,54 +500,4 @@ volumeMounts:
     </div>
 
   </body>
-  <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>
-// <![CDATA[
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5T5PTB');
-// ]]>
-</script>
-<!-- End Google Tag Manager -->
-
-<!-- Marketo async-->
-<script type="text/javascript">
-(function() {
-  var didInit = false;
-  function initMunchkin() {
-    if(didInit === false) {
-      didInit = true;
-      Munchkin.init('199-QDE-291');
-    }
-  }
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//munchkin.marketo.net/munchkin.js';
-  s.onreadystatechange = function() {
-    if (this.readyState == 'complete' || this.readyState == 'loaded') {
-      initMunchkin();
-    }
-  };
-  s.onload = initMunchkin;
-  document.getElementsByTagName('head')[0].appendChild(s);
-})();
-</script>
-<!-- End Marketo async-->
-
-<!-- Twitter universal website tag code -->
-<script>
-!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
-a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-// Insert Twitter Pixel ID and Standard Event data below
-twq('init','nw15k');
-twq('track','PageView');
-</script>
-<!-- End Twitter universal website tag code -->
-
 </html>

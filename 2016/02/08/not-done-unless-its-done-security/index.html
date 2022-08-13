@@ -15,8 +15,8 @@
 
     <title>Add Security Testing to Your Deployment Pipelines | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-62835b63.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-dcb74fc3.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-56101aff.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-71cbc85a.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -84,7 +84,7 @@
 
 <h2 id="automation-is-one-part-of-the-solution">Automation is one part of the solution</h2>
 
-<p>Security has to be addressed in a holistic way. Automation is a way to get fast feedback on common security issues. A talented <a href="http://security.stackexchange.com/questions/46021/what-is-a-pen-tester/46028#46028">penetration tester</a> will consider scenarios and methods that are not usually automated.</p>
+<p>Security has to be addressed in a holistic way. Automation is a way to get fast feedback on common security issues. A talented <a href="https://security.stackexchange.com/questions/46021/what-is-a-pen-tester/46028#46028">penetration tester</a> will consider scenarios and methods that are not usually automated.</p>
 
 <p>The goal of automation is to catch the "low-hanging fruit". Are we pushing things to Git we shouldn't be? Are we using an old, vulnerable package we shouldn't? Are we violating our own company's rules?</p>
 
@@ -92,7 +92,7 @@
 
 <p>There is a lot you can—and should—do before your code even gets to a pipeline. Generally speaking, CD servers watch your source code repositories for changes and then act on those changes. For many issues, this is too late!</p>
 
-<p>One of the biggest recurring stories we hear about SSH keys, auth tokens, private keys etc., being checked into source control. There was <a href="http://www.wired.com/2013/01/users-scramble-as-github-search-exposes-passwords-security-details/">a story</a> a few years ago where a basic search for private id_rsa keys returned over 600 matches on GitHub alone.</p>
+<p>One of the biggest recurring stories we hear about SSH keys, auth tokens, private keys etc., being checked into source control. There was <a href="https://www.wired.com/2013/01/users-scramble-as-github-search-exposes-passwords-security-details/">a story</a> a few years ago where a basic search for private id_rsa keys returned over 600 matches on GitHub alone.</p>
 
 <p>Consider incorporating tools that check for these things before they are actually added!</p>
 
@@ -100,25 +100,25 @@
 
 <h3 id="static-application-security-testing-sast">Static Application Security Testing (SAST)</h3>
 
-<p><a href="http://www.gartner.com/it-glossary/static-application-security-testing-sast">Gartner</a> defines SAST  as "a set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the 'inside out' in a nonrunning state."</p>
+<p><a href="https://www.gartner.com/it-glossary/static-application-security-testing-sast">Gartner</a> defines SAST  as "a set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the 'inside out' in a nonrunning state."</p>
 
 <p>This starts with having good unit test coverage. Can you authenticate as you should be able to? Are bad authentication requests refused? Are retries being limited properly? Are password policies being properly enforced?</p>
 
 <p>Very early in your build process, your CD server can run some security-specific, source code level tests. These could look for issues ranging from bad code to policy violations.</p>
 
-<p>For Ruby applications, this category includes tools like <a href="http://brakemanscanner.org/docs/introduction/">Brakeman</a> and <a href="https://github.com/rubysec/bundler-audit">Bundler-audit</a>.</p>
+<p>For Ruby applications, this category includes tools like <a href="https://brakemanscanner.org/docs/introduction/">Brakeman</a> and <a href="https://github.com/rubysec/bundler-audit">Bundler-audit</a>.</p>
 
-<p>Brakeman scans the application's source code and can give out lots of different <a href="http://brakemanscanner.org/docs/warning_types/">warning types</a>. I particularly like what I'll call policy checking. Someone implements basic authorization when you don't want to allow that? Pipeline stage fails.</p>
+<p>Brakeman scans the application's source code and can give out lots of different <a href="https://brakemanscanner.org/docs/warning_types/">warning types</a>. I particularly like what I'll call policy checking. Someone implements basic authorization when you don't want to allow that? Pipeline stage fails.</p>
 
 <p>Bundler-audit does pretty much what it sounds like. It checks to see if you're using Gems that have known vulnerabilities.</p>
 
-<p>For Java applications, <a href="http://www.sonatype.com/">Sonatype</a> has some impressive tools in this area. According to one Sonatype <a href="http://www.sonatype.com/assessments/known-vulnerabilities">study</a> "of the 106 component ‘parts' used in a typical application, on average 24 have known cyber vulnerabilities, which are rated either critical or severe."</p>
+<p>For Java applications, <a href="https://www.sonatype.com/">Sonatype</a> has some impressive tools in this area. According to one Sonatype <a href="https://www.sonatype.com/assessments/known-vulnerabilities">study</a> "of the 106 component ‘parts' used in a typical application, on average 24 have known cyber vulnerabilities, which are rated either critical or severe."</p>
 
 <h3 id="dynamic-application-security-testing-dast">Dynamic Application Security Testing (DAST)</h3>
 
-<p>Again quoting <a href="http://www.gartner.com/it-glossary/dynamic-application-security-testing-dast/">Gartner's</a> definition, these are tools which are "designed to detect conditions indicative of a security vulnerability in an application in its running state".</p>
+<p>Again quoting <a href="https://www.gartner.com/it-glossary/dynamic-application-security-testing-dast/">Gartner's</a> definition, these are tools which are "designed to detect conditions indicative of a security vulnerability in an application in its running state".</p>
 
-<p>The tools that run against your code are a good start, but they aren't accessing the application like a user. Tools such as <a href="https://portswigger.net/burp/">Burp</a>, <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">OWASP ZAP</a>, <a href="http://www.arachni-scanner.com/">Arachni</a>, w3af and <a href="https://subgraph.com/vega/index.en.html">Vega</a> access the application itself, looking for exploit vectors like SQL Injection and cross-site scripting.</p>
+<p>The tools that run against your code are a good start, but they aren't accessing the application like a user. Tools such as <a href="https://portswigger.net/burp/">Burp</a>, <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">OWASP ZAP</a>, <a href="https://www.arachni-scanner.com/">Arachni</a>, w3af and <a href="https://subgraph.com/vega/index.en.html">Vega</a> access the application itself, looking for exploit vectors like SQL Injection and cross-site scripting.</p>
 
 <h2 id="who-creates-the-tests">Who creates the tests?</h2>
 
@@ -219,12 +219,12 @@
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Apr 14</span>
@@ -255,33 +255,7 @@
       </aside>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-9">
-      <div id="disqus_thread"></div>
-      <script>
-        var disqus_config = function () {
-          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2016/02/08/not-done-unless-its-done-security.html";
-          this.page.identifier = this.page.url;
-          this.shortname = 'gocdblog';
-        };
-        (function() {  // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-
-        s.src = '//gocdblog.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-    </div>
-  </div>
 </div>
-
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
 
     <footer>
   <div class="join-community">
@@ -340,8 +314,8 @@
 
         <div class="col-md-4">
           <p>
-            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
-            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
           </p>
         </div>
       </div>
@@ -357,54 +331,4 @@
     </div>
 
   </body>
-  <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>
-// <![CDATA[
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5T5PTB');
-// ]]>
-</script>
-<!-- End Google Tag Manager -->
-
-<!-- Marketo async-->
-<script type="text/javascript">
-(function() {
-  var didInit = false;
-  function initMunchkin() {
-    if(didInit === false) {
-      didInit = true;
-      Munchkin.init('199-QDE-291');
-    }
-  }
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//munchkin.marketo.net/munchkin.js';
-  s.onreadystatechange = function() {
-    if (this.readyState == 'complete' || this.readyState == 'loaded') {
-      initMunchkin();
-    }
-  };
-  s.onload = initMunchkin;
-  document.getElementsByTagName('head')[0].appendChild(s);
-})();
-</script>
-<!-- End Marketo async-->
-
-<!-- Twitter universal website tag code -->
-<script>
-!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
-a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-// Insert Twitter Pixel ID and Standard Event data below
-twq('init','nw15k');
-twq('track','PageView');
-</script>
-<!-- End Twitter universal website tag code -->
-
 </html>

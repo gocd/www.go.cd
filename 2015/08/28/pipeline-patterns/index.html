@@ -15,8 +15,8 @@
 
     <title>5 Key Deployment Pipeline Patterns | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-62835b63.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-dcb74fc3.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-56101aff.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-71cbc85a.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -71,7 +71,7 @@ specific "one off" manner. This article walks through 5 key patterns to setting 
 including designing parallel workflows, running tests in parallel, and more.</p>
 
 <p>In 2007 GoCD (then called "Cruise") introduced build pipelines to the masses. Shortly after, Jez Humble (GoCD's original
-product manager) and David Farley published <a href="http://www.amazon.com/gp/product/0321601912">Continuous Delivery</a>. With these
+product manager) and David Farley published <a href="https://www.amazon.com/gp/product/0321601912">Continuous Delivery</a>. With these
 concepts becoming more mainstream, some patterns have emerged. There are certainly more, but these are some that
 stick out.</p>
 
@@ -92,7 +92,7 @@ sure that you're running your functional tests on the exact thing you built and 
 <h2 id="run-tests-in-parallel">2. Run tests in parallel</h2>
 
 <p>Any moderately complicated application is likely to have a very large number of of automated tests. Every time someone on the
-<a href="http://www.thoughtworks.com/mingle/">Mingle</a> team at ThoughtWorks commits some code, the application is subjected to well
+<a href="https://www.thoughtworks.com/mingle/">Mingle</a> team at ThoughtWorks commits some code, the application is subjected to well
 over 11,000 automated tests. If the team ran those tests back to back, they would take a couple days. Of course you can't
 wait a couple days before you know the state of your software.</p>
 
@@ -136,7 +136,7 @@ doesn't get deployed until both of the upstream pipelines have gone green.</p>
 Solaris. The short version of the story; it didn't work.</p>
 
 <p>Ideally you should be staging and testing on the same set up. If your staging and production environments are exactly the same,
-you can even use them interchangeably in a <a href="http://martinfowler.com/bliki/BlueGreenDeployment.html">blue / green deployment pattern</a>.
+you can even use them interchangeably in a <a href="https://martinfowler.com/bliki/BlueGreenDeployment.html">blue / green deployment pattern</a>.
 It's hard to imagine a better way to be sure your software will work when you turn users loose on it.</p>
 
 <p>If you're deploying to very large environments where it's just not practical to have an exact duplicate, you should still
@@ -181,12 +181,12 @@ free to comment below.</p>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Apr 14</span>
@@ -217,33 +217,7 @@ free to comment below.</p>
       </aside>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-9">
-      <div id="disqus_thread"></div>
-      <script>
-        var disqus_config = function () {
-          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2015/08/28/pipeline-patterns.html";
-          this.page.identifier = this.page.url;
-          this.shortname = 'gocdblog';
-        };
-        (function() {  // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-
-        s.src = '//gocdblog.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-    </div>
-  </div>
 </div>
-
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
 
     <footer>
   <div class="join-community">
@@ -302,8 +276,8 @@ free to comment below.</p>
 
         <div class="col-md-4">
           <p>
-            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
-            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
           </p>
         </div>
       </div>
@@ -319,54 +293,4 @@ free to comment below.</p>
     </div>
 
   </body>
-  <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>
-// <![CDATA[
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5T5PTB');
-// ]]>
-</script>
-<!-- End Google Tag Manager -->
-
-<!-- Marketo async-->
-<script type="text/javascript">
-(function() {
-  var didInit = false;
-  function initMunchkin() {
-    if(didInit === false) {
-      didInit = true;
-      Munchkin.init('199-QDE-291');
-    }
-  }
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//munchkin.marketo.net/munchkin.js';
-  s.onreadystatechange = function() {
-    if (this.readyState == 'complete' || this.readyState == 'loaded') {
-      initMunchkin();
-    }
-  };
-  s.onload = initMunchkin;
-  document.getElementsByTagName('head')[0].appendChild(s);
-})();
-</script>
-<!-- End Marketo async-->
-
-<!-- Twitter universal website tag code -->
-<script>
-!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
-a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-// Insert Twitter Pixel ID and Standard Event data below
-twq('init','nw15k');
-twq('track','PageView');
-</script>
-<!-- End Twitter universal website tag code -->
-
 </html>

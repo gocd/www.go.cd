@@ -15,8 +15,8 @@
 
     <title>Build Promotion with GoCD | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-62835b63.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-dcb74fc3.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-56101aff.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-71cbc85a.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -86,11 +86,11 @@
 
 <h3 id="avoid-source-or-stream-promotion-models">Avoid source or stream promotion models</h3>
 
-<p>In an earlier post, we said: <a href="http://www.thoughtworks.com/insights/blog/deploy-package-not-just-tag-branch-or-binary">"Deploy packages, not just a tag, branch or binary"</a>. With respect to promotions, we could say:</p>
+<p>In an earlier post, we said: <a href="https://www.thoughtworks.com/insights/blog/deploy-package-not-just-tag-branch-or-binary">"Deploy packages, not just a tag, branch or binary"</a>. With respect to promotions, we could say:</p>
 
 <p>"<em>Promote packages</em>, not just a tag, branch/stream or binary"</p>
 
-<p>Promoting at the level of source (rather than package) violates the build-once rule - one of the key principles outlined in the <a href="http://continuousdelivery.com/">CD book</a>:</p>
+<p>Promoting at the level of source (rather than package) violates the build-once rule - one of the key principles outlined in the <a href="https://continuousdelivery.com/">CD book</a>:</p>
 
 <p>"…the binaries you release should be the same binaries that have been through the rest of your deployment pipeline, so you can be sure that what you release is what you tested. Apart from the fact that nobody has tested the binaries that came from the release stream, there is also a chance that differences could be introduced in the build process, perhaps by the operations team using a different minor revision of the compiler or a different version of some dependency. Such differences can lead to bugs in production that take days to track down."</p>
 
@@ -108,7 +108,7 @@
 
 <h3 id="model-your-promotion-process-into-the-cd-tool">Model your promotion process into the CD tool</h3>
 
-<p>In general, a build/deployment pipeline is also a promotion pipeline. GoCD's support for pipelines and stages with automatic or manual approvals makes it easy to model and <a href="https://docs.gocd.org/current/navigation/value_stream_map.html">visualize</a> your promotion process into the <a href="http://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-2-pipelines-and-value-streams">CD value stream</a>. A stage runs only when the previous stage has passed - this is like an automatic promotion gate. <a href="https://docs.gocd.org/current/configuration/dev_choose_when_stage_runs.html">Manual</a> stage <a href="https://docs.gocd.org/current/configuration/dev_authorization.html#adding-authorization-to-approvals">approvals</a> may also be used where needed.</p>
+<p>In general, a build/deployment pipeline is also a promotion pipeline. GoCD's support for pipelines and stages with automatic or manual approvals makes it easy to model and <a href="https://docs.gocd.org/current/navigation/value_stream_map.html">visualize</a> your promotion process into the <a href="https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-2-pipelines-and-value-streams">CD value stream</a>. A stage runs only when the previous stage has passed - this is like an automatic promotion gate. <a href="https://docs.gocd.org/current/configuration/dev_choose_when_stage_runs.html">Manual</a> stage <a href="https://docs.gocd.org/current/configuration/dev_authorization.html#adding-authorization-to-approvals">approvals</a> may also be used where needed.</p>
 
 <p><img src="../../../../assets/images/blog/sriram-buildpromo1-1cbd5825.png" title="Modeling promotion levels into the CD value stream" alt="Modeling promotion levels into the CD value stream" /></p>
 
@@ -126,11 +126,11 @@
 
 <p>There are situations when we could use either #2 or #3 above to model a promotion. The <a href="https://docs.gocd.org/current/extension_points/package_repository_extension.html#value-stream-modeling-tip">package material</a> docs has a section on this.</p>
 
-<p>Support for package material has been implemented as an extension point. Plugins written to this extension point can provide support for different types of repositories. A <a href="https://docs.gocd.org/current/extension_points/yum_repository_poller.html">yum plugin</a> is bundled along with GoCD Server 13.3. Other non-bundled package material plugins are <a href="http://thoughtworksinc.github.io/go-external-plugins/">listed here</a>.</p>
+<p>Support for package material has been implemented as an extension point. Plugins written to this extension point can provide support for different types of repositories. A <a href="https://docs.gocd.org/current/extension_points/yum_repository_poller.html">yum plugin</a> is bundled along with GoCD Server 13.3. Other non-bundled package material plugins are <a href="https://thoughtworksinc.github.io/go-external-plugins/">listed here</a>.</p>
 
 <p>Happy packaging and promoting!</p>
 
-<div class="highlight">This post is also cross-posted <a href="http://www.thoughtworks.com/insights/blog/build-promotion-go">here</a>.</div>
+<div class="highlight">This post is also cross-posted <a href="https://www.thoughtworks.com/insights/blog/build-promotion-go">here</a>.</div>
 
       </main>
     </div>
@@ -147,12 +147,12 @@
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Apr 14</span>
@@ -183,33 +183,7 @@
       </aside>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-9">
-      <div id="disqus_thread"></div>
-      <script>
-        var disqus_config = function () {
-          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2014/02/24/build-promotion-go.html";
-          this.page.identifier = this.page.url;
-          this.shortname = 'gocdblog';
-        };
-        (function() {  // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-
-        s.src = '//gocdblog.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-    </div>
-  </div>
 </div>
-
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
 
     <footer>
   <div class="join-community">
@@ -268,8 +242,8 @@
 
         <div class="col-md-4">
           <p>
-            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
-            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
           </p>
         </div>
       </div>
@@ -285,54 +259,4 @@
     </div>
 
   </body>
-  <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>
-// <![CDATA[
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5T5PTB');
-// ]]>
-</script>
-<!-- End Google Tag Manager -->
-
-<!-- Marketo async-->
-<script type="text/javascript">
-(function() {
-  var didInit = false;
-  function initMunchkin() {
-    if(didInit === false) {
-      didInit = true;
-      Munchkin.init('199-QDE-291');
-    }
-  }
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//munchkin.marketo.net/munchkin.js';
-  s.onreadystatechange = function() {
-    if (this.readyState == 'complete' || this.readyState == 'loaded') {
-      initMunchkin();
-    }
-  };
-  s.onload = initMunchkin;
-  document.getElementsByTagName('head')[0].appendChild(s);
-})();
-</script>
-<!-- End Marketo async-->
-
-<!-- Twitter universal website tag code -->
-<script>
-!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
-a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-// Insert Twitter Pixel ID and Standard Event data below
-twq('init','nw15k');
-twq('track','PageView');
-</script>
-<!-- End Twitter universal website tag code -->
-
 </html>

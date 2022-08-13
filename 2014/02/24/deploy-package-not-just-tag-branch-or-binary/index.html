@@ -15,8 +15,8 @@
 
     <title>Deploy a package | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-62835b63.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-dcb74fc3.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-56101aff.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-71cbc85a.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -66,22 +66,22 @@
   </header>
 
       <main id="main" role="main" class="blog-post-main-container">
-      <p>In a section called <em>Principles and Practices of Build and Deployment Scripting</em>, <a href="http://continuousdelivery.com/">the CD book</a> suggests to <em>Use Your Operating System's Packaging Tools</em>.</p>
+      <p>In a section called <em>Principles and Practices of Build and Deployment Scripting</em>, <a href="https://continuousdelivery.com/">the CD book</a> suggests to <em>Use Your Operating System's Packaging Tools</em>.</p>
 
 <p>"Deploying a bunch of files that need to be distributed across the filesystem is very inefficient and makes maintenance—in the form of upgrades, rollbacks, and uninstalls—extremely painful. This is why packaging systems were invented."</p>
 
-<p>We concur. This is a good example of cross-pollination of good ideas between development and operations. Software development teams are increasingly packaging their applications using application-specific (<a href="http://maven.apache.org/ref/3.1.0/maven-model/maven.html">maven</a>, <a href="http://guides.rubygems.org/specification-reference/">gem</a>, <a href="https://pypi.python.org/pypi/wheel">wheel</a>, <a href="https://docs.npmjs.com/cli/install">npm</a>, <a href="http://www.cpan.org/modules/INSTALL.html">cpan</a>…) or system (rpm, <a href="http://www.debian.org/doc/manuals/debian-faq/ch-pkgtools.en.html">deb</a>, <a href="http://docs.nuget.org/">nuget</a>, <a href="http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx">chocolatey</a>…) packaging tools. Doing so has several advantages:</p>
+<p>We concur. This is a good example of cross-pollination of good ideas between development and operations. Software development teams are increasingly packaging their applications using application-specific (<a href="https://maven.apache.org/ref/3.1.0/maven-model/maven.html">maven</a>, <a href="https://guides.rubygems.org/specification-reference/">gem</a>, <a href="https://pypi.python.org/pypi/wheel">wheel</a>, <a href="https://docs.npmjs.com/cli/install">npm</a>, <a href="https://www.cpan.org/modules/INSTALL.html">cpan</a>…) or system (rpm, <a href="https://www.debian.org/doc/manuals/debian-faq/ch-pkgtools.en.html">deb</a>, <a href="https://docs.nuget.org/">nuget</a>, <a href="https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx">chocolatey</a>…) packaging tools. Doing so has several advantages:</p>
 
 <ol>
-  <li>Built in versioning (e.g. rpm, <a href="http://www.debian.org/doc/manuals/debian-faq/ch-pkgtools.en.html">deb</a>, <a href="http://docs.nuget.org/">nuget</a>).</li>
+  <li>Built in versioning (e.g. rpm, <a href="https://www.debian.org/doc/manuals/debian-faq/ch-pkgtools.en.html">deb</a>, <a href="https://docs.nuget.org/">nuget</a>).</li>
   <li>Dependency management.</li>
   <li>Distribution via standardized repository layouts, metadata and protocol.</li>
   <li>Transactional install/upgrade/uninstall via package managers.</li>
-  <li>Managing configuration files: OS packages know how to manage files that are expected to change after installation so you don't lose your changes when you uninstall or override when you upgrade. e.g. rpm's <a href="https://web.archive.org/web/http://www-uxsup.csx.cam.ac.uk/~jw35/docs/rpm_config.html">%config macro</a>.</li>
+  <li>Managing configuration files: OS packages know how to manage files that are expected to change after installation so you don't lose your changes when you uninstall or override when you upgrade. e.g. rpm's <a href="https://web.archive.org/web/https://www-uxsup.csx.cam.ac.uk/~jw35/docs/rpm_config.html">%config macro</a>.</li>
   <li>File verification: Packages have built-in checksums, which can be used for verification before a package is extracted and installed.</li>
-  <li>Signature verification (e.g. <a href="http://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-check-rpm-sig.html">rpm</a>).</li>
+  <li>Signature verification (e.g. <a href="https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-check-rpm-sig.html">rpm</a>).</li>
   <li>Idempotence - Issuing the same package install/upgrade/uninstall multiple times leaves the system in the same state as issuing it once.</li>
-  <li>Auditability: OS packaging tools allows you to track <a href="http://unix.stackexchange.com/questions/4705/how-to-find-out-which-package-a-file-belongs-to">what package installed what file</a> in your system (versus files appearing or being changed at will)</li>
+  <li>Auditability: OS packaging tools allows you to track <a href="https://unix.stackexchange.com/questions/4705/how-to-find-out-which-package-a-file-belongs-to">what package installed what file</a> in your system (versus files appearing or being changed at will)</li>
   <li>Traceability - what repository did a package come from? (e.g. deb)</li>
   <li>Infrastructure automation tools like Chef, Puppet and Ansible have good support for popular package management systems. Traditionally used for provisioning servers, and environments, these tools are increasingly being used for <a href="https://github.com/opscode/java-quick-start">application provisioning</a> - more on this point in a follow-up post.
 There you go - eleven good reasons to start creating packages for your components and applications and deploying from packages rather than from a tag, branch or binary.</li>
@@ -89,9 +89,9 @@ There you go - eleven good reasons to start creating packages for your component
 
 <p><img src="../../../../assets/images/blog/sriram-package1-8fa6fb41.png" alt="" /></p>
 
-<p>Thanks to <a href="http://www.dtsato.com/blog/about/">Danilo</a>, <a href="http://twitter.com/sriramnrn">Ram</a> for their insights on this topic.</p>
+<p>Thanks to <a href="https://www.dtsato.com/blog/about/">Danilo</a>, <a href="https://twitter.com/sriramnrn">Ram</a> for their insights on this topic.</p>
 
-<div class="highlight">This post is also cross-posted <a href="http://www.thoughtworks.com/insights/blog/deploy-package-not-just-tag-branch-or-binary
+<div class="highlight">This post is also cross-posted <a href="https://www.thoughtworks.com/insights/blog/deploy-package-not-just-tag-branch-or-binary
 ">here</a>.</div>
 
       </main>
@@ -109,12 +109,12 @@ There you go - eleven good reasons to start creating packages for your component
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Apr 14</span>
@@ -145,33 +145,7 @@ There you go - eleven good reasons to start creating packages for your component
       </aside>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-9">
-      <div id="disqus_thread"></div>
-      <script>
-        var disqus_config = function () {
-          /* Careful: Changing the value of page.url and page.identifier might mean you lose comments. */
-          this.page.url = "https://www.go.cd/2014/02/24/deploy-package-not-just-tag-branch-or-binary.html";
-          this.page.identifier = this.page.url;
-          this.shortname = 'gocdblog';
-        };
-        (function() {  // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-
-        s.src = '//gocdblog.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-    </div>
-  </div>
 </div>
-
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571784c91d5449dd"></script>
 
     <footer>
   <div class="join-community">
@@ -230,8 +204,8 @@ There you go - eleven good reasons to start creating packages for your component
 
         <div class="col-md-4">
           <p>
-            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">ThoughtWorks Inc.</a>
-            under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
           </p>
         </div>
       </div>
@@ -247,54 +221,4 @@ There you go - eleven good reasons to start creating packages for your component
     </div>
 
   </body>
-  <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5T5PTB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>
-// <![CDATA[
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5T5PTB');
-// ]]>
-</script>
-<!-- End Google Tag Manager -->
-
-<!-- Marketo async-->
-<script type="text/javascript">
-(function() {
-  var didInit = false;
-  function initMunchkin() {
-    if(didInit === false) {
-      didInit = true;
-      Munchkin.init('199-QDE-291');
-    }
-  }
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//munchkin.marketo.net/munchkin.js';
-  s.onreadystatechange = function() {
-    if (this.readyState == 'complete' || this.readyState == 'loaded') {
-      initMunchkin();
-    }
-  };
-  s.onload = initMunchkin;
-  document.getElementsByTagName('head')[0].appendChild(s);
-})();
-</script>
-<!-- End Marketo async-->
-
-<!-- Twitter universal website tag code -->
-<script>
-!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
-a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-// Insert Twitter Pixel ID and Standard Event data below
-twq('init','nw15k');
-twq('track','PageView');
-</script>
-<!-- End Twitter universal website tag code -->
-
 </html>
