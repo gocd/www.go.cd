@@ -1,9 +1,11 @@
-Last updated: 2022-08-13 14:18:33 +0000
+Last updated: 2022-10-04 11:17:32 +0000
 
 Latest commit:
-    commit e18646cb4056f4d7065bc0de75472ba322ad0eec
+    commit fd7b04be915fad5c1ffaee3ddff2019d37c557fe
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Sat Aug 13 21:56:38 2022 +0800
+    Date:   Tue Oct 4 18:41:35 2022 +0800
     
-        Move JRE note to display on generic/zip only, since it does not apply to the other installers.
+        Force test-drive to run under Rosetta/x64 on Apple Silicon
+        
+        Currently we do not produce arm64/aarch64 test-drive or GoCD installers for MacOS.
     
