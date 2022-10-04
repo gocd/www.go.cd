@@ -50,7 +50,13 @@ function main() {
 
   if [ -f run-gocd ]; then
     emph "Executing run-gocd"
-    chmod a+rx run-gocd && ./run-gocd
+    chmod a+rx run-gocd
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      prerequisites arch
+      arch -x86_64 ./run-gocd
+    else
+      ./run-gocd
+    fi
   elif [ -f run-gocd.exe ]; then
     # running bash in Windows?
     emph "Executing run-gocd.exe"
