@@ -808,8 +808,6 @@ As part of open sourcing all the commercial components, the Business continuity 
 
 <p>Please refer to <a href="https://docs.gocd.org/20.5.0/installation/upgrade_to_gocd_20.5.0.html">the GoCD Database migration document</a> for steps to migrate your database.</p>
 
-<p>If you are using GoCD commercial addons, please follow the <a href="https://extensions-docs.gocd.org/upgrade_to_gocd_20.5.0/">additional instructions</a> to upgrade your GoCD server with addons.</p>
-
 <h4>UI/UX refresh</h4>
 
 <p>As part of the ongoing UI/UX refresh for improving the user experience, the Templates Authorization page has been rewritten to keep it in sync with other pages, while retaining existing functionality.</p>
@@ -2044,7 +2042,7 @@ To enable token-based auth, set the environment variable <code>GO_USE_TOKEN_AUTH
 
 <p>To know more about about Access Tokens click <a href="https://docs.gocd.org/19.2.0/configuration/access_tokens.html">here</a>.</p>
 
-<p><a href="https://github.com/gocd-contrib/github-oauth-authorization-plugin/releases/tag/3.0.0-46">Github Oauth</a>, <a href="https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin/releases/tag/2.0.0-21">GitLab Oauth</a> and <a href="https://extensions-docs.gocd.org/ldap/3.0.0">LDAP authorization</a> plugins are migrated to authorization extension v2 to support access token based authentication for APIs. Please provide feedback/ideas by opening a GitHub issue on respective repository.</p>
+<p><a href="https://github.com/gocd-contrib/github-oauth-authorization-plugin/releases/tag/3.0.0-46">Github Oauth</a>, <a href="https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin/releases/tag/2.0.0-21">GitLab Oauth</a> and <a href="github.com/gocd/gocd-ldap-authorization-plugin/">LDAP authorization</a> plugins are migrated to authorization extension v2 to support access token based authentication for APIs. Please provide feedback/ideas by opening a GitHub issue on respective repository.</p>
 
 <p><a href="https://github.com/gocd-contrib/google-oauth-authorization-plugin/releases/tag/3.0.0-19">Google Oauth</a> plugin is upgraded to use authorization extension v2 however it does not have support for access token based API authentication.</p>
 
@@ -3728,7 +3726,7 @@ Golang agent users can follow up with the author on <a href="https://github.com/
 </ul>
 
 <h4>Breaking Changes</h4>
-<p>If you are using the commercial Amazon ECS Elastic Agent Plugin, upgrading to GoCD 17.9.0 would require a plugin upgrade to <a href="https://extensions-docs.gocd.org/ecs/2.0.0/changelog/">V2.0.0</a>.</p>
+<p>If you are using the commercial Amazon ECS Elastic Agent Plugin, upgrading to GoCD 17.9.0 would require a plugin upgrade to V2.0.0.</p>
 
 <h4>Deprecations</h4>
 <ul>
@@ -3781,7 +3779,7 @@ A shout out to our core contributor <a href="https://github.com/tomzo">Tomasz SÄ
 
 <h4>Amazon ECS Elastic Agent Plugin</h4>
 
-<p>Thoughtworks now offers a new commercial plugin which allows you to run elastic agents on Amazon ECS. The plugin takes care of spinning up and shutting down EC2 instances based on the need of your deployment pipeline. For more information about this, <a href="https://extensions-docs.gocd.org/ecs/current/">click here</a>.</p>
+<p>Thoughtworks now offers a new commercial plugin which allows you to run elastic agents on Amazon ECS. The plugin takes care of spinning up and shutting down EC2 instances based on the need of your deployment pipeline. For more information about this, <a href="https://github.com/gocd/gocd-ecs-elastic-agent">click here</a>.</p>
 
 <h4>Improvements</h4>
 

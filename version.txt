@@ -1,11 +1,12 @@
-Last updated: 2022-10-04 11:17:32 +0000
+Last updated: 2022-10-05 14:35:36 +0000
 
 Latest commit:
-    commit fd7b04be915fad5c1ffaee3ddff2019d37c557fe
+    commit 06f10d5fff16c902d72f7441cdff7efb866c4e8e
+    Merge: c40ad301e 3c13cd5ba
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Tue Oct 4 18:41:35 2022 +0800
+    Date:   Wed Oct 5 22:08:51 2022 +0800
     
-        Force test-drive to run under Rosetta/x64 on Apple Silicon
+        Merge pull request #1409 from arvindsv/remove-extensions-docs-references
         
-        Currently we do not produce arm64/aarch64 test-drive or GoCD installers for MacOS.
+        Remove references to extensions-docs
     
