@@ -56,8 +56,9 @@ GEM
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
     formatador (1.1.0)
-    haml (5.2.2)
-      temple (>= 0.8.0)
+    haml (6.0.5)
+      temple (>= 0.8.2)
+      thor
       tilt
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
