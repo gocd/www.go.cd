@@ -359,7 +359,7 @@ or via <a href="https://groups.google.com/g/go-cd">the GoCD Google Group</a></li
 
 <p>This release has <b>important security fixes</b> and upgrades to lots of internal components. We recommend all users to upgrade to this version to safeguard your GoCD server.</p>
 
-<p>The <a href="https://docs.gocd.org/21.2.0/advanced_usage/business_continuity.html">Business Continuity</a> feature has been temporarily disabled as a part of these changes. If you are not able to upgrade immediately, please make sure to disable the route <code>/add-on/business-continuity/*</code> while you make plans to upgrade.</p>
+<p>The <a href="https://docs.gocd.org/21.2.0/advanced_usage/business_continuity.html">Business Continuity</a> feature has been disabled as a part of these changes. If you are not able to upgrade immediately, please make sure to disable the route <code>/add-on/business-continuity/*</code> while you make plans to upgrade.</p>
 
 <p>Security fixes in this release were due to vulnerabilities responsibly disclosed by Simon Scannell, Thomas Chauchefoin, and Paul Gerste of SonarSource. Many thanks to them for the disclosures, discussions and ideas around mitigation.</p>
 
@@ -806,7 +806,7 @@ As part of open sourcing all the commercial components, the Business continuity 
 
 <p>GoCD 20.5.0, while continuing to use H2 as the default database, introduces support for PostgreSQL without a need for the (previously used) commercial addon. As part of these changes GoCD moved away from using the unmaintained dbdeploy to liquibase for automated database migrations. These changes require a one-time manual migration of the GoCD database running on versions &lt;= 20.4.0 to one compliant with GoCD 20.5.0 and beyond, even if you decide not to migrate to PostgreSQL.</p>
 
-<p>Please refer to <a href="https://docs.gocd.org/20.5.0/installation/upgrade_to_gocd_20.5.0.html">the GoCD Database migration document</a> for steps to migrate your database.</p>
+<p>Please refer to <a href="https://docs.gocd.org/current/installation/upgrading_go/upgrade_to_gocd_20.5.0.html">the GoCD Database migration document</a> for steps to migrate your database.</p>
 
 <h4>UI/UX refresh</h4>
 

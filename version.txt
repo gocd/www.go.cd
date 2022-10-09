@@ -1,12 +1,11 @@
-Last updated: 2022-10-05 14:35:36 +0000
+Last updated: 2022-10-09 16:01:24 +0000
 
 Latest commit:
-    commit 06f10d5fff16c902d72f7441cdff7efb866c4e8e
-    Merge: c40ad301e 3c13cd5ba
+    commit 7695300fc82ba75ceae8f10758dc8626f151c2b9
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Wed Oct 5 22:08:51 2022 +0800
+    Date:   Sun Oct 9 23:07:08 2022 +0800
     
-        Merge pull request #1409 from arvindsv/remove-extensions-docs-references
+        Remove "temporarily" wording
         
-        Remove references to extensions-docs
+        This ended up being a bit misleading. We are unlikely to add it back, given the lack of interest.
     
