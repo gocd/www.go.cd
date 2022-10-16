@@ -15,8 +15,8 @@
 
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-47a18279.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-f18396f9.js" data-manual="true"></script>
+    <link href="../assets/stylesheets/site-1dd9914f.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all-bd6547e8.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -170,11 +170,7 @@
           {{#with (lookup . ../installer_type)}}
           <div class="col-xs-12">
             <div class="files">
-              {{#if server32bit}}
-              {{> show-server-and-agent-32-and-64-bit-installers latest=true}}
-              {{else}}
               {{> show-server-and-agent-installer latest=true}}
-              {{/if}}
               {{#if info }}
               <div class="download-message">
                 {{{ info }}}
@@ -229,11 +225,7 @@
         {{#with (lookup . ../installer_type)}}
         <div class="col-xs-12">
           <div class="files">
-            {{#if server32bit}}
-            {{> show-server-and-agent-32-and-64-bit-installers}}
-            {{else}}
             {{> show-server-and-agent-installer}}
-            {{/if}}
           </div>
         </div>
         {{/with}}
@@ -336,24 +328,22 @@
   </li>
   {{/inline}}
 
-
-  {{#*inline "show-server-and-agent-32-and-64-bit-installers"}}
-  <div class="download-files">
-    {{> show-file server type="server" display_name="Server" info="(64 bit JRE)" os=../../installer_type latest=latest}}
-    {{> show-file agent type="agent" display_name="Agent" info="(64 bit JRE)" os=../../installer_type latest=latest}}
-  </div>
-  <div class="download-files">
-    {{> show-file server32bit type="server32bit" display_name="Server" info="(32 bit JRE)" os=../../installer_type latest=latest}}
-    {{> show-file agent32bit type="agent32bit" display_name="Agent" info="(32 bit JRE)" os=../../installer_type latest=latest}}
-  </div>
-  {{/inline}}
-
-
   {{#*inline "show-server-and-agent-installer"}}
+  {{#if (has-additional-arch this)}}
+  <div class="download-files">
+    {{> show-file server type="server" display_name="Server" info=server.architecture os=../../installer_type latest=latest}}
+    {{> show-file agent type="agent" display_name="Agent" info=agent.architecture os=../../installer_type latest=latest}}
+  </div>
+  <div class="download-files">
+    {{> show-file (lookup . (server-additional-arch this)) type="server" display_name="Server" info=(additional-arch this) os=../../installer_type latest=latest}}
+    {{> show-file (lookup . (agent-additional-arch this)) type="agent" display_name="Agent" info=(additional-arch this) os=../../installer_type latest=latest}}
+  </div>
+  {{else}}
   <div>
     {{> show-file server type="server" display_name="Server" os=../../installer_type latest=latest}}
     {{> show-file agent type="agent" display_name="Agent" os=../../installer_type latest=latest}}
   </div>
+  {{/if}}
   {{/inline}}
 
 
