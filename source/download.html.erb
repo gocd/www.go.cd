@@ -128,11 +128,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
           {{#with (lookup . ../installer_type)}}
           <div class="col-xs-12">
             <div class="files">
-              {{#if server32bit}}
-              {{> show-server-and-agent-32-and-64-bit-installers latest=true}}
-              {{else}}
               {{> show-server-and-agent-installer latest=true}}
-              {{/if}}
               {{#if info }}
               <div class="download-message">
                 {{{ info }}}
@@ -187,11 +183,7 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         {{#with (lookup . ../installer_type)}}
         <div class="col-xs-12">
           <div class="files">
-            {{#if server32bit}}
-            {{> show-server-and-agent-32-and-64-bit-installers}}
-            {{else}}
             {{> show-server-and-agent-installer}}
-            {{/if}}
           </div>
         </div>
         {{/with}}
@@ -293,19 +285,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     <span class="command">docker run -d -e GO_SERVER_URL=... {{docker_org}}/{{image_name}}:v{{version}}</span>
   </li>
   {{/inline}}
-
-
-  {{#*inline "show-server-and-agent-32-and-64-bit-installers"}}
-  <div class="download-files">
-    {{> show-file server type="server" display_name="Server" info="(64 bit JRE)" os=../../installer_type latest=latest}}
-    {{> show-file agent type="agent" display_name="Agent" info="(64 bit JRE)" os=../../installer_type latest=latest}}
-  </div>
-  <div class="download-files">
-    {{> show-file server32bit type="server32bit" display_name="Server" info="(32 bit JRE)" os=../../installer_type latest=latest}}
-    {{> show-file agent32bit type="agent32bit" display_name="Agent" info="(32 bit JRE)" os=../../installer_type latest=latest}}
-  </div>
-  {{/inline}}
-
 
   {{#*inline "show-server-and-agent-installer"}}
   <div>

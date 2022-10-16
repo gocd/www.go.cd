@@ -67,8 +67,6 @@ var showDownloadLinks = (function ($) {
           win: {
             server: addDetailsFrom(release, "Windows-Server"),
             agent: addDetailsFrom(release, "Windows-Agent"),
-            server32bit: addDetailsFrom(release, "Windows-Server-32bit"),
-            agent32bit: addDetailsFrom(release, "Windows-Agent-32bit")
           },
           osx: {
             server: addDetailsFrom(release, "Mac-Server"),
