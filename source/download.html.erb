@@ -287,10 +287,21 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   {{/inline}}
 
   {{#*inline "show-server-and-agent-installer"}}
+  {{#if (has-additional-arch this)}}
+  <div class="download-files">
+    {{> show-file server type="server" display_name="Server" info=server.architecture os=../../installer_type latest=latest}}
+    {{> show-file agent type="agent" display_name="Agent" info=agent.architecture os=../../installer_type latest=latest}}
+  </div>
+  <div class="download-files">
+    {{> show-file (lookup . (server-additional-arch this)) type="server" display_name="Server" info=(additional-arch this) os=../../installer_type latest=latest}}
+    {{> show-file (lookup . (agent-additional-arch this)) type="agent" display_name="Agent" info=(additional-arch this) os=../../installer_type latest=latest}}
+  </div>
+  {{else}}
   <div>
     {{> show-file server type="server" display_name="Server" os=../../installer_type latest=latest}}
     {{> show-file agent type="agent" display_name="Agent" os=../../installer_type latest=latest}}
   </div>
+  {{/if}}
   {{/inline}}
 
 

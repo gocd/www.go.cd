@@ -67,7 +67,9 @@ var showDownloadLinks = (function ($) {
           },
           osx: {
             server: addDetailsFrom(release, "Mac-Server"),
-            agent: addDetailsFrom(release, "Mac-Agent")
+            agent: addDetailsFrom(release, "Mac-Agent"),
+            "server-aarch64": addDetailsFrom(release, "Mac-Server-Aarch64"),
+            "agent-aarch64": addDetailsFrom(release, "Mac-Agent-Aarch64")
           },
           deb: {
             server: addDetailsFrom(release, "LinuxDeb-Server"),
@@ -170,12 +172,6 @@ var showDownloadLinks = (function ($) {
           latest_cloud_release: latest_cloud_release,
           all_other_cloud_releases: other_cloud_releases
         })
-      );
-
-      // add additional padding if there are 32 bit and 64 bit installers to show
-      $("#downloads #tab-windows .files:has(.download-files)").css(
-        "padding-top",
-        "40px"
       );
     };
 
@@ -324,6 +320,27 @@ Handlebars.registerHelper("size", function (
       break;
   }
 });
+
+Handlebars.registerHelper("has-additional-arch", function (release) {
+  return Object.keys(release).some(function (key) { return key.includes('-'); });
+});
+
+function additionalArch(release) {
+  return Object.keys(release)
+    .filter(function (key) { return key.startsWith("server-"); })
+    .map(function (key) { return key.substring("server-".length); });
+}
+
+Handlebars.registerHelper("additional-arch", additionalArch);
+
+Handlebars.registerHelper("server-additional-arch", function(release) {
+  return "server-" + additionalArch(release)
+});
+
+Handlebars.registerHelper("agent-additional-arch", function(release) {
+  return "agent-" + additionalArch(release)
+});
+
 
 $(document).ready(function () {
   setTimeout(showPopup, 100);
