@@ -42,10 +42,7 @@ var showDownloadLinks = (function ($) {
       var addDetailsFrom = R.curry(function (release, analyticsIDPrefix, o) {
         var afterAddingURL = R.assoc(
           "url",
-          settings.download_prefix +
-          release["go_full_version"] +
-          "/" +
-          o["file"],
+          settings.download_prefix + release["go_full_version"] + "/" + o["file"],
           o
         );
         var afterAddingFilename = R.assoc(
