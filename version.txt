@@ -1,11 +1,11 @@
-Last updated: 2022-10-16 17:59:12 +0000
+Last updated: 2022-10-22 10:09:58 +0000
 
 Latest commit:
-    commit cfce699c837bf02451dda0f9d6905fe6dde7b722
+    commit a5038221821aa69647b6e0eda89ef208dd135d2c
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Mon Oct 17 00:46:53 2022 +0800
+    Date:   Sat Oct 22 18:01:58 2022 +0800
     
-        Add ability to download a single additional architecture
+        Retcon ThoughtWorks -> Thoughtworks
         
-        Unfortunately still relying on some hard-coding of available archs right now due to the way the code is written :-(
+        This has been done for older articles at places like martinfowler.com so seems reasonable to do here.
     

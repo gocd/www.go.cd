@@ -16,7 +16,7 @@
     <title>Visibility Is Opportunity | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../../../assets/stylesheets/site-1dd9914f.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-bd6547e8.js" data-manual="true"></script>
+    <script src="../../../assets/javascripts/all-cc81523f.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -159,7 +159,7 @@ My first hypothesis was <a href="https://github.com/test-load-balancer/tlb">TLB<
 Because tests didn't seem to be distributed well by runtime.
 To verify my hypothesis, I checked out <a href="https://github.com/test-load-balancer/tlb">TLB</a> source code. It was more complex than I thought.
 And there is also no way to output more logs to verify it's correctness.
-But <a href="https://gocd.org">Go CD</a> has good support for APIs, so I wrote <a href="https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/compare_test_runtime.rb">Ruby script</a> to verify my hypothesis.</p>
+But <a href="https://gocd.org">Go CD</a> has good support for APIs, so I wrote <a href="https://github.com/ThoughtworksStudios/goapi/blob/master/examples/compare_test_runtime.rb">Ruby script</a> to verify my hypothesis.</p>
 
 <p>The following chart shows how the test runtime looks like on build. X-axis is job names; y-axis is job runtime.</p>
 
@@ -178,7 +178,7 @@ Because red bars are similar high across all acceptance (selenium test) jobs.</p
 Then I ran same script on more builds. The outputs were similar, just different jobs got longer time to run.</p>
 
 <p>As <a href="https://gocd.org">Go CD</a> random picked up build VMs to run any job, it gave me a clue that maybe its build VM performance issue.
-So I wrote another <a href="https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/agent_stats.rb">script</a> to build the following chart:</p>
+So I wrote another <a href="https://github.com/ThoughtworksStudios/goapi/blob/master/examples/agent_stats.rb">script</a> to build the following chart:</p>
 
 <p><img src="../../../assets/images/vms-build-time-7ae5af26.jpg" title="Graph displaying GoCD build agent runtime" alt="Graph displaying GoCD build agent runtime" /></p>
 
@@ -262,12 +262,12 @@ Thus it gives you more opportunities to understand and solve problem.</p>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+              <a href="../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+              <a href="../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Apr 14</span>
