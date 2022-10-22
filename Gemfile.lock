@@ -62,9 +62,6 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     hashie (3.6.0)
-    hologram (1.4.0)
-      redcarpet (>= 2.2, < 4.0)
-      rouge (>= 1.5)
     html-proofer (4.4.3)
       addressable (~> 2.3)
       mercenary (~> 0.3)
@@ -176,7 +173,6 @@ GEM
       ffi (~> 1.0)
     redcarpet (3.5.1)
     rexml (3.2.5)
-    rouge (4.0.0)
     ruby-progressbar (1.11.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -216,7 +212,6 @@ DEPENDENCIES
   bourbon
   builder
   font-awesome-sass
-  hologram
   html-proofer
   htmlentities
   middleman

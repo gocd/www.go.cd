@@ -27,4 +27,3 @@ gem 'htmlentities'
 #View Gems
 gem 'bourbon'
 gem 'neat'
-gem 'hologram'
