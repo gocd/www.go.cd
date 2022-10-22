@@ -13,7 +13,8 @@ function main() {
 
   local url="$1"
   local filename=$(basename "$url")
-  local install_dir=$(sed 's/-\([^-]*\)\.zip$//' <<< "$filename")
+  local fileparts=(${filename//-/ })
+  local install_dir=$(IFS=- ; echo "${fileparts[*]:0:4}")
 
   local filehash=$(read_url "${url}.sha256" | cut -f 1 -d " ")
 
