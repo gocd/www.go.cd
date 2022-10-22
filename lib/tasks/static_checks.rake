@@ -25,7 +25,7 @@ namespace :static_checks do
       },
       :typhoeus => {
           :followlocation => true,
-          :connecttimeout => 500,
+          :connecttimeout => 1000,
       },
       :ignore_missing_alt   => true,
       :log_level            => :info
