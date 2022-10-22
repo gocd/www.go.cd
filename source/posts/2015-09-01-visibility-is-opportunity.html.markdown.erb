@@ -98,7 +98,7 @@ My first hypothesis was [TLB] may not work as expected.
 Because tests didn't seem to be distributed well by runtime.
 To verify my hypothesis, I checked out [TLB] source code. It was more complex than I thought.
 And there is also no way to output more logs to verify it's correctness.
-But [Go CD] has good support for APIs, so I wrote [Ruby script](https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/compare_test_runtime.rb) to verify my hypothesis.
+But [Go CD] has good support for APIs, so I wrote [Ruby script](https://github.com/ThoughtworksStudios/goapi/blob/master/examples/compare_test_runtime.rb) to verify my hypothesis.
 
 The following chart shows how the test runtime looks like on build. X-axis is job names; y-axis is job runtime.
 
@@ -116,7 +116,7 @@ Blue bars matched what I observed on build time.
 Then I ran same script on more builds. The outputs were similar, just different jobs got longer time to run.
 
 As [Go CD] random picked up build VMs to run any job, it gave me a clue that maybe its build VM performance issue.
-So I wrote another [script](https://github.com/ThoughtWorksStudios/goapi/blob/master/examples/agent_stats.rb) to build the following chart:
+So I wrote another [script](https://github.com/ThoughtworksStudios/goapi/blob/master/examples/agent_stats.rb) to build the following chart:
 
 <%= image_tag "vms-build-time.jpg", {:title => "Graph displaying GoCD build agent runtime", :alt => "Graph displaying GoCD build agent runtime"} %>
 
@@ -191,5 +191,5 @@ Thus it gives you more opportunities to understand and solve problem.
 [TLB]:                                              https://github.com/test-load-balancer/tlb
 [tlb.rb]:                                           https://github.com/test-load-balancer/tlb.rb
 [OpenStack]:                                        https://www.openstack.org/
-[GoAPI]:                                            https://github.com/ThoughtWorksStudios/goapi
+[GoAPI]:                                            https://github.com/ThoughtworksStudios/goapi
 [Sampling Profiler]:                                https://rubygems.org/gems/sampling_prof
