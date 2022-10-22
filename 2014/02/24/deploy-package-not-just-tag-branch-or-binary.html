@@ -70,16 +70,16 @@
 
 <p>"Deploying a bunch of files that need to be distributed across the filesystem is very inefficient and makes maintenance—in the form of upgrades, rollbacks, and uninstalls—extremely painful. This is why packaging systems were invented."</p>
 
-<p>We concur. This is a good example of cross-pollination of good ideas between development and operations. Software development teams are increasingly packaging their applications using application-specific (<a href="https://maven.apache.org/ref/3.1.0/maven-model/maven.html">maven</a>, <a href="https://guides.rubygems.org/specification-reference/">gem</a>, <a href="https://pypi.python.org/pypi/wheel">wheel</a>, <a href="https://docs.npmjs.com/cli/install">npm</a>, <a href="https://www.cpan.org/modules/INSTALL.html">cpan</a>…) or system (rpm, <a href="https://www.debian.org/doc/manuals/debian-faq/ch-pkgtools.en.html">deb</a>, <a href="https://docs.nuget.org/">nuget</a>, <a href="https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx">chocolatey</a>…) packaging tools. Doing so has several advantages:</p>
+<p>We concur. This is a good example of cross-pollination of good ideas between development and operations. Software development teams are increasingly packaging their applications using application-specific (<a href="https://maven.apache.org/ref/3.1.0/maven-model/maven.html">maven</a>, <a href="https://guides.rubygems.org/specification-reference/">gem</a>, <a href="https://pypi.python.org/pypi/wheel">wheel</a>, <a href="https://docs.npmjs.com/cli/install">npm</a>, <a href="https://www.cpan.org/modules/INSTALL.html">cpan</a>…) or system (rpm, <a href="https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html">deb</a>, <a href="https://docs.nuget.org/">nuget</a>, <a href="https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx">chocolatey</a>…) packaging tools. Doing so has several advantages:</p>
 
 <ol>
-  <li>Built in versioning (e.g. rpm, <a href="https://www.debian.org/doc/manuals/debian-faq/ch-pkgtools.en.html">deb</a>, <a href="https://docs.nuget.org/">nuget</a>).</li>
+  <li>Built in versioning (e.g. rpm, <a href="https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html">deb</a>, <a href="https://docs.nuget.org/">nuget</a>).</li>
   <li>Dependency management.</li>
   <li>Distribution via standardized repository layouts, metadata and protocol.</li>
   <li>Transactional install/upgrade/uninstall via package managers.</li>
   <li>Managing configuration files: OS packages know how to manage files that are expected to change after installation so you don't lose your changes when you uninstall or override when you upgrade. e.g. rpm's <a href="https://web.archive.org/web/https://www-uxsup.csx.cam.ac.uk/~jw35/docs/rpm_config.html">%config macro</a>.</li>
   <li>File verification: Packages have built-in checksums, which can be used for verification before a package is extracted and installed.</li>
-  <li>Signature verification (e.g. <a href="https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-check-rpm-sig.html">rpm</a>).</li>
+  <li>Signature verification (e.g. <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/s1-check-rpm-sig">rpm</a>).</li>
   <li>Idempotence - Issuing the same package install/upgrade/uninstall multiple times leaves the system in the same state as issuing it once.</li>
   <li>Auditability: OS packaging tools allows you to track <a href="https://unix.stackexchange.com/questions/4705/how-to-find-out-which-package-a-file-belongs-to">what package installed what file</a> in your system (versus files appearing or being changed at will)</li>
   <li>Traceability - what repository did a package come from? (e.g. deb)</li>
@@ -151,7 +151,7 @@ There you go - eleven good reasons to start creating packages for your component
   <div class="join-community">
     <ul>
       <li>
-        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+        <a href="https://groups.google.com/g/go-cd" target="_blank" analytics-label="google-group">
           <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
           <span>Join our discussion forum</span>
         </a>

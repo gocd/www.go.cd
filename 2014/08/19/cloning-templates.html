@@ -71,7 +71,7 @@
 <p>We have decided to have one deployment template separate per application / security group (Pipeline group) so we distribute maintenance, but also reduce the risk of breaking Pipelines of other teams when we change a base template. Having different templates also allows us to allocate <a href="https://www.gocd.org/2014/02/24/go-template-permissions.html">Template Admins</a> specific for the application / team / security group that now can manage most of the needs of a team without requiring GoCD System Admin rights.</p>
 
 <p>As you don't want team to get Admin access across multiple applications but you still want them to have something to start with (a base template), we have created two Basic templates that cover basic needs for an application deployment that we "Clone" for each team. After cloning we assign an Admin from their team so they can start modifying it according to their own flavour. Cloning templates is not available in GO at the moment, so we had to find a way around it. 
-One <a href="https://github.com/oanastoia">contributor</a> created a script that interacts with GO's own <a href="https://docs.gocd.org/current/api/configuration_api.html">Configuration API</a> to allow template cloning.</p>
+One <a href="https://github.com/oanastoia">contributor</a> created a script that interacts with GO's own <a href="https://api.gocd.org/current/#gocd-level-configuration">Configuration API</a> to allow template cloning.</p>
 
 <h3 id="how-to-setup-cloning-in-your-go-server-instance">How to setup cloning in your GO server instance</h3>
 <ol>
@@ -93,7 +93,7 @@ I will not go into detail on how to achieve this, but you can read more on how t
   <li>You will need to <a href="https://docs.gocd.org/current/configuration/quick_pipeline_setup.html">create new pipeline</a> within this group.</li>
   <li>You will need to use Git as Material Type and under the URL, use the location of the cloning script (https://github.com/oanastoia/go-config-management.git if you have access to it, or the location where you cloned it). Use "Check Connection" to test it out.</li>
   <li>You will need to add two Environment Variables: SOURCE_TEMPLATE and DESTINATION_TEMPLATE that have some default values</li>
-  <li>You will need to add two Secure Environment Variables: API_USER and API_PASS that contain credentials for a user that has correct permissions to use the <a href="https://docs.gocd.org/current/api/configuration_api.html">Configuration API</a></li>
+  <li>You will need to add two Secure Environment Variables: API_USER and API_PASS that contain credentials for a user that has correct permissions to use the <a href="https://api.gocd.org/current/#gocd-level-configuration">Configuration API</a></li>
 </ol>
 
 <p><img src="../../../assets/images/blog/cloning-templates/environment-variable-view-33c004e5.png" title="Environment Variables view" alt="Environment Variables view" /></p>
@@ -196,7 +196,7 @@ I will not go into detail on how to achieve this, but you can read more on how t
   <div class="join-community">
     <ul>
       <li>
-        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+        <a href="https://groups.google.com/g/go-cd" target="_blank" analytics-label="google-group">
           <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
           <span>Join our discussion forum</span>
         </a>

@@ -138,7 +138,7 @@ for each aspect like version control, CD server, infrastructure configuration to
 
 <p>When you start on a greenfield project, automated GUI tests or acceptance tests seem small and manageable and it is tempting to add as much coverage on that layer as possible. But unless tended to, these tests grow become unmanageable over time.</p>
 
-<p>The ice cream cone anti-pattern for test suites is well described <a href="https://watirmelon.blog/2012/01/31/introducing-the-software-testing-ice-cream-cone/">in this post</a>.</p>
+<p>The ice cream cone anti-pattern for test suites is well described <a href="https://alisterbscott.com/kb/testing-pyramids/">in this post</a>.</p>
 
 <blockquote>
   <p>"Tests that run end-to-end through the UI are: brittle, expensive to write, and time consuming to run." - <a href="https://martinfowler.com/bliki/TestPyramid.html">Martin Fowler</a></p>
@@ -153,7 +153,7 @@ for each aspect like version control, CD server, infrastructure configuration to
 <span class="info_txt">Click image to zoom in</span>
 </div>
 
-<p>(Adapted from <a href="https://watirmelon.blog/2012/01/31/introducing-the-software-testing-ice-cream-cone/">watirmelon blog</a>)</p>
+<p>(Adapted from <a href="https://alisterbscott.com/kb/testing-pyramids/">Alister B Scott</a>)</p>
 
 <p>On a recent project - a single page application on AngularJS talking to a backend API - we knew we had to test the UI layer because there was a lot of conditional logic, formatting, etc., embedded within the UI on AngularJS view templates. But instead of settling with a heavyweight Selenium or a Protractor test suite that would have been prohibitive given the number of test cases we had, <a href="https://github.com/asengupta/">a team member</a> developed a tool called <a href="https://github.com/asengupta/duck-angular">Duck-Angular</a> which could validate AngularJS rendered DOM and simulate DOM interactions using JS tests in-memory.</p>
 
@@ -282,7 +282,7 @@ for each aspect like version control, CD server, infrastructure configuration to
   <div class="join-community">
     <ul>
       <li>
-        <a href="https://groups.google.com/forum/#!forum/go-cd" target="_blank" analytics-label="google-group">
+        <a href="https://groups.google.com/g/go-cd" target="_blank" analytics-label="google-group">
           <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
           <span>Join our discussion forum</span>
         </a>
