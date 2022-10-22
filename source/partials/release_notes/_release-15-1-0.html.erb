@@ -4,7 +4,7 @@
   You'll never need to wish that Go supported your favorite kind of material repository, you can implement support for it yourself!
 </p>
 <p>
-  You can see all the SCM material plugins on the <a href="https://www.gocd.org/community/plugins#scm-plugins">Go community plugins page</a>. See how to write one, <a href="https://docs.gocd.org/current/extension_points/scm_extension.html">here</a>.
+  You can see all the SCM material plugins on the <% link_to 'Go Community plugins' '/plugins/index.html' %>. See how to write one, <a href="https://docs.gocd.org/current/extension_points/scm_extension.html">here</a>.
 </p>
 <p>
   Here's how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="https://www.gocd.org/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
@@ -17,7 +17,7 @@
   for quite a lot of use cases, and we are excited to see plugins written against this endpoint even before release (yay, open source!).</p>
 <p> <a href="https://github.com/matt-richardson">@matt-richardson</a> has written a really nice generic notification plugin, which sends build notifications to any websocket listener! <a href="https://github.com/ashwanthkumar">@ashwanthkumar</a>              has written a great plugin to notify Slack about build status changes. <a href="https://github.com/srinivasupadhya/">@srinivasupadhya</a> has written a couple of nice notification plugins to update pull request statuses in GitHub and Atlassian
   Stash.</p>
-<p> You can see all of those plugins on the <a href="https://www.gocd.org/community/plugins#notification-plugins">Go community plugins page</a>. See how to write one yourself, <a href="https://plugin-api.gocd.org/current/notifications/">here</a>.</p>
+<p> You can see all of those plugins on the <% link_to 'Go Community plugins page' '/plugins/index.html' %>. See how to write one yourself, <a href="https://plugin-api.gocd.org/current/notifications/">here</a>.</p>
 <h4>Pipeline label shortening</h4>
 <p> This contribution by <a href="https://github.com/alexschwartz">@alexschwartz</a> helps declutter the Go Dashboard, by allowing the pipeline label to be trimmed, per material. This feature is really useful when dealing with unwieldy 40 character
   SHAs in pipelines with git/mercurial materials in them. This feature allows this: </p>
@@ -26,9 +26,9 @@
 </figure>
 <p> to be changed into this:</p>
 <figure class="small_image">
-  <%= image_tag "releases/15.1/15_1_new_pipeline_label.png", {:title => "New pipleine labels - Short", :alt => "New short pipleine labels"} %>
+  <%= image_tag "releases/15.1/15_1_new_pipeline_label.png", {:title => "New pipeline labels - Short", :alt => "New short pipeline labels"} %>
 </figure>
-<p> Read more about this feature <a href="https://docs.gocd.org/current/configuration/admin_use_custom_pipeline_label.html#using-truncated-material-revisions">in the documentation.</a></p>
+<p> Read more about this feature <a href="https://docs.gocd.org/current/configuration/pipeline_labeling.html#using-truncated-material-revisions">in the documentation.</a></p>
 <h4>Timestamps in console logs</h4>
 <p> Starting from Go 15.1, Go's console logs will have timestamps for every line. This is very useful for finding out long-running parts of tasks. Here's how it looks:</p>
 <figure class="small_image">

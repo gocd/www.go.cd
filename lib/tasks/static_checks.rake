@@ -12,8 +12,8 @@ namespace :static_checks do
   end
 
   options = {
-      :disable_external     => true,
-      :ignore_urls          => [/([https]:\/\/(localhost)|(github)|(linkedin):*)/],
+      :disable_external     => should_not_run_external_url_checks?,
+      :ignore_urls          => [/([https]:\/\/(localhost)|(github)|(blogs\.oracle\.com)|(linkedin):*)/],
       :allow_hash_href      => true,
       :allow_missing_href   => true,
       :check_external_hash  => true,

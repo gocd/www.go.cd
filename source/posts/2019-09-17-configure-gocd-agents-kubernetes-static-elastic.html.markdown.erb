@@ -66,7 +66,7 @@ Elastic Agents have a significant advantage in that they get created when there 
 
 I can explain a scenario of how using elastic agents can result in cost savings. You can provision a cluster with a single n1-standard-1 VM (3.5GB RAM, 1vCPU) to start with. You can then enable the auto-scaling feature with a reasonable maximum node limit. This will ensure that when no jobs are running all nodes except the first node will be deleted resulting in cost saving compared to have a fixed number of static Go agents.
 
-GoCD offers a number of [plugins](https://www.gocd.org/plugins/#elastic-agents) that support different Cloud providers like AWS or Azure or different orchestration platforms like DockerSwarm or Kubernetes. Considering that we were trying this out on Kubernetes we used the GoCD Elastic Agent plugin for Kubernetes.
+GoCD offers a number of [plugins](https://www.gocd.org/plugins) that support different Cloud providers like AWS or Azure or different orchestration platforms like DockerSwarm or Kubernetes. Considering that we were trying this out on Kubernetes we used the GoCD Elastic Agent plugin for Kubernetes.
 
 ##Elastic Agent Profiles
 

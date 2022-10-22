@@ -6,6 +6,7 @@ on: [ pull_request ]
 
 env:
   RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
+  RUN_EXTERNAL_CHECKS: true
 
 jobs:
   build_and_push_to_preview:

@@ -21,7 +21,7 @@ We must have backup zip before attempting to restore. Or else make sure to downl
 
 The steps to restore backup are similar as mentioned in [Backup GoCD Server](https://docs.gocd.org/current/advanced_usage/one_click_backup.html).
 
-But some complications arise when performing the same when GoCD is running on kubernetes, it is because of the latest release that incorporated additional security layer to run as [non root user in GoCD server](https://www.gocd.org/2019/06/25/GoCD-non-root-containers/#:~:text=Running%20containers%20using%20non%2Droot,%2Droot%20user%2C%20by%20default). Because of this it is not possible to directly exec into GoCD server pod and change the files.
+But some complications arise when performing the same when GoCD is running on kubernetes, it is because of the latest release that incorporated additional security layer to run as [non root user in GoCD server](https://www.gocd.org/2019/06/25/GoCD-non-root-containers). Because of this it is not possible to directly exec into GoCD server pod and change the files.
 
 ---------------------------
 

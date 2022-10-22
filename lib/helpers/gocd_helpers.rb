@@ -68,8 +68,8 @@ module GoCDHelpers
     concat_content(" of the API is available, and users are encouraged to use it.")
   end
 
-  def link_to_plugin_api(api_section, text = 'PLUGIN API')
-    link_to_versioned_plugin_api 'current', api_section, text
+  def link_to_plugin_api_section(api_section, text = 'PLUGIN API')
+    link_to text, "https://plugin-api.gocd.org/current/#{api_section}"
   end
 
   def link_to_versioned_plugin_api(version, api_section, text = 'PLUGIN API')
