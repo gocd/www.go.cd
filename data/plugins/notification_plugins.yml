@@ -7,15 +7,6 @@
   github_stars: https://ghbtns.com/github-btn.html?user=paullalonde&repo=gocd-sns-notification-plugin&type=watch&count=true
   first_available_date: 06/2017
 
-- name: Build-Watcher Slack&Email Notifier
-  description: Plugin that sends direct emails and Slack messages to the person who breaks a build
-  readmore_url: https://github.com/gmazzo/gocd-build-watcher-plugin
-  author_url: https://github.com/gmazzo
-  author_name: Guillermo Mazzola
-  releases_url: https://bintray.com/gmazzo/maven/gocd-build-watcher-plugin/_latestVersion
-  github_stars: https://ghbtns.com/github-btn.html?user=gmazzo&repo=gocd-build-watcher-plugin&type=watch&count=true
-  first_available_date: 04/2017
-
 - name: Email Notifier
   description: A plugin to send email notifications.
   readmore_url: https://github.com/gocd-contrib/email-notifier
