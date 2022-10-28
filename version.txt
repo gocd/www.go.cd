@@ -1,9 +1,13 @@
-Last updated: 2022-10-22 14:44:02 +0000
+Last updated: 2022-10-28 07:41:25 +0000
 
 Latest commit:
-    commit c5bea3a672c8ce93ea1fd08d28cb573b8ff8dde3
+    commit 452a419fdda0afea07e6d2f17e21e645bdf0a6a6
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Sat Oct 22 22:23:09 2022 +0800
+    Date:   Fri Oct 28 15:04:38 2022 +0800
     
-        Fix another broken link.
+        Clean up plugins data
+        
+        - github_stars and first_available_date are unused.
+        - Corrected data/links for one feature branch plugin
+        - Corrected author name for some open-sourced TW plugins
     
