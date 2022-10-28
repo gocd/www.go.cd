@@ -1,11 +1,16 @@
-- name: Build Git Feature Branch
-  description: Plugin to poll Git repository.
+- name: Git Path Material
+  description: Plugin that watches sub-directories/sub-paths of Git repositories, better supporting monorepos.
+  readmore_url: https://github.com/TWChennai/gocd-git-path-material-plugin
+  author_url: https://github.com/TWChennai
+  author_name: Thoughtworks Opensource
+  releases_url: https://github.com/TWChennai/gocd-git-path-material-plugin/releases
+
+- name: Build Git Feature Branches
+  description: Plugin that builds feature branches from Git repositories.
   readmore_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests
-  author_url: https://github.com/srinivasupadhya
-  author_name: Srinivas Upadhya
+  author_url: https://github.com/ashwanthkumar
+  author_name: Ashwanth Kumar
   releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true
-  first_available_date: 02/2015
 
 - name: Build Github Pull Requests
   description: Plugin that builds Pull Requests for project from Github.
@@ -13,8 +18,6 @@
   author_url: https://github.com/ashwanthkumar
   author_name: Ashwanth Kumar
   releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true
-  first_available_date: 02/2015
 
 - name: Build Stash Pull Requests
   description: Plugin that builds Pull Requests for project from Stash.
@@ -22,8 +25,6 @@
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
   releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true
-  first_available_date: 02/2015
 
 - name: Build Gerrit Change Set
   description: Plugin that builds Change Sets for project from Gerrit.
@@ -31,8 +32,6 @@
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
   releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=ashwanthkumar&repo=gocd-build-github-pull-requests&type=watch&count=true
-  first_available_date: 02/2015
   
 - name: Build BitKeeper Pull Requests
   description: Plugin that polls a BitKeeper repository for pull requests and triggers a build for each of them.
@@ -40,8 +39,6 @@
   author_url: https://github.com/bdpiprava
   author_name: Bhupendrakumar Piprava
   releases_url: https://github.com/bdpiprava/bitkeeper-repo-poller/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=bdpiprava&repo=bitkeeper-repo-poller&type=watch&count=true
-  first_available_date: 02/2015
   
 - name: Artifactory SCM
   description: Plugin that lets you download several versions of an artifact from Artifactory.
@@ -49,26 +46,13 @@
   author_url: https://github.com/cnenning/
   author_name: Christoph Nenning
   releases_url: https://github.com/cnenning/go-artifactory-scm-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=cnenning&repo=go-artifactory-scm-plugin&type=watch&count=true
-  first_available_date: 10/2016
 
-- name: Git Path Material
-  description: Plugin to introduce a material, that watches on a sub-directory of git repository.
-  readmore_url: https://github.com/TWChennai/gocd-git-path-material-plugin
-  author_url: https://github.com/TWChennai
-  author_name: Thoughtworks Opensource
-  releases_url: https://github.com/TWChennai/gocd-git-path-material-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=TWChennai&repo=gocd-git-path-material-plugin&type=star&count=true
-  first_available_data: 10/2016
-  
 - name: Phabricator Staging Area Material
   description: Plugin to properly handle Phabricator staging areas as a SCM material.
   readmore_url: https://github.com/kszatan/gocd-phabricator-staging-material
   author_url: https://kszatan.github.io/
   author_name: Krzysztof Szatan
   releases_url: https://github.com/kszatan/gocd-phabricator-staging-material/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-phabricator-staging-material&type=star&count=true
-  first_available_data: 07/2017
 
 - name: FTP Server SCM
   description: Plugin that downloads the source codes/files from FTP Server from a configured directory path.
@@ -76,5 +60,3 @@
   author_url: https://github.com/sekhar-rangam
   author_name: Sekhar Rangam
   releases_url: https://github.com/sekhar-rangam/gocd-ftp-server-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=sekhar-rangam&repo=gocd-ftp-server-plugin&type=star&count=true
-  first_available_data: 02/2021

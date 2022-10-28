@@ -4,8 +4,6 @@
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
   releases_url: https://github.com/gocd-contrib/xunit-converter-task/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=gocd-contrib&repo=xunit-converter-task&type=watch&count=true
-  first_available_date: 05/2014
 
 - name: Powershell Task
   description: Task to run Powershell based builds.
@@ -13,8 +11,6 @@
   author_url: https://github.com/manojlds
   author_name: Manoj Mahalingam
   releases_url: https://github.com/manojlds/gocd-powershell-runner/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=manojlds&repo=gocd-powershell-runner&type=watch&count=true
-  first_available_date: 06/2014
 
 - name: RapidDeploy Package Builder
   description: Plugin to build a deployment package on a remote RapidDeploy server.
@@ -22,8 +18,6 @@
   author_url: https://www.midvision.com/
   author_name: MidVision
   releases_url: https://github.com/MidVision/go-rapiddeploy/releases/
-  github_stars: https://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true
-  first_available_date: 07/2014
 
 - name: RapidDeploy Job Runner
   description: Plugin to invoke a job on a remote RapidDeploy server.
@@ -31,8 +25,6 @@
   author_url: https://www.midvision.com/
   author_name: MidVision
   releases_url: https://github.com/MidVision/go-rapiddeploy/releases/
-  github_stars: https://ghbtns.com/github-btn.html?user=MidVision&repo=go-rapiddeploy&type=watch&count=true
-  first_available_date: 07/2014
 
 - name: Groovy Task Plugin
   description: Plugin to allow writing tasks in go.cd as Groovy scripts
@@ -40,8 +32,6 @@
   author_url: https://www.4finance.com/
   author_name: 4Finance
   releases_url: https://github.com/4finance/go-plugin-groovy/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=4finance&repo=go-plugin-groovy&type=watch&count=true
-  first_available_date: 09/2014
 
 - name: Maven Task Plugin
   description: Plugin to allow running maven tasks in go.cd
@@ -49,17 +39,13 @@
   author_url: https://github.com/ruckc
   author_name: ruckc
   releases_url: https://github.com/ruckc/gocd-maven-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=ruckc&repo=gocd-maven-plugin&type=watch&count=true
-  first_available_date: 12/2014
 
 - name: Script Executor Task Plugin
-  description: Plugin to allow running Script in Go
+  description: Simple plugin to allow running scripts in GoCD (with syntactic sugar support for config repositories)
   readmore_url: https://github.com/gocd-contrib/script-executor-task
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
   releases_url: https://github.com/gocd-contrib/script-executor-task/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=gocd-contrib&repo=script-executor-task&type=watch&count=true
-  first_available_date: 12/2014
 
 - name: Publish to S3
   description: Task plugin to publish artifacts to Amazon S3
@@ -67,8 +53,6 @@
   author_url: https://github.com/indix
   author_name: Indix
   releases_url: https://github.com/indix/gocd-s3-artifacts/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=indix&repo=gocd-s3-artifacts&type=watch&count=true
-  first_available_date: 02/2015
 
 - name: Fetch from S3
   description: Task plugin to fetch artifacts from Amazon S3
@@ -76,8 +60,6 @@
   author_url: https://github.com/indix
   author_name: Indix
   releases_url: https://github.com/indix/gocd-s3-artifacts/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=indix&repo=gocd-s3-artifacts&type=watch&count=true
-  first_available_date: 02/2015
 
 - name: Docker task
   description: Task plugin to build an image, run commands against it, and push to a registry. Each step is optional.
@@ -85,8 +67,6 @@
   author_url: https://github.com/manojlds
   author_name: Manoj Mahalingam
   releases_url: https://github.com/manojlds/gocd-docker/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=manojlds&repo=gocd-docker&type=watch&count=true
-  first_available_date: 02/2015
 
 - name: Publish to Artifactory
   description: Uploads artifact(s) to Artifactory with build detail...
@@ -94,8 +74,6 @@
   author_url: https://github.com/tusharm
   author_name: Tushar Madhukar
   releases_url: https://github.com/tusharm/go-artifactory-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=tusharm&repo=go-artifactory-plugin&type=watch&count=true
-  first_available_date: 08/2014
 
 - name: MSBuild Task
   description: Task plugin to build projects using MSBuild.
@@ -103,8 +81,6 @@
   author_url: https://github.com/akanyer/
   author_name: Andrew Kanyer
   releases_url: https://github.com/akanyer/gocd-msbuild-taskplugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=akanyer&repo=gocd-msbuild-taskplugin&type=watch&count=true
-  first_available_date: 03/2015
 
 - name: Apache Brooklyn Task
   description: Task plugin to invoke actions on an Apache Brooklyn server.
@@ -112,8 +88,6 @@
   author_url: https://github.com/rjgarciap/
   author_name: Ricardo J Garcia
   releases_url: https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=rjgarciap&repo=ApacheBrooklyn-Task-Plugin&type=watch&count=true
-  first_available_date: 05/2015
 
 - name: Deploy to AWS OpsWorks
   description: Task plugin to manage AWS OpsWorks deployment
@@ -121,8 +95,6 @@
   author_url: https://github.com/tispr
   author_name: tispr
   releases_url: https://github.com/tispr/gocd-opsworks-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=tispr&repo=gocd-opsworks-plugin&type=watch&count=true
-  first_available_date: 08/2015
 
 - name: Gradle Task plugin
   description: Task plugin for running Gradle builds
@@ -130,8 +102,6 @@
   author_url: https://github.com/jmnarloch
   author_name: jmnarloch
   releases_url: https://github.com/jmnarloch/gocd-gradle-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=jmnarloch&repo=gocd-gradle-plugin&type=watch&count=true
-  first_available_date: 09/2015
 
 - name: Health Check Task plugin
   description: Task plugin for delaying the build till the application becomes healthy
@@ -139,8 +109,6 @@
   author_url: https://github.com/jmnarloch
   author_name: jmnarloch
   releases_url: https://github.com/jmnarloch/gocd-health-check-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=jmnarloch&repo=gocd-health-check-plugin&type=watch&count=true
-  first_available_date: 09/2015
 
 - name: SBT Task plugin
   description: Task plugin for running SBT builds
@@ -148,8 +116,6 @@
   author_url: https://github.com/jmnarloch
   author_name: jmnarloch
   releases_url: https://github.com/jmnarloch/gocd-sbt-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=jmnarloch&repo=gocd-sbt-plugin&type=watch&count=true
-  first_available_date: 11/2015
 
 - name: Nessus Scan Task plugin
   description: Task plugin for running Nessus Scans
@@ -157,8 +123,6 @@
   author_url: https://github.com/markus2810
   author_name: Markus Wehrle
   releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
-  first_available_date: 11/2015
 
 - name: SonarQube Quality Gate Task plugin
   description: Stop/break your pipeline if a quality gate is not passed in SonarQube.
@@ -166,8 +130,6 @@
   author_url: https://github.com/markus2810
   author_name: Markus Wehrle
   releases_url: https://github.com/Haufe-Lexware/gocd-plugins/tree/master/sonar-qualitygates-plugin/jar
-  github_stars: https://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
-  first_available_date: 12/2015
 
 - name: Check_MK monitoring plugin
   description: Manage a host on a Check_MK monitoring server from a GoCD pipeline. Add, remove hosts directly to Check_MK.
@@ -175,8 +137,6 @@
   author_url: https://github.com/bocradu
   author_name: Boc Radu
   releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
-  first_available_date: 02/2016
 
 - name: Slack Task plugin
   description: Send custom messages to Slack from Go CD jobs
@@ -184,8 +144,6 @@
   author_url: https://github.com/Vincit
   author_name: Juha Siponen
   releases_url: https://github.com/Vincit/gocd-slack-task/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=Vincit&repo=gocd-slack-task&type=watch&count=true
-  first_available_date: 03/2016
 
 - name: Docker pipeline plugin
   description: Builds a docker image from a Dockerfile, tags it and pushes it to a registry.
@@ -193,8 +151,6 @@
   author_url: https://github.com/bradeac
   author_name: Camil Bradea
   releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=Haufe-Lexware&repo=gocd-plugins&type=watch&count=true
-  first_available_date: 02/2016
 
 - name: Scalastyle Github Pull Request plugin
   description: Comments on Github pull requests with a summary of scalastyle results
@@ -202,8 +158,6 @@
   author_url: https://github.com/insano10
   author_name: Jenny Beckett
   releases_url: https://github.com/insano10/gocd-pr-comment-scalastyle/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=insano10&repo=gocd-pr-comment-scalastyle&type=watch&count=true
-  first_available_date: 05/2016
   
 - name: Artifactory Plugin
   description: Uploads Artifacts to JFrog Artifactory
@@ -211,16 +165,12 @@
   author_url: https://github.com/eaiesb
   author_name: EAIESB
   releases_url: https://github.com/eaiesb/Gocd-Artifactory-Plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=eaiesb&repo=go-artifactory-plugin&type=watch&count=true
-  first_available_date: 08/05/2017
   
 - name: Diawi Uploader Plugin
   description: Publish artifacts to https://www.diawi.com/
   readmore_url: https://github.com/ReviakinAleksey/diawi-upload-plugin
   author_url: https://github.com/ReviakinAleksey
   releases_url: https://github.com/ReviakinAleksey/diawi-upload-plugin/tree/master/dist
-  github_stars: http://ghbtns.com/github-btn.html?user=ReviakinAleksey&repo=diawi-upload-plugin&type=watch&count=true
-  first_available_date: 10/2017
   
 - name: Docker Exec Plugin
   description: Execute pipeline tasks inside Docker containers
@@ -228,8 +178,6 @@
   author_url: https://www.bitgrillr.com
   author_name: Chris Arnold
   releases_url: https://github.com/cma-arnold/gocd-docker-exec-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=cma-arnold&repo=gocd-docker-exec-plugin&type=watch&count=true
-  first_available_date: 01/2018
 
 - name: Backblaze B2 Publish Task Plugin
   description: Plugin adding a task to publish artifacts to Backblaze B2.
@@ -237,8 +185,6 @@
   author_url: https://kszatan.github.io/
   author_name: Krzysztof Szatan
   releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-b2-artifacts&type=watch&count=true
-  first_available_date: 05/2018
 
 - name: Backblaze B2 Fetch Task Plugin
   description: Plugin adding a task to fetch artifacts from Backblaze B2.
@@ -246,8 +192,6 @@
   author_url: https://kszatan.github.io/
   author_name: Krzysztof Szatan
   releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=kszatan&repo=gocd-b2-artifacts&type=watch&count=true
-  first_available_date: 05/2018
   
 - name: Dunner - Docker Task Runner Plugin
   description: Execute tasks inside Docker using Dunner, the docker task runner.
@@ -255,8 +199,6 @@
   author_url: https://github.com/leopardslab
   author_name: LeopardsLab Community
   releases_url: https://github.com/leopardslab/dunner-gocd-plugin/releases
-  github_stars: http://ghbtns.com/github-btn.html?user=leopardslab&repo=dunner-gocd-plugin&type=watch&count=true
-  first_available_date: 07/2019
 
 - name: CMake
   description: Build cmake based projects.
@@ -264,5 +206,3 @@
   author_url: https://silizium.io
   author_name: Joel Bodenmann
   releases_url: https://github.com/Tectu/gocd-cmake-task/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=tectu&repo=gocd-cmake-task&type=watch&count=true
-  first_available_date: 12/2020

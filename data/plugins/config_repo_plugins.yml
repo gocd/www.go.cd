@@ -4,8 +4,6 @@
   author_url: https://github.com/tomzo
   author_name: Tomasz Setkowski
   releases_url: https://github.com/tomzo/gocd-json-config-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=tomzo&repo=gocd-json-config-plugin&type=watch&count=true
-  first_available_date: 07/2016
 
 - name: gocd-yaml-config-plugin
   description: A plugin to keep pipelines and environments configuration in source-control in YAML.
@@ -13,8 +11,6 @@
   author_url: https://github.com/tomzo
   author_name: Tomasz Setkowski
   releases_url: https://github.com/tomzo/gocd-yaml-config-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=tomzo&repo=gocd-yaml-config-plugin&type=watch&count=true
-  first_available_date: 07/2016
 
 - name: gocd-groovy-dsl-config-plugin
   description: A plugin to keep pipelines and environments configuration in source-control in Groovy.
@@ -22,5 +18,3 @@
   author_url: https://github.com/ketan
   author_name: Ketan Padegaonkar
   releases_url: https://github.com/gocd-contrib/gocd-groovy-dsl-config-plugin/releases
-  github_stars: https://ghbtns.com/github-btn.html?user=gocd-contrib&repo=gocd-groovy-dsl-config-plugin&type=watch&count=true
-  first_available_date: 02/2018
