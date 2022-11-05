@@ -1,13 +1,12 @@
-Last updated: 2022-10-28 07:41:25 +0000
+Last updated: 2022-11-05 08:14:21 +0000
 
 Latest commit:
-    commit 452a419fdda0afea07e6d2f17e21e645bdf0a6a6
+    commit 4354f6e520c9249767ae765285b2ff54be99417c
+    Merge: 5bd53b4ec 14c7061ac
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Fri Oct 28 15:04:38 2022 +0800
+    Date:   Sat Nov 5 14:32:11 2022 +0800
     
-        Clean up plugins data
+        Merge pull request #1416 from gocd/release-22-3-0
         
-        - github_stars and first_available_date are unused.
-        - Corrected data/links for one feature branch plugin
-        - Corrected author name for some open-sourced TW plugins
+        Release notes for 22.3.0
     
