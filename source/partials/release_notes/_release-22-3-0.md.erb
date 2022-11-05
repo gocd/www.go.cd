@@ -1,0 +1,53 @@
+<h4>Changes</h4>
+
+* <%= link_to_issue 10759, 'Improve agent start-up time during agent-to-server version synchronization' %>
+* <%= link_to_issue 10924, 'Bundle latest Java 17.0.5 patch release with non-Linux installers & containers' %>
+* Starting this release, MacOS Apple Silicon (arm64/aarch64) <%= link_to 'installers', '/download/index.html' %> and
+  <%= link_to 'test-drive experience', '/test-drive-gocd/index.html' %> are available.
+* Starting this release, CentOS Stream 9 based docker images for GoCD Server are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-server-centos-9' %>.
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 8999,  'Agents page layout has overlapping backgrounds on Chromium-based browsers' %>
+* <%= link_to_issue 10736, 'GoCD 22.2.0 broke display of timestamps in plugin Elastic Agent Status Reports' %>
+* <%= link_to_issue 10837, 'Job History sidebar dropdown does not display timestamps for previous job runs' %>
+* <%= link_to_issue 10891, 'Build labels are truncated in pipeline activity page' %>
+* <%= link_to_issue 10937, 'Support API logs a lot of noisy errors on Java 16+' %>
+* <%= link_to_issue 10943, 'Fetch Artifact task doesn\'t provide correct suggestions when switching stages on pipeline config' %>
+* <%= link_to_issue 10982, 'Fix Postgres backups via pg_dump on Windows' %>
+
+<h4>Security Fixes</h4>
+
+We regularly fix security issues reported by security researchers & upgrade dependencies to mitigate known vulnerabilities.
+Upgrading to the latest release is always recommended.
+
+This release upgrades a number of important internal components, some of which were EOL. We do not have evidence that
+the previously vulnerable dependencies pose any specific risk in GoCD's usage, however we endeavour to minimise
+<%= link_to 'dependency drift', 'https://www.thoughtworks.com/radar/techniques/dependency-drift-fitness-function' %>.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '22.3.0','changes-in-22-3-0', 'API changelog for 22.3.0' %> and
+  <%= link_to_versioned_plugin_api '22.3.0','changes-in-gocd-22-3-0', 'Plugin API changelog for 22.3.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "Chantry C",
+  "Jeroen Oortwijn",
+  "Ketan Padegaonkar",
+  "Lewis Jales-Huggins",
+  "pan Jacek",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 22.3.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
