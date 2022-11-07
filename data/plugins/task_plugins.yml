@@ -171,13 +171,6 @@
   readmore_url: https://github.com/ReviakinAleksey/diawi-upload-plugin
   author_url: https://github.com/ReviakinAleksey
   releases_url: https://github.com/ReviakinAleksey/diawi-upload-plugin/tree/master/dist
-  
-- name: Docker Exec Plugin
-  description: Execute pipeline tasks inside Docker containers
-  readmore_url: https://github.com/cma-arnold/gocd-docker-exec-plugin
-  author_url: https://www.bitgrillr.com
-  author_name: Chris Arnold
-  releases_url: https://github.com/cma-arnold/gocd-docker-exec-plugin/releases
 
 - name: Backblaze B2 Publish Task Plugin
   description: Plugin adding a task to publish artifacts to Backblaze B2.
