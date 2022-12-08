@@ -160,7 +160,7 @@ GEM
     padrino-support (0.15.1)
     parallel (1.22.1)
     parslet (2.0.0)
-    public_suffix (5.0.0)
+    public_suffix (5.0.1)
     racc (1.6.1)
     rack (2.2.4)
     rack-livereload (0.3.17)
@@ -229,4 +229,4 @@ RUBY VERSION
    ruby 2.7.6p219
 
 BUNDLED WITH
-   2.3.11
+   2.3.26
