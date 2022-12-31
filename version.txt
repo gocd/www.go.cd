@@ -1,11 +1,12 @@
-Last updated: 2022-11-07 15:50:06 +0000
+Last updated: 2022-12-31 16:25:32 +0000
 
 Latest commit:
-    commit 49e8c0682a57d39800448cd077bd089e1f9b0e9c
+    commit cfd1c771ff006f6f24c840424593e3d799706b42
+    Merge: ff72cbf89 e985d0d5c
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Mon Nov 7 22:50:55 2022 +0800
+    Date:   Fri Dec 30 20:07:50 2022 +0800
     
-        Remove plugin which no longer exists
+        Merge pull request #1431 from gocd/dependabot/bundler/mini_portile2-2.8.1
         
-        May have been removed by its author
+        Bump mini_portile2 from 2.8.0 to 2.8.1
     
