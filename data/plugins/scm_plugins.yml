@@ -3,60 +3,60 @@
   readmore_url: https://github.com/TWChennai/gocd-git-path-material-plugin
   author_url: https://github.com/TWChennai
   author_name: Thoughtworks Opensource
-  releases_url: https://github.com/TWChennai/gocd-git-path-material-plugin/releases
+  releases_url: https://github.com/TWChennai/gocd-git-path-material-plugin/releases/latest
 
 - name: Build Git Feature Branches
   description: Plugin that builds feature branches from Git repositories.
   readmore_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests
   author_url: https://github.com/ashwanthkumar
   author_name: Ashwanth Kumar
-  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
+  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases/latest
 
 - name: Build Github Pull Requests
   description: Plugin that builds Pull Requests for project from Github.
   readmore_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests
   author_url: https://github.com/ashwanthkumar
   author_name: Ashwanth Kumar
-  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
+  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases/latest
 
 - name: Build Stash Pull Requests
   description: Plugin that builds Pull Requests for project from Stash.
   readmore_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
+  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases/latest
 
 - name: Build Gerrit Change Set
   description: Plugin that builds Change Sets for project from Gerrit.
   readmore_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases
+  releases_url: https://github.com/ashwanthkumar/gocd-build-github-pull-requests/releases/latest
   
 - name: Build BitKeeper Pull Requests
   description: Plugin that polls a BitKeeper repository for pull requests and triggers a build for each of them.
   readmore_url: https://github.com/bdpiprava/bitkeeper-repo-poller
   author_url: https://github.com/bdpiprava
   author_name: Bhupendrakumar Piprava
-  releases_url: https://github.com/bdpiprava/bitkeeper-repo-poller/releases
+  releases_url: https://github.com/bdpiprava/bitkeeper-repo-poller/releases/latest
   
 - name: Artifactory SCM
   description: Plugin that lets you download several versions of an artifact from Artifactory.
   readmore_url: https://github.com/cnenning/go-artifactory-scm-plugin
   author_url: https://github.com/cnenning/
   author_name: Christoph Nenning
-  releases_url: https://github.com/cnenning/go-artifactory-scm-plugin/releases
+  releases_url: https://github.com/cnenning/go-artifactory-scm-plugin/releases/latest
 
 - name: Phabricator Staging Area Material
   description: Plugin to properly handle Phabricator staging areas as a SCM material.
   readmore_url: https://github.com/kszatan/gocd-phabricator-staging-material
   author_url: https://kszatan.github.io/
   author_name: Krzysztof Szatan
-  releases_url: https://github.com/kszatan/gocd-phabricator-staging-material/releases
+  releases_url: https://github.com/kszatan/gocd-phabricator-staging-material/releases/latest
 
 - name: FTP Server SCM
   description: Plugin that downloads the source codes/files from FTP Server from a configured directory path.
   readmore_url: https://github.com/sekhar-rangam/gocd-ftp-server-plugin
   author_url: https://github.com/sekhar-rangam
   author_name: Sekhar Rangam
-  releases_url: https://github.com/sekhar-rangam/gocd-ftp-server-plugin/releases
+  releases_url: https://github.com/sekhar-rangam/gocd-ftp-server-plugin/releases/latest

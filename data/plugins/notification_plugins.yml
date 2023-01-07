@@ -3,103 +3,103 @@
   readmore_url: https://github.com/paullalonde/gocd-sns-notification-plugin
   author_url: https://github.com/paullalonde
   author_name: Paul Lalonde
-  releases_url: https://github.com/paullalonde/gocd-sns-notification-plugin/releases
+  releases_url: https://github.com/paullalonde/gocd-sns-notification-plugin/releases/latest
 
 - name: Email Notifier
   description: A plugin to send email notifications.
   readmore_url: https://github.com/gocd-contrib/email-notifier
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhy
-  releases_url: https://github.com/gocd-contrib/email-notifier/releases
+  releases_url: https://github.com/gocd-contrib/email-notifier/releases/latest
 
 - name: Slack Build Notifier
   description: Plugin to get build notifications on Slack.
   readmore_url: https://github.com/ashwanthkumar/gocd-slack-build-notifier
   author_url: https://github.com/ashwanthkumar
   author_name: Ashwanth Kumar
-  releases_url: https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases
+  releases_url: https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases/latest
 
 - name: WebSockets Build Notifier
   description: Plugin to publish stage status change notifications via WebSockets.
   readmore_url: https://github.com/matt-richardson/gocd-websocket-notifier
   author_url: https://github.com/matt-richardson
   author_name: Matt Richardson
-  releases_url: https://github.com/matt-richardson/gocd-websocket-notifier/releases
+  releases_url: https://github.com/matt-richardson/gocd-websocket-notifier/releases/latest
 
 - name: GitHub Pull Request Status Notifier
   description: A plugin to update GitHub Pull Requests with build status.
   readmore_url: https://github.com/gocd-contrib/gocd-build-status-notifier
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases
+  releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases/latest
 
 - name: Stash Pull Request Status Notifier
   description: A plugin to update Stash Pull Requests with build status.
   readmore_url: https://github.com/gocd-contrib/gocd-build-status-notifier
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases
+  releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases/latest
 
 - name: Gerrit Change Set Status Notifier
   description: A plugin to update Gerrit Change Sets with build status.
   readmore_url: https://github.com/gocd-contrib/gocd-build-status-notifier
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases
+  releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases/latest
 
 - name: HipChat Notification
   description: Plugin that sends HipChat notifications on build status
   readmore_url: https://github.com/PagerDuty/gocd-hipchat-plugin
   author_url: https://www.pagerduty.com
   author_name: PagerDuty
-  releases_url: https://github.com/PagerDuty/gocd-hipchat-plugin/releases
+  releases_url: https://github.com/PagerDuty/gocd-hipchat-plugin/releases/latest
 
 - name: Gitter Notification
   description: Plugin that sends Gitter notifications on build status
   readmore_url: https://github.com/gocd-contrib/gitter-notifier
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/gocd-contrib/gitter-notifier/releases
+  releases_url: https://github.com/gocd-contrib/gitter-notifier/releases/latest
 
 - name: Riemann Notification
   description: Plugin that sends Riemann notifications on build status
   readmore_url: https://github.com/rsr5/gocd-riemann-notifier
   author_url: https://github.com/rsr5
   author_name: Robin Ridler
-  releases_url: https://github.com/rsr5/gocd-riemann-notifier/releases
+  releases_url: https://github.com/rsr5/gocd-riemann-notifier/releases/latest
 
 - name: Gitter Activity Feed
   description: Plugin that sends Gitter activity feed on build status
   readmore_url: https://github.com/gocd-contrib/gitter-activity-feed-plugin
   author_url: https://github.com/bdpiprava
   author_name: Bhupendrakumar Piprava
-  releases_url: https://github.com/gocd-contrib/gitter-activity-feed-plugin/releases
+  releases_url: https://github.com/gocd-contrib/gitter-activity-feed-plugin/releases/latest
 
 - name: Spark Build Notifier
   description: Plugin to get build notifications on Cisco Spark.
   readmore_url: https://github.com/t04glovern/gocd-spark-build-notifier
   author_url: https://github.com/t04glovern
   author_name: Nathan Glover
-  releases_url: https://github.com/t04glovern/gocd-spark-build-notifier/releases
+  releases_url: https://github.com/t04glovern/gocd-spark-build-notifier/releases/latest
 
 - name: MicroFocus  ALM Octane GoCD CI Plugin
   description: This plugin integrates GoCD with MicroFocus ALM Octane, enabling ALM Octane to display GoCD pipelines, trigger pipeline runs, and track build and test run results, as well as committed changes.
   readmore_url: https://github.com/MicroFocus/octane-gocd-plugin/blob/master/README.md
   author_url: https://github.com/MicroFocus
   author_name: MicroFocus
-  releases_url: https://github.com/MicroFocus/octane-gocd-plugin/releases
+  releases_url: https://github.com/MicroFocus/octane-gocd-plugin/releases/latest
 
 - name: Rocket.Chat Build Notifier
   description: Notification plugin which sends build failures to RocketChat
   readmore_url: https://github.com/tomzo/gocd-rocketchat-plugin
   author_url: https://github.com/tomzo
   author_name: Tomasz Sętkowski
-  releases_url: https://github.com/tomzo/gocd-rocketchat-plugin/releases
+  releases_url: https://github.com/tomzo/gocd-rocketchat-plugin/releases/latest
   
 - name: HTTP Notifications
   description: Plugin to send GoCD Notifications for agent and stage status to arbitrary number of endpoints via POST request
   readmore_url: https://github.com/matic-insurance/gocd-http-notifications-plugin
   author_url: https://github.com/volodymyr-mykhailyk
   author_name: Volodymyr Mykhailyk
-  releases_url: https://github.com/matic-insurance/gocd-http-notifications-plugin/releases
+  releases_url: https://github.com/matic-insurance/gocd-http-notifications-plugin/releases/latest
 

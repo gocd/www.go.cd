@@ -3,7 +3,7 @@
   readmore_url: https://github.com/gocd/docker-registry-artifact-plugin
   author_url: https://www.thoughtworks.com/products/
   author_name: Thoughtworks Inc.
-  releases_url: https://github.com/gocd/docker-registry-artifact-plugin/releases
+  releases_url: https://github.com/gocd/docker-registry-artifact-plugin/releases/latest
   supported: true
 
 - name: S3 Artifact Plugin
@@ -11,4 +11,4 @@
   readmore_url: https://github.com/Diogomrol/gocd-s3-artifact-plugin
   author_url: https://www.outsystems.com/
   author_name: OutSystems
-  releases_url: https://github.com/Diogomrol/gocd-s3-artifact-plugin/releases
+  releases_url: https://github.com/Diogomrol/gocd-s3-artifact-plugin/releases/latest

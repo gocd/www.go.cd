@@ -3,7 +3,7 @@
   readmore_url: https://github.com/gocd/gocd-ecs-elastic-agent
   author_url: https://github.com/gocd
   author_name: Thoughtworks Inc.
-  releases_url: https://github.com/gocd/gocd-ecs-elastic-agent/releases
+  releases_url: https://github.com/gocd/gocd-ecs-elastic-agent/releases/latest
   supported: true
 
 - name: Microsoft Azure Elastic Agent
@@ -11,28 +11,28 @@
   readmore_url: https://github.com/gocd/azure-elastic-agent-plugin
   author_url: https://github.com/gocd
   author_name: Thoughtworks Inc.
-  releases_url: https://github.com/gocd/azure-elastic-agent-plugin/releases
+  releases_url: https://github.com/gocd/azure-elastic-agent-plugin/releases/latest
 
 - name: GoCD Elastic agent plugin for Docker
   description: GoCD Elastic agent plugin for Docker
   readmore_url: https://github.com/gocd-contrib/docker-elastic-agents
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
-  releases_url: https://github.com/gocd-contrib/docker-elastic-agents/releases
+  releases_url: https://github.com/gocd-contrib/docker-elastic-agents/releases/latest
 
 - name: GoCD Elastic agent plugin for Docker Swarm
   description: GoCD Elastic agent plugin for Docker Swarm
   readmore_url: https://github.com/gocd-contrib/docker-swarm-elastic-agents
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
-  releases_url: https://github.com/gocd-contrib/docker-swarm-elastic-agents/releases
+  releases_url: https://github.com/gocd-contrib/docker-swarm-elastic-agents/releases/latest
   
 - name: GoCD Elastic Agent plugin for Kubernetes
   description: GoCD Elastic Agent plugin for bringing up GoCD agents on a Kubernetes cluster on demand.
   readmore_url: https://docs.gocd.org/current/gocd_on_kubernetes
   author_url: https://github.com/gocd
   author_name: Thoughtworks Inc.
-  releases_url: https://github.com/gocd/kubernetes-elastic-agents/releases
+  releases_url: https://github.com/gocd/kubernetes-elastic-agents/releases/latest
   supported: true
 
 - name: GoCD Elastic Agent plugin for OpenStack
@@ -40,18 +40,18 @@
   readmore_url: https://github.com/gocd-contrib/openstack-elastic-agent
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
-  releases_url: https://github.com/gocd-contrib/openstack-elastic-agent/releases
+  releases_url: https://github.com/gocd-contrib/openstack-elastic-agent/releases/latest
   
 - name: GoCD Elastic agent plugin for Marathon
   description: GoCD Elastic agent plugin for Marathon
   readmore_url: https://github.com/pikselpalette/gocd-elastic-agent-marathon
   author_url: https://github.com/pikselpalette
   author_name: Piksel, Ltd.
-  releases_url: https://github.com/pikselpalette/gocd-elastic-agent-marathon/releases
+  releases_url: https://github.com/pikselpalette/gocd-elastic-agent-marathon/releases/latest
 
 - name: GoCD Elastic agent plugin for AWS EC2
   description: GoCD Elastic agent plugin for AWS EC2
   readmore_url: https://github.com/continuumsecurity/GoCD-EC2-Elastic-Agent-Plugin
   author_url: https://iriusrisk.com/
   author_name: Continuum Security, S.L.
-  releases_url: https://github.com/continuumsecurity/GoCD-EC2-Elastic-Agent-Plugin/releases
+  releases_url: https://github.com/continuumsecurity/GoCD-EC2-Elastic-Agent-Plugin/releases/latest

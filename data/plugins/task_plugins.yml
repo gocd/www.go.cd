@@ -3,126 +3,126 @@
   readmore_url: https://github.com/gocd-contrib/xunit-converter-task
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/gocd-contrib/xunit-converter-task/releases
+  releases_url: https://github.com/gocd-contrib/xunit-converter-task/releases/latest
 
 - name: Powershell Task
   description: Task to run Powershell based builds.
   readmore_url: https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md
   author_url: https://github.com/manojlds
   author_name: Manoj Mahalingam
-  releases_url: https://github.com/manojlds/gocd-powershell-runner/releases
+  releases_url: https://github.com/manojlds/gocd-powershell-runner/releases/latest
 
 - name: RapidDeploy Package Builder
   description: Plugin to build a deployment package on a remote RapidDeploy server.
   readmore_url: https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin
   author_url: https://www.midvision.com/
   author_name: MidVision
-  releases_url: https://github.com/MidVision/go-rapiddeploy/releases/
+  releases_url: https://github.com/MidVision/go-rapiddeploy/releases/latest
 
 - name: RapidDeploy Job Runner
   description: Plugin to invoke a job on a remote RapidDeploy server.
   readmore_url: https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin
   author_url: https://www.midvision.com/
   author_name: MidVision
-  releases_url: https://github.com/MidVision/go-rapiddeploy/releases/
+  releases_url: https://github.com/MidVision/go-rapiddeploy/releases/latest
 
 - name: Groovy Task Plugin
   description: Plugin to allow writing tasks in go.cd as Groovy scripts
   readmore_url: https://github.com/4finance/go-plugin-groovy
   author_url: https://www.4finance.com/
   author_name: 4Finance
-  releases_url: https://github.com/4finance/go-plugin-groovy/releases
+  releases_url: https://github.com/4finance/go-plugin-groovy/releases/latest
 
 - name: Maven Task Plugin
   description: Plugin to allow running maven tasks in go.cd
   readmore_url: https://github.com/ruckc/gocd-maven-plugin
   author_url: https://github.com/ruckc
   author_name: ruckc
-  releases_url: https://github.com/ruckc/gocd-maven-plugin/releases
+  releases_url: https://github.com/ruckc/gocd-maven-plugin/releases/latest
 
 - name: Script Executor Task Plugin
   description: Simple plugin to allow running scripts in GoCD (with syntactic sugar support for config repositories)
   readmore_url: https://github.com/gocd-contrib/script-executor-task
   author_url: https://github.com/srinivasupadhya
   author_name: Srinivas Upadhya
-  releases_url: https://github.com/gocd-contrib/script-executor-task/releases
+  releases_url: https://github.com/gocd-contrib/script-executor-task/releases/latest
 
 - name: Publish to S3
   description: Task plugin to publish artifacts to Amazon S3
   readmore_url: https://oss.indix.com/gocd-s3-artifacts/publish.html
   author_url: https://github.com/indix
   author_name: Indix
-  releases_url: https://github.com/indix/gocd-s3-artifacts/releases
+  releases_url: https://github.com/indix/gocd-s3-artifacts/releases/latest
 
 - name: Fetch from S3
   description: Task plugin to fetch artifacts from Amazon S3
   readmore_url: https://oss.indix.com/gocd-s3-artifacts/fetch.html
   author_url: https://github.com/indix
   author_name: Indix
-  releases_url: https://github.com/indix/gocd-s3-artifacts/releases
+  releases_url: https://github.com/indix/gocd-s3-artifacts/releases/latest
 
 - name: Docker task
   description: Task plugin to build an image, run commands against it, and push to a registry. Each step is optional.
   readmore_url: https://github.com/manojlds/gocd-docker
   author_url: https://github.com/manojlds
   author_name: Manoj Mahalingam
-  releases_url: https://github.com/manojlds/gocd-docker/releases
+  releases_url: https://github.com/manojlds/gocd-docker/releases/latest
 
 - name: Publish to Artifactory
   description: Uploads artifact(s) to Artifactory with build detail...
   readmore_url: https://github.com/tusharm/go-artifactory-plugin
   author_url: https://github.com/tusharm
   author_name: Tushar Madhukar
-  releases_url: https://github.com/tusharm/go-artifactory-plugin/releases
+  releases_url: https://github.com/tusharm/go-artifactory-plugin/releases/latest
 
 - name: MSBuild Task
   description: Task plugin to build projects using MSBuild.
   readmore_url: https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md
   author_url: https://github.com/akanyer/
   author_name: Andrew Kanyer
-  releases_url: https://github.com/akanyer/gocd-msbuild-taskplugin/releases
+  releases_url: https://github.com/akanyer/gocd-msbuild-taskplugin/releases/latest
 
 - name: Apache Brooklyn Task
   description: Task plugin to invoke actions on an Apache Brooklyn server.
   readmore_url: https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/blob/master/README.md
   author_url: https://github.com/rjgarciap/
   author_name: Ricardo J Garcia
-  releases_url: https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/releases
+  releases_url: https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/releases/latest
 
 - name: Deploy to AWS OpsWorks
   description: Task plugin to manage AWS OpsWorks deployment
   readmore_url: https://github.com/tispr/gocd-opsworks-plugin
   author_url: https://github.com/tispr
   author_name: tispr
-  releases_url: https://github.com/tispr/gocd-opsworks-plugin/releases
+  releases_url: https://github.com/tispr/gocd-opsworks-plugin/releases/latest
 
 - name: Gradle Task plugin
   description: Task plugin for running Gradle builds
   readmore_url: https://github.com/jmnarloch/gocd-gradle-plugin
   author_url: https://github.com/jmnarloch
   author_name: jmnarloch
-  releases_url: https://github.com/jmnarloch/gocd-gradle-plugin/releases
+  releases_url: https://github.com/jmnarloch/gocd-gradle-plugin/releases/latest
 
 - name: Health Check Task plugin
   description: Task plugin for delaying the build till the application becomes healthy
   readmore_url: https://github.com/jmnarloch/gocd-health-check-plugin
   author_url: https://github.com/jmnarloch
   author_name: jmnarloch
-  releases_url: https://github.com/jmnarloch/gocd-health-check-plugin/releases
+  releases_url: https://github.com/jmnarloch/gocd-health-check-plugin/releases/latest
 
 - name: SBT Task plugin
   description: Task plugin for running SBT builds
   readmore_url: https://github.com/jmnarloch/gocd-sbt-plugin
   author_url: https://github.com/jmnarloch
   author_name: jmnarloch
-  releases_url: https://github.com/jmnarloch/gocd-sbt-plugin/releases
+  releases_url: https://github.com/jmnarloch/gocd-sbt-plugin/releases/latest
 
 - name: Nessus Scan Task plugin
   description: Task plugin for running Nessus Scans
   readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Nessus-Scan-Task-Plugin
   author_url: https://github.com/markus2810
   author_name: Markus Wehrle
-  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
+  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases/latest
 
 - name: SonarQube Quality Gate Task plugin
   description: Stop/break your pipeline if a quality gate is not passed in SonarQube.
@@ -136,35 +136,35 @@
   readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Check_Mk-Monitoring-Task-Plugin
   author_url: https://github.com/bocradu
   author_name: Boc Radu
-  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
+  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases/latest
 
 - name: Slack Task plugin
   description: Send custom messages to Slack from Go CD jobs
   readmore_url: https://github.com/Vincit/gocd-slack-task
   author_url: https://github.com/Vincit
   author_name: Juha Siponen
-  releases_url: https://github.com/Vincit/gocd-slack-task/releases
+  releases_url: https://github.com/Vincit/gocd-slack-task/releases/latest
 
 - name: Docker pipeline plugin
   description: Builds a docker image from a Dockerfile, tags it and pushes it to a registry.
   readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Docker-plugin
   author_url: https://github.com/bradeac
   author_name: Camil Bradea
-  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases
+  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases/latest
 
 - name: Scalastyle Github Pull Request plugin
   description: Comments on Github pull requests with a summary of scalastyle results
   readmore_url: https://github.com/insano10/gocd-pr-comment-scalastyle
   author_url: https://github.com/insano10
   author_name: Jenny Beckett
-  releases_url: https://github.com/insano10/gocd-pr-comment-scalastyle/releases
+  releases_url: https://github.com/insano10/gocd-pr-comment-scalastyle/releases/latest
   
 - name: Artifactory Plugin
   description: Uploads Artifacts to JFrog Artifactory
   readmore_url: https://github.com/eaiesb/Gocd-Artifactory-Plugin
   author_url: https://github.com/eaiesb
   author_name: EAIESB
-  releases_url: https://github.com/eaiesb/Gocd-Artifactory-Plugin/releases
+  releases_url: https://github.com/eaiesb/Gocd-Artifactory-Plugin/releases/latest
   
 - name: Diawi Uploader Plugin
   description: Publish artifacts to https://www.diawi.com/
@@ -177,25 +177,25 @@
   readmore_url: https://github.com/kszatan/gocd-b2-artifacts
   author_url: https://kszatan.github.io/
   author_name: Krzysztof Szatan
-  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases
+  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases/latest
 
 - name: Backblaze B2 Fetch Task Plugin
   description: Plugin adding a task to fetch artifacts from Backblaze B2.
   readmore_url: https://github.com/kszatan/gocd-b2-artifacts
   author_url: https://kszatan.github.io/
   author_name: Krzysztof Szatan
-  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases
+  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases/latest
   
 - name: Dunner - Docker Task Runner Plugin
   description: Execute tasks inside Docker using Dunner, the docker task runner.
   readmore_url: https://github.com/leopardslab/dunner-gocd-plugin
   author_url: https://github.com/leopardslab
   author_name: LeopardsLab Community
-  releases_url: https://github.com/leopardslab/dunner-gocd-plugin/releases
+  releases_url: https://github.com/leopardslab/dunner-gocd-plugin/releases/latest
 
 - name: CMake
   description: Build cmake based projects.
   readmore_url: https://github.com/Tectu/gocd-cmake-task/blob/master/README.md
   author_url: https://blog.insane.engineer/author/joel-bodenmann/
   author_name: Joel Bodenmann
-  releases_url: https://github.com/Tectu/gocd-cmake-task/releases
+  releases_url: https://github.com/Tectu/gocd-cmake-task/releases/latest
