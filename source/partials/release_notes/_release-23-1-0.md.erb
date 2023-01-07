@@ -1,0 +1,94 @@
+<h4>Dashboard personalization enhancements</h4>
+
+Personalized views allowing filteres for failed or building stages now also allow inclusion of ***Cancelled*** or ***Paused*** pipelines.
+
+<%= image_tag 'releases/23.1.0/personalization_config.png', alt: 'Personalize Dashboard to show only cancelled or paused pipelines' %>
+
+<h4>Yum Repo Poller Plugin no longer bundled by default</h4>
+
+Due to both its uncommon use and improvement of agent bootstrap speeds the <a href="https://docs.gocd.org/current/extension_points/yum_repository_poller.html">Yum/RPM/DNF Repository Poller Plugin</a>
+is no longer bundled with GoCD from 23.1.0 onwards.
+
+All <%= link_to 'plugins', '/plugins/index.html' %> impose a marginal startup cost for the server and certain plugins also
+to all agents. Since it is also currently difficult to override bundled plugins in some GoCD setups, the team have
+decided to stop bundling this particular plugin.
+
+If you rely upon this plugin, follow these upgrade steps:
+
+1. download the <a href="https://github.com/gocd/gocd-yum-repository-poller-plugin/releases/latest">latest version of the plugin</a> from GitHub
+2. install the plugin as an _external_ plugin (see <a href="https://docs.gocd.org/current/extension_points/plugin_user_guide.html">plugin user guide</a>)
+3. upgrade your server to 23.1.0
+
+You needn't worry about:
+
+* _Starting your old server version with the external plugin added_. GoCD will ignore it, and prefer the bundled plugin until you upgrade.
+* _Loss of configuration while starting your server on 23.1.0 before adding the plugin back_. Your config will be retained,
+   however your server will not function correctly, and certain pipelines will not be editable until you restore the plugin
+   and restart your server, which you should do as soon as possible.
+
+As always, we recommend that you <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">take a backup</a> before upgrading.
+
+<h4>Other Enhancements</h4>
+
+* <%= link_to_issue 11341, 'Starting this release, Ubuntu, Debian and CentOS based container images are built multi-platform for both amd64 and arm64/aarch64' %> (<%= link_to 'example', 'https://hub.docker.com/r/gocd/gocd-server-centos-9/tags' %>)
+* <%= link_to_issue 11053, 'Starting this release, Alpine 3.17 based container images for GoCD Agent are' %> <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-alpine-3.17' %>.
+* <%= link_to_issue 11053, 'Build the default GoCD Server image on Alpine 3.17' %>
+* <%= link_to_issue 8544,  'Validate and enable GoCD server/agent install on Linux ARM / aarch64 system architecture' %>
+* <%= link_to_issue 11286, 'Improve agent work pickup speed with an exponential rather than fixed 10s backoff' %>
+* <%= link_to_issue 11100, 'Guard against out-of-memory errors when handling extremely long log lines from build task output' %>
+* <%= link_to_issue 11275 %>, <%= link_to_issue 11285, 'Improve artifact upload speed with buffer tweaks' %>
+* <%= link_to_issue 11205, 'Simplify & improve agent operating system complete name determination' %>
+* <%= link_to_issue 11295, 'Improve agent logging to avoid confusing double-timestamps' %>
+* <%= link_to_issue 11048, 'Improve logging of server output to assist with backup debugging' %>
+* <%= link_to_issue 11296, 'Improve container logging to avoid cut-off lines due to log buffering' %>
+
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 266 %>, <%= link_to_issue 11159, 'GoCD doesn''t correctly parse minified JUnit XML produced by pytest' %>
+* <%= link_to_issue 4469 %>, <%= link_to_issue 11317, 'Agent Error occurred during loop NullPointerException: Cannot invoke "org.apache.http.Header.getValue()" because "md5Header" is null' %>
+* <%= link_to_issue 11222, 'Fix occasional issues with container start stalling or crashing due to process wrapper issues' %>
+* <%= link_to_issue 10669, 'Dragging outside of the pipeline config web config dialogs can close the dialog without saving' %>
+* <%= link_to_issue 11004, 'Dead docs link on dashboard personalization page' %>
+* <%= link_to_issue 11047, 'Fix error messages on failure to launch DB backup process' %>
+* <%= link_to_issue 11070, 'Fix build label handling on VSM and job detail pages' %>
+* <%= link_to_issue 11141, 'Check server identity by default when talking SMTP over TLS' %>
+* <%= link_to_issue 11134, 'Stage History API fails with DB error on MySQL 8' %>
+* <%= link_to_issue 11260, 'Loading materials admin page creates syntax error on MySQL 8' %>
+
+<h4>Security Fixes</h4>
+
+We regularly fix security issues reported by security researchers & upgrade dependencies to mitigate known vulnerabilities.
+Upgrading to the latest release is always recommended.
+
+Security fixes in this release were due to vulnerabilities responsibly disclosed by infoatb and CC Bomber, Kitri BoB (tunaf). Many thanks
+to them for the disclosures, discussions and ideas around mitigation.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '23.1.0','changes-in-23-1-0', 'API changelog for 23.1.0' %> and
+  <%= link_to_versioned_plugin_api '23.1.0','changes-in-gocd-23-1-0', 'Plugin API changelog for 23.1.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "CC Bomber Kitri BoB (tunaf)",
+  "Chad Wilson",
+  "Christian Butcher",
+  "iantra",
+  "infoatb",
+  "Ketan Padegaonkar",
+  "Kim Sullivan",
+  "Sandro Heinzelmann",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 23.1.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
