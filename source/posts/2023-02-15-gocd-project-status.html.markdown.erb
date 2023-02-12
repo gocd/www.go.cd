@@ -1,0 +1,150 @@
+---
+layout: post
+title: GoCD project status in 2023
+type: post
+author: Chad Wilson & Aravind SV
+excerpt: "What's happening with the GoCD project in 2023?"
+summary_image: "/assets/images/blog/beginners-guide-cd/beginners-guide-cd-header.jpg"
+title_tag_of_header: "GoCD project status in 2023"
+meta_description: "A couple of years have passed since funded development on GoCD ended - learn about the current status of the project in 2023 here."
+meta_keywords: "GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, support, patching"
+---
+
+A couple of years have passed since Thoughtworks-funded development on GoCD ended. A number of folks have asked about
+GoCD's general project, maintenance, development and support status - along with some speculation. While some of this
+has been discussed in the [GoCD forums](https://groups.google.com/g/go-cd) over time, we thought it might help to add
+some clarity for users here.
+
+We hope for this to give a fair summary of the current state so you can make the best choice for you or your organization.
+
+_The following represents the opinions solely of the writers ([Chad Wilson](https://github.com/chadlwilson) &
+[Aravind SV](https://github.com/arvindsv)) in their personal capacity contributing to GoCD maintenance, and not an official position
+of Thoughtworks._
+
+### TL;DR
+
+As of early 2023, GoCD has a very small open-source maintainer group who are still driving a limited amount of bug fixes,
+minor enhancements, periodic releases and otherwise supporting the wider community.
+
+Since January 2021, GoCD has had _no organizational backing_ behind development, nor a commercial/enterprise support offering.
+
+### Background
+
+Here's a brief history of how we got here:
+
+* **2007**: GoCD was originally developed as a commercial, closed-sourced product named _Cruise_ by [Thoughtworks](https://www.thoughtworks.com/) Studios,
+  as an evolution of [CruiseControl](https://en.wikipedia.org/wiki/CruiseControl), the first continuous integration server.
+  In contrast to CruiseControl, GoCD's design instead focused on supporting continuous delivery with complex workflows,
+  rather than purely supporting the build automation at the core of continuous integration practices.
+* **2010**: _Cruise_ was renamed to _Go_. (later slightly adjusted to _GoCD_ to disambiguate from the increasingly popular [golang](https://go.dev/) language)
+* **2011**: The Go Community Edition is made license-free, easing use for folks in many settings.
+* **2014**: GoCD was [open-sourced](https://martinfowler.com/articles/go-interview.html), with certain features (including
+  support) remaining commercial closed source features requiring licensing from Thoughtworks.
+* **November 2019**: Thoughtworks [announces the plans for full transfer of GoCD to the community](https://groups.google.com/g/go-cd/c/EXwfvZZeLrM/m/ONU1fjwGCgAJ)
+  and end of the commercial support offering.
+* **May 2020**: Previously commercial features/plugins are all open-sourced or capability directly incorporated into GoCD by the GoCD Core Team.
+* **December 2020**: Commercial support for GoCD ends, as does Thoughtworks-funded development and maintenance of GoCD.
+
+### How is GoCD currently being maintained?
+
+As of February 2023, maintainer access to GoCD currently sits with a handful of folks that are either current or ex-Thoughtworks employees,
+including some of those originally part of the GoCD core team within Thoughtworks Studios. In practice, active
+contributions are coming from a much more limited set of folks - solely within their free time.
+
+This very small contributor team has completed [3-4 relatively minor releases](/releases.html) per year throughout 2021 and 2022,
+mainly focused around security-related updates, bug fixes and minor enhancements.
+
+### Does Thoughtworks continue to sponsor GoCD?
+
+For now, Thoughtworks still graciously provides funding for the website & build infrastructure of GoCD, along with
+code signing certificates, and a single commercially licensed component required for Windows support. This is
+done on a goodwill basis, and there is no official agreement with or promise to the community regarding this support.
+
+### Does GoCD have active ongoing feature development?
+
+At time of writing, there is no dedicated team actively contributing to GoCD feature development or major enhancements.
+There is also no ongoing funding behind open source contributions to GoCD, and GoCD has a very small contributor community.
+
+In the current state, this makes it unlikely that GoCD will receive major enhancements or changes in the foreseeable
+future, unless there is a large further increase in contributions by users, organizations or other members of the community.
+
+### Is GoCD end-of-life? Abandoned? Should GoCD be considered deprecated?
+
+GoCD is neither officially end-of-life, nor fully abandoned - but it's fair to say that its development is not thriving
+either.
+
+As to _deprecation_, generally this is a decision that you should make within your specific context. If GoCD meets your
+particular needs and functions as you would like in your environment with its current feature set and user experience,
+and the risks are acceptable to you, you should feel free to continue to use it - as with any free & open source software.
+
+### What happened to moving GoCD to an open source foundation?
+
+There [was an attempt](https://github.com/gocd/steering) to move GoCD over to an open source foundation. Based on initial
+conversations, the Linux Foundation and the Apache Software Foundation were interested and would likely have accepted GoCD.
+However, that effort is currently dormant. We realized that given the small contributor base, the move to a foundation
+would not change the situation significantly. The potential challenge around funding the build and release infrastructure
+would remain. The legal effort to make that change would have not been in line with the value of that change. That effort
+could be restarted at a later time.
+
+### Is it risky to continue to use GoCD from a security standpoint?
+
+Maybe? That depends on your assessment of risk. The [security policy](https://github.com/gocd/gocd/blob/master/SECURITY.md)
+has some important caveats, but a balanced assessment of risk for open source software generally includes assessment of
+the vibrancy of the software's community.
+
+Here are some additional aspects to consider:
+
+The **"good"** news:
+
+- We believe GoCD was built with solid security principles in mind that have generally stood the test of time.
+- Software dependencies incorporated within GoCD are _generally_ still under active development, and thus being
+  patched/updated. These are being incorporated into new GoCD releases without major issue.
+- GoCD runs on and is built/test using modern, maintained language runtimes (Java 17 LTS, NodeJS 18 LTS, Ruby 3.1)
+- GoCD continues to have good compatibility with latest operating systems, which can be extended to its supported
+  [Docker images](/download.html).
+
+The **"neutral"** news:
+
+- With GoCD, we [do not maintain/patch old releases of GoCD](https://github.com/gocd/gocd/blob/master/SECURITY.md).
+  In general, GoCD has always maintained robust backwards compatibility and sign-posted removals/deprecations in advance
+  with an expectation that folks will move forward to the latest release.
+
+The **"not-so-good"** news:
+
+- GoCD has a significant number of plugins, many different supported operating systems, many Docker image variants, a number
+  of languages used across the codebase and many different features that make it difficult for a small team to support.
+  Keeping on top of all of these requires non-trivial effort, and is likely not indefinitely sustainable with the current
+  contributor/maintainer community size.
+- At time of writing, GoCD does depend on some libraries/frameworks which require significant effort to upgrade, but are
+  end-of-life, and thus present some level of ongoing risk. If a major vulnerability is discovered in these libraries/frameworks
+  that affects GoCD it will either require an urgent upgrade, or forking and patching of those libraries/frameworks. The
+  community is not well placed to manage this kind of development. To help you assess risk, at time of writing, they include (but may not be limited to)
+
+  - Spring Framework 4.3 (EOL December 2020)
+  - Spring Security 4.2 (EOL October 2020)
+  - Hibernate ORM 3.6 (EOL February 2012)
+  - A small part of the UI relies on Angular JS 1, jQuery 1.7 and PrototypeJS 1.6
+
+### How can my organization or myself help with maintenance of GoCD?
+
+You can learn how to [contribute here](/contribute.html) and check out the [resources](/resources.html) available for getting started.
+
+### Should I migrate away from GoCD?
+
+Paraphrasing from [the original announcement](https://groups.google.com/g/go-cd/c/EXwfvZZeLrM/m/ONU1fjwGCgAJ) –
+you should assess your needs and select the best tool for you. GoCD will be available as an open source project for use in the future.
+Thoughtworks and the GoCD maintainers will not be providing alternative tools recommendations or migration support.
+Different tools in this space offer different levels of modeling capabilities and features.
+
+### What's the best way to migrate away from GoCD?
+
+GoCD has a reasonably comprehensive set of [APIs](https://api.gocd.org/) you can use to export pipeline configuration as a starting point for
+partially automated migration. If you don't use [pipelines as code techniques](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html),
+you might want to start with using the APIs to [get all pipeline groups](https://api.gocd.org/current/#get-all-pipeline-groups)
+and then [get pipeline config](https://api.gocd.org/current/#get-pipeline-config) for each pipeline for conversion to your
+target tool.
+
+### GoCD is great! But this doesn't seem like a great situation?
+
+We think GoCD is great too. And we agree the maintenance situation is not great either. Come encourage us and help us out on the
+[forums](https://groups.google.com/g/go-cd), or [GitHub](https://github.com/gocd/gocd).
