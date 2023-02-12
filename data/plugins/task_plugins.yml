@@ -26,13 +26,6 @@
   author_name: MidVision
   releases_url: https://github.com/MidVision/go-rapiddeploy/releases/latest
 
-- name: Groovy Task Plugin
-  description: Plugin to allow writing tasks in go.cd as Groovy scripts
-  readmore_url: https://github.com/4finance/go-plugin-groovy
-  author_url: https://www.4finance.com/
-  author_name: 4Finance
-  releases_url: https://github.com/4finance/go-plugin-groovy/releases/latest
-
 - name: Maven Task Plugin
   description: Plugin to allow running maven tasks in go.cd
   readmore_url: https://github.com/ruckc/gocd-maven-plugin
