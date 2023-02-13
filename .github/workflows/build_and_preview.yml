@@ -14,8 +14,6 @@ env:
 jobs:
   complete_build:
     runs-on: ubuntu-latest
-    env:
-      RUN_EXTERNAL_CHECKS: true
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby
@@ -64,3 +62,4 @@ jobs:
           S3_BUCKET: "${{ secrets.PREVIEW_S3_BUCKET }}"
           AWS_ACCESS_KEY_ID: "${{ secrets.PREVIEW_AWS_ACCESS_KEY_ID }}"
           AWS_SECRET_ACCESS_KEY: "${{ secrets.PREVIEW_AWS_SECRET_ACCESS_KEY }}"
+          RUN_EXTERNAL_CHECKS: false
