@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="A couple of years have passed since funded development on GoCD ended - learn about the current status of the project in 2023 here." name="description" />
+    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, support, patching" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="GoCD project status in 2023" />
+    <meta name="twitter:description" content="A couple of years have passed since funded development on GoCD ended - learn about the current status of the project in 2023 here." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/beginners-guide-cd/beginners-guide-cd-header-d0a7319f.jpg" />
+    <link rel="canonical" href="https://www.gocd.org/2023/02/13/gocd-project-status" />
+
+    <title>GoCD project status in 2023</title>
+    <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../../assets/stylesheets/site-1dd9914f.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-cc81523f.js" data-manual="true"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+    });
+    </script>
+  </head>
+
+  <body class="x2023 x2023_02 x2023_02_13 x2023_02_13_gocd-project-status x2023_02_13_gocd-project-status_index">
+    <header class="top">
+  <div class="container">
+    <a href="../../../../" class="logo" analytics-label="logo"><img src="../../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li><a href="../../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+
+
+  <header class="blog-post-header">
+    <h1><span class="go">Go</span>CD project status in 2023</h1>
+    <h4>Chad Wilson & Aravind SV</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      <p>A couple of years have passed since Thoughtworks-funded development on GoCD ended. A number of folks have asked about
+GoCD's general project, maintenance, development and support status - along with some speculation. While some of this
+has been discussed in the <a href="https://groups.google.com/g/go-cd">GoCD forums</a> over time, we thought it might help to add
+some clarity for users here.</p>
+
+<p>We hope for this to give a fair summary of the current state so you can make the best choice for you or your organization.</p>
+
+<p><em>The following represents the opinions solely of the writers (<a href="https://github.com/chadlwilson">Chad Wilson</a> &amp;
+<a href="https://github.com/arvindsv">Aravind SV</a>) in their personal capacity contributing to GoCD maintenance, and not an official position
+of Thoughtworks.</em></p>
+
+<h3 id="tldr">TL;DR</h3>
+
+<p>As of early 2023, GoCD has a very small open-source maintainer group who are still driving a limited amount of bug fixes,
+minor enhancements, periodic releases and otherwise supporting the wider community.</p>
+
+<p>Since January 2021, GoCD has had <em>no organizational backing</em> behind development, nor a commercial/enterprise support offering.</p>
+
+<h3 id="background">Background</h3>
+
+<p>Here's a brief history of how we got here:</p>
+
+<ul>
+  <li><strong>2007</strong>: GoCD was originally developed as a commercial, closed-sourced product named <em>Cruise</em> by <a href="https://www.thoughtworks.com/">Thoughtworks</a> Studios,
+as an evolution of <a href="https://en.wikipedia.org/wiki/CruiseControl">CruiseControl</a>, the first continuous integration server.
+In contrast to CruiseControl, GoCD's design instead focused on supporting continuous delivery with complex workflows,
+rather than purely supporting the build automation at the core of continuous integration practices.</li>
+  <li><strong>2010</strong>: <em>Cruise</em> was renamed to <em>Go</em>. (later slightly adjusted to <em>GoCD</em> to disambiguate from the increasingly popular <a href="https://go.dev/">golang</a> language)</li>
+  <li><strong>2011</strong>: The Go Community Edition is made license-free, easing use for folks in many settings.</li>
+  <li><strong>2014</strong>: GoCD was <a href="https://martinfowler.com/articles/go-interview.html">open-sourced</a>, with certain features (including
+support) remaining commercial closed source features requiring licensing from Thoughtworks.</li>
+  <li><strong>November 2019</strong>: Thoughtworks <a href="https://groups.google.com/g/go-cd/c/EXwfvZZeLrM/m/ONU1fjwGCgAJ">announces the plans for full transfer of GoCD to the community</a>
+and end of the commercial support offering.</li>
+  <li><strong>May 2020</strong>: Previously commercial features/plugins are all open-sourced or capability directly incorporated into GoCD by the GoCD Core Team.</li>
+  <li><strong>December 2020</strong>: Commercial support for GoCD ends, as does Thoughtworks-funded development and maintenance of GoCD.</li>
+</ul>
+
+<h3 id="how-is-gocd-currently-being-maintained">How is GoCD currently being maintained?</h3>
+
+<p>As of February 2023, maintainer access to GoCD currently sits with a handful of folks that are either current or ex-Thoughtworks employees,
+including some of those originally part of the GoCD core team within Thoughtworks Studios. In practice, active
+contributions are coming from a much more limited set of folks - solely within their free time.</p>
+
+<p>This very small contributor team has completed <a href="../../../../releases.html">3-4 relatively minor releases</a> per year throughout 2021 and 2022,
+mainly focused around security-related updates, bug fixes and minor enhancements.</p>
+
+<h3 id="does-thoughtworks-continue-to-sponsor-gocd">Does Thoughtworks continue to sponsor GoCD?</h3>
+
+<p>For now, Thoughtworks still graciously provides funding for the website &amp; build infrastructure of GoCD, along with
+code signing certificates, and a single commercially licensed component required for Windows support. This is
+done on a goodwill basis, and there is no official agreement with or promise to the community regarding this support.</p>
+
+<h3 id="does-gocd-have-active-ongoing-feature-development">Does GoCD have active ongoing feature development?</h3>
+
+<p>At time of writing, there is no dedicated team actively contributing to GoCD feature development or major enhancements.
+There is also no ongoing funding behind open source contributions to GoCD, and GoCD has a very small contributor community.</p>
+
+<p>In the current state, this makes it unlikely that GoCD will receive major enhancements or changes in the foreseeable
+future, unless there is a large further increase in contributions by users, organizations or other members of the community.</p>
+
+<h3 id="is-gocd-end-of-life-abandoned-should-gocd-be-considered-deprecated">Is GoCD end-of-life? Abandoned? Should GoCD be considered deprecated?</h3>
+
+<p>GoCD is neither officially end-of-life, nor fully abandoned - but it's fair to say that its development is not thriving
+either.</p>
+
+<p>As to <em>deprecation</em>, generally this is a decision that you should make within your specific context. If GoCD meets your
+particular needs and functions as you would like in your environment with its current feature set and user experience,
+and the risks are acceptable to you, you should feel free to continue to use it - as with any free &amp; open source software.</p>
+
+<h3 id="what-happened-to-moving-gocd-to-an-open-source-foundation">What happened to moving GoCD to an open source foundation?</h3>
+
+<p>There <a href="https://github.com/gocd/steering">was an attempt</a> to move GoCD over to an open source foundation. Based on initial
+conversations, the Linux Foundation and the Apache Software Foundation were interested and would likely have accepted GoCD.
+However, that effort is currently dormant. We realized that given the small contributor base, the move to a foundation
+would not change the situation significantly. The potential challenge around funding the build and release infrastructure
+would remain. The legal effort to make that change would have not been in line with the value of that change. That effort
+could be restarted at a later time.</p>
+
+<h3 id="is-it-risky-to-continue-to-use-gocd-from-a-security-standpoint">Is it risky to continue to use GoCD from a security standpoint?</h3>
+
+<p>Maybe? That depends on your assessment of risk. The <a href="https://github.com/gocd/gocd/blob/master/SECURITY.md">security policy</a>
+has some important caveats, but a balanced assessment of risk for open source software generally includes assessment of
+the vibrancy of the software's community.</p>
+
+<p>Here are some additional aspects to consider:</p>
+
+<p>The <strong>"good"</strong> news:</p>
+
+<ul>
+  <li>We believe GoCD was built with solid security principles in mind that have generally stood the test of time.</li>
+  <li>Software dependencies incorporated within GoCD are <em>generally</em> still under active development, and thus being
+patched/updated. These are being incorporated into new GoCD releases without major issue.</li>
+  <li>GoCD runs on and is built/test using modern, maintained language runtimes (Java 17 LTS, NodeJS 18 LTS, Ruby 3.1)</li>
+  <li>GoCD continues to have good compatibility with latest operating systems, which can be extended to its supported
+<a href="../../../../download.html">Docker images</a>.</li>
+</ul>
+
+<p>The <strong>"neutral"</strong> news:</p>
+
+<ul>
+  <li>With GoCD, we <a href="https://github.com/gocd/gocd/blob/master/SECURITY.md">do not maintain/patch old releases of GoCD</a>.
+In general, GoCD has always maintained robust backwards compatibility and sign-posted removals/deprecations in advance
+with an expectation that folks will move forward to the latest release.</li>
+</ul>
+
+<p>The <strong>"not-so-good"</strong> news:</p>
+
+<ul>
+  <li>GoCD has a significant number of plugins, many different supported operating systems, many Docker image variants, a number
+of languages used across the codebase and many different features that make it difficult for a small team to support.
+Keeping on top of all of these requires non-trivial effort, and is likely not indefinitely sustainable with the current
+contributor/maintainer community size.</li>
+  <li>
+    <p>At time of writing, GoCD does depend on some libraries/frameworks which require significant effort to upgrade, but are
+end-of-life, and thus present some level of ongoing risk. If a major vulnerability is discovered in these libraries/frameworks
+that affects GoCD it will either require an urgent upgrade, or forking and patching of those libraries/frameworks. The
+community is not well placed to manage this kind of development. To help you assess risk, at time of writing, they include (but may not be limited to)</p>
+
+    <ul>
+      <li>Spring Framework 4.3 (EOL December 2020)</li>
+      <li>Spring Security 4.2 (EOL October 2020)</li>
+      <li>Hibernate ORM 3.6 (EOL February 2012)</li>
+      <li>A small part of the UI relies on Angular JS 1, jQuery 1.7 and PrototypeJS 1.6</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="how-can-my-organization-or-myself-help-with-maintenance-of-gocd">How can my organization or myself help with maintenance of GoCD?</h3>
+
+<p>You can learn how to <a href="../../../../contribute.html">contribute here</a> and check out the <a href="../../../../resources.html">resources</a> available for getting started.</p>
+
+<h3 id="should-i-migrate-away-from-gocd">Should I migrate away from GoCD?</h3>
+
+<p>Paraphrasing from <a href="https://groups.google.com/g/go-cd/c/EXwfvZZeLrM/m/ONU1fjwGCgAJ">the original announcement</a> –
+you should assess your needs and select the best tool for you. GoCD will be available as an open source project for use in the future.
+Thoughtworks and the GoCD maintainers will not be providing alternative tools recommendations or migration support.
+Different tools in this space offer different levels of modeling capabilities and features.</p>
+
+<h3 id="whats-the-best-way-to-migrate-away-from-gocd">What's the best way to migrate away from GoCD?</h3>
+
+<p>GoCD has a reasonably comprehensive set of <a href="https://api.gocd.org/">APIs</a> you can use to export pipeline configuration as a starting point for
+partially automated migration. If you don't use <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">pipelines as code techniques</a>,
+you might want to start with using the APIs to <a href="https://api.gocd.org/current/#get-all-pipeline-groups">get all pipeline groups</a>
+and then <a href="https://api.gocd.org/current/#get-pipeline-config">get pipeline config</a> for each pipeline for conversion to your
+target tool.</p>
+
+<h3 id="gocd-is-great-but-this-doesnt-seem-like-a-great-situation">GoCD is great! But this doesn't seem like a great situation?</h3>
+
+<p>We think GoCD is great too. And we agree the maintenance situation is not great either. Come encourage us and help us out on the
+<a href="https://groups.google.com/g/go-cd">forums</a>, or <a href="https://github.com/gocd/gocd">GitHub</a>.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-articles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Feb 13</span>
+              <span class="post-author">Chad Wilson & Aravind SV</span>
+              <a href="./">GoCD project status in 2023</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 14</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="../../../../2021/12/14/log4j-vulnerability/">GoCD and the Log4j vulnerability - CVE-2021-44228</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 14</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../../2020/04/14/gocd-on-kubernetes-using-terraform/">GoCD on Kubernetes using Terraform</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../">2023 (1)</a></li>
+            <li><a href="../../../../2021/">2021 (1)</a></li>
+            <li><a href="../../../../2020/">2020 (3)</a></li>
+            <li><a href="../../../../2019/">2019 (7)</a></li>
+            <li><a href="../../../../2018/">2018 (17)</a></li>
+            <li><a href="../../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../../2014/">2014 (25)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/g/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://gitter.im/gocd/gocd" target="_blank" analytics-label="gitter">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../../resources/">RESOURCES</a></li>
+            <li><a href="https://www.thoughtworks.com/privacy-policy">PRIVACY</a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href='../../../../assets/gocd-brand-styleguide.zip'>LOGOS + BRAND</a></li>
+            <li><a href="../../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+</html>

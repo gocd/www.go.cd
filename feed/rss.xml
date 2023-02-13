@@ -5,10 +5,21 @@
   <id>https://www.gocd.org/blog</id>
   <link href="https://www.gocd.org/blog"/>
   <link href="https://www.gocd.org/feed/rss.xml" rel="self"/>
-  <updated>2021-12-14T00:00:00Z</updated>
+  <updated>2023-02-13T00:00:00Z</updated>
   <author>
     <name>GoCD Team</name>
   </author>
+  <entry>
+    <title>GoCD project status in 2023</title>
+    <link rel="alternate" href="https://www.gocd.org/2023/02/13/gocd-project-status.html"/>
+    <id>https://www.gocd.org/2023/02/13/gocd-project-status.html</id>
+    <published>2023-02-13T00:00:00Z</published>
+    <updated>2023-02-13T00:00:00Z</updated>
+    <author>
+      <name>Chad Wilson &amp; Aravind SV</name>
+    </author>
+    <content type="html">What's happening with the GoCD project in 2023?</content>
+  </entry>
   <entry>
     <title>GoCD and the Log4j vulnerability - CVE-2021-44228</title>
     <link rel="alternate" href="https://www.gocd.org/2021/12/14/log4j-vulnerability.html"/>
@@ -107,16 +118,5 @@
       <name>Mohamed Najiullah</name>
     </author>
     <content type="html">Understand the steps needed to install and configure GoCD on GKE using Helm while looking at the possibility of migrating your CI/CD infrastructure to Kubernetes</content>
-  </entry>
-  <entry>
-    <title>Use OpenLDAP for User Authentication in GoCD</title>
-    <link rel="alternate" href="https://www.gocd.org/2019/03/19/user-authorization-ldap.html"/>
-    <id>https://www.gocd.org/2019/03/19/user-authorization-ldap.html</id>
-    <published>2019-03-19T00:00:00Z</published>
-    <updated>2019-03-19T00:00:00Z</updated>
-    <author>
-      <name>Ankit Srivistava</name>
-    </author>
-    <content type="html">Understand more about how to use OpenLDAP and authenticate and scale your users in GoCD</content>
   </entry>
 </feed>
