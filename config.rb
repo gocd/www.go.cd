@@ -1,6 +1,16 @@
 require File.expand_path('../lib/extensions/fallback_for_directory_indexes', __FILE__)
 require File.expand_path('../lib/helpers/gocd_helpers', __FILE__)
 
+# Temporary monkey-patch to force use of unsafe YAML load with Ruby 3.1. This is required because  Middleman 4.4.2's
+# Middleman::Util::Data does not currently define necessary permitted_classes to allow yaml to load
+# as https://github.com/middleman/middleman/commit/f9f92dd52b11f922c055e1e6c352e0f997bcc7e4#diff-53e56e0b3ba9fbec173135ae691c6892a94ef9838534e4662c9d983f1214f97f
+# has not been released. Easiest way here is to fall back to Ruby 2.7.x behaviour (Psych 3.3.x) and unsafe load.
+module ::YAML
+  class << self
+    alias_method :load, :unsafe_load
+  end
+end
+
 helpers GoCDHelpers
 
 page '/*.xml', layout: false
