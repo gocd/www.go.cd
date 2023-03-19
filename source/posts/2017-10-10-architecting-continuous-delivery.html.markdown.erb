@@ -74,7 +74,7 @@ However, by either approach, componentization can be a multi-month effort with n
 
 When you start on a greenfield project, automated GUI tests or acceptance tests seem small and manageable and it is tempting to add as much coverage on that layer as possible. But unless tended to, these tests grow become unmanageable over time.
 
-The ice cream cone anti-pattern for test suites is well described [in this post](https://alisterbscott.com/kb/testing-pyramids/).
+The ice cream cone anti-pattern for test suites is well described by Alister B Scott's Testing Pyramids (since offline).
 
 > "Tests that run end-to-end through the UI are: brittle, expensive to write, and time consuming to run." - [Martin Fowler](https://martinfowler.com/bliki/TestPyramid.html)
 
@@ -86,8 +86,6 @@ Therefore, it is advisable to design your test suite to give just the necessary 
 <%= image_tag 'blog/architecting-continuous-delivery/ice-cream-test-anti-pattern.png', :alt => 'Ice cream cone test ani-pattern', :title => 'Ice cream cone test ani-pattern' %>
 <span class='info_txt'>Click image to zoom in</span>
 </div>
-
-(Adapted from [Alister B Scott](https://alisterbscott.com/kb/testing-pyramids/))
 
 On a recent project - a single page application on AngularJS talking to a backend API - we knew we had to test the UI layer because there was a lot of conditional logic, formatting, etc., embedded within the UI on AngularJS view templates. But instead of settling with a heavyweight Selenium or a Protractor test suite that would have been prohibitive given the number of test cases we had, [a team member](https://github.com/asengupta/) developed a tool called [Duck-Angular](https://github.com/asengupta/duck-angular) which could validate AngularJS rendered DOM and simulate DOM interactions using JS tests in-memory.
 
