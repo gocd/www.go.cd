@@ -1,17 +1,12 @@
 @charset "utf-8";
 
-//Bourbon Neat Import
-@import 'bourbon';
-@import 'neat';
-
-
+@import "bourbon";
+@import "neat";
 
 @import "scss/opensans";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "scss/urw-geometric";
-
-
 
 @import "scss/variables";
 @import "bootstrap_override";
@@ -21,7 +16,6 @@
 @import "scss/github-fork-ribbon";
 @import "scss/chocolat";
 
-//components
 @import "scss/tabs";
 
 @import "scss/general";
@@ -31,7 +25,6 @@
 @import "scss/dropdown";
 @import "scss/form";
 
-// Components
 @import "components/typography";
 @import "components/banner-component";
 @import "components/button";
@@ -41,7 +34,6 @@
 @import "components/video-component";
 @import "components/fixed-banner";
 
-//pages
 @import "scss/homepage";
 @import "scss/plugins";
 @import "scss/help";
