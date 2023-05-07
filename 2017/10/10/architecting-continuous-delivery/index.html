@@ -15,7 +15,7 @@
 
     <title>Architecting for Continuous Delivery | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-903f505f.css" rel="stylesheet" />
+    <link href="../../../../assets/stylesheets/site-c5b67c07.css" rel="stylesheet" />
     <script src="../../../../assets/javascripts/all-cc81523f.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
@@ -138,7 +138,7 @@ for each aspect like version control, CD server, infrastructure configuration to
 
 <p>When you start on a greenfield project, automated GUI tests or acceptance tests seem small and manageable and it is tempting to add as much coverage on that layer as possible. But unless tended to, these tests grow become unmanageable over time.</p>
 
-<p>The ice cream cone anti-pattern for test suites is well described <a href="https://alisterbscott.com/kb/testing-pyramids/">in this post</a>.</p>
+<p>The ice cream cone anti-pattern for test suites is well described by Alister B Scott's Testing Pyramids (since offline).</p>
 
 <blockquote>
   <p>"Tests that run end-to-end through the UI are: brittle, expensive to write, and time consuming to run." - <a href="https://martinfowler.com/bliki/TestPyramid.html">Martin Fowler</a></p>
@@ -152,8 +152,6 @@ for each aspect like version control, CD server, infrastructure configuration to
 <img src="../../../../assets/images/blog/architecting-continuous-delivery/ice-cream-test-anti-pattern-32612565.png" alt="Ice cream cone test ani-pattern" title="Ice cream cone test ani-pattern" />
 <span class="info_txt">Click image to zoom in</span>
 </div>
-
-<p>(Adapted from <a href="https://alisterbscott.com/kb/testing-pyramids/">Alister B Scott</a>)</p>
 
 <p>On a recent project - a single page application on AngularJS talking to a backend API - we knew we had to test the UI layer because there was a lot of conditional logic, formatting, etc., embedded within the UI on AngularJS view templates. But instead of settling with a heavyweight Selenium or a Protractor test suite that would have been prohibitive given the number of test cases we had, <a href="https://github.com/asengupta/">a team member</a> developed a tool called <a href="https://github.com/asengupta/duck-angular">Duck-Angular</a> which could validate AngularJS rendered DOM and simulate DOM interactions using JS tests in-memory.</p>
 
