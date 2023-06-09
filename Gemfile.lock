@@ -11,8 +11,9 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     afm (0.2.2)
     ansi (1.5.0)
-    async (2.5.1)
+    async (2.6.1)
       console (~> 1.10)
+      fiber-annotation
       io-event (~> 1.1)
       timers (~> 4.1)
     autoprefixer-rails (10.4.13.0)
@@ -29,7 +30,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.2)
-    console (1.16.2)
+    console (1.17.2)
+      fiber-annotation
       fiber-local
     contracts (0.17)
     dotenv (2.8.1)
@@ -45,6 +47,7 @@ GEM
     fast_blank (1.0.1)
     fastimage (2.2.7)
     ffi (1.15.5)
+    fiber-annotation (0.2.0)
     fiber-local (1.0.0)
     fog-aws (3.19.0)
       fog-core (~> 2.1)
