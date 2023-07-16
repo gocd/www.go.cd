@@ -129,3 +129,10 @@
   author_url: https://blog.insane.engineer/author/joel-bodenmann/
   author_name: Joel Bodenmann
   releases_url: https://github.com/Tectu/gocd-cmake-task/releases/latest
+
+- name: MLFlow repository poller & fetcher
+  description: Plugin to poll and fetch models from MLFlow as a model repository
+  readmore_url: https://github.com/indix/mlflow-gocd
+  author_url: https://github.com/indix
+  author_name: Indix
+  releases_url: https://github.com/indix/mlflow-gocd/releases/latest
