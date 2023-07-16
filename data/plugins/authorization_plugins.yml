@@ -48,13 +48,6 @@
   author_name: Svetlin Zamfirov
   releases_url: https://github.com/szamfirov/gocd-okta-oauth-authorization-plugin/releases/latest
 
-- name: TLS Client Certificate Authentication plugin
-  description: Using headers set by a TLS-terminating reverse proxy, details from a client certificate are used to log in
-  readmore_url: https://github.com/cnorthwood/gocd-tls-auth
-  author_url: https://cjn.me.uk/
-  author_name: Chris Northwood
-  releases_url: https://github.com/cnorthwood/gocd-tls-auth/releases/latest
-
 - name: GitLab OAuth authorization plugin
   description: The plugin allows user to login in GoCD using GitLab or GitLab Enterprise.
   readmore_url: https://github.com/gocd-contrib/gitlab-oauth-authorization-plugin
@@ -75,11 +68,3 @@
   author_url: https://github.com/klinux
   author_name: Kleber Rocha
   releases_url: https://github.com/klinux/gocd-keycloak-oauth-authorization-plugin/releases/latest
-
-- name: Atlassian Crowd Authentication Plugin
-  description: Delegates authentication services to Atlassian Crowd
-  readmore_url: https://github.com/mgambini/crowd-integration-plugin
-  author_url: https://github.com/mgambini
-  author_name: Di.Tech S.p.A.
-  releases_url: https://github.com/mgambini/crowd-integration-plugin/releases/latest
-  contact_url: mailto:marco.gambini@ditechspa.it?subject=Info about Crowd Authentication Plugin
