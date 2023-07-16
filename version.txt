@@ -1,9 +1,11 @@
-Last updated: 2023-07-16 05:32:04 +0000
+Last updated: 2023-07-16 10:05:18 +0000
 
 Latest commit:
-    commit e7adadb4bf6f47df4b912b007be48c83e3c4d6ee
+    commit 548ab3edd4ca378abd792ca08ffb322b43b42db8
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Sun Jul 16 12:59:55 2023 +0800
+    Date:   Sun Jul 16 17:36:37 2023 +0800
     
-        Remove dead links
+        Correct location of MLFlow plugin
+        
+        This is a fast plugin rather than an artifact plugin
     
