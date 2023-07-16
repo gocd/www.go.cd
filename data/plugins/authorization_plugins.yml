@@ -20,14 +20,6 @@
   releases_url: https://github.com/gocd/gocd-ldap-authorization-plugin/releases/latest
   supported: true
 
-- name: Atlassian Crowd Authentication Plugin
-  description: Delegates authentication services to Atlassian Crowd
-  readmore_url: https://github.com/mgambini/crowd-integration-plugin
-  author_url: https://github.com/mgambini
-  author_name: Di.Tech S.p.A.
-  releases_url: https://github.com/mgambini/crowd-integration-plugin/releases/latest
-  contact_url: mailto:marco.gambini@ditechspa.it?subject=Info about Crowd Authentication Plugin
-
 - name: GitHub OAuth authorization plugin
   description: The plugin allows user to login in GoCD using GitHub or GitHub Enterprise.
   readmore_url: https://github.com/gocd-contrib/github-oauth-authorization-plugin
@@ -41,6 +33,13 @@
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
   releases_url: https://github.com/gocd-contrib/google-oauth-authorization-plugin/releases/latest
+
+- name: Google IAP header authorization plugin
+  description: Allows users to login in GoCD using Google IAP headers
+  readmore_url: https://github.com/getsentry/gocd-google-iap-authorization-plugin
+  author_url: https://github.com/getsentry
+  author_name: Sentry
+  releases_url: https://github.com/getsentry/gocd-google-iap-authorization-plugin/releases/latest
 
 - name: Okta OAuth authorization plugin
   description: The plugin allows user to login in GoCD using an Okta account.
@@ -76,3 +75,11 @@
   author_url: https://github.com/klinux
   author_name: Kleber Rocha
   releases_url: https://github.com/klinux/gocd-keycloak-oauth-authorization-plugin/releases/latest
+
+- name: Atlassian Crowd Authentication Plugin
+  description: Delegates authentication services to Atlassian Crowd
+  readmore_url: https://github.com/mgambini/crowd-integration-plugin
+  author_url: https://github.com/mgambini
+  author_name: Di.Tech S.p.A.
+  releases_url: https://github.com/mgambini/crowd-integration-plugin/releases/latest
+  contact_url: mailto:marco.gambini@ditechspa.it?subject=Info about Crowd Authentication Plugin

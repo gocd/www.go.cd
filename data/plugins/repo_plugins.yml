@@ -81,3 +81,10 @@
   author_url: https://github.com/benwolstencroft/
   author_name: Ben Wolstencroft
   releases_url: https://github.com/benwolstencroft/go-nexus-poller-plugin/releases/latest
+
+- name: MLFlow repository poller & fetcher
+  description: Plugin to poll and fetch models from MLFlow as a model repository
+  readmore_url: https://github.com/indix/mlflow-gocd
+  author_url: https://github.com/indix
+  author_name: Indix
+  releases_url: https://github.com/indix/mlflow-gocd/releases/latest
