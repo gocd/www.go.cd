@@ -1,10 +1,3 @@
-- name: XUnit Converter
-  description: A plugin to convert test reports to XUnit format
-  readmore_url: https://github.com/gocd-contrib/xunit-converter-task
-  author_url: https://github.com/srinivasupadhya
-  author_name: Srinivas Upadhya
-  releases_url: https://github.com/gocd-contrib/xunit-converter-task/releases/latest
-
 - name: Powershell Task
   description: Task to run Powershell based builds.
   readmore_url: https://github.com/manojlds/gocd-powershell-runner/blob/master/README.md
@@ -25,13 +18,6 @@
   author_url: https://www.midvision.com/
   author_name: MidVision
   releases_url: https://github.com/MidVision/go-rapiddeploy/releases/latest
-
-- name: Maven Task Plugin
-  description: Plugin to allow running maven tasks in go.cd
-  readmore_url: https://github.com/ruckc/gocd-maven-plugin
-  author_url: https://github.com/ruckc
-  author_name: ruckc
-  releases_url: https://github.com/ruckc/gocd-maven-plugin/releases/latest
 
 - name: Script Executor Task Plugin
   description: Simple plugin to allow running scripts in GoCD (with syntactic sugar support for config repositories)
@@ -68,27 +54,6 @@
   author_name: Tushar Madhukar
   releases_url: https://github.com/tusharm/go-artifactory-plugin/releases/latest
 
-- name: MSBuild Task
-  description: Task plugin to build projects using MSBuild.
-  readmore_url: https://github.com/akanyer/gocd-msbuild-taskplugin/blob/master/README.md
-  author_url: https://github.com/akanyer/
-  author_name: Andrew Kanyer
-  releases_url: https://github.com/akanyer/gocd-msbuild-taskplugin/releases/latest
-
-- name: Apache Brooklyn Task
-  description: Task plugin to invoke actions on an Apache Brooklyn server.
-  readmore_url: https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/blob/master/README.md
-  author_url: https://github.com/rjgarciap/
-  author_name: Ricardo J Garcia
-  releases_url: https://github.com/rjgarciap/ApacheBrooklyn-Task-Plugin/releases/latest
-
-- name: Deploy to AWS OpsWorks
-  description: Task plugin to manage AWS OpsWorks deployment
-  readmore_url: https://github.com/tispr/gocd-opsworks-plugin
-  author_url: https://github.com/tispr
-  author_name: tispr
-  releases_url: https://github.com/tispr/gocd-opsworks-plugin/releases/latest
-
 - name: Gradle Task plugin
   description: Task plugin for running Gradle builds
   readmore_url: https://github.com/jmnarloch/gocd-gradle-plugin
@@ -110,40 +75,12 @@
   author_name: jmnarloch
   releases_url: https://github.com/jmnarloch/gocd-sbt-plugin/releases/latest
 
-- name: Nessus Scan Task plugin
-  description: Task plugin for running Nessus Scans
-  readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Nessus-Scan-Task-Plugin
-  author_url: https://github.com/markus2810
-  author_name: Markus Wehrle
-  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases/latest
-
-- name: SonarQube Quality Gate Task plugin
-  description: Stop/break your pipeline if a quality gate is not passed in SonarQube.
-  readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/SonarQube-Quality-Gates-Task-Plugin
-  author_url: https://github.com/markus2810
-  author_name: Markus Wehrle
-  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/tree/master/sonar-qualitygates-plugin/jar
-
-- name: Check_MK monitoring plugin
-  description: Manage a host on a Check_MK monitoring server from a GoCD pipeline. Add, remove hosts directly to Check_MK.
-  readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Check_Mk-Monitoring-Task-Plugin
-  author_url: https://github.com/bocradu
-  author_name: Boc Radu
-  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases/latest
-
 - name: Slack Task plugin
   description: Send custom messages to Slack from Go CD jobs
   readmore_url: https://github.com/Vincit/gocd-slack-task
   author_url: https://github.com/Vincit
   author_name: Juha Siponen
   releases_url: https://github.com/Vincit/gocd-slack-task/releases/latest
-
-- name: Docker pipeline plugin
-  description: Builds a docker image from a Dockerfile, tags it and pushes it to a registry.
-  readmore_url: https://github.com/Haufe-Lexware/gocd-plugins/wiki/Docker-plugin
-  author_url: https://github.com/bradeac
-  author_name: Camil Bradea
-  releases_url: https://github.com/Haufe-Lexware/gocd-plugins/releases/latest
 
 - name: Scalastyle Github Pull Request plugin
   description: Comments on Github pull requests with a summary of scalastyle results

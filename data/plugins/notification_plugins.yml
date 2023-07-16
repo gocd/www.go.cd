@@ -19,13 +19,6 @@
   author_name: Ashwanth Kumar
   releases_url: https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases/latest
 
-- name: WebSockets Build Notifier
-  description: Plugin to publish stage status change notifications via WebSockets.
-  readmore_url: https://github.com/matt-richardson/gocd-websocket-notifier
-  author_url: https://github.com/matt-richardson
-  author_name: Matt Richardson
-  releases_url: https://github.com/matt-richardson/gocd-websocket-notifier/releases/latest
-
 - name: GitHub Pull Request Status Notifier
   description: A plugin to update GitHub Pull Requests with build status.
   readmore_url: https://github.com/gocd-contrib/gocd-build-status-notifier
@@ -47,33 +40,12 @@
   author_name: Srinivas Upadhya
   releases_url: https://github.com/gocd-contrib/gocd-build-status-notifier/releases/latest
 
-- name: HipChat Notification
-  description: Plugin that sends HipChat notifications on build status
-  readmore_url: https://github.com/PagerDuty/gocd-hipchat-plugin
-  author_url: https://www.pagerduty.com
-  author_name: PagerDuty
-  releases_url: https://github.com/PagerDuty/gocd-hipchat-plugin/releases/latest
-
-- name: Gitter Notification
-  description: Plugin that sends Gitter notifications on build status
-  readmore_url: https://github.com/gocd-contrib/gitter-notifier
-  author_url: https://github.com/srinivasupadhya
-  author_name: Srinivas Upadhya
-  releases_url: https://github.com/gocd-contrib/gitter-notifier/releases/latest
-
 - name: Riemann Notification
   description: Plugin that sends Riemann notifications on build status
   readmore_url: https://github.com/rsr5/gocd-riemann-notifier
   author_url: https://github.com/rsr5
   author_name: Robin Ridler
   releases_url: https://github.com/rsr5/gocd-riemann-notifier/releases/latest
-
-- name: Gitter Activity Feed
-  description: Plugin that sends Gitter activity feed on build status
-  readmore_url: https://github.com/gocd-contrib/gitter-activity-feed-plugin
-  author_url: https://github.com/bdpiprava
-  author_name: Bhupendrakumar Piprava
-  releases_url: https://github.com/gocd-contrib/gitter-activity-feed-plugin/releases/latest
 
 - name: Spark Build Notifier
   description: Plugin to get build notifications on Cisco Spark.
