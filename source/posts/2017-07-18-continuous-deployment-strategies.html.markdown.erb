@@ -35,7 +35,7 @@ Some of these issues [can be addressed](https://martinfowler.com/bliki/PhoenixSe
 
 These tools help avoid configuration drift, the sort of one-off changes that go unnoticed and undocumented.
 
-An important point to note is that these tools only apply the configuration that they are asked to. If you applied any additional configuration outside of what these tools are aware of, or if you forgot to un-apply or remove some configuration, you'd be out of luck. This what [Ranjib Dey](https://github.com/ranjib) calls the [Accumulator Anti-Pattern](https://server.dzone.com/articles/infrastructure-tooling-anti).
+An important point to note is that these tools only apply the configuration that they are asked to. If you applied any additional configuration outside of what these tools are aware of, or if you forgot to un-apply or remove some configuration, you'd be out of luck. This what [Ranjib Dey](https://github.com/ranjib) calls the Accumulator Anti-Pattern.
 
 A much better alternative is to tear down servers periodically and apply configuration changes every once in a while. This helps avoid and catch any configuration drift outside of configuration management tools. Eventually one can move to deploying new servers on every configuration change. This strategy is known as an [Immutable Server](https://martinfowler.com/bliki/ImmutableServer.html).
 
