@@ -68,7 +68,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker release-versions">
-      <li rel="tab-23-1-0" class="tab-marker active">23.1.0 (latest)</li>
+      <li rel="tab-23-2-0" class="tab-marker active">23.2.0 (latest)</li>
+      <li rel="tab-23-1-0" class="tab-marker">23.1.0</li>
       <li rel="tab-22-3-0" class="tab-marker">22.3.0</li>
       <li rel="tab-22-2-0" class="tab-marker">22.2.0</li>
       <li rel="tab-22-1-0" class="tab-marker">22.1.0</li>
@@ -146,7 +147,78 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-23-1-0">23.1.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-23-2-0">23.2.0 (latest)</h3>
+      <div id="tab-23-2-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <p>This release is a maintenance release.</p>
+
+<p>There have been some changes made to GoCD's UI dependencies to improve loading times which may unintentionally affect
+certain <a href="../plugins/">plugins</a>' views. If you notice a visual problem with a plugin view after
+updating to 23.2.0, please update to the latest released version of the plugin, and if the issue persists please open an
+issue on the plugin's GitHub repository.</p>
+
+<p>Similarly, certain third-party community-authored authorization plugins may no longer be compatible due to use of an
+outdated extension version 1.0 <a href="https://plugin-api.gocd.org/current/#changes-in-gocd-19-3-0">deprecated in 2019</a>,
+and may need a minor update to declare compatibility with the <a href="https://plugin-api.gocd.org/current/authorization">2.0 extension API</a>.</p>
+
+<h4>Enhancements</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/11629">#11629</a>, <a href="https://github.com/gocd/gocd/issues/11633">#11633</a> - Ability to store/retrieve session state within GoCD plugins to facilitate increased security OAuth2/OIDC</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11578">#11578</a> - Starting this release, Debian 12 / Bookworm based container images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-12">available</a>.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11578">#11578</a> - Starting this release, Alpine 3.18 based container images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.18">available</a>.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11578">#11578</a> - Build the default GoCD Server image on Alpine 3.18</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11405">#11405</a> - Reduce size/security attack surface of CentOS Stream 9 based container images (requires use of microdnf instead of dnf)</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11472">#11472</a>, <a href="https://github.com/gocd/gocd/issues/11449">#11449</a>, <a href="https://github.com/gocd/gocd/issues/11473">#11473</a>, <a href="https://github.com/gocd/gocd/issues/11626">#11626</a>, <a href="https://github.com/gocd/gocd/issues/11627">#11627</a>, <a href="https://github.com/gocd/gocd/issues/11625">#11625</a> - Increase UI loading speed by reducing bundle size</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11535">#11535</a> - Improve pipeline config tab switch confirmation dialog message</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11663">#11663</a> - Improve user experience when managing Pluggable SCMs with Auto Update</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11664">#11664</a> - Improve error messages during config repo material validation</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11634">#11634</a> - Allow server wrapper-properties customisation within server container images</li>
+</ul>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/11378">#11378</a>, <a href="https://github.com/gocd/gocd/issues/11406">#11406</a> - gocd-agent-docker-dind:v23.1.0 image can sometimes fail docker tasks run after agent start</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11548">#11548</a> - go-agent 23.1.0 does not start when system tmp dir has a noexec mount</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11376">#11376</a> - Remove unnecessary bloat within CentOS 7 arm64 agent container image</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11544">#11544</a> - Pipeline config deep links from Pluggable SCMs and Elastic Agents don't work as expected</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11399">#11399</a> - GoCD Artifacts tab doesn't show artifacts whose name starts with a dot</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11773">#11773</a> - Fix import of nant_path from nant config repo tasks</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11772">#11772</a> - Fix export to config repo of fetch artifact tasks without pipeline name set</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11652">#11652</a> - Fix font display consistency across views</li>
+  <li><a href="https://github.com/gocd/gocd/issues/2822">#2822</a> - Fix logging ERROR noise from url rewriting logic</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11513">#11513</a> - Remove misleading reporting of agent "creating properties" in console logs</li>
+</ul>
+
+<h4>Security Fixes</h4>
+
+<p>We regularly fix security issues reported by security researchers &amp; upgrade dependencies to mitigate known vulnerabilities.
+Upgrading to the latest release is always recommended.</p>
+
+<p>There are no security fixes specifically known to affect GoCD included in this release.</p>
+
+<h4>APIs</h4>
+
+<p>Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <a href="https://api.gocd.org/23.2.0/#changes-in-23-2-0">API changelog for 23.2.0</a> and
+  <a href="https://plugin-api.gocd.org/23.2.0/#changes-in-gocd-23-2-0">Plugin API changelog for 23.2.0</a>.</p>
+
+<h4>Contributors</h4>
+
+<p>Aravind SV, Chad Wilson, FeltIP, James McNee, Jeroen Oortwijn, Ketan Padegaonkar, Marc Ende</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+23.2.0%22+is%3Aclosed">here.</a></p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+<p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>.</p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-23-1-0">23.1.0</h3>
       <div id="tab-23-1-0" class="tab_content" style="display: block;">
         <div class="content">
           <h4>Dashboard personalization enhancements</h4>
@@ -3042,7 +3114,7 @@ using screenreaders to use the new dashboard.</p>
 
 <p>This release primarily addresses performance issue caused by a config save, which slows down several requests because of a long-running database query executed in order to update the dashboard.</p>
 
-<p>We have performed some optimizations in order to significantly reduce the number of SQL calls executed. Read more about it <a href="https://github.com/gocd/gocd/issues/4706">#4706</a> - here and <a href="https://github.com/gocd/gocd/issues/4705">#4705</a> - here.</p>
+<p>We have performed some optimizations in order to significantly reduce the number of SQL calls executed. Read more about it at <a href="https://github.com/gocd/gocd/issues/4706">#4706</a> and <a href="https://github.com/gocd/gocd/issues/4705">#4705</a>.</p>
 
 <h4>Improvements</h4>
 
@@ -6094,7 +6166,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
   You'll never need to wish that Go supported your favorite kind of material repository, you can implement support for it yourself!
 </p>
 <p>
-  You can see all the SCM material plugins on the . See how to write one, <a href="https://docs.gocd.org/current/extension_points/scm_extension.html">here</a>.
+  You can see all the SCM material plugins on the <a href="https://www.gocd.org/plugins/">Go Community plugins</a>. See how to write one, <a href="https://docs.gocd.org/current/extension_points/scm_extension.html">here</a>.
 </p>
 <p>
   Here's how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="https://www.gocd.org/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
@@ -6107,7 +6179,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
   for quite a lot of use cases, and we are excited to see plugins written against this endpoint even before release (yay, open source!).</p>
 <p> <a href="https://github.com/matt-richardson">@matt-richardson</a> has written a really nice generic notification plugin, which sends build notifications to any websocket listener! <a href="https://github.com/ashwanthkumar">@ashwanthkumar</a>              has written a great plugin to notify Slack about build status changes. <a href="https://github.com/srinivasupadhya/">@srinivasupadhya</a> has written a couple of nice notification plugins to update pull request statuses in GitHub and Atlassian
   Stash.</p>
-<p> You can see all of those plugins on the . See how to write one yourself, <a href="https://plugin-api.gocd.org/current/notifications/">here</a>.</p>
+<p> You can see all of those plugins on the <a href="#">Go Community plugins page/plugins/index.html</a>. See how to write one yourself, <a href="https://plugin-api.gocd.org/current/notifications/">here</a>.</p>
 <h4>Pipeline label shortening</h4>
 <p> This contribution by <a href="https://github.com/alexschwartz">@alexschwartz</a> helps declutter the Go Dashboard, by allowing the pipeline label to be trimmed, per material. This feature is really useful when dealing with unwieldy 40 character
   SHAs in pipelines with git/mercurial materials in them. This feature allows this: </p>
