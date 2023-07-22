@@ -1,0 +1,59 @@
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 11629 %>, <%= link_to_issue 11633, 'Ability to store/retrieve session state within GoCD plugins to facilitate increased security OAuth2/OIDC' %>
+* <%= link_to_issue 11578, 'Starting this release, Debian 12 / Bookworm based container images for GoCD Agent are' %> <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-debian-12' %>.
+* <%= link_to_issue 11578, 'Starting this release, Alpine 3.18 based container images for GoCD Agent are' %> <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-alpine-3.18' %>.
+* <%= link_to_issue 11578, 'Build the default GoCD Server image on Alpine 3.18' %>
+* <%= link_to_issue 11405, 'Reduce size/security attack surface of CentOS Stream 9 based container images (requires use of microdnf instead of dnf)' %>
+* <%= link_to_issue 11472 %>, <%= link_to_issue 11449 %>, <%= link_to_issue 11473 %>, <%= link_to_issue 11626 %>, <%= link_to_issue 11627 %>, <%= link_to_issue 11625, 'Increase UI loading speed by reducing bundle size' %>
+* <%= link_to_issue 11535, 'Improve pipeline config tab switch confirmation dialog message' %>
+* <%= link_to_issue 11663, 'Improve user experience when managing Pluggable SCMs with Auto Update' %>
+* <%= link_to_issue 11664, 'Improve error messages during config repo material validation' %>
+* <%= link_to_issue 11634, 'Allow server wrapper-properties customisation within server container images' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 11378 %>, <%= link_to_issue 11406, 'gocd-agent-docker-dind:v23.1.0 image can sometimes fail docker tasks run after agent start' %>
+* <%= link_to_issue 11548, 'go-agent 23.1.0 does not start when system tmp dir has a noexec mount' %>
+* <%= link_to_issue 11376, 'Remove unnecessary bloat within CentOS 7 arm64 agent container image' %>
+* <%= link_to_issue 11544, 'Pipeline config deep links from Pluggable SCMs and Elastic Agents don\'t work as expected' %>
+* <%= link_to_issue 11399, 'GoCD Artifacts tab doesn\'t show artifacts whose name starts with a dot' %>
+* <%= link_to_issue 11773, 'Fix import of nant_path from nant config repo tasks' %>
+* <%= link_to_issue 11772, 'Fix export to config repo of fetch artifact tasks without pipeline name set' %>
+* <%= link_to_issue 11652, 'Fix font display consistency across views' %>
+* <%= link_to_issue 2822,  'Fix logging ERROR noise from url rewriting logic' %>
+* <%= link_to_issue 11513, 'Remove misleading reporting of agent "creating properties" in console logs' %>
+
+
+<h4>Security Fixes</h4>
+
+We regularly fix security issues reported by security researchers & upgrade dependencies to mitigate known vulnerabilities.
+Upgrading to the latest release is always recommended.
+
+There are no security fixes specifically known to affect GoCD included in this release.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '23.2.0','changes-in-23-2-0', 'API changelog for 23.2.0' %> and
+  <%= link_to_versioned_plugin_api '23.2.0','changes-in-gocd-23-2-0', 'Plugin API changelog for 23.2.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "FeltIP",
+  "James McNee",
+  "Jeroen Oortwijn",
+  "Ketan Padegaonkar",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 23.2.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
