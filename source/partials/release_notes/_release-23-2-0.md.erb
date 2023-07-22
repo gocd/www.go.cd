@@ -1,3 +1,14 @@
+This release is a maintenance release.
+
+There have been some changes made to GoCD's UI dependencies to improve loading times which may unintentionally affect
+certain <%= link_to 'plugin', '/plugins/index.html' %> views. If you notice a visual problem with a plugin view after
+updating to 23.2.0, please update to the latest released version of the plugin, and if the issue persists please open an
+issue on the plugin's GitHub repository.
+
+Similarly, certain third-party community-authored authorization plugins may no longer be compatible due to use of an
+outdated extension version 1.0 <%= link_to 'deprecated in 2019', 'https://plugin-api.gocd.org/current/#deprecations-across-extensions58' %>,
+and may need a minor update to declare compatibility with the <%= link_to '2.0 extension API', 'https://plugin-api.gocd.org/current/authorization/' %>.
+
 <h4>Enhancements</h4>
 
 * <%= link_to_issue 11629 %>, <%= link_to_issue 11633, 'Ability to store/retrieve session state within GoCD plugins to facilitate increased security OAuth2/OIDC' %>
