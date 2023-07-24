@@ -1,0 +1,28 @@
+This release is a maintenance release to address a couple of unintended regressions in the 23.2.0 release.
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 11790, 'Stage History pagination links broken on 23.2.0' %>
+* <%= link_to_issue 11783, 'Fix display of build detail timestamps icon' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '23.3.0', 'changes-in-23-3-0', 'API changelog for 23.3.0' %> and
+  <%= link_to_versioned_plugin_api '23.3.0', 'changes-in-gocd-23-3-0', 'Plugin API changelog for 23.3.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 23.3.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
