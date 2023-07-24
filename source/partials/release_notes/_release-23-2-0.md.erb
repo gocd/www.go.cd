@@ -1,13 +1,24 @@
-This release is a maintenance release.
+<div class="information">
+  <b>NOTE:</b> An issue was discovered with 23.2.0 which prevents UI navigation via Stage History to older stage runs in
+  the history when you're already viewing the detail of an individual stage (Stage Details view).
+
+  Please upgrade to <%= link_to_full_changelog '23.3.0', 'Release 23.3.0' %> instead, which resolves this issue.
+</div>
+---
+This release is mainly a maintenance and bug-fix release.
+
+<h4>Minor changes that may affect plugins</h4>
 
 There have been some changes made to GoCD's UI dependencies to improve loading times which may unintentionally affect
 certain <%= link_to 'plugins', '/plugins/index.html' %>' views. If you notice a visual problem with a plugin view after
 updating to 23.2.0, please update to the latest released version of the plugin, and if the issue persists please open an
 issue on the plugin's GitHub repository.
 
-Similarly, certain third-party community-authored authorization plugins may no longer be compatible due to use of an
-outdated extension version 1.0 <%= link_to_plugin_api_section '#changes-in-gocd-19-3-0', 'deprecated in 2019' %>,
-and may need a minor update to declare compatibility with the <%= link_to_plugin_api_section 'authorization', '2.0 extension API' %>.
+A small number of third-party ___community-authored authorization plugins___ may no longer be compatible if they have not
+been updated to declare compatibility with the <%= link_to_plugin_api_section 'authorization', '2.0 extension API' %>
+and still use the outdated extension version 1.0 <%= link_to_plugin_api_section '#changes-in-gocd-19-3-0', 'deprecated in 2019' %>.
+We have reached out to plugin authors for some of the more popular ones that need updating, but please update your plugins
+and open an issue with the plugin author if you notice a plugin version compatibility error preventing the plugin from loading.
 
 <h4>Enhancements</h4>
 
