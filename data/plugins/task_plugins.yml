@@ -5,20 +5,6 @@
   author_name: Manoj Mahalingam
   releases_url: https://github.com/manojlds/gocd-powershell-runner/releases/latest
 
-- name: RapidDeploy Package Builder
-  description: Plugin to build a deployment package on a remote RapidDeploy server.
-  readmore_url: https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin
-  author_url: https://www.midvision.com/
-  author_name: MidVision
-  releases_url: https://github.com/MidVision/go-rapiddeploy/releases/latest
-
-- name: RapidDeploy Job Runner
-  description: Plugin to invoke a job on a remote RapidDeploy server.
-  readmore_url: https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-job-runner-task-plugin
-  author_url: https://www.midvision.com/
-  author_name: MidVision
-  releases_url: https://github.com/MidVision/go-rapiddeploy/releases/latest
-
 - name: Script Executor Task Plugin
   description: Simple plugin to allow running scripts in GoCD (with syntactic sugar support for config repositories)
   readmore_url: https://github.com/gocd-contrib/script-executor-task
@@ -46,13 +32,6 @@
   author_url: https://github.com/manojlds
   author_name: Manoj Mahalingam
   releases_url: https://github.com/manojlds/gocd-docker/releases/latest
-
-- name: Publish to Artifactory
-  description: Uploads artifact(s) to Artifactory with build detail...
-  readmore_url: https://github.com/tusharm/go-artifactory-plugin
-  author_url: https://github.com/tusharm
-  author_name: Tushar Madhukar
-  releases_url: https://github.com/tusharm/go-artifactory-plugin/releases/latest
 
 - name: Gradle Task plugin
   description: Task plugin for running Gradle builds

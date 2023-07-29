@@ -33,13 +33,6 @@
   author_name: Deyan Varchev
   releases_url: https://github.com/varchev/go-npm-poller/releases/latest
 
-- name: RapidDeploy Package Repository
-  description: Plugin to poll RapidDeploy artifact repository.
-  readmore_url: https://github.com/MidVision/go-rapiddeploy/wiki#rapiddeploy-package-repository-plugin
-  author_url: https://www.midvision.com/
-  author_name: MidVision
-  releases_url: https://github.com/MidVision/go-rapiddeploy/releases/latest
-
 - name: S3 Artifacts poller
   description: Plugin to poll Amazon S3 for artifacts
   readmore_url: https://oss.indix.com/gocd-s3-artifacts/material_poller.html
