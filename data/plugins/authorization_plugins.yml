@@ -43,10 +43,10 @@
 
 - name: Okta OAuth authorization plugin
   description: The plugin allows user to login in GoCD using an Okta account.
-  readmore_url: https://github.com/szamfirov/gocd-okta-oauth-authorization-plugin
+  readmore_url: https://github.com/gocd-contrib/gocd-okta-oauth-authorization-plugin
   author_url: https://github.com/szamfirov
   author_name: Svetlin Zamfirov
-  releases_url: https://github.com/szamfirov/gocd-okta-oauth-authorization-plugin/releases/latest
+  releases_url: https://github.com/gocd-contrib/gocd-okta-oauth-authorization-plugin/releases/latest
 
 - name: GitLab OAuth authorization plugin
   description: The plugin allows user to login in GoCD using GitLab or GitLab Enterprise.
