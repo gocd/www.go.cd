@@ -212,8 +212,11 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         <label for="experimental-docker">Experimental</label>
       </div>
       <div class="go-release {{go_version}} row">
-        <div class=" col-xs-12">
+        <div class="col-xs-7">
           <span class="version">Version: {{go_version}}</span>
+        </div>
+        <div class="col-xs-5">
+          <span class="version">Released: {{release_date}}</span>
         </div>
         <div class="col-xs-12">
           {{> show-docker-release server_docker=server_docker agents_docker=agents_docker docker_org=docker_org }}
@@ -227,8 +230,11 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     <div class="old-release">
       {{#each all_other_cloud_releases}}
       <div class="row go-release {{go_version}}">
-        <div class="col-xs-12">
+        <div class="col-xs-7">
           <span class="version">Version: {{go_version}}</span>
+        </div>
+        <div class="col-xs-5">
+          <span class="version">Released: {{release_date}}</span>
         </div>
         <div class="col-xs-12">
           {{> show-docker-release server_docker=server_docker agents_docker=agents_docker docker_org=docker_org }}

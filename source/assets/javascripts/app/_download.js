@@ -145,9 +145,11 @@ var showDownloadLinks = (function ($) {
         R.map(addDisplayVersion),
         R.map(addReleaseDate)
       )(releaseData[0]);
+
       var cloudReleases = R.compose(
         releasesLessThanAYearOld,
-        R.sort(compareVersions("go_version"))
+        R.sort(compareVersions("go_version")),
+        R.map(addReleaseDate)
       )(cloudData[0]);
 
       var latest_cloud_release = R.head(cloudReleases);
