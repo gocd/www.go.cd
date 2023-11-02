@@ -16,7 +16,7 @@
     <title>Download for Free - Server and Agent | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
     <link href="../assets/stylesheets/site-c5b67c07.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-cc81523f.js" data-manual="true"></script>
+    <script src="../assets/javascripts/all-4272c575.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -254,8 +254,11 @@
         <label for="experimental-docker">Experimental</label>
       </div>
       <div class="go-release {{go_version}} row">
-        <div class=" col-xs-12">
+        <div class="col-xs-7">
           <span class="version">Version: {{go_version}}</span>
+        </div>
+        <div class="col-xs-5">
+          <span class="version">Released: {{release_date}}</span>
         </div>
         <div class="col-xs-12">
           {{> show-docker-release server_docker=server_docker agents_docker=agents_docker docker_org=docker_org }}
@@ -269,8 +272,11 @@
     <div class="old-release">
       {{#each all_other_cloud_releases}}
       <div class="row go-release {{go_version}}">
-        <div class="col-xs-12">
+        <div class="col-xs-7">
           <span class="version">Version: {{go_version}}</span>
+        </div>
+        <div class="col-xs-5">
+          <span class="version">Released: {{release_date}}</span>
         </div>
         <div class="col-xs-12">
           {{> show-docker-release server_docker=server_docker agents_docker=agents_docker docker_org=docker_org }}
