@@ -1,0 +1,60 @@
+This release is mainly a maintenance and bug-fix release.
+
+<h4>Jetty web server upgrade</h4>
+
+GoCD relies internally upon the [Eclipse Jetty web server](https://eclipse.dev/jetty/), which was
+upgraded from v9 to v10 in this release.
+
+If you customise the configuration of the web server via _config/jetty.xml_ or by overriding the Java system property
+_jetty.xml.file.name_, note that any custom configuration will be overridden to ensure compatibility with the new version.
+After upgrading, shut down your GoCD server and merge back your custom changes from a backup of your config directory
+/ Jetty configuration. You can [review the changes to jetty.xml here](https://github.com/gocd/gocd/commit/5d7f3ccb107224fa376938690a8f7721357cddff#diff-7bbdaff7e1127a406cdce7bffae1167d66ecfb219bccc4689cb3cf38e8b2014c).
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 12120, 'Bundle latest Java 17.0.9 release with non-Linux installers & containers' %>
+* <%= link_to_issue 12147, 'Speed agent bootstrapping by reducing agent dependencies' %>
+* <%= link_to_issue 12051, 'Remove subversion & mercurial from default container images' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 11868 %>, <%= link_to_issue 11893, 'Server config can have boolean attributes unintentionally toggled by server at GoCD startup' %>
+* <%= link_to_issue 11819, 'Agent links from stage details jobs tab no longer work since 23.2.0' %>
+* <%= link_to_issue 11866, 'GoCD 23.2/23.3 breaks agent mTLS connectivity when private key is encrypted/passphrase protected' %>
+* <%= link_to_issue 11969, 'GoCD Agent on Java 20+ can''t talk to server on Java 17' %>
+* <%= link_to_issue 12107, 'Improve error logging during agent token acquisition failures' %>
+
+<h4>Security fixes</h4>
+
+We regularly fix security issues reported by security researchers & upgrade dependencies to mitigate known vulnerabilities.
+Upgrading to the latest release is always recommended.
+
+There are no security fixes specifically known to affect GoCD included in this release. If you use GoCD container images,
+note that this release rebuilds GoCD images to include fixes to _curl_ [CVE-2023-38545](https://curl.se/docs/CVE-2023-38545.html)
+across all supported platforms.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '23.4.0','changes-in-23-4-0', 'API changelog for 23.4.0' %> and
+  <%= link_to_versioned_plugin_api '23.4.0','changes-in-gocd-23-4-0', 'Plugin API changelog for 23.4.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "jprogin",
+  "k-c-p",
+  "Mai-Khattab",
+  "Victor Sollerhed",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 23.4.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
