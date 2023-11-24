@@ -266,8 +266,30 @@ issue on the plugin's GitHub repository.</p>
 <p>A small number of third-party <strong><em>community-authored authorization plugins</em></strong> may no longer be compatible if they have not
 been updated to declare compatibility with the <a href="https://plugin-api.gocd.org/current/authorization">2.0 extension API</a>
 and still use the outdated extension version 1.0 <a href="https://plugin-api.gocd.org/current/#changes-in-gocd-19-3-0">deprecated in 2019</a>.
-We have reached out to plugin authors for some of the more popular ones that need updating, but please update your plugins
-and open an issue with the plugin author if you notice a plugin version compatibility error preventing the plugin from loading.</p>
+All known popular plugins maintained by the community have been updated, so please update your plugins and open an issue
+with the plugin author if you notice a plugin version compatibility error preventing the plugin from loading.</p>
+
+<h4>GoCD Agent DIND container image start-up is now more conservative</h4>
+
+<p>The <a href="https://hub.docker.com/r/gocd/gocd-agent-docker-dind">GoCD agent "docker-in-docker" image</a>
+semantics were changed to ensure that the Docker daemon has <strong><em>started correctly before starting the
+GoCD agent</em></strong>.</p>
+
+<p>This aligns behavior with the <a href="https://hub.docker.com/_/docker/tags?page=1&amp;name=dind">upstream official docker:dind image</a>
+and resolves a race condition in <a href="https://github.com/gocd/gocd/issues/11378">#11378</a> that can cause docker-related tasks on GoCD agents to fail
+due to improvements in GoCD agent work pick-up speed in recent releases.</p>
+
+<p>Prior to GoCD 23.2.0, if the daemon failed to start the agent would continue to work without it. Docker commands within
+tasks would fail, however the agent would continue. If you were accidentally relying on this behaviour (e.g due to running
+the agent without the <strong><em>privileged</em></strong> flag, without the appropriate Kubernetes <strong><em>securityContext</em></strong>, or without
+mounting the host's <strong><em>docker.sock</em></strong> into the container correctly), you will need to update your agent start
+scripts or elastic agent profile to ensure the daemon has the correct container privileges, OR switch to a non-DIND
+agent image such as a <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.18">plain Alpine image</a>.</p>
+
+<p>Keep in mind that you only need to use a DIND agent image if you are relying on docker-in-docker or docker-out-of-docker
+approaches to build or run nested or sibling containers within your agent host. If you want a drop-in replacement, we
+recommend that you use an off-the-shelf GoCD Agent Alpine image, or if you need the Docker CLI (without daemon)
+build your own custom child image, augmenting with <strong><em>apk add docker-cli</em></strong> or similar tooling.</p>
 
 <h4>Enhancements</h4>
 
