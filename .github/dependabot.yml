@@ -12,5 +12,4 @@ updates:
     day: friday
   open-pull-requests-limit: 99
   allow:
-  - dependency-type: direct
-  - dependency-type: indirect
+  - dependency-type: all
