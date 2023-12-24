@@ -1,0 +1,45 @@
+This release is a maintenance and bug-fix release.
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 12353, 'Starting this release, Alpine 3.19 based container images for GoCD Agent are' %> <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-alpine-3.19' %>.
+* <%= link_to_issue 12353, 'Build the default GoCD Server image on Alpine 3.19' %>
+* <%= link_to_issue 12212, 'Make template selector dropdowns alphabetically sorted' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 12220, 'Console view toolbar not shown after scrolling on v23.4.0' %>
+* <%= link_to_issue 12305, 'Unable to pick stage from Add Material menu in Chrome on MacOS Sonoma' %>
+* <%= link_to_issue 12389, 'Fix disappearing second+ stages on VSM view after clicking a stage' %>
+* <%= link_to_issue 12392, 'Correct display of "cancelled by" for stage runs other than that being viewed' %>
+
+<h4>Security fixes</h4>
+
+We regularly fix security issues reported by security researchers & upgrade dependencies to mitigate known vulnerabilities.
+Upgrading to the latest release is always recommended.
+
+There are no security fixes specifically known to affect GoCD included in this release.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '23.5.0','changes-in-23-5-0', 'API changelog for 23.5.0' %> and
+  <%= link_to_versioned_plugin_api '23.5.0','changes-in-gocd-23-5-0', 'Plugin API changelog for 23.5.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "Chris Gillatt",
+  "Lewis Jales-Huggins",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 23.5.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
