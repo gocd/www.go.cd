@@ -158,7 +158,7 @@ the vibrancy of the software's community.</p>
   <li>We believe GoCD was built with solid security principles in mind that have generally stood the test of time.</li>
   <li>Software dependencies incorporated within GoCD are <em>generally</em> still under active development, and thus being
 patched/updated. These are being incorporated into new GoCD releases without major issue.</li>
-  <li>GoCD runs on and is built/test using modern, maintained language runtimes (Java 17 LTS, NodeJS 18 LTS, Ruby 3.1)</li>
+  <li>GoCD runs on and is built/test using modern, maintained language runtimes (Java 17 LTS, NodeJS 20 LTS, Ruby 3.1)</li>
   <li>GoCD continues to have good compatibility with latest operating systems, which can be extended to its supported
 <a href="../../../../download.html">Docker images</a>.</li>
 </ul>
@@ -179,7 +179,7 @@ of languages used across the codebase and many different features that make it d
 Keeping on top of all of these requires non-trivial effort, and is likely not indefinitely sustainable with the current
 contributor/maintainer community size.</li>
   <li>
-    <p>At time of writing, GoCD does depend on some libraries/frameworks which require significant effort to upgrade, but are
+    <p>At time of writing <em>(updated: December 2023)</em>, GoCD does depend on some libraries/frameworks which require significant effort to upgrade, but are
 end-of-life, and thus present some level of ongoing risk. If a major vulnerability is discovered in these libraries/frameworks
 that affects GoCD it will either require an urgent upgrade, or forking and patching of those libraries/frameworks. The
 community is not well placed to manage this kind of development. To help you assess risk, at time of writing, they include (but may not be limited to)</p>
@@ -188,7 +188,13 @@ community is not well placed to manage this kind of development. To help you ass
       <li>Spring Framework 4.3 (EOL December 2020)</li>
       <li>Spring Security 4.2 (EOL October 2020)</li>
       <li>Hibernate ORM 3.6 (EOL February 2012)</li>
-      <li>A small part of the UI relies on <a href="https://angularjs.org/">AngularJS</a> 1 and PrototypeJS 1.6</li>
+      <li>A small part of the UI relies on
+        <ul>
+          <li><a href="https://angularjs.org/">AngularJS</a> 1.0 - plugin view templating support (EOL November 2013)</li>
+          <li><del><a href="https://jquery.com/">jQuery</a> 1.7 - stage and build/job detail views</del> (subsequent upgraded in GoCD 23.4.0)</li>
+          <li><del>PrototypeJS 1.6 - stage and build/job detail views</del> (subsequently replaced with jQuery in GoCD 23.5.0)</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>

@@ -68,7 +68,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker release-versions">
-      <li rel="tab-23-4-0" class="tab-marker active">23.4.0 (latest)</li>
+      <li rel="tab-23-5-0" class="tab-marker active">23.5.0 (latest)</li>
+      <li rel="tab-23-4-0" class="tab-marker">23.4.0</li>
       <li rel="tab-23-3-0" class="tab-marker">23.3.0</li>
       <li rel="tab-23-2-0" class="tab-marker">23.2.0</li>
       <li rel="tab-23-1-0" class="tab-marker">23.1.0</li>
@@ -149,7 +150,56 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-23-4-0">23.4.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-23-5-0">23.5.0 (latest)</h3>
+      <div id="tab-23-5-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <p>This release is a maintenance and bug-fix release.</p>
+
+<h4>Enhancements</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/12353">#12353</a> - Starting this release, Alpine 3.19 based container images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.19">available</a>.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12353">#12353</a> - Build the default GoCD Server image on Alpine 3.19</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12212">#12212</a> - Make template selector dropdowns alphabetically sorted</li>
+</ul>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/12220">#12220</a> - Console view toolbar not shown after scrolling on v23.4.0</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12305">#12305</a> - Unable to pick stage from Add Material menu in Chrome on MacOS Sonoma</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12389">#12389</a> - Fix disappearing second+ stages on VSM view after clicking a stage</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12392">#12392</a> - Correct display of "cancelled by" for stage runs other than that being viewed</li>
+</ul>
+
+<h4>Security fixes</h4>
+
+<p>We regularly fix security issues reported by security researchers &amp; upgrade dependencies to mitigate known vulnerabilities.
+Upgrading to the latest release is always recommended.</p>
+
+<p>There are no security fixes specifically known to affect GoCD included in this release.</p>
+
+<h4>APIs</h4>
+
+<p>Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <a href="https://api.gocd.org/23.5.0/#changes-in-23-5-0">API changelog for 23.5.0</a> and
+  <a href="https://plugin-api.gocd.org/23.5.0/#changes-in-gocd-23-5-0">Plugin API changelog for 23.5.0</a>.</p>
+
+<h4>Contributors</h4>
+
+<p>Aravind SV, Chad Wilson, Chris Gillatt, Lewis Jales-Huggins</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+23.5.0%22+is%3Aclosed">here.</a></p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+<p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>.</p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-23-4-0">23.4.0</h3>
       <div id="tab-23-4-0" class="tab_content" style="display: block;">
         <div class="content">
           <p>This release is mainly a maintenance and bug-fix release.</p>
