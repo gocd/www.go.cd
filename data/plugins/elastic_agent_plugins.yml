@@ -15,17 +15,17 @@
 
 - name: GoCD Elastic agent plugin for Docker
   description: GoCD Elastic agent plugin for Docker
-  readmore_url: https://github.com/gocd-contrib/docker-elastic-agents
+  readmore_url: https://github.com/gocd-contrib/docker-elastic-agents-plugin
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
-  releases_url: https://github.com/gocd-contrib/docker-elastic-agents/releases/latest
+  releases_url: https://github.com/gocd-contrib/docker-elastic-agents-plugin/releases/latest
 
 - name: GoCD Elastic agent plugin for Docker Swarm
   description: GoCD Elastic agent plugin for Docker Swarm
-  readmore_url: https://github.com/gocd-contrib/docker-swarm-elastic-agents
+  readmore_url: https://github.com/gocd-contrib/docker-swarm-elastic-agents-plugin
   author_url: https://github.com/gocd-contrib
   author_name: GoCD Contributors
-  releases_url: https://github.com/gocd-contrib/docker-swarm-elastic-agents/releases/latest
+  releases_url: https://github.com/gocd-contrib/docker-swarm-elastic-agents-plugin/releases/latest
   
 - name: GoCD Elastic Agent plugin for Kubernetes
   description: GoCD Elastic Agent plugin for bringing up GoCD agents on a Kubernetes cluster on demand.

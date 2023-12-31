@@ -47,13 +47,6 @@
   author_name: Christoph Nenning
   releases_url: https://github.com/cnenning/go-artifactory-scm-plugin/releases/latest
 
-- name: Phabricator Staging Area Material
-  description: Plugin to properly handle Phabricator staging areas as a SCM material.
-  readmore_url: https://github.com/kszatan/gocd-phabricator-staging-material
-  author_url: https://kszatan.github.io/
-  author_name: Krzysztof Szatan
-  releases_url: https://github.com/kszatan/gocd-phabricator-staging-material/releases/latest
-
 - name: FTP Server SCM
   description: Plugin that downloads the source codes/files from FTP Server from a configured directory path.
   readmore_url: https://github.com/sekhar-rangam/gocd-ftp-server-plugin

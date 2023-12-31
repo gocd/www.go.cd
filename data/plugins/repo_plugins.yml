@@ -61,13 +61,6 @@
   author_name: Christoph Nenning
   releases_url: https://github.com/cnenning/go-artifactory-scm-plugin/releases/latest
 
-- name: Backblaze B2 artifacts poller
-  description: Plugin adding a package material for Backblaze B2.
-  readmore_url: https://github.com/kszatan/gocd-b2-artifacts
-  author_url: https://kszatan.github.io/
-  author_name: Krzysztof Szatan
-  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases/latest
-
 - name: Nexus Repository Manager poller
   description: Plugin to poll Nexus Repository Manager for component updates.
   readmore_url: https://github.com/benwolstencroft/go-nexus-poller-plugin

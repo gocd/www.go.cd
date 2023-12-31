@@ -81,20 +81,6 @@
   author_url: https://github.com/ReviakinAleksey
   releases_url: https://github.com/ReviakinAleksey/diawi-upload-plugin/tree/master/dist
 
-- name: Backblaze B2 Publish Task Plugin
-  description: Plugin adding a task to publish artifacts to Backblaze B2.
-  readmore_url: https://github.com/kszatan/gocd-b2-artifacts
-  author_url: https://kszatan.github.io/
-  author_name: Krzysztof Szatan
-  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases/latest
-
-- name: Backblaze B2 Fetch Task Plugin
-  description: Plugin adding a task to fetch artifacts from Backblaze B2.
-  readmore_url: https://github.com/kszatan/gocd-b2-artifacts
-  author_url: https://kszatan.github.io/
-  author_name: Krzysztof Szatan
-  releases_url: https://github.com/kszatan/gocd-b2-artifacts/releases/latest
-  
 - name: Dunner - Docker Task Runner Plugin
   description: Execute tasks inside Docker using Dunner, the docker task runner.
   readmore_url: https://github.com/leopardslab/dunner-gocd-plugin
