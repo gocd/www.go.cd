@@ -6,7 +6,6 @@ body {
     line-height: 22px;
     position: relative;
     margin: $header-height 0 0 0;
-    min-height: calc(100vh - $header-height);
 
     //For proper font rendering
     -moz-osx-font-smoothing: grayscale;

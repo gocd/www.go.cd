@@ -3,6 +3,8 @@ ruby '~> 3.1'
 
 # Middleman Gems
 gem 'middleman'
+gem 'sassc', github: 'sass/sassc-ruby', ref: 'refs/pull/233/head'
+gem 'sassc-embedded'
 gem 'middleman-livereload'
 gem 'middleman-blog', '4.0.1'
 gem 'middleman-gh-pages'
