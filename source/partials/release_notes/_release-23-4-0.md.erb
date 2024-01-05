@@ -26,12 +26,13 @@ After upgrading, shut down your GoCD server and merge back your custom changes f
 
 <h4>Security fixes</h4>
 
-We regularly fix security issues reported by security researchers & upgrade dependencies to mitigate known vulnerabilities.
-Upgrading to the latest release is always recommended.
+There are no security fixes included in this release (for issues known to affect GoCD).
 
-There are no security fixes specifically known to affect GoCD included in this release. If you use GoCD container images,
-note that this release rebuilds GoCD images to include fixes to _curl_ [CVE-2023-38545](https://curl.se/docs/CVE-2023-38545.html)
-across all supported platforms.
+However, we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.
+
+If you use GoCD container images, note that this release rebuilds GoCD images to include
+fixes to _curl_ [CVE-2023-38545](https://curl.se/docs/CVE-2023-38545.html) across all supported platforms.
 
 <h4>APIs</h4>
 

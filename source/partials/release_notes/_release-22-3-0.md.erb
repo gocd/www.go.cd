@@ -16,14 +16,16 @@
 * <%= link_to_issue 10943, 'Fetch Artifact task doesn\'t provide correct suggestions when switching stages on pipeline config' %>
 * <%= link_to_issue 10982, 'Fix Postgres backups via pg_dump on Windows' %>
 
-<h4>Security Fixes</h4>
+<h4>Security fixes</h4>
 
-We regularly fix security issues reported by security researchers & upgrade dependencies to mitigate known vulnerabilities.
-Upgrading to the latest release is always recommended.
+There are no security fixes included in this release (for issues known to affect GoCD).
 
-This release upgrades a number of important internal components, some of which were EOL. We do not have evidence that
+This release does upgrade a number of important internal components, some of which were EOL. We do not have evidence that
 the previously vulnerable dependencies pose any specific risk in GoCD's usage, however we endeavour to minimise
 <%= link_to 'dependency drift', 'https://www.thoughtworks.com/radar/techniques/dependency-drift-fitness-function' %>.
+
+Since we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.
 
 <h4>APIs</h4>
 
