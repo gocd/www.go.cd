@@ -77,7 +77,6 @@ GEM
     formatador (1.1.0)
     google-protobuf (3.25.3)
     google-protobuf (3.25.3-arm64-darwin)
-    google-protobuf (3.25.3-x86_64-darwin)
     google-protobuf (3.25.3-x86_64-linux)
     haml (5.2.2)
       temple (>= 0.8.0)
@@ -179,8 +178,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.2-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.2-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
     padrino-helpers (0.15.3)
@@ -217,8 +214,6 @@ GEM
       rake (>= 13.0.0)
     sass-embedded (1.71.0-arm64-darwin)
       google-protobuf (~> 3.25)
-    sass-embedded (1.71.0-x86_64-darwin)
-      google-protobuf (~> 3.25)
     sass-embedded (1.71.0-x86_64-linux-gnu)
       google-protobuf (~> 3.25)
     sass-listen (4.0.0)
@@ -253,7 +248,6 @@ GEM
 PLATFORMS
   arm64-darwin
   ruby
-  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
@@ -278,7 +272,7 @@ DEPENDENCIES
   sassc-embedded
 
 RUBY VERSION
-   ruby 3.1.4p223
+   ruby 3.3.0p0
 
 BUNDLED WITH
-   2.4.13
+   2.5.6
