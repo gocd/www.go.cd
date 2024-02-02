@@ -1,0 +1,65 @@
+This release is a maintenance and bug-fix release.
+
+<h4>Java 17 is now the minimum supported version</h4>
+
+Java 17 was released in September 2021, and has had support within GoCD since version 22.1.0, released two years ago
+when it was packaged with both GoCD container images & installers (RPM, Debian, Windows, MacOS) by default.
+
+This has proven to be be very stable with no known issues. As such, we are now making Java 17 the minimum supported
+version to reduce maintenance overhead. Note that as of early 2024 GoCD has not been officially validated against Java
+21 LTS (or intermediary versions 18-20).
+
+The suggested upgrade path depends on the current versions of GoCD you are running. To ensure no downtime for your agents
+other than the time to bounce/upgrade your GoCD server
+
+* Ensure your agents are running with Java 17
+  * If you are running GoCD
+
+* If you are running agents on GoCD 22.1.0+ with Java 17
+  * No special instructions, upgrade server and agent environments in any order.
+* If you are running agents with Java < 17, and agent < 22.1.0 (21.4.0?)
+  * Server < 22.1.0  ?
+  * Server >= 22.1.0 ?
+* If you are running agents with Java < 17, and/or server < 22.1.0 (21.4.0?)
+  * Server < 22.1.0  ?
+  * Server >= 22.1.0 ?
+* If yo
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 12415, 'Change baseline to require Java 17 minimum' %>.
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 12440, 'Installing chromium on alpine3.18 gocd docker agent causes crash loop' %>
+
+<h4>Security fixes</h4>
+
+There are no security fixes included in this release (for issues known to affect GoCD).
+
+However, we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '24.1.0','changes-in-24-1-0', 'API changelog for 24.1.0' %> and
+  <%= link_to_versioned_plugin_api '24.1.0','changes-in-gocd-24-1-0', 'Plugin API changelog for 24.1.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "brewpark",
+  "Tim Borrowdale",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 24.1.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
