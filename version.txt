@@ -1,9 +1,11 @@
-Last updated: 2024-01-05 07:15:04 +0000
+Last updated: 2024-02-02 16:30:19 +0000
 
 Latest commit:
-    commit 139a5aece224aeda6df832fa9c44c5334ade5423
+    commit 74bb2452ba7ab00e9538027acbae1be8b7860257
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Fri Jan 5 13:44:32 2024 +0800
+    Date:   Fri Feb 2 23:43:50 2024 +0800
     
-        Clarify and make consistent language around security fixes/dependency upgrades
+        Ignore checking openjdk links
+        
+        They seem to be blocking automated connections.
     
