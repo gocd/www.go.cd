@@ -1,11 +1,11 @@
-Last updated: 2024-02-02 16:30:19 +0000
+Last updated: 2024-02-12 14:17:14 +0000
 
 Latest commit:
-    commit 74bb2452ba7ab00e9538027acbae1be8b7860257
+    commit f2f4bcdffe2df11f92fbe89f1b5a4bc7a8ba432c
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Fri Feb 2 23:43:50 2024 +0800
+    Date:   Mon Feb 12 22:03:23 2024 +0800
     
-        Ignore checking openjdk links
+        Don't check Gartner URLs
         
-        They seem to be blocking automated connections.
+        They seem to block them now.
     
