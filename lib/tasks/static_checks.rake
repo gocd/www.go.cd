@@ -9,7 +9,7 @@ namespace :static_checks do
 
   options = {
       :disable_external     => should_not_run_external_url_checks?,
-      :ignore_urls          => [/([https]:\/\/(localhost)|(github)|(blogs\.oracle)|(etsy)|(.*openjdk)|(.*\.stackexchange)|(linkedin)|(twitter):*)/],
+      :ignore_urls          => [/([https]:\/\/(localhost)|(github)|(blogs\.oracle)|(etsy)|(.*openjdk)|(.*\.stackexchange)|(gartner)|(linkedin)|(twitter):*)/],
       :allow_hash_href      => true,
       :allow_missing_href   => true,
       :check_external_hash  => true,
