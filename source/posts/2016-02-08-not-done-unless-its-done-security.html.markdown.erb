@@ -45,7 +45,7 @@ Thoughtworks recently created [Talisman](https://github.com/thoughtworks/talisma
 
 ###Static Application Security Testing (SAST)
 
-[Gartner](https://www.gartner.com/it-glossary/static-application-security-testing-sast) defines SAST  as "a set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the 'inside out' in a nonrunning state."
+[Gartner](https://www.gartner.com/en/information-technology/glossary/static-application-security-testing-sast) defines SAST  as "a set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the 'inside out' in a nonrunning state."
 
 This starts with having good unit test coverage. Can you authenticate as you should be able to? Are bad authentication requests refused? Are retries being limited properly? Are password policies being properly enforced?
 
@@ -61,7 +61,7 @@ For Java applications, [Sonatype](https://www.sonatype.com/) has some impressive
 
 ###Dynamic Application Security Testing (DAST)
 
-Again quoting [Gartner's](https://www.gartner.com/it-glossary/dynamic-application-security-testing-dast/) definition, these are tools which are "designed to detect conditions indicative of a security vulnerability in an application in its running state".
+Again quoting [Gartner's](https://www.gartner.com/en/information-technology/glossary/dynamic-application-security-testing-dast) definition, these are tools which are "designed to detect conditions indicative of a security vulnerability in an application in its running state".
 
 The tools that run against your code are a good start, but they aren't accessing the application like a user. Tools such as [Burp](https://portswigger.net/burp/), [OWASP ZAP](https://www.zaproxy.org/), [Arachni](https://www.arachni-scanner.com/), w3af and [Vega](https://subgraph.com/vega/index.en.html) access the application itself, looking for exploit vectors like SQL Injection and cross-site scripting.
 
