@@ -112,7 +112,7 @@ module GoCDHelpers
     else
       File.join(app.config[:source], asset_path(:images, path_to_image, :relative => false))
     end
-    raise "Image does not exist or too large to use for Twitter summary: #{full_path_of_image}" unless (File.exists?(full_path_of_image) && (File.size(full_path_of_image) < (1024 * 1024 * 1024)))
+    raise "Image does not exist or too large to use for Twitter summary: #{full_path_of_image}" unless (File.exist?(full_path_of_image) && (File.size(full_path_of_image) < (1024 * 1024 * 1024)))
     URI::join(config.base_url, asset_path(:images, path_to_image, :relative => false))
   end
 
