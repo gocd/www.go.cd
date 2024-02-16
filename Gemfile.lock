@@ -1,4 +1,20 @@
 GIT
+  remote: https://github.com/fredjean/middleman-s3_sync.git
+  revision: 39c3b84aafadbc8496f8fd8a139ef0117cfba62a
+  ref: master
+  specs:
+    middleman-s3_sync (4.0.3)
+      ansi (~> 1.5.0)
+      fog-aws (>= 0.1.1)
+      map
+      middleman-cli
+      middleman-core (>= 4.0.0)
+      mime-types (~> 3.1)
+      parallel
+      ruby-progressbar
+      unf
+
+GIT
   remote: https://github.com/sass/sassc-ruby.git
   revision: 244d3dcc8b985e25bab066b296f0f202e43e41ad
   ref: refs/pull/233/head
@@ -153,15 +169,6 @@ GEM
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
       rack-livereload (~> 0.3.15)
-    middleman-s3_sync (4.0.3)
-      ansi (~> 1.5.0)
-      fog-aws (>= 0.1.1)
-      map
-      middleman-cli
-      middleman-core (>= 4.0.0)
-      parallel
-      ruby-progressbar
-      unf
     middleman-sprockets (4.1.1)
       middleman-core (~> 4.0)
       sprockets (>= 3.0)
@@ -262,7 +269,7 @@ DEPENDENCIES
   middleman-blog (= 4.0.1)
   middleman-gh-pages
   middleman-livereload
-  middleman-s3_sync
+  middleman-s3_sync!
   middleman-sprockets
   mime-types
   neat
