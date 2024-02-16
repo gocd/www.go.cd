@@ -1,4 +1,20 @@
 GIT
+  remote: https://github.com/fredjean/middleman-s3_sync.git
+  revision: 39c3b84aafadbc8496f8fd8a139ef0117cfba62a
+  ref: master
+  specs:
+    middleman-s3_sync (4.0.3)
+      ansi (~> 1.5.0)
+      fog-aws (>= 0.1.1)
+      map
+      middleman-cli
+      middleman-core (>= 4.0.0)
+      mime-types (~> 3.1)
+      parallel
+      ruby-progressbar
+      unf
+
+GIT
   remote: https://github.com/sass/sassc-ruby.git
   revision: 244d3dcc8b985e25bab066b296f0f202e43e41ad
   ref: refs/pull/233/head
@@ -77,7 +93,6 @@ GEM
     formatador (1.1.0)
     google-protobuf (3.25.3)
     google-protobuf (3.25.3-arm64-darwin)
-    google-protobuf (3.25.3-x86_64-darwin)
     google-protobuf (3.25.3-x86_64-linux)
     haml (5.2.2)
       temple (>= 0.8.0)
@@ -154,15 +169,6 @@ GEM
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
       rack-livereload (~> 0.3.15)
-    middleman-s3_sync (4.0.3)
-      ansi (~> 1.5.0)
-      fog-aws (>= 0.1.1)
-      map
-      middleman-cli
-      middleman-core (>= 4.0.0)
-      parallel
-      ruby-progressbar
-      unf
     middleman-sprockets (4.1.1)
       middleman-core (~> 4.0)
       sprockets (>= 3.0)
@@ -178,8 +184,6 @@ GEM
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     nokogiri (1.16.2-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.2-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
@@ -217,8 +221,6 @@ GEM
       rake (>= 13.0.0)
     sass-embedded (1.71.0-arm64-darwin)
       google-protobuf (~> 3.25)
-    sass-embedded (1.71.0-x86_64-darwin)
-      google-protobuf (~> 3.25)
     sass-embedded (1.71.0-x86_64-linux-gnu)
       google-protobuf (~> 3.25)
     sass-listen (4.0.0)
@@ -253,7 +255,6 @@ GEM
 PLATFORMS
   arm64-darwin
   ruby
-  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
@@ -268,7 +269,7 @@ DEPENDENCIES
   middleman-blog (= 4.0.1)
   middleman-gh-pages
   middleman-livereload
-  middleman-s3_sync
+  middleman-s3_sync!
   middleman-sprockets
   mime-types
   neat
@@ -278,7 +279,7 @@ DEPENDENCIES
   sassc-embedded
 
 RUBY VERSION
-   ruby 3.1.4p223
+   ruby 3.3.0p0
 
 BUNDLED WITH
-   2.4.13
+   2.5.6
