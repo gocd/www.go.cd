@@ -75,13 +75,6 @@
   author_name: Volodymyr Mykhailyk
   releases_url: https://github.com/matic-insurance/gocd-http-notifications-plugin/releases/latest
 
-- name: Webhook generic notification plugin
-  description: Ping a webhook with status updates from GoCD
-  readmore_url: https://github.com/getsentry/gocd-webhook-notification-plugin
-  author_url: https://github.com/getsentry
-  author_name: Sentry
-  releases_url: https://github.com/getsentry/gocd-webhook-notification-plugin/releases/latest
-
 - name: GChat Notifier plugin
   description: Sends GChat messages on specific pipeline stage state changes via webhook.
   readmore_url: https://github.com/1and1/go-gchat-notifier-plugin/blob/master/README.md

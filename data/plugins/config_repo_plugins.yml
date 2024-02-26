@@ -18,3 +18,10 @@
   author_url: https://github.com/ketan
   author_name: Ketan Padegaonkar
   releases_url: https://github.com/gocd-contrib/gocd-groovy-dsl-config-plugin/releases/latest
+
+- name: gocd-jsonnet-config-plugin
+  description: A plugin to keep pipelines and environments configuration in source-control in Jsonnet.
+  readmore_url: https://github.com/getsentry/gocd-jsonnet-config-plugin
+  author_url: https://github.com/getsentry
+  author_name: Sentry
+  releases_url: https://github.com/getsentry/gocd-jsonnet-config-plugin/releases/latest
