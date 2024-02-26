@@ -1,11 +1,11 @@
-Last updated: 2024-02-12 14:17:14 +0000
+Last updated: 2024-02-26 03:03:21 +0000
 
 Latest commit:
-    commit f2f4bcdffe2df11f92fbe89f1b5a4bc7a8ba432c
+    commit 5b244f1204d14ee8f18943fad306503a46335148
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Mon Feb 12 22:03:23 2024 +0800
+    Date:   Mon Feb 26 10:41:38 2024 +0800
     
-        Don't check Gartner URLs
+        Add jsonnet plugin; remove generic webhook
         
-        They seem to block them now.
+        Generic webhook plugin has been archived, but Sentry still seem to be maintaining the Jsonnet plugin
     
