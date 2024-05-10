@@ -34,8 +34,8 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     afm (0.2.2)
     ansi (1.5.0)
-    async (2.10.2)
-      console (~> 1.10)
+    async (2.11.0)
+      console (~> 1.25, >= 1.25.2)
       fiber-annotation
       io-event (~> 1.5, >= 1.5.1)
       timers (~> 4.1)
@@ -54,7 +54,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.3)
-    console (1.25.1)
+    console (1.25.2)
       fiber-annotation
       fiber-local (~> 1.1)
       json
@@ -107,7 +107,7 @@ GEM
       concurrent-ruby (~> 1.0)
     hashery (2.1.2)
     hashie (3.6.0)
-    html-proofer (5.0.8)
+    html-proofer (5.0.9)
       addressable (~> 2.3)
       async (~> 2.1)
       nokogiri (~> 1.13)
