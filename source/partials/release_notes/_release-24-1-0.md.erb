@@ -1,0 +1,151 @@
+This release is a maintenance and bug-fix release, although there are several _potentially breaking_ changes to be aware of:
+
+- Links are no longer forced opened in new tabs
+- Java 17 is now the minimum supported version
+- Server container image is now based on Wolfi OS
+
+<h4>Links are no longer forced opened in new tabs</h4>
+
+A long-standing frustration with GoCD's UI is that it used to open new tabs for links, partly to avoid losing your
+place on the main dashboard when investigating an individual stage/job. However, browsers are now much better at remembering
+the _"back"_ state; and the previous behaviour was confusing & frustrating.
+
+From now on control will be returned to users - for a new tab to be opened (foreground or background) in most cases
+users will need to use the browser/OS specific key combination or _middle-click equivalent_ to do so.
+
+If you are interested in making this a configurable option to add back the old behaviour,
+[discussion](https://github.com/gocd/gocd/discussions/9613) or [pull requests are welcome](https://github.com/gocd/gocd/pulls).
+
+<h4>Java 17 is now the minimum supported version</h4>
+
+Java 17 was released in September 2021, and has had complete support within GoCD since version 22.1.0, over 2 years ago.
+Since then it has been packaged with both GoCD container images & installers by default.
+
+This has proven to be be very stable, so to reduce maintenance overhead we are now making Java 17 the minimum supported
+version. Note that as of early 2024 GoCD has _not been officially validated_ against Java 21 LTS (or intermediary versions 18-20).
+
+If you are _aiming for minimal agent/server downtime_ in an upgrade to GoCD 24.1.0+, you can do so by following:
+
+1. Ensure your existing agents are already running with Java 17 on earlier.
+    - If your agents are using GoCD 22.1.0+ from _official GoCD containers or packages_ (RPM, deb)s there is _nothing extra to do_. These already package and run Java 17.
+    - If your agents are using GoCD 22.1.0+ from _other install approaches_, they are already Java 17-compatible, _if your server is 21.4.0+_. Ensure they are running with Java 17.
+1. Ensure your existing server is running with Java 17.
+    - If your server is using GoCD 22.1.0+ from _official GoCD containers or packages_ (RPM, deb)s there is _nothing extra to do_. These already package and run Java 17.
+    - If your server is using GoCD 21.4.0+ from _other install approaches_, is is already Java 17-compatible, _if your server is 21.4.0+_. Ensure they are running with Java 17.
+1. Upgrade your server to GoCD 24.1.0 without worry about Java issues.
+    - Older agents running Java 17 will re-start automatically against a GoCD 24.1.0 server.
+    - You can now validate your installation and agents are working fine.
+1. (Optionally) You can now upgrade your agents to GoCD 24.1.0 whenever you choose.
+    - Technically GoCD agent installs are only a "bootstrapper" which downloads the matching agent code from the server for
+      each release. It is wise to avoid too much discrepancy in versions to make upgrades (like this one!) easier, but it is
+      not critical.
+
+If you have issues, _downgrades_ back to 22.1.0+ should be fine - there have been no breaking database or configuration
+changes within these versions. If you have any further queries/issues, please ask on [GitHub Discussions](https://github.com/gocd/gocd/discussions) or the [Google Group](https://groups.google.com/g/go-cd).
+
+<h4>Server container image is now based on Wolfi OS</h4>
+
+The GoCD server container has always been based on a minimal Linux distribution, previously [Alpine Linux](https://alpinelinux.org/),
+but from 24.1.0 has been switched to [Wolfi OS](https://github.com/wolfi-dev). Wolfi OS is a similarly minimal,
+security-oriented (un)distro from the folks at [Chainguard](https://www.chainguard.dev/) which is
+[optimized for supply-chain security](https://www.chainguard.dev/unchained/introducing-wolfi-the-first-linux-un-distro) -
+and unlike the _musl_-based Alpine uses _glibc_, similar to most other distributions.
+
+Unfortunately, the use of Alpine has always posed difficulties due to its musl libc base. Most of the time this is an
+irrelevant detail to users, however it has posed issues for GoCD packaging of Java runtime environments & providing aarch64
+availability for a variety of reasons stemming from GoCD's dependencies. While GoCD has applied relatively stable
+workarounds to support Alpine, these are not recommended and have prevented providing a default GoCD server container
+image for _aarch64_/_arm64_ architectures off-the-shelf.
+
+Wolfi uses the same _apk_ package manager as Alpine, with conventional package names, and although packages cannot be
+used across the two OSes, the transition should be easy for most folks. The image is now multi-architecture (_amd64_/_x64_ and _aarch64_/_arm64_)
+making it usable out-of-the-box within arm64 cloud instances and Apple Silicon Macs.
+
+If you build a child container from the [gocd-server container](https://hub.docker.com/r/gocd/gocd-server), from 24.1.0
+you will need to review your _Dockerfile_ to check that:
+
+- any additional packages you need to install are [available for Wolfi](https://github.com/wolfi-dev/os).
+- any pre-compiled binaries specifically compiled for musl should be switched to glibc variants
+
+There has previously been a non-officially documented multi-arch [server image based on CentOS Stream](https://hub.docker.com/r/gocd/gocd-server-centos-9),
+which was the only option on _aarch64_. This will be _removed_, as it is unnecessary now we have a glibc-based image.
+If you were using this, please switch back to _gocd/gocd-server_ rather than _gocd/gocd-server-centos-*_.
+
+<h4>Agent container image changes</h4>
+
+1. A [_Wolfi-based agent image_](https://hub.docker.com/r/gocd/gocd-agent-wolfi/tags) is now available, matching the
+   server image. This will become the default recommended agent image for container-based elastic agents.
+1. The _Alpine agent images_ will now become a _rolling_ distribution within the [gocd-agent-alpine](https://hub.docker.com/r/gocd/gocd-agent-alpine)
+   repository. This means that the repository will not change for each Alpine release (3.18, 3.19 etc) any longer. Alpine releases new
+   versions each 6 months while maintaining very good compatibility, and maintaining different repositories added unnecessary
+   maintenance overhead. Each GoCD release will be based on the latest compatible Alpine release, mirroring how [gocd-agent-docker-dind](https://hub.docker.com/r/gocd/gocd-agent-docker-dind)
+   has always been released. GoCD 23.5.0 will be the last version released under version specific repos ([3.16](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.16), [3.17](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.17), [3.18](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.18), [3.19](https://hub.docker.com/r/gocd/gocd-agent-alpine-3.19)).
+1. [_CentOS Stream 8_](https://hub.docker.com/r/gocd/gocd-agent-centos-8) [_and 9_](https://hub.docker.com/r/gocd/gocd-agent-centos-9)
+   based container images will be discontinued after 24.1.0. While these images are stable and well-maintained, they are
+   not as widely used other images, and as a distribution upstream of RHEL, Rocky, Alma etc, CentOS Stream has not
+   proved to get an appropriate level of security/maintenance patches for dependencies, nor the official security
+   bulletins needed for containers tools to accurate scan the images. If you are using these images, and would prefer a
+   Red Hat/RHEL-like image, [please open an issue!](https://github.com/gocd/gocd/issues). We are open to bring back an
+   Alma or Rocky-based image to meet the needs of those who want to keep their agent containers within the RHEL ecosystem.
+
+<h4>Windows installers no longer signed after 24.1.0</h4>
+
+Windows installers were previously code-signed with a "proper" Thoughtworks-issued OV code-signing certificate from
+DigiCert that avoided Windows SmartScreen prompts. Due to both certificate cost and changes in requirements for OV
+code-signing certificates (to have hardware-managed keys), in the short term this is no longer sustainable for GoCD.
+Therefore installers will likely not be signed from 24.2.0 onwards when the existing certificate expires.
+
+If you have a suggestion of approach to reinstate Windows code signing for a open-source project with limited funding,
+or know other projects which have done so, [please reach out](https://github.com/gocd/gocd/issues)!
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 10520, 'Change GoCD to no longer force links to open in new windows/tabs' %>.
+* <%= link_to_issue 12415, 'Change baseline to require Java 17 minimum' %>.
+* <%= link_to_issue 12500, 'Replace Alpine with Wolfi as primary server container image, consolidating Alpine agent images' %>.
+* <%= link_to_issue 12710, 'Bundle latest Java 17.0.11 release with non-Linux installers & containers' %>
+* <%= link_to_issue 12712, 'Add deb/rpm aarch64 support by replacing bundled x64 JRE with arch-independent package deps' %>
+* Starting this release, Wolfi based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-wolfi' %>.
+* Starting this release, Ubuntu 24.04 (Noble Numbat) based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-ubuntu-24.04' %>.
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 4011, 'RPM packages do not install on RHEL unless SELinux is disabled' %>
+* <%= link_to_issue 12440, 'Installing Chromium on Alpine 3.18 gocd docker agent causes agent crash loop' %>
+* <%= link_to_issue 12535, 'Improve performance of agents API responses and dashboard stage modal' %>
+* <%= link_to_issue 12616, 'Improve performance when working with large numbers of server health warnings/errors' %>
+
+<h4>Security fixes</h4>
+
+This release fixes [CVE-2024-28866](https://github.com/gocd/gocd/security/advisories/GHSA-q882-q6mm-mgvh), a theoretical
+vulnerability which has not shown to be practically exploitable. Thank you to Aviv Keller ([RedYetiDev](https://github.com/RedYetiDev)) for
+discovering and responsibly disclosing this issue.
+
+We regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '24.1.0','changes-in-24-1-0', 'API changelog for 24.1.0' %> and
+  <%= link_to_versioned_plugin_api '24.1.0','changes-in-gocd-24-1-0', 'Plugin API changelog for 24.1.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Aviv Keller / RedYetiDev",
+  "Chad Wilson",
+  "brewpark",
+  "Matthias Kraaz",
+  "Tim Borrowdale",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 24.1.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
