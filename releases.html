@@ -68,7 +68,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker release-versions">
-      <li rel="tab-23-5-0" class="tab-marker active">23.5.0 (latest)</li>
+      <li rel="tab-24-1-0" class="tab-marker active">24.1.0 (latest)</li>
+      <li rel="tab-23-5-0" class="tab-marker">23.5.0</li>
       <li rel="tab-23-4-0" class="tab-marker">23.4.0</li>
       <li rel="tab-23-3-0" class="tab-marker">23.3.0</li>
       <li rel="tab-23-2-0" class="tab-marker">23.2.0</li>
@@ -150,7 +151,180 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-23-5-0">23.5.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-24-1-0">24.1.0 (latest)</h3>
+      <div id="tab-24-1-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <p>This release is a maintenance and bug-fix release, although there are several <em>potentially breaking</em> changes to be aware of:</p>
+
+<ul>
+  <li>Links are no longer forced opened in new tabs</li>
+  <li>Java 17 is now the minimum supported version</li>
+  <li>Server container image is now based on Wolfi OS</li>
+</ul>
+
+<h4>Links are no longer forced opened in new tabs</h4>
+
+<p>A long-standing frustration with GoCD's UI is that it used to open new tabs for links, partly to avoid losing your
+place on the main dashboard when investigating an individual stage/job. However, browsers are now much better at remembering
+the <em>"back"</em> state; and the previous behaviour was confusing &amp; frustrating.</p>
+
+<p>From now on control will be returned to users - for a new tab to be opened (foreground or background) in most cases
+users will need to use the browser/OS specific key combination or <em>middle-click equivalent</em> to do so.</p>
+
+<p>If you are interested in making this a configurable option to add back the old behaviour,
+<a href="https://github.com/gocd/gocd/discussions/9613">discussion</a> or <a href="https://github.com/gocd/gocd/pulls">pull requests are welcome</a>.</p>
+
+<h4>Java 17 is now the minimum supported version</h4>
+
+<p>Java 17 was released in September 2021, and has had complete support within GoCD since version 22.1.0, over 2 years ago.
+Since then it has been packaged with both GoCD container images &amp; installers by default.</p>
+
+<p>This has proven to be be very stable, so to reduce maintenance overhead we are now making Java 17 the minimum supported
+version. Note that as of early 2024 GoCD has <em>not been officially validated</em> against Java 21 LTS (or intermediary versions 18-20).</p>
+
+<p>If you are <em>aiming for minimal agent/server downtime</em> in an upgrade to GoCD 24.1.0+, you can do so by following:</p>
+
+<ol>
+  <li>Ensure your existing agents are already running with Java 17 on earlier.
+    <ul>
+      <li>If your agents are using GoCD 22.1.0+ from <em>official GoCD containers or packages</em> (RPM, deb)s there is <em>nothing extra to do</em>. These already package and run Java 17.</li>
+      <li>If your agents are using GoCD 22.1.0+ from <em>other install approaches</em>, they are already Java 17-compatible, <em>if your server is 21.4.0+</em>. Ensure they are running with Java 17.</li>
+    </ul>
+  </li>
+  <li>Ensure your existing server is running with Java 17.
+    <ul>
+      <li>If your server is using GoCD 22.1.0+ from <em>official GoCD containers or packages</em> (RPM, deb)s there is <em>nothing extra to do</em>. These already package and run Java 17.</li>
+      <li>If your server is using GoCD 21.4.0+ from <em>other install approaches</em>, is is already Java 17-compatible, <em>if your server is 21.4.0+</em>. Ensure they are running with Java 17.</li>
+    </ul>
+  </li>
+  <li>Upgrade your server to GoCD 24.1.0 without worry about Java issues.
+    <ul>
+      <li>Older agents running Java 17 will re-start automatically against a GoCD 24.1.0 server.</li>
+      <li>You can now validate your installation and agents are working fine.</li>
+    </ul>
+  </li>
+  <li>(Optionally) You can now upgrade your agents to GoCD 24.1.0 whenever you choose.
+    <ul>
+      <li>Technically GoCD agent installs are only a "bootstrapper" which downloads the matching agent code from the server for
+each release. It is wise to avoid too much discrepancy in versions to make upgrades (like this one!) easier, but it is
+not critical.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>If you have issues, <em>downgrades</em> back to 22.1.0+ should be fine - there have been no breaking database or configuration
+changes within these versions. If you have any further queries/issues, please ask on <a href="https://github.com/gocd/gocd/discussions">GitHub Discussions</a> or the <a href="https://groups.google.com/g/go-cd">Google Group</a>.</p>
+
+<h4>Server container image is now based on Wolfi OS</h4>
+
+<p>The GoCD server container has always been based on a minimal Linux distribution, previously <a href="https://alpinelinux.org/">Alpine Linux</a>,
+but from 24.1.0 has been switched to <a href="https://github.com/wolfi-dev">Wolfi OS</a>. Wolfi OS is a similarly minimal,
+security-oriented (un)distro from the folks at <a href="https://www.chainguard.dev/">Chainguard</a> which is
+<a href="https://www.chainguard.dev/unchained/introducing-wolfi-the-first-linux-un-distro">optimized for supply-chain security</a> -
+and unlike the <em>musl</em>-based Alpine uses <em>glibc</em>, similar to most other distributions.</p>
+
+<p>Unfortunately, the use of Alpine has always posed difficulties due to its musl libc base. Most of the time this is an
+irrelevant detail to users, however it has posed issues for GoCD packaging of Java runtime environments &amp; providing aarch64
+availability for a variety of reasons stemming from GoCD's dependencies. While GoCD has applied relatively stable
+workarounds to support Alpine, these are not recommended and have prevented providing a default GoCD server container
+image for <em>aarch64</em>/<em>arm64</em> architectures off-the-shelf.</p>
+
+<p>Wolfi uses the same <em>apk</em> package manager as Alpine, with conventional package names, and although packages cannot be
+used across the two OSes, the transition should be easy for most folks. The image is now multi-architecture (<em>amd64</em>/<em>x64</em> and <em>aarch64</em>/<em>arm64</em>)
+making it usable out-of-the-box within arm64 cloud instances and Apple Silicon Macs.</p>
+
+<p>If you build a child container from the <a href="https://hub.docker.com/r/gocd/gocd-server">gocd-server container</a>, from 24.1.0
+you will need to review your <em>Dockerfile</em> to check that:</p>
+
+<ul>
+  <li>any additional packages you need to install are <a href="https://github.com/wolfi-dev/os">available for Wolfi</a>.</li>
+  <li>any pre-compiled binaries specifically compiled for musl should be switched to glibc variants</li>
+</ul>
+
+<p>There has previously been a non-officially documented multi-arch <a href="https://hub.docker.com/r/gocd/gocd-server-centos-9">server image based on CentOS Stream</a>,
+which was the only option on <em>aarch64</em>. This will be <em>removed</em>, as it is unnecessary now we have a glibc-based image.
+If you were using this, please switch back to <em>gocd/gocd-server</em> rather than <em>gocd/gocd-server-centos-*</em>.</p>
+
+<h4>Agent container image changes</h4>
+
+<ol>
+  <li>A <a href="https://hub.docker.com/r/gocd/gocd-agent-wolfi/tags"><em>Wolfi-based agent image</em></a> is now available, matching the
+server image. This will become the default recommended agent image for container-based elastic agents.</li>
+  <li>The <em>Alpine agent images</em> will now become a <em>rolling</em> distribution within the <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine">gocd-agent-alpine</a>
+repository. This means that the repository will not change for each Alpine release (3.18, 3.19 etc) any longer. Alpine releases new
+versions each 6 months while maintaining very good compatibility, and maintaining different repositories added unnecessary
+maintenance overhead. Each GoCD release will be based on the latest compatible Alpine release, mirroring how <a href="https://hub.docker.com/r/gocd/gocd-agent-docker-dind">gocd-agent-docker-dind</a>
+has always been released. GoCD 23.5.0 will be the last version released under version specific repos (<a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.16">3.16</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.17">3.17</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.18">3.18</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.19">3.19</a>).</li>
+  <li><a href="https://hub.docker.com/r/gocd/gocd-agent-centos-8"><em>CentOS Stream 8</em></a> <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-9"><em>and 9</em></a>
+based container images will be discontinued after 24.1.0. While these images are stable and well-maintained, they are
+not as widely used other images, and as a distribution upstream of RHEL, Rocky, Alma etc, CentOS Stream has not
+proved to get an appropriate level of security/maintenance patches for dependencies, nor the official security
+bulletins needed for containers tools to accurate scan the images. If you are using these images, and would prefer a
+Red Hat/RHEL-like image, <a href="https://github.com/gocd/gocd/issues">please open an issue!</a>. We are open to bring back an
+Alma or Rocky-based image to meet the needs of those who want to keep their agent containers within the RHEL ecosystem.</li>
+</ol>
+
+<h4>Windows installers no longer signed after 24.1.0</h4>
+
+<p>Windows installers were previously code-signed with a "proper" Thoughtworks-issued OV code-signing certificate from
+DigiCert that avoided Windows SmartScreen prompts. Due to both certificate cost and changes in requirements for OV
+code-signing certificates (to have hardware-managed keys), in the short term this is no longer sustainable for GoCD.
+Therefore installers will likely not be signed from 24.2.0 onwards when the existing certificate expires.</p>
+
+<p>If you have a suggestion of approach to reinstate Windows code signing for a open-source project with limited funding,
+or know other projects which have done so, <a href="https://github.com/gocd/gocd/issues">please reach out</a>!</p>
+
+<h4>Enhancements</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/10520">#10520</a> - Change GoCD to no longer force links to open in new windows/tabs.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12415">#12415</a> - Change baseline to require Java 17 minimum.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12500">#12500</a> - Replace Alpine with Wolfi as primary server container image, consolidating Alpine agent images.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12710">#12710</a> - Bundle latest Java 17.0.11 release with non-Linux installers &amp; containers</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12712">#12712</a> - Add deb/rpm aarch64 support by replacing bundled x64 JRE with arch-independent package deps</li>
+  <li>Starting this release, Wolfi based docker images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-wolfi">available</a>.</li>
+  <li>Starting this release, Ubuntu 24.04 (Noble Numbat) based docker images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-24.04">available</a>.</li>
+</ul>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/4011">#4011</a> - RPM packages do not install on RHEL unless SELinux is disabled</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12440">#12440</a> - Installing Chromium on Alpine 3.18 gocd docker agent causes agent crash loop</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12535">#12535</a> - Improve performance of agents API responses and dashboard stage modal</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12616">#12616</a> - Improve performance when working with large numbers of server health warnings/errors</li>
+</ul>
+
+<h4>Security fixes</h4>
+
+<p>This release fixes <a href="https://github.com/gocd/gocd/security/advisories/GHSA-q882-q6mm-mgvh">CVE-2024-28866</a>, a theoretical
+vulnerability which has not shown to be practically exploitable. Thank you to Aviv Keller (<a href="https://github.com/RedYetiDev">RedYetiDev</a>) for
+discovering and responsibly disclosing this issue.</p>
+
+<p>We regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.</p>
+
+<h4>APIs</h4>
+
+<p>Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <a href="https://api.gocd.org/24.1.0/#changes-in-24-1-0">API changelog for 24.1.0</a> and
+  <a href="https://plugin-api.gocd.org/24.1.0/#changes-in-gocd-24-1-0">Plugin API changelog for 24.1.0</a>.</p>
+
+<h4>Contributors</h4>
+
+<p>Aravind SV, Aviv Keller / RedYetiDev, Chad Wilson, Matthias Kraaz, Tim Borrowdale, brewpark</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+24.1.0%22+is%3Aclosed">here.</a></p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+<p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>.</p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-23-5-0">23.5.0</h3>
       <div id="tab-23-5-0" class="tab_content" style="display: block;">
         <div class="content">
           <p>This release is a maintenance and bug-fix release.</p>
@@ -3969,7 +4143,7 @@ Golang agent users can follow up with the author on <a href="https://github.com/
     </ul>
   </li>
   <li>
-    <p>Support for phusion based docker <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">server</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">agent</a> images have been removed this release. We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></p>
+    <p>Support for phusion based docker server and agent images have been removed this release. We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></p>
   </li>
 </ul>
 
@@ -4161,7 +4335,7 @@ Golang agent users can follow up with the author on <a href="https://github.com/
   <li>
     <p>As of 17.5, support for in-built password file and LDAP/AD authentication have been deprecated. Support for these authentication mechanisms would be removed in 17.10 release (scheduled to be released in October 2017). Existing configuration will be automatically migrated to use the new in-built password file and LDAP/AD authentication plugins. No other actions necessary.</p>
   </li>
-  <li>As of 17.8, the phusion based docker <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">server</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">agent</a> images are deprecated in favour of the new docker <a href="https://hub.docker.com/r/gocd/gocd-server/">server</a> and agent images. Support for the phusion images will be removed in 17.11.0 (scheduled to be released in November 2017). We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></li>
+  <li>As of 17.8, the phusion based docker server and agent images are deprecated in favour of the new docker <a href="https://hub.docker.com/r/gocd/gocd-server/">server</a> and agent images. Support for the phusion images will be removed in 17.11.0 (scheduled to be released in November 2017). We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></li>
 </ul>
 
 <h4>Other Changes</h4>
@@ -4235,7 +4409,7 @@ We provide support for the docker images for GoCD agents across the following op
     <li><p><a href="https://github.com/gocd-contrib/gocd_auth_plugin_guest_user">Guest Login</a></p></li>
   </ul>
   </li>
-  <li>As of 17.8, the phusion based docker <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">server</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">agent</a> images are deprecated in favour of the new docker <a href="https://hub.docker.com/r/gocd/gocd-server/">server</a> and agent images. Support for the phusion images will be removed in 17.11.0.
+  <li>As of 17.8, the phusion based docker server and agent images are deprecated in favour of the new docker <a href="https://hub.docker.com/r/gocd/gocd-server/">server</a> and agent images. Support for the phusion images will be removed in 17.11.0.
  We provide support for the docker images for GoCD agents across the following operating systems - Alpine <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.5/">3.5</a>, CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></li>
 </ul>
 
@@ -4645,9 +4819,6 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
       <li>To find out what changed in the docker agent images, please refer to the <a href="https://github.com/gocd/docker-gocd-agent/blob/master/CHANGELOG.md">changelog</a>.</li>
     </ul>
   </li>
-  <li>
-    <p>The old phusion based docker images have been moved, they can found under <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">gocd-server-deprecated</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">gocd-agent-deprecated</a>. We shall stop support for these images in release 17.7 (scheduled to be released in July 2017).</p>
-  </li>
   <li>We have an Amazon Linux based AMI for the GoCD Server making it very simple to launch GoCD server on your AWS EC2 instance.</li>
   <li>We have an Amazon Linux based AMI for a demo GoCD Server and Agent making it very simple to get started with GoCD on your AWS EC2 instance.</li>
 </ul>
@@ -4728,9 +4899,9 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 
 <ul>
   <li>On GoCD servers installed on windows or if using the zip installers, logs will now be written to logs directory instead of the working directory. This would be a breaking change only if there are custom scripts relying on the logs location.</li>
-  <li>The <a href="https://hub.docker.com/r/gocd/gocd-server/">gocd/gocd-server</a> docker image now uses alpine as the base image. The phusion images are still supported for GoCD 17.3.0 and can be found at <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">gocd-server-deprecated</a> should you wish to use it.</li>
+  <li>The <a href="https://hub.docker.com/r/gocd/gocd-server/">gocd/gocd-server</a> docker image now uses alpine as the base image.</li>
   <li>The <a href="https://hub.docker.com/r/gocd/gocd-server/">gocd/gocd-server</a> docker image no longer recognizes the <code>latest</code> tag. Please use <code>docker pull gocd/gocd-server:v17.3.0</code> instead.</li>
-  <li>The <code>gocd/gocd-agent</code> docker image no longer exists. We have a variety of agent images for different distributions. If you wish to continue  with the old agent image, please use <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">gocd-agent-deprecated</a> instead.</li>
+  <li>The <code>gocd/gocd-agent</code> docker image no longer exists. We have a variety of agent images for different distributions.</li>
 </ul>
 
 <h4> Deprecations</h4>
@@ -4754,7 +4925,6 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
   <li>The <a href="https://hub.docker.com/r/gocd/gocd-server/">GoCD server</a> docker image is now alpine based with support for volume mounts, with this going forward there will be no more support for phusion based images.</li>
   <li>You can download the docker images for GoCD agents across the following operating systems - CentOS <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-6/">6</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-centos-7/">7</a> , Debian <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-7/">7</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-8/">8</a>, Ubuntu <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-12.04/">12.04</a>, <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-14.04/">14.04</a> &amp; <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-16.04/">16.04</a></li>
   <li>We have also introduced an Amazon Linux based AMI for the GoCD Server making it very simple to launch GoCD server on your AWS EC2 instance.</li>
-  <li>The old phusion based images have been moved, they can found under <a href="https://hub.docker.com/r/gocd/gocd-server-deprecated/">gocd-server-deprecated</a> and <a href="https://hub.docker.com/r/gocd/gocd-agent-deprecated/">gocd-agent-deprecated</a>.</li>
 </ul>
 
 <p>Feedback is appreciated. Please log your feedback or issues on github for the following -</p>
@@ -5146,7 +5316,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
     <p><code><a href="https://github.com/gocd/gocd/commit/5052154a4fed53d884d40b0114b9efc06b20434f">5052154</a></code> - Removed Pipeline Config API V1. This API was deprecated since 16.7 and has been replaced with version 3. Version 3 of the API is available, and users are encouraged to use it.</p>
   </li>
   <li>
-    <p>Microsoft Internet Explorer versions older than 11 are no longer supported. Please use IE 11 or higher. <a href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a> is recommended.</p>
+    <p>Microsoft Internet Explorer versions older than 11 are no longer supported. Please use IE 11 or higher. <a href="https://www.microsoft.com/en-us/edge/download">Microsoft Edge</a> is recommended.</p>
   </li>
 </ul>
 
