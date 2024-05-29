@@ -67,13 +67,6 @@
   author_url: https://github.com/tomzo
   author_name: Tomasz Sętkowski
   releases_url: https://github.com/tomzo/gocd-rocketchat-plugin/releases/latest
-  
-- name: HTTP Notifications
-  description: Plugin to send GoCD Notifications for agent and stage status to arbitrary number of endpoints via POST request
-  readmore_url: https://github.com/matic-insurance/gocd-http-notifications-plugin
-  author_url: https://github.com/volodymyr-mykhailyk
-  author_name: Volodymyr Mykhailyk
-  releases_url: https://github.com/matic-insurance/gocd-http-notifications-plugin/releases/latest
 
 - name: GChat Notifier plugin
   description: Sends GChat messages on specific pipeline stage state changes via webhook.
