@@ -43,7 +43,7 @@ jobs:
           bundler-cache: false # true would run bundle install
       - name: Set up user in git config
         env:
-          USER: "${{ secrets.GITHUB_WRITE_USER }}"
+          USER: "${{ secrets.GH_PREVIEW_WRITE_USER }}"
         run: |
           git config --global user.name "${USER}"
           git config --global user.email "${USER}@github.com"
@@ -54,8 +54,8 @@ jobs:
           git remote add preview https://${USER}:${TOKEN}@github.com/gocd/preview.go.cd.git
           bundle exec rake publish --trace
         env:
-          USER: "${{ secrets.GITHUB_WRITE_USER }}"
-          TOKEN: "${{ secrets.GITHUB_WRITE_USER_ACCESS_TOKEN }}"
+          USER: "${{ secrets.GH_PREVIEW_WRITE_USER }}"
+          TOKEN: "${{ secrets.GH_PREVIEW_WRITE_USER_ACCESS_TOKEN }}"
           REMOTE_NAME: "preview"
           ALLOW_DIRTY: true
           BASE_URL: 'https://preview.gocd.org'
