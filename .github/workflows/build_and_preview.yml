@@ -30,8 +30,6 @@ jobs:
   push_to_gh_pages:
     needs: complete_build
     runs-on: ubuntu-latest
-    env:
-      GITHUB_PASSWORD: "${{ secrets.GITHUB_TOKEN }}"
     steps:
       - uses: actions/checkout@v4
         with:
