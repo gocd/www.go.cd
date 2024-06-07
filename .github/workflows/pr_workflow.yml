@@ -20,7 +20,7 @@ jobs:
           bundler-cache: true # would run bundle install
       - name: Set up user in git config
         env:
-          USER: "${{ secrets.USER_TO_WRITE }}"
+          USER: "${{ secrets.GITHUB_WRITE_USER }}"
         run: |
           git config --global user.name "${USER}"
           git config --global user.email "${USER}@github.com"
@@ -38,5 +38,5 @@ jobs:
           cd website && git config core.filemode false && git add -A .
           git commit -m "Update website to ${PR_NO}" && git push
         env:
-          USER: "${{ secrets.USER_TO_WRITE }}"
-          TOKEN: "${{ secrets.USER_TO_WRITE_ACCESS_TOKEN }}"
+          USER: "${{ secrets.GITHUB_WRITE_USER }}"
+          TOKEN: "${{ secrets.GITHUB_WRITE_USER_ACCESS_TOKEN }}"
