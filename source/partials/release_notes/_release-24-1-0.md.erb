@@ -95,6 +95,10 @@ DigiCert that avoided Windows SmartScreen prompts. Due to both certificate cost 
 code-signing certificates (to have hardware-managed keys), in the short term this is no longer sustainable for GoCD.
 Therefore installers will likely not be signed from 24.2.0 onwards when the existing certificate expires.
 
+GoCD can still be installed on Windows subsequent to this change, however users will need to review and accept
+warnings from Windows during installation. Note that runtime binaries _are still signed_ as before, such as the Java
+runtime and service wrapper binaries; so this change only affects installation - not runtime.
+
 If you have a suggestion of approach to reinstate Windows code signing for a open-source project with limited funding,
 or know other projects which have done so, [please reach out](https://github.com/gocd/gocd/issues)!
 
