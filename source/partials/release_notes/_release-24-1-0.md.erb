@@ -22,18 +22,18 @@ Java 17 was released in September 2021, and has had complete support within GoCD
 Since then it has been packaged with both GoCD container images & installers by default.
 
 This has proven to be be very stable, so to reduce maintenance overhead we are now making Java 17 the minimum supported
-version. Note that as of early 2024 GoCD has _not been officially validated_ against Java 21 LTS (or intermediary versions 18-20).
+version.
 
 If you are _aiming for minimal agent/server downtime_ in an upgrade to GoCD 24.1.0+, you can do so by following:
 
-1. Ensure your existing agents are running with Java 17.
-    - If your agents are using GoCD 22.1.0+ from _official GoCD containers or packages_ (RPM, deb)s there is _nothing extra to do_. These already package and run Java 17.
-    - If your agents are using GoCD 22.1.0+ from _other install approaches_, they are already Java 17-compatible, _if your server is 21.4.0+_. Ensure they are running with Java 17.
-1. Ensure your existing server is running with Java 17.
-    - If your server is using GoCD 22.1.0+ from _official GoCD containers or packages_ (RPM, deb)s there is _nothing extra to do_. These already package and run Java 17.
-    - If your server is using GoCD 21.4.0+ from _other install approaches_, is is already Java 17-compatible, _if your server is 21.4.0+_. Ensure they are running with Java 17.
+1. Ensure your existing agents are running with Java 17+.
+    - If your agents are using GoCD 22.1.0+ from _official GoCD containers or packages_ (RPM, deb)s there is _nothing extra to do_. These already package and run Java 17+.
+    - If your agents are using GoCD 22.1.0+ from _other install approaches_, they are already Java 17-compatible, _if your server is 21.4.0+_. Ensure they are running with Java 17+.
+1. Ensure your existing server is running with Java 17+.
+    - If your server is using GoCD 22.1.0+ from _official GoCD containers or packages_ (RPM, deb)s there is _nothing extra to do_. These already package and run Java 17+.
+    - If your server is using GoCD 21.4.0+ from _other install approaches_, is is already Java 17-compatible, _if your server is 21.4.0+_. Ensure they are running with Java 17+.
 1. Upgrade your server to GoCD 24.1.0 without worry about Java issues.
-    - Older agents running Java 17 will re-start automatically against a GoCD 24.1.0 server.
+    - Older agents running Java 17+ will re-start automatically against a GoCD 24.1.0 server.
     - You can now validate your installation and agents are working fine.
 1. (Optionally) You can now upgrade your agents to GoCD 24.1.0 whenever you choose.
     - Technically GoCD agent installs are only a "bootstrapper" which downloads the matching agent code from the server for
