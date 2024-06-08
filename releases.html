@@ -16,7 +16,7 @@
     <title>Releases - Version notes | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
     <link href="assets/stylesheets/site-8aa753e5.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-8e555251.js" data-manual="true"></script>
+    <script src="assets/javascripts/all-74d6f297.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
     <script>
@@ -180,26 +180,26 @@ users will need to use the browser/OS specific key combination or <em>middle-cli
 Since then it has been packaged with both GoCD container images &amp; installers by default.</p>
 
 <p>This has proven to be be very stable, so to reduce maintenance overhead we are now making Java 17 the minimum supported
-version. Note that as of early 2024 GoCD has <em>not been officially validated</em> against Java 21 LTS (or intermediary versions 18-20).</p>
+version.</p>
 
 <p>If you are <em>aiming for minimal agent/server downtime</em> in an upgrade to GoCD 24.1.0+, you can do so by following:</p>
 
 <ol>
-  <li>Ensure your existing agents are running with Java 17.
+  <li>Ensure your existing agents are running with Java 17+.
     <ul>
-      <li>If your agents are using GoCD 22.1.0+ from <em>official GoCD containers or packages</em> (RPM, deb)s there is <em>nothing extra to do</em>. These already package and run Java 17.</li>
-      <li>If your agents are using GoCD 22.1.0+ from <em>other install approaches</em>, they are already Java 17-compatible, <em>if your server is 21.4.0+</em>. Ensure they are running with Java 17.</li>
+      <li>If your agents are using GoCD 22.1.0+ from <em>official GoCD containers or packages</em> (RPM, deb)s there is <em>nothing extra to do</em>. These already package and run Java 17+.</li>
+      <li>If your agents are using GoCD 22.1.0+ from <em>other install approaches</em>, they are already Java 17-compatible, <em>if your server is 21.4.0+</em>. Ensure they are running with Java 17+.</li>
     </ul>
   </li>
-  <li>Ensure your existing server is running with Java 17.
+  <li>Ensure your existing server is running with Java 17+.
     <ul>
-      <li>If your server is using GoCD 22.1.0+ from <em>official GoCD containers or packages</em> (RPM, deb)s there is <em>nothing extra to do</em>. These already package and run Java 17.</li>
-      <li>If your server is using GoCD 21.4.0+ from <em>other install approaches</em>, is is already Java 17-compatible, <em>if your server is 21.4.0+</em>. Ensure they are running with Java 17.</li>
+      <li>If your server is using GoCD 22.1.0+ from <em>official GoCD containers or packages</em> (RPM, deb)s there is <em>nothing extra to do</em>. These already package and run Java 17+.</li>
+      <li>If your server is using GoCD 21.4.0+ from <em>other install approaches</em>, is is already Java 17-compatible, <em>if your server is 21.4.0+</em>. Ensure they are running with Java 17+.</li>
     </ul>
   </li>
   <li>Upgrade your server to GoCD 24.1.0 without worry about Java issues.
     <ul>
-      <li>Older agents running Java 17 will re-start automatically against a GoCD 24.1.0 server.</li>
+      <li>Older agents running Java 17+ will re-start automatically against a GoCD 24.1.0 server.</li>
       <li>You can now validate your installation and agents are working fine.</li>
     </ul>
   </li>
@@ -270,6 +270,10 @@ Alma or Rocky-based image to meet the needs of those who want to keep their agen
 DigiCert that avoided Windows SmartScreen prompts. Due to both certificate cost and changes in requirements for OV
 code-signing certificates (to have hardware-managed keys), in the short term this is no longer sustainable for GoCD.
 Therefore installers will likely not be signed from 24.2.0 onwards when the existing certificate expires.</p>
+
+<p>GoCD can still be installed on Windows subsequent to this change, however users will need to review and accept
+warnings from Windows during installation. Note that runtime binaries <em>are still signed</em> as before, such as the Java
+runtime and service wrapper binaries; so this change only affects installation - not runtime.</p>
 
 <p>If you have a suggestion of approach to reinstate Windows code signing for a open-source project with limited funding,
 or know other projects which have done so, <a href="https://github.com/gocd/gocd/issues">please reach out</a>!</p>
