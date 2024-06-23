@@ -1,0 +1,71 @@
+This release is a maintenance and bug-fix release.
+
+<h4>Java 21 Support</h4>
+
+GoCD is now built with, tested against and distributed with Java 21 LTS. Java 17 remains the minimum supported version
+for bring-your-own-JRE setups. There were no specific changes needed to support Java 21, so the prior release 24.1.0
+can be considered the first version that supports Java 21.
+
+<h4>Windows installers no longer signed</h4>
+
+Windows installers were previously code-signed with a "proper" Thoughtworks-issued OV code-signing certificate from
+DigiCert that avoided Windows SmartScreen prompts. Due to both certificate cost and changes in requirements for OV
+code-signing certificates (to have hardware-managed keys), in the short term this is no longer sustainable for GoCD.
+Therefore installers are not be signed from 24.2.0 onwards.
+
+GoCD can still be installed on Windows subsequent to this change, however users will need to review and accept
+warnings from Windows during installation. Note that runtime binaries _are still signed_ as before, such as the Java
+runtime and service wrapper binaries; so this change only affects installation - not runtime.
+
+If you have a suggestion of approach to reinstate Windows code signing for a open-source project with limited funding,
+or know other projects which have done so, [please reach out](https://github.com/gocd/gocd/issues)!
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 12762, 'Build, test and package GoCD with Java 21 LTS by default' %>
+* <%= link_to_issue 12792, 'Make JRE dependencies from RPM and Debian packages optional/recommended' %>
+* <%= link_to_issue 12761 %>, <%= link_to_issue 12828, 'Add AlmaLinux 9 based GoCD agent image to replace CentOS Stream' %>
+* Starting this release, [AlmaLinux](https://almalinux.org/) based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-almalinux-9' %>.
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 12765, 'Tasks on gocd-agent-docker-dind:v24.1.0 image cannot interact with Docket socket by default' %>
+
+<h4>Security fixes</h4>
+
+While we don't regularly release new GoCD versions to address container image dependencies, this release patches git
+binaries within container images due to [CVE-2024-28866](https://github.com/git/git/security/advisories/GHSA-8h77-4q3w-gfgv)
+and several other issues of particular concern to a build/deploy automation tool such as GoCD. You can read more about
+the issues on [the GitHub Blog](https://github.blog/2024-05-14-securing-git-addressing-5-new-vulnerabilities/). Note that
+at time of release, Debian images have [not had the most critical patch backported](https://security-tracker.debian.org/tracker/CVE-2024-32002)
+to Debian 11 or 12, so the gocd-agent-debian variants for 24.2.0 are still vulnerable. Ubuntu variants are [all patched](https://ubuntu.com/security/CVE-2024-32002)
+as are Alpine and Wolfi variants.
+
+We regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '24.2.0','changes-in-24-2-0', 'API changelog for 24.2.0' %> and
+  <%= link_to_versioned_plugin_api '24.2.0','changes-in-gocd-24-2-0', 'Plugin API changelog for 24.2.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "K. S. Ernest (iFire) Lee",
+  "Matthias Kraaz",
+  "nichivo",
+  "Tewfik Ghariani",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 24.2.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
