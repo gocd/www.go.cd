@@ -157,7 +157,7 @@
         <div class="content">
           <p>This release is a maintenance and bug-fix release.</p>
 
-<h4>Java 21 Support</h4>
+<h4>Java 21 support</h4>
 
 <p>GoCD is now built with, tested against and distributed with Java 21 LTS. Java 17 remains the minimum supported version
 for bring-your-own-JRE setups. There were no specific changes needed to support Java 21, so the prior release 24.1.0
@@ -195,7 +195,7 @@ or know other projects which have done so, <a href="https://github.com/gocd/gocd
 <h4>Security fixes</h4>
 
 <p>While we don't regularly release new GoCD versions to address container image dependencies, this release patches git
-binaries within container images due to <a href="https://github.com/git/git/security/advisories/GHSA-8h77-4q3w-gfgv">CVE-2024-28866</a>
+binaries within container images due to <a href="https://github.com/git/git/security/advisories/GHSA-8h77-4q3w-gfgv">CVE-2024-32002</a>
 and several other issues of particular concern to a build/deploy automation tool such as GoCD. You can read more about
 the issues on <a href="https://github.blog/2024-05-14-securing-git-addressing-5-new-vulnerabilities/">the GitHub Blog</a>. Note that
 at time of release, Debian images have <a href="https://security-tracker.debian.org/tracker/CVE-2024-32002">not had the most critical patch backported</a>
@@ -871,7 +871,7 @@ whether they are known to affect GoCD), so upgrading to the latest release is al
       <h3 class="tab-marker tab-accordion_heading" rel="tab-22-1-0">22.1.0</h3>
       <div id="tab-22-1-0" class="tab_content" style="display: block;">
         <div class="content">
-          <h4>Security Fixes</h4>
+          <h4>Security fixes</h4>
 
 <p>This release has <b>important security fixes</b> and upgrades to a number of internal components.</p>
 
@@ -897,7 +897,7 @@ users</em> with malicious intent to trigger remote code execution on the GoCD Se
 <p>Security fixes in this release were due to vulnerabilities responsibly disclosed by Alessio Della Libera (of the Snyk Security Team),
 Alexey Solovyev (solev9ev) and SuperXX (Xiao Xiong). Many thanks to them for the disclosures, discussions and ideas around mitigation.</p>
 
-<h4>Java 17 Support</h4>
+<h4>Java 17 support</h4>
 
 <p>This release includes compatibility changes within the GoCD Server to support Java 17.</p>
 
@@ -910,7 +910,7 @@ Docker images, there is <em>nothing extra you should need to do to run with Java
 <br />
 <br /></p>
 
-<h5>Plugin Compatibility with Java 17</h5>
+<h5>Plugin compatibility with Java 17</h5>
 <p>GoCD has many plugins and while we have sanity checked many, it is not practical for us to test every plugin.
 Plugins are also constrained by these Java Runtime restrictions, and if they either rely on access to Java Runtime
 internals or use libraries that do so, they may experience issues.</p>
@@ -938,7 +938,7 @@ or via <a href="https://groups.google.com/g/go-cd">the GoCD Google Group</a></li
   <li><a href="https://github.com/gocd/gocd/issues/10071">#10071</a> - Support Bitbucket push webhooks that contain multiple changes</li>
 </ul>
 
-<h4>Bug Fixes</h4>
+<h4>Bug fixes</h4>
 
 <ul>
   <li><a href="https://github.com/gocd/gocd/issues/9002">#9002</a> - Cannot input multiple lines for Perforce material view</li>
