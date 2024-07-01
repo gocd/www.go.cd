@@ -3,7 +3,7 @@
 //= require 'lib/_prism-core.min'
 //= require 'lib/_prism-bash.min'
 //= require 'lib/_prism-powershell.min'
-//= require 'lib/_jquery-1.12.3'
+//= require 'lib/_jquery-1.12.4.min'
 //= require 'lib/_enquire'
 //= require 'lib/_masonry.pkgd'
 //= require 'lib/_handlebars.min-v4.7.8'
