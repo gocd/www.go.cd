@@ -257,9 +257,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.9.1)
+    unf (0.2.0)
     webrick (1.8.1)
     yell (2.2.2)
     zeitwerk (2.6.17)
