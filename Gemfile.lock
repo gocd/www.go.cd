@@ -41,6 +41,7 @@ GEM
     autoprefixer-rails (10.4.19.0)
       execjs (~> 2)
     backports (3.25.0)
+    base64 (0.2.0)
     bigdecimal (3.1.8)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
@@ -77,7 +78,8 @@ GEM
     fiber-local (1.1.0)
       fiber-storage
     fiber-storage (1.0.0)
-    fog-aws (3.24.0)
+    fog-aws (3.25.0)
+      base64 (~> 0.2.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
