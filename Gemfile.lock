@@ -67,7 +67,7 @@ GEM
     ethon (0.16.0)
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
-    excon (0.112.0)
+    excon (1.0.0)
     execjs (2.9.1)
     fast_blank (1.0.1)
     fastimage (2.3.1)
@@ -83,9 +83,9 @@ GEM
       fog-core (~> 2.1)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
-    fog-core (2.5.0)
+    fog-core (2.6.0)
       builder
-      excon (~> 0.71)
+      excon (~> 1.0)
       formatador (>= 0.2, < 2.0)
       mime-types
     fog-json (1.2.0)
