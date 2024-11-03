@@ -1,0 +1,46 @@
+This release is a minor maintenance and bug-fix release.
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 13148, 'Bundle latest Java 21.0.5 release with non-Linux installers & containers' %>
+* <%= link_to_issue 13226, 'Fail linux installer package post-install scripts if configured Java runtime cannot be found' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 13214, 'GoCD 24.3.0 database migration can hang/be extremely slow in low entropy server environments' %>
+* <%= link_to_issue 13232, 'Secret references within config repo materials don''t work if material not used by any pipeline' %>
+* <%= link_to_issue 12764, 'Secret resolution failure breaks work allocation in server' %>
+* <%= link_to_issue 13008, 'Alpine-based images can conflicts with some tools due to inclusion of glibc zlib' %>
+* <%= link_to_issue 12872, 'function ${escape:} not a valid type errors from UrlRewriting are still appearing' %>
+
+<h4>Security fixes</h4>
+
+There are no security fixes included in this release (for issues known to affect GoCD).
+
+However, we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '24.4.0','changes-in-24-4-0', 'API changelog for 24.4.0' %> and
+  <%= link_to_versioned_plugin_api '24.4.0','changes-in-gocd-24-4-0', 'Plugin API changelog for 24.4.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "Jason Smyth",
+  "Jochen Lutz",
+  "Mitchell R",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 24.4.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
