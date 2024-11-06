@@ -23,7 +23,7 @@ We concur. This is a good example of cross-pollination of good ideas between dev
 4.   Transactional install/upgrade/uninstall via package managers.
 5.   Managing configuration files: OS packages know how to manage files that are expected to change after installation so you don't lose your changes when you uninstall or override when you upgrade. e.g. rpm's %config macro.
 6.   File verification: Packages have built-in checksums, which can be used for verification before a package is extracted and installed.
-7.   Signature verification (e.g. [rpm](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/s1-check-rpm-sig)).
+7.   Signature verification (e.g. [rpm](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/5/html/deployment_guide/s1-check-rpm-sig)).
 8.   Idempotence - Issuing the same package install/upgrade/uninstall multiple times leaves the system in the same state as issuing it once.
 9.   Auditability: OS packaging tools allows you to track [what package installed what file](https://unix.stackexchange.com/questions/4705/how-to-find-out-which-package-a-file-belongs-to) in your system (versus files appearing or being changed at will)
 10.   Traceability - what repository did a package come from? (e.g. deb)
