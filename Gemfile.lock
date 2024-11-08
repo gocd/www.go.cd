@@ -54,7 +54,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.3.4)
-    console (1.27.0)
+    console (1.29.0)
       fiber-annotation
       fiber-local (~> 1.1)
       json
@@ -127,7 +127,7 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-event (1.7.3)
-    json (2.7.5)
+    json (2.8.1)
     kramdown (2.4.0)
       rexml
     listen (3.9.0)
