@@ -79,7 +79,7 @@
   <li>Transactional install/upgrade/uninstall via package managers.</li>
   <li>Managing configuration files: OS packages know how to manage files that are expected to change after installation so you don't lose your changes when you uninstall or override when you upgrade. e.g. rpm's %config macro.</li>
   <li>File verification: Packages have built-in checksums, which can be used for verification before a package is extracted and installed.</li>
-  <li>Signature verification (e.g. <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/s1-check-rpm-sig">rpm</a>).</li>
+  <li>Signature verification (e.g. <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/5/html/deployment_guide/s1-check-rpm-sig">rpm</a>).</li>
   <li>Idempotence - Issuing the same package install/upgrade/uninstall multiple times leaves the system in the same state as issuing it once.</li>
   <li>Auditability: OS packaging tools allows you to track <a href="https://unix.stackexchange.com/questions/4705/how-to-find-out-which-package-a-file-belongs-to">what package installed what file</a> in your system (versus files appearing or being changed at will)</li>
   <li>Traceability - what repository did a package come from? (e.g. deb)</li>
