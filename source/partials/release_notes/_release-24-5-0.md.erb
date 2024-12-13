@@ -1,0 +1,47 @@
+This release is a security, maintenance and bug-fix release.
+
+<h4>Security Fixes</h4>
+
+This release has important security fixes relating to admin functionality. We recommend all users upgrade to this version to safeguard your GoCD server.
+There are no major compatibility changes in this release, nor since the change to require Java 17 included in 24.1.0, so upgrading should be
+straightforward for most users.
+
+If you cannot upgrade immediately, we recommend you mitigate the most critical of these issues by blocking access to
+URLs prefixed with `/go/rails`. Doing so has no impact on GoCD functionality.
+
+These security vulnerabilities were responsibly disclosed via high quality research performed by byc_404/baiyecha404 and
+the team extend our thanks for their efforts. We want to give users some time to mitigate or upgrade, before providing
+more details about the vulnerabilities. These will be disclosed via GitHub Security Advisories and formal CVEs.
+
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 13321, 'Fix erratic startup of Docker-in-Docker container images with cgroups v2 host operating systems' %>
+
+<h4>Other changes</h4>
+
+* <%= link_to_issue 13322, 'Remove/decommission Chocolatey installers/support on Windows' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '24.5.0','changes-in-24-5-0', 'API changelog for 24.5.0' %> and
+  <%= link_to_versioned_plugin_api '24.5.0','changes-in-gocd-24-5-0', 'Plugin API changelog for 24.5.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "byc_404/baiyecha404",
+  "Chad Wilson",
+  "Ketan Padegaonkar",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 24.5.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
