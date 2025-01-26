@@ -1,0 +1,43 @@
+This release is a minor maintenance and bug-fix release.
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 13148, 'Bundle latest Java 21.0.6 release with non-Linux installers & containers' %>
+* <%= link_to_issue 13439, 'Increase UI responsiveness by decreasing default refresh interval to 5 seconds' %>
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 13393, 'Fix re-display of stage overview modals on VSM pages' %>
+* <%= link_to_issue 13397, 'Stage Overview Modal not Loading on VSM Page When Pipeline Name Contains a .' %>
+* <%= link_to_issue 13399, 'Avoid multiple stage overviews being displayed on VSM when server is slow to return model' %>
+* <%= link_to_issue 13394, 'Don''t change hover cursor for unclickable icons' %>
+
+<h4>Security fixes</h4>
+
+There are no security fixes included in this release (for issues known to affect GoCD).
+
+However, we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '25.1.0','changes-in-25-1-0', 'API changelog for 25.1.0' %> and
+  <%= link_to_versioned_plugin_api '25.1.0','changes-in-gocd-25-1-0', 'Plugin API changelog for 25.1.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "Jason Smyth",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 25.1.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
