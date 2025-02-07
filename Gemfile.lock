@@ -34,7 +34,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     afm (0.2.2)
     ansi (1.5.0)
-    async (2.21.3)
+    async (2.22.0)
       console (~> 1.29)
       fiber-annotation
       io-event (~> 1.7)
@@ -254,7 +254,7 @@ GEM
     tilt (2.0.11)
     toml (0.3.0)
       parslet (>= 1.8.0, < 3.0.0)
-    traces (0.15.0)
+    traces (0.15.2)
     ttfunk (1.8.0)
       bigdecimal (~> 3.1)
     typhoeus (1.4.1)
