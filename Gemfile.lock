@@ -34,10 +34,10 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     afm (0.2.2)
     ansi (1.5.0)
-    async (2.22.0)
+    async (2.23.0)
       console (~> 1.29)
       fiber-annotation
-      io-event (~> 1.7)
+      io-event (~> 1.9)
       metrics (~> 0.12)
       traces (~> 0.15)
     autoprefixer-rails (10.4.19.0)
