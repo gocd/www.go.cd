@@ -51,11 +51,11 @@ Since describing each click through the GoCD web interface can be time consuming
 
 The build command, `debuild -b -us -uc`, return exit code zero on success and a non-zero exit code on failure, which is the standard convention for UNIX commands, and the same that the GoCD job runner for system commands understands, so we don't have to take special care with error handling.
 
-The `debuild` command is part of the `devscripts` package on Debian and Ubuntu, and we just assume that it is installed on the agent machine. If you have a heterogenous environment, you can [use resources to limit the job to fitting agents](https://docs.go.cd/15.3.0/configuration/managing_a_build_cloud.html#matching-jobs-to-agents).
+The `debuild` command is part of the `devscripts` package on Debian and Ubuntu, and we just assume that it is installed on the agent machine. If you have a heterogenous environment, you can [use resources to limit the job to fitting agents](https://docs.gocd.org/15.3.0/configuration/managing_a_build_cloud.html#matching-jobs-to-agents).
 
 The `timeout="5"` in the job tag specifies a timeout in minutes that applies when the build script hasn't produced any output for five minutes. It acts as a safeguard against infinitely looping builds.
 
-The `artifacts` tag specifies files and wildcards that GoCD collecst and stores on the server. The use of a wildcard is both to account for the fact that the version number and thus the file name of the generated Debian package is variable, and to able to capture both the generated `.deb` and `.changes` file. The fixed destination path makes it easier to retrieve those artifacts later on without knowing the exact version number.
+The `artifacts` tag specifies files and wildcards that GoCD collects and stores on the server. The use of a wildcard is both to account for the fact that the version number and thus the file name of the generated Debian package is variable, and to able to capture both the generated `.deb` and `.changes` file. The fixed destination path makes it easier to retrieve those artifacts later on without knowing the exact version number.
 
 If you use the [environments feature](https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-4-go-environments), you also need to add the pipeline and at least one fitting agent to an environment. To keep things simple, we'll skip that here.
 
