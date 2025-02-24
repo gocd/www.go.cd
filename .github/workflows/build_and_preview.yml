@@ -7,6 +7,10 @@ on:
     branches:
       - master
 
+permissions:
+  id-token: write
+  contents: read
+
 env:
   RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
   BUNDLE_BUILD__SASSC: --disable-march-tune-native
@@ -45,6 +49,11 @@ jobs:
         run: |
           git config --global user.name "${USER}"
           git config --global user.email "${USER}@github.com"
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: "${{ secrets.AWS_ROLE_TO_ASSUME }}"
+          aws-region: "${{ secrets.AWS_REGION }}"
       - name: Set up upstream and publish to gh pages
         run: |
           bundle config --local build.sassc --disable-march-tune-native
@@ -59,6 +68,4 @@ jobs:
           BASE_URL: 'https://preview.gocd.org'
           DEPLOY_ENVIRONMENT: 'preview'
           AWS_BUCKET: "${{ secrets.PREVIEW_AWS_BUCKET }}"
-          AWS_ACCESS_KEY_ID: "${{ secrets.PREVIEW_AWS_ACCESS_KEY_ID }}"
-          AWS_SECRET_ACCESS_KEY: "${{ secrets.PREVIEW_AWS_SECRET_ACCESS_KEY }}"
           RUN_EXTERNAL_CHECKS: false
