@@ -52,7 +52,7 @@ jobs:
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: "${{ secrets.AWS_ROLE_TO_ASSUME }}"
+          role-to-assume: "${{ secrets.PREVIEW_AWS_ROLE_TO_ASSUME }}"
           aws-region: "${{ secrets.AWS_REGION }}"
       - name: Set up upstream and publish to gh pages
         run: |
