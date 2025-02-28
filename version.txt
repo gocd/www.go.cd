@@ -1,9 +1,12 @@
-Last updated: 2025-01-26 16:49:20 +0000
+Last updated: 2025-02-28 15:22:24 +0000
 
 Latest commit:
-    commit e6201027215efd517262a7289f6b765abeeacd7f
+    commit 13e8ece0275fb340595ba0af6a298a8fc7fd0339
+    Merge: 22b9e7fbd c68222e82
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Sun Jan 26 14:31:58 2025 +0800
+    Date:   Fri Feb 28 23:13:13 2025 +0800
     
-        Add 25.1.0 release notes
+        Merge pull request #1856 from damvinod/master
+        
+        Using GHA OIDC IAM role to sync the artifacts with S3 bucket.
     

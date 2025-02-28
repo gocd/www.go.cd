@@ -109,11 +109,11 @@
 
 <p>The build command, <code>debuild -b -us -uc</code>, return exit code zero on success and a non-zero exit code on failure, which is the standard convention for UNIX commands, and the same that the GoCD job runner for system commands understands, so we don't have to take special care with error handling.</p>
 
-<p>The <code>debuild</code> command is part of the <code>devscripts</code> package on Debian and Ubuntu, and we just assume that it is installed on the agent machine. If you have a heterogenous environment, you can <a href="https://docs.go.cd/15.3.0/configuration/managing_a_build_cloud.html#matching-jobs-to-agents">use resources to limit the job to fitting agents</a>.</p>
+<p>The <code>debuild</code> command is part of the <code>devscripts</code> package on Debian and Ubuntu, and we just assume that it is installed on the agent machine. If you have a heterogenous environment, you can <a href="https://docs.gocd.org/15.3.0/configuration/managing_a_build_cloud.html#matching-jobs-to-agents">use resources to limit the job to fitting agents</a>.</p>
 
 <p>The <code>timeout="5"</code> in the job tag specifies a timeout in minutes that applies when the build script hasn't produced any output for five minutes. It acts as a safeguard against infinitely looping builds.</p>
 
-<p>The <code>artifacts</code> tag specifies files and wildcards that GoCD collecst and stores on the server. The use of a wildcard is both to account for the fact that the version number and thus the file name of the generated Debian package is variable, and to able to capture both the generated <code>.deb</code> and <code>.changes</code> file. The fixed destination path makes it easier to retrieve those artifacts later on without knowing the exact version number.</p>
+<p>The <code>artifacts</code> tag specifies files and wildcards that GoCD collects and stores on the server. The use of a wildcard is both to account for the fact that the version number and thus the file name of the generated Debian package is variable, and to able to capture both the generated <code>.deb</code> and <code>.changes</code> file. The fixed destination path makes it easier to retrieve those artifacts later on without knowing the exact version number.</p>
 
 <p>If you use the <a href="https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-4-go-environments">environments feature</a>, you also need to add the pipeline and at least one fitting agent to an environment. To keep things simple, we'll skip that here.</p>
 
@@ -220,12 +220,12 @@ the subsequent numbers in the version string. For a git tag <code>2016.01</code>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Oct 11</span>
               <span class="post-author">Guest post by Abilash Rajasekaran</span>
-              <a href="../../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+              <a href="../../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
             </li>
             <li>
               <span class="post-date">Apr 14</span>
