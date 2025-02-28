@@ -9,7 +9,7 @@ on:
 
 permissions:
   id-token: write
-  contents: write
+  contents: read
 
 env:
   RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
