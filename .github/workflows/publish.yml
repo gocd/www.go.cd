@@ -6,6 +6,10 @@ name: Publish
 # or API.
 on: [ workflow_dispatch ]
 
+permissions:
+  id-token: write
+  contents: write
+
 env:
   RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
 
@@ -28,6 +32,11 @@ jobs:
         run: |
           git config --global user.name "${USER}"
           git config --global user.email "${USER}@github.com"
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: "${{ secrets.AWS_ROLE_TO_ASSUME }}"
+          aws-region: "${{ secrets.AWS_REGION }}"
       - name: Set up upstream and publish to gh pages
         run: |
           bundle config --local build.sassc --disable-march-tune-native
@@ -40,6 +49,4 @@ jobs:
           BASE_URL: 'https://www.gocd.org'
           DEPLOY_ENVIRONMENT: 'live'
           AWS_BUCKET: "${{ secrets.AWS_BUCKET }}"
-          AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
-          AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
           RUN_EXTERNAL_CHECKS: false
