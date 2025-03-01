@@ -27,4 +27,4 @@ gem 'htmlentities'
 
 #View Gems
 gem 'bourbon'
-gem 'neat'
+gem 'neat', github: 'shirtspace/neat', ref: 'master' # Allow thor 1.x upgrade

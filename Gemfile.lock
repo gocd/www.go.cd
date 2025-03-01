@@ -21,6 +21,14 @@ GIT
   specs:
     sassc (2.4.0)
 
+GIT
+  remote: https://github.com/shirtspace/neat.git
+  revision: c6fc3d27755ac6026c683b382992c79da0bd082e
+  ref: master
+  specs:
+    neat (4.0.2)
+      thor (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -197,7 +205,6 @@ GEM
     minitest (5.25.4)
     multi_json (1.15.0)
     mutex_m (0.3.0)
-    neat (4.0.0)
     nokogiri (1.18.3)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -290,7 +297,7 @@ DEPENDENCIES
   middleman-sprockets
   mime-types
   mutex_m
-  neat
+  neat!
   rake
   redcarpet
   sassc!
