@@ -1,12 +1,11 @@
-Last updated: 2025-02-28 15:22:24 +0000
+Last updated: 2025-03-01 14:35:31 +0000
 
 Latest commit:
-    commit 13e8ece0275fb340595ba0af6a298a8fc7fd0339
-    Merge: 22b9e7fbd c68222e82
+    commit 40df60ae71b7ee0cb9e96a5d8097e9219e384ebd
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Fri Feb 28 23:13:13 2025 +0800
+    Date:   Sat Mar 1 22:08:25 2025 +0800
     
-        Merge pull request #1856 from damvinod/master
+        Allow patched thor via use of (another) fork. Sigh.
         
-        Using GHA OIDC IAM role to sync the artifacts with S3 bucket.
+        Mitigate risk here by forcing bundler into deployment mode, so it does not update version.
     
