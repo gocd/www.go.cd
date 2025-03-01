@@ -24,7 +24,6 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
           bundler-cache: false # true would run bundle install
       - name: Run the build
         run: |
@@ -41,7 +40,6 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
           bundler-cache: false # true would run bundle install
       - name: Set up user in git config
         env:

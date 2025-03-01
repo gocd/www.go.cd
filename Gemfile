@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
-ruby '~> 3.3'
+ruby '~> 3.4'
 
 # Middleman Gems
 gem 'middleman'
+gem 'mutex_m'
 gem 'sassc', github: 'sass/sassc-ruby', ref: 'refs/pull/233/head'
 gem 'sassc-embedded'
 gem 'middleman-livereload'
