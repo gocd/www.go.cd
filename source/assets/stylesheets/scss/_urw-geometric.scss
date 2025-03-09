@@ -28,26 +28,25 @@
  * © 2017 MyFonts Inc
 */
 
-
 @font-face {
   font-family: 'URWGeometric-Medium';
-  src: url('/assets/vendor/fonts/urw-geometric/354267_0_0.woff2') format('woff2');
+  src: url(font-path("urw-geometric/354267_0_0.woff2")) format('woff2');
 }
 
 
 @font-face {
   font-family: 'URWGeometric-SemiBold';
-  src: url('/assets/vendor/fonts/urw-geometric/354267_1_0.woff2') format('woff2');
+  src: url(font-path("urw-geometric/354267_1_0.woff2")) format('woff2');
 }
 
 
 @font-face {
   font-family: 'URWGeometric-ExtraBold';
-  src: url('/assets/vendor/fonts/urw-geometric/354267_2_0.woff2') format('woff2');
+  src: url(font-path("urw-geometric/354267_2_0.woff2")) format('woff2');
 }
 
 
 @font-face {
   font-family: 'URWGeometric-Heavy';
-  src: url('/assets/vendor/fonts/urw-geometric/354267_3_0.woff2') format('woff2');
+  src: url(font-path("urw-geometric/354267_3_0.woff2")) format('woff2');
 }
