@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD is open source continuous delivery software. GoCD supports GitHub Pull Request and this blog post has more details about the feature." name="description" />
+    <meta content="continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, support, feature branch, GitHub, pull request, github pull request" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Feature Branch Support | GoCD Blog" />
+    <meta name="twitter:description" content="GoCD is open source continuous delivery software. GoCD supports GitHub Pull Request and this blog post has more details about the feature." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/feature-branch/update-status-1-b1d0e5b3.png" />
+    <link rel="canonical" href="https://www.gocd.org/2015/04/27/feature-branch-support.html" />
+
+    <title>Feature Branch Support | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+    });
+    </script>
+  </head>
+
+  <body class="x2015 x2015_04 x2015_04_27 x2015_04_27_feature-branch-support">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li><a href="../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+
+
+  <header class="blog-post-header">
+    <h1>Feature Branch Support</h1>
+    <h4>GoCD Team</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      <p>GoCD 15.1 introduced support for writing material repository plugins, to extend the kind of source code material
+repositories that GoCD works with. This resulted in community-driven plugins developed for GoCD, to implement support for
+feature branches, with help from members of GoCD’s core contributors. This blog post has information specifically about
+GitHub Pull Request support.</p>
+
+<p><strong>Note:</strong> In this post, the terms <em>Branch</em> and <em>Pull Request</em> are used interchangeably, since a <em>Pull Request</em> is
+essentially just a branch.</p>
+
+<p>As codebases grow and teams start writing more tests, they often hit upon a challenging problem. If they have setup
+their build, test and deploy pipelines as a normal team or teams working with trunk-based development would have, then
+increasing the number of tests they have results in a longer time to certify a build and deploy to production.</p>
+
+<p>Here is an example of a Value Stream Map from GoCD itself: See https://build.gocd.org (Username: view, Password: password) itself,
+where running all the tests and generating installers can take hours:</p>
+
+<figure>
+  <img src="../../../assets/images/blog/feature-branch/mature-ci-cd-setup-f94937bf.png" class="has_border full_size" id="mature_ci_cd_setup" title="GoCD - Value Stream Map" alt="GoCD - Value Stream Map" />
+  <figcaption>Figure 1: GoCD - Value Stream Map <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+</figure>
+
+<p>Due to this, it becomes critical to keep the main Value Stream green all the time. A failed build would mean all other
+commits ready to go in have to wait until the failed build is fixed:</p>
+
+<figure>
+  <img src="../../../assets/images/blog/feature-branch/failed-build-bb7a251d.png" class="has_border full_size" id="failed_build" title="Failed build stops everything" alt="Failed build stops everything" />
+  <figcaption>Figure 2: Failed build stops everything <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+</figure>
+
+<hr />
+
+<p>The root of this problem is a slow build, and sometimes that can be tackled directly. However, with the advent of
+short-lived feature branches (aka, <em>Pull Requests</em> in GitHub land), this problem can become worse. Since feature
+branches are not regularly verified before merging, merging them could itself be a little risky, and could cause the
+build to fail un-necessarily.</p>
+
+<p>In general, development workflows in organizations has moved to something which looks like:</p>
+
+<pre><code>Pull Request (GitHub, Gerrit etc.) / Feature Branch =&gt; Code Review =&gt; Merge =&gt; Build
+</code></pre>
+
+<p>Now, whether a feature branch based workflow is the best approach or not is hotly debated (see Martin Fowler’s
+<a href="https://martinfowler.com/bliki/FeatureBranch.html">article</a> on this). Organizations who follow a feature branch based
+workflow have been wanting support for it in GoCD.  Historically, GoCD has advocated against feature
+branches and support for it has been limited. GoCD users have come up with some innovative workarounds, like this one from <a href="https://groups.google.com/d/topic/go-cd/veZ5QyySR8k/discussion">Vision
+Critical</a>.</p>
+
+<p>Though the GoCD core contribution team continues to be wary of long-lived feature branches, short-lived feature branches
+create a window for validating changes before they are merged into the main branch. Since the majority of time spent in
+a CI/CD setup tends to be in running tests, and failed builds are typically due to test failures, you could run tests on
+a proposed change in a feature branch, get feedback about it and fix tests if needed, before merging it into the trunk.
+Though this does not always catch integration issues (that depends on what else was merged before this one was), it
+allows you to increase the chances of your main Value Stream staying green and in a deployable state for longer.</p>
+
+<p>A problem with this approach though, is that every change will be tested twice (once on the feature branch and once on
+the main branch after the merge) which means the effective time for a commit to reach production could be more, unless
+you have more hardware (agents) to run branch builds.</p>
+
+<h3 id="the-way-forward">The way forward</h3>
+
+<p>Assuming you have chosen the approach mentioned above, you can now use GoCD 15.1, with its two new extension points - <a href="https://docs.gocd.org/15.1.0/extension_points/scm_extension.html">SCM
+end-point</a> and the <a href="https://docs.gocd.org/15.1.0/extension_points/notification_extension.html">Notification
+end-point</a>, to test feature
+branches before they are merged.</p>
+
+<p>To use this with GitHub requires the use of two community-driven and community-supported plugins: <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Git Branch Poller
+Plugin</a> and the <a href="https://github.com/srinivasupadhya/gocd-build-status-notifier">Build Status Notification
+Plugin</a>. The first one is an SCM Material plugin, and is
+responsible for polling a configured repository for changes, while the second one is a Notification plugin, which is
+responsible for notifying GitHub about the suitability of a Pull Request for merging.</p>
+
+<p><strong>Note</strong>: Even though this post specifically mentions GitHub only, plugins have been written to work with plain Git,
+Atlassian Stash, Gerrit and more! See the <a href="https://www.gocd.org/plugins">GoCD community plugins
+page</a> for more information.</p>
+
+<h3 id="quick-setup">Quick Setup</h3>
+
+<ul>
+  <li>
+    <p>Download the <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests#user-content-get-started">Git Branch Poller Plugin</a> and the <a href="https://github.com/srinivasupadhya/gocd-build-status-notifier#user-content-get-started">Build Status Notification Plugin</a>. Place them under <code>&lt;go-server&gt;/plugins/external</code>. Restart the GoCD Server.</p>
+  </li>
+  <li>
+    <p>Verify that the plugins are loaded correctly.</p>
+  </li>
+</ul>
+
+<figure>
+  <img src="../../../assets/images/blog/feature-branch/plugins-loaded-9903d601.png" class="has_border full_size" id="verify_plugins" title="Verify Plugins" alt="Verify Plugins" />
+  <figcaption>Figure 3: Verify Plugins <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+</figure>
+
+<ul>
+  <li>
+    <p>Decide which parts of the value stream you want the Pull Requests to run till, and extract a template for those
+pipelines, so that you can have a parallel set of pipelines to run against Pull Requests. The need to create a
+separate set of pipelines is to make sure that the main build and the branch build never get interleaved, and a branch
+build never gets deployed into production, by mistake.</p>
+
+    <p>Your decision should be based on how much of your tests can reasonably be run for every Pull Request, and how far down
+  the Value Stream can a build containing those changes GoCD. For some, every test in the system needs to run before it is
+  deemed merge-able and for some, only unit and integration tests might be enough. It depends.</p>
+
+    <p>Suppose you have a setup of three pipelines like this:</p>
+
+    <figure>
+    <img src="../../../assets/images/blog/feature-branch/setup-90ad35f1.png" class="full_size" id="example_setup" title="Example setup" alt="Example setup of 3 pipelines" />
+    <figcaption>Figure 4: Example setup <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+  </figure>
+
+    <p>and you decide that you want the first two pipelines to run for every Pull Request, you need to change your pipelines
+  to look like this:</p>
+
+    <figure>
+    <img src="../../../assets/images/blog/feature-branch/with_prs-6626da92.png" class="full_size" id="create_pipelines" title="Extract templates, create pipelines for PR" alt="Extract templates, create pipelines for PR" />
+    <figcaption>Figure 5: Extract templates, create pipelines for PR <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+  </figure>
+
+    <p>Based on your decision, extract templates and create the new pipelines:</p>
+
+    <figure>
+    <img src="../../../assets/images/blog/feature-branch/extract-template-cfd29320.png" class="has_border full_size" id="extract_template" title="Extract template" alt="Extract template" />
+    <figcaption>Figure 6: Extract template <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+  </figure>
+  </li>
+  <li>
+    <p>In the new pipeline or pipelines that have been setup to run for every Pull Request, change the Git material to use
+the GitHub material (this material is provided by the GitHub poller plugin installed earlier):</p>
+
+    <figure>
+    <img src="../../../assets/images/blog/feature-branch/replace-material-1-0c4f6bbf.png" class="has_border full_size" id="add_github_material" title="Add GitHub material" alt="Add GitHub material" />
+    <figcaption>Figure 7: Add GitHub material <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+  </figure>
+
+    <figure>
+    <img src="../../../assets/images/blog/feature-branch/replace-material-2-afc048ab.png" class="has_border full_size" id="add_github_material_details" title="Add GitHub material - Details" alt="Add GitHub material - Details" />
+    <figcaption>Figure 8: Add GitHub material - Details <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+  </figure>
+
+    <p>Once you have setup the GitHub material for the pipeline, you can remove the Git material from that pipeline.</p>
+  </li>
+</ul>
+
+<p>That’s it.</p>
+
+<h3 id="results">Results</h3>
+
+<ul>
+  <li>
+    <p>GoCD will trigger builds for every new Pull Request and for new commits to existing Pull Requests:</p>
+
+    <figure>
+    <img src="../../../assets/images/blog/feature-branch/trigger-build-aa3c586e.png" class="has_border full_size" id="pr_triggers_build" title="PR triggers build" alt="PR triggers build" />
+    <figcaption>Figure 9: PR triggers build <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+  </figure>
+  </li>
+  <li>
+    <p>GoCD will update Pull Request in GitHub with the build status:</p>
+
+    <figure>
+    <img src="../../../assets/images/blog/feature-branch/update-status-1-b1d0e5b3.png" class="has_border full_size" id="github_pr_update" title="GitHub PR page gets updated" alt="GitHub PR page gets updated" />
+    <figcaption>Figure 10: GitHub PR page gets updated <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+  </figure>
+
+    <figure>
+    <img src="../../../assets/images/blog/feature-branch/update-status-2-f94045e6.png" class="has_border full_size" id="github_pr_list_update" title="GitHub PR listing page gets updated" alt="GitHub PR listing page gets updated" />
+    <figcaption>Figure 11: GitHub PR listing page gets updated <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+  </figure>
+  </li>
+  <li>
+    <p>Fan-in and Value Stream Map work as expected:</p>
+
+    <figure>
+    <img src="../../../assets/images/blog/feature-branch/vsm-59138517.png" class="has_border full_size" id="vsm_works" title="Fan-in and VSM work" alt="Fan-in and VSM work" />
+    <figcaption>Figure 12: Fan-in and VSM work <span class="click_to_enlarge">(Click to enlarge)</span></figcaption>
+  </figure>
+  </li>
+</ul>
+
+<h3 id="shortcomings-and-known-issues">Shortcomings and known issues:</h3>
+
+<ul>
+  <li>
+    <p>If multiple branches are updated at once, the plugin provides all of them as changes and GoCD will not run the pipeline
+for every change separately. GoCD currently combines multiple changes into a single pipeline run (to save time). A
+feature allowing <a href="https://github.com/gocd/gocd/pull/939">“force trigger pipeline for each change”</a> should be able to
+overcome this. This has not yet been accepted into the main GoCD codebase.</p>
+  </li>
+  <li>
+    <p>If there are multiple commits in a branch, the plugin only returns the top commit as a change. Hence only one change
+shows up in the dashboard, value stream, etc. Also, since GoCD does not know about the other changes you will not be
+able to manually trigger a pipeline with the other commits.</p>
+  </li>
+  <li>
+    <p>The UI is lacking in certain areas: For instance, it is not possible to add an SCM plugin material during pipeline
+creation, to associate an existing SCM to a pipeline you will need to edit Config XML etc. These 
+will be fixed in upcoming releases.</p>
+  </li>
+</ul>
+
+<h3 id="references">References</h3>
+
+<p>Some discussions on the GoCD mailing lists and on GitHub about this:</p>
+
+<ul>
+  <li><a href="https://groups.google.com/d/topic/go-cd-dev/e0dbLDUsMK8/discussion">Potential feature request for enhanced materials API (beware, branch talk)</a></li>
+  <li><a href="https://groups.google.com/d/topic/go-cd/BwnJYhPZQPk/discussion">Pre-Commit validation for git master branch</a></li>
+  <li><a href="https://groups.google.com/d/topic/go-cd/i0ZXbBL48Vk/discussion">GoCD Material: Git-Pull-Request</a></li>
+  <li><a href="https://github.com/gocd/gocd/issues/298">#298 - Support for building from multiple branches in GIT</a></li>
+  <li><a href="https://groups.google.com/d/topic/go-cd-dev/Rt_Y5G2VkOc/discussion">RFC - GoCD - Github PR Integration</a></li>
+</ul>
+
+<h3 id="sample-configuration">Sample Configuration</h3>
+
+<p>Here is a part of the configuration used to create the images shown above:</p>
+
+<pre><code>&lt;scms&gt;
+  &lt;scm id="b7386c23-71d5-4581-8129-bba5b67638e4" name="sample-repo"&gt;
+    &lt;pluginConfiguration id="github.pr" version="1" /&gt;
+    &lt;configuration&gt;
+      &lt;property&gt;
+        &lt;key&gt;url&lt;/key&gt;
+        &lt;value&gt;https://github.com/srinivasupadhya/sample-repo.git&lt;/value&gt;
+      &lt;/property&gt;
+    &lt;/configuration&gt;
+  &lt;/scm&gt;
+&lt;/scms&gt;
+&lt;pipelines group="sample-group-master"&gt;
+  &lt;pipeline name="sample-pipeline-master" template="sample-pipeline"&gt;
+    &lt;materials&gt;
+      &lt;git url="https://github.com/srinivasupadhya/sample-repo.git" dest="sample-repo" materialName="sample-repo" /&gt;
+    &lt;/materials&gt;
+  &lt;/pipeline&gt;
+  &lt;pipeline name="sample-downstream-pipeline-master" template="sample-downstream-pipeline"&gt;
+    &lt;materials&gt;
+      &lt;pipeline pipelineName="sample-pipeline-master" stageName="sample-stage-2" /&gt;
+    &lt;/materials&gt;
+  &lt;/pipeline&gt;
+&lt;/pipelines&gt;
+&lt;pipelines group="sample-group-PR"&gt;
+  &lt;pipeline name="sample-pipeline-PR" template="sample-pipeline"&gt;
+    &lt;materials&gt;
+      &lt;scm ref="b7386c23-71d5-4581-8129-bba5b67638e4" dest="sample-repo" /&gt;
+    &lt;/materials&gt;
+  &lt;/pipeline&gt;
+  &lt;pipeline name="sample-downstream-pipeline-PR" template="sample-downstream-pipeline"&gt;
+    &lt;materials&gt;
+      &lt;pipeline pipelineName="sample-pipeline-PR" stageName="sample-stage-2" /&gt;
+    &lt;/materials&gt;
+  &lt;/pipeline&gt;
+&lt;/pipelines&gt;
+&lt;templates&gt;
+  &lt;pipeline name="sample-pipeline"&gt;
+    &lt;stage name="sample-stage-1"&gt;
+      &lt;jobs&gt;
+        &lt;job name="sample-job-1"&gt;
+          &lt;tasks&gt;
+            &lt;exec command="ls" /&gt;
+          &lt;/tasks&gt;
+        &lt;/job&gt;
+      &lt;/jobs&gt;
+    &lt;/stage&gt;
+    &lt;stage name="sample-stage-2"&gt;
+      &lt;jobs&gt;
+        &lt;job name="sample-job-2"&gt;
+          &lt;tasks&gt;
+            &lt;exec command="ls" /&gt;
+          &lt;/tasks&gt;
+        &lt;/job&gt;
+      &lt;/jobs&gt;
+    &lt;/stage&gt;
+  &lt;/pipeline&gt;
+  &lt;pipeline name="sample-downstream-pipeline"&gt;
+    &lt;stage name="sample-stage-3"&gt;
+      &lt;jobs&gt;
+        &lt;job name="sample-job-3"&gt;
+          &lt;tasks&gt;
+            &lt;exec command="ls" /&gt;
+          &lt;/tasks&gt;
+        &lt;/job&gt;
+      &lt;/jobs&gt;
+    &lt;/stage&gt;
+  &lt;/pipeline&gt;
+&lt;/templates&gt;
+</code></pre>
+
+<style type="text/css">
+figure {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+figcaption {
+  color: #575757;
+  font-weight: normal;
+}
+
+img.full_size {
+  width: 82%;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+img.has_border {
+  border: 1px solid;
+}
+</style>
+
+<script type="text/javascript">
+  $("figure").on('click', 'img', function() {
+    $(this).width("100%").css('margin-left', 0).css('margin-right', 0);
+    $(this).parent("figure").find("span.click_to_enlarge").hide();
+  });
+</script>
+
+<hr />
+
+<p>As always, GoCD questions can be asked on the <a href="https://groups.google.com/g/go-cd">mailing list</a>.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-articles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Feb 13</span>
+              <span class="post-author">Chad Wilson & Aravind SV</span>
+              <a href="../../../2023/02/13/gocd-project-status/">GoCD project status in 2023</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 14</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="../../../2021/12/14/log4j-vulnerability/">GoCD and the Log4j vulnerability - CVE-2021-44228</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 14</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/04/14/gocd-on-kubernetes-using-terraform/">GoCD on Kubernetes using Terraform</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../2023/">2023 (1)</a></li>
+            <li><a href="../../../2021/">2021 (1)</a></li>
+            <li><a href="../../../2020/">2020 (3)</a></li>
+            <li><a href="../../../2019/">2019 (7)</a></li>
+            <li><a href="../../../2018/">2018 (16)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (25)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/g/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd/discussions" target="_blank" analytics-label="github-discussions">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../resources/">RESOURCES</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="../../../assets/gocd-brand-styleguide.zip">LOGOS + BRAND</a></li>
+            <li><a href="../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+</html>

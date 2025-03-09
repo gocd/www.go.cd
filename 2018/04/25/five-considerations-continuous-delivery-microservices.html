@@ -15,8 +15,8 @@
 
     <title>Five Considerations for Continuous Delivery of Microservices | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -83,7 +83,7 @@ Continuous Delivery is an essential component of any software delivery practice.
 
 <p>According to <a href="https://martinfowler.com/articles/microservices.html">Martin Fowler</a>, microservices architectures are  “a particular way of designing software applications as suites of independently deployable services.” These architectures are prevalent these days for building applications based on distributed systems concepts.</p>
 
-<p>Jez Humble, in his pioneering book describes continuous delivery as "the ability to get changes of all types - including new features, configuration, bug fixes, and experiments - into production, safely and quickly in a sustainable way."</p>
+<p>Jez Humble, in his pioneering book describes continuous delivery as “the ability to get changes of all types - including new features, configuration, bug fixes, and experiments - into production, safely and quickly in a sustainable way.”</p>
 
 <p>Regardless of the target deployment environment or your architecture choice, monolithic architecture in the past or microservices these days, it’s important to design a continuous delivery workflow to get your changes into production. A CD workflow is central to a DevOps process, and spans well across various functions in an organization including your development, QA and IT operations.</p>
 
@@ -140,7 +140,7 @@ Continuous Delivery is an essential component of any software delivery practice.
 
 <p>An application’s configuration includes everything that varies per deployment and should be stored separately from the code. How should you treat configuration when you have suites of microservices?</p>
 
-<p>One technique we've seen to be useful is to manage deployment configuration centrally in repositories like <a href="https://www.consul.io/">Consul</a> or <a href="https://www.vaultproject.io/">Vault</a>. Spreading deployment configurations across tools like <a href="https://www.chef.io/chef/">Chef</a> and the CD pipeline just makes it hard to understand and reason.</p>
+<p>One technique we’ve seen to be useful is to manage deployment configuration centrally in repositories like <a href="https://www.consul.io/">Consul</a> or <a href="https://www.vaultproject.io/">Vault</a>. Spreading deployment configurations across tools like <a href="https://www.chef.io/chef/">Chef</a> and the CD pipeline just makes it hard to understand and reason.</p>
 
 <p>Another technique we use is to standardize processes for distributing configuration regardless of the technology stack of your services, and just let services handle the consuming of this configuration depending on the stack.  For example, we generally use the <a href="https://12factor.net/">12-factor recommendations</a> and avoid distributing configuration files.</p>
 
@@ -231,7 +231,7 @@ Continuous Delivery is an essential component of any software delivery practice.
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

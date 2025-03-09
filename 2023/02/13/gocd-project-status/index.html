@@ -15,8 +15,8 @@
 
     <title>GoCD project status in 2023</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -67,7 +67,7 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       <p>A couple of years have passed since Thoughtworks-funded development on GoCD ended. A number of folks have asked about
-GoCD's general project, maintenance, development and support status - along with some speculation. While some of this
+GoCD’s general project, maintenance, development and support status - along with some speculation. While some of this
 has been discussed in the <a href="https://groups.google.com/g/go-cd">GoCD forums</a> over time, we thought it might help to add
 some clarity for users here.</p>
 
@@ -86,12 +86,12 @@ minor enhancements, periodic releases and otherwise supporting the wider communi
 
 <h3 id="background">Background</h3>
 
-<p>Here's a brief history of how we got here:</p>
+<p>Here’s a brief history of how we got here:</p>
 
 <ul>
   <li><strong>2007</strong>: GoCD was originally developed as a commercial, closed-sourced product named <em>Cruise</em> by <a href="https://www.thoughtworks.com/">Thoughtworks</a> Studios,
 as an evolution of <a href="https://en.wikipedia.org/wiki/CruiseControl">CruiseControl</a>, the first continuous integration server.
-In contrast to CruiseControl, GoCD's design instead focused on supporting continuous delivery with complex workflows,
+In contrast to CruiseControl, GoCD’s design instead focused on supporting continuous delivery with complex workflows,
 rather than purely supporting the build automation at the core of continuous integration practices.</li>
   <li><strong>2010</strong>: <em>Cruise</em> was renamed to <em>Go</em>. (later slightly adjusted to <em>GoCD</em> to disambiguate from the increasingly popular <a href="https://go.dev/">golang</a> language)</li>
   <li><strong>2011</strong>: The Go Community Edition is made license-free, easing use for folks in many settings.</li>
@@ -128,7 +128,7 @@ future, unless there is a large further increase in contributions by users, orga
 
 <h3 id="is-gocd-end-of-life-abandoned-should-gocd-be-considered-deprecated">Is GoCD end-of-life? Abandoned? Should GoCD be considered deprecated?</h3>
 
-<p>GoCD is neither officially end-of-life, nor fully abandoned - but it's fair to say that its development is not thriving
+<p>GoCD is neither officially end-of-life, nor fully abandoned - but it’s fair to say that its development is not thriving
 either.</p>
 
 <p>As to <em>deprecation</em>, generally this is a decision that you should make within your specific context. If GoCD meets your
@@ -148,11 +148,11 @@ could be restarted at a later time.</p>
 
 <p>Maybe? That depends on your assessment of risk. The <a href="https://github.com/gocd/gocd/blob/master/SECURITY.md">security policy</a>
 has some important caveats, but a balanced assessment of risk for open source software generally includes assessment of
-the vibrancy of the software's community.</p>
+the vibrancy of the software’s community.</p>
 
 <p>Here are some additional aspects to consider:</p>
 
-<p>The <strong>"good"</strong> news:</p>
+<p>The <strong>“good”</strong> news:</p>
 
 <ul>
   <li>We believe GoCD was built with solid security principles in mind that have generally stood the test of time.</li>
@@ -163,7 +163,7 @@ patched/updated. These are being incorporated into new GoCD releases without maj
 <a href="../../../../download.html">Docker images</a>.</li>
 </ul>
 
-<p>The <strong>"neutral"</strong> news:</p>
+<p>The <strong>“neutral”</strong> news:</p>
 
 <ul>
   <li>With GoCD, we <a href="https://github.com/gocd/gocd/blob/master/SECURITY.md">do not maintain/patch old releases of GoCD</a>.
@@ -171,7 +171,7 @@ In general, GoCD has always maintained robust backwards compatibility and sign-p
 with an expectation that folks will move forward to the latest release.</li>
 </ul>
 
-<p>The <strong>"not-so-good"</strong> news:</p>
+<p>The <strong>“not-so-good”</strong> news:</p>
 
 <ul>
   <li>GoCD has a significant number of plugins, many different supported operating systems, many Docker image variants, a number
@@ -210,15 +210,15 @@ you should assess your needs and select the best tool for you. GoCD will be avai
 Thoughtworks and the GoCD maintainers will not be providing alternative tools recommendations or migration support.
 Different tools in this space offer different levels of modeling capabilities and features.</p>
 
-<h3 id="whats-the-best-way-to-migrate-away-from-gocd">What's the best way to migrate away from GoCD?</h3>
+<h3 id="whats-the-best-way-to-migrate-away-from-gocd">What’s the best way to migrate away from GoCD?</h3>
 
 <p>GoCD has a reasonably comprehensive set of <a href="https://api.gocd.org/">APIs</a> you can use to export pipeline configuration as a starting point for
-partially automated migration. If you don't use <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">pipelines as code techniques</a>,
+partially automated migration. If you don’t use <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">pipelines as code techniques</a>,
 you might want to start with using the APIs to <a href="https://api.gocd.org/current/#get-all-pipeline-groups">get all pipeline groups</a>
 and then <a href="https://api.gocd.org/current/#get-pipeline-config">get pipeline config</a> for each pipeline for conversion to your
 target tool.</p>
 
-<h3 id="gocd-is-great-but-this-doesnt-seem-like-a-great-situation">GoCD is great! But this doesn't seem like a great situation?</h3>
+<h3 id="gocd-is-great-but-this-doesnt-seem-like-a-great-situation">GoCD is great! But this doesn’t seem like a great situation?</h3>
 
 <p>We think GoCD is great too. And we agree the maintenance situation is not great either. Come encourage us and help us out on the
 <a href="https://groups.google.com/g/go-cd">forums</a>, or <a href="https://github.com/gocd/gocd">GitHub</a>.</p>
@@ -294,7 +294,7 @@ target tool.</p>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

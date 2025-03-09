@@ -15,8 +15,8 @@
 
     <title>Model everything to fail fast | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -71,7 +71,7 @@
 
 <h3 id="a-common-workflow-to-fail-fast">A common workflow to fail fast</h3>
 
-<p>Here's a generic but common Build-Test-Release workflow. Each code commit will trigger a new release candidate and run through the gauntlet, left to right. Every workflow step is tasked to find an issue with the version of the software it is building, testing or deploying.</p>
+<p>Here’s a generic but common Build-Test-Release workflow. Each code commit will trigger a new release candidate and run through the gauntlet, left to right. Every workflow step is tasked to find an issue with the version of the software it is building, testing or deploying.</p>
 
 <p><img src="../../../../assets/images/blog/mark-failfast1-076157dd.png" title="Generic Build-Test-Release workflow" alt="Generic Build-Test-Release workflow" /></p>
 
@@ -85,14 +85,14 @@
   <li>Six different test environments can run in parallel.</li>
 </ul>
 
-<h3 id="know-whats-going-on-in-a-workflow">Know what's going on in a workflow</h3>
+<h3 id="know-whats-going-on-in-a-workflow">Know what’s going on in a workflow</h3>
 
-<p>It's important a team has a holistic context for every release candidate. Every tool talks about "visibility" and "traceability". A tool that can easily answer these questions provides visibility and traceability:</p>
+<p>It’s important a team has a holistic context for every release candidate. Every tool talks about “visibility” and “traceability”. A tool that can easily answer these questions provides visibility and traceability:</p>
 
 <ul>
   <li>Which dependency or commit broke the build?</li>
   <li>Who broke the build?</li>
-  <li>What's the difference between these 2 builds?</li>
+  <li>What’s the difference between these 2 builds?</li>
   <li>Which features and bug fixes are in this release candidate?</li>
   <li>Which version of our software is running in this environment?</li>
   <li>Who deployed in this environment and when?</li>
@@ -100,7 +100,7 @@
 
 <h3 id="how-will-modeling-a-workflow-help-a-team-fail-fast">How will modeling a workflow help a team fail fast?</h3>
 
-<p>Let's say a release candidate needs to pass 11 steps (gauntlet) before it can make it to an enduser. Sequence is important. The goal is to fail fast. A flat workflow will return feedback but it's slow since only one step will run at a time.</p>
+<p>Let’s say a release candidate needs to pass 11 steps (gauntlet) before it can make it to an enduser. Sequence is important. The goal is to fail fast. A flat workflow will return feedback but it’s slow since only one step will run at a time.</p>
 
 <p><img src="../../../../assets/images/blog/mark-failfast2-39e40b5e.png" title="A flat workflow running one step at a time" alt="A flat workflow running one step at a time" /></p>
 
@@ -153,14 +153,14 @@
 
 <h3 id="we-treat-a-workflow-as-a-single-entity">We treat a workflow as a single entity</h3>
 
-<p>It's extremely important to us that the core behavior of a single pipeline is maintained in a workflow (chain of pipelines), no matter the model. GoCD allows teams to model as they wish and handles stuff like artifact management and if a release candidate should advance to the next step. A lot of the intelligence comes down to how GoCD manages dependencies. We're proud of this intelligence, especially the "fan-in" support. This is where GoCD really shines.</p>
+<p>It’s extremely important to us that the core behavior of a single pipeline is maintained in a workflow (chain of pipelines), no matter the model. GoCD allows teams to model as they wish and handles stuff like artifact management and if a release candidate should advance to the next step. A lot of the intelligence comes down to how GoCD manages dependencies. We’re proud of this intelligence, especially the “fan-in” support. This is where GoCD really shines.</p>
 
 <hr />
-<p>(*) Jez Humble and David Farley talk about a <a href="https://www.informit.com/articles/article.aspx?p=1621865">"deployment pipeline"</a> in their book, Continuous Delivery. A core domain concept in GoCD is called a "pipeline". They are not the same thing.</p>
+<p>(*) Jez Humble and David Farley talk about a <a href="https://www.informit.com/articles/article.aspx?p=1621865">“deployment pipeline”</a> in their book, Continuous Delivery. A core domain concept in GoCD is called a “pipeline”. They are not the same thing.</p>
 
 <ul>
   <li>
-    <p>The book talks about the "deployment pipeline" in a holistic sense, a <strong>pattern</strong> that can be implemented to model your path to production. They summarize a deployment pipeline as "in essence, an automated implementation of your application's build, deploy, test, and release process".</p>
+    <p>The book talks about the “deployment pipeline” in a holistic sense, a <strong>pattern</strong> that can be implemented to model your path to production. They summarize a deployment pipeline as “in essence, an automated implementation of your application’s build, deploy, test, and release process”.</p>
   </li>
   <li>
     <p>GoCD is a Continuous Delivery tool that allows teams to implement that pattern via GoCD <em>pipelines</em>. A GoCD pipeline is a building block. GoCD pipelines are a way to implement a deployment pipeline. The product overloads the term. On behalf of Jez, sorry!</p>
@@ -240,7 +240,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

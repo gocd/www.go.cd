@@ -15,8 +15,8 @@
 
     <title>4 Important Metrics for Continuous Delivery| GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -74,14 +74,14 @@
       <main id="main" role="main" class="blog-post-main-container">
       
 <blockquote>
-  <p><em><strong>It's impossible to improve what you can't measure. – Peter Drucker</strong></em></p>
+  <p><em><strong>It’s impossible to improve what you can’t measure. – Peter Drucker</strong></em></p>
 </blockquote>
 
-<p>This quote reflects the importance of metrics in every domain right now. Intuitively, this statement resonates with all of us. How do you know if you're actually growing if you don't have the data to understand where you've been and where you're going? This blog post talks about the importance we see of metrics, particularly in continuous delivery.</p>
+<p>This quote reflects the importance of metrics in every domain right now. Intuitively, this statement resonates with all of us. How do you know if you’re actually growing if you don’t have the data to understand where you’ve been and where you’re going? This blog post talks about the importance we see of metrics, particularly in continuous delivery.</p>
 
 <h2 id="how-do-metrics-matter-in-the-context-of-continuous-delivery">How do metrics matter in the context of continuous delivery?</h2>
 
-<p>What lets you know if you've actually achieved a good state of continuous delivery? To understand the answers to these questions, the GoCD team interviewed consultants, developers, operations teams, and people at every intersection of DevOps. We also talked to business stakeholders, because part of successful continuous delivery is being able to collaborate successfully between business and technology, and being able to communicate the value of some of the underlying work that goes into the implementation of continuous delivery.</p>
+<p>What lets you know if you’ve actually achieved a good state of continuous delivery? To understand the answers to these questions, the GoCD team interviewed consultants, developers, operations teams, and people at every intersection of DevOps. We also talked to business stakeholders, because part of successful continuous delivery is being able to collaborate successfully between business and technology, and being able to communicate the value of some of the underlying work that goes into the implementation of continuous delivery.</p>
 
 <p>There are four metrics that we synthesized out of this that we think are really valuable:</p>
 
@@ -94,11 +94,11 @@
 
 <h2 id="how-many-deploy-ready-builds-do-you-have">How many deploy-ready builds do you have?</h2>
 
-<p>For successful continuous delivery, you need routine commits, and specifically routine commits to master. If I'm committing all the time to my own personal branch, I'm not adding value to the code that's actually ready for production.</p>
+<p>For successful continuous delivery, you need routine commits, and specifically routine commits to master. If I’m committing all the time to my own personal branch, I’m not adding value to the code that’s actually ready for production.</p>
 
-<p>A good rate of deploy-ready builds also relies on having testing you can trust. One common anti-pattern we heard was the existence of testing that has to run for several hours, or even an entire day to do validation. In many cases these tests were unreliable, meaning that at the end of that period, you're no more certain than you were at the start. That becomes costly because it makes everyone very wary of ever releasing. Deploying software can feel like Russian Roulette.</p>
+<p>A good rate of deploy-ready builds also relies on having testing you can trust. One common anti-pattern we heard was the existence of testing that has to run for several hours, or even an entire day to do validation. In many cases these tests were unreliable, meaning that at the end of that period, you’re no more certain than you were at the start. That becomes costly because it makes everyone very wary of ever releasing. Deploying software can feel like Russian Roulette.</p>
 
-<p>This metric also emphasizes the importance of collaboration between product and engineering roles. Cross-functional teams must be able to create a roadmap such that at any point stories are broken up small enough that you can release them and deliver real value to users. If the product side isn't engaged in this, teams develop backlogs of large chunks of work that don't add any value until late in the game.</p>
+<p>This metric also emphasizes the importance of collaboration between product and engineering roles. Cross-functional teams must be able to create a roadmap such that at any point stories are broken up small enough that you can release them and deliver real value to users. If the product side isn’t engaged in this, teams develop backlogs of large chunks of work that don’t add any value until late in the game.</p>
 
 <p>As a complement to careful roadmap planning, the development team should employ patterns like feature toggles, which allow features to be deployed without exposing them to customers.</p>
 
@@ -116,16 +116,16 @@
   <li>Running your unit tests early in your pipeline and your complex, longer running automated tests downstream, will provide essential feedback sooner, and save you time.</li>
   <li>Passing dependencies from pipeline stage to pipeline stage can help avoid unnecessary rebuilding of artifacts, which can be really valuable.</li>
   <li>Parallelizing your builds when possible also provides significant savings.</li>
-  <li>Lastly, make sure you've got the right build resources so that whatever builds you need to run, you have enough agents to do the job.</li>
+  <li>Lastly, make sure you’ve got the right build resources so that whatever builds you need to run, you have enough agents to do the job.</li>
 </ol>
 
 <h2 id="whats-your-mean-time-between-failures-and-mean-time-to-recover">What’s your mean time between failures and mean time to recover?</h2>
 
-<p>Mean time between failures and mean time to recover often go hand in hand because it is important to balance the two of them. Mean time between failures reminds the team to keep the build green whenever possible, and to avoid easy failures. However, only looking at mean time between failures and trying to avoid failure completely can result in teams becoming overly cautious and never releasing anything new. The core point of software development is to provide new value to users and make sure that we're serving their needs. Thus, a focus on mean time to recover – a metric that represents the ability to bounce back from a misstep – is a key counterbalance.</p>
+<p>Mean time between failures and mean time to recover often go hand in hand because it is important to balance the two of them. Mean time between failures reminds the team to keep the build green whenever possible, and to avoid easy failures. However, only looking at mean time between failures and trying to avoid failure completely can result in teams becoming overly cautious and never releasing anything new. The core point of software development is to provide new value to users and make sure that we’re serving their needs. Thus, a focus on mean time to recover – a metric that represents the ability to bounce back from a misstep – is a key counterbalance.</p>
 
 <p>Achieving a good mean time between failures relies on getting feedback early on and making sure that thorough validation occurs in testing environments. These validations should be run on production-like environments with realistic data. Strong local builds are also crucial here.</p>
 
-<p>Since failure is inevitable, it’s important to make sure that your mean time to recover is as quick as possible. How long does it take to get you back to a green build after you've had a pipeline failure, or after you've had a release that's failed? Robust monitoring of production is essential. Teams should learn about failures through your monitoring and alerts, not through customer complaints.</p>
+<p>Since failure is inevitable, it’s important to make sure that your mean time to recover is as quick as possible. How long does it take to get you back to a green build after you’ve had a pipeline failure, or after you’ve had a release that’s failed? Robust monitoring of production is essential. Teams should learn about failures through your monitoring and alerts, not through customer complaints.</p>
 
 <p>Drilling key practices like rolling back can also improve mean time to recover. Having an automated rollback process can buy you a little bit of time to understand where the issue occurs. Diagnosing the cause of an issue quickly also relies on  informative logging that enables developers to pinpoint a problem when they’ve been paged at 2:00am.</p>
 
@@ -133,7 +133,7 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>Going back to Peter Drucker's quote, to improve anything, first you need to find a way to measure it and make it visible. This is why, having a dashboard and making metrics visible to the team gives them a sense of ownership and a sense of connection that is really valuable. On the other hand, I don't want to say that metrics are a panacea. There are definitely some meaningless metrics and vanity metrics out there. Ultimately, you want to incentivize people to look at hard problems, and where they can create meaning for the team or organization.</p>
+<p>Going back to Peter Drucker’s quote, to improve anything, first you need to find a way to measure it and make it visible. This is why, having a dashboard and making metrics visible to the team gives them a sense of ownership and a sense of connection that is really valuable. On the other hand, I don’t want to say that metrics are a panacea. There are definitely some meaningless metrics and vanity metrics out there. Ultimately, you want to incentivize people to look at hard problems, and where they can create meaning for the team or organization.</p>
 
       </main>
     </div>
@@ -206,7 +206,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

@@ -15,8 +15,8 @@
 
     <title>Hello World with GoCD | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -66,29 +66,29 @@
   </header>
 
       <main id="main" role="main" class="blog-post-main-container">
-      <p>In a few steps you'll see an example of a simple one stage pipeline in GoCD. This is definitely not meant to be a definitive guide, just a basic introduction to how GoCD works. It's definitely a good idea to peruse <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html">the concepts section</a> go GoCD's help to understand some of the terms you'll see (like pipeline and stage).</p>
+      <p>In a few steps you’ll see an example of a simple one stage pipeline in GoCD. This is definitely not meant to be a definitive guide, just a basic introduction to how GoCD works. It’s definitely a good idea to peruse <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html">the concepts section</a> go GoCD’s help to understand some of the terms you’ll see (like pipeline and stage).</p>
 
-<p><em>I am assuming you've installed GoCD Server AND a GoCD Agent. You need both!</em> I'm also assuming you have some source code in a version control system that you want to build.</p>
+<p><em>I am assuming you’ve installed GoCD Server AND a GoCD Agent. You need both!</em> I’m also assuming you have some source code in a version control system that you want to build.</p>
 
 <h3 id="give-it-a-name">Give it a name</h3>
 
 <p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063203663-defb74a5.png" title="Name the Pipeline" alt="Name the Pipeline" /></p>
 
-<p>Pipelines have names, and they go into groups which are related. For example, you might have <em>Project_1</em> and <em>Project_2</em> in the <em>Development</em> pipeline group. Note that there can't be any spaces in these names.</p>
+<p>Pipelines have names, and they go into groups which are related. For example, you might have <em>Project_1</em> and <em>Project_2</em> in the <em>Development</em> pipeline group. Note that there can’t be any spaces in these names.</p>
 
 <h3 id="where-is-your-code">Where is your code?</h3>
 
 <p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063238598-cc4cd6e6.png" title="Add Materials details" alt="Add Materials details" /></p>
 
-<p>GoCD has a concept of <em>materials</em>. This is the stuff that goes into your application. This is mostly likely in a version control system. There are other material types, but for the moment let's stick with a VCS. I have selected Subversion for this example, but GoCD also supports Git, Mercurial, Perforce and TFS.</p>
+<p>GoCD has a concept of <em>materials</em>. This is the stuff that goes into your application. This is mostly likely in a version control system. There are other material types, but for the moment let’s stick with a VCS. I have selected Subversion for this example, but GoCD also supports Git, Mercurial, Perforce and TFS.</p>
 
-<p>Once you've entered your connection data, make sure to click the <em>Check Connection</em> button! It's not uncommon for people to have things like version control clients in their own path but not in the path of the GoCD user. This will tell you if GoCD can connect to your server.</p>
+<p>Once you’ve entered your connection data, make sure to click the <em>Check Connection</em> button! It’s not uncommon for people to have things like version control clients in their own path but not in the path of the GoCD user. This will tell you if GoCD can connect to your server.</p>
 
 <h3 id="make-it-do-something">Make it do something.</h3>
 
 <p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063327989-43ac29c7.png" title="Use stages and jobs to manage work" alt="Use stages and jobs to manage work" /></p>
 
-<p>GoCD uses <em>stages</em> and <em>jobs</em> to manage work. Make sure you check out the help doc linked above for definitions of both. Give your sample step a name, and then choose the <em>Task Type</em>. Go knows how to execute Ant, nAnt and Rake, by default so you'll see those called out specifically in the drop down. If you choose <em>More</em> you can provide any command which can be executed from the command line. This could be a shell script, batch file, maven command, chef recipe etc.</p>
+<p>GoCD uses <em>stages</em> and <em>jobs</em> to manage work. Make sure you check out the help doc linked above for definitions of both. Give your sample step a name, and then choose the <em>Task Type</em>. Go knows how to execute Ant, nAnt and Rake, by default so you’ll see those called out specifically in the drop down. If you choose <em>More</em> you can provide any command which can be executed from the command line. This could be a shell script, batch file, maven command, chef recipe etc.</p>
 
 <p>I have a very simple Java Hello World application that uses Ant. My build file is called <em>build.xml</em>, and I want to run the targets <em>clean</em> and <em>all</em>. You should enter whatever the valid targets are for your software.</p>
 
@@ -96,13 +96,13 @@
 
 <p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063391538-70cbaf26.png" title="Paused Pipeline" alt="Paused Pipeline" /></p>
 
-<p>We now have a very simple pipeline created. It doesn't do a whole lot (like the automated testing I'm sure you'll want) but it does do some real work. You'll note the big blue "pause" symbol at the top. This means that GoCD has your pipeline on hold while you're working on it. If you're ready to let GoCD work, just click that button to unpause.</p>
+<p>We now have a very simple pipeline created. It doesn’t do a whole lot (like the automated testing I’m sure you’ll want) but it does do some real work. You’ll note the big blue “pause” symbol at the top. This means that GoCD has your pipeline on hold while you’re working on it. If you’re ready to let GoCD work, just click that button to unpause.</p>
 
 <h3 id="success">Success!</h3>
 
 <p><img src="../../../../assets/images/blog/hello-world-with-go/media_1394063534943-251780ef.png" title="One stage Pipeline created" alt="One stage Pipeline created" /></p>
 
-<p>And there we have it. A simple one step pipeline that will run in GoCD. Of course you'll want to add more stages to run tests and such. You'll probably also want to add more pipelines to actually deploy your software. (Note: doing everything in one long pattern is often considered an anti-pattern - see <a href="https://continuousdelivery.com/2010/09/deployment-pipeline-anti-patterns/">Jez Humble's article</a> )</p>
+<p>And there we have it. A simple one step pipeline that will run in GoCD. Of course you’ll want to add more stages to run tests and such. You’ll probably also want to add more pipelines to actually deploy your software. (Note: doing everything in one long pattern is often considered an anti-pattern - see <a href="https://continuousdelivery.com/2010/09/deployment-pipeline-anti-patterns/">Jez Humble’s article</a> )</p>
 
       </main>
     </div>
@@ -175,7 +175,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

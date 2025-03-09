@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Set up a .NET core project in GoCD in a minimal way with this Hello World demo." name="description" />
+    <meta content="gocd, .net core, .net, continuous delivery, delivery pipeline, deployment pipeline" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content=".NET Core and GoCD | GoCD Blog" />
+    <meta name="twitter:description" content="Set up a .NET core project in GoCD in a minimal way with this Hello World demo." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/dotnet-core-gocd/dotnet_core_masthead-1bb6cb32.png" />
+    <link rel="canonical" href="https://www.gocd.org/2016/07/13/dotnet-core-and-gocd.html" />
+
+    <title>.NET Core and GoCD | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+    });
+    </script>
+  </head>
+
+  <body class="x2016 x2016_07 x2016_07_13 x2016_07_13_dotnet-core-and-gocd">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li><a href="../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+    <div class="post-banner">
+      <figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/dotnet_core_masthead-1bb6cb32.png" alt="GoCD and .NET Core" />
+</figure>
+
+    </div>
+
+
+  <header class="blog-post-header">
+    <h1>.NET Core and <span class="go">Go</span>CD</h1>
+    <h4>Jason Rowe</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      
+<p>[This post originally appeared on <a href="https://jasonrowe.com/2016/06/26/asp-net-core-gocd/">Jason Rowe’s site</a> and is reproduced with permission]</p>
+
+<p>I’ve been reading up on continuous delivery and the GoCD tool is a great way to learn the concepts and abstractions to help model your delivery pipeline and work towards improving it.</p>
+
+<p>This post documents setting up a .NET core project in GoCD in a minimal way. I cover setting up a hello world app and simple scripts to build, test, and package. Then I will create a pipeline in GoCD to build our site and run unit tests. Finally I’ll show how to add additional pipelines for manual acceptance tests and deployment.</p>
+
+<p>If you want to know about my environment and .NET core project for this demo you can read the next section <a href="#demo_env">Demo Environment Setup</a>. If you want to just jump ahead to the GoCD part you can scroll down to the <a href="#gocd_setup">GoCD Setup</a> or <a href="#gocd_pipelines">GoCD Pipelines</a> sections.</p>
+
+<p><a name="demo_env"></a></p>
+
+<h2 id="demo-environment-setup">Demo Environment Setup</h2>
+
+<h3 id="demo-environment">Demo Environment</h3>
+
+<p>For this post I’ll be using the following file structure:</p>
+
+<p>Where I keep my development git repo.</p>
+
+<p><code>C:\demo\development</code></p>
+
+<p>Where I will keep my bare git repo to be used as GoCD material.</p>
+
+<p><code>C:\demo\git_server</code></p>
+
+<h3 id="material-setup">Material Setup</h3>
+
+<ul>
+  <li>
+    <p>First I’ll setup a file based git server in <code>C:\demo\git_server</code>. I’m just doing this for simplicity. You could also use Github or another SCM server.</p>
+
+    <pre><code>mkdir hwapp
+cd hwapp
+git init --bare
+</code></pre>
+  </li>
+  <li>
+    <p>Then I’ll setup a share so the git repo can be used as a material and cloned into my development folder.</p>
+
+    <pre><code>\\lenovo-pc\git_server\hwapp
+</code></pre>
+  </li>
+  <li>
+    <p>Then clone that into my development folder.</p>
+
+    <pre><code>cd development
+git clone \\lenovo-pc\git_server\hwapp
+</code></pre>
+  </li>
+  <li>
+    <p>Now we will just setup the hello world .NET Core app.</p>
+
+    <pre><code>cd hwapp
+dotnet new
+</code></pre>
+  </li>
+  <li>
+    <p>Then run it to make sure everything is working.</p>
+
+    <pre><code>dotnet restore
+dotnet run
+</code></pre>
+  </li>
+  <li>
+    <p>Add a .gitignore file (with contents):</p>
+
+    <pre><code>bin/
+obj/
+project.lock.json
+_build
+</code></pre>
+  </li>
+  <li>
+    <p>To keep things simple I won’t use a build tool and just write a few small windows commands.</p>
+
+    <ul>
+      <li>
+        <p>build.cmd file contents:</p>
+
+        <pre><code>git clean -xfd
+dotnet restore
+dotnet build
+</code></pre>
+      </li>
+      <li>
+        <p>test.cmd file contents:</p>
+
+        <pre><code>dotnet test
+</code></pre>
+      </li>
+      <li>
+        <p>package.cmd file contents:</p>
+
+        <pre><code>IF [%1] == [] GOTO error
+@Echo Off
+dotnet pack -o _build --version-suffix %1
+EXIT /B
+:error
+Echo version required.
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Add some example unit tests using <a href="https://xunit.net/">Xunit.net</a>:</p>
+
+    <p>Here is my updated project json to allow me to run xunit tests.</p>
+
+    <pre><code>  {
+    "version": "1.0.0-*",
+    "testRunner": "xunit",
+    "buildOptions": {
+      "emitEntryPoint": true
+    },
+    "dependencies": {
+        "xunit": "2.1.0",
+        "dotnet-test-xunit": "1.0.0-rc2-build10025"
+    },
+    "frameworks": {
+        "netcoreapp1.0": {
+            "dependencies": {
+                "Microsoft.NETCore.App": {
+                    "type": "platform",
+                    "version": "1.0.0-rc2-3002702"
+                }
+            },
+            "imports": [
+                "dnxcore50",
+                "portable-net45+win8"
+            ]
+        }
+    }
+  }
+</code></pre>
+  </li>
+  <li>
+    <p>Add xunit tests (tests.cs)</p>
+
+    <pre><code>using Xunit;
+
+namespace MyFirstDotNetCoreTests
+{
+    public class Class1
+    {
+        [Fact]
+        public void PassingTest()
+        {
+            Assert.Equal(4, Add(2, 2));
+        }
+        int Add(int x, int y)
+        {
+            return x + y;
+        }
+    }
+}
+</code></pre>
+  </li>
+  <li>
+    <p>Now the build, test, package cmds should work. Test and commit and push that to origin.</p>
+
+    <pre><code>git add -A
+git commit -m 'initial hello world app'
+git push origin master
+</code></pre>
+  </li>
+</ul>
+
+<p><a name="gocd_setup"></a></p>
+
+<h3 id="gocd-setup">GoCD Setup</h3>
+
+<p><strong>Note:</strong> <em>For windows users I would suggest a simple file path without spaces. I’ll use C:\demo\GoCD\Server and C:\demo\GoCD\Agent for the install and host it on localhost.</em></p>
+
+<p>Getting up and running with GoCD is simple. <a href="https://gocd.org/download">Download</a> the server and agent and run the installers. Once it is running your GoCD server should be available at <strong>https://localhost:8153</strong> or <strong>https://your-server-installation-hostname:8153</strong>. Verify the server and agents are working by visiting the site and checking the agents tab.</p>
+
+<p>Now that the test environment is setup we can start adding a pipeline.</p>
+
+<p><a name="gocd_pipelines"></a></p>
+
+<h3 id="gocd-pipeline">GoCD Pipeline</h3>
+
+<p>Initial setup of the “HwPackagePipeline” pipeline which will contain the stage/job/tasks to do the build, test, and package.</p>
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/pipeline-6fc7697d.png" alt="GoCD Pipeline" />
+</figure>
+
+<p>The second page is how you setup the material in GoCD. Here I’ve added my git repo endpoint and tested the connection.</p>
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/pipeline-material-61624efe.png" alt="GoCD Pipeline Material" />
+</figure>
+
+<p>The third page sets up the stage/job. I’ve used the custom build.cmd I created in the setup.</p>
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/pipeline-stage-job-acb12e4f.png" alt="GoCD Pipeline Stage Job" />
+</figure>
+
+<p>After adding the build task, I un-paused the pipeline to make sure everything is wired up. GoCD will show the status go to orange and then green after the pipeline has finished.</p>
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/pipeline-passed-build-35fe20dd.png" alt="GoCD Pipeline Passed Build" />
+</figure>
+
+<p>Now I can go setup the unit test and package tasks in this pipeline. I did this by going to the admin navigation and clicking on pipelines. Then clicked on the edit of the pipeline I created above. Then clicked on the defaultstage and defaultjob. Then I added in the unit test task which just calls test.cmd. The package task is a little different because I want to pass in the build number as a variable to the package.cmd.</p>
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/package_cmd_label-2f8c10da.png" alt="GoCD Pipeline Label" />
+</figure>
+
+<p>Here is a view of all the tasks I setup in the default job.</p>
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/tasks-3c016ad4.png" alt="GoCD Tasks" />
+</figure>
+
+<p>From the pipeline view if you click on the green bar you can view the job console output. I confirmed the label was updated correctly during the package task.</p>
+
+<pre><code>19:04:59.567 [go] Start to execute task:
+/c
+package.cmd %GO_PIPELINE_LABEL%
+.
+19:04:59.598
+19:04:59.598 C:\demo\GoCD\Agent\pipelines\hwPackagePipeline&gt;IF [2] == [] GOTO error
+19:05:00.022 Project hwPackagePipeline (.NETCoreApp,Version=v1.0) was previously compiled. Skipping compilation.
+19:05:00.072 Producing nuget package "hwPackagePipeline.1.0.0-2" for hwPackagePipeline
+19:05:00.118 hwPackagePipeline -&gt; C:\demo\GoCD\Agent\pipelines\hwPackagePipeline\_build\hwPackagePipeline.1.0.0-2.nupkg
+19:05:00.118 Producing nuget package "hwPackagePipeline.1.0.0-2.symbols" for hwPackagePipeline
+19:05:00.122 hwPackagePipeline -&gt; C:\demo\GoCD\Agent\pipelines\hwPackagePipeline\_build\hwPackagePipeline.1.0.0-2.symbols.nupkg
+19:05:00.184 [go] Current job status: passed.
+</code></pre>
+
+<p>Now that the build, test, and packaging is done I can move on to creating a pipeline for acceptance tests and deployment with required approval. The second pipeline will use the first for it’s material. Before we can create the second pipeline we need to go into the first and setup the jobs build artifacts.</p>
+
+<p><strong>Note:</strong> <em>Also by adding a test artifact GoCD will display the results in the tests tab. You can use GoCD with any XUnit style xml reports.</em></p>
+
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/gocd_artifacts-ce31bb61.png" alt="GoCD Artifacts" />
+</figure>
+
+<p>Now via the admin tab and selecting pipelines, I can click on “Create a new pipeline within this group”. On step one I’ll name the new pipeline “hwDeployPipeline”.</p>
+
+<p><strong>Note:</strong> <em>GoCD supports pipeline templates. Deployment pipelines would be a good use case for a template.</em></p>
+
+<p>For step two the material will be “Pipeline” and the stage will be the stage we created earlier. GoCD has autocomplete text boxes. I didn’t have to type the stage name in the screenshot below.</p>
+
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/pipeline-as-material-d5920f88.png" alt="GoCD Pipeline as Material" />
+</figure>
+
+<p>In step three, I setup a manual stage and a task that represents acceptance tests were performed. If a step in your pipeline is not yet automated this could be a way to incrementally work towards automation.</p>
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/manualAcceptanceTestExample-92375ac6.png" alt="GoCD Manual Acceptance Test Example" />
+</figure>
+
+<p>Now I can save the new pipeline and unpause it. If we now go back to the main pipeline page and trigger the build we will see the first pipeline build and the second one will wait to be manually triggered. Once you click into the second pipeline and click on the purple arrow button it will run.</p>
+
+<p>The value stream will look like this after both pipelines complete. You can view value stream map for any build by clicking on the build label.</p>
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/value-stream-map-73b88bd3.png" alt="GoCD Value Stream Map" />
+</figure>
+
+<p>Now we can setup a task that fetches the artifacts from the first pipeline and another task to deploy. Here is what setting up a fetch task would look like. The “pkg” folder name came from the artifacts configuration from the first pipeline.</p>
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/fetch_artifacts-15559133.png" alt="GoCD Fetch Artifacts" />
+</figure>
+
+<p>Now if we trigger the first pipeline again and manually trigger the second one we can see the agent was able to fetch the build output from the first pipeline.</p>
+
+<pre><code>21:31:26.919 [go] Start to execute task: .
+21:31:26.920 [go] Fetching artifact [pkg] from [hwPackagePipeline/8/defaultStage/1/defaultJob]
+21:31:32.017 [go] Saved artifact to [pipelines\hwDeployPipeline] after verifying the integrity of its contents.
+21:31:32.052 [go] Current job status: passed.
+</code></pre>
+
+<figure>
+  <img src="../../../assets/images/blog/dotnet-core-gocd/agent-pkg-51ae766c.png" alt="GoCD Agent Pkg" />
+</figure>
+
+<h3 id="review">Review</h3>
+
+<p>GoCD has a very good model and abstraction for how to build deployment pipelines. For example, when working on a task like packaging you don’t need to worry about anything else. It leads you to using smaller focused scripts in the right places. Also, the concept of pipelines as a material give a powerful way to break up your deployment process. In my example I used another pipeline, setup with an initial task to wait for manual approval. Then after approval a fetch task runs which copies the artifacts from the build of the first pipeline, which then can be used for deployment.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-articles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Feb 13</span>
+              <span class="post-author">Chad Wilson & Aravind SV</span>
+              <a href="../../../2023/02/13/gocd-project-status/">GoCD project status in 2023</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 14</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="../../../2021/12/14/log4j-vulnerability/">GoCD and the Log4j vulnerability - CVE-2021-44228</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 14</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/04/14/gocd-on-kubernetes-using-terraform/">GoCD on Kubernetes using Terraform</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../2023/">2023 (1)</a></li>
+            <li><a href="../../../2021/">2021 (1)</a></li>
+            <li><a href="../../../2020/">2020 (3)</a></li>
+            <li><a href="../../../2019/">2019 (7)</a></li>
+            <li><a href="../../../2018/">2018 (16)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (25)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/g/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd/discussions" target="_blank" analytics-label="github-discussions">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../resources/">RESOURCES</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="../../../assets/gocd-brand-styleguide.zip">LOGOS + BRAND</a></li>
+            <li><a href="../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+</html>

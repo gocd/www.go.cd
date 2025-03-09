@@ -15,8 +15,8 @@
 
     <title>Configuring Google Container Registry (GCR) as an Artifact Store in GoCD</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -77,11 +77,11 @@
 
 <p><em>While exploring how to do it, we had to spend some time to find out all the information we needed just to install and configure GoCD without the migration. So I decided to write this and a few other posts hoping someone like me would find it helpful. This is the second part on Configuring Google Container Registry (GCR) as an Artifact Store in GoCD. You can find the first part on <a href="https://www.gocd.org/2019/05/14/installing-configuring-gocd-gke-using-helm/">Installing and Configuring GoCD on GKE using Helm</a>.</em></p>
 
-<p>GoCD allows configuration of artifact stores such as Dockerhub, Amazon's ECR, Google's GCR to store and pull docker image artifacts. Depending on your version you can get two types of configuration windows. Let me show the latest configuration window of the artifact store`</p>
+<p>GoCD allows configuration of artifact stores such as Dockerhub, Amazon’s ECR, Google’s GCR to store and pull docker image artifacts. Depending on your version you can get two types of configuration windows. Let me show the latest configuration window of the artifact store`</p>
 
 <p><img src="../../../../assets/images/blog/cd-hacks/gocd-create-artifact-store-f8aef3b8.png" alt="Configuring Google Container Registry as an Artifact Store in GoCD" /></p>
 
-<p>There are two options based on the Registry Type. The first one is Amazon ECR. There are corresponding options for ECR Registry ID, AWS Region, AWS Access Key Id and AWS Secret Access Key.The second one says 'Others' and lists Dockerhub, GCR and private. For Dockerhub there are fields for username and password along with Docker Registry URL.</p>
+<p>There are two options based on the Registry Type. The first one is Amazon ECR. There are corresponding options for ECR Registry ID, AWS Region, AWS Access Key Id and AWS Secret Access Key.The second one says ‘Others’ and lists Dockerhub, GCR and private. For Dockerhub there are fields for username and password along with Docker Registry URL.</p>
 
 <p>The older plugin version does not have a separate option for Amazon ECR. It just has the same fields for all stores</p>
 
@@ -146,7 +146,7 @@
 
 <p>This should give your GoCD server access to your GCR images. If your GoCD Agent image is in this GCR repository, you should be able to use the images present here for your GoCD Agents.</p>
 
-<p><em>Note: This will work directly only if you are using GKE for your GoCD cluster. For other providers like EKS, AKS or even Minikube, you'll need to do a few additional steps of adding <code>imagePullSecrets</code> to the service account. You can find this information <a href="https://ryaneschinger.com/blog/using-google-container-registry-gcr-with-minikube/">here</a>.</em></p>
+<p><em>Note: This will work directly only if you are using GKE for your GoCD cluster. For other providers like EKS, AKS or even Minikube, you’ll need to do a few additional steps of adding <code>imagePullSecrets</code> to the service account. You can find this information <a href="https://ryaneschinger.com/blog/using-google-container-registry-gcr-with-minikube/">here</a>.</em></p>
 
 <h2 id="pushing-images-to-an-artifact-store"><strong>Pushing Images to an Artifact Store</strong></h2>
 
@@ -156,9 +156,9 @@
 
 <p>All you have to do is to configure the generated image as an external artifact. You can find the steps to do that <a href="https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html">here</a>.</p>
 
-<p>So there you go. I hope you find it useful. If you have any questions, please feel free to comment and I'll answer from whatever I've learnt so far.</p>
+<p>So there you go. I hope you find it useful. If you have any questions, please feel free to comment and I’ll answer from whatever I’ve learnt so far.</p>
 
-<p><em>This post was originally published on Mohamed Najiullah's blog</em></p>
+<p><em>This post was originally published on Mohamed Najiullah’s blog</em></p>
 
 
       </main>
@@ -232,7 +232,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

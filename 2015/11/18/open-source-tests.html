@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="Testing open source projects has its own set of problems. This post talks about some of these and how we overcome them." name="description" />
+    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, tests, challenges, approach, software testing, QA, quality assurance" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Open Source Tests | GoCD Blog" />
+    <meta name="twitter:description" content="Testing open source projects has its own set of problems. This post talks about some of these and how we overcome them." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/go-gauge-report-54cc286b.png" />
+    <link rel="canonical" href="https://www.gocd.org/2015/11/18/open-source-tests.html" />
+
+    <title>Open Source Tests | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+    });
+    </script>
+  </head>
+
+  <body class="x2015 x2015_11 x2015_11_18 x2015_11_18_open-source-tests">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li><a href="../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+
+
+  <header class="blog-post-header">
+    <h1>Open Source Tests - The <span class="go">Go</span>CD way</h1>
+    <h4>Rajiesh</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      <h1 id="why-open-source-tests">Why Open Source Tests</h1>
+
+<p>Testing open source projects has its own set of problems.
+Unit and integration tests are added by the contributors, however end to end tests are added later or neglected.
+There are several reasons for this like not being aware of the end to end flow, complexity of automating tests for end to end systems.
+However to be confident about a release we need end to end tests. To maintain the healthy balance defined by a <a href="https://martinfowler.com/bliki/TestPyramid.html">test pyramid</a>, every release must have its system test cases reviewed and maintained and this needs collaboration.</p>
+
+<p><strong>At GoCD we are finally open sourcing our functional tests</strong>, we believe open sourcing system tests will - improve quality through collaboration, make regression tests efficient, give the community a detailed picture of the system behavior and act as a live document for users.</p>
+
+<h1 id="how-gocd-is-continuously-tested">How GoCD is continuously tested</h1>
+
+<p>Let’s take a brief tour of how GoCD does continuous testing. GoCD is built, tested and deployed using GoCD itself. Here’s a snapshot of the GoCD build pipeline.</p>
+
+<p><img src="../../../assets/images/go-cd-QA-pipeline-64230cf5.png" style="width: 1000px" title="GoCD value stream map" alt="GoCD value stream map" /></p>
+
+<p>GoCD is tested using “Server in-the-box” model. In this model we define the system under test - its scope and its boundaries.
+External dependencies for the system under test (SUT) say git or yum repo are stubbed out or built into the SUT itself.
+The pipeline “qa packages” does the necessary jobs to bundle the stub code with production code, and then pass on the packages to “smoke” and “acceptance” pipelines to run the tests.
+Upon successful runs of the upstream pipelines, “distributions-all” pipeline packages only the production code.</p>
+
+<h1 id="test-classifications">Test Classifications</h1>
+
+<p>Below are the set of functional test types modeled into the GoCD pipelines.
+Each of them are run on single or multiple agents as per the size of the tests.
+Every agent will be cleaned of any previous versions of the build when a new build is started.</p>
+
+<ul>
+  <li>
+    <p><em>Smoke</em>: As per the classic definition “smoke tests” validates the basic functionality of the system under test. It runs on 2 GoCD server agents - one on windows and one on linux</p>
+  </li>
+  <li>
+    <p><em>Acceptance</em>: These tests validates the necessary set of tests for each functionality or use case flow. It does not execute every scenario in the flow, but validates all possible flows. These tests are run on a total of 17 agents. Smoke and Acceptance are triggered by the upstream pipeline ‘qa packages”.</p>
+  </li>
+  <li>
+    <p><em>Regression</em>: A detailed set of tests which is exhaustive and comprehensive. This job is executed parallel in 17 agents. Regression tests are triggered when Smoke and Acceptance pipelines pass.</p>
+  </li>
+  <li>
+    <p><em>Performance</em>: This pipeline is under development, will discuss this on a separate blog</p>
+  </li>
+</ul>
+
+<h1 id="how-this-model-helps-continuous-delivery">How this model helps continuous delivery</h1>
+
+<p>Continuous delivery depends on a faster feedback loop.
+However Functional and Performance tests end up being bottlenecks.
+This can be reduced to a great extent by distributed tests.</p>
+
+<p>Though not the only solution, it’s a first step to achieving the faster feedback loop.
+Further enhancements and optimizations are on the way.</p>
+
+<h1 id="twist-to-gauge-migration">Twist to Gauge Migration</h1>
+
+<p>GoCD functional tests were initially developed using Thoughtworks Twist automation tool.
+Since Twist has hit end-of-life as a product and is being replaced by Gauge, we’ve migrated our tests to Gauge.
+Moving to Gauge now helps us open source these tests (Twist was a commercial product).</p>
+
+<p>Twist to Gauge migration is handled by the migration plugin bundled in Twist.</p>
+
+<h1 id="gauge-specifications">Gauge Specifications</h1>
+
+<p>Gauge specifications are in markdown language making it more readable. Gauge specs intend to be live documents of the system behavior</p>
+
+<p><img src="../../../assets/images/go-gauge-specs-3d290b06.png" title="Gauge specifications" alt="Gauge specifications" /></p>
+
+<h1 id="gauge-reports">Gauge Reports</h1>
+
+<p>Gauge produces reports in an easily readable format and provides specification execution details like steps executed, time for each spec execution, overall test execution time, steps and specs  passed, what failed and the screen shot of the failure page.</p>
+
+<p><img src="../../../assets/images/go-gauge-report-54cc286b.png" style="width: 1000px" title="Gauge Reports" alt="Gauge Reports" /></p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>A distributed test environment and parallel execution are ways to support CD, by making long running tests short and getting faster feedback.
+Here we have addressed functional tests, we will soon be working on the performance tests.</p>
+
+<p>If you would like to contribute to GoCD tests, please visit <a href="https://github.com/gocd/functional-tests">GoCD Functional Tests</a> for contribution.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-articles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Feb 13</span>
+              <span class="post-author">Chad Wilson & Aravind SV</span>
+              <a href="../../../2023/02/13/gocd-project-status/">GoCD project status in 2023</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 14</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="../../../2021/12/14/log4j-vulnerability/">GoCD and the Log4j vulnerability - CVE-2021-44228</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 14</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/04/14/gocd-on-kubernetes-using-terraform/">GoCD on Kubernetes using Terraform</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../2023/">2023 (1)</a></li>
+            <li><a href="../../../2021/">2021 (1)</a></li>
+            <li><a href="../../../2020/">2020 (3)</a></li>
+            <li><a href="../../../2019/">2019 (7)</a></li>
+            <li><a href="../../../2018/">2018 (16)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (25)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/g/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd/discussions" target="_blank" analytics-label="github-discussions">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../resources/">RESOURCES</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="../../../assets/gocd-brand-styleguide.zip">LOGOS + BRAND</a></li>
+            <li><a href="../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+</html>

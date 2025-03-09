@@ -15,8 +15,8 @@
 
     <title>Under the hood of Deployment Pipelines | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -80,9 +80,9 @@
 
 <p>In GoCD almost no part of the deployment process runs on the GoCD server (which mainly waits for changes in repositories). What really powers the deployment pipeline are the GoCD agents. So, the question becomes: Where do the Agents themselves run? Does one need to install GoCD agents on the production box to deploy to production? The answer is, “It depends on what you’re comfortable with”.</p>
 
-<p>If your reaction to installing GoCD agents into production is "Sure, makes sense!", then, it’s fairly straightforward. You can run a GoCD agent on every node you want to deploy to or run anything in. Using resources and possibly GoCD environments (which we will talk about in a moment), you can make sure that only the jobs that need to run on a specific agent (designated “production agents”, for instance) are run there. This is to make sure that something like a functional test job does not end up running in your production GoCD agent.</p>
+<p>If your reaction to installing GoCD agents into production is “Sure, makes sense!”, then, it’s fairly straightforward. You can run a GoCD agent on every node you want to deploy to or run anything in. Using resources and possibly GoCD environments (which we will talk about in a moment), you can make sure that only the jobs that need to run on a specific agent (designated “production agents”, for instance) are run there. This is to make sure that something like a functional test job does not end up running in your production GoCD agent.</p>
 
-<p>In the more common scenario where your reaction to running a GoCD agent on production is "OMG! No way. That’s not going to happen!”, then that’s fine too. We understand that there are situations where access to production is tightly controlled and running a GoCD agent in production can be frowned upon. In such cases, you can still designate some agents as “production agents”, but their job will be to use some kind of a remoting mechanism such as OpenSSH to connect to the real production boxes and run a deployment in a controlled fashion. You’ll need to manage SSH keys etc. so that this is possible to be run without any intervention. Since GoCD agents execute commands for the most part, they don’t care what you do. As long as your tasks and jobs are setup properly to execute that part of your process using ssh, everything should work fine.</p>
+<p>In the more common scenario where your reaction to running a GoCD agent on production is “OMG! No way. That’s not going to happen!”, then that’s fine too. We understand that there are situations where access to production is tightly controlled and running a GoCD agent in production can be frowned upon. In such cases, you can still designate some agents as “production agents”, but their job will be to use some kind of a remoting mechanism such as OpenSSH to connect to the real production boxes and run a deployment in a controlled fashion. You’ll need to manage SSH keys etc. so that this is possible to be run without any intervention. Since GoCD agents execute commands for the most part, they don’t care what you do. As long as your tasks and jobs are setup properly to execute that part of your process using ssh, everything should work fine.</p>
 
 <h2 id="group-pipelines-and-agents-with-environments">Group Pipelines and Agents with Environments</h2>
 
@@ -185,7 +185,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

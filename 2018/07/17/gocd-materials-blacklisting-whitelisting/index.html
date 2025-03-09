@@ -15,8 +15,8 @@
 
     <title>How to Works with Materials in GoCD | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -76,7 +76,7 @@
       
 <p>In this series called <a href="https://gocd.org/tags/cd-hacks.html">CD Hacks</a>, we introduce some quick and easy ways to get things done in GoCD. In this post, we’re going to cover how to use <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#materials">materials</a> in GoCD.</p>
 
-<p>A material is the 'cause' for a deployment pipeline to run. In most cases, it is a source code material repository (like Git, SVN, Mercurial, etc). A CD server continuously polls the configured materials and when a new change or commit is found, the corresponding pipelines are run or "triggered". A pipeline can even be configured with multiple materials.</p>
+<p>A material is the ‘cause’ for a deployment pipeline to run. In most cases, it is a source code material repository (like Git, SVN, Mercurial, etc). A CD server continuously polls the configured materials and when a new change or commit is found, the corresponding pipelines are run or “triggered”. A pipeline can even be configured with multiple materials.</p>
 
 <p>The best way to control what changes get polled, and eventually trigger your pipeline, is by using the blacklisting/whitelisting feature for materials.</p>
 
@@ -119,7 +119,7 @@ All changes in the commit affect only misc/abc/README.txt and misc/def/hello.txt
 
 <p><strong>Result:</strong> Pipeline triggers - with g1-c2, g2-c3, g3-c1 and g4-c2. This is because src/test.rb does not match the blacklist misc/<em>*/</em>.</p>
 
-<p><strong>At time 10:25 AM:</strong> Pipeline is manually forced (click on "Play" button)</p>
+<p><strong>At time 10:25 AM:</strong> Pipeline is manually forced (click on “Play” button)</p>
 
 <p><strong>Result:</strong> Pipeline triggers - with g1-c2, g2-c3, g3-c2 and g4-c2. A manual trigger will forcibly update every material it knows of to the latest revision and triggers the pipeline.</p>
 
@@ -131,14 +131,14 @@ All changes in the commit affect only misc/abc/README.txt and misc/def/hello.txt
 
 <p>In blacklisting, all of the decisions about which materials to use for a pipeline trigger are configured on the GoCD server side and gives advantage to skip a pipeline trigger for set of files and folder.</p>
 
-<p>The "Fetch Materials" option, on the other hand, affects only the Agent side. It's an option which allows the agent to not fetch / checkout / clone the materials at all, when run. By this time, the server has already decided which materials to use. The agent cannot control it.</p>
+<p>The “Fetch Materials” option, on the other hand, affects only the Agent side. It’s an option which allows the agent to not fetch / checkout / clone the materials at all, when run. By this time, the server has already decided which materials to use. The agent cannot control it.</p>
 
 <p><img src="../../../../assets/images/blog/cd-hacks/fetch_materials-07a717f9.png" alt="GoCD Fetch Materials" /></p>
 
 <p>When Fetch Material is set to False.<br />
 <code>&lt;stage name="stagename" fetchMaterials="false"&gt;</code></p>
 
-<p>“Fetch materials” option should be turned off only in cases where you don't care about the material at all. In some cases, you just want a timer trigger for a pipeline - and don't care about the revision of the checked out material - or you want to check out the material yourself for some reason. Then, you'd turn off "Fetch materials".</p>
+<p>“Fetch materials” option should be turned off only in cases where you don’t care about the material at all. In some cases, you just want a timer trigger for a pipeline - and don’t care about the revision of the checked out material - or you want to check out the material yourself for some reason. Then, you’d turn off “Fetch materials”.</p>
 
 <p>We believe incorporating the GoCD material blacklisting/whitelisting feature would help avoid undesirable pipeline builds and help save time.</p>
 
@@ -223,7 +223,7 @@ All changes in the commit affect only misc/abc/README.txt and misc/def/hello.txt
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

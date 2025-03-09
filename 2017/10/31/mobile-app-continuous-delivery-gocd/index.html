@@ -15,8 +15,8 @@
 
     <title>Continuous Delivery for Mobile Development | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -83,7 +83,7 @@
 
 <p>We used to run simulations of tests on different environments, the primary among them being Mac OS (for the iOS app). At first, we provisioned these machines manually. This process not only took over two days but also left us a lot of <a href="https://www.aquasec.com/cloud-native-academy/vulnerability-management/configuration-drift/">configuration drift</a> in the build agents. We ended up with poor utilization of our hardware, long waiting time for build (as long as 1.5 days) and significant loss of productivity in managing infrastructure.</p>
 
-<p>To mitigate this, we decided to completely automate the provisioning of our build agents using Ansible. We also created a pre-baked machine image by running our automated provisioning scripts over a vanilla Mac OS installation. We called this our <strong>“golden image”</strong>.  At any time, if a build agent failed due to accidental configuration drift, we just restored the 'golden image' on that agent. We also introduced the concept of 'homogeneous' build agents. This enabled all build agents to run all build types (Android/iOS).</p>
+<p>To mitigate this, we decided to completely automate the provisioning of our build agents using Ansible. We also created a pre-baked machine image by running our automated provisioning scripts over a vanilla Mac OS installation. We called this our <strong>“golden image”</strong>.  At any time, if a build agent failed due to accidental configuration drift, we just restored the ‘golden image’ on that agent. We also introduced the concept of ‘homogeneous’ build agents. This enabled all build agents to run all build types (Android/iOS).</p>
 
 <blockquote>
   <p>All these helped reduce our machine provisioning time drastically - from two days to less than 30 minutes.</p>
@@ -97,7 +97,7 @@
 
 <h3 id="ensuring-that-every-commit-leaves-the-pipeline-in-a-releasable-state">3. Ensuring that every commit leaves the pipeline in a ‘releasable’ state</h3>
 
-<p>Initially, the team were doing feature branches, which caused a lot of strain. Every time we merged a feature branch, it took a lot of effort and would halt everyone for a day or two before things went back to schedule. What made it more tricky, was that we used to run CI only on our master and not on the feature branches. A branch where the code was getting pushed almost daily generally lived three to four months without continuous integration. People were doing their due diligence to make sure they'd merge master back into the feature branch to keep the code up to date, but that was never enough. We had (at one point) eight feature teams in multiple locations; it was inevitable that people would cross paths.</p>
+<p>Initially, the team were doing feature branches, which caused a lot of strain. Every time we merged a feature branch, it took a lot of effort and would halt everyone for a day or two before things went back to schedule. What made it more tricky, was that we used to run CI only on our master and not on the feature branches. A branch where the code was getting pushed almost daily generally lived three to four months without continuous integration. People were doing their due diligence to make sure they’d merge master back into the feature branch to keep the code up to date, but that was never enough. We had (at one point) eight feature teams in multiple locations; it was inevitable that people would cross paths.</p>
 
 <p>Another deeper problem caused by long-lived feature branches was that our team started becoming hesitant to do any re-factoring. When you know that the merge is going to be very difficult, people used to shy away from re-factoring even knowing that things are in bad shape. That meant that a huge amount of technical debt started accumulating.</p>
 
@@ -240,7 +240,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

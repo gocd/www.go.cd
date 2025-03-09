@@ -15,8 +15,8 @@
 
     <title>Build Propagation using Fan-in Fan-out | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -115,7 +115,7 @@
 
 <p>As you can see, it complicates the image quite a bit and so, has been omitted from other images. Owing to GoCD’s fan-in ability, adding that dependency doesn’t change how and when the pipelines are triggered. If a commit is made to the code repository, it does not mean that the functional test pipelines are triggered. Since each functional test pipeline has two dependencies now, both of them have to be compatible (i.e. be the same version) before it triggers.</p>
 
-<p>For example, if a commit was made in the repository, the “Build” pipeline would build first with that commit. If the "Build" pipeline is successful, then both the dependencies (often called <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#materials">materials</a>) of the functional test pipelines are compatible and the functional test pipelines will run.</p>
+<p>For example, if a commit was made in the repository, the “Build” pipeline would build first with that commit. If the “Build” pipeline is successful, then both the dependencies (often called <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#materials">materials</a>) of the functional test pipelines are compatible and the functional test pipelines will run.</p>
 
 <p>Unlike the example in the image above, maybe your repositories are structured so that functional tests and deployment scripts are in their own repositories. If so, they can be modeled as shown below:</p>
 
@@ -211,7 +211,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

@@ -15,8 +15,8 @@
 
     <title>GoCD in 2016 | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -68,7 +68,7 @@
       <main id="main" role="main" class="blog-post-main-container">
       <p>GoCD 15.3 has been released! I think now is a great time to talk about GoCD in
 2016. In a way, a lot of work in 2015 was setup towards enabling more
-improvements in 2016. There was some "debt" that needed paying off, some
+improvements in 2016. There was some “debt” that needed paying off, some
 performance improvements that needed to be made, some APIs that needed to be
 standardized and improved and more. All of it was valuable, in my opinion, and
 were necessary to do a lot more exciting work!</p>
@@ -82,7 +82,7 @@ were necessary to do a lot more exciting work!</p>
   <li>Better support for clouds and containers</li>
 </ul>
 
-<p>Let's take a look at each of these areas and what kind of changes can be expected in the GoCD ecosystem for it, in 2016:</p>
+<p>Let’s take a look at each of these areas and what kind of changes can be expected in the GoCD ecosystem for it, in 2016:</p>
 
 <h2 id="be-universal-and-easily-extensible">Be universal and easily extensible</h2>
 
@@ -115,12 +115,12 @@ improved before the actual change is made.</p>
 
 <h2 id="produce-more-content-around-gocd-and-cd-itself">Produce more content around GoCD and CD itself</h2>
 
-<p>Though there is some growing content around how CD ("Continuous Delivery")
+<p>Though there is some growing content around how CD (“Continuous Delivery”)
 works, it is hard to find good guides around a lot of concepts and practices
-around it. It's definitely hard to find it in one place. The closest is probably
+around it. It’s definitely hard to find it in one place. The closest is probably
 the excellent book, <a href="https://continuousdelivery.com/">Continuous Delivery</a>,
-co-authored by Jez Humble and Dave Farley. However, there's definitely room for
-more content, including recent experience reports and learnings. I'd like us to
+co-authored by Jez Humble and Dave Farley. However, there’s definitely room for
+more content, including recent experience reports and learnings. I’d like us to
 start this with some ideas and posts, but <em>this is something with which you,
 wonderful reader, can help</em>. Guest posts or even edits and comments will always
 be useful. This need not be content generated solely by this community. I feel
@@ -130,14 +130,14 @@ craft. Look out for more of this in 2016!</p>
 
 <h2 id="have-a-better-getting-started-experience">Have a better getting-started experience</h2>
 
-<p>GoCD's getting started experience can definitely be better. As with everything
-these days, users' expectations regarding their initial and continued
-experiences keeps changing. In GoCD's world, I think one of the problems is that
-the domain of GoCD's
+<p>GoCD’s getting started experience can definitely be better. As with everything
+these days, users’ expectations regarding their initial and continued
+experiences keeps changing. In GoCD’s world, I think one of the problems is that
+the domain of GoCD’s
 <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html">concepts</a>
 takes getting used to. Other problems include a not-so-easy installation and
-evaluation experience, better documentation targeted towards a new user ("How do
-I create my first pipeline?"), better dashboard UI, a much better
+evaluation experience, better documentation targeted towards a new user (“How do
+I create my first pipeline?”), better dashboard UI, a much better
 <a href="https://gocd.org">gocd.org</a> site which points to all this information in a meaningful
 way, etc.</p>
 
@@ -153,7 +153,7 @@ discussions</a> and let us know!</p>
 <p>Though this comes up last in this list, it is definitely not the least
 important. In fact, the current plan is to start on this very soon. The cloud
 and container ecosystems (who am I kidding, no one seems to be able to look
-beyond "docker") have been exploding over the last couple of years (at least)
+beyond “docker”) have been exploding over the last couple of years (at least)
 and there is a definite trend of interest and move towards both of them and
 beyond them. As a CD system, I feel that GoCD can definitely help users make use
 of their investments in clouds and containers more effective, when used for CD.</p>
@@ -161,14 +161,14 @@ of their investments in clouds and containers more effective, when used for CD.<
 <p>Elastic agents have been mentioned earlier in this document. In 2016, the idea
 is to use elastic agents and create a docker-container-per-job plugin, which
 runs a fully isolated job with dependency management done inside the docker
-image rather than the GoCD agent ("You need Maven 3.0? Sure. Update your
-Dockerfile and it will be taken care of. You won't cause issues with this other
-pipeline which needs Maven 2.0."). With elastic agents, this can be done
+image rather than the GoCD agent (“You need Maven 3.0? Sure. Update your
+Dockerfile and it will be taken care of. You won’t cause issues with this other
+pipeline which needs Maven 2.0.”). With elastic agents, this can be done
 transparently and a GoCD agent can be brought up inside a container temporarily
 and a build can be executed and the agent torn down and thrown away. To make
 this work really well will involve some exciting changes to the GoCD Agent
 infrastructure, like moving away from a pure Java agent to a language-agnostic
-one (umm, I'm going to go for full buzz points and say, "golang") and pure JSON
+one (umm, I’m going to go for full buzz points and say, “golang”) and pure JSON
 communication between the agent and the server. Though Docker is the one with
 the most interest from everyone, there are many other competing container
 ecosystems and the fact that the elastic agent endpoint is open and usable by
@@ -185,7 +185,7 @@ and related infrastructure provided to make it easy for anyone to run their CD
 system in the cloud. Again, with elastic agents, they can be brought up and down
 on demand and can be really cost-effective.</p>
 
-<p>For Thoughtworks' supported offering, the idea is
+<p>For Thoughtworks’ supported offering, the idea is
 to pick a cloud provider (most likely AWS, as it is an obvious choice for many)
 and provide deeper integration with it, along with the ability to have fully
 elastic agents. Similarly, there is a vast ecosystem around containers to work
@@ -197,17 +197,17 @@ isolation. All topics that interest me and many on the GoCD team as well.</p>
 <h2 id="what-else">What else?</h2>
 
 <p>There is some work from 2015 that will need to be wrapped up: the new config UI
-for one, getting Tomasz' <a href="https://github.com/gocd/gocd/issues/1133">config
+for one, getting Tomasz’ <a href="https://github.com/gocd/gocd/issues/1133">config
 changes</a> merged in, some API endpoints
-and smaller changes. But, apart from that, I'd like the core GoCD team to focus
+and smaller changes. But, apart from that, I’d like the core GoCD team to focus
 on what is in this document. Though this is different from 2015 where we asked
 the community to help choose ideas, I feel that it is worth trying to set a
 direction and work towards it rather than try and design by committee.</p>
 
-<p>There is always room for feedback and I'm not averse to changing this as it is
+<p>There is always room for feedback and I’m not averse to changing this as it is
 not set in stone. However, I would like to be convinced for the need to change
 this. :) If you really feel strongly about something which is not on this and
-you think it should be fixed, you're always welcome to work on it and submit a
+you think it should be fixed, you’re always welcome to work on it and submit a
 pull request and the team has been responsive to them. In fact, the feeling of
 knowing that someone else cares enough to take the effort to understand the code
 and submit a pull request is … something else. We love it!</p>
@@ -225,7 +225,7 @@ latest and greatest more often, and provide quicker feedback.</p>
 <h2 id="summary">Summary</h2>
 
 <p>Lots of exciting changes coming up: APIs, endpoints, clouds, containers, Docker,
-better content, getting started, UI and UX changes … and more. It's going to be
+better content, getting started, UI and UX changes … and more. It’s going to be
 a great year!</p>
 
 <p><small>Please pardon the verbosity of this post. A better one with pictures and better
@@ -310,7 +310,7 @@ earlier than later.</small></p>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

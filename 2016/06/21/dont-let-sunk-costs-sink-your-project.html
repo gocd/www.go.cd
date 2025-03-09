@@ -15,8 +15,8 @@
 
     <title>Don't let sunk costs sink your project | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -79,23 +79,23 @@
 
 <p>The back frame of the truck was resting peacefully on the street, and the front wheels part way up the driveway. Unfortunately the back wheels spun helplessly a couple of inches above the ground. It was the perfect combination of too much weight in the truck and the wrong angle of the driveway. There was nothing I could do to move either forward or backward. I was really and truly stuck.</p>
 
-<p>When you drive a vehicle over something high, and the center of your vehicle rests on it, with the wheels slightly in the air, it's referred to as being <strong>"high-centered"</strong>. When we develop software projects, we can get into situations where we are also "high-centered", places where it is difficult to make progress either forwards or backwards. Some examples of where this can happen are when you go too far trying to refactor everything when you are fixing a bug, or when you start trying to replace a part of your application and don't realize just how tightly coupled you are to it. I have lived through a few of these situations.</p>
+<p>When you drive a vehicle over something high, and the center of your vehicle rests on it, with the wheels slightly in the air, it’s referred to as being <strong>“high-centered”</strong>. When we develop software projects, we can get into situations where we are also “high-centered”, places where it is difficult to make progress either forwards or backwards. Some examples of where this can happen are when you go too far trying to refactor everything when you are fixing a bug, or when you start trying to replace a part of your application and don’t realize just how tightly coupled you are to it. I have lived through a few of these situations.</p>
 
-<h2 id="examples-of-high-centered-software-development">Examples of 'High-Centered' Software Development</h2>
+<h2 id="examples-of-high-centered-software-development">Examples of ‘High-Centered’ Software Development</h2>
 
-<p>The first time I experienced this was with the regression testing suite for a fairly complicated international leasing application. This project had a long and powerful history, and we dealt with this problem about ten years into the evolution of this system. At its peak, the project had about 80 people, then slimmed down to about 20. We had built up a large suite of regression tests with a heavyweight testing tool that I'm embarrassed to admit we ever used. The tests took a substantial percentage of our development effort just to maintain, and we didn't have enough confidence in our test suite to know whether everything was working properly. There were intermittent failures and strange relationships between tests that caused them to fail if the order of execution wasn't exactly right.</p>
+<p>The first time I experienced this was with the regression testing suite for a fairly complicated international leasing application. This project had a long and powerful history, and we dealt with this problem about ten years into the evolution of this system. At its peak, the project had about 80 people, then slimmed down to about 20. We had built up a large suite of regression tests with a heavyweight testing tool that I’m embarrassed to admit we ever used. The tests took a substantial percentage of our development effort just to maintain, and we didn’t have enough confidence in our test suite to know whether everything was working properly. There were intermittent failures and strange relationships between tests that caused them to fail if the order of execution wasn’t exactly right.</p>
 
-<p>This regression testing suite was a constant source of friction that made it difficult for us to make any progress. We had to do something dramatic to get out of it. We declared bankruptcy on our regression suite and started over again with a more modern, lightweight testing tool.  We gave up on testing individual stories and instead focused on testing lighter-weight journeys through the application. It took a lot of courage to walk away from all those sunk costs. All those person-years of development time were already spent, and continuing to invest in them wasn't going to help.</p>
+<p>This regression testing suite was a constant source of friction that made it difficult for us to make any progress. We had to do something dramatic to get out of it. We declared bankruptcy on our regression suite and started over again with a more modern, lightweight testing tool.  We gave up on testing individual stories and instead focused on testing lighter-weight journeys through the application. It took a lot of courage to walk away from all those sunk costs. All those person-years of development time were already spent, and continuing to invest in them wasn’t going to help.</p>
 
 <h2 id="how-to-spot-trouble-earlier">How to Spot Trouble Earlier</h2>
 
-<p>If you feel like you are putting in too much effort into your project for the actual progress you are making, you too might be stuck. Ask yourself: if you were starting over again, would you still consider doing things that way? If the answer is a definite "no", you may want to try something different.</p>
+<p>If you feel like you are putting in too much effort into your project for the actual progress you are making, you too might be stuck. Ask yourself: if you were starting over again, would you still consider doing things that way? If the answer is a definite “no”, you may want to try something different.</p>
 
-<p>Continuous Integration servers like <a href="https://www.gocd.org/">GoCD</a> also give you a pretty good indicator if you are starting to get stuck. If you are following standard CI practices and checking in regularly, you are probably in the cadence of pushing your code to the master/trunk branch at least once a day. If you are coming up to the end of the day and you have that sinking feeling that it wouldn't be safe to check in, or your build fails in some surprising and catastrophic way, then you may need to try breaking your changes into smaller, more manageable pieces. It is much easier to keep yourself from getting stuck if you work in smaller increments and use techniques like <a href="https://martinfowler.com/bliki/BranchByAbstraction.html">"branch by abstraction"</a>.</p>
+<p>Continuous Integration servers like <a href="https://www.gocd.org/">GoCD</a> also give you a pretty good indicator if you are starting to get stuck. If you are following standard CI practices and checking in regularly, you are probably in the cadence of pushing your code to the master/trunk branch at least once a day. If you are coming up to the end of the day and you have that sinking feeling that it wouldn’t be safe to check in, or your build fails in some surprising and catastrophic way, then you may need to try breaking your changes into smaller, more manageable pieces. It is much easier to keep yourself from getting stuck if you work in smaller increments and use techniques like <a href="https://martinfowler.com/bliki/BranchByAbstraction.html">“branch by abstraction”</a>.</p>
 
-<p>But oftentimes, it can be difficult to spot when you are about to be high-centered. Unfortunately, trying harder at the things that got you there in the first place probably won't help. You will need to stop, step back and take an honest look at what your options going forward are.</p>
+<p>But oftentimes, it can be difficult to spot when you are about to be high-centered. Unfortunately, trying harder at the things that got you there in the first place probably won’t help. You will need to stop, step back and take an honest look at what your options going forward are.</p>
 
-<p>With our stuck truck, we had to call a giant tow truck to come pick up the fully loaded moving truck from our driveway and set it in the street. With your software project, instead of calling a tow truck, you may need to introduce a <a href="https://paulhammant.com/2013/07/14/legacy-application-strangulation-case-studies/">strangler application</a> or split your applications into smaller parts so that you can clean up incrementally. I hope this has been helpful. If you have any tips or stories about "high-centered" software projects, please let us know in the comments.</p>
+<p>With our stuck truck, we had to call a giant tow truck to come pick up the fully loaded moving truck from our driveway and set it in the street. With your software project, instead of calling a tow truck, you may need to introduce a <a href="https://paulhammant.com/2013/07/14/legacy-application-strangulation-case-studies/">strangler application</a> or split your applications into smaller parts so that you can clean up incrementally. I hope this has been helpful. If you have any tips or stories about “high-centered” software projects, please let us know in the comments.</p>
 
 <style type="text/css">
 .float-image {
@@ -217,7 +217,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

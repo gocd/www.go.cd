@@ -15,8 +15,8 @@
 
     <title>Architecting for Continuous Delivery | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -77,10 +77,10 @@
 , it is tempting to think of it only as <em>“What tools should I use?”</em>.</p>
 
 <p>While part of it is <a href="../../03/introduction-continuous-delivery-deployment-tools.html">selecting the right tools</a>
-for each aspect like version control, CD server, infrastructure configuration tool, monitoring tool and so on, an effective CD implementation doesn't stop at that. For instance, you might use a particular version control tool and have a particular CI server set-up but if you are not checking in code in small batches frequently, or don't have automated tests, it is not Continuous Integration (<a href="../../../05/16/its-not-CI-its-CI-theatre.html">it's CI Theatre!</a>).</p>
+for each aspect like version control, CD server, infrastructure configuration tool, monitoring tool and so on, an effective CD implementation doesn’t stop at that. For instance, you might use a particular version control tool and have a particular CI server set-up but if you are not checking in code in small batches frequently, or don’t have automated tests, it is not Continuous Integration (<a href="../../../05/16/its-not-ci-its-ci-theatre.html">it’s CI Theatre!</a>).</p>
 
 <blockquote>
-  <p>Continuous Delivery enablement doesn't stop with adopting tools</p>
+  <p>Continuous Delivery enablement doesn’t stop with adopting tools</p>
 </blockquote>
 
 <p>Remember also that the goal of continuous delivery is to be able to release software frequently, and reliably, in a frictionless manner. So, while you start automating your deployment process, it is also important to identify bottlenecks in the deployment process and streamline it over time.</p>
@@ -106,7 +106,7 @@ for each aspect like version control, CD server, infrastructure configuration to
 
 <p>Up to some point, you can attack this problem by parallelizing build tasks and test runs. Build tools like <a href="https://gradle.org/">Gradle</a>, <a href="https://github.com/ruby/rake">Rake</a>, and others, support parallel task capabilities that we can take advantage of. Additionally, tools including GoCD support test parallelism with multiple agents.</p>
 
-<p>But for teams working on a monolithic codebase, this is usually not enough. Apart from the aforementioned problems, a large codebase can be difficult to work with and intimidating to new members on the team. When multiple functional teams work on the same codebase, there tends to be less ownership of the code, multiple implementation patterns begin emerging, and it's more difficult to get consensus. Technical debt accumulates and can easily spiral out of control.</p>
+<p>But for teams working on a monolithic codebase, this is usually not enough. Apart from the aforementioned problems, a large codebase can be difficult to work with and intimidating to new members on the team. When multiple functional teams work on the same codebase, there tends to be less ownership of the code, multiple implementation patterns begin emerging, and it’s more difficult to get consensus. Technical debt accumulates and can easily spiral out of control.</p>
 
 <p>A large team working on a monolithic codebase also compounds problems on the continuous integration front. Many teams in this situation find that their build times increase to dangerous lengths. At some point the build is slow enough that developers think twice about running the full test suite locally before checking in. With so many people checking in changes at the same time, the feedback cycle slows down. This, in turn, makes it tricky to diagnose build failures. Broken builds get left for someone else to fix, like dirty dishes in a sink waiting for <em>someone</em> to clean them.</p>
 
@@ -118,7 +118,7 @@ for each aspect like version control, CD server, infrastructure configuration to
 
 <p>For a start, shared components (like a pagination UI component or a library to make database or API calls) can be extracted out and added as binary dependencies on the application.</p>
 
-<p>But when there are multiple functional teams working on the same repo, the biggest payoff comes when you can separate out each team's work into components to be managed in their own repos.</p>
+<p>But when there are multiple functional teams working on the same repo, the biggest payoff comes when you can separate out each team’s work into components to be managed in their own repos.</p>
 
 <p>One large-scale Open Source project doing this is the <a href="https://openmrs.org">OpenMRS</a> application where independent modules are wired up together in the application runtime. A component in this case is a binary dependency that includes end-to-end functionality of a module including the UI. Deployment of a component can be managed on the deployment pipeline and means upgrading the component version on the parent application.</p>
 
@@ -138,13 +138,13 @@ for each aspect like version control, CD server, infrastructure configuration to
 
 <p>When you start on a greenfield project, automated GUI tests or acceptance tests seem small and manageable and it is tempting to add as much coverage on that layer as possible. But unless tended to, these tests grow become unmanageable over time.</p>
 
-<p>The ice cream cone anti-pattern for test suites is well described by Alister B Scott's Testing Pyramids (since offline).</p>
+<p>The ice cream cone anti-pattern for test suites is well described by Alister B Scott’s Testing Pyramids (since offline).</p>
 
 <blockquote>
-  <p>"Tests that run end-to-end through the UI are: brittle, expensive to write, and time consuming to run." - <a href="https://martinfowler.com/bliki/TestPyramid.html">Martin Fowler</a></p>
+  <p>“Tests that run end-to-end through the UI are: brittle, expensive to write, and time consuming to run.” - <a href="https://martinfowler.com/bliki/TestPyramid.html">Martin Fowler</a></p>
 </blockquote>
 
-<p>Indeed, teams that are saddled with a large number of acceptance tests end up getting slowed down by the very automation that was supposed to make the application delivery process easier and faster – tests taking many hours to run and producing random failures in the end. Acceptance tests also tend to be brittle and because they are harder to reproduce and fix; these tend to accumulate over time. In many instances, the quality starts being gauged in terms of the percentage of passed tests. “85 percentage pass. Not bad compared to previous run!” This doesn't say anything about the quality of the application.</p>
+<p>Indeed, teams that are saddled with a large number of acceptance tests end up getting slowed down by the very automation that was supposed to make the application delivery process easier and faster – tests taking many hours to run and producing random failures in the end. Acceptance tests also tend to be brittle and because they are harder to reproduce and fix; these tend to accumulate over time. In many instances, the quality starts being gauged in terms of the percentage of passed tests. “85 percentage pass. Not bad compared to previous run!” This doesn’t say anything about the quality of the application.</p>
 
 <p>Therefore, it is advisable to design your test suite to give just the necessary validation with acceptance tests and everything else covered by unit tests and a smaller layer of integration tests. Unit tests are fast to execute, give the right level of feedback about what is broken. As you go up the pyramid, the tests are slower and it becomes harder to point out root cause of failures because the surface area is larger.</p>
 
@@ -294,7 +294,7 @@ for each aspect like version control, CD server, infrastructure configuration to
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

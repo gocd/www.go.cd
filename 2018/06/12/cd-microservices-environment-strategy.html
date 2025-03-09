@@ -15,8 +15,8 @@
 
     <title>Continuous Delivery of Microservices - Environment Strategy | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -88,11 +88,11 @@
 
 <p>Artifacts are one of many kinds of tangible by-products produced during the development of software. Some of these artifacts are text files like test and coverage reports. Some of these artifacts are binary artifacts like npm packages, jar files, and AMI machine images, which are built once and propagated along the CD pipelines for deployment in downstream environments.</p>
 
-<p>CD pipelines generate a lot of artifacts. Before you know it, you're getting into terabytes, or tens of terabytes of generated artifacts. It's important to think through an artifact promotion strategy, which deals with where these artifacts are stored, how many are retained, and how you do clean-up.</p>
+<p>CD pipelines generate a lot of artifacts. Before you know it, you’re getting into terabytes, or tens of terabytes of generated artifacts. It’s important to think through an artifact promotion strategy, which deals with where these artifacts are stored, how many are retained, and how you do clean-up.</p>
 
 <p><img src="../../../assets/images/blog/cd-considerations/environments-plan-e0ff13b0.jpeg" alt="Environment Plan for Continuous Delivery" /></p>
 
-<p>The diagram above shows you an environment plan which factors in an artifact promotion strategy. From the plan you can see the environments that exist in the CD pipeline, with different colored arrows depicting different artifact promotion strategies. Early on in this pipeline, we generate artifacts that go to an artifact repository that has a more aggressive clean-up strategy, so we don't really retain too many of those environments. As you go further down this pipeline, artifacts are verified and more robust and you may want to keep these for a little longer, so you could keep them in a store with a different retention policy.</p>
+<p>The diagram above shows you an environment plan which factors in an artifact promotion strategy. From the plan you can see the environments that exist in the CD pipeline, with different colored arrows depicting different artifact promotion strategies. Early on in this pipeline, we generate artifacts that go to an artifact repository that has a more aggressive clean-up strategy, so we don’t really retain too many of those environments. As you go further down this pipeline, artifacts are verified and more robust and you may want to keep these for a little longer, so you could keep them in a store with a different retention policy.</p>
 
 <h2 id="dynamic-environments">Dynamic environments</h2>
 
@@ -104,7 +104,7 @@
 If you create all environments dynamically based on automation, you will use exactly the same way to create testing and staging environments. The scale and nature of infrastructure may be different, but the footprint of the environment remains the same.</p>
 
 <p><strong>Prevent drift</strong>
-If you have manual processes and manual installations, you can't really ensure that two environments are the same. But using a script to create short-lived dynamic environments prevents drift.</p>
+If you have manual processes and manual installations, you can’t really ensure that two environments are the same. But using a script to create short-lived dynamic environments prevents drift.</p>
 
 <p><strong>Efficient use of hardware and infrastructure</strong>
 Only creating an environment when you need it and cleaning up dynamically optimizes utilization and saves infrastructure costs.</p>
@@ -191,7 +191,7 @@ Only creating an environment when you need it and cleaning up dynamically optimi
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

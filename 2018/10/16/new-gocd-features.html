@@ -15,8 +15,8 @@
 
     <title>What's New in GoCD | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -77,7 +77,7 @@
 
 <h2 id="gocd-is-cloud-native">GoCD is cloud native</h2>
 
-<p>We’ve built two distinct sets of features to make GoCD cloud native. First, we've made it easier to operate GoCD on cloud infrastructure providers. Second, we have provided better support for container-based workflows.</p>
+<p>We’ve built two distinct sets of features to make GoCD cloud native. First, we’ve made it easier to operate GoCD on cloud infrastructure providers. Second, we have provided better support for container-based workflows.</p>
 
 <h3 id="operating-on-cloud-infrastructure">Operating on cloud infrastructure</h3>
 
@@ -85,7 +85,7 @@
 
 <p>Veteran users of GoCD likely have spent a fair bit of time managing their agent grids via scripts, puppet, chef and similar. An elastic agent plugin eliminates this work as GoCD installs, starts, and stops agents as needed on whatever cloud provider you point it at.</p>
 
-<p>On Kubernetes, we've provided a <a href="https://hub.helm.sh/charts/gocd/gocd">helm chart</a> to make it near trivial to install and operate GoCD in its entirety on your Kubernetes cluster.</p>
+<p>On Kubernetes, we’ve provided a <a href="https://hub.helm.sh/charts/gocd/gocd">helm chart</a> to make it near trivial to install and operate GoCD in its entirety on your Kubernetes cluster.</p>
 
 <p>Check out more about:</p>
 
@@ -104,14 +104,14 @@
 
 <ol>
   <li>Teams who are fully immersed in Docker want pretty much everything to be Docker-based.  If you are utilizing our Docker, ECS Docker or Kubernetes support then all your build activity will now be Docker based. It just works.</li>
-  <li>GoCD now supports Docker images as native GoCD artifacts.  GoCD abides by "build once and only once" and provides full traceability up and downstream for artifacts. You can now  specify a Docker image repository as a GoCD artifact repository. This allows Docker images to be a part of GoCD’s native artifact tracing, pushing, and fetching.</li>
+  <li>GoCD now supports Docker images as native GoCD artifacts.  GoCD abides by “build once and only once” and provides full traceability up and downstream for artifacts. You can now  specify a Docker image repository as a GoCD artifact repository. This allows Docker images to be a part of GoCD’s native artifact tracing, pushing, and fetching.</li>
 </ol>
 
 <h2 id="analytics-plugin-for-enterprise-users">Analytics plugin for enterprise users</h2>
 
 <p>We have added a CD analytics plugin to our <a href="https://gocd.org/enterprise">GoCD enterprise</a> offering. The analytics plugin is intended to provide visualizations and actionable metrics to help you to optimize both value stream and the underlying build resources powering your pipeline.</p>
 
-<p>One of the highlights, is when you're looking at your value stream, you can pick any two points and take a quick look at throughput or cycle time. This helps you answer questions like "How often do we deploy to production" and "How long will this take to reach the customer" more accurately. We have free trial available. <a href="https://gocd.org/analytics">Sign up here</a>.</p>
+<p>One of the highlights, is when you’re looking at your value stream, you can pick any two points and take a quick look at throughput or cycle time. This helps you answer questions like “How often do we deploy to production” and “How long will this take to reach the customer” more accurately. We have free trial available. <a href="https://gocd.org/analytics">Sign up here</a>.</p>
 
 <p><img src="../../../assets/images/blog/whats-new-gocd/gocd-analytics-vsm-a734be3e.png" alt="CD Pipeline Analytics" /></p>
 
@@ -131,7 +131,7 @@
 
 <p>We also exposed this ability as a plugin endpoint so anyone can write a plugin for a config repository, to store the configuration in any manner you choose. For more in depth reading on  GoCD’s pipeline as code feature, please <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">visit our documentation</a> for more details.</p>
 
-<h2 id="whats-next">What's next:</h2>
+<h2 id="whats-next">What’s next:</h2>
 
 <p>Moving forward, we’re going to be focusing on user experience for a few months. To start, we are going to make it much easier to utilize pipelines as code. This will include making it easier to add new pipelines as well as get feedback on whether your YAML or JSON specifies a valid pipeline. Beyond that we are likely to look at improving how we store secrets, including integration with popular 3rd party tools.</p>
 
@@ -214,7 +214,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

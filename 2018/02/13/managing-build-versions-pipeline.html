@@ -15,8 +15,8 @@
 
     <title>Managing Build Versions in your GoCD Pipeline | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -74,13 +74,13 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>Let's say you're building your first GoCD continuous delivery pipline.</p>
+<p>Let’s say you’re building your first GoCD continuous delivery pipline.</p>
 
-<p>Typically the first step of a delivery pipeline is to build the software from source. For this post, a tiny <a href="https://github.com/moritz/package-info">web service</a> will serve as an example, and we'll build Debian packages from that.</p>
+<p>Typically the first step of a delivery pipeline is to build the software from source. For this post, a tiny <a href="https://github.com/moritz/package-info">web service</a> will serve as an example, and we’ll build Debian packages from that.</p>
 
 <p>GoCD can poll a git repository for changes, and if it has changed, clone the repository on an agent machine. So the remaining task is to execute the actual build command, and collect the resulting package file (and optionally the .changes file).</p>
 
-<p>Since describing each click through the GoCD web interface can be time consuming, let's talk about the XML configuration for the first pipeline instead. Here it is:</p>
+<p>Since describing each click through the GoCD web interface can be time consuming, let’s talk about the XML configuration for the first pipeline instead. Here it is:</p>
 
 <pre><code>&lt;pipelines group="deployment"&gt;
  &lt;pipeline name="package-info"&gt;
@@ -107,23 +107,23 @@
 &lt;/pipelines&gt;
 </code></pre>
 
-<p>The build command, <code>debuild -b -us -uc</code>, return exit code zero on success and a non-zero exit code on failure, which is the standard convention for UNIX commands, and the same that the GoCD job runner for system commands understands, so we don't have to take special care with error handling.</p>
+<p>The build command, <code>debuild -b -us -uc</code>, return exit code zero on success and a non-zero exit code on failure, which is the standard convention for UNIX commands, and the same that the GoCD job runner for system commands understands, so we don’t have to take special care with error handling.</p>
 
 <p>The <code>debuild</code> command is part of the <code>devscripts</code> package on Debian and Ubuntu, and we just assume that it is installed on the agent machine. If you have a heterogenous environment, you can <a href="https://docs.gocd.org/15.3.0/configuration/managing_a_build_cloud.html#matching-jobs-to-agents">use resources to limit the job to fitting agents</a>.</p>
 
-<p>The <code>timeout="5"</code> in the job tag specifies a timeout in minutes that applies when the build script hasn't produced any output for five minutes. It acts as a safeguard against infinitely looping builds.</p>
+<p>The <code>timeout="5"</code> in the job tag specifies a timeout in minutes that applies when the build script hasn’t produced any output for five minutes. It acts as a safeguard against infinitely looping builds.</p>
 
 <p>The <code>artifacts</code> tag specifies files and wildcards that GoCD collects and stores on the server. The use of a wildcard is both to account for the fact that the version number and thus the file name of the generated Debian package is variable, and to able to capture both the generated <code>.deb</code> and <code>.changes</code> file. The fixed destination path makes it easier to retrieve those artifacts later on without knowing the exact version number.</p>
 
-<p>If you use the <a href="https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-4-go-environments">environments feature</a>, you also need to add the pipeline and at least one fitting agent to an environment. To keep things simple, we'll skip that here.</p>
+<p>If you use the <a href="https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-4-go-environments">environments feature</a>, you also need to add the pipeline and at least one fitting agent to an environment. To keep things simple, we’ll skip that here.</p>
 
-<p>After you configure the pipeline with the XML above, you may wait a bit. You'll see the pipeline turns green on the front page of GoCD's web interface!</p>
+<p>After you configure the pipeline with the XML above, you may wait a bit. You’ll see the pipeline turns green on the front page of GoCD’s web interface!</p>
 
 <p><em>We can celebrate the first small success!</em></p>
 
 <h2 id="recycling-version-numbers-is-confusing">Recycling version numbers is confusing</h2>
 
-<p>Here, there is a small problem with this build stage. The version number of the generated Debian package comes from the <code>debian/changelog</code> file, which is part of the source git repository. So each time a developer pushes a commit that doesn't increment the version, the build stage generates a binary that reuses the previous version number. Even if the developers had perfect discipline, pipelines and stages can be rerun with the same git
+<p>Here, there is a small problem with this build stage. The version number of the generated Debian package comes from the <code>debian/changelog</code> file, which is part of the source git repository. So each time a developer pushes a commit that doesn’t increment the version, the build stage generates a binary that reuses the previous version number. Even if the developers had perfect discipline, pipelines and stages can be rerun with the same git
 revision as before. The Debian tool chain very much assumes that new versions
 of a package come with incremented version numbers, so the build pipeline
 should do that.</p>
@@ -184,13 +184,13 @@ the subsequent numbers in the version string. For a git tag <code>2016.01</code>
 
 <p>After triggering the pipeline in the web interface and waiting a bit, it turns green again, and this time generates a Debian package with a unique version string.</p>
 
-<h2 id="whats-next">What's next?</h2>
+<h2 id="whats-next">What’s next?</h2>
 
 <p>After the build stage is in place, there are several possible next steps to drive your Continuous Delivery efforts:</p>
 
 <ul>
   <li>The next stage in the pipeline could add the freshly built package to a repository, making it available for installation on test servers.</li>
-  <li>The package build could be improved to run unit tests (for the package being built), ensuring that only software that has passed the unit tests, reach the 'testing' or 'staging' environment. <em>Note that this doesn't require any changes in GoCD</em>.</li>
+  <li>The package build could be improved to run unit tests (for the package being built), ensuring that only software that has passed the unit tests, reach the ‘testing’ or ‘staging’ environment. <em>Note that this doesn’t require any changes in GoCD</em>.</li>
   <li>When multiple applications are to be built automatically, it makes sense to <a href="https://www.thoughtworks.com/insights/blog/how-do-i-do-cd-go-part-5-power-pipeline-templates-and-parameters">extract a template from the pipeline</a>, so that configuring a pipeline for the next project becomes a simple matter of instantiating the template and defining a few parameters.</li>
 </ul>
 
@@ -198,7 +198,7 @@ the subsequent numbers in the version string. For a git tag <code>2016.01</code>
 
 <h2 id="about-the-author">About the author</h2>
 
-<p><em>This is guest post by Moritz Lenz, a software engineer and architect at <a href="https://www.noris.de/">noris network</a>. He's currently writing a book on automating deployments.</em></p>
+<p><em>This is guest post by Moritz Lenz, a software engineer and architect at <a href="https://www.noris.de/">noris network</a>. He’s currently writing a book on automating deployments.</em></p>
 
       </main>
     </div>
@@ -271,7 +271,7 @@ the subsequent numbers in the version string. For a git tag <code>2016.01</code>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

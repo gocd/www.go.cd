@@ -15,8 +15,8 @@
 
     <title>Peg your Pipeline to a Dependency Version | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -75,18 +75,18 @@
 <p>Now by default in GoCD, a pipeline gets scheduled when there is a change to any of its upstream dependencies. This behavior is referred to as a <em>fluid dependency</em> in the <a href="https://continuousdelivery.com/">Continuous delivery</a> book (the book refers to a paper by Alex Chaffee).</p>
 
 <blockquote>
-  <p>Chaffee's proposal is to introduce a new piece of state into the dependency graph—whether a particular upstream dependency is static, guarded, or ﬂuid. Changes in a static upstream dependency do not trigger a new build.Changes in a ﬂuid upstream dependency always trigger a new build.</p>
+  <p>Chaffee’s proposal is to introduce a new piece of state into the dependency graph—whether a particular upstream dependency is static, guarded, or ﬂuid. Changes in a static upstream dependency do not trigger a new build.Changes in a ﬂuid upstream dependency always trigger a new build.</p>
 </blockquote>
 
 <h3 id="simulating-static-dependencies">Simulating static dependencies</h3>
 
 <p>What if we want to keep d1 and d2 fluid but make d3 static? This is a reasonable requirement if you want to peg C2 to a known good version of C1 and still let C1 keep building against its frequently changing source. This may be the case if C1 is volatile or under control of a different team or organization.</p>
 
-<p>On the face of it, it may appear that GoCD cannot support pegging. But that is not the case; GoCD's pipelines are powerful and flexible building blocks. We could just introduce a "manual-gate" pipeline to achieve pegging.</p>
+<p>On the face of it, it may appear that GoCD cannot support pegging. But that is not the case; GoCD’s pipelines are powerful and flexible building blocks. We could just introduce a “manual-gate” pipeline to achieve pegging.</p>
 
 <p><img src="../../../../assets/images/blog/sriram-peg2-9f490080.png" title="Introducing a manual gate to a pipeline" alt="Introducing a manual gate to a pipeline" /></p>
 
-<p>"manual-gate" is a simple pipeline with one stage having a single no-op job, one upstream dependency C1, and <a href="https://docs.gocd.org/current/configuration/configuration_reference.html#approval">auto-scheduling turned off</a> (this makes d3 static rather than fluid). The manual gate doesn't trigger for every successful run of C1, it can only be manually triggered. C2 has a regular fluid dependency (d4) with manual-gate. The overall setup pegs C2 to a chosen good version of C1 while C1 is free to keep building new versions.</p>
+<p>“manual-gate” is a simple pipeline with one stage having a single no-op job, one upstream dependency C1, and <a href="https://docs.gocd.org/current/configuration/configuration_reference.html#approval">auto-scheduling turned off</a> (this makes d3 static rather than fluid). The manual gate doesn’t trigger for every successful run of C1, it can only be manually triggered. C2 has a regular fluid dependency (d4) with manual-gate. The overall setup pegs C2 to a chosen good version of C1 while C1 is free to keep building new versions.</p>
 
 <h3 id="rolling-back">Rolling back</h3>
 
@@ -167,7 +167,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

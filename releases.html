@@ -15,8 +15,8 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
     <script>
@@ -360,7 +360,7 @@ can be considered the first version that supports Java 21.</p>
 
 <h4>Windows installers no longer signed</h4>
 
-<p>Windows installers were previously code-signed with a "proper" Thoughtworks-issued OV code-signing certificate from
+<p>Windows installers were previously code-signed with a “proper” Thoughtworks-issued OV code-signing certificate from
 DigiCert that avoided Windows SmartScreen prompts. Due to both certificate cost and changes in requirements for OV
 code-signing certificates (to have hardware-managed keys), in the short term this is no longer sustainable for GoCD.
 Therefore installers are not be signed from 24.2.0 onwards.</p>
@@ -389,7 +389,7 @@ or know other projects which have done so, <a href="https://github.com/gocd/gocd
 
 <h4>Security fixes</h4>
 
-<p>While we don't regularly release new GoCD versions to address container image dependencies, this release patches git
+<p>While we don’t regularly release new GoCD versions to address container image dependencies, this release patches git
 binaries within container images due to <a href="https://github.com/git/git/security/advisories/GHSA-8h77-4q3w-gfgv">CVE-2024-32002</a>
 and several other issues of particular concern to a build/deploy automation tool such as GoCD. You can read more about
 the issues on <a href="https://github.blog/2024-05-14-securing-git-addressing-5-new-vulnerabilities/">the GitHub Blog</a>. Note that
@@ -433,9 +433,9 @@ whether they are known to affect GoCD), so upgrading to the latest release is al
 
 <h4>Links are no longer force-opened in new tabs</h4>
 
-<p>A long-standing frustration with GoCD's UI is that it used to open new tabs for links, partly to avoid losing your
+<p>A long-standing frustration with GoCD’s UI is that it used to open new tabs for links, partly to avoid losing your
 place on the main dashboard when investigating an individual stage/job. However, browsers are now much better at remembering
-the <em>"back"</em> state; and the previous behaviour was confusing &amp; frustrating.</p>
+the <em>“back”</em> state; and the previous behaviour was confusing &amp; frustrating.</p>
 
 <p>From now on control will be returned to users - for a new tab to be opened (foreground or background) in most cases
 users will need to use the browser/OS specific key combination or <em>middle-click equivalent</em> to do so.</p>
@@ -474,7 +474,7 @@ version.</p>
   </li>
   <li>(Optionally) You can now upgrade your agents to GoCD 24.1.0 whenever you choose.
     <ul>
-      <li>Technically GoCD agent installs are only a "bootstrapper" which downloads the matching agent code from the server for
+      <li>Technically GoCD agent installs are only a “bootstrapper” which downloads the matching agent code from the server for
 each release. It is wise to avoid too much discrepancy in versions to make upgrades (like this one!) easier, but it is
 not critical.</li>
     </ul>
@@ -494,7 +494,7 @@ and unlike the <em>musl</em>-based Alpine uses <em>glibc</em>, similar to most o
 
 <p>Unfortunately, the use of Alpine has always posed difficulties due to its musl libc base. Most of the time this is an
 irrelevant detail to users, however it has posed issues for GoCD packaging of Java runtime environments &amp; providing aarch64
-availability for a variety of reasons stemming from GoCD's dependencies. While GoCD has applied relatively stable
+availability for a variety of reasons stemming from GoCD’s dependencies. While GoCD has applied relatively stable
 workarounds to support Alpine, these are not recommended and have prevented providing a default GoCD server container
 image for <em>aarch64</em>/<em>arm64</em> architectures off-the-shelf.</p>
 
@@ -535,7 +535,7 @@ Alma or Rocky-based image to meet the needs of those who want to keep their agen
 
 <h4>Windows installers no longer signed after 24.1.0</h4>
 
-<p>Windows installers were previously code-signed with a "proper" Thoughtworks-issued OV code-signing certificate from
+<p>Windows installers were previously code-signed with a “proper” Thoughtworks-issued OV code-signing certificate from
 DigiCert that avoided Windows SmartScreen prompts. Due to both certificate cost and changes in requirements for OV
 code-signing certificates (to have hardware-managed keys), in the short term this is no longer sustainable for GoCD.
 Therefore installers will likely not be signed from 24.2.0 onwards when the existing certificate expires.</p>
@@ -616,7 +616,7 @@ whether they are known to affect GoCD), so upgrading to the latest release is al
   <li><a href="https://github.com/gocd/gocd/issues/12220">#12220</a> - Console view toolbar not shown after scrolling on v23.4.0</li>
   <li><a href="https://github.com/gocd/gocd/issues/12305">#12305</a> - Unable to pick stage from Add Material menu in Chrome on MacOS Sonoma</li>
   <li><a href="https://github.com/gocd/gocd/issues/12389">#12389</a> - Fix disappearing second+ stages on VSM view after clicking a stage</li>
-  <li><a href="https://github.com/gocd/gocd/issues/12392">#12392</a> - Correct display of "cancelled by" for stage runs other than that being viewed</li>
+  <li><a href="https://github.com/gocd/gocd/issues/12392">#12392</a> - Correct display of “cancelled by” for stage runs other than that being viewed</li>
 </ul>
 
 <h4>Security fixes</h4>
@@ -763,10 +763,10 @@ whether they are known to affect GoCD), so upgrading to the latest release is al
 
 <h4>Minor changes that may affect plugins</h4>
 
-<p>There have been some changes made to GoCD's UI dependencies to improve loading times which may unintentionally affect
-certain <a href="plugins/">plugins</a>' views. If you notice a visual problem with a plugin view after
+<p>There have been some changes made to GoCD’s UI dependencies to improve loading times which may unintentionally affect
+certain <a href="plugins/">plugins</a>’ views. If you notice a visual problem with a plugin view after
 updating to 23.2.0, please update to the latest released version of the plugin, and if the issue persists please open an
-issue on the plugin's GitHub repository.</p>
+issue on the plugin’s GitHub repository.</p>
 
 <p>A small number of third-party <strong><em>community-authored authorization plugins</em></strong> may no longer be compatible if they have not
 been updated to declare compatibility with the <a href="https://plugin-api.gocd.org/current/authorization">2.0 extension API</a>
@@ -776,7 +776,7 @@ with the plugin author if you notice a plugin version compatibility error preven
 
 <h4>GoCD Agent DIND container image start-up is now more conservative</h4>
 
-<p>The <a href="https://hub.docker.com/r/gocd/gocd-agent-docker-dind">GoCD agent "docker-in-docker" image</a>
+<p>The <a href="https://hub.docker.com/r/gocd/gocd-agent-docker-dind">GoCD agent “docker-in-docker” image</a>
 semantics were changed to ensure that the Docker daemon has <strong><em>started correctly before starting the
 GoCD agent</em></strong>.</p>
 
@@ -787,7 +787,7 @@ due to improvements in GoCD agent work pick-up speed in recent releases.</p>
 <p>Prior to GoCD 23.2.0, if the daemon failed to start the agent would continue to work without it. Docker commands within
 tasks would fail, however the agent would continue. If you were accidentally relying on this behaviour (e.g due to running
 the agent without the <strong><em>privileged</em></strong> flag, without the appropriate Kubernetes <strong><em>securityContext</em></strong>, or without
-mounting the host's <strong><em>docker.sock</em></strong> into the container correctly), you will need to update your agent start
+mounting the host’s <strong><em>docker.sock</em></strong> into the container correctly), you will need to update your agent start
 scripts or elastic agent profile to ensure the daemon has the correct container privileges, OR switch to a non-DIND
 agent image such as a <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.18">plain Alpine image</a>.</p>
 
@@ -817,13 +817,13 @@ build your own custom child image, augmenting with <strong><em>apk add docker-cl
   <li><a href="https://github.com/gocd/gocd/issues/11378">#11378</a>, <a href="https://github.com/gocd/gocd/issues/11406">#11406</a> - gocd-agent-docker-dind:v23.1.0 image can sometimes fail docker tasks run after agent start</li>
   <li><a href="https://github.com/gocd/gocd/issues/11548">#11548</a> - go-agent 23.1.0 does not start when system tmp dir has a noexec mount</li>
   <li><a href="https://github.com/gocd/gocd/issues/11376">#11376</a> - Remove unnecessary bloat within CentOS 7 arm64 agent container image</li>
-  <li><a href="https://github.com/gocd/gocd/issues/11544">#11544</a> - Pipeline config deep links from Pluggable SCMs and Elastic Agents don't work as expected</li>
-  <li><a href="https://github.com/gocd/gocd/issues/11399">#11399</a> - GoCD Artifacts tab doesn't show artifacts whose name starts with a dot</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11544">#11544</a> - Pipeline config deep links from Pluggable SCMs and Elastic Agents don’t work as expected</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11399">#11399</a> - GoCD Artifacts tab doesn’t show artifacts whose name starts with a dot</li>
   <li><a href="https://github.com/gocd/gocd/issues/11773">#11773</a> - Fix import of nant_path from nant config repo tasks</li>
   <li><a href="https://github.com/gocd/gocd/issues/11772">#11772</a> - Fix export to config repo of fetch artifact tasks without pipeline name set</li>
   <li><a href="https://github.com/gocd/gocd/issues/11652">#11652</a> - Fix font display consistency across views</li>
   <li><a href="https://github.com/gocd/gocd/issues/2822">#2822</a> - Fix logging ERROR noise from url rewriting logic</li>
-  <li><a href="https://github.com/gocd/gocd/issues/11513">#11513</a> - Remove misleading reporting of agent "creating properties" in console logs</li>
+  <li><a href="https://github.com/gocd/gocd/issues/11513">#11513</a> - Remove misleading reporting of agent “creating properties” in console logs</li>
 </ul>
 
 <h4>Security fixes</h4>
@@ -879,7 +879,7 @@ decided to stop bundling this particular plugin.</p>
   <li>upgrade your server to 23.1.0</li>
 </ol>
 
-<p>You needn't worry about:</p>
+<p>You needn’t worry about:</p>
 
 <ul>
   <li><em>Starting your old server version with the external plugin added</em>. GoCD will ignore it, and prefer the bundled plugin until you upgrade.</li>
@@ -910,7 +910,7 @@ decided to stop bundling this particular plugin.</p>
 
 <ul>
   <li><a href="https://github.com/gocd/gocd/issues/266">#266</a>, <a href="https://github.com/gocd/gocd/issues/11159">#11159</a> - GoCD doesnt correctly parse minified JUnit XML produced by pytest</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4469">#4469</a>, <a href="https://github.com/gocd/gocd/issues/11317">#11317</a> - Agent Error occurred during loop NullPointerException: Cannot invoke "org.apache.http.Header.getValue()" because "md5Header" is null</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4469">#4469</a>, <a href="https://github.com/gocd/gocd/issues/11317">#11317</a> - Agent Error occurred during loop NullPointerException: Cannot invoke “org.apache.http.Header.getValue()” because “md5Header” is null</li>
   <li><a href="https://github.com/gocd/gocd/issues/11222">#11222</a> - Fix occasional issues with container start stalling or crashing due to process wrapper issues</li>
   <li><a href="https://github.com/gocd/gocd/issues/10669">#10669</a> - Dragging outside of the pipeline config web config dialogs can close the dialog without saving</li>
   <li><a href="https://github.com/gocd/gocd/issues/11004">#11004</a> - Dead docs link on dashboard personalization page</li>
@@ -970,7 +970,7 @@ whether they are known to affect GoCD), so upgrading to the latest release is al
   <li><a href="https://github.com/gocd/gocd/issues/10837">#10837</a> - Job History sidebar dropdown does not display timestamps for previous job runs</li>
   <li><a href="https://github.com/gocd/gocd/issues/10891">#10891</a> - Build labels are truncated in pipeline activity page</li>
   <li><a href="https://github.com/gocd/gocd/issues/10937">#10937</a> - Support API logs a lot of noisy errors on Java 16+</li>
-  <li><a href="https://github.com/gocd/gocd/issues/10943">#10943</a> - Fetch Artifact task doesn't provide correct suggestions when switching stages on pipeline config</li>
+  <li><a href="https://github.com/gocd/gocd/issues/10943">#10943</a> - Fetch Artifact task doesn’t provide correct suggestions when switching stages on pipeline config</li>
   <li><a href="https://github.com/gocd/gocd/issues/10982">#10982</a> - Fix Postgres backups via pg_dump on Windows</li>
 </ul>
 
@@ -979,7 +979,7 @@ whether they are known to affect GoCD), so upgrading to the latest release is al
 <p>There are no security fixes included in this release (for issues known to affect GoCD).</p>
 
 <p>This release does upgrade a number of important internal components, some of which were EOL. We do not have evidence that
-the previously vulnerable dependencies pose any specific risk in GoCD's usage, however we endeavour to minimise
+the previously vulnerable dependencies pose any specific risk in GoCD’s usage, however we endeavour to minimise
 <a href="https://www.thoughtworks.com/radar/techniques/dependency-drift-fitness-function">dependency drift</a>.</p>
 
 <p>Since we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
@@ -1033,7 +1033,7 @@ whether they are known to affect GoCD), so upgrading to the latest release is al
   <li><a href="https://github.com/gocd/gocd/issues/8986">#8986</a> - Git Material authentication fails for second user on the same repository</li>
   <li><a href="https://github.com/gocd/gocd/issues/9153">#9153</a> - Git Material credentials cannot be changed</li>
   <li><a href="https://github.com/gocd/gocd/issues/9509">#9509</a> - Unable to render VSM page when dependent pipelines are deleted or renamed</li>
-  <li><a href="https://github.com/gocd/gocd/issues/9964">#9964</a> - Can't add user into a role (and other admin functions) behind CloudFlare minification proxy</li>
+  <li><a href="https://github.com/gocd/gocd/issues/9964">#9964</a> - Can’t add user into a role (and other admin functions) behind CloudFlare minification proxy</li>
   <li><a href="https://github.com/gocd/gocd/issues/10036">#10036</a> - HTTP 500 when using external authorization plugins and GoCD site urls are blank</li>
   <li><a href="https://github.com/gocd/gocd/issues/10440">#10440</a> - Windows installer does not exit as intended on downgrade attempts</li>
   <li><a href="https://github.com/gocd/gocd/issues/10441">#10441</a> - Fix compatibility with JDK 11.0.15+ and 17.0.3+ during server configuration upgrades</li>
@@ -1097,7 +1097,7 @@ Alexey Solovyev (solev9ev) and SuperXX (Xiao Xiong). Many thanks to them for the
 <p>This release includes compatibility changes within the GoCD Server to support Java 17.</p>
 
 <p>Java 16+ includes a number of restrictions on access to Java Runtime internals that required either GoCD changes or
-specific "opt-outs" to be included in GoCD server's start-up arguments. Currently, there are no opt-outs known
+specific “opt-outs” to be included in GoCD server’s start-up arguments. Currently, there are no opt-outs known
 to be required on GoCD agents.</p>
 
 <p>If you use the regular GoCD start-up scripts, and/or the packaged Java Runtime Environments with our installers and/or
@@ -1116,7 +1116,7 @@ internals or use libraries that do so, they may experience issues.</p>
   <li>try working around the issue by following <a href="https://github.com/gocd/gocd/issues/10265">this guide</a></li>
   <li>please report the issue, <em>including a full stack trace</em> from the logs
     <ul>
-      <li>for plugin issues, on the relevant plugin's GitHub repository (these are linked from the <em>Author</em> of each plugin in <em>Admin -&gt; Plugins</em>)</li>
+      <li>for plugin issues, on the relevant plugin’s GitHub repository (these are linked from the <em>Author</em> of each plugin in <em>Admin -&gt; Plugins</em>)</li>
       <li>for GoCD Server/Agent issues, on our <a href="https://github.com/gocd/gocd/issues">GitHub issues</a></li>
     </ul>
   </li>
@@ -1171,21 +1171,21 @@ or via <a href="https://groups.google.com/g/go-cd">the GoCD Google Group</a></li
 
 <h4>Security Fixes</h4>
 
-<p>This release improves GoCD's security posture further by</p>
+<p>This release improves GoCD’s security posture further by</p>
 
 <ul>
   <li>correcting a reflected XSS issue on API error responses. Thank you to dmxjon (aka DiMaX) for responsibly disclosing this issue.</li>
   <li>upgrading a number of internal components, some of which have known vulnerabilities.</li>
 </ul>
 
-<p>We do not have evidence that the upgraded dependencies pose any specific risk in GoCD's usage, however we endeavour to minimise <a href="https://www.thoughtworks.com/radar/techniques/dependency-drift-fitness-function">dependency drift</a>.</p>
+<p>We do not have evidence that the upgraded dependencies pose any specific risk in GoCD’s usage, however we endeavour to minimise <a href="https://www.thoughtworks.com/radar/techniques/dependency-drift-fitness-function">dependency drift</a>.</p>
 
 <h4>Changes</h4>
 
 <ul>
   <li><a href="https://github.com/gocd/gocd/issues/9828">#9828</a> - Build the default GoCD Server image on Alpine 3.14</li>
   <li><a href="https://github.com/gocd/gocd/issues/9966">#9966</a> - Migrate CentOS 8 Agent and Server images to CentOS Stream</li>
-  <li><a href="https://github.com/gocd/gocd/issues/9922">#9922</a> - Base Debian agent images on "slim" variants</li>
+  <li><a href="https://github.com/gocd/gocd/issues/9922">#9922</a> - Base Debian agent images on “slim” variants</li>
   <li>Starting this release, Alpine 3.15 based docker images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.15">available</a>.</li>
   <li>Starting this release, Debian 11 based docker images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-11">available</a>.</li>
 </ul>
@@ -1194,7 +1194,7 @@ or via <a href="https://groups.google.com/g/go-cd">the GoCD Google Group</a></li
 
 <ul>
   <li><a href="https://github.com/gocd/gocd/issues/9914">#9914</a> - GoCD Server on MacOS not running with packaged JRE by default</li>
-  <li><a href="https://github.com/gocd/gocd/issues/9992">#9992</a> - Remove broken "more…" link from Job Detail pages</li>
+  <li><a href="https://github.com/gocd/gocd/issues/9992">#9992</a> - Remove broken “more…” link from Job Detail pages</li>
 </ul>
 
 <h4>APIs</h4>
@@ -1230,7 +1230,7 @@ or via <a href="https://groups.google.com/g/go-cd">the GoCD Google Group</a></li
 
 <ul>
   <li>All materials URLs for Git, Mercurial, Subversion and TFS materials will now need to start with an alphanumeric character or a <code>/</code>. Please open a GitHub issue if this is a problem for you. There is a temporary flag available for this change.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/9662">#9662</a> - Remove "Failures" tab in Job Details page.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/9662">#9662</a> - Remove “Failures” tab in Job Details page.</li>
   <li><a href="https://github.com/gocd/gocd/issues/9797">#9797</a> - Build the default GoCD Server image on Alpine 3.13.</li>
   <li>Starting this release, Alpine 3.14 based docker images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.14">available</a>.</li>
   <li>Starting this release, Ubuntu 20.04 based docker images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-ubuntu-20.04">available</a>.</li>
@@ -1238,7 +1238,7 @@ or via <a href="https://groups.google.com/g/go-cd">the GoCD Google Group</a></li
 
 <h4>Upcoming changes</h4>
 
-<p>GoCD doesn't yet work with Java 16+. The upgrade to Java 16 requires quite a few changes, which will be attempted in the near future. Given changes in the Java ecosystem (such as Adoptium not providing a JRE any more), we might need to re-think sticking with the latest JVM and maybe consider LTS releases.</p>
+<p>GoCD doesn’t yet work with Java 16+. The upgrade to Java 16 requires quite a few changes, which will be attempted in the near future. Given changes in the Java ecosystem (such as Adoptium not providing a JRE any more), we might need to re-think sticking with the latest JVM and maybe consider LTS releases.</p>
 
 <h4>APIs</h4>
 
@@ -1275,7 +1275,7 @@ or via <a href="https://groups.google.com/g/go-cd">the GoCD Google Group</a></li
 <h4>Bug fixes</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/issues/8899">#8899</a> - "Config Changed" diff marks lines containing dash (<code>-</code>) as removed</li>
+  <li><a href="https://github.com/gocd/gocd/issues/8899">#8899</a> - “Config Changed” diff marks lines containing dash (<code>-</code>) as removed</li>
   <li><a href="https://github.com/gocd/gocd/issues/9073">#9073</a> - Add missing Content-Type check</li>
 </ul>
 
@@ -1434,7 +1434,7 @@ or via <a href="https://groups.google.com/g/go-cd">the GoCD Google Group</a></li
   <li><a href="https://github.com/gocd/gocd/issues/8653">#8653</a> - Fixed the issue of Duplicate SCM on config repo parsing</li>
   <li><a href="https://github.com/gocd/gocd/issues/8655">#8655</a> - Do not purge the config repo defined structures cache on polled fetch on Config Repo Page</li>
   <li><a href="https://github.com/gocd/gocd/issues/8685">#8685</a> - Minor Pipeline Comparison UI regressions introduced in 20.3.0</li>
-  <li><a href="https://github.com/gocd/gocd/issues/8624">#8624</a> - Fix - Postgres with SSL throws "PSQLException: SSL error: null"</li>
+  <li><a href="https://github.com/gocd/gocd/issues/8624">#8624</a> - Fix - Postgres with SSL throws “PSQLException: SSL error: null”</li>
 </ul>
 
 <h4>Removal</h4>
@@ -1506,7 +1506,7 @@ or via <a href="https://groups.google.com/g/go-cd">the GoCD Google Group</a></li
   <li><a href="https://github.com/gocd/gocd/issues/8492">#8492</a> - ConfigRepoPlugin should decrypt all of the configuration properties when including them in the request.</li>
   <li><a href="https://github.com/gocd/gocd/issues/8502">#8502</a> - Dashboard UI issue: Repeated trigger buttons</li>
   <li><a href="https://github.com/gocd/gocd/issues/8511">#8511</a> - Allow group admin users to check connection for Pluggable SCM config</li>
-  <li><a href="https://github.com/gocd/gocd/issues/8524">#8524</a> - Test Connection with ## in Repository URL doesn't work in Pipeline Wizard</li>
+  <li><a href="https://github.com/gocd/gocd/issues/8524">#8524</a> - Test Connection with ## in Repository URL doesn’t work in Pipeline Wizard</li>
   <li><a href="https://github.com/gocd/gocd/issues/8525">#8525</a> - Backup breaks when WRAPPER_CONF_DIR is not set</li>
   <li><a href="https://github.com/gocd/gocd/issues/8540">#8540</a> - Fix job rerun icon positioning on stage overview</li>
 </ul>
@@ -1866,7 +1866,7 @@ Please refer to the <a href="https://docs.gocd.org/20.2.0/advanced_usage/pipelin
   <li><a href="https://github.com/gocd/gocd/issues/7676">#7676</a> - Fixed invalid run_instance_count during pipeline export</li>
   <li><a href="https://github.com/gocd/gocd/issues/7822">#7822</a> - Missing response body error when submitted Pipeline JSON has duplicate job name error</li>
   <li><a href="https://github.com/gocd/gocd/issues/7824">#7824</a> - Pipeline Config API does not return any error message for invalid job resources</li>
-  <li><a href="https://github.com/gocd/gocd/issues/7830">#7830</a> - Don't showcase pending agents in edit agents modal</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7830">#7830</a> - Don’t showcase pending agents in edit agents modal</li>
   <li><a href="https://github.com/gocd/gocd/issues/7853">#7853</a> - Improve search on Config Repository SPA</li>
   <li><a href="https://github.com/gocd/gocd/issues/7709">#7709</a> - Leading space in commit message breaks material modification check</li>
   <li><a href="https://github.com/gocd/gocd/issues/7752">#7752</a> - Modification check failed for material: special characters are not allowed</li>
@@ -1933,7 +1933,7 @@ Please refer to the <a href="https://docs.gocd.org/20.2.0/advanced_usage/pipelin
 <ul>
   <li>Starting this release, Alpine 3.11 based docker images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.11">available</a>.</li>
   <li><a href="https://github.com/gocd/gocd/issues/1364">#1364</a> - Introduce Get Job Instance API</li>
-  <li><a href="https://github.com/gocd/gocd/issues/2990">#2990</a> - Make 'material name' accessible through Pipeline instance API</li>
+  <li><a href="https://github.com/gocd/gocd/issues/2990">#2990</a> - Make ‘material name’ accessible through Pipeline instance API</li>
   <li><a href="https://github.com/gocd/gocd/issues/3326">#3326</a> - History APIs for pipeline/stage/job instances should allow defining page size</li>
   <li><a href="https://github.com/gocd/gocd/issues/5717">#5717</a> - Showcase config repository validation errors on separate line</li>
   <li><a href="https://github.com/gocd/gocd/issues/7560">#7560</a> - Enable job settings link in elastic agent profile usages modal for pipelines coming from config-repos</li>
@@ -2043,7 +2043,7 @@ This release adds support to configure access permissions for config repositorie
   <li><a href="https://github.com/gocd/gocd/issues/7370">#7370</a> - Environment SPA Improvements.</li>
   <li><a href="https://github.com/gocd/gocd/issues/7372">#7372</a> - Add Confirmation modal on server config SPA while switching tabs.</li>
   <li><a href="https://github.com/gocd/gocd/issues/7375">#7375</a> - Open new read only templates page upon clicking view templates from pipeline configurations page.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/7374">#7374</a> - Improve agent's API error message.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7374">#7374</a> - Improve agent’s API error message.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6897">#6897</a> - Guess webhook repo url for ssh urls.</li>
 </ul>
 
@@ -2194,7 +2194,7 @@ In this release, a security issue responsibly disclosed by <a href="https://hack
 
 <p>There are some unnecessary data in the GoCD database which will be removed upon the first server start after upgrading to 19.10.0.
 This cleanup will be done only for completed jobs and will remove historical data related to environment variables, artifact plans, resources and job-related metadata.
-This will not affect any information in GoCD's configuration file.</p>
+This will not affect any information in GoCD’s configuration file.</p>
 
 <p>Depending on the size of your database, you may experience some delay during startup while the data is being removed from the database. Please do not kill the GoCD server until the database upgrade completes.
 If you do end up killing it, you might need to restore the database from the backup taken before this upgrade.</p>
@@ -2217,7 +2217,7 @@ If you do end up killing it, you might need to restore the database from the bac
 
 <h4>Optional upstream dependencies</h4>
 
-<p>Introduced <code>ignore_for_scheduling</code> flag at the pipeline dependency level to improve GoCD's ability to model pipelines, as described in <a href="https://github.com/gocd/gocd/issues/4931">this issue</a>.
+<p>Introduced <code>ignore_for_scheduling</code> flag at the pipeline dependency level to improve GoCD’s ability to model pipelines, as described in <a href="https://github.com/gocd/gocd/issues/4931">this issue</a>.
 This flag allows run of an upstream pipeline to be ignored by the downstream pipeline.
 This is useful in cases where a downstream pipeline has multiple materials and wants to have fine-grained control over which materials cause it to run. Previously, this was available only for SCM materials (like git, mercurial, etc). This flag is available on the material edit page, Pipeline Config API and the bundled JSON/YAML config repo plugins.</p>
 
@@ -2229,8 +2229,8 @@ This is useful in cases where a downstream pipeline has multiple materials and w
   <li><a href="https://github.com/gocd/gocd/issues/4756">#4756</a> - Provide an option to sort by duration on the job run history page</li>
   <li><a href="https://github.com/gocd/gocd/issues/6289">#6289</a> - Expose scm material url and branch as environment variables to tasks</li>
   <li><a href="https://github.com/gocd/gocd/issues/6602">#6602</a> - Dashboard will show an info icon instead of settings icon for pipeline-as-code pipelines</li>
-  <li><a href="https://github.com/gocd/gocd/issues/7113">#7113</a> - Added 'group' property to Get Pipeline Config API</li>
-  <li><a href="https://github.com/gocd/gocd/issues/7155">#7155</a> - Added support for 'group' attribute in Update Pipeline Config API</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7113">#7113</a> - Added ‘group’ property to Get Pipeline Config API</li>
+  <li><a href="https://github.com/gocd/gocd/issues/7155">#7155</a> - Added support for ‘group’ attribute in Update Pipeline Config API</li>
 </ul>
 
 <h4>Bug fixes</h4>
@@ -2373,7 +2373,7 @@ The removal of Java versions is in line with the Java Licensing Changes we had a
   <li><a href="https://github.com/gocd/gocd/issues/6727">#6727</a> - Template Authorization API returns 404</li>
   <li><a href="https://github.com/gocd/gocd/issues/6815">#6815</a> - Fix for world-writable files in go-agent and go-server packages.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6827">#6827</a> - Upgrading GoCD linux packages from 19.7.0 to 19.8.0 overwrites wrapper-properties.conf file</li>
-  <li><a href="https://github.com/gocd/gocd/issues/6855">#6855</a> - GoCD server emits "Weak cipher suite" warnings on startup</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6855">#6855</a> - GoCD server emits “Weak cipher suite” warnings on startup</li>
   <li><a href="https://github.com/gocd/gocd/issues/6879">#6879</a> - Sync environments when a config repo is deleted</li>
   <li><a href="https://github.com/gocd/gocd/issues/6892">#6892</a> - Fixed issue with GoCD installation on Windows</li>
 </ul>
@@ -2544,7 +2544,7 @@ In this release, a security issue responsibly disclosed by <a href="https://hack
   <li><a href="https://github.com/gocd/gocd/issues/6628">#6628</a> - Fix internal server error on consuming Packages Index API.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6630">#6630</a> - Fix internal server error on consuming Package Repositories Index API.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6615">#6615</a> - Fix Job requiring elastic agent starves forever in case of multiple reschedule.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/6468">#6468</a> - Shouldn't allow to save pipeline config with empty template.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6468">#6468</a> - Shouldn’t allow to save pipeline config with empty template.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6328">#6328</a> - Cancel the scheduled elastic agent jobs on GoCD upgrade from version prior to 19.3.0.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6565">#6565</a> - Show spinner in modal when performing save/update.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6547">#6547</a> - Update footer banner message when server is in maintenance mode.</li>
@@ -2718,7 +2718,7 @@ To enable token-based auth, set the environment variable <code>GO_USE_TOKEN_AUTH
 <h4>Bug fixes</h4>
 
 <ul>
-  <li><a href="https://github.com/gocd/gocd/issues/6216">#6216</a> - Fix encryption API to honour "go.encryption.api.max.requests" system property.</li>
+  <li><a href="https://github.com/gocd/gocd/issues/6216">#6216</a> - Fix encryption API to honour “go.encryption.api.max.requests” system property.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6030">#6030</a> - Modification check failed for material for pipelines that polling is disabled and or are paused.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6143">#6143</a> - Config Save successfully completes without updating the changes.</li>
   <li><a href="https://github.com/gocd/gocd/issues/6304">#6304</a> - Allow editing pipelines, agents and env vars for environment with special characters in name.</li>
@@ -2970,7 +2970,7 @@ To enable token-based auth, set the environment variable <code>GO_USE_TOKEN_AUTH
   <li><code><a href="https://github.com/gocd/gocd/commit/ba495470c154cf46aadf3ac45c67544735391c61">ba49547</a></code> - Disable job settings link for pipelines defined in Config Repo on elastic profiles page. (<a href="https://github.com/gocd/gocd/issues/5604">#5604</a>)</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/3f2fc49422a9fb93ccb6b938dfd8ea4ed75c92a2">3f2fc49</a></code> - Made status report button state on elastic profiles page consistent with the  status report button on plugins page. (<a href="https://github.com/gocd/gocd/issues/5776">#5776</a>)</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/6c4da91079e3ea11e905da14f7cf709604e7d7a5">6c4da91</a></code> - Fixed environments api version 2 etag generation issue. (<a href="https://github.com/gocd/gocd/issues/5807">#5807</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/38e68d0ca9dfce367dd1d9a380e824595cd87d34">38e68d0</a></code> - Render console log containing new line character ("\n"). (<a href="https://github.com/gocd/gocd/issues/5037">#5037</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/38e68d0ca9dfce367dd1d9a380e824595cd87d34">38e68d0</a></code> - Render console log containing new line character (“\n”). (<a href="https://github.com/gocd/gocd/issues/5037">#5037</a>)</li>
   <li><a href="https://github.com/gocd/gocd/issues/5705">#5705</a> - Fix for high CPU usage on console logs/tests page.</li>
   <li><a href="https://github.com/gocd/gocd/pull/5897">#5897</a> - Killing agent via stop command honors the process ID.</li>
   <li><a href="https://github.com/gocd/gocd/issues/5788">#5788</a> - Fixed back button navigation on dashboard.</li>
@@ -3036,7 +3036,7 @@ To enable token-based auth, set the environment variable <code>GO_USE_TOKEN_AUTH
 
 <h4>Improved Pipeline as Code experience.</h4>
 
-<p>Continuing on the road towards improving GoCD's pipelines as code / config repositories experience, this release introduces the ability to export a GoCD pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). You can then check in these pipeline definitions to a repository and remove them from GoCD's config.</p>
+<p>Continuing on the road towards improving GoCD’s pipelines as code / config repositories experience, this release introduces the ability to export a GoCD pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). You can then check in these pipeline definitions to a repository and remove them from GoCD’s config.</p>
 
 <figure class="shrink-figure-100">
     <img src="assets/images/releases/19.1.0/pipeline-export-111479b7.gif" alt="Pipeline Export Feature" />
@@ -3350,7 +3350,7 @@ run by an elastic agent.</p>
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/7b83e689eb68b67bc3de328dcca05bba6b915368">7b83e68</a></code> - Validate fetch artifact config before save. (<a href="https://github.com/gocd/gocd/issues/5202">#5202</a>)</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/9f177810a6ac527ef7f1bc3ddd1657cf30a5ada1">9f17781</a></code> - Set status 503 when backup is in progress. (<a href="https://github.com/gocd/gocd/issues/5222">#5222</a>)</li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/fa31d5805193a4a433e645fbe35b5e0839bda154">fa31d58</a></code> - Fix for email notification filter not acknowledging 'Only if it contains my check-ins'. (<a href="https://github.com/gocd/gocd/issues/5238">#5238</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/fa31d5805193a4a433e645fbe35b5e0839bda154">fa31d58</a></code> - Fix for email notification filter not acknowledging ‘Only if it contains my check-ins’. (<a href="https://github.com/gocd/gocd/issues/5238">#5238</a>)</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/1cce49562aa15563d10d46ef6d4afe722f306491">1cce495</a></code> - Fix ETag computation for DataSharing Settings API. (<a href="https://github.com/gocd/gocd/issues/5184">#5184</a>)</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/0349a02348a93876cbf2b3d3bc9864283455d524">0349a02</a></code> - Timer triggered pipelines are not scheduled on a standby server. (<a href="https://github.com/gocd/gocd/issues/5234">#5234</a>)</li>
 </ul>
@@ -3394,7 +3394,7 @@ run by an elastic agent.</p>
         <div class="content">
           <h4>Backups on a schedule</h4>
 
-<p>This release allows performing a backup on schedule. GoCD now allows executing a script once the backup completes. This feature removes the need for GoCD administrators to execute and monitor custom "cron-like" jobs to ensure that backups are completed.</p>
+<p>This release allows performing a backup on schedule. GoCD now allows executing a script once the backup completes. This feature removes the need for GoCD administrators to execute and monitor custom “cron-like” jobs to ensure that backups are completed.</p>
 
 <p>For example: Users can now add the following snippet to the config XML to perform a backup once a night at 10pm on weekdays and call the <code>/usr/local/bin/upload-to-s3 script</code> after the backup is done:</p>
 
@@ -3520,7 +3520,7 @@ using screenreaders to use the new dashboard.</p>
 <h4>Breaking changes</h4>
 
 <ul>
-  <li>GoCD is no longer an OAuth provider. This integration was primarily used for integration with Mingle and the commercial business-continuity addon. Users who have been using GoCD's OAuth provider for the commercial business-continuity addon should read the business-continuity release notes before upgrading their GoCD servers.</li>
+  <li>GoCD is no longer an OAuth provider. This integration was primarily used for integration with Mingle and the commercial business-continuity addon. Users who have been using GoCD’s OAuth provider for the commercial business-continuity addon should read the business-continuity release notes before upgrading their GoCD servers.</li>
 </ul>
 
 <h4>Bug fixes</h4>
@@ -3529,7 +3529,7 @@ using screenreaders to use the new dashboard.</p>
   <li><code><a href="https://github.com/gocd/gocd/commit/d5fd967f7ccfcc664f2b8d6f2825304637e24c4e">d5fd967</a></code> - Fetch artifact task should support <code>./</code> as source directory for backward compatability. (<a href="https://github.com/gocd/gocd/issues/4810">#4810</a>)</li>
   <li><a href="https://github.com/gocd/gocd/issues/4971">#4971</a> - Do not expose gocd server class-loader to a plugin.</li>
   <li><a href="https://github.com/gocd/gocd/issues/5020">#5020</a> - Request logging broken after loading indicator was introduced in version 18.7.0.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/3390">#3390</a> - Deleting pipeline config via API don't notify scheduleService to cancel job</li>
+  <li><a href="https://github.com/gocd/gocd/issues/3390">#3390</a> - Deleting pipeline config via API don’t notify scheduleService to cancel job</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/dfa0d2212669e32a404c477306abef64b5adf415">dfa0d22</a></code> - Fixed config repo cloning using API. (<a href="https://github.com/gocd/gocd/issues/5013">#5013</a>)</li>
 </ul>
 
@@ -3582,7 +3582,7 @@ using screenreaders to use the new dashboard.</p>
 </figure>
 
 <h4>New Loading... screen</h4>
-<p>The GoCD server now starts up into a "Loading …" screen early on in the process. So, if you have scripts waiting on the port to be open, instead use the <a href="https://api.gocd.org/current/#server-health">server health API</a>, which will succeed with an HTTP status of 200 once the server is up. Till then, it'll fail with an HTTP status of 503.</p>
+<p>The GoCD server now starts up into a “Loading …” screen early on in the process. So, if you have scripts waiting on the port to be open, instead use the <a href="https://api.gocd.org/current/#server-health">server health API</a>, which will succeed with an HTTP status of 200 once the server is up. Till then, it’ll fail with an HTTP status of 503.</p>
 
 <figure class="shrink-figure-75">
   <img src="assets/images/releases/18.7.0/loading-screen-d4d02113.png" alt="Loading Screen" />
@@ -3759,7 +3759,7 @@ using screenreaders to use the new dashboard.</p>
 
 <ul>
   <li><a href="https://github.com/gocd/gocd/issues/4664">#4664</a> - Improved logging on GoCD server when agent registration fails.</li>
-  <li><a href="https://github.com/gocd/gocd/issues/4610">#4610</a> - Add an origin attribute on fetch task. The origin attribute indicates where to fetch the artifact from. For all artifacts fetched from the gocd server, the value is 'gocd'</li>
+  <li><a href="https://github.com/gocd/gocd/issues/4610">#4610</a> - Add an origin attribute on fetch task. The origin attribute indicates where to fetch the artifact from. For all artifacts fetched from the gocd server, the value is ‘gocd’</li>
   <li><a href="https://github.com/gocd/gocd/issues/4630">#4630</a> - Upgrade jetty to version 9.4.9.</li>
 </ul>
 
@@ -3850,8 +3850,8 @@ using screenreaders to use the new dashboard.</p>
 <h4>Enhancements to GoCD's Plugin Architecture</h4>
 <p>We have been working on a few improvements to our plugin architecture.</p>
 
-<p><strong>Support for adding plugin alerts to GoCD's Errors and Warnings section:</strong>
-GoCD provides an <a href="https://plugin-api.gocd.org/18.3.0/notifications/#add-server-health-messages">ability for plugins</a> to add Error and Warning messages. These messages will show up along with the GoCD's own Errors and Warnings. Plugins now have an ability to notify users with any plugin error or warning messages which shows up in GoCD.</p>
+<p><strong>Support for adding plugin alerts to GoCD’s Errors and Warnings section:</strong>
+GoCD provides an <a href="https://plugin-api.gocd.org/18.3.0/notifications/#add-server-health-messages">ability for plugins</a> to add Error and Warning messages. These messages will show up along with the GoCD’s own Errors and Warnings. Plugins now have an ability to notify users with any plugin error or warning messages which shows up in GoCD.</p>
 
 <figure class="shrink-figure-75">
   <img src="assets/images/releases/18.3.0/plugin-error-warning-messages-0bbd0095.png" alt="Errors and Warnings from Plugins" />
@@ -3863,15 +3863,15 @@ Plugins can now implement <a href="https://github.com/gocd-contrib/gocd-multi-ex
 <p>The plugin info API v4 has been introduced to represent plugins which implement multiple extensions. The two changes are:</p>
 
 <ul>
-  <li>"type" is no longer at plugin level. It's at an extension level.</li>
-  <li>"extension_info" was an attribute. It's now a list called "extensions".</li>
+  <li>“type” is no longer at plugin level. It’s at an extension level.</li>
+  <li>“extension_info” was an attribute. It’s now a list called “extensions”.</li>
 </ul>
 
 <p><strong>Notification Extension V3:</strong>
 Introduced <a href="https://plugin-api.gocd.org/18.3.0/notifications">Version 3</a> of Notification Extension. This version adds a new message to <a href="https://plugin-api.gocd.org/18.3.0/notifications/#agent-status-changed">notify agent state</a> changes.</p>
 
 <p><strong>Analytics Extension Point:</strong>
-There is a new analytics extension point which allows analytics to be embedded into GoCD. We are continuing to work on it and you'll hear more about it soon.</p>
+There is a new analytics extension point which allows analytics to be embedded into GoCD. We are continuing to work on it and you’ll hear more about it soon.</p>
 
 <h4>Docker Images</h4>
 <p>A new Docker image GoCD Agent is available for <a href="https://github.com/gocd/docker-gocd-agent-debian-9">Debian 9</a>.</p>
@@ -3942,7 +3942,7 @@ There is a new analytics extension point which allows analytics to be embedded i
     <p>There is a known issue with API authentication:</p>
 
     <p>API requests that wait for a authentication challenge before sending the credentials in the <code>Authorization</code> header fail with <code>401</code>.
-This is due to a bug introduced in the pull request <a href="https://github.com/gocd/gocd/pull/4585">#4585</a> - 'SPAs - redirect to login page if unauthorized'.
+This is due to a bug introduced in the pull request <a href="https://github.com/gocd/gocd/pull/4585">#4585</a> - ‘SPAs - redirect to login page if unauthorized’.
 The bug essentially responded with a <code>401</code> http response before the <code>WWW-Authenticate</code> header could be added. More details can be found in the github issue <a href="https://github.com/gocd/gocd/issues/4682">#4682</a>.</p>
   </li>
 </ul>
@@ -3972,7 +3972,7 @@ The bug essentially responded with a <code>401</code> http response before the <
   <caption>New Dashboard Page</caption>
 </figure>
 
-<p>This release of GoCD ships with a 'preview' version of the new dashboard page (can be accessed using <strong>'/go/dashboard'</strong>). This improves performance for large GoCD instances with thousands of pipelines. It does so by:</p>
+<p>This release of GoCD ships with a ‘preview’ version of the new dashboard page (can be accessed using <strong>‘/go/dashboard’</strong>). This improves performance for large GoCD instances with thousands of pipelines. It does so by:</p>
 
 <ul>
   <li>keeping track of the state of the dashboard in memory (instead of being pulled from the DB).</li>
@@ -4032,7 +4032,7 @@ The bug essentially responded with a <code>401</code> http response before the <
   <li>
     <p><code><a href="https://github.com/gocd/gocd/commit/6dfa18fe9bc7cd315ec2db964980a0a0b00d9dd2">6dfa18f</a></code> - Introduction of server health messages <a href="https://api.gocd.org/current/#server-health-messages">API</a>. (<a href="https://github.com/gocd/gocd/issues/4256">#4256</a>).</p>
 
-    <p>This endpoint will render the warnings and errors that were earlier visible only when clicking on the "errors and warnings" modal on the GoCD server</p>
+    <p>This endpoint will render the warnings and errors that were earlier visible only when clicking on the “errors and warnings” modal on the GoCD server</p>
   </li>
   <li>
     <p><code><a href="https://github.com/gocd/gocd/commit/0353bb6881e314bf08597967d6185bb66f7ddbab">0353bb6</a></code> - Introduction of Template Authorization <a href="https://api.gocd.org/current/#update-template-authorization">API</a>. (<a href="https://github.com/gocd/gocd/issues/3081">#3081</a>).</p>
@@ -4144,7 +4144,7 @@ The bug essentially responded with a <code>401</code> http response before the <
           <h4>Bug Fixes</h4>
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/f9ad3990484ecf02bb4a888b9978748bd00b8e2b">f9ad399</a></code> - Validate roles assigned to stage authorization on template update through API. (<a href="https://github.com/gocd/gocd/issues/4185">#4185</a>) <a href="https://github.com/gocd/gocd/issues/4176">#4176</a></li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/63d7d0f39663aa6e24d48e2c0ec99200d8733080">63d7d0f</a></code> - Test artifacts configured using config-repo is uploaded to GoCD server's build artifacts' default location. (<a href="https://github.com/gocd/gocd/issues/4083">#4083</a>) <a href="https://github.com/gocd/gocd/issues/4071">#4071</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/63d7d0f39663aa6e24d48e2c0ec99200d8733080">63d7d0f</a></code> - Test artifacts configured using config-repo is uploaded to GoCD server’s build artifacts’ default location. (<a href="https://github.com/gocd/gocd/issues/4083">#4083</a>) <a href="https://github.com/gocd/gocd/issues/4071">#4071</a></li>
   <li><code><a href="https://github.com/gocd/gocd/commit/1442a09c2530c2a7afa9df69c67ff83bbc8e8d15">1442a09</a></code> - Get Pipeline Config API failed to find pipeline for remote configured pipelines. (<a href="https://github.com/gocd/gocd/issues/4010">#4010</a>) <a href="https://github.com/gocd/gocd/issues/4008">#4008</a></li>
   <li><code><a href="https://github.com/gocd/gocd/commit/addf343053658f79b91b9d7d39231cc94b434017">addf343</a></code> - Fix path of logback-include.xml. (<a href="https://github.com/gocd/gocd/issues/4145">#4145</a>)</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/d409d238f0c051e10857c57664ef62c4279c238b">d409d23</a></code> - Fix whitelist in configrepo hg material. (<a href="https://github.com/gocd/gocd/issues/4191">#4191</a>)</li>
@@ -4259,10 +4259,10 @@ The bug essentially responded with a <code>401</code> http response before the <
 
     <ul>
       <li>
-        <p>Run single instance of pipeline at a time ("Lock behavior: Unlock when finished")</p>
+        <p>Run single instance of pipeline at a time (“Lock behavior: Unlock when finished”)</p>
       </li>
       <li>
-        <p>Run single instance of pipeline and lock on failure ("Lock behavior: Lock on failure")</p>
+        <p>Run single instance of pipeline and lock on failure (“Lock behavior: Lock on failure”)</p>
       </li>
     </ul>
 
@@ -4276,9 +4276,9 @@ The bug essentially responded with a <code>401</code> http response before the <
 <h4>Bug Fixes</h4>
 <ul>
   <li><code><a href="https://github.com/gocd/gocd/commit/ab1ccf83aa90dfa3fc916ca892592e6db81717fc">ab1ccf8</a></code> - Fix config file validation to not use file system to validate paths. This caused issues in certain cases where the server working directories were using symlinks. (<a href="https://github.com/gocd/gocd/issues/4026">#4026</a>) <a href="https://github.com/gocd/gocd/issues/3984">#3984</a></li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/6660a1b093d1c265f697c6e0ee16d3c146772a24">6660a1b</a></code> - Show 'console log not available' error in build details page's console tab when console.log file is not available. (<a href="https://github.com/gocd/gocd/issues/3998">#3998</a>) <a href="https://github.com/gocd/gocd/issues/3773">#3773</a> <a href="https://github.com/gocd/gocd/issues/3650">#3650</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/6660a1b093d1c265f697c6e0ee16d3c146772a24">6660a1b</a></code> - Show ‘console log not available’ error in build details page’s console tab when console.log file is not available. (<a href="https://github.com/gocd/gocd/issues/3998">#3998</a>) <a href="https://github.com/gocd/gocd/issues/3773">#3773</a> <a href="https://github.com/gocd/gocd/issues/3650">#3650</a></li>
   <li><code><a href="https://github.com/gocd/gocd/commit/e48d9588988969c42c2f63b617cd9d08f8ca015d">e48d958</a></code> - Fixes console.log file not being available at server if websocket connection is closed while waiting for logs. (<a href="https://github.com/gocd/gocd/issues/3999">#3999</a>) <a href="https://github.com/gocd/gocd/issues/3986">#3986</a></li>
-  <li><code><a href="https://github.com/gocd/gocd/commit/ee992e6175497a3ae927c9e956e22d822e5715bd">ee992e6</a></code> - Fixes issue in agent zip installers in which agents fail to register if their log directories' path have spaces in them. (<a href="https://github.com/gocd/gocd/issues/3976">#3976</a>) <a href="https://github.com/gocd/gocd/issues/3966">#3966</a></li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/ee992e6175497a3ae927c9e956e22d822e5715bd">ee992e6</a></code> - Fixes issue in agent zip installers in which agents fail to register if their log directories’ path have spaces in them. (<a href="https://github.com/gocd/gocd/issues/3976">#3976</a>) <a href="https://github.com/gocd/gocd/issues/3966">#3966</a></li>
   <li><code><a href="https://github.com/gocd/gocd/commit/e6c9b3ad5def1b6ea682c6723106f8c77df94f92">e6c9b3a</a></code> - Fixes issue with stale cache being used in CCtray which caused users associated with plugin-roles to not see pipelines which they were authorized to see otherwise. (<a href="https://github.com/gocd/gocd/issues/3955">#3955</a>) <a href="https://github.com/gocd/gocd/issues/3954">#3954</a></li>
   <li><code><a href="https://github.com/gocd/gocd/commit/449cbc38c4839ddf0f81165f6b96b10cdd0e721e">449cbc3</a></code> - Allows overriding default Go server ports when using windows service. (<a href="https://github.com/gocd/gocd/issues/4038">#4038</a>) <a href="https://github.com/gocd/gocd/issues/3982">#3982</a></li>
 </ul>
@@ -4290,10 +4290,10 @@ The bug essentially responded with a <code>401</code> http response before the <
 
     <ul>
       <li>Adds a new endpoint to get token from server in exchange of agent uuid. The token for a given agent is issued for unknown agents only - already registered or pending agents cannot request for a token.</li>
-      <li>Agent requests for a token before registration if required. This token is stored on agent's disk and reused for registration calls.</li>
+      <li>Agent requests for a token before registration if required. This token is stored on agent’s disk and reused for registration calls.</li>
     </ul>
 
-    <p>Note: As a result of this fix, <a href="https://github.com/gocd-contrib/gocd-golang-agent">Go-lang agents</a> need to be updated to work with GoCD server versions 17.12 or higher, else the agent's registration would fail.
+    <p>Note: As a result of this fix, <a href="https://github.com/gocd-contrib/gocd-golang-agent">Go-lang agents</a> need to be updated to work with GoCD server versions 17.12 or higher, else the agent’s registration would fail.
 Golang agent users can follow up with the author on <a href="https://github.com/gocd-contrib/gocd-golang-agent/issues/50">this</a> issue.</p>
   </li>
 </ul>
@@ -4585,7 +4585,7 @@ Golang agent users can follow up with the author on <a href="https://github.com/
 <h4>Docker Images</h4>
 <ul>
   <li>GoCD images make logs available to docker by writing them to STDOUT. Users can access the logs anytime by executing   <code>docker logs</code>   in both server and agent containers.</li>
-  <li>We've launched an updated GoCD Agent docker image for the latest version of Alpine (<a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.6/">3.6</a>)</li>
+  <li>We’ve launched an updated GoCD Agent docker image for the latest version of Alpine (<a href="https://hub.docker.com/r/gocd/gocd-agent-alpine-3.6/">3.6</a>)</li>
 </ul>
 
 <h4>Breaking Changes</h4>
@@ -4613,7 +4613,7 @@ Golang agent users can follow up with the author on <a href="https://github.com/
 
 <h4>Other Changes</h4>
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/dc39953b086ce672a090dcd90e45bd3fe0c3ee76">dc39953</a></code> - Config repo change attribute "plugin" to "pluginId". (<a href="https://github.com/gocd/gocd/issues/3672">#3672</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/dc39953b086ce672a090dcd90e45bd3fe0c3ee76">dc39953</a></code> - Config repo change attribute “plugin” to “pluginId”. (<a href="https://github.com/gocd/gocd/issues/3672">#3672</a>)</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/3c9a8f1f26e9ff297f506cad572277a6ecb89d65">3c9a8f1</a></code> - Addition of a toggle to make pipeline quick edit page as a default page. (<a href="https://github.com/gocd/gocd/issues/3722">#3722</a>)</li>
   <li><code><a href="https://github.com/gocd/gocd/commit/19210e411a45f387ce55a97b513e95323eafdb75">19210e4</a></code> - Always open console tab when job name is clicked. (<a href="https://github.com/gocd/gocd/issues/3742">#3742</a>)</li>
 </ul>
@@ -4637,7 +4637,7 @@ Golang agent users can follow up with the author on <a href="https://github.com/
         <div class="content">
           <h4>Pipeline as Code</h4>
 
-<p>With this release, GoCD supports <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">Pipeline as code</a>, out of the box. We've bundled the <a href="https://github.com/tomzo/gocd-json-config-plugin">JSON config repo plugin</a> and the <a href="https://github.com/tomzo/gocd-yaml-config-plugin">YAML config repo plugin</a> with the GoCD server.
+<p>With this release, GoCD supports <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">Pipeline as code</a>, out of the box. We’ve bundled the <a href="https://github.com/tomzo/gocd-json-config-plugin">JSON config repo plugin</a> and the <a href="https://github.com/tomzo/gocd-yaml-config-plugin">YAML config repo plugin</a> with the GoCD server.
 A shout out to our core contributor <a href="https://github.com/tomzo">Tomasz Sętkowski</a> for maintaining these plugins.</p>
 
 <h4>Amazon ECS Elastic Agent Plugin</h4>
@@ -4750,7 +4750,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 </figure>
   </li>
   <li>
-    <p><code><a href="https://github.com/gocd/gocd/commit/9450dba3b22b82f9fc9154d0be875b222a3a722a">9450dba</a></code> - Add a "Rerun Failed" button to rerun failed jobs. (<a href="https://github.com/gocd/gocd/issues/3570">#3570</a>)</p>
+    <p><code><a href="https://github.com/gocd/gocd/commit/9450dba3b22b82f9fc9154d0be875b222a3a722a">9450dba</a></code> - Add a “Rerun Failed” button to rerun failed jobs. (<a href="https://github.com/gocd/gocd/issues/3570">#3570</a>)</p>
 
     <figure class="shrink-figure-50">
   <img src="assets/images/releases/17.6.0/rerun-failed-jobs-182f21d2.png" alt="Rerun failed jobs" />
@@ -5116,7 +5116,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 
 <p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.4%22+is%3Aclosed">here.</a></p>
 
-<p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/g/go-cd">Reach out to us</a>.</p>
+<p>Have ideas and want to contribute? Need some help getting started? We’re here to help. <a href="https://groups.google.com/g/go-cd">Reach out to us</a>.</p>
 
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
 
@@ -5220,7 +5220,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 
 <p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.3%22+is%3Aclosed">here.</a></p>
 
-<p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/g/go-cd">Reach out to us</a>.</p>
+<p>Have ideas and want to contribute? Need some help getting started? We’re here to help. <a href="https://groups.google.com/g/go-cd">Reach out to us</a>.</p>
 
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
 
@@ -5233,7 +5233,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 
 <p>GoCD currently supports password-file, LDAP and plugin based authentication.</p>
 
-<p>In addition to authentication, GoCD offers authorization by restricting certain operations to specific users and groups of users ("roles").</p>
+<p>In addition to authentication, GoCD offers authorization by restricting certain operations to specific users and groups of users (“roles”).</p>
 
 <p>Without the use of authorization plugins, roles can only be managed through GoCD and it does not provide an ability to use roles defined in systems used for authentication (for example in LDAP groups). With this limitation, administrators need to configure roles in multiples places.</p>
 
@@ -5276,7 +5276,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 <h4>Security Fixes</h4>
 
 <ul>
-  <li><code><a href="https://github.com/gocd/gocd/commit/a837fc05cca60a9bbb8dcd7d3a3c7b1228a51358">a837fc0</a></code> - Ensures passwords in git or hg material url's is masked before logging or using in server health message. (<a href="https://github.com/gocd/gocd/issues/3171">#3171</a>)</li>
+  <li><code><a href="https://github.com/gocd/gocd/commit/a837fc05cca60a9bbb8dcd7d3a3c7b1228a51358">a837fc0</a></code> - Ensures passwords in git or hg material url’s is masked before logging or using in server health message. (<a href="https://github.com/gocd/gocd/issues/3171">#3171</a>)</li>
 </ul>
 
 <h4>Breaking changes</h4>
@@ -5349,7 +5349,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 
 <p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.2%22+is%3Aclosed">here.</a></p>
 
-<p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/g/go-cd">Reach out to us</a>.</p>
+<p>Have ideas and want to contribute? Need some help getting started? We’re here to help. <a href="https://groups.google.com/g/go-cd">Reach out to us</a>.</p>
 
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
 
@@ -5417,8 +5417,8 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
     <p><code><a href="https://github.com/gocd/gocd/commit/7a48c1af2d0d2300654ea45d2dec7cf1299738ba">7a48c1a</a></code> - Removed GoCD OpenSocial Gadget (Card activity tab) and Pipeline Dashboard Widget in Mingle. (<a href="https://github.com/gocd/gocd/issues/1908">#1908</a>)</p>
 
     <p>As of release 16.12, the <a href="https://en.wikipedia.org/wiki/OpenSocial">OpenSocial gadgets</a> was deprecated. This feature is now removed because of a couple of reasons —
-  (a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
-  (b) the underlying implementation framework (<a href="https://shindig.apache.org/">Apache Shindig</a>) hasn't been maintained for quite some time and contained several security vulnerabilities.</p>
+  (a) there’s not enough evidence of many users using this feature in a way that’ll impact their usage of GoCD
+  (b) the underlying implementation framework (<a href="https://shindig.apache.org/">Apache Shindig</a>) hasn’t been maintained for quite some time and contained several security vulnerabilities.</p>
   </li>
   <li>
     <p><code><a href="https://github.com/gocd/gocd/commit/7274d233c1895d3364ce73575dc32cb7f60bbf55">7274d23</a></code> - Removed Version 2 and 3 of the Agents API. (<a href="https://github.com/gocd/gocd/issues/2984">#2984</a>)</p>
@@ -5492,7 +5492,7 @@ Thanks <a href="https://hackerone.com/4cad">4cad</a> for reporting these issues.
 
 <p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+17.1%22+is%3Aclosed">here.</a></p>
 
-<p>Have ideas and want to contribute? Need some help getting started? We're here to help. <a href="https://groups.google.com/g/go-cd">Reach out to us</a>.</p>
+<p>Have ideas and want to contribute? Need some help getting started? We’re here to help. <a href="https://groups.google.com/g/go-cd">Reach out to us</a>.</p>
 
 <p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
 
@@ -5526,7 +5526,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 
 <p>Elastic agents is now a fully supported feature in GoCD.</p>
 
-<p>To be able to use elastic agents, you should install an existing <a href="https://www.gocd.org/plugins">elastic-agent plugin</a>, or <a href="https://plugin-api.gocd.org/current/elastic-agents">write your own</a>. Once the plugin is installed you must configure an "elastic agent profile" that you can associate with the jobs that require elastic agents.</p>
+<p>To be able to use elastic agents, you should install an existing <a href="https://www.gocd.org/plugins">elastic-agent plugin</a>, or <a href="https://plugin-api.gocd.org/current/elastic-agents">write your own</a>. Once the plugin is installed you must configure an “elastic agent profile” that you can associate with the jobs that require elastic agents.</p>
 
 <figure class="shrink-figure-70">
   <img src="assets/images/releases/16.12/elastic-profiles-add-new-eb4f88a3.png" alt="Create Elastic Profile" />
@@ -5534,7 +5534,7 @@ If you have feedback or issues with the new agents page please log them at <a hr
 
 <h4>TFS Upgrade</h4>
 
-<p>We have upgraded to <a href="https://github.com/Microsoft/team-explorer-everywhere">TEE</a> SDK 14.0.3. Users will now be able to use GoCD with TFS 2012, 2013, 2015 and <a href="https://www.visualstudio.com/team-services/">Visual Studio Team Services</a>. Please file an issue if you're having issues connecting to TFS repositories. Earlier versions of TFS are no longer supported and may not work.</p>
+<p>We have upgraded to <a href="https://github.com/Microsoft/team-explorer-everywhere">TEE</a> SDK 14.0.3. Users will now be able to use GoCD with TFS 2012, 2013, 2015 and <a href="https://www.visualstudio.com/team-services/">Visual Studio Team Services</a>. Please file an issue if you’re having issues connecting to TFS repositories. Earlier versions of TFS are no longer supported and may not work.</p>
 
 <h4>Pipeline Edit Link</h4>
 
@@ -5603,8 +5603,8 @@ If you have feedback or issues with the new agents page please log them at <a hr
   <li>We shall be stopping support for git versions older than 1.9 in three months time (Feb 2017). Users are recommended to upgrade git on the GoCD server and agents (if git is used as a material). We are aware that the linux distributions have an older version of git installed by default. Please refer to <a href="https://askubuntu.com/questions/571549/git-1-7-9-5-upgrade-to-current-release-of-git-2-x-on-ubuntu-12-04/571633#571633">this</a> to upgrade git.</li>
   <li>The GoCD api support page <code>http://your-server:8153/go/api/support</code> supports JSON and plain-text outputs. JSON has been the default since release 16.6. We will be removing the plain-text output in release 17.1 (scheduled to be released in Jan 2017). It is much simpler to consume the JSON output than the plain-text output.</li>
   <li>As of release 16.12, the <a href="https://en.wikipedia.org/wiki/OpenSocial">OpenSocial gadgets</a> have been deprecated. This feature will be removed in 17.1 (scheduled to be released in Jan 2017). This has been done for a few of reasons —
-(a) there's not enough evidence of many users using this feature in a way that'll impact their usage of GoCD
-(b) the underlying implementation framework (<a href="https://shindig.apache.org/">Apache Shindig</a>) hasn't been maintained for quite some time and contain several security vulnerabilities.</li>
+(a) there’s not enough evidence of many users using this feature in a way that’ll impact their usage of GoCD
+(b) the underlying implementation framework (<a href="https://shindig.apache.org/">Apache Shindig</a>) hasn’t been maintained for quite some time and contain several security vulnerabilities.</li>
   <li>As of release 16.12, version 1 of the <a href="https://api.gocd.org/current/#get-all-plugin-info">Plugin Info API</a> is deprecated. This version of the API will be removed in 17.2 release (scheduled to be released in Feb 2017). Version 2 of the API is available, and users are encouraged to use it.</li>
   <li>As of release 16.11, version 1 of the <a href="https://api.gocd.org/current/#template-config">Templates API</a> is deprecated. This version of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 2 of the API is available, and users are encouraged to use it.</li>
   <li>As of release 16.12, version 2 and version 3 of the <a href="https://api.gocd.org/current/#agents">Agents API</a> is deprecated. Version 2 of Agents API was introduced in 15.3.0 and version 3 of the API was introduced in 16.8. These versions of the API will be removed in 17.1 release (scheduled to be released in Jan 2017). Version 4 of this API is backward compatible, and users are encouraged to use it.</li>
@@ -7020,7 +7020,7 @@ jQuery(document).ready(function($) {
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

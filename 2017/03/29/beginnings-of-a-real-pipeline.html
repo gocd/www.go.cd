@@ -15,8 +15,8 @@
 
     <title>The beginnings of a real CD Pipeline | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -74,17 +74,17 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>This is the second post in the series - <a href="../../../tags/modeling-deployment-pipelines.html">Modeling Deployment Pipelines</a>. In <a href="../01/importance-and-principles-of-cd-pipelines.html">the first part of the series</a>, we covered what continuous delivery pipelines were, why they were important and some of the fundamental principles behind them. In this post, we'll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized.</p>
+<p>This is the second post in the series - <a href="../../../tags/modeling-deployment-pipelines.html">Modeling Deployment Pipelines</a>. In <a href="../01/importance-and-principles-of-cd-pipelines.html">the first part of the series</a>, we covered what continuous delivery pipelines were, why they were important and some of the fundamental principles behind them. In this post, we’ll look at some of the approaches to begin modeling a deployment pipeline for an application and a few ways they can be optimized.</p>
 
 <h2 id="typical-small-app-with-some-tests">Typical small app, with some tests</h2>
 
-<p>Consider a small, cross-platform desktop application, with unit, integration and functional tests. Let's assume that the goal of the process is to create an installer which can be downloaded.</p>
+<p>Consider a small, cross-platform desktop application, with unit, integration and functional tests. Let’s assume that the goal of the process is to create an installer which can be downloaded.</p>
 
-<p>A typical approach to automate this process would be to have a build script (using Rake, Make, Ant, etc. or even a batch file or a shell script) which has all the individual steps of the process automated so that they can be run locally (<a href="../01/importance-and-principles-of-cd-pipelines.html#principle-run-locally">Principle 5</a>). Having this, you can now create a GoCD <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#pipeline"><em>pipeline</em></a> with a single <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#stage"><em>stage</em></a> which has a single <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#job"><em>job</em></a> which has a single <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#task"><em>task</em></a> which calls "make all" (for instance). It'll look like this:</p>
+<p>A typical approach to automate this process would be to have a build script (using Rake, Make, Ant, etc. or even a batch file or a shell script) which has all the individual steps of the process automated so that they can be run locally (<a href="../01/importance-and-principles-of-cd-pipelines.html#principle-run-locally">Principle 5</a>). Having this, you can now create a GoCD <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#pipeline"><em>pipeline</em></a> with a single <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#stage"><em>stage</em></a> which has a single <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#job"><em>job</em></a> which has a single <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#task"><em>task</em></a> which calls “make all” (for instance). It’ll look like this:</p>
 
 <p><img src="../../../assets/images/blog/beginnings-real-pipeline/pipeline-01-7fb30a06.jpg" alt="Pipeline with a single task" title="Pipeline with a single task" /></p>
 
-<p>While this approach works, it's not very flexible. It doesn't make it easy to run different parts of the process on different agents, makes it hard to track progress and hard to parallelize. Even though it's inside a pipeline, it doesn't use any advantages of the <em>pipeline</em> concept and its modeling capabilities. This is no different from using a standard CI tool and making it run commands.</p>
+<p>While this approach works, it’s not very flexible. It doesn’t make it easy to run different parts of the process on different agents, makes it hard to track progress and hard to parallelize. Even though it’s inside a pipeline, it doesn’t use any advantages of the <em>pipeline</em> concept and its modeling capabilities. This is no different from using a standard CI tool and making it run commands.</p>
 
 <p>A slightly better approach is to break apart the individual pieces into separate GoCD <em>tasks</em>, like so:</p>
 
@@ -92,11 +92,11 @@
 
 <p>This approach makes the individual tasks and the order in which they are run, more explicit. It can be argued that this comes at the expense of tying the order of the processes to the CD tool. However, we think that this orchestration is the job of the CD tool and entrusting it to the CD tool allows better flexibility in modeling the processes.</p>
 
-<p>Let's see how that can work.</p>
+<p>Let’s see how that can work.</p>
 
 <h2 id="does-breaking-it-up-into-parallelizable-jobs-help">Does breaking it up into parallelizable jobs help?</h2>
 
-<p>In the current setup, all the tasks still run one after the other and still run on the same agent. Assuming that the tests can be run separately, we can try and use GoCD's <em>jobs</em> to parallelize these. The assumption, at this time, is that the "make build" task creates some <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#artifacts"><em>artifact</em></a> which is necessary for the tests to run.</p>
+<p>In the current setup, all the tasks still run one after the other and still run on the same agent. Assuming that the tests can be run separately, we can try and use GoCD’s <em>jobs</em> to parallelize these. The assumption, at this time, is that the “make build” task creates some <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#artifacts"><em>artifact</em></a> which is necessary for the tests to run.</p>
 
 <p>So, we can try to split up the single job into multiple jobs like this:</p>
 
@@ -105,16 +105,16 @@
 <p>However this approach has some disadvantages:</p>
 
 <ul>
-  <li>Since jobs run in parallel and are independent of each other, the "make build" is run 4 times, on potentially different agents.</li>
+  <li>Since jobs run in parallel and are independent of each other, the “make build” is run 4 times, on potentially different agents.</li>
   <li>The build (<em>artifact</em>) that the unit tests ran with cannot be guaranteed to be the same as the one that was run with the functional tests and cannot be guaranteed to be the one which the installer was built from.</li>
-  <li>Apart from this, if the "make build" task fails, it'll fail on all the jobs, complicating efforts to debug the failure.</li>
+  <li>Apart from this, if the “make build” task fails, it’ll fail on all the jobs, complicating efforts to debug the failure.</li>
 </ul>
 
 <p>What we really need is some ordering of the different stages of this build process.</p>
 
 <h2 id="the-beginnings-of-a-real-pipeline">The beginnings of a real pipeline</h2>
 
-<p>When we think about the different parts of this build process, we see that the first one is "make build", which presumably compiles and builds necessary artifacts such as images or generated pages (<em>Stage 1</em>). If this fails, we want to get that feedback quickly (see <a href="../01/importance-and-principles-of-cd-pipelines.html#principle-fast-feedback">Principle 1</a>). Once this passes (and only when it passes) do we want to run the unit and integration tests, preferably parallely (see <a href="../01/importance-and-principles-of-cd-pipelines.html#principle-parallelize">Principle 3</a>) (<em>Stage 2</em>). Moreover, we want to use the same artifact built by the "make build" part of the process, while running these tests (see <a href="../01/importance-and-principles-of-cd-pipelines.html#principle-build-reuse">Principle 4</a>). Once the tests are complete, we want to build the installer (<em>Stage 3</em>) and then run functional tests on the built installer (<em>Stage 4</em>). Very conveniently, GoCD's <em>stage</em> concept allows this kind of a serial handoff and the <em>artifact</em> concept allows us to use the same artifact across the pipeline.</p>
+<p>When we think about the different parts of this build process, we see that the first one is “make build”, which presumably compiles and builds necessary artifacts such as images or generated pages (<em>Stage 1</em>). If this fails, we want to get that feedback quickly (see <a href="../01/importance-and-principles-of-cd-pipelines.html#principle-fast-feedback">Principle 1</a>). Once this passes (and only when it passes) do we want to run the unit and integration tests, preferably parallely (see <a href="../01/importance-and-principles-of-cd-pipelines.html#principle-parallelize">Principle 3</a>) (<em>Stage 2</em>). Moreover, we want to use the same artifact built by the “make build” part of the process, while running these tests (see <a href="../01/importance-and-principles-of-cd-pipelines.html#principle-build-reuse">Principle 4</a>). Once the tests are complete, we want to build the installer (<em>Stage 3</em>) and then run functional tests on the built installer (<em>Stage 4</em>). Very conveniently, GoCD’s <em>stage</em> concept allows this kind of a serial handoff and the <em>artifact</em> concept allows us to use the same artifact across the pipeline.</p>
 
 <p>A setup such as the one described above might look like this:</p>
 
@@ -127,31 +127,31 @@
 
 <h2 id="more-jobs-vs-more-pipelines">More Jobs vs More Pipelines</h2>
 
-<p>We did mention earlier that our application was cross-platform. So, let's assume that the functional tests need to be run on three different operating systems - Mac OS X, Windows and Linux. We could start to approach this by adding jobs in Stage 4 and use GoCD's <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#resources"><em>resource</em></a> concept to make sure that the jobs are picked up by <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#agent"><em>agents</em></a> with the right operating system. This will involve running agents on the different operating systems and tagging them with resources "mac", "windows" and "linux". Once that's done, we could setup our pipeline to look like this:</p>
+<p>We did mention earlier that our application was cross-platform. So, let’s assume that the functional tests need to be run on three different operating systems - Mac OS X, Windows and Linux. We could start to approach this by adding jobs in Stage 4 and use GoCD’s <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#resources"><em>resource</em></a> concept to make sure that the jobs are picked up by <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#agent"><em>agents</em></a> with the right operating system. This will involve running agents on the different operating systems and tagging them with resources “mac”, “windows” and “linux”. Once that’s done, we could setup our pipeline to look like this:</p>
 
 <div class="imagezoom">
   <img src="../../../assets/images/blog/beginnings-real-pipeline/pipeline-05-c73cf40f.jpg" alt="Pipeline with duplicate jobs" title="Pipeline with duplicate jobs" />
   <span class="info_txt">Click image to zoom in</span>
 </div>
-<p>However, this approach isn't the most optimal.</p>
+<p>However, this approach isn’t the most optimal.</p>
 
 <ul>
   <li>An obvious disadvantage here  is the duplication between the three jobs.</li>
-  <li>Another problem is the lack of extensibility of this approach. It is usual practice to run a set of "smoke" tests before running the full set of functional tests - so that any obvious issues in core functionality are found earlier rather than later. It is also possible that functional tests might need to be run in parallel. So, having a job for each OS's functional tests ends up being limiting. The only way to extend within the job would be to add more tasks which run one after the other.</li>
+  <li>Another problem is the lack of extensibility of this approach. It is usual practice to run a set of “smoke” tests before running the full set of functional tests - so that any obvious issues in core functionality are found earlier rather than later. It is also possible that functional tests might need to be run in parallel. So, having a job for each OS’s functional tests ends up being limiting. The only way to extend within the job would be to add more tasks which run one after the other.</li>
 </ul>
 
-<p>To get around this, we can use GoCD's powerful <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#pipeline_dependency">pipeline chaining mechanism</a>, where a stage of a pipeline can be setup as a dependency for another pipeline. We can create one pipeline per operating system's functional test. Let's see how that looks:</p>
+<p>To get around this, we can use GoCD’s powerful <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#pipeline_dependency">pipeline chaining mechanism</a>, where a stage of a pipeline can be setup as a dependency for another pipeline. We can create one pipeline per operating system’s functional test. Let’s see how that looks:</p>
 
 <div class="imagezoom">
   <img src="../../../assets/images/blog/beginnings-real-pipeline/pipeline-06-1243d084.jpg" alt="Setting up Pipeline Dependencies" title="Setting up Pipeline Dependencies" />
   <span class="info_txt">Click image to zoom in</span>
 </div>
 
-<p>This change brings in three new GoCD pipelines and also shows that moving the functional tests to their own pipeline enables better orchestration and control. In this case, there's a "smoke" test stage at the beginning of each pipeline and the functional tests themselves are split into two parallel jobs, which can execute on different agents, potentially improving the end-to-end time. As soon as the installer stage of the "Build" pipeline finishes successfully, all three downstream pipelines are triggered. At this stage, it might occur as if we've replaced duplications that arise with many jobs with multiple pipelines. We'll address how this can be optimized with Pipeline Templates in a later post.</p>
+<p>This change brings in three new GoCD pipelines and also shows that moving the functional tests to their own pipeline enables better orchestration and control. In this case, there’s a “smoke” test stage at the beginning of each pipeline and the functional tests themselves are split into two parallel jobs, which can execute on different agents, potentially improving the end-to-end time. As soon as the installer stage of the “Build” pipeline finishes successfully, all three downstream pipelines are triggered. At this stage, it might occur as if we’ve replaced duplications that arise with many jobs with multiple pipelines. We’ll address how this can be optimized with Pipeline Templates in a later post.</p>
 
 <p>GoCD provides the same strong guarantees related to artifacts across pipelines and not just within a pipeline. A stage in a downstream pipeline can confidently fetch an artifact published in any of its upstream pipelines and it will get the correct version of that artifact.</p>
 
-<p>It is not atypical (though it is changing slowly) to deploy a build which has gone through all of these tests onto a set of deployment environments such as a UAT, pre-production and production environment. We'll look at how you can model these in your deployment pipelines in <a href="../../04/06/reusing-pipelines.html">our next post</a>.</p>
+<p>It is not atypical (though it is changing slowly) to deploy a build which has gone through all of these tests onto a set of deployment environments such as a UAT, pre-production and production environment. We’ll look at how you can model these in your deployment pipelines in <a href="../../04/06/reusing-pipelines.html">our next post</a>.</p>
 
 <div class="row">
   <div class="downloadbanner">
@@ -236,7 +236,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

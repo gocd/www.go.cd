@@ -1,11 +1,9 @@
-Last updated: 2025-03-01 14:35:31 +0000
+Last updated: 2025-03-09 09:13:53 +0000
 
 Latest commit:
-    commit 40df60ae71b7ee0cb9e96a5d8097e9219e384ebd
+    commit 1154decfddf67938aaad6cbc23c0921a1b9ce6db
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Sat Mar 1 22:08:25 2025 +0800
+    Date:   Sun Mar 9 17:07:11 2025 +0800
     
-        Allow patched thor via use of (another) fork. Sigh.
-        
-        Mitigate risk here by forcing bundler into deployment mode, so it does not update version.
+        Comment on master usage for dependencies
     

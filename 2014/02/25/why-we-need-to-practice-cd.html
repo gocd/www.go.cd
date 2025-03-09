@@ -15,8 +15,8 @@
 
     <title>Why practice CD | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -66,23 +66,23 @@
   </header>
 
       <main id="main" role="main" class="blog-post-main-container">
-      <p>For many (perhaps most) people visiting this site, this may be obvious. If you're new to continuous delivery and want
+      <p>For many (perhaps most) people visiting this site, this may be obvious. If you’re new to continuous delivery and want
 to know what all the hubbub is about, this post is for you.</p>
 
 <p>At my last job we did a pretty decent job at <a href="https://martinfowler.com/articles/continuousIntegration.html">continuous integration</a>. When a developer would make a change to the codebase,
 a build would run automatically and we would know if it had passed all of the <a href="https://en.wikipedia.org/wiki/Unit_testing">unit tests</a>. The problem was simple; the organization was chock
-full of functional silos. The automation didn't get beyond the development team.</p>
+full of functional silos. The automation didn’t get beyond the development team.</p>
 
 <p>The process (which may look familiar to you) was something like this…</p>
 
 <ol>
-  <li>Development team worked on code using their own automation until something was "ready" for QA.</li>
+  <li>Development team worked on code using their own automation until something was “ready” for QA.</li>
   <li>The Development team would upload a file onto a file share where the QA team could download it.</li>
   <li>The QA team would download the file to install on their systems, and sometimes they would even get the right file.</li>
   <li>The file would fail to install about half the time.</li>
   <li>Someone from the development team would go over to QA, make some changes on their box and the file would install.</li>
   <li>The QA team would finish, put the file on a different fileshare and then IT Operations would download it.</li>
-  <li>IT Operations wouldn't know about the local change made in QA, so their deployment would fail.</li>
+  <li>IT Operations wouldn’t know about the local change made in QA, so their deployment would fail.</li>
   <li>IT Operations would say lots of unkind things about Dev, Dev would call IT Ops all sorts of bad names.</li>
 </ol>
 
@@ -97,8 +97,8 @@ full of functional silos. The automation didn't get beyond the development team.
 <ol>
   <li>Someone commits code and causes CD system to automatically build and test the change.</li>
   <li>If those tests pass, the CD system automatically promotes the code and runs the automated functional tests.</li>
-  <li>The QA department can look at any "green" build and deploy it to their environment automatically.</li>
-  <li>The IT Operations department can look at any "green" QA tested build and deploy it to their environment automatically.</li>
+  <li>The QA department can look at any “green” build and deploy it to their environment automatically.</li>
+  <li>The IT Operations department can look at any “green” QA tested build and deploy it to their environment automatically.</li>
 </ol>
 
 <p>Infrastructure Changes…</p>
@@ -106,8 +106,8 @@ full of functional silos. The automation didn't get beyond the development team.
 <ol>
   <li>Someone commits code and causes CD system to automatically build and test the change.</li>
   <li>If those tests pass, the CD system automatically promotes the code and runs the automated functional tests.</li>
-  <li>The QA department can look at any "green" build and deploy it to their environment automatically.</li>
-  <li>The IT Operations department can look at any "green" QA tested build and deploy it to their environment automatically.</li>
+  <li>The QA department can look at any “green” build and deploy it to their environment automatically.</li>
+  <li>The IT Operations department can look at any “green” QA tested build and deploy it to their environment automatically.</li>
 </ol>
 
 <p>Database Changes…</p>
@@ -115,17 +115,17 @@ full of functional silos. The automation didn't get beyond the development team.
 <ol>
   <li>Someone commits code and causes CD system to automatically build and test the change.</li>
   <li>If those tests pass, the CD system automatically promotes the code and runs the automated functional tests.</li>
-  <li>The QA department can look at any "green" build and deploy it to their environment automatically.</li>
-  <li>The IT Operations department can look at any "green" QA tested build and deploy it to their environment automatically.</li>
+  <li>The QA department can look at any “green” build and deploy it to their environment automatically.</li>
+  <li>The IT Operations department can look at any “green” QA tested build and deploy it to their environment automatically.</li>
 </ol>
 
 <p><em>(you may notice a pattern here)</em></p>
 
 <p>This is all completely oversimplified of course, but the core idea here is that everything is tested in every environment all the time. If we need to launch a new feature
-we can get it into our customers hands when it's the right time for the business, not when the deployment was finally
+we can get it into our customers hands when it’s the right time for the business, not when the deployment was finally
 figured out.</p>
 
-<p>Releases become a non-event, maybe even boring, and that's a good thing.</p>
+<p>Releases become a non-event, maybe even boring, and that’s a good thing.</p>
 
       </main>
     </div>
@@ -198,7 +198,7 @@ figured out.</p>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

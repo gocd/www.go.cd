@@ -15,8 +15,8 @@
 
     <title>Control deployments using Manual Gates | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -78,7 +78,7 @@
 
 <h2 id="the-importance-of-manual-approvals">The Importance of Manual Approvals</h2>
 
-<p>To deploy into environments such as production, and pre-production, it’s often important to have a manual approval process. This way, you can also make sure that your deployment happens only when you're ready for it (be it in terms of the time of the day, or in terms of other dependencies you need to wait for). We refer to this approval process as a “gate” since it works as one to control the build propagation by either stopping or allowing the build to go through. (Note: Manual gates are supported by GoCD, out of the box, by marking a stage as manual). Here’s an image which shows the environments that the build is propagated through by using pipelines with manual gates.</p>
+<p>To deploy into environments such as production, and pre-production, it’s often important to have a manual approval process. This way, you can also make sure that your deployment happens only when you’re ready for it (be it in terms of the time of the day, or in terms of other dependencies you need to wait for). We refer to this approval process as a “gate” since it works as one to control the build propagation by either stopping or allowing the build to go through. (Note: Manual gates are supported by GoCD, out of the box, by marking a stage as manual). Here’s an image which shows the environments that the build is propagated through by using pipelines with manual gates.</p>
 
 <div class="imagezoom">
 <img src="../../../assets/images/blog/manual-gates/pipeline-environments-53b88a03.jpeg" alt="Pipeline with Environments" title="Pipeline with Environments" />
@@ -91,7 +91,7 @@
 
 <p>There are three manual gates (or manual stages) shown as little red boxes in this image. The one between the two stages of the “UAT” pipeline is often used as a pass/fail gate. This is to help control which builds go to “Test” stage. In this case, if the testing is manual and someone needs to approve a “build”, this kind of a gate is useful. The “Test” stage can also just be a dummy stage. If the deployed build is deemed to be a failure, no one approves it and the “Test” stage for that pipeline never gets run. So, that build never shows up as a candidate for the “Pre_Prod” environment.</p>
 
-<p>The second and the third gates shown are before the first stage of both the “Pre_Prod” and “Production” pipelines. When the first stage of a pipeline is marked manual, the whole pipeline is also called a “manual pipeline”. In this case, you don't want the pipeline to  automatically trigger when one of its dependencies finishes successfully. Instead, you want to have the ability to select the upstream dependencies of the pipeline and then trigger it. It’s also quite useful for manual stages to have their own “approvers”. Therefore you can allow only a subset of people to see and approve it. (Note: If you’d like to know how manual stages can be set up in GoCD, <a href="https://docs.gocd.org/current/configuration/dev_authorization.html#adding-authorization-to-approvals">read this</a>. You can use the “trigger with options” feature to decide what to run when the first stage is manual). We highly recommend this be used where you need to limit access.</p>
+<p>The second and the third gates shown are before the first stage of both the “Pre_Prod” and “Production” pipelines. When the first stage of a pipeline is marked manual, the whole pipeline is also called a “manual pipeline”. In this case, you don’t want the pipeline to  automatically trigger when one of its dependencies finishes successfully. Instead, you want to have the ability to select the upstream dependencies of the pipeline and then trigger it. It’s also quite useful for manual stages to have their own “approvers”. Therefore you can allow only a subset of people to see and approve it. (Note: If you’d like to know how manual stages can be set up in GoCD, <a href="https://docs.gocd.org/current/configuration/dev_authorization.html#adding-authorization-to-approvals">read this</a>. You can use the “trigger with options” feature to decide what to run when the first stage is manual). We highly recommend this be used where you need to limit access.</p>
 
 <p>Build propagation continues to be shown in green and works equally well with manual gates. Even if you take multiple days before you approve a stage, the correct artifact will be fetched from the correct upstream pipeline. <em>Important: Please make sure that the old artifacts are not purged before they’re fetched.</em> When using GoCD, you can choose to never purge artifacts for a stage, so that it is always available for downstream pipelines to use.</p>
 
@@ -201,7 +201,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

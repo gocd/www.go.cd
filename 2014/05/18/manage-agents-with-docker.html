@@ -15,8 +15,8 @@
 
     <title>Using GoCD and Docker to manage agents | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -68,15 +68,15 @@
       <main id="main" role="main" class="blog-post-main-container">
       <p><strong>[Update: As of the end of 2015, it might be better to use the GoCD Docker images available on <a href="https://hub.docker.com/r/gocd/">Docker Hub</a> as they are newer and better maintained and used by many in the GoCD community]</strong></p>
 
-<p>I'm convinced that the ability to automatically create and destroy build agents is key to having a flexible continuous delivery
-setup. I'm equally convinced that this particular use case is better satisfied using very fast container technologies instead of
+<p>I’m convinced that the ability to automatically create and destroy build agents is key to having a flexible continuous delivery
+setup. I’m equally convinced that this particular use case is better satisfied using very fast container technologies instead of
 virtual machines. This is blog entry talks about using Docker for this challenge.</p>
 
-<p><strong>IMPORTANT</strong> It should be noted that this blog entry and code is the result of a spike. This definitely isn't production ready,
-but could be useful if you're thinking about doing the same sort of thing. This will only work on Linux
+<p><strong>IMPORTANT</strong> It should be noted that this blog entry and code is the result of a spike. This definitely isn’t production ready,
+but could be useful if you’re thinking about doing the same sort of thing. This will only work on Linux
 machines, because Docker only works on Linux machines.</p>
 
-<p>If anyone with more current programmer skills wants to fork and make it more production like, I'd be very happy to assist in any way
+<p>If anyone with more current programmer skills wants to fork and make it more production like, I’d be very happy to assist in any way
 I can.</p>
 
 <h3 id="setting-it-up">Setting it up</h3>
@@ -91,15 +91,15 @@ agents automatically, we have to install at least one to run the process. The se
     <pre><code>  Once the GoCD agent is installed, go to the Agents tab in your GoCD user interface and assign this agent a resource of "manager" if you intend to use the GoCD pipeline below.
 </code></pre>
   </li>
-  <li>In order for GoCD (and anyone else) to run this without having to become root, you'll have to follow the instructions under
-"Giving non-root access" at <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">https://docs.docker.io/installation/ubuntulinux/</a>.
+  <li>In order for GoCD (and anyone else) to run this without having to become root, you’ll have to follow the instructions under
+“Giving non-root access” at <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">https://docs.docker.io/installation/ubuntulinux/</a>.
 I make absolutely no warranties for the security of following those instructions! Again, the point here (for me) was to spike out
 creating agents on the fly, this is not production code.</li>
 </ul>
 
 <h3 id="the-pieces">The pieces</h3>
 
-<p>All of the scripts I'm using can be found at <a href="https://github.com/kmugrage/go-agent-docker">https://github.com/kmugrage/go-agent-docker</a>.
+<p>All of the scripts I’m using can be found at <a href="https://github.com/kmugrage/go-agent-docker">https://github.com/kmugrage/go-agent-docker</a>.
 Please feel free to clone / fork / send pull requests.</p>
 
 <ul>
@@ -121,8 +121,8 @@ www.gocd.org/download and change the Dockerfile to match your system.</p>
   <li><strong>go-agent</strong></li>
 </ul>
 
-<p>You'll need to modify this file to set the IP address of your server. Just to make this more interesting, it needs to be the
-IP address that Docker is aware of, so probably not the one you're used to using.</p>
+<p>You’ll need to modify this file to set the IP address of your server. Just to make this more interesting, it needs to be the
+IP address that Docker is aware of, so probably not the one you’re used to using.</p>
 
 <p>You can find this IP address using ifconfig…</p>
 
@@ -135,24 +135,24 @@ IP address that Docker is aware of, so probably not the one you're used to using
 		  inet addr:172.17.42.1  Bcast:0.0.0.0  Mask:255.255.0.0
 </code></pre>
 
-<p>Because that's my address, that's what you'll see in the go-agent file. As much as I might appreciate your help in supplying
-agents for me, they won't be able to connect if you don't make this match your GoCD server.</p>
+<p>Because that’s my address, that’s what you’ll see in the go-agent file. As much as I might appreciate your help in supplying
+agents for me, they won’t be able to connect if you don’t make this match your GoCD server.</p>
 
 <ul>
   <li><strong>autoregister.properties</strong></li>
 </ul>
 
-<p>This file takes advantage of the autoregister feature in GoCD so that I don't have to manually approve the new agents. You'll
+<p>This file takes advantage of the autoregister feature in GoCD so that I don’t have to manually approve the new agents. You’ll
 need to update the key based on the instructions at <a href="https://docs.gocd.org/current/advanced_usage/agent_auto_register.html">https://docs.gocd.org/current/advanced_usage/agent_auto_register.html</a></p>
 
 <ul>
   <li><strong>build_docker_image.sh</strong></li>
 </ul>
 
-<p>Once you've modified the above, you're ready to build your containers. Execute this script at a command prompt.</p>
+<p>Once you’ve modified the above, you’re ready to build your containers. Execute this script at a command prompt.</p>
 
 <p>This step could take quite a while depending on the speed of your internet connection. It has to download the base box,
-add Java and a bunch of other things and then create the image you'll be using.</p>
+add Java and a bunch of other things and then create the image you’ll be using.</p>
 
 <ul>
   <li><strong>start_agent_containers.sh</strong></li>
@@ -169,14 +169,14 @@ the script itself.</p>
 If you run this on your box every single Docker container will be stopped and deleted. Did I mention this will remove
 <em>every single container</em> on your machine?</p>
 
-<p>If someone that's better with sed / awk / ? would like to modify to only remove the containers tagged with gocd/go-agent
+<p>If someone that’s better with sed / awk / ? would like to modify to only remove the containers tagged with gocd/go-agent
 please feel free!</p>
 
 <ul>
   <li><strong>remove_agents.rb</strong></li>
 </ul>
 
-<p>This Ruby script removes disables and removes all agents on the GoCD server tagged with a "docker_created"
+<p>This Ruby script removes disables and removes all agents on the GoCD server tagged with a “docker_created”
 resource.</p>
 
 <ul>
@@ -184,13 +184,13 @@ resource.</p>
 </ul>
 
 <p>Everything above can be run from the command line just fine. Of course I wanted to have a GoCD pipeline manage all of this.
-This text file shows the pipeline definition for mine. You'll need to change the github URL to point to your own. You're welcome
-to use mine from above, but I removed it here just so your pipeline doesn't get executed with my GitHub changes if you don't
+This text file shows the pipeline definition for mine. You’ll need to change the github URL to point to your own. You’re welcome
+to use mine from above, but I removed it here just so your pipeline doesn’t get executed with my GitHub changes if you don’t
 want it to.</p>
 
 <h3 id="summary">Summary</h3>
 
-<p>It's my sincere hope that my first attempt to actually use Docker (and Ruby for that matter) will help you get something real
+<p>It’s my sincere hope that my first attempt to actually use Docker (and Ruby for that matter) will help you get something real
 done. Please feel free to comment / ask questions / etc.</p>
 
       </main>
@@ -264,7 +264,7 @@ done. Please feel free to comment / ask questions / etc.</p>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

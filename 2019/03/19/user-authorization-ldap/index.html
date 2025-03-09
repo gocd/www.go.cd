@@ -15,8 +15,8 @@
 
     <title>OpenLDAP for User Authentication in GoCD | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -94,7 +94,7 @@
 
 <h2 id="step-1--installing-and-configuring-the-openldap-server"><strong>Step 1 — Installing and Configuring the OpenLDAP server</strong></h2>
 
-<p>Our first step is to install the OpenLDAP server and some associated utilities. The packages we need are all available in Ubuntu's default repositories.</p>
+<p>Our first step is to install the OpenLDAP server and some associated utilities. The packages we need are all available in Ubuntu’s default repositories.</p>
 
 <p>Log into your server and run below commands.</p>
 
@@ -116,7 +116,7 @@ sudo apt-get install slapd ldap-utils
 <pre><code class="language-shell">sudo ufw allow ldap
 </code></pre>
 
-<p>Let's test our LDAP connection using ldapwhoami, which should return the username we're connected as:</p>
+<p>Let’s test our LDAP connection using ldapwhoami, which should return the username we’re connected as:</p>
 
 <pre><code class="language-shell">ldapwhoami -H ldap:// -x
 </code></pre>
@@ -133,7 +133,7 @@ sudo apt-get install slapd ldap-utils
 <pre><code class="language-shell">ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
 </code></pre>
 
-<p>Next we'll add a user to the OpenLDAP server and see if we are able to connect.</p>
+<p>Next we’ll add a user to the OpenLDAP server and see if we are able to connect.</p>
 
 <h2 id="step-2--add-user-to-ldap-server"><strong>Step 2 — Add user to LDAP server</strong></h2>
 
@@ -339,7 +339,7 @@ userPassword: badger
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

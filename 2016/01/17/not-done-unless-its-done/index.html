@@ -15,8 +15,8 @@
 
     <title>It's not CD if you can't deploy right now | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -95,9 +95,9 @@
 
 <h2 id="some-of-the-things-you-might-not-be-running-but-should-">Some of the things you might not be running but should …</h2>
 
-<p>In this article I'm going to give an overview of some of the types of pipelines that you should be running if you want your software to be ready to ship at all times. Of course this is not an exhaustive list, there are most likely things that are specific to what you're doing that you should have, just as there are probably things that I will list that don't make sense for you. The point is that everything possible should be automated as part of your deployment pipeline.</p>
+<p>In this article I’m going to give an overview of some of the types of pipelines that you should be running if you want your software to be ready to ship at all times. Of course this is not an exhaustive list, there are most likely things that are specific to what you’re doing that you should have, just as there are probably things that I will list that don’t make sense for you. The point is that everything possible should be automated as part of your deployment pipeline.</p>
 
-<p>Over the next several weeks I'll be writing more about each of these types of pipelines, follow me on Twitter if you would like to know when new articles come out at <a href="https://twitter.com/kmugrage">@kmugrage</a>.</p>
+<p>Over the next several weeks I’ll be writing more about each of these types of pipelines, follow me on Twitter if you would like to know when new articles come out at <a href="https://twitter.com/kmugrage">@kmugrage</a>.</p>
 
 <h3 id="security-testing">Security testing</h3>
 
@@ -122,11 +122,11 @@ Many people feel it's not the greatest idea to have the same person writing the 
 
 <p>This one is probably the hardest to run all the time if for no other reason than hardware costs. To properly performance test many applications takes a serious dedication of resources. Luckily public and private cloud infrastructures have made this somewhat easier. Consider having a pipeline where the first stage spins up the machines you need either as virtual machines or containers, runs the tests, and then shuts down those machines.</p>
 
-<p>In this day of "search for a term, hit the link, wait no more than 2 seconds for the page to load" performance is critical. To make matters worse, performance issues are often very hard to track down. You want to know as soon as possible if you've introduced a problem.</p>
+<p>In this day of “search for a term, hit the link, wait no more than 2 seconds for the page to load” performance is critical. To make matters worse, performance issues are often very hard to track down. You want to know as soon as possible if you’ve introduced a problem.</p>
 
 <h3 id="management-of-the-environments">Management of the environments</h3>
 
-<p>It's been said many times that it's much easier to break an application by messing up the environment that it is by doing something wrong in the source code. If something like the security advisory comes out and you need to update systems as soon as possible, you should be able to commit the change to a configuration management tool, have that change picked up by your continuous delivery system and run it through exactly the same process as a code change.</p>
+<p>It’s been said many times that it’s much easier to break an application by messing up the environment that it is by doing something wrong in the source code. If something like the security advisory comes out and you need to update systems as soon as possible, you should be able to commit the change to a configuration management tool, have that change picked up by your continuous delivery system and run it through exactly the same process as a code change.</p>
 
 <h3 id="testing-of-the-deployment-itself">Testing of the deployment itself</h3>
 
@@ -147,15 +147,15 @@ Many people feel it's not the greatest idea to have the same person writing the 
   <div class="clear" />
 </div>
 
-<h3 id="why-wouldnt-you-do-this">Why wouldn't you do this?</h3>
+<h3 id="why-wouldnt-you-do-this">Why wouldn’t you do this?</h3>
 
-<p>One of the biggest objections I hear to running all of these types of pipelines on every change is that the pipeline will take too long to run. This is why having a continuous delivery server that's capable of running multiple pipelines in parallel while ensuring that software doesn't go any further if any of those pipelines fail is so important.</p>
+<p>One of the biggest objections I hear to running all of these types of pipelines on every change is that the pipeline will take too long to run. This is why having a continuous delivery server that’s capable of running multiple pipelines in parallel while ensuring that software doesn’t go any further if any of those pipelines fail is so important.</p>
 
-<p>The other objection I hear the most is that people simply lack the automation around these areas. This is certainly valid, and I don't want to pretend that any of this is easy to do. Don't be afraid to start with what you can, and then add other things your pipeline as your capabilities grow. A continuous delivery pipeline is a bit of a living system it should be evolving along with your processes.</p>
+<p>The other objection I hear the most is that people simply lack the automation around these areas. This is certainly valid, and I don’t want to pretend that any of this is easy to do. Don’t be afraid to start with what you can, and then add other things your pipeline as your capabilities grow. A continuous delivery pipeline is a bit of a living system it should be evolving along with your processes.</p>
 
 <h3 id="what-are-the-other-big-ones">What are the other big ones?</h3>
 
-<p>I'm very interested in hearing other types of pipelines that you find useful.</p>
+<p>I’m very interested in hearing other types of pipelines that you find useful.</p>
 
 <div class="cornered-banner">
   <p class="cornered-banner_content">
@@ -284,7 +284,7 @@ Many people feel it's not the greatest idea to have the same person writing the 
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

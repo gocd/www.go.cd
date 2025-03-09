@@ -15,8 +15,8 @@
 
     <title>Feedback Loops | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -77,14 +77,14 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>During the 10 plus years Thoughtworks has been in the Continuous Delivery (CD) ecosystem, we've regularly come across
+<p>During the 10 plus years Thoughtworks has been in the Continuous Delivery (CD) ecosystem, we’ve regularly come across
 people wanting to try our tools (GoCD and Snap CI) as they start their journey toward CD. Very often, in attempting to
 support teams new to CD, we suggest that they pause any tool evaluation and consider whether their organization is
-actually ready to embark on this journey. If you do not frankly assess your team's readiness, the result can be a
+actually ready to embark on this journey. If you do not frankly assess your team’s readiness, the result can be a
 massive failure. The path to CD should not start with the immediate adoption of a CD tool.</p>
 
 <p>In <a href="../../../01/25/are-you-ready-for-continuous-delivery/">part one</a> of this series, we explored some core development
-practices that are prerequisites for CD. In this part, we'll look at a variety of feedback loops—both manual and
+practices that are prerequisites for CD. In this part, we’ll look at a variety of feedback loops—both manual and
 automated—your organization should have in place before rolling out CD.</p>
 
 <h2 id="feedback-loops-and-continuous-delivery">Feedback loops and Continuous Delivery</h2>
@@ -113,21 +113,21 @@ be doing some or most of them. We think you should have many of these in place b
 
 <p>The most common feedback loop in any deployment pipeline is the execution of automated tests. You must have a solid test
 automation strategy before attempting CD. Some people like the approach of the
-<a href="https://martinfowler.com/bliki/TestPyramid.html">test pyramid</a>. We're actually fine with any sensible approach, as long
-as it's fast and reliable. There are myriad types of automated tests, and which ones you use will depend upon your
+<a href="https://martinfowler.com/bliki/TestPyramid.html">test pyramid</a>. We’re actually fine with any sensible approach, as long
+as it’s fast and reliable. There are myriad types of automated tests, and which ones you use will depend upon your
 circumstances. Here, we will take a look at three of the most important types: unit, regression, and performance.</p>
 
 <h4 id="unit-tests">Unit tests</h4>
 
 <p>Unit tests verify your application at the most granular level, typically methods or classes. They are fast, easy to
 maintain, and support rapid change of your application. Unit tests should be the foundation of your automation
-strategy. If your teams don't value a thorough and fast unit test suite, they won't be able to move fast or with
+strategy. If your teams don’t value a thorough and fast unit test suite, they won’t be able to move fast or with
 confidence.</p>
 
 <p>Some points to consider when assessing your team:</p>
 
 <ul>
-  <li>The suite must be fast. What's fast? A few minutes on a large code base is OK. But faster is better. Slow unit tests
+  <li>The suite must be fast. What’s fast? A few minutes on a large code base is OK. But faster is better. Slow unit tests
 result in a slow, horribly frustrating development flow.</li>
   <li>On a mature team, the testers will be comfortable with pushing as much of your test automation as possible into your
 unit test layer.</li>
@@ -146,41 +146,41 @@ a couple of points about this.</p>
 execute. A manual regression stage in your deployment process will prove painful. Work to get rid of it. Your testers
 can add more value elsewhere.</p>
 
-<p>Secondly, we reject the notion that a regression suite must mean slow, flaky Selenium tests. Our take is, yes, it's a
+<p>Secondly, we reject the notion that a regression suite must mean slow, flaky Selenium tests. Our take is, yes, it’s a
 fair reputation, but it was earned by many teams doing it wrong. How to author and maintain an automated regression
 suite is a book-worthy topic, but quickly:</p>
 
 <ul>
-  <li>Don't couple them to small stories or tasks. Only consider them in the context of the entire application.</li>
+  <li>Don’t couple them to small stories or tasks. Only consider them in the context of the entire application.</li>
   <li>Relentlessly prune the suite. Keep it tight. Err on the side of leaving something uncovered rather than accepting
 duplication.</li>
   <li>Treat them as production code. Keep things very clean.</li>
   <li>Have programmers write them. Train your testers to code if they are interested in automation. Avoid drag-and-drop
 programming.</li>
   <li>Do not accept flaky tests. Fix them or get rid of them.</li>
-  <li>Even the best suites we've seen tend to be slow. Embrace using some combination of hardware, virtualization, and cloud
+  <li>Even the best suites we’ve seen tend to be slow. Embrace using some combination of hardware, virtualization, and cloud
 to parallelize execution.</li>
 </ul>
 
 <p>One caveat to note: the best testers will want to do a manual regression every so often, just to help structure how they
-think about the application. That's a good thing so long as it's about their being thoughtful and not how you actually
+think about the application. That’s a good thing so long as it’s about their being thoughtful and not how you actually
 integrate regression checks into your process.</p>
 
 <h4 id="performance-testing">Performance testing</h4>
 
-<p>Performance testing—verifying that your application meets specific performance criteria—is a massive topic. There's no
+<p>Performance testing—verifying that your application meets specific performance criteria—is a massive topic. There’s no
 one way to do it: your approach will vary according to request volume and data size. There are many varieties: load,
-stress, soak, and spike, to name a few. It's too big a topic for this post. That said, we do have some thinking that can
+stress, soak, and spike, to name a few. It’s too big a topic for this post. That said, we do have some thinking that can
 help you assess your maturity:</p>
 
 <ul>
-  <li>Do not leave this phase for last. We cannot stress enough just how difficult this practice is and how much time we've
+  <li>Do not leave this phase for last. We cannot stress enough just how difficult this practice is and how much time we’ve
 seen sunk into failed efforts. Everything about it is difficult: modeling, standing up an environment, building the
 harness, assessing results, building it into your deployment pipeline.</li>
-  <li>It's critical to test against specific criteria. Don't worry about getting your criteria wrong at first. You can change
+  <li>It’s critical to test against specific criteria. Don’t worry about getting your criteria wrong at first. You can change
 the criteria once you have real production data.</li>
-  <li>Don't assume you'll reach web-scale in month two. You'll waste huge cycles prematurely optimizing both your application
-and your tests. (Don't read this as us saying, "Don't consider what your actual scale might be." Just a suggestion that
+  <li>Don’t assume you’ll reach web-scale in month two. You’ll waste huge cycles prematurely optimizing both your application
+and your tests. (Don’t read this as us saying, “Don’t consider what your actual scale might be.” Just a suggestion that
 you be realistic and pragmatic.)</li>
   <li>Utilize production monitoring to the greatest extent possible. A canary release can go a long way toward verifying the
 performance of a new version of your application.</li>
@@ -188,7 +188,7 @@ performance of a new version of your application.</li>
 
 <h2 id="production-monitoring">Production monitoring</h2>
 
-<p>Do you have a production monitoring strategy? Feedback loops aren't only for pre-production phases. As much as we try to
+<p>Do you have a production monitoring strategy? Feedback loops aren’t only for pre-production phases. As much as we try to
 achieve dev/prod parity, production is truly a unique environment for most organizations and things can—and do—go wrong.</p>
 
 <p>Here are some questions to help you assess your readiness:</p>
@@ -198,7 +198,7 @@ achieve dev/prod parity, production is truly a unique environment for most organ
 respond?</li>
   <li>Does your team ignore alerts?</li>
   <li>Do your teams tend to invent an approach to monitoring as they go along? Believe it or not, we actually see this a lot
-and it's not a good thing. Be as thoughtful about monitoring and alerts as you are with other parts or your application.</li>
+and it’s not a good thing. Be as thoughtful about monitoring and alerts as you are with other parts or your application.</li>
   <li>Do you keep a database of events so that you can later query for patterns?</li>
 </ul>
 
@@ -213,15 +213,15 @@ application in a real-world setting. There can be fair bit of overlap between th
 only like rapid changes if the experience remains usable, consistent, and effective.</p>
 
 <p>We also want to call out that these feedback loops are manual processes that often require weeks or months of elapsed
-time. They are typically not modeled into the deployment pipeline, and that's fine. But do not leave them both batched
-up until the end. That's a long wait period and likely an unknown amount of rework before deploying to prod. If you do
+time. They are typically not modeled into the deployment pipeline, and that’s fine. But do not leave them both batched
+up until the end. That’s a long wait period and likely an unknown amount of rework before deploying to prod. If you do
 this, your process will feel more like waterfall than CD. Run these user tests early and often, while you are writing
 the code.</p>
 
 <h2 id="exploratory-testing">Exploratory testing</h2>
 
 <p>All this talk of automation does not mean your testers should retire their analytical thinking and learn to program. In
-fact, test automation should free up your testers to do what they're best at: use their
+fact, test automation should free up your testers to do what they’re best at: use their
 brains. <a href="https://www.atlassian.com/continuous-delivery/software-testing/exploratory-testing">Exploratory testing</a> is when a tester is
 simultaneously learning about the system, designing tests, and executing tests. It is when a tester gets into a deep
 flow, not even knowing what the next test is. This is where a good tester can really shine, doing some of their most
@@ -233,13 +233,13 @@ testing, this testing should be done throughout the development process and not 
 
 <h2 id="summary">Summary</h2>
 
-<p>This list of feedback loops organizations should have in place before doing CD is not exhaustive (e.g., we didn't
+<p>This list of feedback loops organizations should have in place before doing CD is not exhaustive (e.g., we didn’t
 discuss A/B testing). We have presented the more common feedback loops we see where CD has been successful. Obviously
 every situation presents different problems and has different needs.</p>
 
-<p>You don't need to have high marks on everything we have presented to begin your journey to CD. But if you are feeling
-only so-so against a majority of them, we'd suggest working on the individual pieces before approaching CD. Once you get
-enough of them in place, you will find that you've actually completed a large swath of your journey to Continuous
+<p>You don’t need to have high marks on everything we have presented to begin your journey to CD. But if you are feeling
+only so-so against a majority of them, we’d suggest working on the individual pieces before approaching CD. Once you get
+enough of them in place, you will find that you’ve actually completed a large swath of your journey to Continuous
 Delivery.</p>
 
 <p>In future parts of this series, we plan to explore culture, the last mile, and more.</p>
@@ -315,7 +315,7 @@ Delivery.</p>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

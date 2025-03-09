@@ -15,8 +15,8 @@
 
     <title>Continuous Delivery of Microservices - Configuration Strategy | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -73,7 +73,7 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<h2 id="if-you-havent-tried-gocd-lately-you-havent-tried-gocd">If you haven't tried GoCD lately, you haven't tried GoCD</h2>
+<h2 id="if-you-havent-tried-gocd-lately-you-havent-tried-gocd">If you haven’t tried GoCD lately, you haven’t tried GoCD</h2>
 
 <p>In my role I get to attend a lot of different events in the software industry. When I do, I get to meet a lot of people using a lot of different products and services. I recently asked someone what they were using for continuous delivery. They told me they were using GoCD but were thinking about changing. Of course I asked him what they were going to change to. He told me there were going to replace GoCD… with GoCD.</p>
 
@@ -83,22 +83,22 @@
 
 <p>They had configured GoCD taking advantage of configuration options and features available at that time, which was five years ago.  As time went on, they found themselves wanting to use newer technologies such as public cloud and containers to speed up their builds while lowering their costs.</p>
 
-<p>After a bit of research, they determined that what they needed was to take advantage of features added to GoCD over the past few years that they hadn't been using.</p>
+<p>After a bit of research, they determined that what they needed was to take advantage of features added to GoCD over the past few years that they hadn’t been using.</p>
 
 <h2 id="elastic-agents">Elastic agents</h2>
 
 <p>Originally, when you set up GoCD, you install a server and build agents. Agents were running all the time for most people. You can still do that with GoCD, but you no longer have to.
-GoCD now has functionality that we call elastic agents. With this functionality you can define what's needed in a build agent and tell a job in your pipeline which configuration to use. When you do this, GoCD will start agents when it needs them, and shut them down when it's done. This way, you can take advantage of things like cloud services to run agents only when you need them.</p>
+GoCD now has functionality that we call elastic agents. With this functionality you can define what’s needed in a build agent and tell a job in your pipeline which configuration to use. When you do this, GoCD will start agents when it needs them, and shut them down when it’s done. This way, you can take advantage of things like cloud services to run agents only when you need them.</p>
 
 <h2 id="configuration-as-code">Configuration as Code</h2>
 
-<p>Another cool feature that came out in the past couple years is the ability to use external source code repositories for GoCD's configuration. Originally, all configuration for GoCD was stored internally. This was true whether you used the GUI or the API. This is very powerful, as it gives GoCD the ability to troubleshoot potential problems before they happen. This is still the way most people configure GoCD, but it's no longer the only option.
+<p>Another cool feature that came out in the past couple years is the ability to use external source code repositories for GoCD’s configuration. Originally, all configuration for GoCD was stored internally. This was true whether you used the GUI or the API. This is very powerful, as it gives GoCD the ability to troubleshoot potential problems before they happen. This is still the way most people configure GoCD, but it’s no longer the only option.
 You can now store pipeline configuration in YAML or JSON files in your own external source code repository. This allows teams who wish to control everything about their build process, without having administrator access to GoCD. This also makes it easier for teams who update their pipeline configuration often.</p>
 
 <h2 id="deployment-options">Deployment options</h2>
 
 <p>Thoughtworks has created installers for the most popular operating systems for many years. This includes Windows, many distributions of Linux, Mac OS and more. In the past couple of years, the team has added official Docker images and AMIs.
-And now we've added…</p>
+And now we’ve added…</p>
 
 <h2 id="native-kubernetes-support">Native Kubernetes support</h2>
 
@@ -182,7 +182,7 @@ And now we've added…</p>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

@@ -15,8 +15,8 @@
 
     <title>Using Windows PowerShell tasks | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -73,8 +73,8 @@
 <p>The <a href="https://docs.gocd.org/current/installation/installing_go_agent.html">default</a> installation of a GoCD
 agent will use a 32-bit JRE unless you indicate otherwise. This JRE is embedded in the GoCD agent installer.</p>
 
-<p>If you want to use an alternative JRE (must satisfy GoCD's JRE requirements) after the initial installation, you can alter
-the "wrapper.java.command" key's value in the <code>[InstallDirectory]\config\wrapper-agent.conf</code> file  to point to a
+<p>If you want to use an alternative JRE (must satisfy GoCD’s JRE requirements) after the initial installation, you can alter
+the “wrapper.java.command” key’s value in the <code>[InstallDirectory]\config\wrapper-agent.conf</code> file  to point to a
 different JRE. You will then need to restart the GoCD agent service to start using the alternative JRE.</p>
 
 <p>The <code>[InstallDirectory]</code> refers to the GoCD agents installation directory which by default is <code>"C:\Program Files (x86)\Go Agent"</code>.</p>
@@ -134,7 +134,7 @@ set-executionpolicy remotesigned -force
 arg: .\run.ps1 arg1value
 </code></pre>
 
-<p>This assumes that the <code>run.ps1</code> script is in the task's working directory.</p>
+<p>This assumes that the <code>run.ps1</code> script is in the task’s working directory.</p>
 
 <p>If you create the <code>run.ps1</code> file with the following content you can see details of the execution context in the console log for the pipeline:</p>
 
@@ -295,7 +295,7 @@ catch
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

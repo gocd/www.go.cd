@@ -15,8 +15,8 @@
 
     <title>Confessions of Continuous Delivery Experts: When GoCD went open source | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -90,7 +90,7 @@
 
 <p>With this decision, came new expectations from a new audience. Now we were seeing adoption from a new group of people who expected changes faster than our previous enterprise customers and were keen to see their contributions in production.</p>
 
-<p>Our first goal was to shorten our release process from 3 - 4 months to 1.5 months. When we did this, we saw that our regression cycle (which worked fine for us initially) broke. There was an installer testing phase and performance testing which had enormous gaps. Our entire automation had huge gaps that we hadn't really noticed till we needed to release much more quickly. This was embarrassing because we were building a CD product!</p>
+<p>Our first goal was to shorten our release process from 3 - 4 months to 1.5 months. When we did this, we saw that our regression cycle (which worked fine for us initially) broke. There was an installer testing phase and performance testing which had enormous gaps. Our entire automation had huge gaps that we hadn’t really noticed till we needed to release much more quickly. This was embarrassing because we were building a CD product!</p>
 
 <p>We decided to break down the automation of our entire deployment into tiny chunks. We did this by figuring out smaller bits to automate with each release, rather than attempting to automate the entire process at once. Our first step was to automate the publishing of releases. Earlier, this was something that people did manually and because it was done every three or four months, it didn’t affect us much. However, now since we’d be releasing more often, it no longer made  sense, so we automated it completely. In fact, everything became automatic so within a release cycle, we started to do this activity multiple times.</p>
 
@@ -103,14 +103,14 @@
 <p>The ultimate goal was to get to a place where we could automatically publish releases to production. With automated installer tests, performance tests, release notes etc., we got closer and closer to this goal. It took confidence in our automation ability for us to be able to say,</p>
 
 <blockquote>
-  <p><strong><em>"Yes, this is a release that we can stand by”.</em></strong></p>
+  <p><strong><em>“Yes, this is a release that we can stand by”.</em></strong></p>
 </blockquote>
 
-<p>And if there was a problem with it, we had the ability to release a new version or deploy a fix much more easily. We're also happy to say that we're in a "good enough phase", where the release cadence is decent for an installed product, and increasing it does not necessarily add much value to users. We do publish certified, experimental builds for every good build - but we deem one of them a "release" only about once a month.</p>
+<p>And if there was a problem with it, we had the ability to release a new version or deploy a fix much more easily. We’re also happy to say that we’re in a “good enough phase”, where the release cadence is decent for an installed product, and increasing it does not necessarily add much value to users. We do publish certified, experimental builds for every good build - but we deem one of them a “release” only about once a month.</p>
 
 <h2 id="learnings">Learnings</h2>
 
-<p>The biggest learning for me, as a product manager for GoCD, has been that <a href="https://martinfowler.com/bliki/FrequencyReducesDifficulty.html">frequency reduces difficulty</a>. The idea is simple - if you find something difficult, do it more often. If you can bring that pain forward, you will realize that there are a lot of costs and complexity that you can reduce. The second learning for me has been that automation costs pay for themselves. We used to have long cycles and at the end we still spent manual effort checking if all the tests had been carried out and correcting when anything had been missed. We don't have to worry about that now. There is an initial cost at the beginning, but in the end, it definitely pays off.</p>
+<p>The biggest learning for me, as a product manager for GoCD, has been that <a href="https://martinfowler.com/bliki/FrequencyReducesDifficulty.html">frequency reduces difficulty</a>. The idea is simple - if you find something difficult, do it more often. If you can bring that pain forward, you will realize that there are a lot of costs and complexity that you can reduce. The second learning for me has been that automation costs pay for themselves. We used to have long cycles and at the end we still spent manual effort checking if all the tests had been carried out and correcting when anything had been missed. We don’t have to worry about that now. There is an initial cost at the beginning, but in the end, it definitely pays off.</p>
 
       </main>
     </div>
@@ -183,7 +183,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

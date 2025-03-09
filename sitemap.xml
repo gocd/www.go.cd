@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.gocd.org/2016/03/24/how-to-avoid-brittle-code/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2016/06/08/Add-performance-testing-to-your-Continuous-Delivery-pipeline/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2018/07/24/gocd-usage-analytics/</loc>
-  </url>
-  <url>
     <loc>https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/12/17/Go_14_4_announced/</loc>
+    <loc>https://www.gocd.org/2014/12/17/go-14-4-announced/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2019/06/25/GoCD-non-root-containers/</loc>
+    <loc>https://www.gocd.org/2019/06/25/gocd-non-root-containers/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/10/03/introduction-continuous-delivery-deployment-tools/</loc>
@@ -28,7 +16,7 @@
     <loc>https://www.gocd.org/2014/02/25/why-we-need-to-practice-cd/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/07/14/Go_15_2_announced/</loc>
+    <loc>https://www.gocd.org/2015/07/14/go-15-2-announced/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2015/12/22/gocd-in-2016/</loc>
@@ -40,7 +28,7 @@
     <loc>https://www.gocd.org/2017/04/06/reusing-pipelines/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/07/07/GitHub-Integration/</loc>
+    <loc>https://www.gocd.org/2015/07/07/github-integration/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/07/05/product-manager-guide-continuous-delivery/</loc>
@@ -52,22 +40,22 @@
     <loc>https://www.gocd.org/2018/07/17/gocd-materials-blacklisting-whitelisting/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2019/08/05/configure-container-registry-gcr-artifact-store-gocd/</loc>
+    <loc>https://www.gocd.org/2019/05/14/installing-configuring-gocd-gke-using-helm/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/11/21/go-webinar-recording/</loc>
+    <loc>https://www.gocd.org/2014/02/24/model-everything-fail-fast/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2018/09/11/cd-microservices-remediation-strategy/</loc>
+    <loc>https://www.gocd.org/2016/02/08/not-done-unless-its-done-security/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2018/05/30/ci-microservices-feature-toggles-trunk-based-development/</loc>
+    <loc>https://www.gocd.org/2017/09/05/misconceptions-patterns-devops-adoption/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/10/10/architecting-continuous-delivery/</loc>
+    <loc>https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/08/05/Go-Sample-Virtualbox/</loc>
+    <loc>https://www.gocd.org/2015/08/05/go-sample-virtualbox/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2018/10/30/measure-continuous-delivery-process/</loc>
@@ -103,10 +91,16 @@
     <loc>https://www.gocd.org/2018/11/30/deployment-frequency/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/test-drive-gocd/</loc>
+    <loc>https://www.gocd.org/2016/03/24/how-to-avoid-brittle-code/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/misc/generate-patched-jar-for-deserialization-vulnerability/</loc>
+    <loc>https://www.gocd.org/2016/06/08/add-performance-testing-to-your-continuous-delivery-pipeline/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2018/07/24/gocd-usage-analytics/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/analytics-feedback/</loc>
@@ -130,25 +124,13 @@
     <loc>https://www.gocd.org/ebook-cd-analytics/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2019/05/14/installing-configuring-gocd-gke-using-helm/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2014/02/24/model-everything-fail-fast/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2016/02/08/not-done-unless-its-done-security/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2017/09/05/misconceptions-patterns-devops-adoption/</loc>
-  </url>
-  <url>
     <loc>https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2021/12/14/log4j-vulnerability/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/10/09/Distributed-Test-Execution/</loc>
+    <loc>https://www.gocd.org/2014/10/09/distributed-test-execution/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/01/05/why-we-moved-from-go-cd-to-gocd-io/</loc>
@@ -157,7 +139,7 @@
     <loc>https://www.gocd.org/2017/06/26/serverless-architecture-continuous-delivery/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/11/11/Go_14_3_announced/</loc>
+    <loc>https://www.gocd.org/2014/11/11/go-14-3-announced/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/09/26/are-you-ready-for-continuous-delivery-infographic/</loc>
@@ -181,22 +163,10 @@
     <loc>https://www.gocd.org/2015/10/29/go-webinar-recording/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/09/12/value-stream-mapping/</loc>
+    <loc>https://www.gocd.org/test-drive-gocd/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/03/29/beginnings-of-a-real-pipeline/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2015/04/29/Go_15_1_announced/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2014/02/25/go-moving-to-open-source/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2017/05/02/what-does-pipelines-as-code-really-mean/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/</loc>
+    <loc>https://www.gocd.org/misc/generate-patched-jar-for-deserialization-vulnerability/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/06/01/forever-home/</loc>
@@ -220,7 +190,7 @@
     <loc>https://www.gocd.org/2017/07/13/introduction-continuous-delivery-101/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/11/14/Go_14_3_issue_with_uploading_compressed_artifacts/</loc>
+    <loc>https://www.gocd.org/2014/11/14/go-14-3-issue-with-uploading-compressed-artifacts/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/02/16/migrating-snapci-to-gocd/</loc>
@@ -229,19 +199,19 @@
     <loc>https://www.gocd.org/2016/01/17/not-done-unless-its-done/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/03/</loc>
+    <loc>https://www.gocd.org/2015/04/23/go-15-1-jdk7-announcement/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/07/20/deployment-pipeline-automated-testing/</loc>
+    <loc>https://www.gocd.org/2015/04/27/feature-branch-support/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2019/05/21/official-stance-on-java/</loc>
+    <loc>https://www.gocd.org/2015/12/28/gocd-continuous-delivery-through-pipelines/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2019/09/17/configure-gocd-agents-kubernetes-static-elastic/</loc>
+    <loc>https://www.gocd.org/2014/03/06/hello-world-with-go/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/10/31/mobile-app-continuous-delivery-gocd/</loc>
+    <loc>https://www.gocd.org/2015/06/13/using-windows-powershell-tasks/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/05/09/continuous-integration-devops-research/</loc>
@@ -256,7 +226,7 @@
     <loc>https://www.gocd.org/2017/08/22/principles-practices-continuous-delivery/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2016/07/13/DotNet-Core-and-GoCD/</loc>
+    <loc>https://www.gocd.org/2016/07/13/dotnet-core-and-gocd/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source/</loc>
@@ -265,7 +235,7 @@
     <loc>https://www.gocd.org/2020/10/11/restore-backup-for-gocd-on-kubernetes/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/04/24/Go_14_1_announced/</loc>
+    <loc>https://www.gocd.org/2014/04/24/go-14-1-announced/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2015/10/19/gocd-snap-at-devops-enterprise-summit/</loc>
@@ -277,19 +247,19 @@
     <loc>https://www.gocd.org/2017/07/10/gocd-vs-spinnaker/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/09/01/visibility-is-opportunity/</loc>
+    <loc>https://www.gocd.org/2017/09/12/value-stream-mapping/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/</loc>
+    <loc>https://www.gocd.org/2017/03/29/beginnings-of-a-real-pipeline/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits/</loc>
+    <loc>https://www.gocd.org/2015/04/29/go-15-1-announced/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/08/07/go-webinar-recording/</loc>
+    <loc>https://www.gocd.org/2014/02/25/go-moving-to-open-source/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/07/25/blue-green-deployments/</loc>
+    <loc>https://www.gocd.org/2017/05/02/what-does-pipelines-as-code-really-mean/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/08/31/apax-acquires-thoughtworks/</loc>
@@ -313,7 +283,7 @@
     <loc>https://www.gocd.org/2017/04/17/build-propagation-using-fan-in-fan-out/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/07/01/What-would-help-you/</loc>
+    <loc>https://www.gocd.org/2014/07/01/what-would-help-you/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/11/14/minimizing-risk-improving-security-devops/</loc>
@@ -325,25 +295,25 @@
     <loc>https://www.gocd.org/2018/01/17/continuous-delivery-beginners-guide/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre/</loc>
+    <loc>https://www.gocd.org/2017/05/16/its-not-ci-its-ci-theatre/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/04/23/Go_15_1_jdk7_announcement/</loc>
+    <loc>https://www.gocd.org/2019/08/05/configure-container-registry-gcr-artifact-store-gocd/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/04/27/Feature-Branch-Support/</loc>
+    <loc>https://www.gocd.org/2014/11/21/go-webinar-recording/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/12/28/gocd-continuous-delivery-through-pipelines/</loc>
+    <loc>https://www.gocd.org/2018/09/11/cd-microservices-remediation-strategy/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/03/06/hello-world-with-go/</loc>
+    <loc>https://www.gocd.org/2018/05/30/ci-microservices-feature-toggles-trunk-based-development/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/06/13/using-windows-powershell-tasks/</loc>
+    <loc>https://www.gocd.org/2017/10/10/architecting-continuous-delivery/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/05/06/Getting-Started-Resources/</loc>
+    <loc>https://www.gocd.org/2015/05/06/getting-started-resources/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2014/02/24/tracing-our-path-production/</loc>
@@ -367,7 +337,7 @@
     <loc>https://www.gocd.org/2018/01/31/continuous-delivery-metrics/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/06/17/Upcoming-API-Changes/</loc>
+    <loc>https://www.gocd.org/2015/06/17/upcoming-api-changes/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2015/06/23/hardly-anyone-knows-cd/</loc>
@@ -377,6 +347,27 @@
   </url>
   <url>
     <loc>https://www.gocd.org/2014/02/24/how-peg-your-pipeline-dependency-version/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2015/09/01/visibility-is-opportunity/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2014/08/07/go-webinar-recording/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2017/07/25/blue-green-deployments/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2017/03/29/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2017/03/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/04/06/</loc>
@@ -424,7 +415,7 @@
     <loc>https://www.gocd.org/2017/06/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/07/05/</loc>
+    <loc>https://www.gocd.org/2014/05/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2016/02/08/</loc>
@@ -475,7 +466,7 @@
     <loc>https://www.gocd.org/2017/03/01/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2017/03/29/</loc>
+    <loc>https://www.gocd.org/2017/09/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/10/03/</loc>
@@ -526,7 +517,7 @@
     <loc>https://www.gocd.org/2018/02/13/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/changelog/</loc>
+    <loc>https://www.gocd.org/2017/07/05/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2017/07/10/</loc>
@@ -575,12 +566,6 @@
   </url>
   <url>
     <loc>https://www.gocd.org/2017/09/26/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2017/09/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/2014/05/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2014/06/05/</loc>
@@ -784,12 +769,6 @@
     <loc>https://www.gocd.org/2015/08/05/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/infoq/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/support/</loc>
-  </url>
-  <url>
     <loc>https://www.gocd.org/documentation/</loc>
   </url>
   <url>
@@ -820,25 +799,19 @@
     <loc>https://www.gocd.org/2017/04/11/gocd-over-jenkins/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2014/10/09/Distrubuted-Test-Execution/</loc>
-  </url>
-  <url>
     <loc>https://www.gocd.org/2014/02/25/go-is-now-open-source/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/roadmap/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/partners/</loc>
+    <loc>https://www.gocd.org/help/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/events/</loc>
+    <loc>https://www.gocd.org/elastic-agents/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/community/partners/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/community/events/</loc>
+    <loc>https://www.gocd.org/2018/09/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/chef/</loc>
@@ -880,13 +853,13 @@
     <loc>https://www.gocd.org/talkpython/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/cd101/</loc>
+    <loc>https://www.gocd.org/changelog/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/googlebac7590bd2b477d8/</loc>
+    <loc>https://www.gocd.org/infoq/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/resources/</loc>
+    <loc>https://www.gocd.org/support/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/getting-started/part-2/</loc>
@@ -913,7 +886,7 @@
     <loc>https://www.gocd.org/2014/03/10/go-webinar-recording/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2015/11/18/Open-Source-Tests/</loc>
+    <loc>https://www.gocd.org/2015/11/18/open-source-tests/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2014/02/24/build-promotion-go/</loc>
@@ -925,10 +898,16 @@
     <loc>https://www.gocd.org/2017/07/18/continuous-deployment-strategies/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/help/</loc>
+    <loc>https://www.gocd.org/2017/07/20/deployment-pipeline-automated-testing/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/elastic-agents/</loc>
+    <loc>https://www.gocd.org/2019/05/21/official-stance-on-java/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2019/09/17/configure-gocd-agents-kubernetes-static-elastic/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/2017/10/31/mobile-app-continuous-delivery-gocd/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/videos/</loc>
@@ -964,7 +943,13 @@
     <loc>https://www.gocd.org/videos/go-fundamental-concepts/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/2018/09/</loc>
+    <loc>https://www.gocd.org/cd101/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/googlebac7590bd2b477d8/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/resources/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2018/10/16/</loc>
@@ -1066,31 +1051,31 @@
     <loc>https://www.gocd.org/2018/09/11/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/tags/cd-analytics/</loc>
+    <loc>https://www.gocd.org/tags/continuous-deployment-strategies/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/tags/cd-for-microservices/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/tags/cd-101/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/tags/it-s-not-cd-if-you-can-t-deploy-right-now/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/tags/modeling-deployment-pipelines/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/tags/announcements/</loc>
-  </url>
-  <url>
-    <loc>https://www.gocd.org/tags/infographic/</loc>
+    <loc>https://www.gocd.org/tags/selling-devops/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/tags/are-you-ready-for-continuous-delivery/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/tags/selling-devops/</loc>
+    <loc>https://www.gocd.org/tags/cd-101/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/tags/infographic/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/tags/cd-confessions/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/tags/announcements/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/tags/cd-for-microservices/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/tags/cd-analytics/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/tags/cd-hacks/</loc>
@@ -1100,6 +1085,18 @@
   </url>
   <url>
     <loc>https://www.gocd.org/enterprise/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/partners/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/events/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/community/partners/</loc>
+  </url>
+  <url>
+    <loc>https://www.gocd.org/community/events/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/2019/08/</loc>
@@ -1147,10 +1144,10 @@
     <loc>https://www.gocd.org/2023/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/tags/continuous-deployment-strategies/</loc>
+    <loc>https://www.gocd.org/tags/it-s-not-cd-if-you-can-t-deploy-right-now/</loc>
   </url>
   <url>
-    <loc>https://www.gocd.org/tags/cd-confessions/</loc>
+    <loc>https://www.gocd.org/tags/modeling-deployment-pipelines/</loc>
   </url>
   <url>
     <loc>https://www.gocd.org/analytics/</loc>

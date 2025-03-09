@@ -15,8 +15,8 @@
 
     <title>5 Key Deployment Pipeline Patterns | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -67,25 +67,25 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       <p>Teams have been automating the build, test and deploy processes of their software for many years, but usually in a very
-specific "one off" manner. This article walks through 5 key patterns to setting up a successful deployment pipeline, 
+specific “one off” manner. This article walks through 5 key patterns to setting up a successful deployment pipeline, 
 including designing parallel workflows, running tests in parallel, and more.</p>
 
-<p>In 2007 GoCD (then called "Cruise") introduced build pipelines to the masses. Shortly after, Jez Humble (GoCD's original
+<p>In 2007 GoCD (then called “Cruise”) introduced build pipelines to the masses. Shortly after, Jez Humble (GoCD’s original
 product manager) and David Farley published <a href="https://www.amazon.com/gp/product/0321601912">Continuous Delivery</a>. With these
 concepts becoming more mainstream, some patterns have emerged. There are certainly more, but these are some that
 stick out.</p>
 
 <h2 id="build-things-once">1. Build things once</h2>
 
-<p>When you're taking software from initial code change to production in an automated fashion, it's important
-that you deploy the exact same thing you've tested.</p>
+<p>When you’re taking software from initial code change to production in an automated fashion, it’s important
+that you deploy the exact same thing you’ve tested.</p>
 
-<p>Once you've built a binary, you should upload that back to your CD server or artifact repository for later use.</p>
+<p>Once you’ve built a binary, you should upload that back to your CD server or artifact repository for later use.</p>
 
 <p><img src="../../../../assets/images/blog/pipeline-patterns/upload-artifact-9e796eb7.png" title="Upload Artifacts" alt="GoCD Upload Artifacts" /></p>
 
-<p>When you're ready to deploy to a downstream system, you should fetch and install that build artifact. This way you make
-sure that you're running your functional tests on the exact thing you built and that you're going to deploy.</p>
+<p>When you’re ready to deploy to a downstream system, you should fetch and install that build artifact. This way you make
+sure that you’re running your functional tests on the exact thing you built and that you’re going to deploy.</p>
 
 <p><img src="../../../../assets/images/blog/pipeline-patterns/fetch-artifact-a8a9593d.png" title="Fetch Artifacts" alt="GoCD Fetch Artifacts" /></p>
 
@@ -93,7 +93,7 @@ sure that you're running your functional tests on the exact thing you built and 
 
 <p>Any moderately complicated application is likely to have a very large number of of automated tests. Every time someone on the
 <a href="https://www.thoughtworks.com/mingle/">Mingle</a> team at Thoughtworks commits some code, the application is subjected to well
-over 11,000 automated tests. If the team ran those tests back to back, they would take a couple days. Of course you can't
+over 11,000 automated tests. If the team ran those tests back to back, they would take a couple days. Of course you can’t
 wait a couple days before you know the state of your software.</p>
 
 <p>Too often this leads to teams only running part of their tests.</p>
@@ -103,45 +103,45 @@ team those tests run on 65 GoCD agents at the same time.</p>
 
 <p><img src="../../../../assets/images/blog/pipeline-patterns/testing-jobs-e35ab17e.png" title="Jobs overview displaying parallel tests" alt="GoCD Jobs overview displaying parallel tests" /></p>
 
-<p>Of course it's also vitally important that you're able to quickly determine what went wrong if something fails, so you
+<p>Of course it’s also vitally important that you’re able to quickly determine what went wrong if something fails, so you
 should make sure the tests results from all of the jobs can be viewed in one consolidated place.</p>
 
 <p><img src="../../../../assets/images/blog/pipeline-patterns/testing-failures-f00335a2.png" title="Tests tab showing failed tests" alt="GoCD Tests tab showing failed tests" /></p>
 
 <h2 id="design-parallel-workflows">3. Design parallel workflows</h2>
 
-<p>It's not uncommon for teams to practice Continuous Integration on small parts of code before "throwing it over the wall"
-to someone else to put that together with other parts of the application. In these cases, it's usually OK to set up a
+<p>It’s not uncommon for teams to practice Continuous Integration on small parts of code before “throwing it over the wall”
+to someone else to put that together with other parts of the application. In these cases, it’s usually OK to set up a
 linear flow. The entire thing might run end to end in a just few minutes.</p>
 
 <p>One of the most common mistakes when graduating from Continuous Integration (CI) to Continuous Delivery is applying the
-same linear thinking. When we're automating the progression of all of the code from commit to deployment on a production system, it's very
+same linear thinking. When we’re automating the progression of all of the code from commit to deployment on a production system, it’s very
 likely that there will be a much longer running set of jobs to be done.</p>
 
 <p>Take the example in the image below for example. Here we have a team who has decided to implement a manual approval for
 user acceptance. We want to make it easy for the team responsible to do a one click deployment to their application, but
-they may not look at it immediately. There's really no reason we can't run the automated acceptance tests while that is
+they may not look at it immediately. There’s really no reason we can’t run the automated acceptance tests while that is
 going on.</p>
 
 <p><img src="../../../../assets/images/blog/pipeline-patterns/parallel-pipelines-c881369f.png" title="Parallel Pipelines" alt="GoCD Parallel Pipelines" /></p>
 
 <p>Hopefully you noticed one other really important thing about the image above. The production pipelines have <em>not</em> run. If
-you're doing things in parallel it's important that your Continuous Delivery system is smart about handling
+you’re doing things in parallel it’s important that your Continuous Delivery system is smart about handling
 dependencies. This is a screenshot from GoCD, which uses fan in/fan out dependency management to make sure the project
-doesn't get deployed until both of the upstream pipelines have gone green.</p>
+doesn’t get deployed until both of the upstream pipelines have gone green.</p>
 
 <h2 id="verify-on-a-production-like-environment">4. Verify on a production-like environment</h2>
 
 <p>Jez Humble tells a story about developing and testing a Java application on Windows machines and then deploying it on
-Solaris. The short version of the story; it didn't work.</p>
+Solaris. The short version of the story; it didn’t work.</p>
 
 <p>Ideally you should be staging and testing on the same set up. If your staging and production environments are exactly the same,
 you can even use them interchangeably in a <a href="https://martinfowler.com/bliki/BlueGreenDeployment.html">blue / green deployment pattern</a>.
-It's hard to imagine a better way to be sure your software will work when you turn users loose on it.</p>
+It’s hard to imagine a better way to be sure your software will work when you turn users loose on it.</p>
 
-<p>If you're deploying to very large environments where it's just not practical to have an exact duplicate, you should still
+<p>If you’re deploying to very large environments where it’s just not practical to have an exact duplicate, you should still
 duplicate the technology. In other words, if you your web application runs on a cluster of 1,000 machines in production, you
-should verify that application on a cluster, even if it's only 2 machines.</p>
+should verify that application on a cluster, even if it’s only 2 machines.</p>
 
 <p>One of the  reasons people are so excited about advancements in container technology is the help they provide in this area.
 If you use something like Docker to develop, test and deploy your applications you have a quite a bit more control over making
@@ -149,13 +149,13 @@ sure things always work the same way.</p>
 
 <h2 id="manage-your-environments-in-a-pipeline-too">5. Manage your environments in a pipeline too</h2>
 
-<p>In many cases it's easier to break an application with a configuration change than with a bug introduced in the source code.
-We've all heard the comment "it works on my machine".</p>
+<p>In many cases it’s easier to break an application with a configuration change than with a bug introduced in the source code.
+We’ve all heard the comment “it works on my machine”.</p>
 
 <p>All of your environments must be managed using an automated system and then verified with the same rigor you use on your
 software.</p>
 
-<p>In the value stream map below you'll see that changes to our environments are submitted as code to Git. From there the
+<p>In the value stream map below you’ll see that changes to our environments are submitted as code to Git. From there the
 Application_Environments pipeline builds our container, verifies is and then stores it on our registry. That change kicks
 off the rest of our build / test / deploy pipelines in exactly the same way an application code change would.</p>
 
@@ -237,7 +237,7 @@ free to comment below.</p>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

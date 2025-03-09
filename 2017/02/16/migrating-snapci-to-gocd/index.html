@@ -15,8 +15,8 @@
 
     <title>Migrating from Snap CI to GoCD | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -73,7 +73,7 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>Many Snap CI users are now looking for a replacement CI/CD tool. In the <a href="https://github.com/snap-ci/snap-ci-blog-content/blob/master/posts/2017-02-06-2017-02-06-snap-announcement.md">end of life announcement</a> we recommended that Snap CI users take a look at GoCD and consider it as an alternative. We recommend this not just because Thoughtworks creates and supports both tools, but because we think it's a great choice for Snap CI users. Snap CI had its roots in GoCD and they share common features. However, they were also created with different specific needs in mind and offer unique capabilities.</p>
+<p>Many Snap CI users are now looking for a replacement CI/CD tool. In the <a href="https://github.com/snap-ci/snap-ci-blog-content/blob/master/posts/2017-02-06-2017-02-06-snap-announcement.md">end of life announcement</a> we recommended that Snap CI users take a look at GoCD and consider it as an alternative. We recommend this not just because Thoughtworks creates and supports both tools, but because we think it’s a great choice for Snap CI users. Snap CI had its roots in GoCD and they share common features. However, they were also created with different specific needs in mind and offer unique capabilities.</p>
 
 <p>This post intends to serve as reference for anyone comparing GoCD to Snap CI (or any other hosted CI/CD tool) and fairly compare them to provide you with useful insights into why GoCD might be a good choice for you. Because we understand the needs of Snap CI users, we will also highlight areas where GoCD may not completely meet your needs and where you may need to consider your own tooling priorities. Finally, should you think that GoCD is a good choice for you, we will provide you with information about how to migrate from Snap CI to GoCD.</p>
 
@@ -160,17 +160,17 @@
 
 <h2 id="is-gocd-for-me">What does this really mean for me? Is GoCD the tool for me?</h2>
 
-<p>Basically, if what you liked about Snap CI was the continuous delivery pipelines then GoCD has all that and much more. If you used the Snap CI workaround for fan-in and fan-out pipelines then GoCD can easily meet your pipeline dependency needs. It you loved seeing which stage was broken and halting the line when there was a problem then GoCD can continue to do all that for you. And, if you were waiting for Snap CI's config as code feature to go live or were hoping we'd make Snap CI free to use then GoCD can meet these needs already.</p>
+<p>Basically, if what you liked about Snap CI was the continuous delivery pipelines then GoCD has all that and much more. If you used the Snap CI workaround for fan-in and fan-out pipelines then GoCD can easily meet your pipeline dependency needs. It you loved seeing which stage was broken and halting the line when there was a problem then GoCD can continue to do all that for you. And, if you were waiting for Snap CI’s config as code feature to go live or were hoping we’d make Snap CI free to use then GoCD can meet these needs already.</p>
 
 <p>However, if what you really liked and still need in a CI/CD tool is that it is hosted, and that does not require you to manage your own machines then GoCD is likely not the best choice for you. If seamless support for GitFlow, branch tracking and PRs or out of the box support for Heroku is a priority for you then GoCD is likely not what you should choose.</p>
 
 <p>If you would like our opinions on which hosted CI/CD tool may best suit your needs please get in touch with us at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#110;&#097;&#112;&#045;&#099;&#105;&#046;&#099;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#110;&#097;&#112;&#045;&#099;&#105;&#046;&#099;&#111;&#109;</a>. We are familiar with many of the tools available and happy to provide our unbiased opinion on what might work for you.</p>
 
-<h2 id="whats-next-migration">What's next?</h2>
+<h2 id="whats-next-migration">What’s next?</h2>
 
-<p>If you'd like to learn more about GoCD or try it out we recommend the GoCD <a href="https://www.gocd.org/getting-started/">getting started guide</a> and the <a href="https://www.gocd.org/getting-started/">GoCD community</a>.  And if you do decide to migrate from Snap CI to GoCD then do email us at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#110;&#097;&#112;&#045;&#099;&#105;&#046;&#099;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#110;&#097;&#112;&#045;&#099;&#105;&#046;&#099;&#111;&#109;</a> and we can provide your Snap CI configuration <a href="https://github.com/snap-ci/docs.snap-ci.com/blob/master/source/999-migration/999-gocd-migration.md.erb">in a GoCD compatible format and help you get started</a>.</p>
+<p>If you’d like to learn more about GoCD or try it out we recommend the GoCD <a href="https://www.gocd.org/getting-started/">getting started guide</a> and the <a href="https://www.gocd.org/getting-started/">GoCD community</a>.  And if you do decide to migrate from Snap CI to GoCD then do email us at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#110;&#097;&#112;&#045;&#099;&#105;&#046;&#099;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#110;&#097;&#112;&#045;&#099;&#105;&#046;&#099;&#111;&#109;</a> and we can provide your Snap CI configuration <a href="https://github.com/snap-ci/docs.snap-ci.com/blob/master/source/999-migration/999-gocd-migration.md.erb">in a GoCD compatible format and help you get started</a>.</p>
 
-<p>We hope you find this a useful, thorough and fair comparison. We are more than happy to answer any specific questions you may have. We are all the same friendly, informed Thoughtworks team you're used to from Snap CI so <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#110;&#097;&#112;&#045;&#099;&#105;&#046;&#099;&#111;&#109;">drop us a note and say hi</a>!</p>
+<p>We hope you find this a useful, thorough and fair comparison. We are more than happy to answer any specific questions you may have. We are all the same friendly, informed Thoughtworks team you’re used to from Snap CI so <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#110;&#097;&#112;&#045;&#099;&#105;&#046;&#099;&#111;&#109;">drop us a note and say hi</a>!</p>
 
 <style>
 table {
@@ -262,7 +262,7 @@ td {
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

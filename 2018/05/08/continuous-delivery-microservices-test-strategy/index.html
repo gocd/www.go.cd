@@ -15,8 +15,8 @@
 
     <title>Test Strategy for Microservices | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -84,7 +84,7 @@
 
 <h2 id="pre-production-testing-of-services">Pre-production testing of services</h2>
 
-<p>Here’s a simple example where you have build pipelines for multiple services and you're testing a service in isolation. In this case, the traditional <a href="https://martinfowler.com/bliki/TestPyramid.html">test pyramid</a> helps to maintain a balance between the different types of tests.</p>
+<p>Here’s a simple example where you have build pipelines for multiple services and you’re testing a service in isolation. In this case, the traditional <a href="https://martinfowler.com/bliki/TestPyramid.html">test pyramid</a> helps to maintain a balance between the different types of tests.</p>
 
 <p>In a typical test pyramid, you have:</p>
 
@@ -98,10 +98,10 @@ Integration tests, in this context, deal with testing integrations and interface
 When you look at component tests for microservices, a component is a service that exposes certain functionalities. Therefore, component tests for microservice can just be acceptance tests for services and your tests need to validate whether the service provides the functionality that it promises to.</p>
 
 <p><strong>Contract tests</strong><br />
-Another category of tests that's very applicable to microservices are contract tests. They test the contracts of APIs of your services to see if the API is valid or if the microservice honors its API. A cool variation of these contract tests is consumer driven contract tests. These tests are written by consumer services of an API; the consumers codify this contract in a suite of tests that get run on every change to the API. That way, if a change to the API breaks a contract that one of its consumers expect, this breaking change is caught early in the CD pipeline.</p>
+Another category of tests that’s very applicable to microservices are contract tests. They test the contracts of APIs of your services to see if the API is valid or if the microservice honors its API. A cool variation of these contract tests is consumer driven contract tests. These tests are written by consumer services of an API; the consumers codify this contract in a suite of tests that get run on every change to the API. That way, if a change to the API breaks a contract that one of its consumers expect, this breaking change is caught early in the CD pipeline.</p>
 
 <p><strong>End-to-end tests</strong><br />
-The test suites we discussed earlier are applicable to testing individual services. End-to-end tests, however, are more coarse-grained and try to test the functionality of an overall system. Depending on the deployment architecture you're going for, if you are deploying all of your services in a pre-production environment in an aggregate manner, you can run end-to-end tests there. Since end-to-end tests are usually brittle and take a long time to run, you’ll usually want to restrict the number of these tests to as few as possible. If you have microservices that are completely independent and don't get deployed to a pre-production test environment, then consider approaches that test in production.</p>
+The test suites we discussed earlier are applicable to testing individual services. End-to-end tests, however, are more coarse-grained and try to test the functionality of an overall system. Depending on the deployment architecture you’re going for, if you are deploying all of your services in a pre-production environment in an aggregate manner, you can run end-to-end tests there. Since end-to-end tests are usually brittle and take a long time to run, you’ll usually want to restrict the number of these tests to as few as possible. If you have microservices that are completely independent and don’t get deployed to a pre-production test environment, then consider approaches that test in production.</p>
 
 <h2 id="monitoring-and-testing-in-production">Monitoring and testing in production</h2>
 
@@ -122,7 +122,7 @@ The test suites we discussed earlier are applicable to testing individual servic
 <p><img src="../../../../assets/images/blog/continuous-deployment-strategies/blue-green-deployments-d73adc69.jpeg" alt="Blue green deployments" /></p>
 
 <p><strong>Multivariate testing</strong><br />
-Another interesting variation of this kind of testing is multivariate testing, where you're not really testing your new service against defects, instead, you are A/B testing new release features behind A/B testing toggles. The purpose of this type of testing is to see how well these features are received. You can decide roll it out to your entire set of users or make fixes where necessary.</p>
+Another interesting variation of this kind of testing is multivariate testing, where you’re not really testing your new service against defects, instead, you are A/B testing new release features behind A/B testing toggles. The purpose of this type of testing is to see how well these features are received. You can decide roll it out to your entire set of users or make fixes where necessary.</p>
 
 <h2 id="summary">Summary</h2>
 
@@ -199,7 +199,7 @@ Another interesting variation of this kind of testing is multivariate testing, w
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

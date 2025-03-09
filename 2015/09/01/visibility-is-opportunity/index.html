@@ -15,8 +15,8 @@
 
     <title>Visibility Is Opportunity | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
     <script>
@@ -66,7 +66,7 @@
   </header>
 
       <main id="main" role="main" class="blog-post-main-container">
-      <h1 id="visibility-can-be-hard-but-its-worth-it">Visibility can be hard, but it's worth it.</h1>
+      <h1 id="visibility-can-be-hard-but-its-worth-it">Visibility can be hard, but it’s worth it.</h1>
 
 <p><a href="https://www.thoughtworks.com/mingle">Mingle</a> is a 9 years JRuby Rails project.
 We do test-driven development and continuous integration.
@@ -95,13 +95,13 @@ We configured <a href="https://github.com/test-load-balancer/tlb">TLB</a> to dis
 Because:</p>
 
 <ol>
-  <li>Profiling one test won't help. To figure out what's bottleneck for entire build, we need profile all tests running.</li>
+  <li>Profiling one test won’t help. To figure out what’s bottleneck for entire build, we need profile all tests running.</li>
   <li>Profiling generates lots of data. 1 hour build on 46 VMs will generate tons of data.</li>
   <li>We need merge/aggregate data collected from build VMs for analysis.</li>
 </ol>
 
 <p>It turns out, sampling profiler can be a good tool for this job. But Mingle is on Ruby 1.8.
-There wasn't sampling profiler support it.
+There wasn’t sampling profiler support it.
 So I wrote <a href="https://rubygems.org/gems/sampling_prof">Sampling Profiler</a> and a data analysis web application to do the job:</p>
 
 <ol>
@@ -118,7 +118,7 @@ The following code was one example:</p>
 <p>{% highlight ruby %}
 Timeout::timeout(time / 1000.0) do
   # wait until given JavaScript condition is true
-  while get_eval(condition).downcase == "false"
+  while get_eval(condition).downcase == “false”
     sleep 1
   end
 end
@@ -130,7 +130,7 @@ Changing <code>sleep 1</code> to <code>sleep 0.1</code> fixed problem.</p>
 <p>Although there was no big bottleneck found, I was able to list and fix a handful small bottlenecks.
 Our <strong>build time reduced to 45 minutes</strong>, and became more stable.</p>
 
-<p><strong>You're on the right track when you're improving visibility of the problem details. It can be hard. But hard work pays off.</strong></p>
+<p><strong>You’re on the right track when you’re improving visibility of the problem details. It can be hard. But hard work pays off.</strong></p>
 
 <h1 id="detail-can-lead-you-to-the-truth">Detail can lead you to the truth.</h1>
 
@@ -156,16 +156,16 @@ It turned out some selenium test jobs ran twice faster than other selenium test 
 
 <p>As <a href="https://github.com/test-load-balancer/tlb">TLB</a> balanced our selenium tests by time, we expect job runtime similar.
 My first hypothesis was <a href="https://github.com/test-load-balancer/tlb">TLB</a> may not work as expected.
-Because tests didn't seem to be distributed well by runtime.
+Because tests didn’t seem to be distributed well by runtime.
 To verify my hypothesis, I checked out <a href="https://github.com/test-load-balancer/tlb">TLB</a> source code. It was more complex than I thought.
-And there is also no way to output more logs to verify it's correctness.
+And there is also no way to output more logs to verify it’s correctness.
 But <a href="https://gocd.org">Go CD</a> has good support for APIs, so I wrote <a href="https://github.com/ThoughtworksStudios/goapi/blob/master/examples/compare_test_runtime.rb">Ruby script</a> to verify my hypothesis.</p>
 
 <p>The following chart shows how the test runtime looks like on build. X-axis is job names; y-axis is job runtime.</p>
 
 <p><img src="../../../../assets/images/acceptnace-test-build-time-6e0b8af7.png" title="Graph representing Acceptance Test time" alt="Graph representing Acceptance Test time" /></p>
 
-<p>Blue bars are test runtime on job. Red bars are "expected time", because <a href="https://github.com/test-load-balancer/tlb">TLB</a> distributed tests by previous build test runtime.
+<p>Blue bars are test runtime on job. Red bars are “expected time”, because <a href="https://github.com/test-load-balancer/tlb">TLB</a> distributed tests by previous build test runtime.
 Red bars are test runtime calculated by previous build test runtime:</p>
 
 <pre><code>Job expected runtime = sum of each test runtime in previous build
@@ -182,16 +182,16 @@ So I wrote another <a href="https://github.com/ThoughtworksStudios/goapi/blob/ma
 
 <p><img src="../../../../assets/images/vms-build-time-7ae5af26.jpg" title="Graph displaying GoCD build agent runtime" alt="Graph displaying GoCD build agent runtime" /></p>
 
-<p>It's clear there are some VMs are consistent slower than others.
+<p>It’s clear there are some VMs are consistent slower than others.
 Then Barrow Kwan found out 2 of our VMs hosts were overloaded when we increased vCPUs on our VMs.
 We have set the host NOT to overload the CPU core but there was a typo in configuration.
 After sorted out VM host CPU overload issue, our <strong>build time reduced to 30 minutes</strong>.</p>
 
-<p><strong>So, don't just assume, prove it with detailed data. Make details visible. It leads you to the truth.</strong></p>
+<p><strong>So, don’t just assume, prove it with detailed data. Make details visible. It leads you to the truth.</strong></p>
 
-<h1 id="you-dont-know-what-you-dont-know">You don't know what you don't know.</h1>
+<h1 id="you-dont-know-what-you-dont-know">You don’t know what you don’t know.</h1>
 
-<p><a href="https://gocd.org">Go CD</a> introduced "timestamps in console logs" in release 15.1.
+<p><a href="https://gocd.org">Go CD</a> introduced “timestamps in console logs” in release 15.1.
 It made build task runtime visible.
 I was not pay attention to the timestamps in the console logs until recently.
 The following screenshot shows an example:</p>
@@ -210,7 +210,7 @@ end
 <p>It only sleeps 2 seconds for one call, but it is called lots of times at the end of tests ran.
 After removed code <code>sleep 2</code>, there is almost no time spent at the end of test anymore.</p>
 
-<p>Without "timestamps in console logs", it is something like following:</p>
+<p>Without “timestamps in console logs”, it is something like following:</p>
 
 <p><img src="../../../../assets/images/no-timestamps-in-console-logs-example-a63eaf2d.png" title="No timestanps in console logs" alt="No timestanps in console logs" /></p>
 
@@ -226,11 +226,11 @@ you may be surprised what you can get from it.</strong></p>
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>Each time we improved our CI build performance, we thought that's the best we could do.
+<p>Each time we improved our CI build performance, we thought that’s the best we could do.
 But it was not true overtime.</p>
 
 <p>We found something, but missed other parts.
-So when you look into a problem, don't assume how it works.
+So when you look into a problem, don’t assume how it works.
 Working for better understanding instead.
 There are various ways to gain more understanding of the problem:</p>
 
@@ -318,7 +318,7 @@ Thus it gives you more opportunities to understand and solve problem.</p>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

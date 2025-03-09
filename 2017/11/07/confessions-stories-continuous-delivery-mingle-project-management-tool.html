@@ -15,8 +15,8 @@
 
     <title>Confessions of continuous delivery experts: How Mingle saw the light | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -98,20 +98,20 @@
 <p>We took a closer look at our practices and processes and we found big gaps in our cycle time.</p>
 
 <blockquote>
-  <p><strong><em>"25% of that three-month release cycle was actually taken up by an activity we called installer testing."</em></strong></p>
+  <p><strong><em>“25% of that three-month release cycle was actually taken up by an activity we called installer testing.”</em></strong></p>
 </blockquote>
 
-<p>We were taking our installer and testing it on a combination of different operating systems and browsers to ensure that when we shipped it to our customer, it worked on their hardware. This process took about two or three weeks. At the end of every release, we could not be ready to ship our software until the ‘installer testing’ was done. Before we were pushed into thinking about delivering frequently, we really hadn't tried to optimize this.</p>
+<p>We were taking our installer and testing it on a combination of different operating systems and browsers to ensure that when we shipped it to our customer, it worked on their hardware. This process took about two or three weeks. At the end of every release, we could not be ready to ship our software until the ‘installer testing’ was done. Before we were pushed into thinking about delivering frequently, we really hadn’t tried to optimize this.</p>
 
 <h2 id="reflecting-on-our-current-cd-processes">Reflecting on our current CD processes</h2>
 
-<p>Here’s Jez Humble's definition of continuous delivery from his book:</p>
+<p>Here’s Jez Humble’s definition of continuous delivery from his book:</p>
 
 <blockquote>
-  <p><strong><em>"Continuous delivery is the ability to get all kinds of changes, configuration codes, features, bug fixes, infrastructure, everything into the hands of users safely, quickly and in a reliable manner."</em></strong></p>
+  <p><strong><em>“Continuous delivery is the ability to get all kinds of changes, configuration codes, features, bug fixes, infrastructure, everything into the hands of users safely, quickly and in a reliable manner.”</em></strong></p>
 </blockquote>
 
-<p>In practice, what it comes down to is <a href="https://www.gocd.org/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">feedback loops</a>. Your check-ins trigger automation tests that run and give you feedback. At any step, if you see  any failures, you need to know why, and once that goes green, then you move on to other kind of tests, e.g. performance tests, security tests. Each of this is a feedback loop. It could be manual or automated, but the idea is to go from test-to-test, getting more and more confidence as you go towards production. So when you actually deploy into production, you're assured that it's going to work.</p>
+<p>In practice, what it comes down to is <a href="https://www.gocd.org/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/">feedback loops</a>. Your check-ins trigger automation tests that run and give you feedback. At any step, if you see  any failures, you need to know why, and once that goes green, then you move on to other kind of tests, e.g. performance tests, security tests. Each of this is a feedback loop. It could be manual or automated, but the idea is to go from test-to-test, getting more and more confidence as you go towards production. So when you actually deploy into production, you’re assured that it’s going to work.</p>
 
 <p><img src="../../../assets/images/blog/cd-confessions-mingle/feedback-loops-a69c8139.png" alt="Feedback Loops" /></p>
 
@@ -123,7 +123,7 @@
 
 <p>We reduced our time spent in manual testing from 25% to about 5% - from two to three weeks to about two to three days. This meant that if we wanted to release a small bug-fix to our cloud app, it could be done quickly, easily, and reliably.</p>
 
-<p>We also had some unexpected benefits: In our older way of working, when our QA's had been doing the installer testing, they were siloed. While the rest of the team were talking about features for the next release and ideating about how this was going to work in the real world, the QA team was testing on their own. In the new world, we have the entire team working together, especially when we were able to have our QA's as part of our ideation sessions. They were able to assess functionality and highlight critical test cases a lot earlier in the process.  So we were able to build quality in from the very beginning, rather than leaving it for the end.</p>
+<p>We also had some unexpected benefits: In our older way of working, when our QA’s had been doing the installer testing, they were siloed. While the rest of the team were talking about features for the next release and ideating about how this was going to work in the real world, the QA team was testing on their own. In the new world, we have the entire team working together, especially when we were able to have our QA’s as part of our ideation sessions. They were able to assess functionality and highlight critical test cases a lot earlier in the process.  So we were able to build quality in from the very beginning, rather than leaving it for the end.</p>
 
 <p>We continue to use the same fundamentals for the release process today.</p>
 
@@ -207,7 +207,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

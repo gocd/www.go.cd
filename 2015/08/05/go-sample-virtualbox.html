@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD is open source continuous delivery software. Here's some help in downloading and setting up the virtual machine to help you get started developing." name="description" />
+    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, update, virtual machine" name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Sample GoCD VirtualBox based environment | GoCD Blog" />
+    <meta name="twitter:description" content="GoCD is open source continuous delivery software. Here's some help in downloading and setting up the virtual machine to help you get started developing." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/sample-virtualbox/Virtualbox_logo-705f7f16.png" />
+    <link rel="canonical" href="https://www.gocd.org/2015/08/05/go-sample-virtualbox.html" />
+
+    <title>Sample GoCD VirtualBox based environment | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+    });
+    </script>
+  </head>
+
+  <body class="x2015 x2015_08 x2015_08_05 x2015_08_05_go-sample-virtualbox">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li><a href="../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+
+
+  <header class="blog-post-header">
+    <h1>Sample <span class="go">Go</span>CD Virtualbox based environment</h1>
+    <h4>Ken Mugrage</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      <p>If you’re interested in checking out GoCD but don’t want to spend the time automating your
+own system, this might be a great option for you. We’ve created an environment using Vagrant and Virtualbox.
+Once it’s up, you’ll have a full GoCD installation including several example pipelines.</p>
+
+<p><strong>Note: This is an update to a blog post last year. The demo has been modified enough to warrant a new post.</strong></p>
+
+<p>The original version of this box used very simple PHP applications with some also simple tests. Neither these applications
+nor the tests were “real” enough to be representative of what you’re actually doing, and the need to keep the demo box self
+contained made the real applications more of a distraction and source of problems than anything of real value.</p>
+
+<p>This version uses Rake with empty targets and simple /bin/echo tasks instead of real deployments.</p>
+
+<h3 id="system-requirements">System Requirements</h3>
+
+<p><strong>In order to run this you’ll need <a href="https://www.oracle.com/virtualization/virtualbox/">Virtualbox</a>
+and <a href="https://www.vagrantup.com/">Vagrant</a>.</strong> Both of these are available for most operating 
+systems.</p>
+
+<h3 id="using-the-box">Using the box</h3>
+<p>To get started, open a command prompt in an empty directory and type…</p>
+
+<blockquote>
+vagrant init gocd/gocd-demo
+</blockquote>
+
+<p>This will create a file called Vagrantfile in your current directory.</p>
+
+<p>Next, type…</p>
+
+<blockquote>
+vagrant up
+</blockquote>
+
+<p>Completion of this (especially the first time) will take quite a while, depending on your
+bandwidth. Vagrant will be downloading the full box image (about 1GB) from Vagrantcloud
+while you wait.</p>
+
+<p><strong>Note:</strong> If you have an existing GoCD installation on the same machine as this virtual machine
+you may get a port conflict.</p>
+
+<p>After a few minutes, you should be able to navigate to https://localhost:8153/go/pipelines on your local
+machine and see the following…</p>
+
+<p><img src="../../../assets/images/blog/sample-virtualbox/pipelines-v2-3c5b12e7.png" title="Pipeline view setup" alt="Pipeline view setup" /></p>
+
+<p>These pipelines are all related, as shown in the following value stream map screenshot…</p>
+
+<p><img src="../../../assets/images/blog/sample-virtualbox/vsm-v2-96349260.png" title="Pipeline relation in Value Stream Map" alt="Pipeline relation in Value Stream Map" /></p>
+
+<p>Feel free to play around with the installation and see how everything works. You can always
+reset the box to it’s orginal state if you need to!</p>
+
+<h3 id="whats-on-the-machine">What’s on the machine?</h3>
+
+<p>The box will be updated as new things come out, but as of this writing…</p>
+
+<ul>
+  <li>GoCD 15.2 Server</li>
+  <li>GoCD 15.2 Agent</li>
+  <li>Pipelines which are simulated using empty Rake targets and /bin/echo commands</li>
+</ul>
+
+<p><br /></p>
+
+<p>As always, GoCD questions can be asked at <a href="https://groups.google.com/g/go-cd">https://groups.google.com/g/go-cd</a></p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-articles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Feb 13</span>
+              <span class="post-author">Chad Wilson & Aravind SV</span>
+              <a href="../../../2023/02/13/gocd-project-status/">GoCD project status in 2023</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 14</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="../../../2021/12/14/log4j-vulnerability/">GoCD and the Log4j vulnerability - CVE-2021-44228</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 14</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/04/14/gocd-on-kubernetes-using-terraform/">GoCD on Kubernetes using Terraform</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../2023/">2023 (1)</a></li>
+            <li><a href="../../../2021/">2021 (1)</a></li>
+            <li><a href="../../../2020/">2020 (3)</a></li>
+            <li><a href="../../../2019/">2019 (7)</a></li>
+            <li><a href="../../../2018/">2018 (16)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../">2015 (21)</a></li>
+            <li><a href="../../../2014/">2014 (25)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/g/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd/discussions" target="_blank" analytics-label="github-discussions">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../resources/">RESOURCES</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="../../../assets/gocd-brand-styleguide.zip">LOGOS + BRAND</a></li>
+            <li><a href="../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+</html>

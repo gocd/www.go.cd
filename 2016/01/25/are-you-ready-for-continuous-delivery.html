@@ -15,8 +15,8 @@
 
     <title>Are you ready for Continuous Delivery Part 1 | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -75,14 +75,14 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>During the 10 plus years Thoughtworks has been in the Continuous Delivery ecosystem, we've regularly come across people
+<p>During the 10 plus years Thoughtworks has been in the Continuous Delivery ecosystem, we’ve regularly come across people
 wanting to try our tools GoCD and Snap CI as they start their journey toward Continuous Delivery (CD). Very often,
 in attempting to support teams new to CD, we suggest that they pause any tool evaluation and consider whether their
-organization is actually ready to embark on this journey. If you do not frankly assess your teams' readiness, the result
+organization is actually ready to embark on this journey. If you do not frankly assess your teams’ readiness, the result
 can be a massive failure. The path to CD should not start by immediately adopting a CD tool.</p>
 
 <p>This is the first part of a <a href="../../../tags/are-you-ready-for-continuous-delivery.html">series of posts</a> about Continuous Delivery infrastructure, culture, and process. In this
-first post, we'll present questions you need to answer honestly about your own people, teams, and organization to
+first post, we’ll present questions you need to answer honestly about your own people, teams, and organization to
 determine your readiness for Continuous Delivery.</p>
 
 <h2 id="part-1-practices">Part 1: Practices</h2>
@@ -90,7 +90,7 @@ determine your readiness for Continuous Delivery.</p>
 <h3 id="do-you-put-emeverythingem-into-version-control">Do you put <em>everything</em> into version control?</h3>
 
 <p>A foundation of CD is the ability to put a specific version of your application into a given environment at any point in
-time. CD is actually quite fussy about this. It's a must. And this can only be done by:</p>
+time. CD is actually quite fussy about this. It’s a must. And this can only be done by:</p>
 
 <ul>
   <li>Putting everything needed to make your application into a version control system</li>
@@ -105,19 +105,19 @@ integration phases requires that your work be as visible to, and usable by, othe
 mechanism for doing this is called trunk-based development:</p>
 
 <ul>
-  <li>Everyone regularly pulls others' changes from version control.</li>
+  <li>Everyone regularly pulls others’ changes from version control.</li>
   <li>Everyone regularly pushes their changes to version control.</li>
-  <li>Everyone works in the same place in version control, typically called "trunk" or "master".</li>
+  <li>Everyone works in the same place in version control, typically called “trunk” or “master”.</li>
 </ul>
 
 <p>If you are new to trunk-based development, it might sound ridiculous. But the practices of CI, unit testing, and
-trunk-based development all playing together, not only makes it reasonable, but a truly pleasant way of working.We don't
+trunk-based development all playing together, not only makes it reasonable, but a truly pleasant way of working.We don’t
 have space here to go into the details of making trunk-based development work, but know that it cannot work without
 version control.</p>
 
-<p>Even if you aren't planning to do CD, start putting everything into version control now. And we mean everything. Not
+<p>Even if you aren’t planning to do CD, start putting everything into version control now. And we mean everything. Not
 just your source code. Everything can include images, database scripts, tests, configuration, libraries, documentation,
-and more. Source code won't be enough if you need to get back to a specific version of your application, infrastructure,
+and more. Source code won’t be enough if you need to get back to a specific version of your application, infrastructure,
 etc. Also, this encourages your entire team—not just the developers—to collaborate.</p>
 
 <h3 id="do-your-developers-practice-continuous-integration-ci">Do your developers practice Continuous Integration (CI)?</h3>
@@ -125,7 +125,7 @@ etc. Also, this encourages your entire team—not just the developers—to colla
 <p>For CD to be successful, the entire organization must trust that your software is high quality and always in a working
 state. In terms of development team practices, CI is the fundamental building block to achieve this level of trust.</p>
 
-<p>So what is CI? Well, <a href="https://www.martinfowler.com/articles/continuousIntegration.html">much has been written about CI</a>, but here's the TL;DR version:</p>
+<p>So what is CI? Well, <a href="https://www.martinfowler.com/articles/continuousIntegration.html">much has been written about CI</a>, but here’s the TL;DR version:</p>
 
 <ul>
   <li>Developers check code into trunk/master multiple times each day.</li>
@@ -137,7 +137,7 @@ the development team more willing to push code to testers, or even production, m
 between the groups will quickly grow.</p>
 
 <p>Our experience has been that development teams can only move quickly by combining unit testing, refactoring, and
-CI. That's a discussion too broad for discussion here, but know that your teams will never deliver at a fast pace
+CI. That’s a discussion too broad for discussion here, but know that your teams will never deliver at a fast pace
 without CI.</p>
 
 <p>If your developers are not practicing CI we would recommend putting your move to CD on hold and shift your focus
@@ -149,7 +149,7 @@ entirely to supporting the adoption of CI.</p>
 deployments. Manual processes are error-prone and do not lend themselves to repeatability. To practice CD, the entire
 team needs to get into the mindset of relentless automation of nearly everything.</p>
 
-<p>This mindset means asking "Why can't this be automated?" every time anyone on the team does anything manually more than
+<p>This mindset means asking “Why can’t this be automated?” every time anyone on the team does anything manually more than
 once. Some components and aspects of your process that need automation are:</p>
 
 <ul>
@@ -165,23 +165,23 @@ once. Some components and aspects of your process that need automation are:</p>
 <p>We mentioned error reduction and repeatability. There are dozens of other compelling reasons to relentlessly automate. We have a few favorites:</p>
 
 <ul>
-  <li>Scripts codify team knowledge. This ups your bus factor. That's a good thing.</li>
-  <li>It encourages consistency across environments. Once you have a script working in one environment, you'll want to use it everywhere.</li>
+  <li>Scripts codify team knowledge. This ups your bus factor. That’s a good thing.</li>
+  <li>It encourages consistency across environments. Once you have a script working in one environment, you’ll want to use it everywhere.</li>
   <li>The output of these scripts provides a detailed audit trail that is hard to match manually.</li>
 </ul>
 
-<p>Relentless automation might seem daunting, particularly if you're focused on something that truly cannot be automated,
+<p>Relentless automation might seem daunting, particularly if you’re focused on something that truly cannot be automated,
 such as exploratory testing. In our experience, there will be many more parts of your process that can be automated than
 those that cannot. The best approach is to figure out the manual processes you are already using, and then make a plan
 to gradually automate them. As you begin to achieve small successes, you will want to automate more and more.</p>
 
-<p>If your team is hesitant to automate and cannot be convinced about the need, you might have to consider if there's
+<p>If your team is hesitant to automate and cannot be convinced about the need, you might have to consider if there’s
 enough maturity in your team to move toward CD. An automation mindset is a firm prerequisite for CD.</p>
 
 <h3 id="conclusion">Conclusion</h3>
 
-<p>There are numerous small steps you can take early in your CD journey that will have immediate, positive impacts. Don't
-waste time flailing around with CD tools if you've got a bunch of low-hanging fruit that can provide high value
+<p>There are numerous small steps you can take early in your CD journey that will have immediate, positive impacts. Don’t
+waste time flailing around with CD tools if you’ve got a bunch of low-hanging fruit that can provide high value
 quickly. Also, this approach will set you up for success once you do feel the need to adopt an end-to-end CD tool.</p>
 
 <p>In coming posts we will present similar sets of questions for you to consider in the areas of infrastructure,
@@ -260,7 +260,7 @@ application design, process, and culture.</p>
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

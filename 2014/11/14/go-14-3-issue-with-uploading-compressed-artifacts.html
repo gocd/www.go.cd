@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="GoCD is open source continuous delivery software. There is an issue with uploading compressed artifacts. Read more for the workaround and root cause." name="description" />
+    <meta content="GoCD, continuous delivery, continuous delivery software, continuous integration, continuous integration software, go, goforcd, open source, issue, artifacts," name="keywords" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goforcd" />
+    <meta name="twitter:title" content="Issue with uploading compressed artifacts | GoCD Blog" />
+    <meta name="twitter:description" content="GoCD is open source continuous delivery software. There is an issue with uploading compressed artifacts. Read more for the workaround and root cause." />
+    <meta name="twitter:image" content="https://www.gocd.org/assets/images/blog/issues/issue-0621ef4e.png" />
+    <link rel="canonical" href="https://www.gocd.org/2014/11/14/go-14-3-issue-with-uploading-compressed-artifacts.html" />
+
+    <title>Issue with uploading compressed artifacts | GoCD Blog</title>
+    <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
+    <script>
+      $(document).ready(function(){
+      $('.chocolat-parent').Chocolat();
+    });
+    </script>
+  </head>
+
+  <body class="x2014 x2014_11 x2014_11_14 x2014_11_14_go-14-3-issue-with-uploading-compressed-artifacts">
+    <header class="top">
+  <div class="container">
+    <a href="../../../" class="logo" analytics-label="logo"><img src="../../../assets/images/go_logo-5b5ca9e1.svg" title="GoCD Logo" alt="GoCD Logo" /></a>
+    <nav class="mainnav">
+      <ul class="level0">
+        <li><a href="../../../why-gocd/" class="link_whygocd" analytics-label="link_whygocd">Features</a></li>
+        <li><a href="https://docs.gocd.org/current/" class="link_documentation" analytics-label="link_help&gt;link_documentation">Documentation</a></li>
+        <li><a href="../../../blog/" class="link_blog" analytics-label="Blog">Blog</a></li>
+        <li><a href="../../../download/" class="link_download" analytics-label="Download">Download</a></li>
+      </ul>
+    </nav>
+    <button class="navbtn menu collapse">
+    <span></span>
+    </button>
+  </div>
+
+</header>
+<span id="top"></span>
+
+    <div class="container blog-post">
+
+
+  
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+
+
+  <header class="blog-post-header">
+    <h1>Update: Issue with uploading compressed artifacts in <span class="go">Go</span>CD 14.3.0</h1>
+    <h4>GoCD Team</h4>
+    <p class='tags'>
+     </p>
+  </header>
+
+      <main id="main" role="main" class="blog-post-main-container">
+      <p>There was an <a href="https://github.com/gocd/gocd/issues/703">issue</a> reported with respect to artifact uploads in the 14.3.0 release of GoCD.</p>
+
+<h3 id="issue">Issue</h3>
+<p>On GoCD server running with OpenJDK7, uploading compressed artifacts fails. The operation is reported as success in console-log on job details page but actual artifact does not get uploaded. Please note this does not affect uploading console-log itself or even a simple file as an artifact. This is an issue only with GoCD v14.3.0. Read further to know if you are affected by this defect.</p>
+
+<h3 id="who-does-this-affect">Who does this affect?</h3>
+<p>This defect would affect you only if your GoCD Server v14.3.0 is run using OpenJDK(jdk or jre) and the agent responsible for artifact upload is using a version of java other than the one used by GoCD server.</p>
+
+<p>You are <em>unaffected</em> by this defect if:</p>
+
+<ul>
+  <li>
+    <p>you use Sun/Oracle java to run GoCD Server</p>
+  </li>
+  <li>
+    <p>you have SunEC extension installed for your OpenJDK [<em>EDIT</em>: on your GoCD server]</p>
+  </li>
+  <li>
+    <p>Both your server and agent processes run using OpenJDK (not necessarily the same version) [<em>EDIT</em>: without <a href="https://en.wikipedia.org/wiki/Elliptic_curve_cryptography">ECC cipher suites</a>.
+As explained in “What caused this?” section, this issue occurs when java on agent supports ECC cipher suites but java on server doesnot. You should definitely run the litmus test to be sure.]</p>
+  </li>
+</ul>
+
+<h4 id="litmus-test">Litmus test</h4>
+
+<p>You should run a pipeline which uploads a compressed file as an artifact to ensure you are not affected by this defect. If the artifact shows up on the artifacts tab of the job and can be successfully downloaded, you are safe from the defect.</p>
+
+<h3 id="workaround">Workaround</h3>
+<p>We are aware that you have been waiting to try your hands on the new APIs and several bug fixes that came out in 14.3.0. 
+Fortunately we have a few workarounds available to help you move ahead with the upgrade, meanwhile we would be working on finding the best possible fix for this issue. 
+You could go for one of the workarounds listed below:</p>
+
+<p>Options:</p>
+
+<ul>
+  <li>Install SunEC extension on your OpenJDK setup. Get <em>sunec.jar</em> and place it under <code>jre/lib/ext/</code> folder. You must also place <em>libsunec.so</em> in <code>jre/lib/amd64/</code> folder.</li>
+</ul>
+
+<p>OR</p>
+
+<ul>
+  <li>Install Oracle JRE on your GoCD server and switch to that. 
+  For GoCD server running on Windows, this means updating the system level environment variable <code>GO_SERVER_JAVA_HOME</code> to oracle jre home
+  For Linux based installations, update <code>/etc/default/go-server</code> to set <code>JAVA_HOME</code> to oracle jre home.
+  For Others, set the value of system level environment variable <code>JAVA_HOME</code> to oracle jre home.</li>
+</ul>
+
+<p>OR</p>
+
+<ul>
+  <li>Install the same version of java as you have on your agent. Update java used by GoCD server to appropriate value as suggested in the previous option.</li>
+</ul>
+
+<p>At this point restart GoCD Server. Trigger your affected pipeline to ensure the artifact got uploaded successfully. This should resolve the issue.
+If the issue persists even after applying the suggested workaround, do write to the go-cd mailing list reporting the same.</p>
+
+<h3 id="what-caused-this">What caused this?</h3>
+<p>I cannot speak about this without getting into some technical details.</p>
+
+<p>As a part of upgrading to Rails v4, we also had to upgrade bouncycastle-bcprov library. Earlier versions of GoCD used bouncycastle-bcprov v1.40. With that the cipher suites accepted by GoCD server would always be one of <code>SSL_RSA_WITH_RC4_128_SHA</code>, <code>SSL_RSA_EXPORT_WITH_RC4_40_MD5</code> or <code>SSL_RSA_WITH_RC4_128_MD5</code>.
+GoCD 14.3.0 has moved on to use org.bouncycastle-bcprov v1.47. Bouncycastle v1.46 brought in support for <a href="https://tools.ietf.org/html/rfc4492">ECC cipher suites</a>. ECC cipher suites are made available by SunEC extension which is <em>not</em> packaged along with OpenJDK7 by default. 
+GoCD server is run using Jetty which uses bouncycastle crypto package (i.e. bcprov) for the handshake. At this point, instead of agreeing on the expected SSL &amp; RSA based ciphers, one of the ECC ciphers get picked during the agent/server handshake. Jetty6 (yes, we are still using this!) does not work well with the modern cipher suites and causes issues like the one mentioned above. To tackle such scenarios, all supported ciphers suites apart from the three mentioned above are excluded from Jetty. Since, ECC cipher suites were not available on the server, they did not get excluded. However if your JVM has ECC ciphers available (by default or after applying one of the workarounds), GoCD would ensure they get excluded and make Jetty happy.</p>
+
+<p>Jetty upgrade has been on the cards for a while, and that would possibly help resolve this. But that is a much involved task and hence works better as a long term solution. We need to evaluate other options as well which could fix the issue in the short term.</p>
+
+<p>Many thanks to <a href="https://github.com/bormotov">Vladimir Bormotov</a> for reporting this issue and allowing us to use his setup to gather the required debug information.</p>
+
+<p>As always, you could write to <a href="https://groups.google.com/g/go-cd">go-cd</a> and <a href="https://groups.google.com/g/go-cd-dev">go-cd-dev</a> mailing lists if you have any ideas/feedback/questions.</p>
+
+      </main>
+    </div>
+    <div class="col-md-3">
+      <aside class="post-sidebar">
+        <section  class="recent-articles">
+          <h2 class="section-title">Recent Articles</h2>
+          <ol>
+            <li>
+              <span class="post-date">Feb 13</span>
+              <span class="post-author">Chad Wilson & Aravind SV</span>
+              <a href="../../../2023/02/13/gocd-project-status/">GoCD project status in 2023</a>
+            </li>
+            <li>
+              <span class="post-date">Dec 14</span>
+              <span class="post-author">Aravind SV</span>
+              <a href="../../../2021/12/14/log4j-vulnerability/">GoCD and the Log4j vulnerability - CVE-2021-44228</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/restore-backup-for-gocd-on-kubernetes/">Restore Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Oct 11</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>
+            </li>
+            <li>
+              <span class="post-date">Apr 14</span>
+              <span class="post-author">Guest post by Abilash Rajasekaran</span>
+              <a href="../../../2020/04/14/gocd-on-kubernetes-using-terraform/">GoCD on Kubernetes using Terraform</a>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="section-title">By Year</h2>
+          <ol>
+            <li><a href="../../../2023/">2023 (1)</a></li>
+            <li><a href="../../../2021/">2021 (1)</a></li>
+            <li><a href="../../../2020/">2020 (3)</a></li>
+            <li><a href="../../../2019/">2019 (7)</a></li>
+            <li><a href="../../../2018/">2018 (16)</a></li>
+            <li><a href="../../../2017/">2017 (39)</a></li>
+            <li><a href="../../../2016/">2016 (8)</a></li>
+            <li><a href="../../../2015/">2015 (21)</a></li>
+            <li><a href="../../">2014 (25)</a></li>
+          </ol>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="join-community">
+    <ul>
+      <li>
+        <a href="https://groups.google.com/g/go-cd" target="_blank" analytics-label="google-group">
+          <i class="icon fa fa-users fa-4x join-us" aria-hidden="true"></i>
+          <span>Join our discussion forum</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd/discussions" target="_blank" analytics-label="github-discussions">
+          <i class="icon fa fa-comments fa-4x develop-with-us" aria-hidden="true"></i>
+         <span>Chat with us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <span>watch us</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../download/">DOWNLOAD GoCD</a></li>
+            <li><a href="../../../getting-started/part-1/">INTRO TO GoCD</a></li>
+            <li><a href="../../../test-drive-gocd.html">TEST DRIVE GoCD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="../../../plugins/">PLUGINS</a></li>
+            <li><a href="../../../resources/">RESOURCES</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="unordered-list">
+            <li><a href="https://www.github.com/gocd" target="_blank">FORK US ON GITHUB</a></li>
+            <li><a href="../../../assets/gocd-brand-styleguide.zip">LOGOS + BRAND</a></li>
+            <li><a href="../../../contribute/">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            GoCD is an open-source project, sponsored by <a target="_blank" href="https://www.thoughtworks.com" analytics-label="link_footer_thoughtworks">Thoughtworks Inc.</a>
+            under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" title="Apache 2.0 License">Apache License, Version 2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class='imagemodal'>
+      <div class='imagemodalcontent'>
+      </div>
+      <div class='close'>&#10006;
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -15,8 +15,8 @@
 
     <title>Blue/Green Deployments | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -104,15 +104,15 @@
 
 <p><img src="../../../assets/images/blog/blue-green/dns-9ac8588f.jpeg" alt="Changing public DNS records" title="Changing public DNS records" /></p>
 
-<p>This particular approach is not recommended for changing public DNS records because some DNS servers run some browsers don't respect the low TTL values on the DNS entry, they will cache the DNS records for longer than the TTL. This may leave a subset of your users not being able to access your website.</p>
+<p>This particular approach is not recommended for changing public DNS records because some DNS servers run some browsers don’t respect the low TTL values on the DNS entry, they will cache the DNS records for longer than the TTL. This may leave a subset of your users not being able to access your website.</p>
 
 <h2 id="load-balancer--internal-dns-records">Load Balancer + Internal DNS records</h2>
 
-<p>This approach is a combination of the two techniques we've seen so far.</p>
+<p>This approach is a combination of the two techniques we’ve seen so far.</p>
 
 <p><img src="../../../assets/images/blog/blue-green/load-balancer-1a3e2b12.jpeg" alt="Load Balancer + Internal DNS records" title="Load Balancer + Internal DNS records" /></p>
 
-<p>In this technique, instead of changing public DNS records, we'll change internal (private) DNS records. Since the internal network and the DNS server can be managed and configured to respect TTLs, this approach works a lot better than changing public DNS records.</p>
+<p>In this technique, instead of changing public DNS records, we’ll change internal (private) DNS records. Since the internal network and the DNS server can be managed and configured to respect TTLs, this approach works a lot better than changing public DNS records.</p>
 
 <p><em>This article was first published on the SnapCI Blog.</em></p>
 
@@ -187,7 +187,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

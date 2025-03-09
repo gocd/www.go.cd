@@ -15,8 +15,8 @@
 
     <title>Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -116,7 +116,7 @@
 
 <p><strong>Consider building your own utilities</strong></p>
 
-<p>There isn't a lot of tooling out there, so consider writing your own utilities to solve some of these problems. Again, getting this tooling in place before you go down a microservice strategy is a wise thing to do.</p>
+<p>There isn’t a lot of tooling out there, so consider writing your own utilities to solve some of these problems. Again, getting this tooling in place before you go down a microservice strategy is a wise thing to do.</p>
 
 <p>Once you have a mechanism for maintaining feature toggles, you could use the same mechanism to introduce other categories of toggles:</p>
 
@@ -124,11 +124,11 @@
 
 <p>This diagram is borrowed from my colleague Pete Hodgson, who has written a lot about toggles. In this diagram, release toggles is defined as toggles that control access to unfinished code, which is same as feature toggles.</p>
 
-<p>Ops toggles control the behavior of production code. Retail sites that have heavy seasonal traffic use Ops toggles to provide a degraded experience when they have peak loads. For example, when Apple is releasing a new iPhone and it's getting a crazy amount of traffic coming in just to buy the iPhone, they can turn off features like user recommendations during peak time to support the sales transactions.</p>
+<p>Ops toggles control the behavior of production code. Retail sites that have heavy seasonal traffic use Ops toggles to provide a degraded experience when they have peak loads. For example, when Apple is releasing a new iPhone and it’s getting a crazy amount of traffic coming in just to buy the iPhone, they can turn off features like user recommendations during peak time to support the sales transactions.</p>
 
 <p>Permissions toggles are used to turn on specific behavior for privileged users, such as admin features, or provide a guest user browsing experience.</p>
 
-<p>Experimental toggles are used for multivariate testing. It is used to test how well a feature is received before you make it permanent. It's the same as A/B testing.</p>
+<p>Experimental toggles are used for multivariate testing. It is used to test how well a feature is received before you make it permanent. It’s the same as A/B testing.</p>
 
 <p>One thing to note is that each of these categories of toggles has a very different lifecycle and different way to be turned on and off.  You need to plan accordingly. Release toggles generally are more short-lived and only live for the duration of a few releases. Once the feature is completely released, you get rid of the toggle and remove your technical debt. An ops toggle is used frequently for functionality in production, so it lives for much longer.</p>
 
@@ -207,7 +207,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

@@ -15,8 +15,8 @@
 
     <title>Serverless Architectures and Continuous Delivery | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -81,21 +81,21 @@
 <img src="../../../assets/images/blog/serverless-continuous-delivery/traditional-vs-serverless-ee2afc44.jpeg" alt="Traditional vs Serverless" title="Traditional vs Serverless" />
 </div>
 
-<p>We're in buzzword bingo land here so it's important that we start with a common definition of what serverless is:</p>
+<p>We’re in buzzword bingo land here so it’s important that we start with a common definition of what serverless is:</p>
 
 <blockquote>
   <p>Serverless architectures are internet-based systems where the application development does <strong>not use the usual server process</strong>. Instead, they rely solely on a combination of <strong>third-party services, client-side logic</strong> and service-hosted remote procedure calls <strong>(Functions as a Service)</strong>.</p>
 </blockquote>
 
-<p>“Not the usual server process” means that your software isn't running on a server that you have access to. You don't own those servers. You can't log in to them, even if you wanted to.
+<p>“Not the usual server process” means that your software isn’t running on a server that you have access to. You don’t own those servers. You can’t log in to them, even if you wanted to.
 They are abstracted away and managed for you by someone else, typically a cloud provider.</p>
 
 <p>There are many immediate benefits to not managing your own servers:</p>
 
 <ul>
-  <li>You don't have to worry about them randomly rebooting or going down.</li>
-  <li>You don't end up with snowflake servers, where you don't know quite what's installed on them but they are mission-critical to your organisation.</li>
-  <li>You're not responsible for installing software on them. Even if you use configuration management tools such as Chef or Ansible to automate this, that’s still extra code you have to maintain over time.</li>
+  <li>You don’t have to worry about them randomly rebooting or going down.</li>
+  <li>You don’t end up with snowflake servers, where you don’t know quite what’s installed on them but they are mission-critical to your organisation.</li>
+  <li>You’re not responsible for installing software on them. Even if you use configuration management tools such as Chef or Ansible to automate this, that’s still extra code you have to maintain over time.</li>
 </ul>
 
 <p>By “third-party services”, I mean hosted databases like an AWS Elasticsearch cluster or Microsoft SQL Azure, or authentication services like Auth0 or AWS Cognito. You’re essentially outsourcing capabilities to specialised providers.</p>
@@ -114,7 +114,7 @@ They are abstracted away and managed for you by someone else, typically a cloud 
 
 <h3 id="stateless">Stateless</h3>
 
-<p>As you're not in control of the underlying server infrastructure, you can’t save a file to disk on one run of your function and expect it to be there the next. Any two invocations of the same function could potentially run on completely different servers under the hood.</p>
+<p>As you’re not in control of the underlying server infrastructure, you can’t save a file to disk on one run of your function and expect it to be there the next. Any two invocations of the same function could potentially run on completely different servers under the hood.</p>
 
 <h3 id="ephemeral">Ephemeral</h3>
 
@@ -136,7 +136,7 @@ They are abstracted away and managed for you by someone else, typically a cloud 
 
 <h3 id="naturally-small-deployable-units">1. Naturally small deployable units</h3>
 
-<p>You really can't get a smaller unit of functionality than a function, and this forces you to think small from the outset. In Continuous Delivery we want to be deploying the smallest thing that adds value to our business. When you have all these small, granular functions that can be deployed independently, you can start to ask interesting questions such as “Do we need to deploy more than one at a time?”, “Could we just deploy that one function?”, “Does that deliver value on it's own?”.</p>
+<p>You really can’t get a smaller unit of functionality than a function, and this forces you to think small from the outset. In Continuous Delivery we want to be deploying the smallest thing that adds value to our business. When you have all these small, granular functions that can be deployed independently, you can start to ask interesting questions such as “Do we need to deploy more than one at a time?”, “Could we just deploy that one function?”, “Does that deliver value on it’s own?”.</p>
 
 <h3 id="simple-deployment-model">2. Simple deployment model</h3>
 
@@ -144,7 +144,7 @@ They are abstracted away and managed for you by someone else, typically a cloud 
 
 <h3 id="no-more-works-on-my-machine">3. No more “works on my machine”</h3>
 
-<p>As you will recall, FaaS are fully managed by a third party. This means that in many cases you cannot test your application in the same way as a traditional application. What I have found useful is for each developer to have their own cloud-hosted sandbox. Developers will run a script that will deploy their functions and associated services (e.g. HTTP API endpoints) to that sandbox, then execute tests against the deployed system in situ. You might think, "oh, the feedback loop is going to be slow" but as deployments of FaaS are so quick this usually doesn’t cause too many problems.</p>
+<p>As you will recall, FaaS are fully managed by a third party. This means that in many cases you cannot test your application in the same way as a traditional application. What I have found useful is for each developer to have their own cloud-hosted sandbox. Developers will run a script that will deploy their functions and associated services (e.g. HTTP API endpoints) to that sandbox, then execute tests against the deployed system in situ. You might think, “oh, the feedback loop is going to be slow” but as deployments of FaaS are so quick this usually doesn’t cause too many problems.</p>
 
 <p>And the fact that you <strong>can’t</strong> run tests locally forces you to push testing closer to production. Every time developers deploy to their local sandboxes, they are exercising the same deployment scripts that run as part of their main deployment pipeline. Therefore, you are getting continuous feedback on the effectiveness of your pipeline steps.</p>
 
@@ -152,7 +152,7 @@ They are abstracted away and managed for you by someone else, typically a cloud 
 
 <h3 id="serverless-enables-focus-on-business-value">4. Serverless enables focus on business value</h3>
 
-<p>It's always worth remembering that our goal as software engineers is not to continuously deliver code to production, but to instead continuously deliver working software that provides value to our users. Serverless architectures really allow you to focus on your core competencies, while offloading capabilities you don't want to care about.</p>
+<p>It’s always worth remembering that our goal as software engineers is not to continuously deliver code to production, but to instead continuously deliver working software that provides value to our users. Serverless architectures really allow you to focus on your core competencies, while offloading capabilities you don’t want to care about.</p>
 
 <p>For example, to implement log shipping and aggregation for a system, your team could spend a number of weeks developing and deploying a custom solution to managed servers (whether on premise or in the cloud). Even by choosing mature products, e.g. Splunk or the ELK stack, and implementing good practices such as Infrastructure as Code, you will suffer an initial implementation cost (in both time and money) as well as an ongoing penalty in terms of maintenance and operability.  Alternatively, if your system was built using AWS Lambda and the Node.js runtime, then a simple console.log statement will send your logs to AWS Cloudwatch and store them for up to 15 months. This gets you a long way towards a sustainable solution for a much reduced set of upfront and ongoing costs.</p>
 
@@ -235,7 +235,7 @@ They are abstracted away and managed for you by someone else, typically a cloud 
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

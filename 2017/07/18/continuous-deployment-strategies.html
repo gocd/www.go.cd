@@ -15,8 +15,8 @@
 
     <title>Continuous Deployment Strategies | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -73,17 +73,17 @@
   </header>
 
       <main id="main" role="main" class="blog-post-main-container">
-      <p>Not very long ago, during the days of Perl/CGI and PHP (and even today); deployments involved 'ftp-ing' your files to the webserver directory and running a bunch of migrations by shelling into the webserver.</p>
+      <p>Not very long ago, during the days of Perl/CGI and PHP (and even today); deployments involved ‘ftp-ing’ your files to the webserver directory and running a bunch of migrations by shelling into the webserver.</p>
 
 <p>Modern webapps and application servers have evolved quite a bit since then, but many developers continue to use similar strategies to perform deployments. FTP has been replaced by git pull followed by bundle install or npm install and then restarting the appserver that you use.</p>
 
-<p>Along with similar deployment strategies, many developers also continue to use the same servers for months and years on end. But even with the right patches, updates, etc, after a while it's easy to end up with a "snowflake server": a server with a delicate, unique configuration that does not lend itself to change. A solution to this is the "phoenix server." Here's a little more about both these concepts.</p>
+<p>Along with similar deployment strategies, many developers also continue to use the same servers for months and years on end. But even with the right patches, updates, etc, after a while it’s easy to end up with a “snowflake server”: a server with a delicate, unique configuration that does not lend itself to change. A solution to this is the “phoenix server.” Here’s a little more about both these concepts.</p>
 
 <h2 id="snowflake-servers">Snowflake servers</h2>
 
-<p>While <a href="https://martinfowler.com/bliki/SnowflakeServer.html">this approach</a> may work great for small webapps, it quickly falls apart when you're managing anything but a couple of servers.</p>
+<p>While <a href="https://martinfowler.com/bliki/SnowflakeServer.html">this approach</a> may work great for small webapps, it quickly falls apart when you’re managing anything but a couple of servers.</p>
 
-<p>It is generally difficult to set up a new server if your existing server has problems. If you're looking to scale by adding more servers, it's difficult to keep each server's software, configuration and services in sync. You may not be in a position to replicate a production (or production-like) environment for testing.</p>
+<p>It is generally difficult to set up a new server if your existing server has problems. If you’re looking to scale by adding more servers, it’s difficult to keep each server’s software, configuration and services in sync. You may not be in a position to replicate a production (or production-like) environment for testing.</p>
 
 <p>Over time, one loses track of the magic configuration files, packages and services that are installed on the production machines.</p>
 
@@ -93,7 +93,7 @@
 
 <p>These tools help avoid configuration drift, the sort of one-off changes that go unnoticed and undocumented.</p>
 
-<p>An important point to note is that these tools only apply the configuration that they are asked to. If you applied any additional configuration outside of what these tools are aware of, or if you forgot to un-apply or remove some configuration, you'd be out of luck. This what <a href="https://github.com/ranjib">Ranjib Dey</a> calls the Accumulator Anti-Pattern.</p>
+<p>An important point to note is that these tools only apply the configuration that they are asked to. If you applied any additional configuration outside of what these tools are aware of, or if you forgot to un-apply or remove some configuration, you’d be out of luck. This what <a href="https://github.com/ranjib">Ranjib Dey</a> calls the Accumulator Anti-Pattern.</p>
 
 <p>A much better alternative is to tear down servers periodically and apply configuration changes every once in a while. This helps avoid and catch any configuration drift outside of configuration management tools. Eventually one can move to deploying new servers on every configuration change. This strategy is known as an <a href="https://martinfowler.com/bliki/ImmutableServer.html">Immutable Server</a>.</p>
 
@@ -106,7 +106,7 @@
   <li>a set of automation tools and scripts that give you confidence that your deployment will succeed, or rollback in case of issues</li>
 </ul>
 
-<p>A few of the more popular continuous deployment strategies include blue/green deployments and canary releases, which I've briefly outlined below.</p>
+<p>A few of the more popular continuous deployment strategies include blue/green deployments and canary releases, which I’ve briefly outlined below.</p>
 
 <h2 id="bluegreen-deployments">Blue/green deployments</h2>
 
@@ -120,7 +120,7 @@
 
 <h2 id="canary-releases">Canary releases</h2>
 
-<p>This is named after the "canary in a coal mine" metaphor. The metaphor originates from the times when miners used to carry caged canaries into the mines with them: if there were any dangerous gases (methane or carbon monoxide) in the mine, the canary would die before the gas levels reached levels hazardous to humans.</p>
+<p>This is named after the “canary in a coal mine” metaphor. The metaphor originates from the times when miners used to carry caged canaries into the mines with them: if there were any dangerous gases (methane or carbon monoxide) in the mine, the canary would die before the gas levels reached levels hazardous to humans.</p>
 
 <p><img src="../../../assets/images/blog/continuous-deployment-strategies/canary-release-5c74ac79.jpeg" alt="Canary Release" title="Canary Release" /></p>
 
@@ -132,7 +132,7 @@
 
 <h2 id="next-steps">Next steps</h2>
 
-<p>In my next post, I'll get into the implementation techniques of blue/green deployments. A subsequent post will talk about implementing canary releases. Let me know if you have feedback in the comments section below.</p>
+<p>In my next post, I’ll get into the implementation techniques of blue/green deployments. A subsequent post will talk about implementing canary releases. Let me know if you have feedback in the comments section below.</p>
 
 <p><em>This article was first published on the SnapCI Blog.</em></p>
 
@@ -207,7 +207,7 @@
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>

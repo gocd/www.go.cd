@@ -15,8 +15,8 @@
 
     <title>Continuous delivery through pipelines | GoCD Blog</title>
     <link href="../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../assets/stylesheets/site-060a59de.css" rel="stylesheet" />
-    <script src="../../../assets/javascripts/all-10e8d5d5.js" data-manual="true"></script>
+    <link href="../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <script src="../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../feed.xml" />
     <script>
@@ -66,7 +66,7 @@
   </header>
 
       <main id="main" role="main" class="blog-post-main-container">
-      <p>In order to compete in today's IT market, you must be truly agile, you must listen
+      <p>In order to compete in today’s IT market, you must be truly agile, you must listen
 to your customers and deliver features in a timely manner. In order to support business
 development and marketing in their lean strategies we, as developers, must leverage
 fast deliveries and deployments and test automations. Continuous Delivery makes it possible
@@ -102,7 +102,7 @@ The system works on a pull model where agents periodically poll the server for w
   <li>Agent does the work</li>
 </ol>
 
-<p>Let's talk about the main building blocks of Go. As stated before, the main abstract is a
+<p>Let’s talk about the main building blocks of Go. As stated before, the main abstract is a
 <strong>pipeline</strong> which is the highest unit of work with its inputs and outputs. The input object
 of one pipeline is called a <strong>material</strong> and it can be either a version control resource
 (Git, Gerrit, Subversion, Mercurial) or an output from another pipeline. The output of a
@@ -117,7 +117,7 @@ success or manually. Within each stage, jobs are parallel. The outcome of a stag
 as failure if at least one job fails. Again, tasks within each job are also sequential.</p>
 
 <p>After installing Go server and client there is no need for an extensive configuration.
-However, it is recommended to create a separate partition on a computer's hard disk for
+However, it is recommended to create a separate partition on a computer’s hard disk for
 Go server artifacts (artifacts can grow over time and problems may occur). In server
 configuration, there is also an admin tab for URL configuration. We needed to get feedback
 on failing builds, so we integrated Go with LDAP so each user of Go had an email and could
@@ -140,7 +140,7 @@ manually (for example for building on production environment).</p>
 <p>Multiple pipeline dependency is called <strong>fan-in</strong> and it ensures that pipeline is triggered
 only when all upstream dependencies finish. Upstream dependencies consist of other
 pipelines or version control which make them powerful. If you have a client server
-application and have functional tests on the client's side, which depend on the server
+application and have functional tests on the client’s side, which depend on the server
 being updated, you can make a client functional test pipeline which will trigger on commit
 on client and successful build and deploy of server side.</p>
 
@@ -178,7 +178,7 @@ problems which we posted on StackOverflow and usually got answers pretty quickly
 We are using <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests">Gerrit/Github plugin</a>
 to notify Github PR on failed or passed build which is being actively developed.
 New releases are pushed frequently. Documentation is great, especially API documentation.
-It's our pleasure to use such a great UI and a couple of nice advanced features.
+It’s our pleasure to use such a great UI and a couple of nice advanced features.
 You have a possibility to model your pipeline in a great variety of ways.
 There are some features missing but we in <a href="https://www.smartcat.io/">SmartCat</a> are all
 about open source so, in the future, we will try to help this project and start contributing.</p>
@@ -259,7 +259,7 @@ Nenad and SmartCat team on their <a href="https://www.smartcat.io/">website</a>.
       </li>
       <li>
         <a href="https://github.com/gocd/gocd" target="_blank" analytics-label="github">
-          <i class="icon fa fa-github fa-4x watch-us" aria-hidden="true"></i>
+          <i class="icon fa-brands fa-github fa-4x watch-us" aria-hidden="true"></i>
           <span>watch us</span>
         </a>
       </li>
