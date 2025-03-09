@@ -10,9 +10,6 @@ permissions:
   id-token: write
   contents: write
 
-env:
-  RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
-
 jobs:
   build_and_release:
     runs-on: ubuntu-latest
@@ -26,7 +23,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: false # true would run bundle install
+          bundler-cache: true
       - name: Set up user in git config
         run: |
           git config --global user.name "${USER}"
@@ -38,8 +35,6 @@ jobs:
           aws-region: "${{ secrets.AWS_REGION }}"
       - name: Set up upstream and publish to gh pages
         run: |
-          bundle config --local build.sassc --disable-march-tune-native
-          bundle install
           git remote add real https://${USER}:${TOKEN}@github.com/gocd/www.go.cd.git
           bundle exec rake publish --trace
         env:

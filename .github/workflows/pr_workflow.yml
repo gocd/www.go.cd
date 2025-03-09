@@ -5,37 +5,19 @@ name: Testing For PRs
 on: [ pull_request ]
 
 env:
-  RUBYOPT: -W0 # needed to not print the warnings - makes the logs too big
   RUN_EXTERNAL_CHECKS: true
 
 jobs:
-  build_and_push_to_preview:
+  complete_build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true # would run bundle install
-      - name: Set up user in git config
-        env:
-          USER: "${{ secrets.GH_PREVIEW_WRITE_USER }}"
-        run: |
-          git config --global user.name "${USER}"
-          git config --global user.email "${USER}@github.com"
+          bundler-cache: true
       - name: Run the build
         run: bundle exec rake build --verbose
       - name: Build failed
         if: ${{ failure() }}
         run: bundle exec middleman build --verbose
-      - name: Push to preview
-        run: |
-          export PR_NO=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          git clone --depth=1 --branch=gh-pages "https://${USER}:${TOKEN}@github.com/gocd/pr-review.gocd.org" website
-          rm -rf website/pr-${PR_NO}
-          mv build website/pr-${PR_NO}
-          cd website && git config core.filemode false && git add -A .
-          git commit -m "Update website to ${PR_NO}" && git push
-        env:
-          USER: "${{ secrets.GH_PREVIEW_WRITE_USER }}"
-          TOKEN: "${{ secrets.GH_PREVIEW_WRITE_USER_ACCESS_TOKEN }}"
