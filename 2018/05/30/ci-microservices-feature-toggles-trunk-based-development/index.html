@@ -15,7 +15,7 @@
 
     <title>Continuous Delivery of Microservices - Trunk Based Development and Feature Toggles | GoCD Blog</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <link href="../../../../assets/stylesheets/site-114ae394.css" rel="stylesheet" />
     <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
@@ -74,7 +74,7 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>This is the third post in the series - <a href="https://www.gocd.org/tags/cd-for-microservices.html">CD of Microservices</a>. In the <a href="https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy/">previous post</a>, we talked about testing strategy for building CD pipelines on microservices architecture. In this post, we’ll get deep into CI practices.</p>
+<p>This is the third post in the series - <a href="../../../../tags/cd-for-microservices.html">Continuous Delivery for Microservices</a>. <a href="../../08/continuous-delivery-microservices-test-strategy.html">In the previous post</a>, we talked about testing strategy for building CD pipelines on microservices architecture. In this post, we’ll get deep into CI practices.</p>
 
 <h2 id="continuous-integration">Continuous integration</h2>
 
@@ -88,7 +88,7 @@
 
 <p><img src="../../../../assets/images/blog/cd-considerations/trunk-based-development-6995662e.png" alt="Trunk Based Development - TBD" /></p>
 
-<p>This is contrary to the practice of maintaining long-lived feature and release branches. In a branching model, though you may be running builds on individual branches, arguably <a href="https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre/">you aren’t doing continuous integration</a>. In trunk based development, you should never find your trunk in a state where your CD process is unable to deploy. All code should be checked into trunk, built and tested constantly, and the codebase deployable on demand: all of this make CD a reality.</p>
+<p>This is contrary to the practice of maintaining long-lived feature and release branches. In a branching model, though you may be running builds on individual branches, arguably <a href="../../../../2017/05/16/its-not-ci-its-ci-theatre.html">you aren’t doing continuous integration</a>. In trunk based development, you should never find your trunk in a state where your CD process is unable to deploy. All code should be checked into trunk, built and tested constantly, and the codebase deployable on demand: all of this make CD a reality.</p>
 
 <p>TBD results in much simpler CD workflows: you don’t have to build multiple branches in parallel, map branches to environments and re-test when the same features get merged to trunk. Simplifying workflows is very important in the context of microservices, as the complexity is exasperated as the number of microservices grows.</p>
 

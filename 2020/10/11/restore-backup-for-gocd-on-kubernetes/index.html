@@ -15,7 +15,7 @@
 
     <title>Restore Backup for GoCD on Kubernetes</title>
     <link href="../../../../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../../../../assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <link href="../../../../assets/stylesheets/site-114ae394.css" rel="stylesheet" />
     <script src="../../../../assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../../../../feed.xml" />
@@ -73,11 +73,11 @@
 
       <main id="main" role="main" class="blog-post-main-container">
       
-<p>We must have backup zip before attempting to restore. Or else make sure to download and have the backup zip in local. So, how to Backup? Refer to <a href="https://www.gocd.org/2020/10/11/perform-backup-for-gocd-on-kubernetes/">Perform Backup for GoCD on Kubernetes</a>.</p>
+<p>We must have backup zip before attempting to restore. Or else make sure to download and have the backup zip in local. So, how to Backup? Refer to <a href="../perform-backup-for-gocd-on-kubernetes.html">Perform Backup for GoCD on Kubernetes</a>.</p>
 
 <p>The steps to restore backup are similar as mentioned in <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">Backup GoCD Server</a>.</p>
 
-<p>But some complications arise when performing the same when GoCD is running on kubernetes, it is because of the latest release that incorporated additional security layer to run as <a href="https://www.gocd.org/2019/06/25/GoCD-non-root-containers">non root user in GoCD server</a>. Because of this it is not possible to directly exec into GoCD server pod and change the files.</p>
+<p>But some complications arise when performing the same when GoCD is running on kubernetes, it is because of the latest release that incorporated additional security layer to run as <a href="../../../../2019/06/25/gocd-non-root-containers.html">non root user in GoCD server</a>. Because of this it is not possible to directly exec into GoCD server pod and change the files.</p>
 
 <hr />
 

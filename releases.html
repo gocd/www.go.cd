@@ -15,7 +15,7 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="assets/stylesheets/site-b74ed705.css" rel="stylesheet" />
+    <link href="assets/stylesheets/site-114ae394.css" rel="stylesheet" />
     <script src="assets/javascripts/all-bd5900b4.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
@@ -2276,7 +2276,7 @@ This is useful in cases where a downstream pipeline has multiple materials and w
         <div class="content">
           <h4>Support for Java 8 and 10 removed</h4>
 
-<p>Support for Java 8 and 10 has been dropped from this release. This is in line with our <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">official stance on Java</a> we announced earlier this year post the Java Licensing Changes.</p>
+<p>Support for Java 8 and 10 has been dropped from this release. This is in line with our <a href="2019/05/21/official-stance-on-java.html">official stance on Java</a> we announced earlier this year post the Java Licensing Changes.</p>
 
 <p>Starting 19.9.0, GoCD Server and Agent would only support Java 11 or 12. Support for Java 13 will be introduced soon. GoCD installers from 19.6.0 come with Java Runtime pre-bundled, so users no longer need to install it separately.</p>
 
@@ -2345,7 +2345,7 @@ This is useful in cases where a downstream pipeline has multiple materials and w
 <h4>Java 8 and 10 deprecation</h4>
 
 <p>Support for Java 8 and 10 will be removed in the next release of GoCD. GoCD installers come with Java Runtime pre-bundled, so users no longer need to install it separately.
-The removal of Java versions is in line with the Java Licensing Changes we had announced earlier this year in this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blog post</a>.</p>
+The removal of Java versions is in line with the Java Licensing Changes we had announced earlier this year in this <a href="2019/05/21/official-stance-on-java.html">blog post</a>.</p>
 
 <h4>Other Improvements</h4>
 
@@ -2497,7 +2497,7 @@ The removal of Java versions is in line with the Java Licensing Changes we had a
 
 <h4>Running Dockerized GoCD Containers as Non Root</h4>
 
-<p>Starting from this release, GoCD containers run as non-root user, by default. The Dockerized GoCD application will run as <code>go:root</code> (<code>uid:1000</code>, <code>gid:0</code>) user instead of running as <code>root:root</code> (<code>uid:0</code>, <code>gid:0</code>). For more information, checkout <a href="https://www.gocd.org/2019/06/25/GoCD-non-root-containers/">Running Dockerized GoCD Containers as Non Root</a> blog post.</p>
+<p>Starting from this release, GoCD containers run as non-root user, by default. The Dockerized GoCD application will run as <code>go:root</code> (<code>uid:1000</code>, <code>gid:0</code>) user instead of running as <code>root:root</code> (<code>uid:0</code>, <code>gid:0</code>). For more information, checkout the <a href="2019/06/25/gocd-non-root-containers.html">Running Dockerized GoCD Containers as Non Root</a> blog post.</p>
 
 <h4>Simpler HTTP authentication for agent-server communication</h4>
 
@@ -2632,7 +2632,7 @@ To enable token-based auth, set the environment variable <code>GO_USE_TOKEN_AUTH
   <li>Java 12</li>
 </ul>
 
-<p>Please refer to this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blog post</a> for GoCD official stance on supported Java versions.</p>
+<p>Please refer to this <a href="2019/05/21/official-stance-on-java.html">blog post</a> for GoCD official stance on supported Java versions.</p>
 
 <h4>Deprecations</h4>
 
@@ -2688,7 +2688,7 @@ To enable token-based auth, set the environment variable <code>GO_USE_TOKEN_AUTH
 
 <p>Starting this release, GoCD has now added support for Java 12. All the docker images and installers for Windows and OSX are bundled with a supported version of Java (not necessarily 12).</p>
 
-<p>Please refer to this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blog post</a> for our official stance on supported Java versions going forward.</p>
+<p>Please refer to this <a href="2019/05/21/official-stance-on-java.html">blog post</a> for our official stance on supported Java versions going forward.</p>
 
 <h4>Versions of Java this release of GoCD works with</h4>
 
@@ -6731,8 +6731,8 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 </figure>
 <h5>Authentication end-point</h5>
 <p>
-  With the newly exposed authentication end-point, Go users can now add custom authentication schemes through plugins. Read the <a href="https://www.gocd.org/2015/06/18/authentication-end-point.html">blog
-    post</a> for details.
+  With the newly exposed authentication end-point, Go users can now add custom authentication schemes through plugins. Read the <a href="2015/06/18/authentication-end-point.html">blog post</a>
+  for details.
 </p>
 <figure class="extra_small_image">
   <img src="assets/images/blog/authentication-plugins/login-page-b00e9881.png" title="GoCD Login Page with GitHub icon" alt="GoCD Login Page with Git Hub icon" />
@@ -6757,7 +6757,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
 <h4>Other notable features</h4>
 <ul>
   <li> <a href="https://github.com/gocd/gocd/issues/194">#194</a> - Allow secure variables (environment) on environments, stages and jobs. </li>
-  <li> <a href="https://github.com/gocd/gocd/issues/1121">#1121</a> - Ability for plugins to <a href="https://www.gocd.org/2015/06/18/plugin-settings.html">CRUD global configuration</a>. </li>
+  <li> <a href="https://github.com/gocd/gocd/issues/1121">#1121</a> - Ability for plugins to <a href="2015/06/18/plugin-settings.html">CRUD global configuration</a>. </li>
   <li><a href="https://github.com/gocd/gocd/issues/958">#958</a> - API method for renaming agent.</li>
   <li><a href="https://github.com/gocd/gocd/issues/264">#264</a> - Agent API to assign resource.</li>
   <li><a href="https://github.com/gocd/gocd/pull/1261">#1261</a> - Port over Users API.</li>
@@ -6804,7 +6804,7 @@ GoCD will continue to support Java 7 till release 17.1 scheduled for January 201
   You can see all the SCM material plugins on the <a href="https://www.gocd.org/plugins/">Go Community plugins</a>. See how to write one, <a href="https://docs.gocd.org/current/extension_points/scm_extension.html">here</a>.
 </p>
 <p>
-  Here's how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="https://www.gocd.org/2015/04/27/Feature-Branch-Support.html">blog post</a>. Watch out for more improvements in the UI around this area.
+  Here's how the GitHub pull requests plugin looks in action (below). Read more about it in this <a href="2015/04/27/feature-branch-support.html">blog post</a>. Watch out for more improvements in the UI around this area.
 </p>
 <figure class="small_image">
   <img src="assets/images/releases/15.1/15_1_github_pr-4d2a6ba4.png" title="GitHub Pull Request with GitHub poller and notification plugins" alt="GitHub Pull Request with GitHub poller and notification plugins" />
