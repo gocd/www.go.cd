@@ -84,11 +84,6 @@ end
 activate :directory_indexes
 activate :fallback_for_directory_indexes
 
-configure :development do
-  # Reload the browser automatically whenever files change
-  activate :livereload
-end
-
 REDIRECTS.each do |from, to|
   proxy from, "/redirect.template.html", :locals => { :redirect_to => to }, :ignore => true
 end

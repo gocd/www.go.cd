@@ -80,13 +80,9 @@ GEM
     contracts (0.17.2)
     dotenv (3.1.7)
     drb (2.2.1)
-    em-websocket (0.5.3)
-      eventmachine (>= 0.12.9)
-      http_parser.rb (~> 0)
     erubi (1.13.1)
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    eventmachine (1.2.7)
     excon (1.2.5)
       logger
     execjs (2.10.0)
@@ -144,8 +140,6 @@ GEM
       typhoeus (~> 1.3)
       yell (~> 2.0)
       zeitwerk (~> 2.5)
-    htmlentities (4.3.4)
-    http_parser.rb (0.8.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-event (1.9.0)
@@ -201,10 +195,6 @@ GEM
       webrick
     middleman-gh-pages (0.4.1)
       rake (> 0.9.3)
-    middleman-livereload (3.4.7)
-      em-websocket (~> 0.5.1)
-      middleman-core (>= 3.3)
-      rack-livereload (~> 0.3.15)
     middleman-sprockets (4.1.1)
       middleman-core (~> 4.0)
       sprockets (>= 3.0)
@@ -238,8 +228,6 @@ GEM
     public_suffix (6.0.1)
     racc (1.8.1)
     rack (3.1.11)
-    rack-livereload (0.3.17)
-      rack
     rackup (2.2.1)
       rack (>= 3)
     rainbow (3.1.1)
@@ -296,12 +284,10 @@ DEPENDENCIES
   builder
   font-awesome-sass
   html-proofer
-  htmlentities
   middleman
   middleman-autoprefixer
   middleman-blog
   middleman-gh-pages
-  middleman-livereload
   middleman-s3_sync!
   middleman-sprockets
   mime-types
