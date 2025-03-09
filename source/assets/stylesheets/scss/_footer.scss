@@ -8,7 +8,7 @@ footer {
         padding: 10px 0;
         position: relative;
         overflow: hidden;
-        @media (min-width: 320px) and(max-width: $screen-lg-min) {
+        @media (min-width: 320px) and (max-width: $screen-lg-min) {
             padding: 0;
         }
         ul {
