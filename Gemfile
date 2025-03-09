@@ -3,11 +3,10 @@ ruby '~> 3.4'
 
 # Middleman Gems
 gem 'middleman'
-gem 'mutex_m'
 gem 'sassc', github: 'sass/sassc-ruby', ref: 'refs/pull/233/head'
 gem 'sassc-embedded'
 gem 'middleman-livereload'
-gem 'middleman-blog', '4.0.1'
+gem 'middleman-blog'
 gem 'middleman-gh-pages'
 gem 'middleman-s3_sync', github: 'fredjean/middleman-s3_sync', ref: 'master'
 gem 'rake'

@@ -1,16 +1,6 @@
 require File.expand_path('../lib/extensions/fallback_for_directory_indexes', __FILE__)
 require File.expand_path('../lib/helpers/gocd_helpers', __FILE__)
 
-# Temporary monkey-patch to force use of unsafe YAML load with Ruby 3.1. This is required because  Middleman 4.4.2's
-# Middleman::Util::Data does not currently define necessary permitted_classes to allow yaml to load
-# as https://github.com/middleman/middleman/commit/f9f92dd52b11f922c055e1e6c352e0f997bcc7e4#diff-53e56e0b3ba9fbec173135ae691c6892a94ef9838534e4662c9d983f1214f97f
-# has not been released. Easiest way here is to fall back to Ruby 2.7.x behaviour (Psych 3.3.x) and unsafe load.
-module ::YAML
-  class << self
-    alias_method :load, :unsafe_load
-  end
-end
-
 helpers GoCDHelpers
 
 page '/*.xml', layout: false
@@ -25,12 +15,12 @@ set :deploy_environment, deploy_environment
 set :js_dir, "assets/javascripts"
 set :css_dir, "assets/stylesheets"
 set :images_dir, "assets/images"
+set :fonts_dir,  "assets/vendor/fonts"
 
 set :relative_links, true
 
 REDIRECTS = {
   "2014/02/25/go-is-now-open-source.html"       => "/2014/02/25/go-moving-to-open-source/index.html",
-  "2014/10/09/Distrubuted-Test-Execution.html"  => "/2014/10/09/Distributed-Test-Execution/index.html",
   "2017/04/11/gocd-over-jenkins.html"           => "/2017/04/25/gocd-over-jenkins/index.html",
   "community/resources/index.html"              => "/resources/index.html",
   "community/plugins/index.html"                => "/plugins/index.html",
@@ -66,8 +56,20 @@ REDIRECTS = {
   "thoughtworks-support-services-general-terms" => "/enterprise/thoughtworks-support-services-general-terms.html"
 }
 
-#To ignore HtmlCheck for URL's with &, update file_ignore options in lib/tasks/static_checks.rake
-activate :sprockets
+activate :sprockets do |config|
+  # No idea why this is needed or helps fix sass imports, but it did... https://github.com/middleman/middleman-sprockets/issues/127#issuecomment-736958140
+  config.supported_output_extensions = ['.js']
+end
+
+# These old libraries don't seem to be able to play nicely with sprockets v4 and sassc. Someone is responsible for getting
+# them on the load path, but it is not working. Until we can move to a modern sass pipeline, let's get them in there.
+for gem in %w(font-awesome-sass bootstrap-sass)
+  ::SassC.load_paths << File.join(Gem::Specification.find_by_name(gem).full_gem_path, 'assets', 'stylesheets')
+end
+
+for gem in %w(bourbon neat)
+  ::SassC.load_paths << File.join(Gem::Specification.find_by_name(gem).full_gem_path, 'core')
+end
 
 activate :autoprefixer
 activate :relative_assets
