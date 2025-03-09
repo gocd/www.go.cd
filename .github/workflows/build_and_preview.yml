@@ -11,9 +11,6 @@ permissions:
   id-token: write
   contents: read
 
-env:
-  RUN_EXTERNAL_CHECKS: true
-
 jobs:
   complete_build:
     runs-on: ubuntu-latest
@@ -24,10 +21,15 @@ jobs:
         with:
           bundler-cache: true
       - name: Run the build
+        env:
+          RUN_EXTERNAL_CHECKS: true
         run: bundle exec rake build --verbose
   push_to_gh_pages:
     needs: complete_build
     runs-on: ubuntu-latest
+    env:
+      USER: "${{ secrets.GH_PREVIEW_WRITE_USER }}"
+      TOKEN: "${{ secrets.GH_PREVIEW_WRITE_USER_ACCESS_TOKEN }}"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,8 +39,6 @@ jobs:
         with:
           bundler-cache: true
       - name: Set up user in git config
-        env:
-          USER: "${{ secrets.GH_PREVIEW_WRITE_USER }}"
         run: |
           git config --global user.name "${USER}"
           git config --global user.email "${USER}@github.com"
@@ -48,15 +48,13 @@ jobs:
           role-to-assume: "${{ secrets.PREVIEW_AWS_ROLE_TO_ASSUME }}"
           aws-region: "${{ secrets.AWS_REGION }}"
       - name: Set up upstream and publish to gh pages
-        run: |
-          git remote add preview https://${USER}:${TOKEN}@github.com/gocd/preview.go.cd.git
-          bundle exec rake publish --trace
         env:
-          USER: "${{ secrets.GH_PREVIEW_WRITE_USER }}"
-          TOKEN: "${{ secrets.GH_PREVIEW_WRITE_USER_ACCESS_TOKEN }}"
           REMOTE_NAME: "preview"
           ALLOW_DIRTY: true
           BASE_URL: 'https://preview.gocd.org'
           DEPLOY_ENVIRONMENT: 'preview'
           AWS_BUCKET: "${{ secrets.PREVIEW_AWS_BUCKET }}"
           RUN_EXTERNAL_CHECKS: false
+        run: |
+          git remote add preview https://${USER}:${TOKEN}@github.com/gocd/preview.go.cd.git
+          bundle exec rake publish --trace

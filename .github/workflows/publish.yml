@@ -34,9 +34,6 @@ jobs:
           role-to-assume: "${{ secrets.AWS_ROLE_TO_ASSUME }}"
           aws-region: "${{ secrets.AWS_REGION }}"
       - name: Set up upstream and publish to gh pages
-        run: |
-          git remote add real https://${USER}:${TOKEN}@github.com/gocd/www.go.cd.git
-          bundle exec rake publish --trace
         env:
           REMOTE_NAME: "real"
           ALLOW_DIRTY: true
@@ -44,3 +41,6 @@ jobs:
           DEPLOY_ENVIRONMENT: 'live'
           AWS_BUCKET: "${{ secrets.AWS_BUCKET }}"
           RUN_EXTERNAL_CHECKS: false
+        run: |
+          git remote add real https://${USER}:${TOKEN}@github.com/gocd/www.go.cd.git
+          bundle exec rake publish --trace

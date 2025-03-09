@@ -4,9 +4,6 @@ name: Testing For PRs
 
 on: [ pull_request ]
 
-env:
-  RUN_EXTERNAL_CHECKS: true
-
 jobs:
   complete_build:
     runs-on: ubuntu-latest
@@ -17,7 +14,11 @@ jobs:
         with:
           bundler-cache: true
       - name: Run the build
+        env:
+          RUN_EXTERNAL_CHECKS: true
         run: bundle exec rake build --verbose
       - name: Build failed
         if: ${{ failure() }}
+        env:
+          RUN_EXTERNAL_CHECKS: true
         run: bundle exec middleman build --verbose
