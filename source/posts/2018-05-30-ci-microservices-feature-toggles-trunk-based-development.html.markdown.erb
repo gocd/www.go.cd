@@ -16,7 +16,7 @@ tags: CD for Microservices
   </figure>
 <% end %>
 
-This is the third post in the series - [CD of Microservices](https://www.gocd.org/tags/cd-for-microservices.html). In the [previous post](https://www.gocd.org/2018/05/08/continuous-delivery-microservices-test-strategy/), we talked about testing strategy for building CD pipelines on microservices architecture. In this post, we’ll get deep into CI practices.
+This is the third post in the series - <%= link_to 'Continuous Delivery for Microservices', '/tags/cd-for-microservices.html' %>. <%= link_to 'In the previous post', '/posts/2018-05-08-continuous-delivery-microservices-test-strategy.html' %>, we talked about testing strategy for building CD pipelines on microservices architecture. In this post, we’ll get deep into CI practices.
 
 ##Continuous integration
 
@@ -31,7 +31,7 @@ In trunk based development (TBD), developers collaborate on code in a single bra
 
 <img src="/assets/images/blog/cd-considerations/trunk-based-development.png" alt="Trunk Based Development - TBD"/>
 
-This is contrary to the practice of maintaining long-lived feature and release branches. In a branching model, though you may be running builds on individual branches, arguably [you aren’t doing continuous integration](https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre/). In trunk based development, you should never find your trunk in a state where your CD process is unable to deploy. All code should be checked into trunk, built and tested constantly, and the codebase deployable on demand: all of this make CD a reality.
+This is contrary to the practice of maintaining long-lived feature and release branches. In a branching model, though you may be running builds on individual branches, arguably <%= link_to 'you aren’t doing continuous integration', '/posts/2017-05-16-its-not-ci-its-ci-theatre.html' %>. In trunk based development, you should never find your trunk in a state where your CD process is unable to deploy. All code should be checked into trunk, built and tested constantly, and the codebase deployable on demand: all of this make CD a reality.
 
 TBD results in much simpler CD workflows: you don’t have to build multiple branches in parallel, map branches to environments and re-test when the same features get merged to trunk. Simplifying workflows is very important in the context of microservices, as the complexity is exasperated as the number of microservices grows. 
 

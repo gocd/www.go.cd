@@ -57,7 +57,7 @@ You have to supplement traditional testing techniques with techniques like synth
 
 Continuous integration is a key practice in a successful continuous delivery strategy. Apart from the obvious considerations around build servers and build definitions, [trunk based development](https://trunkbaseddevelopment.com) and [feature toggles](https://martinfowler.com/articles/feature-toggles.html) are two key practices that go a long way in implementing a simple and robust CI process.
 
-In trunk based development, developers collaborate on code in a single branch called “trunk.” The key benefit is to avoid drift in development branches and the resulting merge hell. This is contrary to the practice of maintaining long-lived feature and release branches. In a branching model, though you may be running builds on individual branches, arguably [you aren’t doing continuous integration](https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html).
+In trunk based development, developers collaborate on code in a single branch called “trunk.” The key benefit is to avoid drift in development branches and the resulting merge hell. This is contrary to the practice of maintaining long-lived feature and release branches. In a branching model, though you may be running builds on individual branches, arguably <%= link_to 'you aren’t doing continuous integration', '/posts/2017-05-16-its-not-ci-its-ci-theatre.html' %>.
 
 To do trunk based development, you need to have controls called feature toggles. Feature toggles enable multiple commits of a combination of WIP and completed features. With these toggles, you can turn off the manifestation of incomplete features in production, until the features are dev complete and testing sufficiently in pre-production environments. Feature toggles are usually stored in a specification or configuration file close to the codebase and used by automation in the CD pipeline to turn toggles on in specific environments.
 
@@ -85,7 +85,7 @@ And lastly, secrets like certificates need a governance process to ensure they a
 
 In microservices systems, multiple services get updated frequently, how do you respond when a deployment of a service introduces instability or bugs?
 
-Roll forward, which means finding the root cause of a failure and applying the fix as soon as possible, is most times the best remediation response. A prerequisite for being able to do this is to ensure you have the capability to release from a [hot fix branch](https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward/) straight to production. You may not want a fix to a production outage to go through the CD pipeline, depending on the time it takes for a change to make it through the pipeline.
+Roll forward, which means finding the root cause of a failure and applying the fix as soon as possible, is most times the best remediation response. A prerequisite for being able to do this is to ensure you have the capability to release from a <%= link_to 'hot fix branch', '/posts/2017-06-20-hotfixes-rollback-rollforward.html' %> straight to production. You may not want a fix to a production outage to go through the CD pipeline, depending on the time it takes for a change to make it through the pipeline.
 
 <img src="/assets/images/blog/cd-considerations/hotfix-process.jpeg" alt="Hotfix process"/>
 

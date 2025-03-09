@@ -16,7 +16,7 @@ tags: CD for Microservices
   </figure>
 <% end %>
 
-This is the second post in the series - [Continuous Delivery for Microservices](https://www.gocd.org/tags/cd-for-microservices.html). [In my previous post](https://www.gocd.org/2018/04/25/five-considerations-continuous-delivery-microservices/), I gave an overview of five considerations for building CD pipelines on a microservices architecture. In this post, we’ll get deeper into test strategy.
+This is the second post in the series - <%= link_to 'Continuous Delivery for Microservices', '/tags/cd-for-microservices.html' %>. <%= link_to "In my previous post", '/posts/2018-04-25-five-considerations-continuous-delivery-microservices.html' %>, I gave an overview of five considerations for building CD pipelines on a microservices architecture. In this post, we’ll get deeper into test strategy.
 
 ## Test Strategy 
 
@@ -55,12 +55,12 @@ There is a category of testing in production called [fault-injection](https://en
 A variation of in-production testing are some specific deployment strategies that are popular in these environments: 
 
 **Canary deployment**<br/>
-[Canary deployment](https://www.gocd.org/2017/08/15/canary-releases/) is where you take a new release and release it to a certain subsection of your production infrastructure, see how well that goes, and keep increasing the footprint of the new service until the time you completely roll it out. If you face issues, you can start rolling back the new version of your service.
+<%= link_to 'Canary deployment', '/posts/2017-08-15-canary-releases.html' %> is where you take a new release and release it to a certain subsection of your production infrastructure, see how well that goes, and keep increasing the footprint of the new service until the time you completely roll it out. If you face issues, you can start rolling back the new version of your service.
 
 <img src="/assets/images/blog/continuous-deployment-strategies/canary-release.jpeg" alt="Canary deployments"/>
 
 **Blue-Green deployment**<br/>
-[Blue-green deployments](https://www.gocd.org/2017/07/25/blue-green-deployments/) are similar, where you have a new footprint of your new service, and then you do some testing and route some traffic through it. If everything is fine, you switch over all of your traffic to the new instance of services, otherwise, you keep the old footprint going.
+<%= link_to 'Blue-green deployments', '/posts/2017-07-25-blue-green-deployments.html' %> are similar, where you have a new footprint of your new service, and then you do some testing and route some traffic through it. If everything is fine, you switch over all of your traffic to the new instance of services, otherwise, you keep the old footprint going.
 
 <img src="/assets/images/blog/continuous-deployment-strategies/blue-green-deployments.jpeg" alt="Blue green deployments"/>
 
@@ -69,4 +69,4 @@ Another interesting variation of this kind of testing is multivariate testing, w
 
 ## Summary
 
-This is part 2 of our [Continuous Delivery for Microservices](https://www.gocd.org/tags/cd-for-microservices.html) blog series. We have talked in depth about testing strategies for microservices, which include how to apply traditional testing pyramids to pre-production testing for microservices and also new techniques for production monitoring and testing. In my next post, we will talk about the second consideration: CI practices for microservices systems. 
+This is part 2 of our <%= link_to 'Continuous Delivery for Microservices', '/tags/cd-for-microservices.html' %> blog series. We have talked in depth about testing strategies for microservices, which include how to apply traditional testing pyramids to pre-production testing for microservices and also new techniques for production monitoring and testing. In my next post, we will talk about the second consideration: CI practices for microservices systems.

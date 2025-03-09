@@ -48,7 +48,7 @@ Here’s Jez Humble's definition of continuous delivery from his book:
 
 > **_"Continuous delivery is the ability to get all kinds of changes, configuration codes, features, bug fixes, infrastructure, everything into the hands of users safely, quickly and in a reliable manner."_** 
 
-In practice, what it comes down to is [feedback loops](https://www.gocd.org/2016/03/15/are-you-ready-for-continuous-delivery-part-2-feedback-loops/). Your check-ins trigger automation tests that run and give you feedback. At any step, if you see  any failures, you need to know why, and once that goes green, then you move on to other kind of tests, e.g. performance tests, security tests. Each of this is a feedback loop. It could be manual or automated, but the idea is to go from test-to-test, getting more and more confidence as you go towards production. So when you actually deploy into production, you're assured that it's going to work. 
+In practice, what it comes down to is <%= link_to "feedback loops", '/posts/2016-03-15-are-you-ready-for-continuous-delivery-part-2-feedback-loops.html' %>. Your check-ins trigger automation tests that run and give you feedback. At any step, if you see  any failures, you need to know why, and once that goes green, then you move on to other kind of tests, e.g. performance tests, security tests. Each of this is a feedback loop. It could be manual or automated, but the idea is to go from test-to-test, getting more and more confidence as you go towards production. So when you actually deploy into production, you're assured that it's going to work.
 
 <img src="/assets/images/blog/cd-confessions-mingle/feedback-loops.png" alt="Feedback Loops"/>
 

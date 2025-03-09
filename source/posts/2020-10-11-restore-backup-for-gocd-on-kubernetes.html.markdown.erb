@@ -16,12 +16,12 @@ meta_keywords: "gocd, kubernetes, k8s, continuous delivery, ci cd, terraform, he
   </figure>
 <% end %>
 
-We must have backup zip before attempting to restore. Or else make sure to download and have the backup zip in local. So, how to Backup? Refer to [Perform Backup for GoCD on Kubernetes](https://www.gocd.org/2020/10/11/perform-backup-for-gocd-on-kubernetes/).
+We must have backup zip before attempting to restore. Or else make sure to download and have the backup zip in local. So, how to Backup? Refer to <%= link_to 'Perform Backup for GoCD on Kubernetes', '/posts/2020-10-11-perform-backup-for-gocd-on-kubernetes.html' %>.
 
 
 The steps to restore backup are similar as mentioned in [Backup GoCD Server](https://docs.gocd.org/current/advanced_usage/one_click_backup.html).
 
-But some complications arise when performing the same when GoCD is running on kubernetes, it is because of the latest release that incorporated additional security layer to run as [non root user in GoCD server](https://www.gocd.org/2019/06/25/GoCD-non-root-containers). Because of this it is not possible to directly exec into GoCD server pod and change the files.
+But some complications arise when performing the same when GoCD is running on kubernetes, it is because of the latest release that incorporated additional security layer to run as <%= link_to "non root user in GoCD server", '/posts/2019-06-25-gocd-non-root-containers.html' %>. Because of this it is not possible to directly exec into GoCD server pod and change the files.
 
 ---------------------------
 

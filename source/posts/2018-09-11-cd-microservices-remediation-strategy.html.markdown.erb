@@ -17,7 +17,7 @@ tags: CD for Microservices
 <% end %>
 
 
-This is the final post in the series - [Continuous Delivery of Microservices](https://www.gocd.org/tags/cd-for-microservices.html). In the [previous post](https://www.gocd.org/2018/07/31/cd-microservices-configuration-strategy/), we talked about configuration strategy for your CD pipeline. In this post, we’ll discuss remediation strategies when something goes wrong.
+This is the final post in the series - <%= link_to 'Continuous Delivery of Microservices', '/tags/cd-for-microservices.html' %>. In the <%= link_to 'previous post', '/posts/2018-07-31-cd-microservices-configuration-strategy.html' %>, we talked about configuration strategy for your CD pipeline. In this post, we’ll discuss remediation strategies when something goes wrong.
 
 ##Introduction
 
@@ -29,7 +29,7 @@ Roll forward is an emergency fix strategy: you introduced an issue, you find the
 
 <img src="/assets/images/blog/cd-considerations/hotfix-process.jpeg" alt="Hotfix process"/>
 
-A prerequisite for roll forward is to ensure you have a comprehensive [hotfix process](https://www.gocd.org/2017/06/20/hotfixes-rollback-rollforward/) already in place, so that you can bypass the CD pipeline to push changes from a hotfix branch directly to production. It is not uncommon to see a hotfix environment where these changes are deployed and tested before deploying to production. 
+A prerequisite for roll forward is to ensure you have a comprehensive <%= link_to 'hotfix process', '/posts/2017-06-20-hotfixes-rollback-rollforward.html' %> already in place, so that you can bypass the CD pipeline to push changes from a hotfix branch directly to production. It is not uncommon to see a hotfix environment where these changes are deployed and tested before deploying to production.
 
 ##Rollbacks and database refactoring
 

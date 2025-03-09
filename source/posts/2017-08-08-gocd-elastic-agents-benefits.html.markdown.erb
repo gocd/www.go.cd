@@ -21,7 +21,7 @@ This post is about the GoCD team’s journey in building elastic agents, our exp
 
 GoCD operates on a server-agent model where a server communicates with many agents. The server is responsible for orchestrating various stages, jobs and tasks on the agents. The agents are responsible for their execution in the deployment pipeline. 
 
-Oftentimes it makes sense to [parallelize](https://www.gocd.org/2017/03/01/importance-and-principles-of-cd-pipelines/#principle-parallelize), to speed up build and test execution, get feedback quickly and deploy rapidly. 
+Oftentimes it makes sense to <%= link_to 'parallelize', '/posts/2017-03-01-importance-and-principles-of-cd-pipelines.html#principle-parallelize' %>, to speed up build and test execution, get feedback quickly and deploy rapidly.
 
 <%= image_tag 'blog/elastic-agents/parallelize.jpeg', :alt => 'Parallelize Workflow', :title => 'Parallelize Workflow' %>
 
