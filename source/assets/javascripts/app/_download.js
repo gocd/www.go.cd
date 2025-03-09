@@ -159,7 +159,7 @@ var showDownloadLinks = (function ($) {
         $("#download-revisions-template").html()
       );
 
-      const assocDockerOrg = function (val) {
+      var assocDockerOrg = function (val) {
         return R.assoc('docker_org', settings.docker_org, val);
       };
       // adding the docker organisation

@@ -32,7 +32,7 @@ var startTabContainer = (function ($) {
 })(jQuery);
 
 var switchActiveTab = function (tabIdentifier) {
-  const newTabContent = $(".tab_content#tab-" + tabIdentifier);
+  var newTabContent = $(".tab_content#tab-" + tabIdentifier);
   if (newTabContent.size() === 0) {
     return;
   }
