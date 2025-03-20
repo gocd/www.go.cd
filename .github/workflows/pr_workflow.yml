@@ -4,6 +4,9 @@ name: Testing For PRs
 
 on: [ pull_request ]
 
+concurrency:
+  group: ${{ github.workflow }}
+
 jobs:
   complete_build:
     runs-on: ubuntu-latest
