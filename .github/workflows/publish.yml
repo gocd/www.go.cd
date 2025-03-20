@@ -38,7 +38,7 @@ jobs:
         with:
           role-to-assume: "${{ secrets.AWS_ROLE_TO_ASSUME }}"
           aws-region: "${{ secrets.AWS_REGION }}"
-      - name: Set up upstream and publish to gh pages
+      - name: Set up upstream and publish to production gh pages + S3
         env:
           REMOTE_NAME: "real"
           ALLOW_DIRTY: true
