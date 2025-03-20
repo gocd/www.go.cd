@@ -14,8 +14,8 @@ jobs:
   build_and_release:
     runs-on: ubuntu-latest
     env:
-      USER: "github-actions"
-      TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      GH_PAGES_USER: "github-actions"
+      GH_PAGES_TOKEN: "${{ secrets.GITHUB_GH_PAGES_TOKEN }}"
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
@@ -31,8 +31,8 @@ jobs:
           bundler-cache: true
       - name: Set up user in git config
         run: |
-          git config --global user.name "${USER}"
-          git config --global user.email "${USER}@github.com"
+          git config --global user.name "${GH_PAGES_USER}"
+          git config --global user.email "${GH_PAGES_USER}@github.com"
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
         with:
@@ -47,5 +47,5 @@ jobs:
           AWS_BUCKET: "${{ secrets.AWS_BUCKET }}"
           RUN_EXTERNAL_CHECKS: false
         run: |
-          git remote add real https://${USER}:${TOKEN}@github.com/gocd/www.go.cd.git
+          git remote add real https://${GH_PAGES_USER}:${GH_PAGES_TOKEN}@github.com/gocd/www.go.cd.git
           bundle exec rake publish --trace
