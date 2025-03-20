@@ -1,11 +1,12 @@
-Last updated: 2025-03-10 00:32:17 +0000
+Last updated: 2025-03-20 12:13:05 +0000
 
 Latest commit:
-    commit 4e362125c6a13a1e9943a87e20bbdd0e0dcb1118
+    commit 904a836e7ac4165d5a94436ea29cc454dc916c07
+    Merge: 14a1254de e4cb351a3
     Author: Chad Wilson <chadw@thoughtworks.com>
-    Date:   Mon Mar 10 08:25:17 2025 +0800
+    Date:   Thu Mar 20 19:20:12 2025 +0800
     
-        Remove videos as all Wistia links are broken
+        Merge pull request #1875 from step-security-bot/stepsecurity_remediation_1742469512
         
-        Not sure when these died, but none of the videos work anymore.
+        [StepSecurity] ci: Harden GitHub Actions
     
