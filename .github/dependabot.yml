@@ -1,13 +1,17 @@
 version: 2
 updates:
-- package-ecosystem: "github-actions"
-  directory: "/"
-  schedule:
-    interval: monthly
-- package-ecosystem: bundler
-  directory: "/"
-  schedule:
-    interval: monthly
-  open-pull-requests-limit: 99
-  allow:
-  - dependency-type: all
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      github-actions:
+        patterns:
+          - *
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 99
+    allow:
+    - dependency-type: all
