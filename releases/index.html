@@ -68,7 +68,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker release-versions">
-      <li rel="tab-25-1-0" class="tab-marker active">25.1.0 (latest)</li>
+      <li rel="tab-25-2-0" class="tab-marker active">25.2.0 (latest)</li>
+      <li rel="tab-25-1-0" class="tab-marker">25.1.0</li>
       <li rel="tab-24-5-0" class="tab-marker">24.5.0</li>
       <li rel="tab-24-4-0" class="tab-marker">24.4.0</li>
       <li rel="tab-24-3-0" class="tab-marker">24.3.0</li>
@@ -156,7 +157,60 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-25-1-0">25.1.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-25-2-0">25.2.0 (latest)</h3>
+      <div id="tab-25-2-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <p>This release is a minor maintenance and bug-fix release.</p>
+
+<h4>Enhancements</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/11355">#11355</a> - Provide Alpine arm64/aarch64 agent container image variants</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13554">#13554</a> - Add support for PKCS8 encrypted private keys to be used by agents</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13620">#13620</a> - Improve error messages during certain config repo plugin parsing failures</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13598">#13598</a> - Bundle latest Java 21.0.7 release with non-Linux installers &amp; containers</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13553">#13553</a>, <a href="https://github.com/gocd/gocd/issues/13624">#13624</a> - Reduce download size/security attack surface of agent and server packages</li>
+</ul>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/13622">#13622</a> - Fix pipeline run/VSM comparisons on MySQL 8</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13564">#13564</a> - Config repo display shows duplicate environment entries with multiple input files</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13555">#13555</a> - Correct logging of rare templating issues during server start-up</li>
+</ul>
+
+<h4>Security fixes</h4>
+
+<p>There are no security fixes included in this release (for issues known to affect GoCD).</p>
+
+<p>However, we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.</p>
+
+<h4>APIs</h4>
+
+<p>Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <a href="https://api.gocd.org/25.2.0/#changes-in-25-2-0">API changelog for 25.2.0</a> and
+  <a href="https://plugin-api.gocd.org/25.2.0/#changes-in-gocd-25-2-0">Plugin API changelog for 25.2.0</a>.</p>
+
+<h4>Contributors</h4>
+
+<p>Aravind SV, Chad Wilson, Vinod Dampuru, riven-blade</p>
+
+<p><em>Special thanks</em> goes to <a href="https://github.com/damvinod">Vinod Dampuru</a> for his assistance simplifying and improving GoCD’s
+build &amp; release infrastructure during this release window. 🙏</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+25.2.0%22+is%3Aclosed">here.</a></p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+<p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>.</p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-25-1-0">25.1.0</h3>
       <div id="tab-25-1-0" class="tab_content" style="display: block;">
         <div class="content">
           <p>This release is a minor maintenance and bug-fix release.</p>
