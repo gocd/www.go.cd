@@ -1,20 +1,4 @@
 GIT
-  remote: https://github.com/fredjean/middleman-s3_sync.git
-  revision: 39c3b84aafadbc8496f8fd8a139ef0117cfba62a
-  ref: master
-  specs:
-    middleman-s3_sync (4.0.3)
-      ansi (~> 1.5.0)
-      fog-aws (>= 0.1.1)
-      map
-      middleman-cli
-      middleman-core (>= 4.0.0)
-      mime-types (~> 3.1)
-      parallel
-      ruby-progressbar
-      unf
-
-GIT
   remote: https://github.com/sass/sassc-ruby.git
   revision: 244d3dcc8b985e25bab066b296f0f202e43e41ad
   ref: refs/pull/233/head
@@ -56,8 +40,26 @@ GEM
       io-event (~> 1.9)
       metrics (~> 0.12)
       traces (~> 0.15)
-    autoprefixer-rails (10.4.19.0)
+    autoprefixer-rails (10.4.21.0)
       execjs (~> 2)
+    aws-eventstream (1.3.2)
+    aws-partitions (1.1092.0)
+    aws-sdk-core (3.222.2)
+      aws-eventstream (~> 1, >= 1.3.0)
+      aws-partitions (~> 1, >= 1.992.0)
+      aws-sigv4 (~> 1.9)
+      base64
+      jmespath (~> 1, >= 1.6.1)
+      logger
+    aws-sdk-kms (1.99.0)
+      aws-sdk-core (~> 3, >= 3.216.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-s3 (1.183.0)
+      aws-sdk-core (~> 3, >= 3.216.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.5)
+    aws-sigv4 (1.11.0)
+      aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
@@ -72,48 +74,29 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.3.5)
-    connection_pool (2.5.0)
+    connection_pool (2.5.2)
     console (1.30.2)
       fiber-annotation
       fiber-local (~> 1.1)
       json
     contracts (0.17.2)
-    dotenv (3.1.7)
+    dotenv (3.1.8)
     drb (2.2.1)
     erubi (1.13.1)
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    excon (1.2.5)
-      logger
     execjs (2.10.0)
     fast_blank (1.0.1)
     fastimage (2.4.0)
-    ffi (1.17.1)
-    ffi (1.17.1-arm64-darwin)
-    ffi (1.17.1-x86_64-linux-gnu)
+    ffi (1.17.2)
+    ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
       fiber-storage
-    fiber-storage (1.0.0)
-    fog-aws (3.30.0)
-      base64 (~> 0.2.0)
-      fog-core (~> 2.6)
-      fog-json (~> 1.1)
-      fog-xml (~> 0.1)
-    fog-core (2.6.0)
-      builder
-      excon (~> 1.0)
-      formatador (>= 0.2, < 2.0)
-      mime-types
-    fog-json (1.2.0)
-      fog-core
-      multi_json (~> 1.10)
-    fog-xml (0.1.5)
-      fog-core
-      nokogiri (>= 1.5.11, < 2.0.0)
+    fiber-storage (1.0.1)
     font-awesome-sass (6.7.2)
       sassc (~> 2.0)
-    formatador (1.1.0)
     google-protobuf (4.30.2)
       bigdecimal
       rake (>= 13)
@@ -143,7 +126,8 @@ GEM
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-event (1.10.0)
-    json (2.10.2)
+    jmespath (1.6.2)
+    json (2.11.3)
     kramdown (2.5.1)
       rexml (>= 3.3.9)
     listen (3.9.0)
@@ -159,7 +143,7 @@ GEM
     middleman-autoprefixer (3.0.0)
       autoprefixer-rails (~> 10.0)
       middleman-core (>= 4.0.0)
-    middleman-blog (4.0.3)
+    middleman-blog (4.1.0)
       addressable (~> 2.3)
       middleman-core (>= 4.0.0)
       tzinfo (>= 0.3.0)
@@ -195,16 +179,27 @@ GEM
       webrick
     middleman-gh-pages (0.4.1)
       rake (> 0.9.3)
+    middleman-s3_sync (4.5.0)
+      ansi (~> 1.5.0)
+      aws-sdk-s3
+      base64
+      map
+      middleman-cli
+      middleman-core
+      mime-types (~> 3.1)
+      nokogiri (>= 1.18.4)
+      parallel
+      ruby-progressbar
+      unf
     middleman-sprockets (4.1.1)
       middleman-core (~> 4.0)
       sprockets (>= 3.0)
     mime-types (3.6.2)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0325)
+    mime-types-data (3.2025.0422)
     mini_portile2 (2.8.8)
     minitest (5.25.5)
-    multi_json (1.15.0)
     nokogiri (1.18.8)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -217,7 +212,7 @@ GEM
       padrino-support (= 0.15.3)
       tilt (>= 1.4.1, < 3)
     padrino-support (0.15.3)
-    parallel (1.26.3)
+    parallel (1.27.0)
     parslet (2.0.0)
     pdf-reader (2.14.1)
       Ascii85 (>= 1.0, < 3.0, != 2.0.0)
@@ -227,7 +222,7 @@ GEM
       ttfunk
     public_suffix (6.0.1)
     racc (1.8.1)
-    rack (3.1.12)
+    rack (3.1.13)
     rackup (2.2.1)
       rack (>= 3)
     rainbow (3.1.1)
@@ -239,19 +234,20 @@ GEM
     rexml (3.4.1)
     ruby-progressbar (1.13.0)
     ruby-rc4 (0.1.5)
-    sass-embedded (1.86.1)
+    sass-embedded (1.87.0)
       google-protobuf (~> 4.30)
       rake (>= 13)
-    sass-embedded (1.86.1-arm64-darwin)
+    sass-embedded (1.87.0-arm64-darwin)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-x86_64-linux-gnu)
+    sass-embedded (1.87.0-x86_64-linux-gnu)
       google-protobuf (~> 4.30)
     sassc-embedded (1.80.4)
       sass-embedded (~> 1.80)
     securerandom (0.4.1)
     servolux (0.13.0)
-    sprockets (4.2.1)
+    sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
+      logger
       rack (>= 2.2.4, < 4)
     temple (0.10.3)
     thor (1.2.2)
@@ -288,7 +284,7 @@ DEPENDENCIES
   middleman-autoprefixer
   middleman-blog
   middleman-gh-pages
-  middleman-s3_sync!
+  middleman-s3_sync
   middleman-sprockets
   mime-types
   neat!
