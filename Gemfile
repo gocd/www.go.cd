@@ -20,7 +20,7 @@ gem 'neat', github: 'shirtspace/neat', ref: 'master' # Allow thor 1.x upgrade
 # For feed.xml.builder
 gem 'builder'
 
-gem 'middleman-s3_sync'
+gem 'middleman-s3_sync', github: 'fredjean/middleman-s3_sync', ref: 'master' # Allow for Ruby 3.2+ compat
 gem 'rake'
 gem 'mime-types'
 gem 'html-proofer'
