@@ -99,15 +99,20 @@ The **"good"** news:
 - We believe GoCD was built with solid security principles in mind that have generally stood the test of time.
 - Software dependencies incorporated within GoCD are _generally_ still under active development, and thus being
   patched/updated. These are being incorporated into new GoCD releases without major issue.
-- GoCD runs on and is built/test using modern, maintained language runtimes (Java 17 LTS, NodeJS 20 LTS, Ruby 3.1)
+- GoCD runs on modern, maintained language runtimes - Java 17/21 LTS with JRuby 9.4/Ruby 3.1 compatibility.
+- GoCD is built using modern, maintained tools, libraries and runtimes (Gradle 8.x, NodeJS 22+)
 - GoCD continues to have good compatibility with latest operating systems, which can be extended to its supported
   [Docker images](/download.html).
+- GoCD can still be run across Windows, Linux and MacOS within both x86_64 and aarch64/arm64 architectures.
 
 The **"neutral"** news:
 
 - With GoCD, we [do not maintain/patch old releases of GoCD](https://github.com/gocd/gocd/blob/master/SECURITY.md).
   In general, GoCD has always maintained robust backwards compatibility and sign-posted removals/deprecations in advance
   with an expectation that folks will move forward to the latest release.
+- We openly and transparently disclose [security vulnerabilities in GoCD](https://github.com/gocd/gocd/security/advisories)
+  and [document suppressions](https://github.com/gocd/gocd/blob/master/SECURITY.md#what-about-potential-vulnerabilities-from-transitive-dependencies)
+  applying to its dependencies where we do not feel they are exploitable in a GoCD context.
 
 The **"not-so-good"** news:
 
@@ -115,7 +120,7 @@ The **"not-so-good"** news:
   of languages used across the codebase and many different features that make it difficult for a small team to support.
   Keeping on top of all of these requires non-trivial effort, and is likely not indefinitely sustainable with the current
   contributor/maintainer community size.
-- At time of writing _(updated: December 2023)_, GoCD does depend on some libraries/frameworks which require significant effort to upgrade, but are
+- At time of writing _(updated: May 2025)_, GoCD does depend on some libraries/frameworks which require significant effort to upgrade, but are
   end-of-life, and thus present some level of ongoing risk. If a major vulnerability is discovered in these libraries/frameworks
   that affects GoCD it will either require an urgent upgrade, or forking and patching of those libraries/frameworks. The
   community is not well placed to manage this kind of development. To help you assess risk, at time of writing, they include (but may not be limited to)
@@ -123,10 +128,7 @@ The **"not-so-good"** news:
   - Spring Framework 4.3 (EOL December 2020)
   - Spring Security 4.2 (EOL October 2020)
   - Hibernate ORM 3.6 (EOL February 2012)
-  - A small part of the UI relies on
-    - [AngularJS](https://angularjs.org/) 1.0 - plugin view templating support (EOL November 2013)
-    - <del>[jQuery](https://jquery.com/) 1.7 - stage and build/job detail views</del> (subsequent upgraded in GoCD 23.4.0)
-    - <del>PrototypeJS 1.6 - stage and build/job detail views</del> (subsequently replaced with jQuery in GoCD 23.5.0)
+  - A small part of the UI relies on [AngularJS](https://angularjs.org/) 1.0 for plugin view templating support (EOL November 2013)
 
 ### How can my organization or myself help with maintenance of GoCD?
 
