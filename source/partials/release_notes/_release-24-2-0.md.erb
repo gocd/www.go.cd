@@ -38,7 +38,7 @@ binaries within container images due to [CVE-2024-32002](https://github.com/git/
 and several other issues of particular concern to a build/deploy automation tool such as GoCD. You can read more about
 the issues on [the GitHub Blog](https://github.blog/2024-05-14-securing-git-addressing-5-new-vulnerabilities/). Note that
 at time of release, Debian images have [not had the most critical patch backported](https://security-tracker.debian.org/tracker/CVE-2024-32002)
-to Debian 11 or 12, so the gocd-agent-debian variants for 24.2.0 are still vulnerable. Ubuntu variants are [all patched](https://ubuntu.com/security/CVE-2024-32002)
+to Debian 11 or 12, so the gocd-agent-debian variants for 24.2.0 are still vulnerable. Ubuntu variants are all patched
 as are Alpine and Wolfi variants.
 
 We regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
