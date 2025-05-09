@@ -83,6 +83,7 @@ activate :blog do |blog|
 end
 activate :directory_indexes
 activate :fallback_for_directory_indexes
+activate :asset_hash
 
 REDIRECTS.each do |from, to|
   proxy from, "/redirect.template.html", :locals => { :redirect_to => to }, :ignore => true
@@ -114,6 +115,4 @@ configure :build do
 
   # Minify Javascript on build
   activate :minify_javascript
-
-  activate :asset_hash
 end
