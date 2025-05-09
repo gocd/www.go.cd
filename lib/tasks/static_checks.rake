@@ -51,7 +51,7 @@ end
 
 task publish: [:clean, :build, 'static_checks:all'] do
   if ENV['AWS_BUCKET']
-    sh('bundle exec middleman s3_sync -i -v')
+    sh('bundle exec middleman s3_sync --build')
   else
     puts "WARNING: Not pushing to S3, since AWS_BUCKET is not set"
   end
