@@ -12,6 +12,8 @@ updates:
     directory: /
     schedule:
       interval: monthly
-    open-pull-requests-limit: 99
     allow:
-    - dependency-type: all
+      - dependency-type: all
+    groups:
+      ruby-deps:
+        patterns: [ "*" ]
