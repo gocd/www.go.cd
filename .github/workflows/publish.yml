@@ -26,7 +26,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up Ruby
-        uses: ruby/setup-ruby@eaecf785f6a34567a6d97f686bbb7bccc1ac1e5c # v1.237.0
+        uses: ruby/setup-ruby@13e7a03dc3ac6c3798f4570bfead2aed4d96abfb # v1.244.0
         with:
           bundler-cache: true
       - name: Set up user in git config
@@ -34,7 +34,7 @@ jobs:
           git config --global user.name "${GH_PAGES_USER}"
           git config --global user.email "${GH_PAGES_USER}@github.com"
       - name: Configure aws credentials
-        uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722 # v4.1.0
+        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
         with:
           role-to-assume: "${{ secrets.AWS_ROLE_TO_ASSUME }}"
           aws-region: "${{ secrets.AWS_REGION }}"
