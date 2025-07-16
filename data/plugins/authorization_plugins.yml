@@ -1,22 +1,22 @@
 - name: File based plugin
   description: Bundled plugin to support password file based authentication.
   readmore_url: https://github.com/gocd/filebased-authentication-plugin
-  author_url: https://www.thoughtworks.com/products/
-  author_name: Thoughtworks Inc.
+  author_url: https://github.com/gocd
+  author_name: GoCD Core Team
   bundled: true
 
 - name: LDAP/AD Authentication plugin
   description: Bundled plugin to support LDAP/AD authentication.
   readmore_url: https://github.com/gocd/gocd-ldap-authentication-plugin
-  author_url: https://www.thoughtworks.com/products/
-  author_name: Thoughtworks Inc.
+  author_url: https://github.com/gocd
+  author_name: GoCD Core Team
   bundled: true
 
 - name: LDAP/AD Authorization Plugin
   description: Extends the bundled GoCD LDAP/AD Plugin to provide both authentication and authorization, allowing mapping of users from LDAP/AD groups to GoCD roles.
   readmore_url: https://github.com/gocd/gocd-ldap-authorization-plugin
   author_url: https://github.com/gocd
-  author_name: Thoughtworks Inc.
+  author_name: GoCD Core Team
   releases_url: https://github.com/gocd/gocd-ldap-authorization-plugin/releases/latest
   supported: true
 

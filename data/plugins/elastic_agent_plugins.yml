@@ -2,7 +2,7 @@
   description: GoCD Elastic Agent Plugin for Amazon Elastic Container Service
   readmore_url: https://github.com/gocd/gocd-ecs-elastic-agent
   author_url: https://github.com/gocd
-  author_name: Thoughtworks Inc.
+  author_name: GoCD Core Team
   releases_url: https://github.com/gocd/gocd-ecs-elastic-agent/releases/latest
   supported: true
 
@@ -10,7 +10,7 @@
   description: GoCD Elastic Agent Plugin for bringing up GoCD agents on Microsoft Azure virtual machines.
   readmore_url: https://github.com/gocd/azure-elastic-agent-plugin
   author_url: https://github.com/gocd
-  author_name: Thoughtworks Inc.
+  author_name: GoCD Core Team
   releases_url: https://github.com/gocd/azure-elastic-agent-plugin/releases/latest
 
 - name: GoCD Elastic agent plugin for Docker
@@ -31,7 +31,7 @@
   description: GoCD Elastic Agent plugin for bringing up GoCD agents on a Kubernetes cluster on demand.
   readmore_url: https://docs.gocd.org/current/gocd_on_kubernetes
   author_url: https://github.com/gocd
-  author_name: Thoughtworks Inc.
+  author_name: GoCD Core Team
   releases_url: https://github.com/gocd/kubernetes-elastic-agents/releases/latest
   supported: true
 

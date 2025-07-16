@@ -1,8 +1,8 @@
 - name: Yum repository poller
   description: Plugin to poll a Yum repository (bundled prior to GoCD 23.1.0).
   readmore_url: https://docs.gocd.org/current/extension_points/yum_repository_poller.html
-  author_url: https://www.thoughtworks.com/products/
-  author_name: Thoughtworks Inc.
+  author_url: https://github.com/gocd
+  author_name: GoCD Core Team
   releases_url: https://github.com/gocd/gocd-yum-repository-poller-plugin/releases/latest
 
 - name: Debian repository poller
@@ -15,7 +15,7 @@
 - name: NuGet repository poller
   description: A NuGet poller plugin for GoCD.
   readmore_url: https://github.com/gocd-contrib/go-nuget-poller-plugin-2.0
-  author_url: https://www.thoughtworks.com/products/
+  author_url: https://github.com/gocd-contrib/go-nuget-poller-plugin-2.0/graphs/contributors
   author_name: Alison Polton-Simon and Sallie Walecka
   releases_url: https://github.com/gocd-contrib/go-nuget-poller-plugin-2.0/releases/latest
 
