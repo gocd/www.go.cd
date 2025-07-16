@@ -325,47 +325,6 @@ $btn-dark-border: #333;
     }
 }
 
-$nav-active: #4AD9D9;
-
-.enterprise_index {
-    .link_overview {
-        color: $nav-active !important; // had to use this because of other styles
-    }
-}
-
-.enterprise_addons {
-    .link_addons {
-        color: $nav-active !important; // had to use this because of other styles
-    }
-}
-
-.enterprise_support {
-    .link_support {
-        color: $nav-active !important; // had to use this because of other styles
-    }
-}
-
-.enterprise_pricing {
-    .link_pricing {
-        color: $nav-active !important; // had to use this because of other styles
-    }
-}
-
-.enterprise_contact {
-    .link_contact {
-        color: $nav-active !important; // had to use this because of other styles
-    }
-}
-
-.form-loading-error {
-    display: none;
-    color: #E74C3C;
-    font-size: 16px;
-    font-weight: 400;
-    padding: .5em;
-    border: 2px solid #E74C3C;
-}
-
 $brand-secondary: #4AD9D9;
 $default-font-normal-bold: 'URWGeometric-Semibold';
 $dark: #000;

@@ -53,7 +53,6 @@ REDIRECTS = {
   "partners/index.html"                         => "/index.html",
   "enterprise/index.html"                       => "/index.html",
   "enterprise-campaign/index.html"              => "/index.html",
-  "thoughtworks-support-services-general-terms" => "/enterprise/thoughtworks-support-services-general-terms.html"
 }
 
 activate :sprockets do |config|
