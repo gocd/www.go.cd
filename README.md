@@ -7,18 +7,18 @@ This repository hosts code for the website at [https://www.gocd.org](https://www
 
 To setup a live server:
 
-```
-$ bundle install
-$ bundle exec middleman serve
+```shell
+bundle install
+bundle exec middleman serve
 ```
 
 You can then access the page at http://localhost:4567
 
 If you want to build the static site locally, do this:
 
-```
-$ bundle install
-$ bundle exec rake
+```shell
+bundle install
+bundle exec rake
 ```
 
 Then, the site will be available at build/ and can be served locally, if you choose.
