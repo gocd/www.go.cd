@@ -1,0 +1,43 @@
+This release is a minor maintenance and bug-fix release.
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 13679 %>, <%= link_to_issue 13683, 'Further reduce download size/security attack surface of agent and server packages' %>
+* <%= link_to_issue 13767, 'Bundle latest Java 21.0.8 release with non-Linux installers & containers' %>
+* Upgrade bundled LDAP Authentication plugin to modern, <%= link_to 'maintained LDAP API client', 'https://github.com/gocd/gocd-ldap-authentication-plugin/commit/5d3a18703e08744eaa0b851be73e7535a63a6159' %>
+* Starting this release, [AlmaLinux](https://almalinux.org/) 10 based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-almalinux-10' %>.
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 13666, 'Workaround issue with duplicate agent startup command line args' %>
+* <%= link_to_issue 13667, 'Avoid startup warnings due to duplicate encoding directives' %>
+
+<h4>Security fixes</h4>
+
+There are no security fixes included in this release (for issues known to affect GoCD).
+
+However, we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '25.3.0','changes-in-25-3-0', 'API changelog for 25.3.0' %> and
+  <%= link_to_versioned_plugin_api '25.3.0','changes-in-gocd-25-3-0', 'Plugin API changelog for 25.3.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aravind SV",
+  "Chad Wilson",
+  "hubert (gksxodnd007)",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 25.3.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
