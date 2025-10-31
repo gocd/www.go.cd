@@ -35,7 +35,7 @@
     }).done(function(data) {
       data = data || {};
 
-      var platforms = ["osx", "osx-aarch64", "windows", "linux"];
+      var platforms = ["osx-aarch64", "windows", "linux"];
 
       var links = el("div", {class: "platform-selector"});;
       var filesize = null;
@@ -62,7 +62,7 @@
               href: buildDownloadUrl(BASE_URL, plt, meta),
               class: plt === os() ? "platform selected" : "platform",
               "data-filesize": meta.size
-            }, "osx" === plt ? "macOS" : "osx-aarch64" === plt ? "macOS (Apple Silicon)": titleCase(plt)), "click", function (e) {
+            }, "osx-aarch64" === plt ? "macOS" : titleCase(plt)), "click", function (e) {
               e.preventDefault();
               e.stopPropagation();
 
@@ -200,7 +200,7 @@
 
   function os() {
     if (navigator.userAgent.indexOf("Win") !== -1) { return "windows"; }
-    if (navigator.userAgent.indexOf("Mac") !== -1) { return "osx"; }
+    if (navigator.userAgent.indexOf("Mac") !== -1) { return "osx-aarch64"; }
     return "linux";
   }
 
