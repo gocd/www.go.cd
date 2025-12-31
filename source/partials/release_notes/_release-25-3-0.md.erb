@@ -23,6 +23,7 @@ trusted by operating systems, likely no action is needed.
 * <%= link_to_issue 13667, 'Avoid startup warnings due to duplicate encoding directives' %>
 * <%= link_to_issue 13783, 'Re-word global job timeout awkward phrasing' %>
 * <%= link_to_issue 13784, 'Fail gracefully if trying to bulk delete no agents via API' %>
+* <%= link_to_issue 14025, 'FIx occasional deadlock on startup between main and Ruby-0-JIT-1 threads' %>
 
 <h4>Security fixes</h4>
 
@@ -42,6 +43,7 @@ Improvements, deprecations and breaking changes in the API and plugin API have b
 <%= [
   "Aravind SV",
   "Chad Wilson",
+  "Evesy",
   "hubert (gksxodnd007)",
 ].sort.uniq.join(', ')
 %>
