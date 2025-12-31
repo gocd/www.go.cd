@@ -33,6 +33,13 @@
   author_name: Manoj Mahalingam
   releases_url: https://github.com/manojlds/gocd-docker/releases/latest
 
+- name: Kubernetes Executor Task Plugin
+  description: Enables a GoCD Kubernetes Elastic Agent to execute workloads inside a guest container within the same pod
+  readmore_url: https://github.com/photosi-it/go-k8s-executor-task-plugin
+  author_url: https://github.com/photosi-it
+  author_name: PhotoSì (Pietro Benini & Fabio Masini)
+  releases_url: https://github.com/photosi-it/go-k8s-executor-task-plugin/releases/latest
+
 - name: Gradle Task plugin
   description: Task plugin for running Gradle builds
   readmore_url: https://github.com/jmnarloch/gocd-gradle-plugin
