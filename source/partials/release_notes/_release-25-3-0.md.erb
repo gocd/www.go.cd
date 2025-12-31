@@ -1,5 +1,15 @@
 This release is a minor maintenance and bug-fix release.
 
+<h4>LDAP Authentication plugin security enhancements</h4>
+
+If you use the LDAP Authentication plugin with an LDAP server which uses a **non-public or self-signed TLS server certificate**, you will
+need to ensure the certificate your server uses is still trusted by GoCD after this upgrade; since validation was lenient in
+earlier versions. This may require importing your certificate authorities into your Java runtime's cacerts store, or
+setting a custom Java trust store <%= link_to 'as discussed here', 'https://github.com/gocd/gocd/discussions/14049#discussioncomment-15233683' %>.
+
+If your server's TLS certifcate is cloud provider managed, or signed by a public Certificate Authority normally
+trusted by operating systems, likely no action is needed.
+
 <h4>Enhancements</h4>
 
 * <%= link_to_issue 13679 %>, <%= link_to_issue 13683, 'Further reduce download size/security attack surface of agent and server packages' %>
