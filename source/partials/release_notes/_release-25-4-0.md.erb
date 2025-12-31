@@ -1,0 +1,103 @@
+This release is a maintenance and bug-fix release.
+
+<h4>Java 25 support</h4>
+
+GoCD is now built with, tested against and distributed with Java 25 LTS.
+
+Java 17 remains the minimum supported version for bring-your-own-JRE setups, although GoCD will likely move to a
+Java 21 minimum with the 26.1.0 release since
+- it is over two years old, and has been supported by GoCD since 24.1.0
+- some key dependencies now require Java 21 for their latest versions
+- Java 21 or 25 is available from default repositories for almost all major distributions, and <%= link_to 'available from Adoptium\'s repositories', 'https://adoptium.net/installation/linux' %> for others.
+
+The main changes needed to support Java 25 are additional start-up arguments pre-configured by GoCD that reduce
+warnings being logged by both agent and server Java runtimes. If you have customised your GoCD JVM start-up arguments and
+begin to see warnings after upgrade, you may want to review whether your customisations are overriding GoCD's defaults.
+
+<h4>Container image volume tweaks</h4>
+
+The server and agent container images now declare anonymous volumes for their primary writable directories
+(`/go-working-dir` and `/godata` for both server and agents).
+
+Previously GoCD would use a writeable overlay filesystem to store working data if users did not mount volumes themselves.
+Most filesystem drivers mean use of the container overlay filesystem is much slower than a volume; and given
+it is unusual for users to mount volumes for (undocumented) working directories, this change should improve the speed of
+images for most people, especially those running elastic agents; and containers on Linux.
+
+These volumes will be automatically removed by Kubernetes with either static or elastic agents, and by the <%= link_to 'Docker Elastic Agent plugin', 'https://github.com/gocd-contrib/docker-elastic-agents-plugin' %>.
+However, if you are running the GoCD Server or static agents on Docker (or similar) directly, you may need to <%= link_to 'ensure anonymous volumes are cleaned up', 'https://docs.docker.com/engine/storage/volumes/#remove-anonymous-volumes' %>
+or replace with bind mount volumes to avoid accumlation of volumes over time.
+
+Note that while not publicly documented, agents previously used `/go` as their working directory, which was changed to
+`/go-working-dir`; consistent with the server. If you were previously intentionally mounting a volume at `/go`, you
+should change to `/go-working-dir` when upgrading the agent image version to 25.4.0 or later.
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 13991 %>, <%= link_to_issue 13881 %>, <%= link_to_issue 13880, 'Build, test & package GoCD with Java 25.0.1+8' %>
+* <%= link_to_issue 13989, 'Improve server & agent container image performance by declaring anonymous volumes for working space' %>
+* <%= link_to_issue 13908, 'Improve security scan posture by consuming decomposed JRuby distribution' %>
+* <%= link_to_issue 13797, 'Improve UI responsiveness of maintenance mode' %>
+* <%= link_to_issue 13984, 'Improve UI responsiveness for admin pages which delay their initial refresh to match dashboard poll rates' %>
+* <%= link_to_issue 14018 %>, <%= link_to_issue 14070 %>, <%= link_to_issue 14099 %>, <%= link_to_issue 14100 %>, <%= link_to_issue 14101, 'Widespread technical improvements to improve speed and reduce memory usage across server' %>
+* <%= link_to_issue 14104, 'Improve agent startup speed & logging' %>
+* Starting this release, Debian 13 (Trixie) based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-debian-13' %>.
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 13799, 'Fix handling of pipeline material creation when entered URL is malformed' %>
+* <%= link_to_issue 13841, 'Fix parsing of Mercurial dates to be locale-agnostic' %>
+* <%= link_to_issue 13983, 'Only show scroll bars when necessary for material commit searches' %>
+* <%= link_to_issue 14018, 'Fix material view permissions to allow triggering a material shared by 2+ groups when a user has permission to operate any single group' %>
+* <%= link_to_issue 14090, 'Improve consistency of modifications and logging of decisions around which JVM to use during linux package installs' %>
+* <%= link_to_issue 14091, 'Ensure RPM upgrade stops and cleans up existing services correctly' %>
+* <%= link_to_issue 14103, 'Improve logging and consistency for console log append/move failures' %>
+
+<h4>Deprecations</h4>
+
+* <%= link_to_issue 14072, 'Deprecate the Feeds XML-based APIs without direct replacement' %>
+
+The <%= link_to 'RSS/Atom style XML feed APIs', 'https://api.gocd.org/25.3.0/#feeds' %> have been deprecated without
+direct XML replacement, and will likely be removed shortly. These APIs are some of the oldest in GoCD and have not seen
+significant usage for many years. Their performance is often sluggish and ineffeicient compared to the JSON-based APIs
+since they use very different query mechanisms which don't benefit from the same caching and attention.
+
+If you are using these XML APIs and have not found a suitable replacement among JSON APIs, please
+<%= link_to 'let us know', 'https://github.com/gocd/gocd/discussions' %> how you are using them. Currently the
+***Scheduled Jobs*** API does not have a direct replacement that allows inspecting the scheduling/queue state of the server,
+so we may consider creating one if there is sufficient interest.
+
+The CCTray (XML) API at `/go/cctray.xml` is unaffected by this deprecation.
+
+<h4>Security fixes</h4>
+
+There are no security fixes included in this release (for issues known to affect GoCD).
+
+However, we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '25.4.0','changes-in-25-4-0', 'API changelog for 25.4.0' %> and
+  <%= link_to_versioned_plugin_api '25.4.0','changes-in-gocd-25-4-0', 'Plugin API changelog for 25.4.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Andrea Maruccia",
+  "Aravind SV",
+  "Chad Wilson",
+  "Mohamed Azirar",
+  "Vinod Dampuru",
+  "Yelin Aung",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 25.4.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).

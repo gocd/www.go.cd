@@ -128,7 +128,7 @@ var showDownloadLinks = (function ($) {
         var notes = {
           deb: 'Note: If you prefer to use the APT repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">instructions</a>.',
           rpm: 'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.',
-          generic: 'Note: Zip versions require a Java JRE/JDK.<br/>24.1.0+: Java 21 recommended. Java 17+ required.<br/>22.1.0+: Java 17 recommended. Java 11+ required.'
+          generic: 'Note: Zip versions require a LTS Java JRE/JDK.<br/>25.4.0+: Java 25 recommended. Java 17+ required.<br/>24.1.0+: Java 21 recommended. Java 17+ required.<br/>22.1.0+: Java 17 recommended. Java 11+ required.'
         };
 
         for (var key in notes) {
