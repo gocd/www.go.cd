@@ -1,9 +1,9 @@
-Last updated: 2025-12-31 16:37:40 +0000
+Last updated: 2025-12-31 16:48:06 +0000
 
 Latest commit:
-    commit d361968700ef26daff6cbe5c5677dbcc392b4a83
+    commit 993cef9be8c21d100b9a7f7d43e36364091832e2
     Author: Chad Wilson <29788154+chadlwilson@users.noreply.github.com>
-    Date:   Thu Jan 1 00:29:29 2026 +0800
+    Date:   Thu Jan 1 00:43:32 2026 +0800
     
-        Add hub.docker.com to ignores due to race during releases
+        Downgrade `map` gem back to earlier last compatible version
     
