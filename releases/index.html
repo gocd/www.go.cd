@@ -15,8 +15,8 @@
 
     <title>Releases - Version notes | GoCD</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" />
-    <link href="../assets/stylesheets/site-b24c2d9c.css" rel="stylesheet" />
-    <script src="../assets/javascripts/all-79279519.js" data-manual="true"></script>
+    <link href="../assets/stylesheets/site-7486401d.css" rel="stylesheet" />
+    <script src="../assets/javascripts/all-5f7e3bc8.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="../feed.xml" />
     <script>
@@ -68,7 +68,8 @@
 
   <div class="v-tabs all-releases">
     <ul class="tabs tab-container-marker release-versions">
-      <li rel="tab-25-3-0" class="tab-marker active">25.3.0 (latest)</li>
+      <li rel="tab-25-4-0" class="tab-marker active">25.4.0 (latest)</li>
+      <li rel="tab-25-3-0" class="tab-marker">25.3.0</li>
       <li rel="tab-25-2-0" class="tab-marker">25.2.0</li>
       <li rel="tab-25-1-0" class="tab-marker">25.1.0</li>
       <li rel="tab-24-5-0" class="tab-marker">24.5.0</li>
@@ -158,10 +159,127 @@
     </ul>
 
     <div class="tab_container tab-container-marker">
-      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-25-3-0">25.3.0 (latest)</h3>
+      <h3 class="tab-marker tab-accordion_heading d_active" rel="tab-25-4-0">25.4.0 (latest)</h3>
+      <div id="tab-25-4-0" class="tab_content" style="display: block;">
+        <div class="content">
+          <p>This release is a maintenance and bug-fix release.</p>
+
+<h4>Java 25 support</h4>
+
+<p>GoCD is now built with, tested against and distributed with Java 25 LTS.</p>
+
+<p>Java 17 remains the minimum supported version for bring-your-own-JRE setups, although GoCD will likely move to a
+Java 21 minimum with the 26.1.0 release since
+- it is over two years old, and has been supported by GoCD since 24.1.0
+- some key dependencies now require Java 21 for their latest versions
+- Java 21 or 25 is available from default repositories for almost all major distributions, and <a href="https://adoptium.net/installation/linux">available from Adoptium’s repositories</a> for others.</p>
+
+<p>The main changes needed to support Java 25 are additional start-up arguments pre-configured by GoCD that reduce
+warnings being logged by both agent and server Java runtimes. If you have customised your GoCD JVM start-up arguments and
+begin to see warnings after upgrade, you may want to review whether your customisations are overriding GoCD’s defaults.</p>
+
+<h4>Container image volume tweaks</h4>
+
+<p>The server and agent container images now declare anonymous volumes for their primary writable directories
+(<code>/go-working-dir</code> and <code>/godata</code> for both server and agents).</p>
+
+<p>Previously GoCD would use a writeable overlay filesystem to store working data if users did not mount volumes themselves.
+Most filesystem drivers mean use of the container overlay filesystem is much slower than a volume; and given
+it is unusual for users to mount volumes for (undocumented) working directories, this change should improve the speed of
+images for most people, especially those running elastic agents; and containers on Linux.</p>
+
+<p>These volumes will be automatically removed by Kubernetes with either static or elastic agents, and by the <a href="https://github.com/gocd-contrib/docker-elastic-agents-plugin">Docker Elastic Agent plugin</a>.
+However, if you are running the GoCD Server or static agents on Docker (or similar) directly, you may need to <a href="https://docs.docker.com/engine/storage/volumes/#remove-anonymous-volumes">ensure anonymous volumes are cleaned up</a>
+or replace with bind mount volumes to avoid accumlation of volumes over time.</p>
+
+<p>Note that while not publicly documented, agents previously used <code>/go</code> as their working directory, which was changed to
+<code>/go-working-dir</code>; consistent with the server. If you were previously intentionally mounting a volume at <code>/go</code>, you
+should change to <code>/go-working-dir</code> when upgrading the agent image version to 25.4.0 or later.</p>
+
+<h4>Enhancements</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/13991">#13991</a>, <a href="https://github.com/gocd/gocd/issues/13881">#13881</a>, <a href="https://github.com/gocd/gocd/issues/13880">#13880</a> - Build, test &amp; package GoCD with Java 25.0.1+8</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13989">#13989</a> - Improve server &amp; agent container image performance by declaring anonymous volumes for working space</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13908">#13908</a> - Improve security scan posture by consuming decomposed JRuby distribution</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13797">#13797</a> - Improve UI responsiveness of maintenance mode</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13984">#13984</a> - Improve UI responsiveness for admin pages which delay their initial refresh to match dashboard poll rates</li>
+  <li><a href="https://github.com/gocd/gocd/issues/14018">#14018</a>, <a href="https://github.com/gocd/gocd/issues/14070">#14070</a>, <a href="https://github.com/gocd/gocd/issues/14099">#14099</a>, <a href="https://github.com/gocd/gocd/issues/14100">#14100</a>, <a href="https://github.com/gocd/gocd/issues/14101">#14101</a> - Widespread technical improvements to improve speed and reduce memory usage across server</li>
+  <li><a href="https://github.com/gocd/gocd/issues/14104">#14104</a> - Improve agent startup speed &amp; logging</li>
+  <li>Starting this release, Debian 13 (Trixie) based docker images for GoCD Agent are <a href="https://hub.docker.com/r/gocd/gocd-agent-debian-13">available</a>.</li>
+</ul>
+
+<h4>Bug fixes</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/13799">#13799</a> - Fix handling of pipeline material creation when entered URL is malformed</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13841">#13841</a> - Fix parsing of Mercurial dates to be locale-agnostic</li>
+  <li><a href="https://github.com/gocd/gocd/issues/13983">#13983</a> - Only show scroll bars when necessary for material commit searches</li>
+  <li><a href="https://github.com/gocd/gocd/issues/14018">#14018</a> - Fix material view permissions to allow triggering a material shared by 2+ groups when a user has permission to operate any single group</li>
+  <li><a href="https://github.com/gocd/gocd/issues/14090">#14090</a> - Improve consistency of modifications and logging of decisions around which JVM to use during linux package installs</li>
+  <li><a href="https://github.com/gocd/gocd/issues/14091">#14091</a> - Ensure RPM upgrade stops and cleans up existing services correctly</li>
+  <li><a href="https://github.com/gocd/gocd/issues/14103">#14103</a> - Improve logging and consistency for console log append/move failures</li>
+</ul>
+
+<h4>Deprecations</h4>
+
+<ul>
+  <li><a href="https://github.com/gocd/gocd/issues/14072">#14072</a> - Deprecate the Feeds XML-based APIs without direct replacement</li>
+</ul>
+
+<p>The <a href="https://api.gocd.org/25.3.0/#feeds">RSS/Atom style XML feed APIs</a> have been deprecated without
+direct XML replacement, and will likely be removed shortly. These APIs are some of the oldest in GoCD and have not seen
+significant usage for many years. Their performance is often sluggish and ineffeicient compared to the JSON-based APIs
+since they use very different query mechanisms which don’t benefit from the same caching and attention.</p>
+
+<p>If you are using these XML APIs and have not found a suitable replacement among JSON APIs, please
+<a href="https://github.com/gocd/gocd/discussions">let us know</a> how you are using them. Currently the
+<strong><em>Scheduled Jobs</em></strong> API does not have a direct replacement that allows inspecting the scheduling/queue state of the server,
+so we may consider creating one if there is sufficient interest.</p>
+
+<p>The CCTray (XML) API at <code>/go/cctray.xml</code> is unaffected by this deprecation.</p>
+
+<h4>Security fixes</h4>
+
+<p>There are no security fixes included in this release (for issues known to affect GoCD).</p>
+
+<p>However, we regularly upgrade dependencies to mitigate known vulnerabilities from third party software (regardless of
+whether they are known to affect GoCD), so upgrading to the latest release is always recommended from a security perspective.</p>
+
+<h4>APIs</h4>
+
+<p>Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <a href="https://api.gocd.org/25.4.0/#changes-in-25-4-0">API changelog for 25.4.0</a> and
+  <a href="https://plugin-api.gocd.org/25.4.0/#changes-in-gocd-25-4-0">Plugin API changelog for 25.4.0</a>.</p>
+
+<h4>Contributors</h4>
+
+<p>Andrea Maruccia, Aravind SV, Chad Wilson, Mohamed Azirar, Vinod Dampuru, Yelin Aung</p>
+
+<h4>Note</h4>
+
+<p>A more comprehensive list of changes for this release can be found <a href="https://github.com/gocd/gocd/issues?q=milestone%3A%22Release+25.4.0%22+is%3Aclosed">here.</a></p>
+
+<p>Found a security issue that needs fixing? Please report it to <a href="https://hackerone.com/gocd">https://hackerone.com/gocd</a></p>
+
+<p>Please report any issues that you observe on <a href="https://github.com/gocd/gocd/issues">GitHub issues</a>.</p>
+
+        </div>
+      </div>
+      <h3 class="tab-marker tab-accordion_heading" rel="tab-25-3-0">25.3.0</h3>
       <div id="tab-25-3-0" class="tab_content" style="display: block;">
         <div class="content">
           <p>This release is a minor maintenance and bug-fix release.</p>
+
+<h4>LDAP Authentication plugin security enhancements</h4>
+
+<p>If you use the LDAP Authentication plugin with an LDAP server which uses a <strong>non-public or self-signed TLS server certificate</strong>, you will
+need to ensure the certificate your server uses is still trusted by GoCD after this upgrade; since validation was lenient in
+earlier versions. This may require importing your certificate authorities into your Java runtime’s cacerts store, or
+setting a custom Java trust store <a href="https://github.com/gocd/gocd/discussions/14049#discussioncomment-15233683">as discussed here</a>.</p>
+
+<p>If your server’s TLS certifcate is cloud provider managed, or signed by a public Certificate Authority normally
+trusted by operating systems, likely no action is needed.</p>
 
 <h4>Enhancements</h4>
 
@@ -179,6 +297,7 @@
   <li><a href="https://github.com/gocd/gocd/issues/13667">#13667</a> - Avoid startup warnings due to duplicate encoding directives</li>
   <li><a href="https://github.com/gocd/gocd/issues/13783">#13783</a> - Re-word global job timeout awkward phrasing</li>
   <li><a href="https://github.com/gocd/gocd/issues/13784">#13784</a> - Fail gracefully if trying to bulk delete no agents via API</li>
+  <li><a href="https://github.com/gocd/gocd/issues/14025">#14025</a> - FIx occasional deadlock on startup between main and Ruby-0-JIT-1 threads</li>
 </ul>
 
 <h4>Security fixes</h4>
@@ -196,7 +315,7 @@ whether they are known to affect GoCD), so upgrading to the latest release is al
 
 <h4>Contributors</h4>
 
-<p>Aravind SV, Chad Wilson, hubert (gksxodnd007)</p>
+<p>Aravind SV, Chad Wilson, Evesy, hubert (gksxodnd007)</p>
 
 <h4>Note</h4>
 
