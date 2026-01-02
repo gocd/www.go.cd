@@ -34,7 +34,7 @@ GEM
       public_suffix (>= 2.0.2, < 8.0)
     afm (1.0.0)
     ansi (1.5.0)
-    async (2.35.0)
+    async (2.35.1)
       console (~> 1.29)
       fiber-annotation
       io-event (~> 1.11)
@@ -141,7 +141,7 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
-    map (6.6.0)
+    map (8.0.0)
     memoist (0.16.2)
     metrics (0.15.0)
     middleman (4.6.2)
@@ -290,7 +290,7 @@ DEPENDENCIES
   builder
   font-awesome-sass
   html-proofer
-  map (< 8)
+  map (< 9)
   middleman
   middleman-autoprefixer
   middleman-blog

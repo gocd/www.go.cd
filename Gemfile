@@ -21,7 +21,7 @@ gem 'neat', github: 'shirtspace/neat', ref: 'master' # Allow thor 1.x upgrade
 gem 'builder'
 
 gem 'middleman-s3_sync'
-gem 'map', '< 8' # v8 seems to break middleman-s3_sync
+gem 'map', '< 9' # v8 seems to break middleman-s3_sync
 gem 'rake'
 gem 'mime-types'
 gem 'html-proofer'
