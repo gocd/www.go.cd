@@ -85,7 +85,6 @@
 
       var hintfrag = document.createDocumentFragment();
       hintfrag.appendChild(el("p", {}, ["Approximately ", el("span", {class: "test-drive-file-size"}, filesize), " download."]));
-      hintfrag.appendChild(el("p", {}, "GoCD test-drive requires a 64 bit machine."));
       empty(hint).appendChild(hintfrag);
     });
 
