@@ -141,7 +141,6 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
-    map (6.6.0)
     memoist (0.16.2)
     metrics (0.15.0)
     middleman (4.6.2)
@@ -186,19 +185,16 @@ GEM
       webrick
     middleman-gh-pages (0.4.1)
       rake (> 0.9.3)
-    middleman-s3_sync (4.6.2)
+    middleman-s3_sync (4.6.4)
       ansi (~> 1.5.0)
       aws-sdk-cloudfront
-      aws-sdk-s3
-      base64
-      map
+      aws-sdk-s3 (>= 1.187.0)
       middleman-cli
       middleman-core
       mime-types (~> 3.1)
       nokogiri (>= 1.18.4)
       parallel
       ruby-progressbar
-      unf
     middleman-sprockets (4.1.1)
       middleman-core (~> 4.0)
       sprockets (>= 3.0)
@@ -230,7 +226,7 @@ GEM
       ruby-rc4
       ttfunk
     prism (1.7.0)
-    public_suffix (7.0.0)
+    public_suffix (7.0.1)
     racc (1.8.1)
     rack (3.2.4)
     rackup (2.3.1)
@@ -273,7 +269,6 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.1)
       execjs (>= 0.3.0, < 3)
-    unf (0.2.0)
     uri (1.1.1)
     webrick (1.9.2)
     yell (2.2.2)
@@ -290,7 +285,6 @@ DEPENDENCIES
   builder
   font-awesome-sass
   html-proofer
-  map (< 8)
   middleman
   middleman-autoprefixer
   middleman-blog
