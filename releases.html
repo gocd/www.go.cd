@@ -16,7 +16,7 @@
     <title>Releases - Version notes | GoCD</title>
     <link href="assets/images/favicon.ico" rel="shortcut icon" />
     <link href="assets/stylesheets/site-7486401d.css" rel="stylesheet" />
-    <script src="assets/javascripts/all-5f7e3bc8.js" data-manual="true"></script>
+    <script src="assets/javascripts/all-88b44d54.js" data-manual="true"></script>
     
     <link rel="alternate" type="application/atom+xml" title="GoCD blog feed" href="feed.xml" />
     <script>
@@ -169,10 +169,13 @@
 <p>GoCD is now built with, tested against and distributed with Java 25 LTS.</p>
 
 <p>Java 17 remains the minimum supported version for bring-your-own-JRE setups, although GoCD will likely move to a
-Java 21 minimum with the 26.1.0 release since
-- it is over two years old, and has been supported by GoCD since 24.1.0
-- some key dependencies now require Java 21 for their latest versions
-- Java 21 or 25 is available from default repositories for almost all major distributions, and <a href="https://adoptium.net/installation/linux">available from Adoptium’s repositories</a> for others.</p>
+Java 21 minimum with the 26.1.0 release since</p>
+
+<ul>
+  <li>it is over two years old, and has been supported by GoCD since 24.1.0</li>
+  <li>some key dependencies now require Java 21 for their latest versions</li>
+  <li>Java 21 or 25 is available from default repositories for almost all major distributions, and <a href="https://adoptium.net/installation/linux">available from Adoptium’s repositories</a> for others.</li>
+</ul>
 
 <p>The main changes needed to support Java 25 are additional start-up arguments pre-configured by GoCD that reduce
 warnings being logged by both agent and server Java runtimes. If you have customised your GoCD JVM start-up arguments and
