@@ -183,10 +183,11 @@ begin to see warnings after upgrade, you may want to review whether your customi
 
 <h4>Container image volume tweaks</h4>
 
-<p>The server and agent container images now declare anonymous volumes for their primary writable directories
-(<code>/go-working-dir</code> and <code>/godata</code> for both server and agents).</p>
+<p>For performance reasons, the server and agent container images now declare anonymous volumes for their primary writable directories
+(<code>/go-working-dir</code> and <code>/godata</code>) on both server and agents. This <em>should be backward compatiblew</em> for the vast
+majority of users.</p>
 
-<p>Previously GoCD would use a writeable overlay filesystem to store working data if users did not mount volumes themselves.
+<p>Previously GoCD would use the writeable overlay filesystem to store working data if users did not mount volumes themselves.
 Most filesystem drivers mean use of the container overlay filesystem is much slower than a volume; and given
 it is unusual for users to mount volumes for (undocumented) working directories, this change should improve the speed of
 images for most people, especially those running elastic agents; and containers on Linux.</p>
@@ -198,6 +199,10 @@ or replace with bind mount volumes to avoid accumlation of volumes over time.</p
 <p>Note that while not publicly documented, agents previously used <code>/go</code> as their working directory, which was changed to
 <code>/go-working-dir</code>; consistent with the server. If you were previously intentionally mounting a volume at <code>/go</code>, you
 should change to <code>/go-working-dir</code> when upgrading the agent image version to 25.4.0 or later.</p>
+
+<p>This should allow us to move closer to <a href="https://docs.docker.com/reference/cli/docker/container/run/#read-only">–read-only</a>
+and Kubernetes <a href="https://kubesec.io/basics/containers-securitycontext-readonlyrootfilesystem-true/">readOnlyRootFileSystem</a>s
+in future releases; a more secure default.</p>
 
 <h4>Enhancements</h4>
 
