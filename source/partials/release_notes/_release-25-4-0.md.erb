@@ -27,14 +27,14 @@ it is unusual for users to mount volumes for (undocumented) working directories,
 images for most people, especially those running elastic agents; and containers on Linux.
 
 These volumes will be automatically removed by Kubernetes with either static or elastic agents, and by the <%= link_to 'Docker Elastic Agent plugin', 'https://github.com/gocd-contrib/docker-elastic-agents-plugin' %>.
-However, if you are running the GoCD Server or static agents on Docker (or similar) directly, you may need to <%= link_to 'ensure anonymous volumes are cleaned up', 'https://docs.docker.com/engine/storage/volumes/#remove-anonymous-volumes' %>
+However, if you are running the GoCD Server or static agents on Docker (or similar) directly, you may need to <%= link_to 'ensure anonymous volumes are cleaned up', 'https://docs.docker.com/engine/storage/volumes/' %>
 or replace with bind mount volumes to avoid accumlation of volumes over time.
 
 Note that while not publicly documented, agents previously used `/go` as their working directory, which was changed to
 `/go-working-dir`; consistent with the server. If you were previously intentionally mounting a volume at `/go`, you
 should change to `/go-working-dir` when upgrading the agent image version to 25.4.0 or later.
 
-This should allow us to move closer to [--read-only](https://docs.docker.com/reference/cli/docker/container/run/#read-only)
+This should allow us to move closer to [--read-only](https://docs.docker.com/reference/cli/docker/container/run/)
 and Kubernetes [readOnlyRootFileSystem](https://kubesec.io/basics/containers-securitycontext-readonlyrootfilesystem-true/)s
 in future releases; a more secure default.
 
