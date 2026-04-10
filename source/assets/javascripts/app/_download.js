@@ -125,10 +125,17 @@ var showDownloadLinks = (function ($) {
 
     var showReleases = function (releaseData, cloudData) {
       var addInfo = function (latestRelease) {
+        var javaCompat = [
+          // GoCD ver         Rec   Min
+          ["26.1.0+",         "25", "21"],
+          ["25.4.0",          "25", "17"],
+          ["24.1.0 — 25.3.0", "21", "17"],
+          ["22.1.0 — 23.5.0", "17", "11"]
+        ];
         var notes = {
           deb: 'Note: If you prefer to use the APT repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">instructions</a>.',
           rpm: 'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.',
-          generic: 'Note: Zip versions require a LTS Java JRE/JDK.<br/>25.4.0+: Java 25 recommended. Java 17+ required.<br/>24.1.0+: Java 21 recommended. Java 17+ required.<br/>22.1.0+: Java 17 recommended. Java 11+ required.'
+          generic: `Note: Zip versions require a compatible LTS Java JRE/JDK.<br/><table><thead><tr><th style="width: 120px; vertical-align: top">GoCD version</th><th style="width: 120px; text-align: center">Java (Recommended)</th><th style="width: 120px; text-align: center">Java (Minimum)</th></tr></thead><tbody>${javaCompat.map(([gocd, rec, min]) => `<tr><td>${gocd}</td><td style="text-align: center">${rec}</td><td style="text-align: center">${min}</td></tr>`).join("")}</tbody></table>`
         };
 
         for (var key in notes) {
