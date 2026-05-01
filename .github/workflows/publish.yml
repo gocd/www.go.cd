@@ -13,9 +13,6 @@ permissions:
 jobs:
   build_and_release:
     runs-on: ubuntu-latest
-    env:
-      GH_PAGES_USER: "github-actions"
-      GH_PAGES_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0
@@ -28,23 +25,16 @@ jobs:
         uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
         with:
           bundler-cache: true
-      - name: Set up user in git config
-        run: |
-          git config --global user.name "${GH_PAGES_USER}"
-          git config --global user.email "${GH_PAGES_USER}@github.com"
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37 # v6.1.0
         with:
           role-to-assume: "${{ secrets.AWS_ROLE_TO_ASSUME }}"
           aws-region: "${{ secrets.AWS_REGION }}"
-      - name: Set up upstream and publish to production gh pages + S3
+      - name: Set up upstream and publish to S3
         env:
-          REMOTE_NAME: "real"
-          ALLOW_DIRTY: true
           BASE_URL: 'https://www.gocd.org'
           DEPLOY_ENVIRONMENT: 'live'
           AWS_BUCKET: "${{ secrets.AWS_BUCKET }}"
           RUN_EXTERNAL_CHECKS: false
         run: |
-          git remote add real https://${GH_PAGES_USER}:${GH_PAGES_TOKEN}@github.com/gocd/www.go.cd.git
           bundle exec rake publish --trace
