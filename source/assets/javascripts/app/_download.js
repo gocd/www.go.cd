@@ -135,7 +135,7 @@ var showDownloadLinks = (function ($) {
         var notes = {
           deb: 'Note: If you prefer to use the APT repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#debian-based-distributions-ie-ubuntu">instructions</a>.',
           rpm: 'Note: If you prefer to use the YUM repository to install, please follow these <a href="https://docs.gocd.org/current/installation/install/server/linux.html#rpm-based-distributions-ie-redhatcentosfedora">instructions</a>.',
-          generic: 'Note: Zip versions require a compatible LTS Java JRE/JDK.<br/><table><thead><tr><th style="width: 120px; vertical-align: top">GoCD version</th><th style="width: 120px; text-align: center">Java (Recommended)</th><th style="width: 120px; text-align: center">Java (Minimum)</th></tr></thead><tbody>' + javaCompat.map(([gocd, rec, min]) => ('<tr><td>' + gocd + '</td><td style="text-align: center">' + rec + '</td><td style="text-align: center">' + min + '</td></tr>')).join('') + '</tbody></table>'
+          generic: 'Note: Zip versions require a compatible LTS Java JRE/JDK.<br/><table><thead><tr><th style="width: 120px; vertical-align: top">GoCD version</th><th style="width: 120px; text-align: center">Java (Recommended)</th><th style="width: 120px; text-align: center">Java (Minimum)</th></tr></thead><tbody>' + javaCompat.map(function ([gocd, rec, min]) { return ('<tr><td>' + gocd + '</td><td style="text-align: center">' + rec + '</td><td style="text-align: center">' + min + '</td></tr>'); }).join('') + '</tbody></table>'
         };
 
         for (var key in notes) {
