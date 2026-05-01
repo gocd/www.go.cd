@@ -47,12 +47,16 @@ end
 desc "Build the website"
 task :build do
   sh("bundle exec middleman build --verbose")
+  Rake::Task['static_checks:all'].invoke
+  task :all => [:build, :html_proofer]
 end
 
-task publish: [:clean, :build, 'static_checks:all'] do
+task publish: [:clean, :build] do
   if ENV['AWS_BUCKET']
     sh('bundle exec middleman s3_sync --build --verbose')
   else
     puts "WARNING: Not pushing to S3, since AWS_BUCKET is not set"
   end
 end
+
+Rake::Task[:publish].prerequisites.unshift "clobber"
