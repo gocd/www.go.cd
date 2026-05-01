@@ -27,8 +27,3 @@ jobs:
         env:
           RUN_EXTERNAL_CHECKS: true
         run: bundle exec rake build --verbose
-      - name: Build failed
-        if: ${{ failure() }}
-        env:
-          RUN_EXTERNAL_CHECKS: true
-        run: bundle exec middleman build --verbose
