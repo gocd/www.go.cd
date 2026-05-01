@@ -44,9 +44,9 @@ namespace :static_checks do
   task :all => [:html_proofer]
 end
 
+desc "Build the website"
 task :build do
-  Rake::Task['static_checks:all'].invoke
-  task :all => [:build, :html_proofer]
+  sh("bundle exec middleman build --verbose")
 end
 
 task publish: [:clean, :build, 'static_checks:all'] do
@@ -56,5 +56,3 @@ task publish: [:clean, :build, 'static_checks:all'] do
     puts "WARNING: Not pushing to S3, since AWS_BUCKET is not set"
   end
 end
-
-Rake::Task[:publish].prerequisites.unshift "clobber"

@@ -5,7 +5,6 @@ ruby '~> 4.0.0'
 gem 'middleman'
 gem 'sassc', github: 'sass/sassc-ruby', ref: 'refs/pull/233/head' # Allow use of dart-sass/sass-embedded to replace sassc
 gem 'sassc-embedded'
-gem 'middleman-gh-pages'
 gem 'middleman-autoprefixer'
 gem 'middleman-sprockets'
 gem 'middleman-blog'

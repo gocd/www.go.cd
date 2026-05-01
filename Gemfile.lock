@@ -184,8 +184,6 @@ GEM
       toml
       uglifier (>= 3, < 5)
       webrick
-    middleman-gh-pages (0.4.1)
-      rake (> 0.9.3)
     middleman-s3_sync (4.7.0)
       ansi (~> 1.5)
       aws-sdk-cloudfront (~> 1.0)
@@ -290,7 +288,6 @@ DEPENDENCIES
   middleman
   middleman-autoprefixer
   middleman-blog
-  middleman-gh-pages
   middleman-s3_sync
   middleman-sprockets
   mime-types
@@ -363,7 +360,6 @@ CHECKSUMS
   middleman-blog (4.2.1) sha256=63c9df258970b4da0ba99c69930a1da8ac70c9b8d3947c9c3e27391f37d823ac
   middleman-cli (4.6.3) sha256=03deb5b893f748a5adeaf22ccc1452dfede2de25a4583bb451a0162857eb9974
   middleman-core (4.6.3) sha256=5cab1e1f16b00d26f541a4ca787427e1e0203c34f2d81471c1fae3bf1e7509a8
-  middleman-gh-pages (0.4.1) sha256=32c3de955f44e427ccfe5a85612bc83a2178cd2d2fc814baace735c2e45f96bc
   middleman-s3_sync (4.7.0) sha256=af73386d9214b6afa78f7895c4d5a95e70b9ebea0d20a569bbf1e4b07ca062d2
   middleman-sprockets (4.1.1) sha256=439e8376c74a509b5d527a22eb7fc0cc190afecb08cf7a75340e0df7c71a8972
   mime-types (3.7.0) sha256=dcebf61c246f08e15a4de34e386ebe8233791e868564a470c3fe77c00eed5e56
