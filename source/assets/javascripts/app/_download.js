@@ -330,24 +330,47 @@ Handlebars.registerHelper("size", function (
   }
 });
 
+function releasesFor(release, keyPrefix) {
+  return Object.keys(release).filter(function (key) { return key.startsWith(keyPrefix) });
+}
+
 Handlebars.registerHelper("has-additional-arch", function (release) {
-  return Object.keys(release).some(function (key) { return key.includes('-'); });
+  return releasesFor(release, "server").length > 1
 });
 
-function additionalArch(release) {
-  return Object.keys(release)
-    .filter(function (key) { return key.startsWith("server-"); })
-    .map(function (key) { return key.substring("server-".length); });
+function archsFor(release) {
+  return releasesFor(release, "server")
+    .map(function (key) {
+      return key.indexOf("server-") !== -1 ? key.substring("server-".length) : 'x64';
+    });
 }
+
+function primaryArch(release) {
+  return archsFor(release)[0];
+}
+
+function additionalArch(release) {
+  return archsFor(release)[1];
+}
+
+Handlebars.registerHelper("primary-arch", primaryArch);
 
 Handlebars.registerHelper("additional-arch", additionalArch);
 
+Handlebars.registerHelper("server-primary-arch", function(release) {
+  return releasesFor(release, 'server')[0]
+});
+
+Handlebars.registerHelper("agent-primary-arch", function(release) {
+  return releasesFor(release, 'agent')[0]
+});
+
 Handlebars.registerHelper("server-additional-arch", function(release) {
-  return "server-" + additionalArch(release)
+  return releasesFor(release, 'server')[1]
 });
 
 Handlebars.registerHelper("agent-additional-arch", function(release) {
-  return "agent-" + additionalArch(release)
+  return releasesFor(release, 'agent')[1]
 });
 
 
