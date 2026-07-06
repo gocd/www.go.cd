@@ -1,0 +1,136 @@
+This release is a security, maintenance and bug-fix release.
+
+<h4>Security Fixes</h4>
+
+This release has a number of important security fixes relating to API authorization bypasses & cross-site scripting that
+may facilitate additional attacks against administrators of your server. We recommend all users upgrade to this version to
+safeguard your GoCD server.
+
+We assess the most severe of these issues as of _high_ severity (<%= link_to 'CVSS v4.0', 'https://www.first.org/cvss/v4.0/' %>
+base score of 7.0), which you are vulnerable to if
+your GoCD environment allows polling of materials with changes submitted from low-trust or untrusted users.
+
+All other resolved issues are all of _low-to-medium_ severity (CVSS v4.0 base scores between 2.3 and 5.9) and require a
+valid GoCD user account to exploit - representing vulnerabilities only to attacks from malicious or compromised
+_existing GoCD users_. Effectively all historical GoCD versions prior to 26.1.0 are affected by one of the top 3-4 vulnerabilities.
+
+_If you cannot upgrade immediately_, we recommend you mitigate the more severe issues by taking these three steps:
+
+1. Pause or remove use of materials which automatically poll for changes contributed by un-trusted upstream users, e.g.
+   tracking pull/merge requests from forks on open-source style repositories
+2. Use your reverse proxy/CDN to block access to URLs prefixed by `/go/admin/restful/*`. This has no impact on GoCD functionality.
+3. Review all configured _<%= link_to 'Pipeline Tracking Tool', 'https://docs.gocd.org/current/integration/' %>_ regular expressions for correctness.
+
+These security vulnerabilities were responsibly disclosed via high quality research performed by
+<%= link_to 'Aditya Bisht', 'https://github.com/cherry-bisht' %>,
+<%= link_to 'b0b0haha', 'https://github.com/b0b0haha' %>,
+<%= link_to 'j311yl0v3u', 'https://github.com/j311yl0v3u' %>,
+<%= link_to 'Jan Kahmen', 'https://github.com/kah-ja' %> (<%= link_to 'turingpoint', 'https://turingpoint.de/' %>),
+<%= link_to 'Ori Gabriel', 'https://github.com/origabriel' %>,
+<%= link_to 'Markus Magnuson', 'https://www.linkedin.com/in/mamagnuson/' %> (<%= link_to 'GitHub', 'https://github.com/alimony' %>) &
+<%= link_to 'Mohammed Amer', 'https://github.com/0nlymohammed' %> (<%= link_to 'hackerone', 'https://hackerone.com/0nlymohammed' %>)
+- the team extend our thanks for their efforts.
+
+Like many projects in the wider industry, the recent marked improvement
+in generative AI / LLM penetration testing harnesses has lead to a large increase in both discovered vulnerabilities and
+average report quality of reports - hence there are 10 distinct vulnerabilities resolved in this release.
+
+To give users some time to mitigate or upgrade, these vulnerabilities will be disclosed 2-4 weeks from now via
+GitHub Security Advisories and formal CVEs according to our <%= link_to 'disclosure policy', 'https://github.com/gocd/gocd/security/policy#disclosure-policy' %>.
+
+<h4>Java 21 is now the minimum supported version</h4>
+
+Java 21 was released in September 2023, and has had complete support within GoCD since version 24.1.0, over 2.5 years
+before this release. Since then it has been packaged with both GoCD container images & installers by default.
+
+This has proven to be very stable, so to reduce maintenance overhead and support upgrades to some dependencies that
+require Java 21, we are now making Java 21 the minimum supported version.
+
+If you are _aiming for minimal agent/server downtime_ in an upgrade to GoCD 26.1.0+, you can do so by following:
+
+1. Ensure your existing agents are running with Java 21+.
+  - If your agents are using GoCD 24.2.0+ from _official GoCD containers_ there is _nothing extra to do_. These already package and run Java 21+.
+  - If your agents are using GoCD 23.2.0+ from _other install approaches_, they are already Java 21-compatible. Ensure they are running with Java 21+.
+1. Ensure your existing server is running with Java 21+.
+  - If your server is using GoCD 24.2.0+ from _official GoCD containers_ there is _nothing extra to do_. These already package and run Java 21+.
+  - If your server is using GoCD 23.2.0+ from _other install approaches_, it is already Java 21-compatible. Ensure it is running with Java 21+.
+1. Upgrade your server to GoCD 26.1.0 without worry about Java issues.
+  - Older agents running Java 21+ will restart automatically against a GoCD 26.1.0 server.
+  - You can now validate your installation and agents are working fine.
+1. (Optionally) You can now upgrade your agents to GoCD 26.1.0 whenever you choose.
+  - Technically GoCD agent installs are only a "bootstrapper" which downloads the matching agent code from the server for
+    each release. It is wise to avoid too much discrepancy in versions to make upgrades (like this one!) easier, but it is
+    not critical.
+
+If you have issues, _downgrades_ back to 23.2.0+ should be fine - there have been no breaking database or configuration
+changes within these versions. If you have any further queries/issues, please ask on [GitHub Discussions](https://github.com/gocd/gocd/discussions) or the [Google Group](https://groups.google.com/g/go-cd).
+
+
+<h4>Enhancements</h4>
+
+* <%= link_to_issue 14174 %>, <%= link_to_issue 14172 %>, <%= link_to_issue 14442, 'Add job console log support for ANSI faint, italic, underline and URL linking/highlighting' %>.
+* <%= link_to_issue 14308, 'Improve rendering of long pipeline names in pipeline activity/history, config & comparison views' %>.
+* <%= link_to_issue 14120, 'Change baseline to require Java 21 minimum' %>.
+* <%= link_to_issue 14326, 'Bundle latest Java 25.0.3 release with non-Linux installers & containers' %>
+* <%= link_to_issue 14119, 'Allow Adoptium / Eclipse Temurin JRE installs to meet linux dependency requirement' %>.
+* Starting this release, Ubuntu 26.04 (Resolute Raccoon) based docker images for GoCD Agent are <%= link_to 'available', 'https://hub.docker.com/r/gocd/gocd-agent-ubuntu-26.04' %>.
+
+<h4>Bug fixes</h4>
+
+* <%= link_to_issue 14362, 'GoCD 25.4.0 broke Stage Status email notifications' %>
+* <%= link_to_issue 14124, 'GoCD 25.4.0 introduced date format nuisances in UI and Log' %>
+* <%= link_to_issue 14134, 'GoCD 25.4.0 logs spurious errors during job status processing for jobs cancelled prior to assignment' %>
+* <%= link_to_issue 10052, 'Modification duplicate removal can fail for large source control histories' %>
+* <%= link_to_issue 14394, 'Console log copying on Job completion can fail with spurious errors when jobs are completely re-run' %>
+* <%= link_to_issue 12006, 'CCTray reporting old failures for stages which no longer exist on the pipeline' %>
+* <%= link_to_issue 14396, 'Dashboard-Queue-Processor throws spurious exceptions after pipeline conversion to template' %>
+* <%= link_to_issue 12427, 'Unable to move pipeline group when using pipeline filter' %>
+* <%= link_to_issue 12672, 'JSON API calls can fail while running a pipeline' %>
+* <%= link_to_issue 14397, 'Validate supplied template/pipeline names exist when creating via the template creation API' %>
+* <%= link_to_issue 14409, 'Redirect-after-login can redirect user to non UI views' %>
+* <%= link_to_issue 14282, 'Ensure container image safe shutdown by use tini as PID 1 from initial boot' %>
+* <%= link_to_issue 14357, 'Ensure Test Drive experience works correctly when users use SSH keys for Git GPG' %>
+* <%= link_to_issue 14360, 'Background of hovered locked pipeline icon is incorrect when user lacks unlock permissions' %>
+* Correct rendering of package material comments across various views
+
+<h4>Other changes</h4>
+
+* <%= link_to_issue 14398, 'Remove Stage Detail admin-only Config XML tab' %>
+* <%= link_to_issue 14398, 'Remove legacy /go/api/admin/config/current.xml and /go/api/admin/config/:md5.xml APIs (without directly replacement)' %>
+* <%= link_to_issue 14112, 'Drop macOS x64 support' %>
+
+<h4>APIs</h4>
+
+Improvements, deprecations and breaking changes in the API and plugin API have been moved to their respective changelogs
+- <%= link_to_versioned_api '26.1.0','changes-in-26-1-0', 'API changelog for 26.1.0' %> and
+  <%= link_to_versioned_plugin_api '26.1.0','changes-in-gocd-26-1-0', 'Plugin API changelog for 26.1.0' %>.
+
+<h4>Contributors</h4>
+
+<%= [
+  "Aditya Bisht (cherry-bisht, bisht-ji, oceany)",
+  "Aravind SV",
+  "Arthur Embleton",
+  "Asish Kumar",
+  "b0b0haha (b0b0hahaxixi)",
+  "Chad Wilson",
+  "Chris Gillatt",
+  "Gareth Coles",
+  "Jan Kahmen (of turingpoint.de)",
+  "j311yl0v3u",
+  "Markus Magnuson (alimony / peppersghost)",
+  "Mohammed Amer (0nlymohammed)",
+  "Ori Gabriel (climaxx)",
+  "Ryan Dutton",
+  "Samuel Goncalves",
+  "Yelin Aung",
+].sort.uniq.join(', ')
+%>
+
+<h4>Note</h4>
+
+A more comprehensive list of changes for this release can be found <%= link_to_full_changelog 'here.', 'Release 26.1.0' %>
+
+Found a security issue that needs fixing? Please report it to <%= link_to 'https://hackerone.com/gocd', 'https://hackerone.com/gocd' %>
+
+Please report any issues that you observe on [GitHub issues](https://github.com/gocd/gocd/issues).
