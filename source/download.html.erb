@@ -45,33 +45,25 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
           <div class="verify-checksum-message">
             <div class="content">
               <button class="close-message">X</button>
-              <p>You can verify the checksum on Linux or macOS by doing this:</p>
+              {{#if (not_in "windows" installer_type)}}
+              <p>Verify the checksum on Linux or macOS with:</p>
               <div class="code">
-                <p class="prompts">
-                  user@shell: <br/>
-                  user@shell: <br/>
-                  user@shell: <br/>
-                </p>
-                <p class="commands">
-                  CHECK="{{sha256sum}}"<br/>
-                  echo "$CHECK&nbsp;&nbsp;{{filename}}" &gt; verify.sha256<br/>
-                  sha256sum -c verify.sha256<br/>
-                </p>
+                <p class="prompts">user@shell:</p>
+                <p class="commands">sha256sum -c &lt;(echo "{{sha256sum}}  {{filename}}")<br/></p>
+                <p class="results">{{filename}}: OK</p>
+              </div>
+              {{/if}}
+              {{#if (in "windows generic" installer_type)}}
+              <p>Verify the checksum on Windows with:</p>
+              <div class="code">
+                <p class="prompts">C:\&gt;</p>
+                <p class="commands">certutil -hashfile {{filename}} SHA256<br/></p>
                 <p class="results">
-                  {{filename}}: OK
-                </p>
-                <p>
-                  On Windows, you will have to use a third-party utility like
-                  <a target="_blank" href="https://code.kliu.org/misc/hashutils/">HashUtils</a>
-                  or <a target="_blank" href="https://support.microsoft.com/en-us/kb/841290">fciv</a>. The values you would  be looking for are:
-                </p>
-                <p class="results">
-                  File: {{filename}}<br/>
-                  MD5 sum: {{md5sum}}<br/>
-                  SHA1 sum: {{sha1sum}}<br/>
-                  SHA256 sum: {{sha256sum}}<br/>
+                  SHA256 hash of {{filename}}:
+                  {{sha256sum}}
                 </p>
               </div>
+              {{/if}}
             </div>
           </div>
         </script>
@@ -93,19 +85,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   </div>
 </main>
 
-<script id="downloads-help-links" type="text/x-handlebars-template">
-  <li><%= link_to "Release notes", "/releases/index.html", target: '_blank' %></li>
-  <li><a href="https://docs.gocd.org/current/installation/system_requirements.html"  target="_blank">System requirements</a></li>
-  {{#if os}}
-  <li>
-    <a href="https://docs.gocd.org/current/installation/install/server/{{os}}.html"  target="_blank">Server Installation Instructions</a>
-  </li>
-  <li>
-    <a href="https://docs.gocd.org/current/installation/install/agent/{{os}}.html"  target="_blank">Agent Installation Instructions</a>
-  </li>
-  {{/if}}
-</script>
-
 <script id="download-revisions-template" type="text/x-handlebars-template">
   {{#*inline "show-releases-for-installer-type"}}
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
@@ -119,16 +98,16 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       <div class="latest">
         {{#with latest_release}}
         <div class="go-release {{display_version}} row">
-          <div class="col-xs-7">
+          <div class="col-xs-6">
             <span class="version">Version: {{display_version}}</span>
           </div>
-          <div class="col-xs-5">
-            <span class="version">Released: {{release_date}}</span>
+          <div class="col-xs-6">
+            <span class="version">Released: {{release_date}} (<%= link_to "notes", "/releases/index.html\#{{display_version}}" %>)</span>
           </div>
           {{#with (lookup . ../installer_type)}}
           <div class="col-xs-12">
             <div class="files">
-              {{> show-server-and-agent-installer latest=true}}
+              {{> show-server-and-agent-installer installer_type=../../installer_type latest=true }}
               {{#if info }}
               <div class="download-message">
                 {{{ info }}}
@@ -162,28 +141,27 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
             </ul>
         </li>
       </ul>
-      <p><%= link_to "Release notes", "/releases/index.html", target: '_blank' %></p>
       <p><a class="link-external" href="https://docs.gocd.org/current/installation/system_requirements.html" target="_blank">System Requirements </a></p>
     </div>
 
     <div class="other-releases">
-      <button class="btn-release" analytics-label="show-old-releases"><span>Show</span> old releases</button>
+      <button class="btn-release"><span>Show</span> old releases</button>
     </div>
 
     <div class="old-release">
       {{#each all_other_releases}}
       <div class="row go-release {{display_version}}">
-        <div class="col-xs-7">
+        <div class="col-xs-6">
           <span class="version">Version: {{display_version}}</span>
         </div>
-        <div class="col-xs-5">
-          <span class="version">Released: {{release_date}}</span>
+        <div class="col-xs-6">
+          <span class="version">Released: {{release_date}} (<%= link_to "notes", "/releases/index.html\#{{display_version}}" %>)</span>
         </div>
         {{#if (lookup . ../installer_type)}}
         {{#with (lookup . ../installer_type)}}
         <div class="col-xs-12">
           <div class="files">
-            {{> show-server-and-agent-installer}}
+            {{> show-server-and-agent-installer installer_type=../../installer_type }}
           </div>
         </div>
         {{/with}}
@@ -212,11 +190,11 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         <label for="experimental-docker">Experimental</label>
       </div>
       <div class="go-release {{go_version}} row">
-        <div class="col-xs-7">
+        <div class="col-xs-6">
           <span class="version">Version: {{go_version}}</span>
         </div>
-        <div class="col-xs-5">
-          <span class="version">Released: {{release_date}}</span>
+        <div class="col-xs-6">
+          <span class="version">Released: {{release_date}} (<%= link_to "notes", "/releases/index.html\#{{go_version}}" %>)</span>
         </div>
         <div class="col-xs-12">
           {{> show-docker-release server_docker=server_docker agents_docker=agents_docker docker_org=docker_org }}
@@ -225,16 +203,16 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
       {{/with}}
     </div>
     <div class="other-releases">
-      <button class="btn-release" analytics-label="show-old-releases"><span>Show</span> old releases</button>
+      <button class="btn-release"><span>Show</span> old releases</button>
     </div>
     <div class="old-release">
       {{#each all_other_cloud_releases}}
       <div class="row go-release {{go_version}}">
-        <div class="col-xs-7">
+        <div class="col-xs-6">
           <span class="version">Version: {{go_version}}</span>
         </div>
-        <div class="col-xs-5">
-          <span class="version">Released: {{release_date}}</span>
+        <div class="col-xs-6">
+          <span class="version">Released: {{release_date}} (<%= link_to "notes", "/releases/index.html\#{{go_version}}" %>)</span>
         </div>
         <div class="col-xs-12">
           {{> show-docker-release server_docker=server_docker agents_docker=agents_docker docker_org=docker_org }}
@@ -249,8 +227,10 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   <div id="{{{tab_id}}}" class="tab_content {{{installer_type}}}">
     <h3>Running GoCD On Kubernetes</h3>
     <div class="command k8s">
-      helm repo add gocd https://gocd.github.io/helm-chart<br/>
-      helm install gocd gocd/gocd --namespace gocd --create-namespace
+      helm repo add gocd \<br/>
+      &nbsp;&nbsp;&nbsp;https://gocd.github.io/helm-chart<br/>
+      helm install gocd gocd/gocd \<br/>
+      &nbsp;&nbsp;&nbsp;--namespace gocd --create-namespace
     </div>
     <div class="download-message k8s">
      <p>Refer to the <a class="link-external" href="https://docs.gocd.org/current/gocd_on_kubernetes">Getting Started documentation</a> and
@@ -288,24 +268,24 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
 
   {{#*inline "show-agent-docker-command"}}
   <li>More info at: <a href="https://hub.docker.com/r/{{docker_org}}/{{image_name}}">{{image_name}}</a>
-    <span class="command">docker run -d -e GO_SERVER_URL=... {{docker_org}}/{{image_name}}:v{{version}}</span>
+    <span class="command">docker run -d -e GO_SERVER_URL=... \<br/>&nbsp;&nbsp;&nbsp;&nbsp;{{docker_org}}/{{image_name}}:v{{version}}</span>
   </li>
   {{/inline}}
 
   {{#*inline "show-server-and-agent-installer"}}
   {{#if (has-additional-arch this)}}
   <div class="download-files">
-    {{> show-file (lookup . (server-primary-arch this)) type="server" display_name="Server" info=(primary-arch this) os=../../installer_type latest=latest}}
-    {{> show-file (lookup . (agent-primary-arch this))  type="agent"  display_name="Agent"  info=(primary-arch this) os=../../installer_type latest=latest}}
+    {{> show-file (lookup . (server-primary-arch this)) type="server" display_name="Server" info=(primary-arch this) installer_type=installer_type latest=latest }}
+    {{> show-file (lookup . (agent-primary-arch this))  type="agent"  display_name="Agent"  info=(primary-arch this) installer_type=installer_type latest=latest }}
   </div>
   <div class="download-files">
-    {{> show-file (lookup . (server-additional-arch this)) type="server" display_name="Server" info=(additional-arch this) os=../../installer_type latest=latest}}
-    {{> show-file (lookup . (agent-additional-arch this))  type="agent"  display_name="Agent"  info=(additional-arch this) os=../../installer_type latest=latest}}
+    {{> show-file (lookup . (server-additional-arch this)) type="server" display_name="Server" info=(additional-arch this) installer_type=installer_type latest=latest }}
+    {{> show-file (lookup . (agent-additional-arch this))  type="agent"  display_name="Agent"  info=(additional-arch this) installer_type=installer_type latest=latest }}
   </div>
   {{else}}
   <div>
-    {{> show-file (lookup . (server-primary-arch this)) type="server" display_name="Server" os=../../installer_type latest=latest}}
-    {{> show-file (lookup . (agent-primary-arch this))  type="agent"  display_name="Agent"  os=../../installer_type latest=latest}}
+    {{> show-file (lookup . (server-primary-arch this)) type="server" display_name="Server" installer_type=installer_type latest=latest }}
+    {{> show-file (lookup . (agent-primary-arch this))  type="agent"  display_name="Agent"  installer_type=installer_type latest=latest }}
   </div>
   {{/if}}
   {{/inline}}
@@ -314,8 +294,8 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
   {{#*inline "show-file"}}
   <div class="{{{type}}} file">
     <div class="name">
-      <a id="{{{analytics_id}}}" href="{{{url}}}" class="btn btn-primary">
-        <i class="fa fa-download" analytics-label="download-{{{type}}}-{{{os}}}"> </i>
+      <a href="{{{url}}}" class="btn btn-primary">
+        <i class="fa fa-download"> </i>
         {{#if latest}}
         <span>Download {{{display_name}}}</span>
         {{else}}
@@ -326,8 +306,8 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         {{/if}}
       </a>
     </div>
-    <div class="verify-checksum" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}" data-sha1sum="{{{sha1sum}}}" data-md5sum="{{{md5sum}}}">
-      <button class="verify" analytics-label="verify-checksum">Verify checksum</button>
+    <div class="verify-checksum" data-installer_type="{{{installer_type}}}" data-filename="{{{filename}}}" data-sha256sum="{{{sha256sum}}}">
+      <button class="verify">Verify checksum</button>
     </div>
   </div>
   {{/inline}}
@@ -368,8 +348,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
     var target = $("body");
     target.on('click', '.tab-container-marker .tab-marker', function () {
       currentOSPackageType = $(this).attr('rel').replace('tab-', '');
-
-      showHelpLinksFor(currentOSPackageType);
     });
 
     /* Switch between stable and experimental. */
@@ -389,7 +367,6 @@ meta_keywords: "GoCD download, go agent download, go cd download, install gocd"
         switchActiveTab(currentOSPackageType);
       });
 
-    showHelpLinksFor(currentOSPackageType);
     setupShowVerifyChecksumMessage();
   });
   // ]]>

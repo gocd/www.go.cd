@@ -173,10 +173,6 @@ body.download {
       }
     }
 
-    .fa {
-      display: none;
-    }
-
     .notes {
       margin: 20px 0;
 
@@ -232,7 +228,6 @@ body.download {
     z-index: 20;
     padding: 30px;
     background: rgba(0, 0, 0, 0.80);
-    left: 0;
 
     @media (min-width: $screen-tablet) {}
 
@@ -255,7 +250,6 @@ body.download {
 
       @media (min-width: $screen-tablet) {
         width: 90%;
-        width: 100%;
         transform: translateY(-50%);
         left: 0;
         top: 50%;
@@ -263,14 +257,13 @@ body.download {
 
       @media (min-width: $screen-desktop) {
         width: 90%;
-        width: 800px;
         transform: translate(-50%, -50%);
         left: 50%;
         top: 50%;
       }
 
       .code {
-        width: 735px;
+        width: 90%;
 
         .commands,
         .prompts,
@@ -286,14 +279,15 @@ body.download {
         .prompts {
           color: #777;
           float: left;
-          width: 14%;
+          width: 10%;
+          height: 100%;
           margin: 10px 0 0 0;
           padding: 10px 10px 0 10px;
         }
 
         .commands {
           float: right;
-          width: 86%;
+          width: 90%;
           margin: 10px 0 0 0;
           padding: 10px 10px 0 10px;
         }

@@ -39,49 +39,42 @@ var showDownloadLinks = (function ($) {
     );
 
     var addURLToFiles = function (release) {
-      var addDetailsFrom = R.curry(function (release, analyticsIDPrefix, o) {
+      var addDetailsFrom = R.curry(function (release, o) {
         var afterAddingURL = R.assoc(
           "url",
           settings.download_prefix + release["go_full_version"] + "/" + o["file"],
           o
         );
-        var afterAddingFilename = R.assoc(
+        return R.assoc(
           "filename",
           R.last(o["file"].split("/")),
           afterAddingURL,
           o
         );
-        var afterAddingAnalyticsID = R.assoc(
-          "analytics_id",
-          analyticsIDPrefix + "_" + release["go_full_version"],
-          afterAddingFilename,
-          o
-        );
-        return afterAddingAnalyticsID;
       });
 
       return R.evolve({
           win: {
-            server: addDetailsFrom(release, "Windows-Server"),
-            agent: addDetailsFrom(release, "Windows-Agent"),
+            server: addDetailsFrom(release),
+            agent: addDetailsFrom(release),
           },
           osx: {
-            server: addDetailsFrom(release, "Mac-Server"),
-            agent: addDetailsFrom(release, "Mac-Agent"),
-            "server-aarch64": addDetailsFrom(release, "Mac-Server-Aarch64"),
-            "agent-aarch64": addDetailsFrom(release, "Mac-Agent-Aarch64")
+            server: addDetailsFrom(release), // only needed for "show older releases" until June 2027
+            agent: addDetailsFrom(release),  // only needed for "show older releases" until June 2027
+            "server-aarch64": addDetailsFrom(release),
+            "agent-aarch64": addDetailsFrom(release)
           },
           deb: {
-            server: addDetailsFrom(release, "LinuxDeb-Server"),
-            agent: addDetailsFrom(release, "LinuxDeb-Agent")
+            server: addDetailsFrom(release),
+            agent: addDetailsFrom(release)
           },
           rpm: {
-            server: addDetailsFrom(release, "LinuxRpm-Server"),
-            agent: addDetailsFrom(release, "LinuxRpm-Agent")
+            server: addDetailsFrom(release),
+            agent: addDetailsFrom(release)
           },
           generic: {
-            server: addDetailsFrom(release, "Package-Server"),
-            agent: addDetailsFrom(release, "Package-Agent")
+            server: addDetailsFrom(release),
+            agent: addDetailsFrom(release)
           }
         },
         release
@@ -99,7 +92,7 @@ var showDownloadLinks = (function ($) {
     var addReleaseDate = R.curry(function (release) {
       return R.assoc(
         "release_date",
-        new Date(release["release_time_readable"]).toDateString().substr(4),
+        new Date(release["release_time_readable"]).toDateString().substring(4),
         release
       );
     });
@@ -229,9 +222,8 @@ var setupShowVerifyChecksumMessage = (function ($) {
       );
       $("#verify-checksum-message").html(
         template({
+          installer_type: checksumElement.data("installer_type"),
           filename: checksumElement.data("filename"),
-          md5sum: checksumElement.data("md5sum"),
-          sha1sum: checksumElement.data("sha1sum"),
           sha256sum: checksumElement.data("sha256sum")
         })
       );
@@ -241,19 +233,9 @@ var setupShowVerifyChecksumMessage = (function ($) {
 })(jQuery);
 
 var determinePackageNameBasedOnOS = function () {
-  var userDefinedPackageName = window.location.hash.substr(1);
-  var validPackageNames = [
-    "zip",
-    "windows",
-    "osx",
-    "debian",
-    "redhat",
-    "docker"
-  ];
-  if (
-    userDefinedPackageName !== "" &&
-    validPackageNames.includes(userDefinedPackageName)
-  ) {
+  var userDefinedPackageName = window.location.hash.substring(1);
+  var validPackageNames = ["zip", "windows", "osx", "debian", "redhat", "docker"];
+  if (userDefinedPackageName !== "" && validPackageNames.includes(userDefinedPackageName)) {
     return userDefinedPackageName;
   }
 
@@ -273,24 +255,13 @@ var switchDownloadType = function (currentInstallerType) {
   $(".release-type input." + currentInstallerType).attr("checked", true);
 };
 
-var showHelpLinksFor = (function ($) {
-  return function (packageName) {
-    var installer_type_to_help_link_type = {
-      debian: "linux",
-      redhat: "linux",
-      windows: "windows",
-      zip: "zip",
-      osx: "osx"
-    };
-    var template = Handlebars.compile($("#downloads-help-links").html());
+Handlebars.registerHelper("in", function (string, substring) {
+  return string.includes(substring);
+});
 
-    $("#help-links").html(
-      template({
-        os: installer_type_to_help_link_type[packageName]
-      })
-    );
-  };
-})(jQuery);
+Handlebars.registerHelper("not_in", function (string, substring) {
+  return !string.includes(substring);
+});
 
 Handlebars.registerHelper("size", function (
   array,
@@ -326,7 +297,6 @@ Handlebars.registerHelper("size", function (
         options.inverse(this);
     default:
       throw "Invalid operator " + operator + ".";
-      break;
   }
 });
 
@@ -352,6 +322,10 @@ function primaryArch(release) {
 function additionalArch(release) {
   return archsFor(release)[1];
 }
+
+Handlebars.registerHelper('json', function (context) {
+  return JSON.stringify(context, null, 2);
+});
 
 Handlebars.registerHelper("primary-arch", primaryArch);
 

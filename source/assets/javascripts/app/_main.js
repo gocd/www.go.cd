@@ -127,25 +127,6 @@ jQuery(document).ready(function ($) {
     $(".imagemodal").hide();
   });
 
-  // Add smooth scrolling to analytics CTA and support page CTA
-  $(".cta-analytics, .support-banner-cta").on('click', function(event) {
-    var clickedElement = $(this);
-    var anchorOfTargetElement = clickedElement.data('link-target');
-    var offsetToUseForScrolling = parseInt(clickedElement.data('link-target-offset') || "0");
-
-    if (typeof anchorOfTargetElement === "undefined") {
-      return;
-    }
-
-    $('html, body').animate({
-      scrollTop: $(anchorOfTargetElement).offset().top + offsetToUseForScrolling
-    }, 800, function() {
-      history.replaceState(null, null, anchorOfTargetElement);
-    });
-
-    event.preventDefault();
-  });
-
   //why go-cd lightbox
   $('.chocolat-parent').Chocolat();
 

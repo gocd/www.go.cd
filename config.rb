@@ -25,7 +25,6 @@ REDIRECTS = {
   "community/resources/index.html"              => "/resources/index.html",
   "community/plugins/index.html"                => "/plugins/index.html",
   "contribute/cla/index.html"                   => "/contributor-license-agreement/index.html",
-  "contribute/roadmap/index.html"               => "/roadmap/index.html",
   "getting-started/index.html"                  => "/getting-started/part-1/index.html",
   "contribute/contribution-guide.html"          => "/contribute/index.html",
   "learn-more/why-go.html"                      => "/why-gocd/index.html",
