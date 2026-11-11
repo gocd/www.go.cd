@@ -2,6 +2,15 @@
 require 'nokogiri'
 require 'html-proofer'
 
+module DiagnoseResponse
+  def response_handler(response, url, filenames)
+    warn "Invalid response body: #{url}" unless response.body.valid_encoding?
+    super
+  end
+end
+
+HTMLProofer::UrlValidator::External.prepend(DiagnoseResponse)
+
 namespace :static_checks do
   def should_not_run_external_url_checks?
     ENV['RUN_EXTERNAL_CHECKS'].nil? || ENV['RUN_EXTERNAL_CHECKS'] == 'false'
