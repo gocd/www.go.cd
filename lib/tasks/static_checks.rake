@@ -23,7 +23,7 @@ namespace :static_checks do
           :connecttimeout => 1000,
       },
       :ignore_missing_alt   => true,
-      :log_level            => :info
+      :log_level            => :debug
   }
 
   task :html_proofer do
